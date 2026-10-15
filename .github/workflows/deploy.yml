@@ -35,6 +35,8 @@ jobs:
           cp *.html sitemap.xml robots.txt .nojekyll _site/
           cp -r assets _site/assets
           cp -r graduate-research-handbook _site/graduate-research-handbook
+          test -f _site/graduate-research-handbook/index.html
+          test -f _site/assets/editorial-v4.css
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

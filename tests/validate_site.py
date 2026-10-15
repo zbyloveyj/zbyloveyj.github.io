@@ -28,6 +28,7 @@ def validate():
    parsed=urlsplit(link)
    if parsed.scheme or parsed.netloc or link.startswith('//'):continue
    target=(f.parent/unquote(parsed.path)).resolve()
+   if target.is_dir():target=target/'index.html'
    if not target.is_relative_to(R) or not target.is_file():raise AssertionError(f'{name}: broken local {tag} link {link}')
    if parsed.fragment and target.suffix.lower()=='.html':
     p=Analyzer();p.feed(target.read_text('utf-8'))
@@ -60,5 +61,20 @@ def validate():
  ET.parse(R/'sitemap.xml')
  for label in ('telephone','birth date','home address'):
   if label in (R/'index.html').read_text('utf-8').lower():raise AssertionError('Unnecessary private info')
+ # V4 regression checks: release all linked scholarly resources.
+ for page in ('index.html','research.html','publications.html','projects.html'):
+  html=(R/page).read_text('utf-8')
+  if 'assets/editorial-v4.css' not in html or 'href="cv.html"' not in html:
+   raise AssertionError('Missing editorial v4 CSS or CV link: '+page)
+ if 'graduate-research-handbook/' not in (R/'index.html').read_text('utf-8') or 'graduate-research-handbook/' not in (R/'projects.html').read_text('utf-8'):
+  raise AssertionError('Graduate guide must be linked from homepage and open-science page')
+ if 'graduate-research-handbook/' not in (R/'sitemap.xml').read_text('utf-8'):
+  raise AssertionError('Graduate guide missing from sitemap')
+ for fname in ('assets/editorial-v4.css','graduate-research-handbook/index.html','graduate-research-handbook/data/catalog.json','graduate-research-handbook/assets/app.js'):
+  if not (R/fname).is_file():raise AssertionError('Missing resource: '+fname)
+ if 'resetPubFilters' not in (R/'assets/site.js').read_text('utf-8'):
+  raise AssertionError('Missing publication search reset')
+ if 'id="pub-clear"' not in (R/'publications.html').read_text('utf-8') or 'id="pub-reset"' not in (R/'publications.html').read_text('utf-8'):
+  raise AssertionError('Missing publication reset controls')
  print('PASS: 6 HTML pages; 10 verified DOI records; full-author BibTeX/RIS; 5 projects; internal links; JS syntax; PDF and illustrations.')
 if __name__=='__main__':validate()

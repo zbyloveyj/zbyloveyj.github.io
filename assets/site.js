@@ -42,7 +42,7 @@
       const parts = esc(p.authors).split(/(Baoyuan Zhu)/g).map(s => s === 'Baoyuan Zhu' ? '<b>Baoyuan Zhu</b>' : s).join('');
       return `<article class="pub-item" data-index="${i}" data-year="${Number(p.year)}" data-lead="${p.role === 'lead'}" aria-label="${esc(p.title)}">
         <span class="pub-year">${Number(p.year)}</span>
-        <div class="pub-details"><h3 class="pub-title">${esc(p.title)}</h3><p class="pub-authors">${parts}</p>
+        <div class="pub-details"><h3 class="pub-title"><a href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener noreferrer" aria-label="Open journal article: ${esc(p.title)}">${esc(p.title)}</a></h3><p class="pub-authors">${parts}</p>
         <p class="pub-meta"><span class="pub-journal">${esc(p.journal)}</span><span>DOI: ${esc(p.doi)}</span><span class="pub-role ${p.role === 'coauthor' ? 'coauthor' : ''}">${bi(p.leadLabel, p.leadLabelZh)}</span></p></div>
         <div class="pub-links"><a href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI for ${esc(p.title)}">PAPER ↗</a><button class="cite-copy" type="button" data-index="${i}" aria-label="Copy citation for ${esc(p.title)}">${bi('COPY CITE','复制引文')}</button></div>
       </article>`;
@@ -116,13 +116,36 @@
   qs('#lang-toggle')?.addEventListener('click', () => applyLang(lang === 'en' ? 'zh' : 'en'));
   qs('#theme-toggle')?.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
   qsa('[data-filter]').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));
-  qs('#pub-search')?.addEventListener('input', e=> {publicationQuery=e.target.value.trim().toLocaleLowerCase();setFilter(filter)});
+  qs('#pub-search')?.addEventListener('input',e=>{
+    publicationQuery=e.target.value.trim().toLocaleLowerCase();
+    const clear=qs('#pub-clear');if(clear)clear.hidden=!publicationQuery;
+    setFilter(filter);
+  });
+  function resetPubFilters(){
+    publicationQuery='';const search=qs('#pub-search');if(search)search.value='';
+    const clear=qs('#pub-clear');if(clear)clear.hidden=true;
+    setFilter('all');search?.focus();
+  }
+  qs('#pub-clear')?.addEventListener('click',resetPubFilters);
+  qs('#pub-reset')?.addEventListener('click',resetPubFilters);
+  qs('#pub-search')?.addEventListener('keydown',e=>{if(e.key==='Escape'&&publicationQuery){e.preventDefault();e.stopPropagation();resetPubFilters()}});
   qs('#pub-export')?.addEventListener('click',exportSelectedPublications);
 
   qs('#current-year') && (qs('#current-year').textContent = String(new Date().getFullYear()));
   const menuBtn=qs('#menu-toggle');
-  function closeMenu(){document.body.classList.remove('nav-open');menuBtn?.setAttribute('aria-expanded','false');menuBtn?.setAttribute('aria-label','Open navigation');}
-  menuBtn?.addEventListener('click',()=>{let open=document.body.classList.toggle('nav-open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.setAttribute('aria-label',open?'Close navigation':'Open navigation');});
+  function closeMenu(){
+    const hadFocus=qs('#main-nav')?.contains(document.activeElement);
+    document.body.classList.remove('nav-open');
+    menuBtn?.setAttribute('aria-expanded','false');
+    menuBtn?.setAttribute('aria-label','Open navigation');
+    if(hadFocus)menuBtn?.focus();
+  }
+  menuBtn?.addEventListener('click',()=>{
+    const open=document.body.classList.toggle('nav-open');
+    menuBtn.setAttribute('aria-expanded',String(open));
+    menuBtn.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+    if(open)qs('#main-nav a')?.focus();
+  });
   qsa('#main-nav a').forEach(a=>a.addEventListener('click',closeMenu));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
   document.addEventListener('click',e=>{if(document.body.classList.contains('nav-open')&&!e.target.closest('.site-header'))closeMenu()});

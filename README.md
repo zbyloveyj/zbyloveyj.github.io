@@ -62,3 +62,11 @@ The site uses only public scholarly identity, institutional affiliation, previou
 Selected records should not be mistaken for a complete, live author bibliography. Refer to the ORCID record: <https://orcid.org/0009-0006-6213-214X>.
 
 © 2026 Baoyuan Zhu. Website content and code are supplied for the website owner's use. Rights to published paper text/images remain with the respective rights holders.
+
+## Editorial UX update (V4 · 2026-10-15)
+
+- A one-click CV item in the global navigation; larger scholarly text and improved responsive navigation.
+- Publication title links now open verified journal DOIs, with dedicated clear/reset search controls.
+- The open `graduate-research-handbook/` has been surfaced on Home and Open Science and is published alongside the core site. It is a **work-in-progress educational resource**, not a peer-reviewed paper; chapter availability is managed by its catalog.
+- Editorial styling is isolated in `assets/editorial-v4.css` to make future maintenance easier.
+- The source DOI list, contribution statements and existing academic research content remain unchanged.
