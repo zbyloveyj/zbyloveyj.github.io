@@ -80,17 +80,24 @@ var current=Number(new URLSearchParams(location.search).get("chapter"))||0;
 catalogView("#volume-list",false);catalogView("#side-content",true);
 if(!current||current<1||current>all.length||!all[current-1].ready){
  $("#home").hidden=false;$("#reader").hidden=true;$("#mobile-menu").hidden=true;
+ var finished=all.filter(function(x){return store.get("progress-"+x.n,0)>=97}).length;
+ var tracker=$("#personal-reading");if(tracker)tracker.textContent=finished?"已完成 "+finished+" / "+all.length+" 章 · 阅读进度保存在本设备":"阅读记录保存在本设备 · 无需登录";
  var last=store.get("last",1);if(last>=1&&last<=all.length&&all[last-1].ready){$("#start-link").href=link(last);$("#start-link").textContent="继续阅读 · 第"+last+"章　→";}
  $("#chapter-search").addEventListener("input",function(){var q=this.value.trim().toLocaleLowerCase(),any=false;$$(".volume li").forEach(function(li){var ok=li.textContent.toLocaleLowerCase().includes(q);li.hidden=!ok;if(ok)any=true;});$$(".volume").forEach(function(v){v.hidden=!Array.from(v.querySelectorAll("li")).some(function(li){return !li.hidden;});});$("#search-empty").hidden=any;});
 }else{
   $("#home").hidden=true;$("#reader").hidden=false;$("#mobile-menu").hidden=false;
+ var dock=$("#reader-mobile-toolbar");if(dock)dock.hidden=false;
   store.set("last",current);$("#chapter-part").textContent="第"+["一","二","三","四","五","六","七","八","九"][all[current-1].part-1]+"编 · "+catalog.volumes[all[current-1].part-1];$("#ch-number").textContent=fmt(current);$("#ch-title").textContent="第"+current+"章　"+all[current-1].title;document.title=all[current-1].title+"｜从读研到做研究";
   var scale=store.get("scale",1);document.documentElement.style.setProperty("--scale",scale);
   $("#font-up").addEventListener("click",function(){scale=Math.min(1.25,Math.round((scale+.08)*100)/100);root.style.setProperty("--scale",scale);store.set("scale",scale);});
   $("#font-down").addEventListener("click",function(){scale=Math.max(.88,Math.round((scale-.08)*100)/100);root.style.setProperty("--scale",scale);store.set("scale",scale);});
+  $("#mobile-font-down").addEventListener("click",function(){$("#font-down").click()});
+  $("#mobile-font-up").addEventListener("click",function(){$("#font-up").click()});
+  $("#mobile-toc").addEventListener("click",function(){document.body.classList.toggle("mobile-menu")});
   $("#focus-mode").addEventListener("click",function(){document.body.classList.toggle("focus");});
   $("#mobile-menu").addEventListener("click",function(){document.body.classList.toggle("mobile-menu");});
   $("#open-notes").addEventListener("click",openNotes);
+  $("#mobile-notes").addEventListener("click",openNotes);
   $("#close-notes").addEventListener("click",function(){$("#notes").hidden=true;});
   $("#notes-export").addEventListener("click",function(){var txt="# 第"+current+"章阅读笔记\n\n"+notesList().map(function(n){return "> "+n.quote+"\n\n"+(n.comment||"")+"\n";}).join("\n---\n\n");var blob=new Blob([txt],{type:"text/markdown;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="chapter-"+fmt(current)+"-notes.md";a.click();setTimeout(function(){URL.revokeObjectURL(url);},1000);});
   var refreshBookmark=function(){$("#bookmark").textContent=store.get("bookmark-"+current,false)?"★ 已收藏":"☆ 收藏本章";};refreshBookmark();
@@ -99,12 +106,21 @@ if(!current||current<1||current>all.length||!all[current-1].ready){
   var next=current<all.length?"<a href='"+link(current+1)+"'>下一章 →</a>":"<span style='color:var(--muted)'>下一章 · 待更新</span>";
   $("#reading-nav").innerHTML=prev+"<a href='./'>全书目录</a>"+next;
   $("#text-body").innerHTML="<p>正在载入本章正文……</p>";
-  fetch("content/"+fmt(current)+".md").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text();}).then(function(md){$("#text-body").innerHTML=markdown(md);restoreMarks();$("#toc-heads").innerHTML=$$("#text-body h2").map(function(h,i){return "<a href='#"+h.id+"'>"+(i+1)+". "+esc(h.textContent)+"</a>";}).join("");setProgress();}).catch(function(e){$("#text-body").textContent="章节载入失败，请刷新页面或从 GitHub 源码查看。"+e.message;});
+  fetch("content/"+fmt(current)+".md").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text();}).then(function(md){
+    $("#text-body").innerHTML=markdown(md);restoreMarks();
+    $("#toc-heads").innerHTML=$("#text-body h2").map(function(h,i){return "<a href='#"+h.id+"'>"+(i+1)+". "+esc(h.textContent)+"</a>";}).join("");
+    var span=$("#reading-estimate");if(span)span.textContent="　·　约"+Math.max(2,Math.ceil(md.replace(/\s/g,"").length/460))+"分钟阅读";
+    var targetWord=new URLSearchParams(location.search).get("find");
+    if(targetWord){var target=$("#text-body h2,#text-body h3,#text-body p").find(function(el){return el.textContent.toLocaleLowerCase().includes(targetWord.toLocaleLowerCase())});if(target){target.classList.add("search-target");requestAnimationFrame(function(){target.scrollIntoView({block:"center",behavior:"smooth"})})}}
+    else if(location.hash){var anchor=document.getElementById(location.hash.slice(1));if(anchor)requestAnimationFrame(function(){anchor.scrollIntoView()})}
+    setProgress();
+  }).catch(function(e){$("#text-body").textContent="章节载入失败，请刷新页面或从 GitHub 源码查看。"+e.message;});
   window.addEventListener("scroll",setProgress,{passive:true});
   function restoreMarks(){
     notesList().forEach(function(note){
       if(!note.pId||!note.quote)return;
       var p=document.getElementById(note.pId);
+      if(!p||!p.textContent.includes(note.quote))p=$("#text-body p").find(function(el){return el.textContent.includes(note.quote)});
       if(!p)return;
       var walker=document.createTreeWalker(p,NodeFilter.SHOW_TEXT),node;
       while((node=walker.nextNode())){
