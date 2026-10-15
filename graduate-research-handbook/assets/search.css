@@ -1,0 +1,22 @@
+
+.search-page{max-width:990px}
+.search-lead{padding:78px 0 28px;max-width:780px}
+.search-lead h1{font:600 clamp(40px,5.2vw,65px)/1.35 var(--serif);margin:20px 0 15px}
+.search-lead p{font-size:16px;line-height:2;color:var(--muted)}
+.search-field{border:1px solid var(--rule);background:var(--paper);padding:10px 17px;margin:21px 0;display:flex;align-items:center;gap:14px}
+.search-field:focus-within{border-color:var(--accent)}
+.search-field span{font-size:26px;color:var(--accent)}
+.search-field input{flex:1;min-width:0;background:transparent;border:0;outline:0;font-size:17px;padding:5px 0;color:var(--ink)}
+.search-topics{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 31px}
+.search-topics button{border:1px solid var(--rule);background:var(--soft);color:var(--ink);border-radius:30px;padding:7px 14px;font-size:12px}
+.search-topics button:hover{border-color:var(--accent)}
+#search-status{font-size:12px;color:var(--muted);padding:0 0 20px;border-bottom:1px solid var(--rule)}
+.search-results{margin:10px 0 70px;min-height:150px}
+.search-result{border-bottom:1px solid var(--rule);padding:25px 0 30px}
+.search-result-meta{color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.14em}
+.search-result h2{font:600 23px/1.5 var(--serif);margin:9px 0 8px}
+.search-result h2 a:hover{color:var(--accent)}
+.search-result-heading{font-size:12px;color:var(--accent)}
+.search-result p{font:15px/1.95 var(--serif);color:var(--muted);margin:12px 0 0}
+.search-result mark{background:#f4e3af;color:#27312d;border-radius:2px;padding:1px 2px}
+@media(max-width:680px){.search-lead{padding:48px 0 18px}.search-lead h1{font-size:37px}.search-lead p{font-size:14px}.search-field input{font-size:15px}.search-result h2{font-size:20px}}
