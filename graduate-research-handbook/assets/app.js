@@ -1,0 +1,86 @@
+
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s);};
+var $$=function(s){return Array.from(document.querySelectorAll(s));};
+var store={get:function(k,f){try{var v=JSON.parse(localStorage.getItem("gradbook:"+k));return v==null?f:v;}catch(e){return f;}},set:function(k,v){try{localStorage.setItem("gradbook:"+k,JSON.stringify(v));}catch(e){}}};
+var root=document.documentElement;
+root.dataset.theme=store.get("theme","light");
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function fmt(n){return String(n).padStart(2,"0");}
+function link(n){return "?chapter="+fmt(n);}
+var catalog=JSON.parse($("#catalog-data").textContent);
+var sections=catalog.sections,all=catalog.chapters;
+function catalogView(target,sidebar){
+ var html="",index=0;
+ sections.forEach(function(t,i){
+   var rows="";
+   t.forEach(function(name){index++;var item=all[index-1],current=Number(new URLSearchParams(location.search).get("chapter"))===index;
+     if(sidebar){rows+="<li>"+(item.ready?"<a class='"+(current?"selected":"")+"' href='"+link(index)+"'>"+fmt(index)+" · "+esc(name)+"</a>":"<span class='soon'>"+fmt(index)+" · "+esc(name)+"</span>")+"</li>";}
+     else{rows+="<li class='"+(item.ready?"":"soon")+"'><span class='num'>"+fmt(index)+"</span>"+(item.ready?"<a href='"+link(index)+"'>"+esc(name)+"</a>":"<span style='flex:1'>"+esc(name)+"</span>")+"<span class='status'>"+(item.ready?"阅读":"待更新")+"</span></li>";}
+   });
+   if(sidebar)html+="<details "+(i===0?"open":"")+"><summary>第"+["一","二","三","四","五","六","七","八","九"][i]+"编　"+esc(catalog.volumes[i])+"</summary><ul>"+rows+"</ul></details>";
+   else html+="<div class='volume'><div class='volume-label'><span>PART "+fmt(i+1)+" / 09</span><span>"+t.length+" 章</span></div><h3>第"+["一","二","三","四","五","六","七","八","九"][i]+"编 · "+esc(catalog.volumes[i])+"</h3><ul>"+rows+"</ul></div>";
+ });
+ $(target).innerHTML=html;
+}
+function markdown(md){
+ var lines=md.replace(/\r/g,"").split("\n"),html=[],p=[],n=0;
+ function flush(){if(p.length){html.push("<p id='para-"+(++n)+"'>"+p.map(esc).join(" ").replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>")+"</p>");p=[];}}
+ lines.forEach(function(line){
+   var s=line.trim();
+   if(!s){flush();return;}
+   if(s.startsWith("# ")){flush();return;}
+   if(s.startsWith("## ")){flush();var heading=s.slice(3);html.push("<h2 id='sec-"+(++n)+"'>"+esc(heading)+"</h2>");return;}
+   if(s.startsWith("> ")){flush();html.push("<blockquote>"+esc(s.slice(2))+"</blockquote>");return;}
+   p.push(s);
+ });
+ flush();return html.join("\n");
+}
+function setProgress(){var max=document.documentElement.scrollHeight-innerHeight;var p=max>0?Math.round(scrollY/max*100):100;$("#progress").style.width=p+"%";var n=new URLSearchParams(location.search).get("chapter");if(n)store.set("progress-"+Number(n),p);}
+function openNotes(){var box=$("#notes");box.hidden=false;renderNotes();}
+function notesList(){return store.get("notes-"+current,[]);}
+function renderNotes(){
+  var arr=notesList(),list=$("#notelist");list.replaceChildren();
+  if(!arr.length){var p=document.createElement("p");p.textContent="在文章中选中文字，点击“保存摘录”，就可以在这里写笔记。笔记保存在本设备浏览器中。";list.appendChild(p);return;}
+  arr.forEach(function(n,i){var item=document.createElement("div");item.className="noteitem";var q=document.createElement("blockquote");q.textContent=n.quote;var t=document.createElement("textarea");t.placeholder="为这段摘录写下自己的思考……";t.value=n.comment||"";t.addEventListener("change",function(){var a=notesList();if(a[i]){a[i].comment=t.value;store.set("notes-"+current,a);}});var d=document.createElement("button");d.textContent="删除摘录";d.addEventListener("click",function(){var a=notesList();a.splice(i,1);store.set("notes-"+current,a);renderNotes();});item.appendChild(q);item.appendChild(t);item.appendChild(d);list.appendChild(item);});
+}
+var current=Number(new URLSearchParams(location.search).get("chapter"))||0;
+catalogView("#volume-list",false);catalogView("#side-content",true);
+if(!current||current<1||current>5){
+ $("#home").hidden=false;$("#reader").hidden=true;$("#mobile-menu").hidden=true;
+ var last=store.get("last",1);if(last>=1&&last<=5){$("#start-link").href=link(last);$("#start-link").textContent="继续阅读 · 第"+last+"章　→";}
+ $("#chapter-search").addEventListener("input",function(){var q=this.value.trim().toLocaleLowerCase(),any=false;$$(".volume li").forEach(function(li){var ok=li.textContent.toLocaleLowerCase().includes(q);li.hidden=!ok;if(ok)any=true;});$$(".volume").forEach(function(v){v.hidden=!Array.from(v.querySelectorAll("li")).some(function(li){return !li.hidden;});});$("#search-empty").hidden=any;});
+}else{
+  $("#home").hidden=true;$("#reader").hidden=false;$("#mobile-menu").hidden=false;
+  store.set("last",current);$("#ch-number").textContent=fmt(current);$("#ch-title").textContent="第"+current+"章　"+all[current-1].title;document.title=all[current-1].title+"｜从读研到做研究";
+  var scale=store.get("scale",1);document.documentElement.style.setProperty("--scale",scale);
+  $("#font-up").addEventListener("click",function(){scale=Math.min(1.25,Math.round((scale+.08)*100)/100);root.style.setProperty("--scale",scale);store.set("scale",scale);});
+  $("#font-down").addEventListener("click",function(){scale=Math.max(.88,Math.round((scale-.08)*100)/100);root.style.setProperty("--scale",scale);store.set("scale",scale);});
+  $("#focus-mode").addEventListener("click",function(){document.body.classList.toggle("focus");});
+  $("#mobile-menu").addEventListener("click",function(){document.body.classList.toggle("mobile-menu");});
+  $("#open-notes").addEventListener("click",openNotes);
+  $("#close-notes").addEventListener("click",function(){$("#notes").hidden=true;});
+  $("#notes-export").addEventListener("click",function(){var txt="# 第"+current+"章阅读笔记\n\n"+notesList().map(function(n){return "> "+n.quote+"\n\n"+(n.comment||"")+"\n";}).join("\n---\n\n");var blob=new Blob([txt],{type:"text/markdown;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="chapter-"+fmt(current)+"-notes.md";a.click();setTimeout(function(){URL.revokeObjectURL(url);},1000);});
+  var refreshBookmark=function(){$("#bookmark").textContent=store.get("bookmark-"+current,false)?"★ 已收藏":"☆ 收藏本章";};refreshBookmark();
+  $("#bookmark").addEventListener("click",function(){store.set("bookmark-"+current,!store.get("bookmark-"+current,false));refreshBookmark();});
+  var prev=current>1?"<a href='"+link(current-1)+"'>← 上一章</a>":"<span>第一章</span>";
+  var next=current<5?"<a href='"+link(current+1)+"'>下一章 →</a>":"<span style='color:var(--muted)'>下一章 · 待更新</span>";
+  $("#reading-nav").innerHTML=prev+"<a href='./'>全书目录</a>"+next;
+  $("#text-body").innerHTML="<p>正在载入本章正文……</p>";
+  fetch("content/"+fmt(current)+".md").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text();}).then(function(md){$("#text-body").innerHTML=markdown(md);$("#toc-heads").innerHTML=$$("#text-body h2").map(function(h,i){return "<a href='#"+h.id+"'>"+(i+1)+". "+esc(h.textContent)+"</a>";}).join("");setProgress();}).catch(function(e){$("#text-body").textContent="章节载入失败，请刷新页面或从 GitHub 源码查看。"+e.message;});
+  window.addEventListener("scroll",setProgress,{passive:true});
+  var selectionText="";
+  document.addEventListener("mouseup",function(ev){
+    if(ev.target.closest("button,.notes,textarea"))return;
+    var s=window.getSelection();selectionText=s?s.toString().trim():"";
+    var menu=$("#selection-button");
+    if(!selectionText||selectionText.length>600||!$("#text-body").contains(s.anchorNode)){menu.style.display="none";return;}
+    var rect=s.getRangeAt(0).getBoundingClientRect();
+    menu.style.left=Math.max(8,Math.min(innerWidth-125,rect.left))+"px";menu.style.top=Math.max(13,rect.top-44)+"px";menu.style.display="block";
+  });
+  $("#selection-button").addEventListener("click",function(){if(!selectionText)return;var a=notesList();a.push({quote:selectionText,comment:"",time:new Date().toISOString()});store.set("notes-"+current,a);this.style.display="none";window.getSelection().removeAllRanges();openNotes();});
+}
+$("#theme-toggle").addEventListener("click",function(){root.dataset.theme=root.dataset.theme==="dark"?"light":"dark";store.set("theme",root.dataset.theme);});
+document.addEventListener("keydown",function(ev){if(ev.key==="Escape"){$("#notes").hidden=true;$("#selection-button").style.display="none";}if(!current||["INPUT","TEXTAREA"].includes(document.activeElement.tagName))return;if(ev.key==="ArrowRight"&&current<5)location.href=link(current+1);if(ev.key==="ArrowLeft"&&current>1)location.href=link(current-1);});
+})();

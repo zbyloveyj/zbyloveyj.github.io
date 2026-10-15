@@ -34,6 +34,7 @@ jobs:
           mkdir -p _site
           cp *.html sitemap.xml robots.txt .nojekyll _site/
           cp -r assets _site/assets
+          cp -r graduate-research-handbook _site/graduate-research-handbook
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
