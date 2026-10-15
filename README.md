@@ -70,3 +70,9 @@ Selected records should not be mistaken for a complete, live author bibliography
 - The open `graduate-research-handbook/` has been surfaced on Home and Open Science and is published alongside the core site. It is a **work-in-progress educational resource**, not a peer-reviewed paper; chapter availability is managed by its catalog.
 - Editorial styling is isolated in `assets/editorial-v4.css` to make future maintenance easier.
 - The source DOI list, contribution statements and existing academic research content remain unchanged.
+
+## GitHub profile staging and publishing (October 2026)
+
+- The designed bilingual GitHub Profile README, adaptive banners and source files are in [`github-profile/`](github-profile/README.md). A public design preview is available at <https://zbyloveyj.github.io/github-profile/>.
+- **Important:** GitHub only renders a Profile README on the account Overview after creating a separate public repository named exactly `zbyloveyj/zbyloveyj` and placing the staged README and its `assets/` folder at its root. The preview alone does not change the GitHub account Overview.
+- GitHub Pages currently publishes this site through the **built-in branch-based** Pages workflow. `.github/workflows/deploy.yml` now performs validation only, avoiding duplicate Pages deployment errors. If Pages source settings are deliberately changed later, update the publishing workflow accordingly.

@@ -1,50 +1,32 @@
-name: Deploy academic homepage to GitHub Pages
-
+# GitHub Pages is currently deployed from the main branch by GitHub's
+# built-in "pages build and deployment" workflow. Do not deploy a second
+# Pages artifact from here: concurrent deployments conflict.
+name: Validate academic homepage
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
-
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: academic-homepage-pages
-  cancel-in-progress: false
-
 jobs:
-  publish:
+  validate:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - name: Validate site files and bibliography
+      - name: Validate academic pages and handbook
         run: |
           python3 tests/validate_site.py
           python3 tests/validate_handbook.py
-      - name: Verify frontend JavaScript syntax
+      - name: Check JavaScript syntax
         run: |
           node --check assets/data.js
           node --check assets/site.js
           node --check assets/v3.js
           node --check graduate-research-handbook/assets/app.js
-      - name: Prepare public files
+      - name: Check staged GitHub profile README
         run: |
-          mkdir -p _site
-          cp *.html sitemap.xml robots.txt .nojekyll _site/
-          cp -r assets _site/assets
-          cp -r graduate-research-handbook _site/graduate-research-handbook
-          cp -r github-profile _site/github-profile
-          test -f _site/graduate-research-handbook/index.html
-          test -f _site/assets/editorial-v4.css
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-      - name: Publish site
-        id: deployment
-        uses: actions/deploy-pages@v4
+          test -s github-profile/README.md
+          test -s github-profile/index.html
+          test -s github-profile/assets/profile-banner-light.svg
+          test -s github-profile/assets/profile-banner-dark.svg
