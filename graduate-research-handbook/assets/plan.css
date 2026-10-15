@@ -1,0 +1,26 @@
+
+.study-wrap{max-width:1110px}
+.study-hero{padding:79px 0 42px;max-width:870px}
+.study-hero h1{font:600 clamp(42px,5.7vw,68px)/1.32 var(--serif);margin:20px 0}
+.study-hero p{font-size:16px;line-height:2.1;color:var(--muted);max-width:720px}
+.study-progress{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:18px 0 22px;display:flex;align-items:center;justify-content:space-between;gap:30px;margin:15px 0 35px}
+.study-meter{flex:1;max-width:420px}
+.study-meter-bar{height:4px;background:var(--rule);width:100%;overflow:hidden}
+.study-meter-bar div{width:0;height:100%;background:var(--accent)}
+.study-status{font-size:12px;color:var(--muted);margin-bottom:8px}
+.study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin-bottom:68px}
+.study-week{background:var(--paper);border:1px solid var(--rule);padding:27px 28px;min-width:0}
+.study-week-top{font:700 11px/1.3 var(--sans);letter-spacing:.14em;color:var(--accent)}
+.study-week h2{font:600 23px/1.5 var(--serif);margin:12px 0 7px}
+.study-focus{font-size:13px;color:var(--muted);line-height:1.85;min-height:50px;margin:0 0 16px}
+.study-chapters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:11px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+.study-chapters span{color:var(--muted)}
+.study-chapters a{color:var(--accent);border-bottom:1px solid currentColor}
+.study-checklist{list-style:none;margin:17px 0 0;padding:0}
+.study-checklist li{margin:12px 0}
+.study-checklist label{display:flex;align-items:flex-start;gap:11px;font-size:13px;line-height:1.72;cursor:pointer}
+.study-checklist input{margin-top:6px;accent-color:var(--accent);flex-shrink:0}
+.study-checklist input:checked+span{color:var(--muted);text-decoration:line-through}
+.study-note{background:var(--soft);padding:30px 35px;margin:0 0 70px;font-size:14px;color:var(--muted);line-height:2}
+@media(max-width:790px){.study-grid{grid-template-columns:1fr}.study-focus{min-height:0}.study-week{padding:22px}}
+@media(max-width:630px){.study-hero{padding:51px 0 27px}.study-hero h1{font-size:38px}.study-progress{display:block}.study-meter{margin-bottom:16px}.study-note{padding:23px}.study-wrap{padding:0 19px}}
