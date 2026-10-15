@@ -103,7 +103,7 @@ if(!current||current<1||current>all.length||!all[current-1].ready){
   var refreshBookmark=function(){$("#bookmark").textContent=store.get("bookmark-"+current,false)?"★ 已收藏":"☆ 收藏本章";};refreshBookmark();
   $("#bookmark").addEventListener("click",function(){store.set("bookmark-"+current,!store.get("bookmark-"+current,false));refreshBookmark();});
   var prev=current>1?"<a href='"+link(current-1)+"'>← 上一章</a>":"<span>第一章</span>";
-  var next=current<all.length?"<a href='"+link(current+1)+"'>下一章 →</a>":"<span style='color:var(--muted)'>下一章 · 待更新</span>";
+  var next=current<all.length?"<a href='"+link(current+1)+"'>下一章 →</a>":"<a href='./'>全书完 · 返回目录 →</a>";
   $("#reading-nav").innerHTML=prev+"<a href='./'>全书目录</a>"+next;
   $("#text-body").innerHTML="<p>正在载入本章正文……</p>";
   fetch("content/"+fmt(current)+".md").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text();}).then(function(md){
