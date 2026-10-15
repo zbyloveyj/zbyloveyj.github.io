@@ -23,12 +23,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate site files and bibliography
-        run: python3 tests/validate_site.py
+        run: |
+          python3 tests/validate_site.py
+          python3 tests/validate_handbook.py
       - name: Verify frontend JavaScript syntax
         run: |
           node --check assets/data.js
           node --check assets/site.js
           node --check assets/v3.js
+          node --check graduate-research-handbook/assets/app.js
       - name: Prepare public files
         run: |
           mkdir -p _site

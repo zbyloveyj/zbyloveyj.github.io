@@ -19,23 +19,54 @@ function catalogView(target,sidebar){
      if(sidebar){rows+="<li>"+(item.ready?"<a class='"+(current?"selected":"")+"' href='"+link(index)+"'>"+fmt(index)+" · "+esc(name)+"</a>":"<span class='soon'>"+fmt(index)+" · "+esc(name)+"</span>")+"</li>";}
      else{rows+="<li class='"+(item.ready?"":"soon")+"'><span class='num'>"+fmt(index)+"</span>"+(item.ready?"<a href='"+link(index)+"'>"+esc(name)+"</a>":"<span style='flex:1'>"+esc(name)+"</span>")+"<span class='status'>"+(item.ready?"阅读":"待更新")+"</span></li>";}
    });
-   if(sidebar)html+="<details "+(i===0?"open":"")+"><summary>第"+["一","二","三","四","五","六","七","八","九"][i]+"编　"+esc(catalog.volumes[i])+"</summary><ul>"+rows+"</ul></details>";
+   if(sidebar)html+="<details "+(i===((Number(new URLSearchParams(location.search).get("chapter"))||1)-1>=0?all[(Number(new URLSearchParams(location.search).get("chapter"))||1)-1]?.part-1:0)?"open":"")+"><summary>第"+["一","二","三","四","五","六","七","八","九"][i]+"编　"+esc(catalog.volumes[i])+"</summary><ul>"+rows+"</ul></details>";
    else html+="<div class='volume'><div class='volume-label'><span>PART "+fmt(i+1)+" / 09</span><span>"+t.length+" 章</span></div><h3>第"+["一","二","三","四","五","六","七","八","九"][i]+"编 · "+esc(catalog.volumes[i])+"</h3><ul>"+rows+"</ul></div>";
  });
  $(target).innerHTML=html;
 }
 function markdown(md){
- var lines=md.replace(/\r/g,"").split("\n"),html=[],p=[],n=0;
- function flush(){if(p.length){html.push("<p id='para-"+(++n)+"'>"+p.map(esc).join(" ").replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>")+"</p>");p=[];}}
- lines.forEach(function(line){
-   var s=line.trim();
-   if(!s){flush();return;}
-   if(s.startsWith("# ")){flush();return;}
-   if(s.startsWith("## ")){flush();var heading=s.slice(3);html.push("<h2 id='sec-"+(++n)+"'>"+esc(heading)+"</h2>");return;}
-   if(s.startsWith("> ")){flush();html.push("<blockquote>"+esc(s.slice(2))+"</blockquote>");return;}
-   p.push(s);
- });
- flush();return html.join("\n");
+  var lines=md.replace(/\r/g,"").split("\n"),out=[],p=[],n=0,i=0,inCode=false,code=[],lang="";
+  function inline(value){
+    return esc(value)
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,function(_,text,url){return "<a href=\""+url+"\" target=\"_blank\" rel=\"noopener noreferrer\">"+text+"</a>";})
+      .replace(/\x60([^\x60]+)\x60/g,"<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>")
+      .replace(/(^|[^*])\*([^*]+)\*(?!\*)/g,"$1<em>$2</em>");
+  }
+  function flush(){if(p.length){out.push("<p id=\"para-"+(++n)+"\">"+inline(p.join(" "))+"</p>");p=[];}}
+  function tableCells(s){return s.trim().replace(/^\|/,"").replace(/\|$/,"").split("|").map(function(x){return x.trim();});}
+  while(i<lines.length){
+    var line=lines[i],s=line.trim();
+    if(inCode){
+      if(s.startsWith("~~~")){out.push("<pre><code class=\"language-"+esc(lang)+"\">"+esc(code.join("\n"))+"</code></pre>");inCode=false;code=[];lang="";}
+      else code.push(line);
+      i++;continue;
+    }
+    if(s.startsWith("~~~")){flush();inCode=true;lang=s.slice(3).trim().replace(/[^a-z0-9_+#-]/gi,"");i++;continue;}
+    if(!s){flush();i++;continue;}
+    if(s.startsWith("# ")){flush();i++;continue;}
+    if(s.startsWith("## ")){flush();out.push("<h2 id=\"sec-"+(++n)+"\">"+inline(s.slice(3))+"</h2>");i++;continue;}
+    if(s.startsWith("### ")){flush();out.push("<h3 id=\"sec-"+(++n)+"\">"+inline(s.slice(4))+"</h3>");i++;continue;}
+    if(s==="---"){flush();out.push("<hr>");i++;continue;}
+    if(s.startsWith("> ")){flush();var quotes=[];while(i<lines.length&&lines[i].trim().startsWith("> ")){quotes.push(inline(lines[i].trim().slice(2)));i++;}out.push("<blockquote>"+quotes.join("<p></p>")+"</blockquote>");continue;}
+    if(s.startsWith("|")&&i+1<lines.length&&/^\|?\s*:?-{3,}/.test(lines[i+1].trim())){
+      flush();var headers=tableCells(lines[i]);i+=2;var rows=[];
+      while(i<lines.length&&lines[i].trim().startsWith("|")){rows.push(tableCells(lines[i]));i++;}
+      var table="<div class=\"table-scroller\"><table><thead><tr>"+headers.map(function(x){return "<th>"+inline(x)+"</th>";}).join("")+"</tr></thead><tbody>";
+      rows.forEach(function(row){table+="<tr>"+headers.map(function(_,k){return "<td>"+inline(row[k]||"")+"</td>";}).join("")+"</tr>";});
+      out.push(table+"</tbody></table></div>");continue;
+    }
+    if(/^([-*] |\d+\. )/.test(s)){
+      flush();var ordered=/^\d+\./.test(s),tag=ordered?"ol":"ul",list=[];
+      while(i<lines.length&&/^([-*] |\d+\. )/.test(lines[i].trim())){
+        list.push("<li>"+inline(lines[i].trim().replace(/^([-*] |\d+\. )/,""))+"</li>");i++;
+      }
+      out.push("<"+tag+">"+list.join("")+"</"+tag+">");continue;
+    }
+    p.push(s);i++;
+  }
+  flush();if(inCode)out.push("<pre><code>"+esc(code.join("\n"))+"</code></pre>");
+  return out.join("\n");
 }
 function setProgress(){var max=document.documentElement.scrollHeight-innerHeight;var p=max>0?Math.round(scrollY/max*100):100;$("#progress").style.width=p+"%";var n=new URLSearchParams(location.search).get("chapter");if(n)store.set("progress-"+Number(n),p);}
 function openNotes(){var box=$("#notes");box.hidden=false;renderNotes();}
@@ -47,13 +78,13 @@ function renderNotes(){
 }
 var current=Number(new URLSearchParams(location.search).get("chapter"))||0;
 catalogView("#volume-list",false);catalogView("#side-content",true);
-if(!current||current<1||current>5){
+if(!current||current<1||current>all.length||!all[current-1].ready){
  $("#home").hidden=false;$("#reader").hidden=true;$("#mobile-menu").hidden=true;
- var last=store.get("last",1);if(last>=1&&last<=5){$("#start-link").href=link(last);$("#start-link").textContent="继续阅读 · 第"+last+"章　→";}
+ var last=store.get("last",1);if(last>=1&&last<=all.length&&all[last-1].ready){$("#start-link").href=link(last);$("#start-link").textContent="继续阅读 · 第"+last+"章　→";}
  $("#chapter-search").addEventListener("input",function(){var q=this.value.trim().toLocaleLowerCase(),any=false;$$(".volume li").forEach(function(li){var ok=li.textContent.toLocaleLowerCase().includes(q);li.hidden=!ok;if(ok)any=true;});$$(".volume").forEach(function(v){v.hidden=!Array.from(v.querySelectorAll("li")).some(function(li){return !li.hidden;});});$("#search-empty").hidden=any;});
 }else{
   $("#home").hidden=true;$("#reader").hidden=false;$("#mobile-menu").hidden=false;
-  store.set("last",current);$("#ch-number").textContent=fmt(current);$("#ch-title").textContent="第"+current+"章　"+all[current-1].title;document.title=all[current-1].title+"｜从读研到做研究";
+  store.set("last",current);$("#chapter-part").textContent="第"+["一","二","三","四","五","六","七","八","九"][all[current-1].part-1]+"编 · "+catalog.volumes[all[current-1].part-1];$("#ch-number").textContent=fmt(current);$("#ch-title").textContent="第"+current+"章　"+all[current-1].title;document.title=all[current-1].title+"｜从读研到做研究";
   var scale=store.get("scale",1);document.documentElement.style.setProperty("--scale",scale);
   $("#font-up").addEventListener("click",function(){scale=Math.min(1.25,Math.round((scale+.08)*100)/100);root.style.setProperty("--scale",scale);store.set("scale",scale);});
   $("#font-down").addEventListener("click",function(){scale=Math.max(.88,Math.round((scale-.08)*100)/100);root.style.setProperty("--scale",scale);store.set("scale",scale);});
@@ -65,7 +96,7 @@ if(!current||current<1||current>5){
   var refreshBookmark=function(){$("#bookmark").textContent=store.get("bookmark-"+current,false)?"★ 已收藏":"☆ 收藏本章";};refreshBookmark();
   $("#bookmark").addEventListener("click",function(){store.set("bookmark-"+current,!store.get("bookmark-"+current,false));refreshBookmark();});
   var prev=current>1?"<a href='"+link(current-1)+"'>← 上一章</a>":"<span>第一章</span>";
-  var next=current<5?"<a href='"+link(current+1)+"'>下一章 →</a>":"<span style='color:var(--muted)'>下一章 · 待更新</span>";
+  var next=current<all.length?"<a href='"+link(current+1)+"'>下一章 →</a>":"<span style='color:var(--muted)'>下一章 · 待更新</span>";
   $("#reading-nav").innerHTML=prev+"<a href='./'>全书目录</a>"+next;
   $("#text-body").innerHTML="<p>正在载入本章正文……</p>";
   fetch("content/"+fmt(current)+".md").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text();}).then(function(md){$("#text-body").innerHTML=markdown(md);restoreMarks();$("#toc-heads").innerHTML=$$("#text-body h2").map(function(h,i){return "<a href='#"+h.id+"'>"+(i+1)+". "+esc(h.textContent)+"</a>";}).join("");setProgress();}).catch(function(e){$("#text-body").textContent="章节载入失败，请刷新页面或从 GitHub 源码查看。"+e.message;});
@@ -103,5 +134,5 @@ if(!current||current<1||current>5){
   $("#selection-button").addEventListener("click",function(){if(!selectionText)return;var a=notesList();a.push({quote:selectionText,pId:selectedPId,comment:"",time:new Date().toISOString()});store.set("notes-"+current,a);restoreMarks();this.style.display="none";window.getSelection().removeAllRanges();openNotes();});
 }
 $("#theme-toggle").addEventListener("click",function(){root.dataset.theme=root.dataset.theme==="dark"?"light":"dark";store.set("theme",root.dataset.theme);});
-document.addEventListener("keydown",function(ev){if(ev.key==="Escape"){$("#notes").hidden=true;$("#selection-button").style.display="none";}if(!current||["INPUT","TEXTAREA"].includes(document.activeElement.tagName))return;if(ev.key==="ArrowRight"&&current<5)location.href=link(current+1);if(ev.key==="ArrowLeft"&&current>1)location.href=link(current-1);});
+document.addEventListener("keydown",function(ev){if(ev.key==="Escape"){$("#notes").hidden=true;$("#selection-button").style.display="none";}if(!current||["INPUT","TEXTAREA"].includes(document.activeElement.tagName))return;if(ev.key==="ArrowRight"&&current<all.length)location.href=link(current+1);if(ev.key==="ArrowLeft"&&current>1)location.href=link(current-1);});
 })();
