@@ -76,5 +76,15 @@ def validate():
   raise AssertionError('Missing publication search reset')
  if 'id="pub-clear"' not in (R/'publications.html').read_text('utf-8') or 'id="pub-reset"' not in (R/'publications.html').read_text('utf-8'):
   raise AssertionError('Missing publication reset controls')
+ # Profile README staging: keep deployable assets and both color-scheme banners intact.
+ for rel in ('github-profile/index.html','github-profile/preview.css',
+             'github-profile/README.md','github-profile/assets/profile-banner-light.svg',
+             'github-profile/assets/profile-banner-dark.svg'):
+  if not (R/rel).is_file():raise AssertionError('Missing GitHub profile design: '+rel)
+ for rel in ('github-profile/assets/profile-banner-light.svg','github-profile/assets/profile-banner-dark.svg'):
+  ET.parse(R/rel)
+ profile_readme=(R/'github-profile/README.md').read_text('utf-8')
+ if 'happily in a relationship' not in profile_readme or '和对象一起的日常生活' not in profile_readme:
+  raise AssertionError('Profile README personal note missing')
  print('PASS: 6 HTML pages; 10 verified DOI records; full-author BibTeX/RIS; 5 projects; internal links; JS syntax; PDF and illustrations.')
 if __name__=='__main__':validate()
