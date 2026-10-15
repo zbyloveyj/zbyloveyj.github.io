@@ -68,18 +68,39 @@ if(!current||current<1||current>5){
   var next=current<5?"<a href='"+link(current+1)+"'>下一章 →</a>":"<span style='color:var(--muted)'>下一章 · 待更新</span>";
   $("#reading-nav").innerHTML=prev+"<a href='./'>全书目录</a>"+next;
   $("#text-body").innerHTML="<p>正在载入本章正文……</p>";
-  fetch("content/"+fmt(current)+".md").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text();}).then(function(md){$("#text-body").innerHTML=markdown(md);$("#toc-heads").innerHTML=$$("#text-body h2").map(function(h,i){return "<a href='#"+h.id+"'>"+(i+1)+". "+esc(h.textContent)+"</a>";}).join("");setProgress();}).catch(function(e){$("#text-body").textContent="章节载入失败，请刷新页面或从 GitHub 源码查看。"+e.message;});
+  fetch("content/"+fmt(current)+".md").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text();}).then(function(md){$("#text-body").innerHTML=markdown(md);restoreMarks();$("#toc-heads").innerHTML=$$("#text-body h2").map(function(h,i){return "<a href='#"+h.id+"'>"+(i+1)+". "+esc(h.textContent)+"</a>";}).join("");setProgress();}).catch(function(e){$("#text-body").textContent="章节载入失败，请刷新页面或从 GitHub 源码查看。"+e.message;});
   window.addEventListener("scroll",setProgress,{passive:true});
+  function restoreMarks(){
+    notesList().forEach(function(note){
+      if(!note.pId||!note.quote)return;
+      var p=document.getElementById(note.pId);
+      if(!p)return;
+      var walker=document.createTreeWalker(p,NodeFilter.SHOW_TEXT),node;
+      while((node=walker.nextNode())){
+        if(node.parentElement&&node.parentElement.closest("mark"))continue;
+        var at=node.textContent.indexOf(note.quote);
+        if(at<0)continue;
+        var span=document.createElement("mark");
+        var before=document.createTextNode(node.textContent.slice(0,at));
+        span.textContent=note.quote;
+        var after=document.createTextNode(node.textContent.slice(at+note.quote.length));
+        node.replaceWith(before,span,after);
+        break;
+      }
+    });
+  }
+  var selectedPId="";
   var selectionText="";
   document.addEventListener("mouseup",function(ev){
     if(ev.target.closest("button,.notes,textarea"))return;
     var s=window.getSelection();selectionText=s?s.toString().trim():"";
     var menu=$("#selection-button");
     if(!selectionText||selectionText.length>600||!$("#text-body").contains(s.anchorNode)){menu.style.display="none";return;}
+    var para=s.anchorNode&&s.anchorNode.parentElement?s.anchorNode.parentElement.closest("p"):null;selectedPId=para?para.id:"";
     var rect=s.getRangeAt(0).getBoundingClientRect();
     menu.style.left=Math.max(8,Math.min(innerWidth-125,rect.left))+"px";menu.style.top=Math.max(13,rect.top-44)+"px";menu.style.display="block";
   });
-  $("#selection-button").addEventListener("click",function(){if(!selectionText)return;var a=notesList();a.push({quote:selectionText,comment:"",time:new Date().toISOString()});store.set("notes-"+current,a);this.style.display="none";window.getSelection().removeAllRanges();openNotes();});
+  $("#selection-button").addEventListener("click",function(){if(!selectionText)return;var a=notesList();a.push({quote:selectionText,pId:selectedPId,comment:"",time:new Date().toISOString()});store.set("notes-"+current,a);restoreMarks();this.style.display="none";window.getSelection().removeAllRanges();openNotes();});
 }
 $("#theme-toggle").addEventListener("click",function(){root.dataset.theme=root.dataset.theme==="dark"?"light":"dark";store.set("theme",root.dataset.theme);});
 document.addEventListener("keydown",function(ev){if(ev.key==="Escape"){$("#notes").hidden=true;$("#selection-button").style.display="none";}if(!current||["INPUT","TEXTAREA"].includes(document.activeElement.tagName))return;if(ev.key==="ArrowRight"&&current<5)location.href=link(current+1);if(ev.key==="ArrowLeft"&&current>1)location.href=link(current-1);});
