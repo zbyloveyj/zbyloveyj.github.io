@@ -2,7 +2,7 @@
 
 **Independent bilingual academic website** for Baoyuan Zhu / 朱宝圆, PhD candidate at South China University of Technology. Built as a static GitHub Pages site with **no framework, external font, cookies, analytics, or tracking**.
 
-The canonical public address, **after setup**, will be <https://zbyloveyj.github.io/>. The site is not live until the user creates and enables the corresponding `zbyloveyj.github.io` GitHub repository.
+**Public academic homepage:** <https://zbyloveyj.github.io/>. The first GitHub Pages build and deployment completed successfully on 2026-10-15. The academic homepage is hosted at the account-root URL, independently of other repositories.
 
 ## What is included
 
@@ -23,15 +23,19 @@ The canonical public address, **after setup**, will be <https://zbyloveyj.github
 
 Open `index.html` in a browser. All data and graphics are local, and no server-side application is needed. The DOI/GitHub links require Internet access.
 
-## Publish to the GitHub account `zbyloveyj`
+## Deployment and maintenance
 
-1. Visit <https://github.com/new?name=zbyloveyj.github.io> and create the **public** repository `zbyloveyj.github.io` under your account. Do not select a different repository name if you want the clean root URL.
-2. Upload **the contents of this folder** to the repository's `main` branch, so `index.html` sits at repository root. Do not upload the enclosing ZIP as a single file.
-3. Open repository **Settings → Pages → Build and deployment → Source**, select **GitHub Actions**. If Pages is already configured correctly, this may already be selected.
-4. The included `.github/workflows/deploy.yml` runs validation and deploys the static site to <https://zbyloveyj.github.io/> on subsequent pushes to `main`.
-5. Verify the home page, `research.html`, `publications.html`, `projects.html` and `cv.html` on desktop/mobile. DNS/CDN updates may not be immediate.
+The repository `zbyloveyj/zbyloveyj.github.io` is now public and contains the complete V3 site, bibliography exports, PDF CV, illustrations and GitHub Actions workflow. The first Pages deployment [succeeded](https://github.com/zbyloveyj/zbyloveyj.github.io/actions/runs/38733330834). The prior repository README was retained as `archive/README_before_academic_homepage.md`.
 
-An expanded Chinese guide is in `DEPLOY_GUIDE_中文.md`.
+Updates to `main` automatically run content validation and redeploy the site through `.github/workflows/deploy.yml`. Verify the following pages after making changes:
+
+- <https://zbyloveyj.github.io/>
+- <https://zbyloveyj.github.io/research.html>
+- <https://zbyloveyj.github.io/publications.html>
+- <https://zbyloveyj.github.io/projects.html>
+- <https://zbyloveyj.github.io/cv.html>
+
+The Chinese deployment guide is in `DEPLOY_GUIDE_中文.md`.
 
 ## Content edits
 

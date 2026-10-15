@@ -1,15 +1,19 @@
-# 朱宝圆个人学术主页 V3 · GitHub Pages 上线说明
+# 朱宝圆个人学术主页 V3 · GitHub Pages 维护说明
 
-本网站完全独立于《看不见的文明》小说网站，不会修改已有仓库。计划地址为 **https://zbyloveyj.github.io/**，但在新仓库建立及部署成功之前，这个地址不能视为已发布网站。
+**发布状态：** 已于2026年10月15日提交网站源码至公开仓库 [zbyloveyj/zbyloveyj.github.io](https://github.com/zbyloveyj/zbyloveyj.github.io)；GitHub Pages 的自动部署与校验均已成功完成。
 
-## 一次性操作
+**网站地址：** https://zbyloveyj.github.io/
 
-1. 打开 https://github.com/new?name=zbyloveyj.github.io 。
-2. Owner 选择 `zbyloveyj`；Repository name 填写 `zbyloveyj.github.io`；Visibility 选择 **Public**；创建仓库。
-3. 回到聊天告诉我“仓库建好了”，便可以通过已经连接的 GitHub 工具继续提交源码；也可以自行上传 ZIP 解压后的**内部文件**（`index.html`、`assets/`、`.github/`等），不要只上传 ZIP。
-4. 进入 **Settings → Pages → Build and deployment**，选择 **GitHub Actions** 作为 Source（若已配置可跳过）。
-5. 上传到 `main` 分支后，`Deploy academic homepage to GitHub Pages` 将验证文件和论文数据、发布静态网站。
-6. 在 Actions 中确认运行成功，再分别打开：首页、`/research.html`、`/publications.html`、`/projects.html`、`/cv.html`。
+**构建记录：** https://github.com/zbyloveyj/zbyloveyj.github.io/actions/runs/38733330834
+
+网站与《看不见的文明》及其他科研仓库相互独立。部署前仓库原有的 README 已归档到 `archive/README_before_academic_homepage.md`，未丢弃。
+
+## 后续如何更新
+
+1. 修改对应网页或 `assets/` 中的代码与数据文件。
+2. 将修改提交到此仓库的 `main` 分支。
+3. `.github/workflows/deploy.yml` 会自动检查论文数据、文件链接和脚本语法，然后重新发布网站。
+4. 在 [Actions](https://github.com/zbyloveyj/zbyloveyj.github.io/actions) 确认构建完成，打开首页和各个栏目检查实际效果。如遇缓存延迟，可用无痕窗口重新访问。
 
 ## 最新目录
 
