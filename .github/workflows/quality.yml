@@ -1,0 +1,21 @@
+name: Check academic homepage
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  site-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify pages, bibliography and local links
+        run: python3 tests/validate_site.py
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/data.js
+          node --check assets/site.js
+          node --check assets/v3.js

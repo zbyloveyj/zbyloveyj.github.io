@@ -1,0 +1,34 @@
+/* Academic homepage editorial improvements · October 2026 */
+.updates-section{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper)}
+.updates-layout{display:grid;grid-template-columns:minmax(230px,.73fr) minmax(0,1.5fr);gap:clamp(35px,6vw,95px);padding-block:63px 69px}
+.updates-heading h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,3.1vw,42px);letter-spacing:-.038em;margin:13px 0 17px;line-height:1.22}
+.updates-heading h2 em{color:var(--accent);font-weight:400}
+.updates-heading p:not(.section-index){color:var(--muted);font-size:13px;line-height:1.9;max-width:340px;margin:0 0 23px}
+.updates-heading>a{font-size:12px;color:var(--accent);display:inline-flex;justify-content:space-between;gap:30px;border-bottom:1px solid var(--rule);padding-bottom:9px;text-decoration:none}
+.updates-list{border-top:1px solid var(--rule)}
+.update-row{display:grid;grid-template-columns:89px minmax(0,1fr) 22px;gap:15px;align-items:center;border-bottom:1px solid var(--rule);padding:19px 5px 21px;text-decoration:none!important;min-height:107px;transition:background .2s}
+.update-row:hover{background:var(--paper2)}
+.update-row time{align-self:start;padding-top:3px;color:var(--accent);font:600 10px/1.6 var(--sans);letter-spacing:.09em}
+.update-row>span{display:flex;flex-direction:column;gap:8px;min-width:0}
+.update-row strong{font:500 clamp(16px,1.4vw,19px)/1.45 var(--serif);color:var(--text);letter-spacing:-.01em}
+.update-row small{font:400 12px/1.65 var(--sans);color:var(--muted)}
+.update-row>b{font:400 16px var(--serif);color:var(--accent);justify-self:end;align-self:start}
+.pub-utility{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:0 0 17px}
+.pub-search{height:46px;display:flex;align-items:center;gap:10px;flex:1 1 330px;max-width:570px;background:var(--paper);border:1px solid var(--rule);padding:0 12px}
+.pub-search:focus-within{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 12%,transparent)}
+.pub-search svg{height:17px;width:17px;flex:0 0 17px;color:var(--accent)}
+.pub-search input{font-family:var(--sans);color:var(--text);background:transparent;border:none;outline:none!important;min-width:0;width:100%;height:100%;font-size:12px;letter-spacing:0}
+.pub-search input::placeholder{color:var(--muted)}
+.pub-export{font-family:var(--sans);font-size:11px;white-space:nowrap;letter-spacing:.04em;color:var(--accent);padding:12px 13px;display:inline-flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--rule);cursor:pointer;transition:background .18s,color .18s}
+.pub-export:hover{color:var(--text);background:var(--paper2)}
+.pub-empty{margin:20px 0 16px;padding:20px;background:var(--paper2);border-left:2px solid var(--accent);color:var(--muted);font:400 13px/1.8 var(--sans)}
+.pub-empty[hidden]{display:none}
+.publication-noscript{font:400 13px/1.8 var(--sans);color:var(--muted)}
+.cv-actions{display:flex;align-items:flex-start;gap:12px 25px;flex-wrap:wrap;margin-top:17px}
+.cv-actions .cv-link{margin:0}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+html[data-theme="dark"] .updates-section{background:var(--paper)}
+html[data-theme="dark"] .update-row:hover,html[data-theme="dark"] .pub-export:hover{background:#304238}
+@media(max-width:960px){.updates-layout{grid-template-columns:minmax(185px,.75fr) minmax(0,1.25fr);gap:25px}.update-row{grid-template-columns:75px minmax(0,1fr) 18px;gap:10px}.update-row small{font-size:11px}}
+@media(max-width:680px){.updates-layout{display:block;padding-block:49px 55px}.updates-heading{margin-bottom:29px}.updates-heading p:not(.section-index){max-width:550px}.updates-heading h2{font-size:35px}.update-row{grid-template-columns:70px minmax(0,1fr) 17px;gap:8px;min-height:98px}.update-row strong{font-size:17px}.update-row small{font-size:11px}.pub-utility{padding-bottom:8px;align-items:stretch}.pub-search{flex-basis:100%;max-width:none}.pub-export{width:100%;justify-content:space-between}}
+@media(prefers-reduced-motion:reduce){.update-row,.pub-export{transition:none!important}}

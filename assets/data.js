@@ -1,0 +1,76 @@
+/**
+ * PUBLIC CONTENT DATA — Edit this file to update selected papers and GitHub projects.
+ * Paper titles, DOIs, dates and equal-contribution labels were cross-checked against
+ * journal sites / PubMed in October 2026. No unpublished work is labeled "published".
+ * 'lead' = first / joint first; 'coauthor' = other contributing author.
+ */
+window.ACADEMIC_DATA = {
+  publications: [
+    {
+      year: 2026, title: "Dissecting the Ecological Structure of Health and Disease in the Global Gut Microbiome",
+      authors: "Baoyuan Zhu, Shuhao Chen, Yunheng Diao, Wei Wang, et al.",
+      journal: "Advanced Science", doi: "10.1002/advs.202517087", fullAuthors: ["Baoyuan Zhu", "Shuhao Chen", "Yunheng Diao", "Wei Wang", "Yuanyuan Huang", "Liqin Liang", "Xiaodan Lu", "Rui Han", "Minxin Guo", "Zhaobo Li", "Shuhong Wang", "Hehua Li", "Chenyu Liu", "Jing Zhou", "Dongsheng Xiong", "Xiaobo Li", "Yuping Ning", "Xuetao Shi", "Fengchun Wu", "Kai Wu"], volume: "13", number: "44", pages: "e17087", key: "Zhu2026Wiredancer", topic: "Ecology", focus: "Across 20,178 metagenomes and 36 countries, continuous microbial ecological factors described overlapping patterns of health and disease.", focusZh: "整合20,178份来自36国的宏基因组，使用连续微生物生态因子表征健康与疾病之间可重叠的群落变化。", role: "lead", leadLabel: "First author", leadLabelZh: "第一作者",
+      citation: "Zhu B, Chen S, Diao Y, et al. Dissecting the Ecological Structure of Health and Disease in the Global Gut Microbiome. Advanced Science. 2026;13(44):e17087. https://doi.org/10.1002/advs.202517087"
+    },
+    {
+      year: 2026, title: "The Brain–Gut Health Initiative (BIGHI): A Prospective Cohort on Psychiatric Disorders in China",
+      authors: "Fengchun Wu, Baoyuan Zhu, Shixuan Feng, et al.",
+      journal: "Research", doi: "10.34133/research.1142", fullAuthors: ["Fengchun Wu", "Baoyuan Zhu", "Shixuan Feng", "Hehua Li", "Jing Zhou", "Yuping Ning", "Yuanyuan Huang", "Kai Wu"], volume: "9", pages: "1142", key: "Wu2026BIGHI", topic: "Brain–gut", focus: "Describes a prospective brain–gut cohort framework integrating clinical, microbiome and neuroimaging measurements for psychiatric research.", focusZh: "介绍整合临床评估、微生物组与脑影像的前瞻性脑肠健康队列及其研究框架。", role: "lead", leadLabel: "Co-first author", leadLabelZh: "共同第一作者",
+      citation: "Wu F, Zhu B, Feng S, et al. The Brain–Gut Health Initiative (BIGHI): A Prospective Cohort on Psychiatric Disorders in China. Research. 2026;9:1142. https://doi.org/10.34133/research.1142"
+    },
+    {
+      year: 2026, title: "Integrative multi-kingdom gut microbiome analysis uncovers clinical signatures of major depressive disorder",
+      authors: "Shuhao Chen, Baoyuan Zhu, Xiaodan Lu, et al.",
+      journal: "Journal of Affective Disorders", doi: "10.1016/j.jad.2026.121858", fullAuthors: ["Shuhao Chen", "Baoyuan Zhu", "Xiaodan Lu", "Yuanyuan Huang", "Shuhong Wang", "Wei Wang", "Guanchu Chen", "Xuecheng Wu", "Jiayi Zhou", "Fengchun Wu", "Kai Wu"], volume: "408", pages: "121858", key: "Chen2026MultikingdomMDD", topic: "Multi-kingdom", focus: "Metagenomic analysis of bacteria, archaea, viruses and eukaryotes in first-episode, drug-naïve depression, including clinical associations and exploratory classifiers.", focusZh: "在首发未用药抑郁症队列中联合分析细菌、古菌、病毒和真核微生物，并探索临床关联与辅助区分模型。", role: "lead", leadLabel: "Co-first author", leadLabelZh: "共同第一作者",
+      citation: "Chen S, Zhu B, Lu X, et al. Integrative multi-kingdom gut microbiome analysis uncovers clinical signatures of major depressive disorder. Journal of Affective Disorders. 2026;408:121858. https://doi.org/10.1016/j.jad.2026.121858"
+    },
+    {
+      year: 2026, title: "Continuous Alterations in the Gut Microbial Landscape Associated With Suicidal Ideation in First-Episode Drug-naïve Major Depressive Disorder",
+      authors: "Liqin Liang, Shuhao Chen, Baoyuan Zhu, et al.",
+      journal: "CNS Neuroscience & Therapeutics", doi: "10.1002/cns.70892", fullAuthors: ["Liqin Liang", "Shuhao Chen", "Baoyuan Zhu", "Yuanyuan Huang", "Xiaodan Lu", "Shuhong Wang", "Wei Wang", "Rui Han", "Jing Zhou", "Dongsheng Xiong", "Hehua Li", "Xiaobo Li", "Yuping Ning", "Fengchun Wu", "Kai Wu"], volume: "32", number: "6", pages: "e70892", key: "Liang2026SuicidalIdeation", topic: "Psychiatry", focus: "Reports continuous microbiome changes associated with suicidal ideation in a first-episode, drug-naïve MDD cohort; associations do not establish causality.", focusZh: "分析首发未用药抑郁症中与自杀意念相关的连续肠道微生态改变；观察性关联不等于因果证据。", role: "lead", leadLabel: "Co-first author", leadLabelZh: "共同第一作者",
+      citation: "Liang L, Chen S, Zhu B, et al. Continuous Alterations in the Gut Microbial Landscape Associated With Suicidal Ideation in First-Episode Drug-naïve Major Depressive Disorder. CNS Neuroscience & Therapeutics. 2026;32(6):e70892. https://doi.org/10.1002/cns.70892"
+    },
+    {
+      year: 2026, title: "Microbiota-immune crosstalk underlying cancer-induced depression in patients with breast cancer",
+      authors: "Yuanyuan Li, Baoyuan Zhu, Xiaomei Wu, et al.",
+      journal: "Journal of Affective Disorders", doi: "10.1016/j.jad.2026.121694", fullAuthors: ["Yuanyuan Li", "Baoyuan Zhu", "Xiaomei Wu", "Lanlan Meng", "Songyin Huang", "Kai Wu"], volume: "407", pages: "121694", key: "Li2026CancerDepression", topic: "Immune", focus: "Explores associations among gut microbiota, inflammatory cytokines and mood changes in people undergoing breast-cancer treatment.", focusZh: "研究乳腺癌治疗相关抑郁中肠道微生物、炎症因子和情绪变化之间的统计关联。", role: "lead", leadLabel: "Co-first author", leadLabelZh: "共同第一作者",
+      citation: "Li Y, Zhu B, Wu X, et al. Microbiota-immune crosstalk underlying cancer-induced depression in patients with breast cancer. Journal of Affective Disorders. 2026;407:121694. https://doi.org/10.1016/j.jad.2026.121694"
+    },
+    {
+      year: 2026, title: "Gut microbiota mediates the beneficial effects of exercise on autism-like behaviors",
+      authors: "Jiugen Zhong, Baoyuan Zhu, Zhi Zou, et al.",
+      journal: "BMC Microbiology", doi: "10.1186/s12866-025-04632-x", fullAuthors: ["Jiugen Zhong", "Baoyuan Zhu", "Zhi Zou", "Yinhua Li", "Yanqing Feng", "Kai Wu", "Xiaohui Hou"], volume: "26", number: "1", pages: "157", key: "Zhong2026ExerciseAutism", topic: "Experimental", focus: "Animal-model study assessing exercise, fecal microbiota transfer and behavioral outcomes, with implications constrained to the experimental model.", focusZh: "通过动物模型评估运动、粪菌移植与行为变化之间的关系，研究结论需限定于实验模型。", role: "lead", leadLabel: "Co-first author", leadLabelZh: "共同第一作者",
+      citation: "Zhong J, Zhu B, Zou Z, et al. Gut microbiota mediates the beneficial effects of exercise on autism-like behaviors. BMC Microbiology. 2026;26:157. https://doi.org/10.1186/s12866-025-04632-x"
+    },
+    {
+      year: 2026, title: "Analysis of individualized brain–gut association networks and transcriptional patterns in major depressive disorder",
+      authors: "Wei Wang, Baoyuan Zhu, Yuanyuan Huang, et al.",
+      journal: "Interdisciplinary Medicine", doi: "10.1002/inmd.70165", fullAuthors: ["Wei Wang", "Baoyuan Zhu", "Yuanyuan Huang", "Liqin Liang", "Zhaobo Li", "Yunheng Diao", "Minxin Guo", "Heng Zhang", "Jing Zhou", "Fengchun Wu", "Kai Wu"], key: "Wang2026IndividualizedBrainGut", topic: "Neuroimaging", focus: "Analyzes individualized microbiome–brain association networks and contextualizes their regional patterns using external transcriptomic references.", focusZh: "研究个体化微生物组—脑网络关联，并利用外部转录组参考图谱解释其脑区分布。", role: "coauthor", leadLabel: "Co-author", leadLabelZh: "合作作者",
+      citation: "Wang W, Zhu B, Huang Y, et al. Analysis of individualized brain–gut association networks and transcriptional patterns in major depressive disorder. Interdisciplinary Medicine. 2026. https://doi.org/10.1002/inmd.70165"
+    },
+    {
+      year: 2025, title: "Multi-kingdom microbial changes and their associations with the clinical characteristics in schizophrenia patients",
+      authors: "Baoyuan Zhu, Liqin Liang, Shuhao Chen, et al.",
+      journal: "Translational Psychiatry", doi: "10.1038/s41398-025-03449-6", fullAuthors: ["Baoyuan Zhu", "Liqin Liang", "Shuhao Chen", "Hehua Li", "Yuanyuan Huang", "Wei Wang", "Heng Zhang", "Jing Zhou", "Dongsheng Xiong", "Xiaobo Li", "Junhao Li", "Yuping Ning", "Xuetao Shi", "Fengchun Wu", "Kai Wu"], volume: "15", number: "1", pages: "228", key: "Zhu2025SchizophreniaMicrobiome", topic: "Multi-kingdom", focus: "Profiles bacterial, archaeal, fungal and viral community differences and their clinical correlates in schizophrenia.", focusZh: "比较精神分裂症人群的细菌、古菌、真菌和病毒特征及其临床关联。", role: "lead", leadLabel: "Co-first author", leadLabelZh: "共同第一作者",
+      citation: "Zhu B, Liang L, Chen S, et al. Multi-kingdom microbial changes and their associations with the clinical characteristics in schizophrenia patients. Translational Psychiatry. 2025;15:228. https://doi.org/10.1038/s41398-025-03449-6"
+    },
+    {
+      year: 2025, title: "Exploring the relationship between the gut microbiota and cognitive function in schizophrenia patients with distinct weights",
+      authors: "Baoyuan Zhu, Liqin Liang, Yuanyuan Huang, et al.",
+      journal: "Schizophrenia Research", doi: "10.1016/j.schres.2025.04.017", fullAuthors: ["Baoyuan Zhu", "Liqin Liang", "Yuanyuan Huang", "Haiyuan Wang", "Jing Zhou", "Dongsheng Xiong", "Shaochuan Li", "Hehua Li", "Xiaobo Li", "Shuhao Chen", "Yuping Ning", "Fengchun Wu", "Kai Wu"], volume: "280", pages: "103-113", key: "Zhu2025SchizophreniaCognition", topic: "Cognition", focus: "Examines how BMI-stratified gut microbial profiles relate to cognitive outcomes in schizophrenia.", focusZh: "分析不同体重分层的精神分裂症人群中肠道微生物组与认知表现的关系。", role: "lead", leadLabel: "First author", leadLabelZh: "第一作者",
+      citation: "Zhu B, Liang L, Huang Y, et al. Exploring the relationship between the gut microbiota and cognitive function in schizophrenia patients with distinct weights. Schizophrenia Research. 2025;280:103–113. https://doi.org/10.1016/j.schres.2025.04.017"
+    },
+    {
+      year: 2025, title: "The association between gut microbiota and functional connectivity in cognitive impairment of first-episode major depressive disorder",
+      authors: "Yuanyuan Huang, Hehua Li, Baoyuan Zhu, et al.",
+      journal: "Translational Psychiatry", doi: "10.1038/s41398-025-03615-w", fullAuthors: ["Yuanyuan Huang", "Hehua Li", "Baoyuan Zhu", "Shixuan Feng", "Chenyu Liu", "Ziyun Zhang", "Yuping Ning", "Kai Wu", "Fengchun Wu"], volume: "15", number: "1", pages: "449", key: "Huang2025BrainGutCognition", topic: "Neuroimaging", focus: "Explores microbiome–functional connectivity associations in cognitive impairment in first-episode depression.", focusZh: "探索首发抑郁症认知损害中，微生物组差异与脑功能连接的统计关联。", role: "coauthor", leadLabel: "Co-author", leadLabelZh: "合作作者",
+      citation: "Huang Y, Li H, Zhu B, et al. The association between gut microbiota and functional connectivity in cognitive impairment of first-episode major depressive disorder. Translational Psychiatry. 2025. https://doi.org/10.1038/s41398-025-03615-w"
+    }
+  ],
+  repositories: [
+    { name: "SCUT MiniLab · Microbial Ecological Factors", url: "https://github.com/zbyloveyj/SCUT_Minilab_MEF", tag: "Computational microbiome", zh: "微生物生态因子分析与可视化，探索连续生态结构和跨人群投影。", en: "Ecological-factor modeling and reproducible analysis workflows for global gut microbiome variation.", type: "RESEARCH CODE" },
+    { name: "CLEAR-Microbiome", url: "https://github.com/zbyloveyj/CLEAR-Microbiome", tag: "Contrastive learning", zh: "对比式微生物组与临床表型关联分析框架，当前为研究项目。", en: "Contrastive representation learning for microbiome–clinical associations; research-stage framework.", type: "RESEARCH PROJECT" },
+    { name: "Normative Microbial Network Modeling", url: "https://github.com/zbyloveyj/Normative-Microbial-Network-Modeling-Framework", tag: "Normative networks", zh: "面向健康参考微生物网络与生态偏离表征的研究性建模框架。", en: "Healthy-reference ecological networks and deviation modeling for microbiome research.", type: "RESEARCH PROJECT" },
+    { name: "BioAgentLab", url: "https://github.com/zbyloveyj/BioAgentLab", tag: "AI agents · Education", zh: "面向证据约束的科研智能体、可复现计算与生物学教学。", en: "Open educational tools for evidence-aware AI agents, reproducible analysis and biomedical research.", type: "OPEN EDUCATION" }
+  ]
+};
