@@ -1,34 +1,87 @@
 #!/usr/bin/env python3
-"""Validate the 50-chapter handbook source before GitHub Pages publication."""
+"""Static smoke tests for the public graduate research handbook."""
 from pathlib import Path
-import json, re
-root=Path("graduate-research-handbook")
-data=json.loads((root/"data/catalog.json").read_text(encoding="utf-8"))
-assert len(data["volumes"])==9, "must have 9 parts"
-chapters=data["chapters"]
-assert len(chapters)==50 and [x["n"] for x in chapters]==list(range(1,51)), "must have 50 sequential chapters"
-assert all(x["ready"] for x in chapters), "cannot claim release with unpublished chapters"
+from html.parser import HTMLParser
+import csv
+import json
+import re
+import subprocess
+import sys
+
+ROOT = Path("graduate-research-handbook")
+data = json.loads((ROOT / "data/catalog.json").read_text(encoding="utf-8"))
+volumes, chapters = data["volumes"], data["chapters"]
+assert len(volumes) == 9, "Expected nine book parts"
+assert len(chapters) == 50, "Expected fifty chapters"
+assert [x["n"] for x in chapters] == list(range(1, 51))
+assert all(x["ready"] for x in chapters), "Only release completed chapter drafts"
+
 for item in chapters:
-    path=root/"content"/f'{item["n"]:02d}.md'
-    assert path.is_file(), f"missing {path}"
-    txt=path.read_text(encoding="utf-8")
-    assert len(txt)>900, f"chapter too short: {path}"
-    n = item["n"]
-    digits = "零一二三四五六七八九"
-    tens, units = divmod(n, 10)
-    if n == 10:
-        cn = "十"
-    elif n < 10:
-        cn = digits[n]
-    elif n < 20:
-        cn = "十" + (digits[units] if units else "")
-    else:
-        cn = digits[tens] + "十" + (digits[units] if units else "")
-    assert txt.startswith(f'# 第{n}章') or txt.startswith(f'# 第{cn}章'), f"wrong heading {path}"
-    assert len(re.findall(r"^## ",txt,re.M))>=5, f"missing sections {path}"
-for name in ["index.html","preface.html","assets/app.js","assets/style.css","content/00-preface.md"]:
-    assert (root/name).is_file(), f"missing site asset {name}"
-html=(root/"index.html").read_text(encoding="utf-8")
-assert '"ready":true' in html, "embedded catalog has not been activated"
-assert "50</strong><small>已开放章节" in html, "public chapter count mismatched"
-print("PASS: handbook website has 9 parts and 50 substantive chapter drafts.")
+    p = ROOT / "content" / f'{item["n"]:02d}.md'
+    assert p.is_file(), f"Missing chapter: {p}"
+    md = p.read_text(encoding="utf-8")
+    assert len(md) > 900, f"Insufficient chapter text: {p}"
+    assert re.match(r"^# 第(?:\d+|[零一二三四五六七八九十]+)章", md), f"Bad chapter heading: {p}"
+    assert len(re.findall(r"^## ", md, flags=re.M)) >= 5, f"Missing main sections: {p}"
+
+required = [
+    "index.html", "preface.html", "search.html", "resources.html",
+    "assets/app.js", "assets/style.css", "assets/search.js", "assets/search.css",
+    "assets/resources.css", "content/00-preface.md", "downloads/complete-manuscript.md",
+    "data/search-index.json"
+]
+for relative in required:
+    assert (ROOT / relative).is_file(), f"Missing published file: {relative}"
+
+html = (ROOT / "index.html").read_text(encoding="utf-8")
+embedded = re.search(r'<script id="catalog-data" type="application/json">([\s\S]*?)</script>', html)
+assert embedded, "Reader missing embedded navigation catalog"
+site_data = json.loads(embedded.group(1))
+assert site_data["chapters"] == chapters, "Embedded chapter flags or titles differ from source"
+for phrase in ['id="reader-mobile-toolbar"', 'href="resources.html"', 'href="search.html"']:
+    assert phrase in html, f"Reading UI missing {phrase}"
+assert "50</strong><small>已开放章节" in html, "Wrong published count"
+
+index = json.loads((ROOT / "data/search-index.json").read_text(encoding="utf-8"))
+assert len(index) == 50, "Full-text index must cover every chapter"
+for item, search in zip(chapters, index):
+    assert item["n"] == search["n"], f"Index chapter mismatch at {item['n']}"
+    assert item["title"] == search["title"], f"Index title mismatch at {item['n']}"
+    assert len(search["heads"]) >= 5, f"Missing search headings: {item['n']}"
+    assert len(search["text"]) >= 350, f"Missing indexed body: {item['n']}"
+
+book = (ROOT / "downloads/complete-manuscript.md").read_text(encoding="utf-8")
+assert len(book) > 120000, "Combined manuscript incomplete"
+assert len(re.findall(r"^# 第(?:\d+|[零一二三四五六七八九十]+)章", book, re.M)) == 50
+for tag in ["17.12", "29.11", "36.10", "40.12"]:
+    assert tag in book, f"Offline edition missing revision: {tag}"
+
+class Links(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.hrefs = []
+    def handle_starttag(self, tag, attrs):
+        if tag == "a":
+            href = dict(attrs).get("href", "")
+            if href:
+                self.hrefs.append(href)
+
+page = Links()
+page.feed((ROOT / "resources.html").read_text(encoding="utf-8"))
+downloads = set(link for link in page.hrefs if link.startswith("downloads/"))
+assert len(downloads) >= 23, f"Expected full resource collection: got {len(downloads)}"
+for link in downloads:
+    assert (ROOT / link).is_file(), f"Broken resource link: {link}"
+
+sample = ROOT / "downloads/synthetic-demo.csv"
+with sample.open(newline="", encoding="utf-8") as f:
+    records = list(csv.DictReader(f))
+assert len(records) == 64 and len(set(r["id"] for r in records)) == 64
+assert {r["group"] for r in records} == {"0", "1"}
+assert {r["batch"] for r in records} == {"A", "B"}
+p = ROOT / "downloads/analyze-demo.py"
+run = subprocess.run([sys.executable, str(p)], capture_output=True, text=True, check=True)
+assert "Total rows: 64" in run.stdout, "Demo analysis failed"
+
+print("PASS: nine parts, fifty chapters, full-text index and expanded offline manuscript")
+print("PASS: resources page, all download links, simulated dataset and executable Python demo")
