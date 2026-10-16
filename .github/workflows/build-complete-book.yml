@@ -1,0 +1,46 @@
+name: Build complete research handbook
+on:
+  push:
+    branches: [main]
+    paths:
+      - "graduate-research-handbook/tools/build_book.py"
+      - "graduate-research-handbook/downloads/complete-manuscript.md"
+      - ".github/workflows/build-complete-book.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: final-handbook-build
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install Chinese typefaces and PDF dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk libpango-1.0-0 libpangocairo-1.0-0
+          python3 -m pip install --user markdown beautifulsoup4 weasyprint python-docx pypdf
+      - name: Build, verify and publish books
+        run: python3 graduate-research-handbook/tools/build_book.py
+      - name: Upload final publication package
+        uses: actions/upload-artifact@v4
+        with:
+          name: handbook-v2-pdf-word-markdown
+          path: |
+            graduate-research-handbook/downloads/complete-book.pdf
+            graduate-research-handbook/downloads/complete-book.docx
+            graduate-research-handbook/downloads/complete-manuscript.md
+          retention-days: 90
+      - name: Save PDF and Word on main branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add graduate-research-handbook/downloads/complete-book.pdf graduate-research-handbook/downloads/complete-book.docx
+          if ! git diff --staged --quiet; then
+            git commit -m "Publish handbook PDF and Word files [skip ci]"
+            git push origin HEAD:main
+          fi
