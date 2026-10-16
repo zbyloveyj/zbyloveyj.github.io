@@ -120,10 +120,10 @@ if(!current||current<1||current>all.length||!all[current-1].ready){
   $("#text-body").innerHTML="<p>正在载入本章正文……</p>";
   fetch("content/"+fmt(current)+".md").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.text();}).then(function(md){
     $("#text-body").innerHTML=markdown(md);restoreMarks();
-    $("#toc-heads").innerHTML=$("#text-body h2").map(function(h,i){return "<a href='#"+h.id+"'>"+(i+1)+". "+esc(h.textContent)+"</a>";}).join("");
+    $("#toc-heads").innerHTML=$$("#text-body h2").map(function(h,i){return "<a href='#"+h.id+"'>"+(i+1)+". "+esc(h.textContent)+"</a>";}).join("");
     var span=$("#reading-estimate");if(span)span.textContent="　·　约"+Math.max(2,Math.ceil(md.replace(/\s/g,"").length/460))+"分钟阅读";
     var targetWord=new URLSearchParams(location.search).get("find");
-    if(targetWord){var target=$("#text-body h2,#text-body h3,#text-body p").find(function(el){return el.textContent.toLocaleLowerCase().includes(targetWord.toLocaleLowerCase())});if(target){target.classList.add("search-target");requestAnimationFrame(function(){target.scrollIntoView({block:"center",behavior:"smooth"})})}}
+    if(targetWord){var target=$$("#text-body h2,#text-body h3,#text-body p").find(function(el){return el.textContent.toLocaleLowerCase().includes(targetWord.toLocaleLowerCase())});if(target){target.classList.add("search-target");requestAnimationFrame(function(){target.scrollIntoView({block:"center",behavior:"smooth"})})}}
     else if(location.hash){var anchor=document.getElementById(location.hash.slice(1));if(anchor)requestAnimationFrame(function(){anchor.scrollIntoView()})}
     var resume=$("#resume-position");
     if(resume&&lastPosition>8&&lastPosition<98&&!targetWord&&!location.hash){
