@@ -1,0 +1,50 @@
+
+.print-top{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:50;padding:13px 19px}
+.print-topin{max-width:1040px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.print-title{font:600 15px var(--serif)}.print-topnav{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+.print-topnav a{font-size:12px;color:var(--accent)}
+.print-intro{max-width:780px;margin:36px auto;padding:0 22px}
+.print-intro h1{font:600 34px/1.42 var(--serif);margin:15px 0}
+.print-intro p{font-size:13px;line-height:1.95;color:var(--muted)}
+.print-paper{width:156mm;max-width:calc(100% - 24px);margin:0 auto 65px;background:#fffefa;color:#24312b;border:1px solid #dfe4db;box-shadow:0 6px 26px rgba(20,35,26,.07);padding:20mm 16mm;font-family:"Noto Serif CJK SC","Songti SC","STSong",Georgia,serif}
+.print-cover{height:180mm;display:flex;flex-direction:column;justify-content:space-between;padding:12mm 0 8mm}
+.print-cover .overline{font:700 9pt var(--sans);color:#477667;letter-spacing:.17em}
+.print-cover h1{font:600 37pt/1.3 var(--serif);letter-spacing:.09em;margin:20mm 0 6mm}
+.print-cover .subtitle{font:11pt/2 var(--serif);color:#65796d}
+.print-cover .colophon{font:10pt/2 var(--serif);color:#557063}
+.print-toc{padding:12mm 0 20mm}.print-toc h1{font-size:23pt;margin:0 0 13mm}
+.toc-part{border-top:1px solid #d5ddd5;padding:10px 0 5px;margin-top:10px;font-weight:700;font-size:10pt;color:#3f6a59}
+.toc-entry{display:flex;gap:10px;padding:3px 0;font-size:9pt;line-height:1.65}.toc-entry span{font:9pt Georgia,serif;color:#74877e;min-width:18px}
+.print-part{min-height:160mm;padding:40mm 0 20mm}
+.part-number{font:700 10pt var(--sans);letter-spacing:.15em;color:#4c7163}
+.print-part h1{font-size:23pt;line-height:1.5;margin:19mm 0 7mm}.print-part p{font-size:10pt;color:#76867d}
+.print-chapter{font-size:10.5pt;line-height:1.84;margin-bottom:21mm}
+.chapter-label{color:#557e6a;letter-spacing:.15em;font:700 8.5pt var(--sans);margin-bottom:7mm}
+.print-chapter h1{font-size:20pt;line-height:1.55;margin:0 0 10mm}
+.print-chapter h2{color:#2d5445;font-size:13pt;line-height:1.65;margin:10mm 0 3mm}
+.print-chapter h3{font-size:11.5pt;margin:8mm 0 2mm}
+.print-chapter p{margin:0 0 4.5mm;text-align:justify;overflow-wrap:anywhere}
+.print-chapter blockquote{margin:5mm 0 7mm;padding:3mm 5mm;background:#f1f4ee;border-left:2px solid #799c8c;color:#4a5a50}
+.print-chapter ul,.print-chapter ol{padding-left:7mm;margin:4mm 0 5mm}
+.print-chapter li{margin:2mm 0}
+.print-chapter pre{font:8pt/1.5 Consolas,"DejaVu Sans Mono",monospace;padding:4mm;background:#f5f6f3;border:1px solid #e0e5df;white-space:pre-wrap;overflow-wrap:anywhere;margin:5mm 0}
+.print-chapter p code{font:.89em Consolas,monospace}
+.print-chapter .table-scroller{margin:5mm 0;overflow:visible;border:0}
+.print-chapter table{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;font:8pt/1.6 var(--sans)}
+.print-chapter th,.print-chapter td{padding:5px;border:1px solid #d7ddd5;word-break:break-word;text-align:left}
+.print-chapter th{background:#eff2ed}.print-chapter a{color:#3d7560;text-decoration:underline}
+@page{size:A5;margin:17mm 15mm 20mm}
+@media print{
+ html,body{background:#fff!important;color:#24312b!important;margin:0}
+ .print-top,.print-intro{display:none!important}
+ .print-paper{width:auto;max-width:none;margin:0;padding:0;border:0;box-shadow:none}
+ .print-cover{break-after:page;height:168mm}
+ .print-toc{break-after:page;padding:0}
+ .print-part{break-before:page;break-after:page;min-height:165mm;display:flex;flex-direction:column;justify-content:center}
+ .print-chapter{break-before:page;margin:0}
+ .print-chapter h1,.print-chapter h2,.print-chapter h3{break-after:avoid}
+ .print-chapter p{orphans:3;widows:3}
+ .print-chapter table,.print-chapter pre{break-inside:avoid}
+ .print-chapter a{color:#24312b;text-decoration:none}
+}
+@media(max-width:680px){.print-intro h1{font-size:28px}.print-paper{width:auto;padding:30px 23px}.print-cover{height:84vh}.print-cover h1{font-size:37px}.print-chapter{font-size:15px;line-height:1.92}.print-chapter h1{font-size:26px}.print-chapter h2{font-size:20px}.print-topin{align-items:flex-start}}
