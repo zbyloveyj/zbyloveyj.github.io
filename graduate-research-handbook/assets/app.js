@@ -68,13 +68,24 @@ function markdown(md){
   flush();if(inCode)out.push("<pre><code>"+esc(code.join("\n"))+"</code></pre>");
   return out.join("\n");
 }
-function setProgress(){var max=document.documentElement.scrollHeight-innerHeight;var p=max>0?Math.round(scrollY/max*100):100;$("#progress").style.width=p+"%";var n=new URLSearchParams(location.search).get("chapter");if(n)store.set("progress-"+Number(n),p);}
+function setProgress(remember){
+ var max=document.documentElement.scrollHeight-innerHeight;
+ var p=max>0?Math.round(scrollY/max*100):100;
+ $("#progress").style.width=p+"%";
+ var n=new URLSearchParams(location.search).get("chapter");
+ if(n){
+   var old=Number(store.get("progress-"+Number(n),0))||0;
+   if(p>old)store.set("progress-"+Number(n),p);
+   if(remember!==false)store.set("position-"+Number(n),p);
+ }
+}
 function openNotes(){var box=$("#notes");box.hidden=false;renderNotes();}
 function notesList(){return store.get("notes-"+current,[]);}
+var refreshHighlights=function(){};
 function renderNotes(){
   var arr=notesList(),list=$("#notelist");list.replaceChildren();
   if(!arr.length){var p=document.createElement("p");p.textContent="在文章中选中文字，点击“保存摘录”，就可以在这里写笔记。笔记保存在本设备浏览器中。";list.appendChild(p);return;}
-  arr.forEach(function(n,i){var item=document.createElement("div");item.className="noteitem";var q=document.createElement("blockquote");q.textContent=n.quote;var t=document.createElement("textarea");t.placeholder="为这段摘录写下自己的思考……";t.value=n.comment||"";t.addEventListener("change",function(){var a=notesList();if(a[i]){a[i].comment=t.value;store.set("notes-"+current,a);}});var d=document.createElement("button");d.textContent="删除摘录";d.addEventListener("click",function(){var a=notesList();a.splice(i,1);store.set("notes-"+current,a);renderNotes();});item.appendChild(q);item.appendChild(t);item.appendChild(d);list.appendChild(item);});
+  arr.forEach(function(n,i){var item=document.createElement("div");item.className="noteitem";var q=document.createElement("blockquote");q.textContent=n.quote;var t=document.createElement("textarea");t.placeholder="为这段摘录写下自己的思考……";t.value=n.comment||"";t.addEventListener("input",function(){var a=notesList();if(a[i]){a[i].comment=t.value;store.set("notes-"+current,a);}});var d=document.createElement("button");d.textContent="删除摘录";d.addEventListener("click",function(){var a=notesList();a.splice(i,1);store.set("notes-"+current,a);renderNotes();refreshHighlights();});item.appendChild(q);item.appendChild(t);item.appendChild(d);list.appendChild(item);});
 }
 var current=Number(new URLSearchParams(location.search).get("chapter"))||0;
 catalogView("#volume-list",false);catalogView("#side-content",true);
@@ -88,6 +99,7 @@ if(!current||current<1||current>all.length||!all[current-1].ready){
   $("#home").hidden=true;$("#reader").hidden=false;$("#mobile-menu").hidden=false;
  var dock=$("#reader-mobile-toolbar");if(dock)dock.hidden=false;
   store.set("last",current);$("#chapter-part").textContent="第"+["一","二","三","四","五","六","七","八","九"][all[current-1].part-1]+"编 · "+catalog.volumes[all[current-1].part-1];$("#ch-number").textContent=fmt(current);$("#ch-title").textContent="第"+current+"章　"+all[current-1].title;document.title=all[current-1].title+"｜从读研到做研究";
+  var lastPosition=Number(store.get("position-"+current,0))||0;
   var scale=store.get("scale",1);document.documentElement.style.setProperty("--scale",scale);
   $("#font-up").addEventListener("click",function(){scale=Math.min(1.25,Math.round((scale+.08)*100)/100);root.style.setProperty("--scale",scale);store.set("scale",scale);});
   $("#font-down").addEventListener("click",function(){scale=Math.max(.88,Math.round((scale-.08)*100)/100);root.style.setProperty("--scale",scale);store.set("scale",scale);});
@@ -113,7 +125,17 @@ if(!current||current<1||current>all.length||!all[current-1].ready){
     var targetWord=new URLSearchParams(location.search).get("find");
     if(targetWord){var target=$("#text-body h2,#text-body h3,#text-body p").find(function(el){return el.textContent.toLocaleLowerCase().includes(targetWord.toLocaleLowerCase())});if(target){target.classList.add("search-target");requestAnimationFrame(function(){target.scrollIntoView({block:"center",behavior:"smooth"})})}}
     else if(location.hash){var anchor=document.getElementById(location.hash.slice(1));if(anchor)requestAnimationFrame(function(){anchor.scrollIntoView()})}
-    setProgress();
+    var resume=$("#resume-position");
+    if(resume&&lastPosition>8&&lastPosition<98&&!targetWord&&!location.hash){
+      resume.hidden=false;
+      resume.textContent="↳ 返回上次阅读位置（"+Math.round(lastPosition)+"%）";
+      resume.addEventListener("click",function(){
+        var max=document.documentElement.scrollHeight-innerHeight;
+        window.scrollTo({top:Math.max(0,max*lastPosition/100),behavior:"smooth"});
+        resume.hidden=true;
+      },{once:true});
+    }
+    setProgress(false);
   }).catch(function(e){$("#text-body").textContent="章节载入失败，请刷新页面或从 GitHub 源码查看。"+e.message;});
   window.addEventListener("scroll",setProgress,{passive:true});
   function restoreMarks(){
