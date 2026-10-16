@@ -25,6 +25,12 @@ jobs:
           node --check assets/v3.js
           node --check graduate-research-handbook/assets/app.js
           node --check graduate-research-handbook/assets/search.js
+          node --check graduate-research-handbook/assets/library.js
+          node --check graduate-research-handbook/assets/workshop.js
+          node --check graduate-research-handbook/assets/print-book.js
+          node --check graduate-research-handbook/assets/plan.js
+      - name: Browser smoke test of chapter reader, workshop and printable book
+        run: python3 tests/browser_smoke.py
       - name: Check staged GitHub profile README
         run: |
           test -s github-profile/README.md

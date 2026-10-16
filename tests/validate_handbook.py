@@ -25,9 +25,11 @@ for item in chapters:
     assert len(re.findall(r"^## ", md, flags=re.M)) >= 5, f"Missing main sections: {p}"
 
 required = [
-    "index.html", "preface.html", "search.html", "resources.html",
+    "index.html", "preface.html", "search.html", "resources.html", "library.html", "workshop.html", "print-book.html", "plan.html",
     "assets/app.js", "assets/style.css", "assets/search.js", "assets/search.css",
-    "assets/resources.css", "content/00-preface.md", "downloads/complete-manuscript.md",
+    "assets/resources.css", "assets/library.js", "assets/workshop.js", "assets/print-book.js",
+    "assets/library.css", "assets/workshop.css", "assets/print-book.css",
+    "content/00-preface.md", "downloads/complete-manuscript.md",
     "data/search-index.json"
 ]
 for relative in required:
@@ -38,7 +40,7 @@ embedded = re.search(r'<script id="catalog-data" type="application/json">([\s\S]
 assert embedded, "Reader missing embedded navigation catalog"
 site_data = json.loads(embedded.group(1))
 assert site_data["chapters"] == chapters, "Embedded chapter flags or titles differ from source"
-for phrase in ['id="reader-mobile-toolbar"', 'href="resources.html"', 'href="search.html"']:
+for phrase in ['id="reader-mobile-toolbar"', 'href="resources.html"', 'href="search.html"', 'href="library.html"', 'href="print-book.html"', 'href="workshop.html"']:
     assert phrase in html, f"Reading UI missing {phrase}"
 assert "50</strong><small>已开放章节" in html, "Wrong published count"
 
@@ -82,6 +84,16 @@ assert {r["batch"] for r in records} == {"A", "B"}
 p = ROOT / "downloads/analyze-demo.py"
 run = subprocess.run([sys.executable, str(p)], capture_output=True, text=True, check=True)
 assert "Total rows: 64" in run.stdout, "Demo analysis failed"
+
+reader_js=(ROOT/"assets/app.js").read_text(encoding="utf-8")
+assert not re.search(r'(?<!\$)\$\("#text-body[^"]*"\)\.(?:map|find)\(', reader_js), "querySelector/array-method regression"
+print_js=(ROOT/"assets/print-book.js").read_text(encoding="utf-8")
+assert 'window.print()' in print_js and 'chapter' in print_js, "print edition missing functionality"
+library_html=(ROOT/"library.html").read_text(encoding="utf-8")
+assert '"gradbook-reader-backup"' in (ROOT/"assets/library.js").read_text(encoding="utf-8"), "personal backup invalid"
+assert library_html.count('"n":')>=50, "library catalog incomplete"
+plan_html=(ROOT/"plan.html").read_text(encoding="utf-8")
+assert plan_html.count('"tasks":')==12, "12-week curriculum incomplete"
 
 print("PASS: nine parts, fifty chapters, full-text index and expanded offline manuscript")
 print("PASS: resources page, all download links, simulated dataset and executable Python demo")
