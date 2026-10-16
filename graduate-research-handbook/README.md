@@ -1,8 +1,23 @@
-# 从读研到做研究 · 在线阅读
+# 《从读研到做研究》· V2.0完整编辑版
+
+作者：一心问道 · 2026年10月16日
+
+九编五十章、四个附录及配套实操资料，已作为完整的研究生学术入门教材编辑版发布。
+
+- [在线阅读](https://zbyloveyj.github.io/graduate-research-handbook/)
+- [完整版PDF](downloads/complete-book.pdf)
+- [可编辑Word](downloads/complete-book.docx)
+- [完整Markdown](downloads/complete-manuscript.md)
+- [研究训练模板](resources.html)
+- [科研实践案例](workshop.html)
+
+**出版状态：**这是完整的作者编辑版，而非已经经过外部同行评审、出版社版权核查与正式发行审校的出版终审版。涉及具体招生、法律、伦理和出版规范，须重新核实适用的年度和单位规则。
+
+## 历次版本说明
 
 - 作者：一心问道
 - 规划：九编、五十章
-- 当前发布：九编五十章全部正文初稿（2026年10月），并将逐章扩写、更新来源与编辑校对
+- 当前发布：V2.0完整编辑版（五十章及四个附录），后续按勘误与规范变化继续更新。
 - 阅读网址：https://zbyloveyj.github.io/graduate-research-handbook/
 
 站点采用原生HTML/CSS/JS，不依赖第三方托管JS或远程字体。支持手机、平板、电脑自适应；目录检索、章节导航、进度记录、字号调整、明暗模式、收藏、摘录与笔记导出。

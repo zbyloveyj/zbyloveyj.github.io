@@ -57,6 +57,7 @@ def build_html(soup):
             if ch["part"]==i:
                 part_chapters.append("<div class='toc-row'><span>"+str(ch["n"]).zfill(2)+"</span><a href='#chapter-"+str(ch["n"])+"'>"+escape(ch["title"])+"</a></div>")
     css = """
+@page:first { @top-right { content: none; } }
 @page {
   size: A5;
   margin: 18mm 16mm 18mm 16mm;
@@ -66,7 +67,7 @@ def build_html(soup):
 html {font-family:"Noto Serif CJK SC","Noto Serif CJK",serif;color:#25382f;}
 body {font-size:10pt;line-height:1.78;}
 p {text-align:justify;margin:0 0 3.5mm;orphans:3;widows:3;overflow-wrap:anywhere;}
-.cover {page-break-after:always;height:180mm;display:flex;flex-direction:column;justify-content:space-between;}
+.cover {page-break-after:always;height:150mm;display:flex;flex-direction:column;justify-content:space-between;}
 .cover .label {font-family:sans-serif;letter-spacing:.18em;color:#557d6c;font-size:9pt;}
 .cover h1 {font-size:31pt;line-height:1.4;color:#263e32;margin:45mm 0 0;}
 .cover p {color:#617166;text-align:left;}
