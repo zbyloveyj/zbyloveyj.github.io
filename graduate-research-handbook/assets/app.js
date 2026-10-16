@@ -139,37 +139,98 @@ if(!current||current<1||current>all.length||!all[current-1].ready){
   }).catch(function(e){$("#text-body").textContent="章节载入失败，请刷新页面或从 GitHub 源码查看。"+e.message;});
   window.addEventListener("scroll",setProgress,{passive:true});
   function restoreMarks(){
+    var paragraphs=$$("#text-body p");
+    paragraphs.forEach(function(p){
+      if(!p.dataset.originalHtml)p.dataset.originalHtml=p.innerHTML;
+      else p.innerHTML=p.dataset.originalHtml;
+    });
+    var grouped=new Map();
     notesList().forEach(function(note){
-      if(!note.pId||!note.quote)return;
-      var p=document.getElementById(note.pId);
-      if(!p||!p.textContent.includes(note.quote))p=$("#text-body p").find(function(el){return el.textContent.includes(note.quote)});
+      if(typeof note.quote!=="string"||!note.quote)return;
+      var p=note.pId?document.getElementById(note.pId):null;
+      if(!p||!p.textContent.includes(note.quote))
+        p=paragraphs.find(function(el){return el.textContent.includes(note.quote)});
       if(!p)return;
-      var walker=document.createTreeWalker(p,NodeFilter.SHOW_TEXT),node;
-      while((node=walker.nextNode())){
-        if(node.parentElement&&node.parentElement.closest("mark"))continue;
-        var at=node.textContent.indexOf(note.quote);
-        if(at<0)continue;
-        var span=document.createElement("mark");
-        var before=document.createTextNode(node.textContent.slice(0,at));
-        span.textContent=note.quote;
-        var after=document.createTextNode(node.textContent.slice(at+note.quote.length));
-        node.replaceWith(before,span,after);
-        break;
-      }
+      var body=p.textContent;
+      var start=Number.isInteger(note.start)?note.start:body.indexOf(note.quote);
+      if(body.slice(start,start+note.quote.length)!==note.quote)start=body.indexOf(note.quote);
+      if(start<0)return;
+      if(!grouped.has(p))grouped.set(p,[]);
+      grouped.get(p).push([start,start+note.quote.length]);
+    });
+    grouped.forEach(function(intervals,p){
+      intervals.sort(function(a,b){return a[0]-b[0]});
+      var merged=[];
+      intervals.forEach(function(pair){
+        var last=merged[merged.length-1];
+        if(last&&pair[0]<=last[1])last[1]=Math.max(last[1],pair[1]);
+        else merged.push(pair.slice());
+      });
+      merged.reverse().forEach(function(pair){
+        var walker=document.createTreeWalker(p,NodeFilter.SHOW_TEXT),nodes=[],node,pos=0;
+        while((node=walker.nextNode())){
+          nodes.push({node:node,start:pos,end:pos+node.nodeValue.length});
+          pos+=node.nodeValue.length;
+        }
+        var first=nodes.find(function(x){return pair[0]>=x.start&&pair[0]<x.end});
+        var last=nodes.find(function(x){return pair[1]>x.start&&pair[1]<=x.end});
+        if(!first||!last)return;
+        var range=document.createRange();
+        range.setStart(first.node,pair[0]-first.start);
+        range.setEnd(last.node,pair[1]-last.start);
+        var mark=document.createElement("mark");
+        mark.append(range.extractContents());
+        range.insertNode(mark);
+      });
     });
   }
-  var selectedPId="";
-  var selectionText="";
-  document.addEventListener("mouseup",function(ev){
-    if(ev.target.closest("button,.notes,textarea"))return;
-    var s=window.getSelection();selectionText=s?s.toString().trim():"";
-    var menu=$("#selection-button");
-    if(!selectionText||selectionText.length>600||!$("#text-body").contains(s.anchorNode)){menu.style.display="none";return;}
-    var para=s.anchorNode&&s.anchorNode.parentElement?s.anchorNode.parentElement.closest("p"):null;selectedPId=para?para.id:"";
-    var rect=s.getRangeAt(0).getBoundingClientRect();
-    menu.style.left=Math.max(8,Math.min(innerWidth-125,rect.left))+"px";menu.style.top=Math.max(13,rect.top-44)+"px";menu.style.display="block";
+  refreshHighlights=restoreMarks;
+  var selectedPId="",selectedStart=0,selectionText="";
+  function showSelectionMenu(event){
+    if(event&&event.target&&event.target.closest&&event.target.closest("button,.notes,textarea"))return;
+    var selection=window.getSelection(),menu=$("#selection-button");
+    var range=selection&&selection.rangeCount?selection.getRangeAt(0):null;
+    if(!range||selection.isCollapsed){menu.style.display="none";return;}
+    var quote=selection.toString().trim();
+    if(!quote||quote.length>600||!$("#text-body").contains(range.commonAncestorContainer)){
+      menu.style.display="none";return;
+    }
+    var firstEl=range.startContainer.nodeType===1?range.startContainer:range.startContainer.parentElement;
+    var lastEl=range.endContainer.nodeType===1?range.endContainer:range.endContainer.parentElement;
+    var p=firstEl&&firstEl.closest?firstEl.closest("p"):null;
+    var q=lastEl&&lastEl.closest?lastEl.closest("p"):null;
+    if(!p||p!==q||!$("#text-body").contains(p)){
+      menu.style.display="none";return;
+    }
+    var prefix=document.createRange();prefix.selectNodeContents(p);
+    prefix.setEnd(range.startContainer,range.startOffset);
+    var raw=selection.toString();
+    selectedStart=prefix.toString().length+(raw.length-raw.trimStart().length);
+    selectedPId=p.id;selectionText=quote;
+    var rect=range.getBoundingClientRect();
+    menu.style.left=Math.max(8,Math.min(innerWidth-135,rect.left))+"px";
+    menu.style.top=Math.max(66,Math.min(innerHeight-50,rect.top-44))+"px";
+    menu.style.display="block";
+  }
+  document.addEventListener("mouseup",showSelectionMenu);
+  document.addEventListener("touchend",function(){
+    setTimeout(function(){showSelectionMenu(null)},140);
+  },{passive:true});
+  document.addEventListener("contextmenu",function(){
+    setTimeout(function(){showSelectionMenu(null)},100);
   });
-  $("#selection-button").addEventListener("click",function(){if(!selectionText)return;var a=notesList();a.push({quote:selectionText,pId:selectedPId,comment:"",time:new Date().toISOString()});store.set("notes-"+current,a);restoreMarks();this.style.display="none";window.getSelection().removeAllRanges();openNotes();});
+  $("#selection-button").addEventListener("click",function(){
+    if(!selectionText)return;
+    var saved=notesList();
+    saved.push({quote:selectionText,pId:selectedPId,start:selectedStart,
+      comment:"",at:new Date().toISOString()});
+    store.set("notes-"+current,saved);
+    this.style.display="none";
+    window.getSelection()?.removeAllRanges();
+    restoreMarks();
+    openNotes();
+  });
+
 }
 $("#theme-toggle").addEventListener("click",function(){root.dataset.theme=root.dataset.theme==="dark"?"light":"dark";store.set("theme",root.dataset.theme);});
 document.addEventListener("keydown",function(ev){if(ev.key==="Escape"){$("#notes").hidden=true;$("#selection-button").style.display="none";}if(!current||["INPUT","TEXTAREA"].includes(document.activeElement.tagName))return;if(ev.key==="ArrowRight"&&current<all.length)location.href=link(current+1);if(ev.key==="ArrowLeft"&&current>1)location.href=link(current-1);});
