@@ -30,6 +30,9 @@ try:
         ("?chapter=17", ['id="text-body"', '<h2 id="sec-', '第17章'], "chapter reader"),
         ("workshop.html", ['id="lab-raw">3.39', 'id="lab-adjusted">2.05'], "simulated data workshop"),
         ("print-book.html", ['id="chapter-50"', '已排版 50 章'], "book print layout"),
+        ("library.html", ['id="library-bookmarks"', 'id="resume-link"'], "personal reading library"),
+        ("plan.html", ['class="study-week"', '0 / 36 项训练已完成'], "twelve-week study plan"),
+        ("search.html?q=导师", ['class="search-result"', '找到'], "full-book search"),
     ]
     for path, expected, label in tests:
         cmd = [BROWSER, "--headless=new", "--no-sandbox", "--disable-gpu",
