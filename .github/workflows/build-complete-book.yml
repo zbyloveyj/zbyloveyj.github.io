@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - "graduate-research-handbook/tools/build_book.py"
+      - "graduate-research-handbook/tools/sync_book.py"
+      - "graduate-research-handbook/content/**"
+      - "graduate-research-handbook/data/catalog.json"
       - "graduate-research-handbook/downloads/complete-manuscript.md"
       - ".github/workflows/build-complete-book.yml"
   workflow_dispatch:
@@ -24,6 +27,8 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y fonts-noto-cjk libpango-1.0-0 libpangocairo-1.0-0
           python3 -m pip install --user markdown beautifulsoup4 weasyprint python-docx pypdf
+      - name: Synchronize chapter source and derived manuscripts
+        run: python3 graduate-research-handbook/tools/sync_book.py
       - name: Build, verify and publish books
         run: python3 graduate-research-handbook/tools/build_book.py
       - name: Upload final publication package
@@ -40,6 +45,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add graduate-research-handbook/downloads/complete-book.pdf graduate-research-handbook/downloads/complete-book.docx
+          git add graduate-research-handbook/downloads/complete-manuscript.md graduate-research-handbook/downloads/volume-*.md
+          git add graduate-research-handbook/data/search-index.json graduate-research-handbook/data/search-part-*.json
           if ! git diff --staged --quiet; then
             git commit -m "Publish handbook PDF and Word files [skip ci]"
             git push origin HEAD:main

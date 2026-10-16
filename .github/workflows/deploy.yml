@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Synchronize canonical content before the QA checks
+        run: python3 graduate-research-handbook/tools/sync_book.py
       - name: Validate academic pages and handbook
         run: |
           python3 tests/validate_site.py
