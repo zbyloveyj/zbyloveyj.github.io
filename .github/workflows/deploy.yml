@@ -19,6 +19,7 @@ jobs:
           python3 tests/validate_site.py
           python3 tests/validate_handbook.py
           python3 tests/editorial_quality.py
+          python3 tests/editorial_example.py
       - name: Check JavaScript syntax
         run: |
           node --check assets/data.js
