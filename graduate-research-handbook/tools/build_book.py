@@ -75,6 +75,10 @@ def html_body():
             h["id"] = "chapter-" + str(chap)
         elif "前言" in label:
             h["class"] = "front-heading"
+        elif label.startswith("附录B"):
+            glossary = h.find_next_sibling("table")
+            if glossary is not None:
+                glossary["class"] = (glossary.get("class", []) + ["glossary-table"])
     for h in soup.find_all("h2"):
         label = h.get_text(" ", strip=True)
         if "综合实训" in label or "本章实践" in label:
@@ -140,6 +144,9 @@ li {margin:1.5mm 0;}
 table {border-collapse:collapse;width:100%;font-size:8pt;margin:5mm 0;table-layout:fixed;}
 th,td {border:.4pt solid #d5dfd6;padding:1.6mm;vertical-align:top;overflow-wrap:anywhere;}
 th {background:#f0f4ee;}
+table.glossary-table {font-size:7.6pt;line-height:1.45;}
+table.glossary-table th, table.glossary-table td {padding:1.18mm 1.5mm;}
+table.glossary-table tr {break-inside:avoid;}
 pre {background:#f6f8f4;border:1px solid #e2e6df;padding:2.5mm;white-space:pre-wrap;overflow-wrap:anywhere;font-size:7.1pt;line-height:1.45;}
 code {font-size:.9em;overflow-wrap:anywhere;}
 hr {display:none;} /* Chapter boundary rules plus forced H1 page breaks created blank pages. */
@@ -325,7 +332,7 @@ def main():
     nearly_empty=[]
     for i,page in enumerate(reader.pages):
         extracted=(page.extract_text() or "").strip()
-        if len(extracted)<20:
+        if len(extracted)<80 and i>=4:
             nearly_empty.append(i+1)
     if nearly_empty:
         raise ValueError(f"PDF contains blank/near-blank pages: {nearly_empty[:15]}")

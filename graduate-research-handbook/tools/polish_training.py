@@ -114,12 +114,18 @@ def main():
     for n in range(1,51):
         p=ROOT/"content"/f"{n:02d}.md"
         data=p.read_text(encoding="utf-8")
+        # Previous generic chapter footers are retained in older source versions.
+        # Remove them independently so rerunning this migration is safe.
+        cleaned=data.replace(" 本项为教学训练，不代替所在单位的正式要求。", "")
         if COMMON_STEP not in data:
+            if cleaned!=data:
+                p.write_text(cleaned,encoding="utf-8")
+                changed.append(n)
             continue
         if n not in PROCEDURES:
             raise ValueError(f"Chapter {n} contains generic exercise but has no custom procedure")
         steps, gate=PROCEDURES[n]
-        new=data.replace(COMMON_STEP,"**具体做法。** "+steps)
+        new=cleaned.replace(COMMON_STEP,"**具体做法。** "+steps)
         new=new.replace(COMMON_TASK,"")
         new=new.replace(COMMON_REVIEW,"**核验要点。** "+gate+" 本项为教学训练，不代替所在单位的正式要求。")
         if new==data:raise ValueError(f"No replacement for chapter {n}")
