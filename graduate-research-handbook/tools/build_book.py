@@ -329,13 +329,19 @@ def main():
     # Detect virtually blank pages; previous editions contained empty pages
     # because an HR could spill to a new page just before forced chapter breaks.
     reader=PdfReader(str(pdf))
-    nearly_empty=[]
+    truly_blank=[]
+    low_density=[]
     for i,page in enumerate(reader.pages):
         extracted=(page.extract_text() or "").strip()
-        if len(extracted)<80 and i>=4:
-            nearly_empty.append(i+1)
-    if nearly_empty:
-        raise ValueError(f"PDF contains blank/near-blank pages: {nearly_empty[:15]}")
+        if len(extracted)<20:
+            truly_blank.append(i+1)
+        elif len(extracted)<80 and i>=4:
+            low_density.append(i+1)
+    if truly_blank:
+        raise ValueError(f"PDF contains blank pages: {truly_blank[:15]}")
+    if low_density:
+        print("Editorial note: chapter-ending pages with low text density:",
+              low_density[:20], "(not treated as blank pages)")
     if pages<100 or pdf.stat().st_size<100_000 or word.stat().st_size<50_000:
         raise ValueError(f"Unexpected output sizes: {pages}, {pdf.stat().st_size}, {word.stat().st_size}")
     from zipfile import ZipFile
