@@ -220,6 +220,12 @@ def build_word(soup,target):
     sec.top_margin=Cm(1.8);sec.bottom_margin=Cm(1.6)
     for name,pt,bold,color in [("Normal",10.5,False,None),("Title",27,True,(42,72,54)),("Heading 1",18,True,(42,72,54)),("Heading 2",13,True,(56,99,77)),("Heading 3",11,True,None)]:
         set_font(d.styles[name],pt,bold,color)
+    # Word's built-in Title style includes a blue theme rule. Remove it so the
+    # editable document uses the same restrained green editorial palette as PDF.
+    title_ppr=d.styles["Title"].element.get_or_add_pPr()
+    title_border=title_ppr.find(qn("w:pBdr"))
+    if title_border is not None:
+        title_ppr.remove(title_border)
     d.styles["Normal"].paragraph_format.line_spacing=1.45
     d.styles["Normal"].paragraph_format.space_after=Pt(6)
     d.styles["Normal"].paragraph_format.first_line_indent=Pt(18)
