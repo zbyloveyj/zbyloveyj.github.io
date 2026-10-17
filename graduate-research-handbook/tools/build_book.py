@@ -75,6 +75,12 @@ def html_body():
             h["id"] = "chapter-" + str(chap)
         elif "前言" in label:
             h["class"] = "front-heading"
+    for h in soup.find_all("h2"):
+        label = h.get_text(" ", strip=True)
+        if "综合实训" in label or "本章实践" in label:
+            h["class"] = (h.get("class", []) + ["practice-heading"])
+        elif label in ("本章小结", "本章结语") or label.startswith("本章总结"):
+            h["class"] = (h.get("class", []) + ["summary-heading"])
     if chap != 50 or parts != 9:
         raise ValueError(f"HTML conversion lost chapters/parts: {chap}/{parts}")
     return soup
@@ -107,6 +113,9 @@ p {text-align:justify;margin:0 0 3.5mm;orphans:3;widows:3;overflow-wrap:anywhere
 .toc-part {font-weight:bold;color:#477461;margin-top:4mm;font-size:11pt;border-top:1px solid #d9e1d7;padding-top:3mm;}
 .toc-row {font-size:9pt;margin:1.4mm 0 1.4mm 3mm;}
 .toc-row span {display:inline-block;width:9mm;color:#7a8d81;}
+.toc-row a::after {content:leader('.') target-counter(attr(href),page);color:#667d70;font-size:8.2pt;padding-left:2mm;}
+.toc-row {page-break-inside:avoid;}
+.toc-part {page-break-after:avoid;}
 a {color:#426b57;text-decoration:none;}
 h1.part-heading {page-break-before:always;page-break-after:avoid;font-size:21pt;color:#47715e;margin-top:23mm;margin-bottom:7mm;line-height:1.5;}
 .part-intro {page-break-inside:avoid;margin-top:6mm;}
@@ -119,6 +128,11 @@ h1.front-heading {page-break-before:always;font-size:19pt;color:#304e3e;}
 h1:not(.part-heading):not(.chapter-heading):not(.front-heading) {font-size:16pt;page-break-before:always;color:#304e3e;}
 h2 {font-size:12.2pt;color:#365e4a;margin:8mm 0 3mm;page-break-after:avoid;}
 h3 {font-size:10.8pt;color:#2f4c3d;margin:5mm 0 2mm;page-break-after:avoid;}
+h2.practice-heading {margin-top:10mm;padding-top:3mm;border-top:1px solid #d7e1d7;color:#305b47;}
+h2.summary-heading {margin-top:10mm;padding-top:3mm;border-top:1px solid #d7e1d7;color:#436754;}
+thead {display:table-header-group;}
+tr {break-inside:avoid;}
+h1.chapter-heading + blockquote {margin-top:0;}
 strong {color:#263e32;}
 blockquote {background:#f5f7f3;border-left:2px solid #63856f;padding:2mm 4mm;margin:5mm 0;color:#4c6153;}
 ul,ol {padding-left:7mm;margin:3mm 0 5mm;}
@@ -133,7 +147,7 @@ hr {display:none;} /* Chapter boundary rules plus forced H1 page breaks created 
     return "<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><style>"+css+"</style></head><body>"+(
       "<section class='cover'><div class='label'>A RESEARCHER'S FIELD GUIDE · 2026</div>"
       "<div><h1>从读研<br>到做研究</h1><p>研究生学术入门手册 · 九编五十章</p></div>"
-      "<p>著 · 一心问道<br>内容深化编辑版 V2.1 · 2026年10月</p></section>"
+      "<p>著 · 一心问道<br>内容深化编辑版 V2.2 · 2026年10月</p></section>"
       "<section class='toc'><h1>目录</h1>"+''.join(part_chapters)+"</section>"
       +str(soup)+"</body></html>")
 
@@ -161,6 +175,34 @@ def set_font(style,pt,bold=False,color=None):
         rpr.insert(0,fonts)
     fonts.set(qn("w:eastAsia"),"Noto Serif CJK SC")
 
+
+def add_internal_bookmark(paragraph, key, ident):
+    begin = OxmlElement("w:bookmarkStart")
+    begin.set(qn("w:id"), str(ident))
+    begin.set(qn("w:name"), key)
+    end = OxmlElement("w:bookmarkEnd")
+    end.set(qn("w:id"), str(ident))
+    paragraph._p.insert(0, begin)
+    paragraph._p.append(end)
+
+
+def add_internal_link(paragraph, label, anchor):
+    hyperlink = OxmlElement("w:hyperlink")
+    hyperlink.set(qn("w:anchor"), anchor)
+    hyperlink.set(qn("w:history"), "1")
+    run = OxmlElement("w:r")
+    rpr = OxmlElement("w:rPr")
+    color = OxmlElement("w:color")
+    color.set(qn("w:val"), "426B57")
+    rpr.append(color)
+    run.append(rpr)
+    t = OxmlElement("w:t")
+    t.text = label
+    run.append(t)
+    hyperlink.append(run)
+    paragraph._p.append(hyperlink)
+
+
 def build_word(soup,target):
     d=Document()
     d.core_properties.title="从读研到做研究"
@@ -176,7 +218,7 @@ def build_word(soup,target):
     d.styles["Normal"].paragraph_format.first_line_indent=Pt(18)
     d.add_paragraph("\n\n\n\n")
     d.add_heading("从读研到做研究",0)
-    p=d.add_paragraph("研究生学术入门手册\n九编五十章 · 内容深化编辑版 V2.1")
+    p=d.add_paragraph("研究生学术入门手册\n九编五十章 · 内容深化编辑版 V2.2")
     p.alignment=WD_ALIGN_PARAGRAPH.CENTER
     d.add_paragraph("\n\n\n\n")
     p=d.add_paragraph("一心问道\n2026年10月")
@@ -185,21 +227,33 @@ def build_word(soup,target):
     d.add_heading("目录",1)
     chinese="一二三四五六七八九"
     for part,title in enumerate(catalog["volumes"],1):
-        d.add_paragraph("第"+chinese[part-1]+"编　"+title,style="Heading 2")
+        p=d.add_paragraph(style="Heading 2")
+        add_internal_link(p,"第"+chinese[part-1]+"编　"+title,"part_"+str(part))
         for ch in catalog["chapters"]:
             if ch["part"]==part:
-                d.add_paragraph("第"+str(ch["n"]).zfill(2)+"章　"+ch["title"])
+                p=d.add_paragraph()
+                p.paragraph_format.left_indent=Cm(0.65)
+                p.paragraph_format.space_after=Pt(2)
+                add_internal_link(p,"第"+str(ch["n"]).zfill(2)+"章　"+ch["title"],
+                                  "chapter_"+str(ch["n"]))
     d.add_page_break()
     seen=0
+    part_number=0
     for block in list(soup.children):
         if not isinstance(block,Tag):continue
         tag=block.name
         if tag=="h1":
             name=block.get_text(" ",strip=True)
             if "编" in name[:5] and name.startswith("第"):
-                d.add_page_break();d.add_heading(name,1)
+                part_number+=1
+                d.add_page_break()
+                heading=d.add_heading(name,1)
+                add_internal_bookmark(heading,"part_"+str(part_number),100+part_number)
             elif re.match(r"^第(?:\d+|[零一二三四五六七八九十]+)章",name):
-                seen+=1;d.add_page_break();d.add_heading(name,1)
+                seen+=1
+                d.add_page_break()
+                heading=d.add_heading(name,1)
+                add_internal_bookmark(heading,"chapter_"+str(seen),200+seen)
             else:d.add_heading(name,1)
         elif tag=="section" and "part-intro" in block.get("class",[]):
             intro=block.find("p",class_="part-lead")
@@ -233,9 +287,19 @@ def build_word(soup,target):
                 cells=row.find_all(["td","th"],recursive=False)
                 dest=t.add_row().cells
                 for i,c in enumerate(cells[:len(dest)]):dest[i].text=c.get_text(" ",strip=True)
+            if len(t.rows):
+                trpr=t.rows[0]._tr.get_or_add_trPr()
+                mark=OxmlElement("w:tblHeader")
+                mark.set(qn("w:val"),"true")
+                trpr.append(mark)
         elif tag=="hr":
             d.add_paragraph("")
     if seen!=50:raise ValueError(f"Word output has {seen} chapters")
+    running=sec.header.paragraphs[0]
+    running.alignment=WD_ALIGN_PARAGRAPH.RIGHT
+    rr=running.add_run("从读研到做研究 · 一心问道")
+    rr.font.size=Pt(8)
+    rr.font.color.rgb=RGBColor(100,120,105)
     footer=sec.footer.paragraphs[0];footer.alignment=WD_ALIGN_PARAGRAPH.CENTER
     footer.add_run("— ")
     fld=OxmlElement("w:fldSimple");fld.set(qn("w:instr"),"PAGE")
@@ -267,6 +331,11 @@ def main():
         raise ValueError(f"PDF contains blank/near-blank pages: {nearly_empty[:15]}")
     if pages<100 or pdf.stat().st_size<100_000 or word.stat().st_size<50_000:
         raise ValueError(f"Unexpected output sizes: {pages}, {pdf.stat().st_size}, {word.stat().st_size}")
+    from zipfile import ZipFile
+    with ZipFile(word) as archive:
+        xml=archive.read("word/document.xml")
+        if xml.count(b'w:anchor="chapter_') < 50 or xml.count(b'w:name="chapter_') < 50:
+            raise ValueError("Word table of contents is not fully linked to chapters")
     print(f"SUCCESS: {pages} PDF pages; PDF {pdf.stat().st_size:,} bytes; DOCX {word.stat().st_size:,} bytes")
 
 if __name__=="__main__":
