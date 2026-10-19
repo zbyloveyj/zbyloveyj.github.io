@@ -158,7 +158,7 @@
     const observer=new IntersectionObserver(entries=>{
       const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
       if(!visible)return;
-      nav.forEach(a=>a.classList.toggle('active',a.hash==='#'+visible.target.id));
+      nav.forEach(a=>a.classList.toggle('active',(a.hash==='#'+visible.target.id || (a.getAttribute('href')==='about.html' && visible.target.id==='about'))));
     },{rootMargin:'-25% 0px -62% 0px',threshold:[0,.01,.05,.1]});
     qsa('section[id]').forEach(el=>observer.observe(el));
   }

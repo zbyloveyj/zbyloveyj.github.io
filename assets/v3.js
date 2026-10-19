@@ -1,10 +1,11 @@
 /* Independent academic pages: citation metadata, page identity and keyboard usability. */
 (() => {
 'use strict';
-const pageClass = document.body.className.match(/\bpage-(research|publications|projects)\b/);
+const pageClass = document.body.className.match(/\bpage-(about|research|publications|projects)\b/);
 const path = pageClass ? pageClass[1]+'.html' : (location.pathname.split('/').pop()||'index.html');
 const pageName=path.replace('.html','');
 const labels={
+ 'about':{en:'About | Baoyuan Zhu',zh:'关于我 · 朱宝圆 / 一心问道',href:'about.html'},
  'research':{en:'Research | Baoyuan Zhu',zh:'研究方向 | 朱宝圆',href:'research.html'},
  'publications':{en:'Publications | Baoyuan Zhu',zh:'学术论文 | 朱宝圆',href:'publications.html'},
  'projects':{en:'Open Science | Baoyuan Zhu',zh:'开源项目 | 朱宝圆',href:'projects.html'}
