@@ -24,9 +24,17 @@ jobs:
       - name: Build and validate personal introduction
         run: |
           python .github/scripts/refresh_personal_about.py
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('projects.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('href="books.html#book-handbook"', 'href="graduate-research-handbook/"')
+          p.write_text(s, encoding='utf-8')
+          PY
           node --check assets/about-page.js
           node --check assets/site.js
           node --check assets/v3.js
+          python tests/validate_site.py
       - name: Commit updated pages
         run: |
           git config user.name 'github-actions[bot]'
