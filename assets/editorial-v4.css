@@ -61,3 +61,22 @@ html[data-theme=dark] .handbook-numeral{color:#acc2b1}
 html[data-theme=dark] .pub-clear{color:#cbdfce;background:var(--paper)}
 @media(prefers-reduced-motion:reduce){.code-card,.update-row,.main-nav{transition:none!important}}
 @media print{.beyond-handbook{background:#fff!important}.pub-clear{display:none!important}}
+
+/* Shared narrow-screen fixes, 2026-10-19. No clipped navigation or diagrams. */
+@media(max-width:390px){
+ .site-header .nav-shell{gap:6px}
+ .brand{gap:7px}.brand-text{letter-spacing:.07em}.brand-text small{display:none}
+ .nav-actions{gap:0;flex-shrink:0}.nav-actions button{padding-inline:6px;min-width:36px}
+ .nav-actions .language-switch{font-size:10px;gap:4px}
+ .bighi-diagram{max-width:100%;gap:5px}
+ .bighi-diagram div{width:clamp(57px,18vw,70px);height:clamp(57px,18vw,70px);flex-shrink:0;font-size:8px}
+ .bighi-diagram>span{width:7px;flex-shrink:0}
+}
+@media(max-width:350px){.site-header .brand-mark{display:none}}
+@media(max-width:680px){
+ .journey-grid{grid-template-columns:minmax(0,1fr)}
+ .journey-grid>div,.timeline article>div,.honor p{min-width:0}
+ .timeline article{grid-template-columns:90px minmax(0,1fr);gap:14px}
+ .timeline h3,.cv-actions a{overflow-wrap:anywhere}
+ .cv-actions{flex-wrap:wrap}
+}

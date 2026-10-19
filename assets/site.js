@@ -7,7 +7,7 @@
   const safeSet = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const bi = (en, zh) => `<span class="en-only">${esc(en)}</span><span class="zh-only">${esc(zh)}</span>`;
-  let lang = safeGet('academic-site:lang') === 'zh' ? 'zh' : 'en';
+  let lang = safeGet('academic-site:lang') === 'en' ? 'en' : 'zh';
   let filter = 'all';
   let publicationQuery = '';
 
@@ -18,8 +18,8 @@
     safeSet('academic-site:lang', lang);
     const b = qs('#lang-toggle');
     if (b) {
-      b.querySelector('.language-current').textContent = lang === 'en' ? '中' : 'EN';
-      b.querySelector('.language-other').textContent = lang === 'en' ? 'EN' : '中文';
+      b.querySelector('.language-current').textContent = lang === 'en' ? 'EN' : '中文';
+      b.querySelector('.language-other').textContent = lang === 'en' ? '中文' : 'EN';
       b.setAttribute('aria-label', lang === 'en' ? '切换到中文' : 'Switch to English');
     }
     if(!document.body.classList.contains('inner-page'))document.title = lang === 'zh' ? '朱宝圆 | 微生物组 · 脑科学 · 人工智能' : 'Baoyuan Zhu · Microbiome, Brain & AI';
@@ -33,6 +33,7 @@
     const meta = qs('meta[name="theme-color"]');
     if (meta) meta.content = value === 'dark' ? '#19241f' : '#f7f6f1';
   }
+  qsa('#main-nav a').forEach(a => { if(['index.html#beyond','index.html#books'].includes(a.getAttribute('href'))){ a.setAttribute('href','books.html'); a.innerHTML=bi('Books','著作'); } });
   const data = window.ACADEMIC_DATA || {publications: [], repositories: []};
   const pubRoot = qs('#publication-list');
   function renderPubs() {
@@ -152,7 +153,7 @@
   const progress=qs('.reading-progress'); let scheduled=false;
   function updateScroll(){scheduled=false;const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);if(progress)progress.style.width=(Math.max(0,Math.min(100,scrollY/max*100))).toFixed(1)+'%';}
   window.addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(updateScroll)}},{passive:true});updateScroll();
-  if('IntersectionObserver' in window){
+  if('IntersectionObserver' in window && !document.body.classList.contains('inner-page')){
     const nav=qsa('#main-nav a');
     const observer=new IntersectionObserver(entries=>{
       const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
