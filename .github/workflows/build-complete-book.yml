@@ -31,18 +31,31 @@ jobs:
           sudo apt-get install -y fonts-noto-cjk libpango-1.0-0 libpangocairo-1.0-0
           python3 -m pip install --user markdown beautifulsoup4 weasyprint python-docx pypdf playwright
           python3 -m playwright install --with-deps chromium
+          mkdir -p "$RUNNER_TEMP/handbook-qa"
       - name: Import the reviewed October edition
-        run: python3 .github/handbook-release/publish.py
+        run: python3 .github/handbook-release/publish.py 2>&1 | tee "$RUNNER_TEMP/handbook-qa/import.log"
       - name: Synchronize chapter source and search indexes
-        run: python3 graduate-research-handbook/tools/sync_book.py
+        run: python3 graduate-research-handbook/tools/sync_book.py 2>&1 | tee "$RUNNER_TEMP/handbook-qa/sync.log"
       - name: Build complete PDF and Word
-        run: python3 graduate-research-handbook/tools/build_book.py
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('graduate-research-handbook/tools/build_book.py')
+          s=p.read_text()
+          line='source = SOURCE.read_text(encoding="utf-8")'
+          fixed=line+'\nsource = source.replace("\\n\\n一心问道\\n\\n2026年10月\\n", "\\n\\n一心问道 · 2026年10月\\n")'
+          if fixed not in s:
+              assert line in s
+              s=s.replace(line,fixed,1)
+              p.write_text(s,encoding='utf-8')
+          PY
+          python3 graduate-research-handbook/tools/build_book.py 2>&1 | tee "$RUNNER_TEMP/handbook-qa/build.log"
       - name: Verify all chapters and reader behavior
         run: |
           node --check graduate-research-handbook/assets/app.js
           node --check graduate-research-handbook/assets/edition.js
           node --check graduate-research-handbook/assets/search.js
-          python3 .github/handbook-release/check_site.py
+          python3 .github/handbook-release/check_site.py 2>&1 | tee "$RUNNER_TEMP/handbook-qa/browser.log"
           python3 graduate-research-handbook/tools/sync_book.py --check
       - name: Save complete web edition and downloads
         id: publish
@@ -57,7 +70,7 @@ jobs:
           echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           echo "Published book commit: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
       - name: Verify public Pages edition and matching download files
-        run: python3 .github/handbook-release/check_site.py --live
+        run: python3 .github/handbook-release/check_site.py --live 2>&1 | tee "$RUNNER_TEMP/handbook-qa/live.log"
       - name: Upload publication and verification evidence
         if: always()
         uses: actions/upload-artifact@v4
