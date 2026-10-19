@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "downloads"
 SOURCE = OUT / "complete-manuscript.md"
 source = SOURCE.read_text(encoding="utf-8")
+source = source.replace("\n\n一心问道\n\n2026年10月\n", "\n\n一心问道 · 2026年10月\n")
 catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
 
 def validate():
@@ -154,7 +155,7 @@ hr {display:none;} /* Chapter boundary rules plus forced H1 page breaks created 
     return "<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><style>"+css+"</style></head><body>"+(
       "<section class='cover'><div class='label'>A RESEARCHER'S FIELD GUIDE · 2026</div>"
       "<div><h1>从读研<br>到做研究</h1><p>研究生学术入门手册 · 九编五十章</p></div>"
-      "<p>著 · 一心问道<br>内容深化编辑版 V2.2 · 2026年10月</p></section>"
+      "<p>著 · 一心问道<br>2026年10月修订版</p></section>"
       "<section class='toc'><h1>目录</h1>"+''.join(part_chapters)+"</section>"
       +str(soup)+"</body></html>")
 

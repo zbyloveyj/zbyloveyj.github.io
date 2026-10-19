@@ -60,3 +60,6 @@ header{height:69px;position:sticky;top:0;z-index:20;background:var(--bg);border-
 .reader-mobile-toolbar a{display:flex;align-items:center;justify-content:center;flex:1;font-size:12px;border-left:1px solid var(--rule);color:var(--ink)}
 .library-action-link{font-size:12px;color:var(--accent)}
 @media(max-width:740px){.reader-mobile-toolbar button,.reader-mobile-toolbar a{min-width:0}.resume-position{font-size:11px}}
+
+/* October reader edition */
+@media(max-width:600px){header .actions{gap:7px;flex-wrap:wrap}header .actions a{font-size:12px}header .brand{min-width:0}.edition-page{margin-top:14px;padding:18px}.article{min-width:0}.table-scroller{max-width:100%;overflow-x:auto}}
