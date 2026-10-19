@@ -1,0 +1,46 @@
+name: Publish personal introduction
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/personal-introduction.yml'
+      - '.github/scripts/refresh_personal_about.py'
+      - 'assets/about-page.css'
+      - 'assets/about-page.js'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: personal-introduction
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install HTML parser
+        run: python -m pip install beautifulsoup4==4.14.3
+      - name: Build and validate personal introduction
+        run: |
+          python .github/scripts/refresh_personal_about.py
+          node --check assets/about-page.js
+          node --check assets/site.js
+          node --check assets/v3.js
+      - name: Commit updated pages
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- '*.html' sitemap.xml assets/site.js assets/v3.js
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish personal introduction, homepage biography and navigation'
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: personal-introduction-site
+          retention-days: 3
+          path: |
+            *.html
+            sitemap.xml
+            assets/
