@@ -232,7 +232,7 @@ def build_word(soup,target):
     d.styles["Normal"].paragraph_format.first_line_indent=Pt(18)
     d.add_paragraph("\n\n\n\n")
     d.add_heading("从读研到做研究",0)
-    p=d.add_paragraph("研究生学术入门手册\n九编五十章 · 内容深化编辑版 V2.2")
+    p=d.add_paragraph("研究生学术入门手册\n九编五十章 · 2026年10月修订版")
     p.alignment=WD_ALIGN_PARAGRAPH.CENTER
     d.add_paragraph("\n\n\n\n")
     p=d.add_paragraph("一心问道\n2026年10月")
