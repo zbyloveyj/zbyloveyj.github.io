@@ -41,13 +41,13 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           p=Path('graduate-research-handbook/tools/build_book.py')
-          s=p.read_text()
+          s=p.read_text().replace('内容深化编辑版 V2.2','2026年10月修订版')
           line='source = SOURCE.read_text(encoding="utf-8")'
           fixed=line+'\nsource = source.replace("\\n\\n一心问道\\n\\n2026年10月\\n", "\\n\\n一心问道 · 2026年10月\\n")'
           if fixed not in s:
               assert line in s
               s=s.replace(line,fixed,1)
-              p.write_text(s,encoding='utf-8')
+          p.write_text(s,encoding='utf-8')
           PY
           python3 graduate-research-handbook/tools/build_book.py 2>&1 | tee "$RUNNER_TEMP/handbook-qa/build.log"
       - name: Verify all chapters and reader behavior
