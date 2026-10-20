@@ -5,8 +5,8 @@
       "day": 1,
       "title": "建立你的表达基线",
       "pages": 9,
-      "bytes": 639235,
-      "sha256": "81e4c27f73772c90e5fac58c076ab0d64b1e591891792168c6ffab6b7080593a",
+      "bytes": 639010,
+      "sha256": "e0478c11afff3d0a86f6804d44c02848937bf1c074bfd95cd2d2f636cf4b86ef",
       "path": "downloads/pdf/Day-01.pdf",
       "chinese_characters": 4143
     },
@@ -15,7 +15,7 @@
       "title": "平翘舌：z c s 与 zh ch sh",
       "pages": 9,
       "bytes": 627985,
-      "sha256": "66aaabcc127cd2e1577a57334649c56dd6ea43851580f4a7def75c2b6e981f45",
+      "sha256": "9533c36cdc140315e703b8fe0261240c058a22c44bcdc63db590d535916ce688",
       "path": "downloads/pdf/Day-02.pdf",
       "chinese_characters": 3820
     },
@@ -23,8 +23,8 @@
       "day": 3,
       "title": "前后鼻音：-n 与 -ng",
       "pages": 9,
-      "bytes": 637472,
-      "sha256": "79e665906d88c41559657ff2d217a6ffc5e311fed91677962362f8c87a4daede",
+      "bytes": 637284,
+      "sha256": "903cb4506e78c6cb245805e3086cb80a3d212bcef6933f5d692ddbcaeeebb826",
       "path": "downloads/pdf/Day-03.pdf",
       "chinese_characters": 3784
     },
@@ -32,8 +32,8 @@
       "day": 4,
       "title": "n / l、f / h 与个人错音",
       "pages": 9,
-      "bytes": 644947,
-      "sha256": "f67ed066a2abdb6f42c30b5296e9358e91531844ba2b8eeb2e1e7fac734fe97b",
+      "bytes": 644723,
+      "sha256": "13d4e8176022fd8727188369f6dde0d5dd5e232971f76c70d4d8568ba530261e",
       "path": "downloads/pdf/Day-04.pdf",
       "chinese_characters": 3806
     },
@@ -41,8 +41,8 @@
       "day": 5,
       "title": "语速与停顿",
       "pages": 9,
-      "bytes": 633439,
-      "sha256": "18f1d62c53681e461d87c3c4436e6ca36db02c5396ce1eae215c2dc1aafd2f1c",
+      "bytes": 633220,
+      "sha256": "a3d041789306f1416e85557a3ef2599dded606e4042db88acd5b3357fba8b5ab",
       "path": "downloads/pdf/Day-05.pdf",
       "chinese_characters": 4045
     },
@@ -50,8 +50,8 @@
       "day": 6,
       "title": "重音与语调",
       "pages": 9,
-      "bytes": 619996,
-      "sha256": "59464184cc0c44edd391d37062436292ed4f45e0a08a1be8992537d2e4a5e81b",
+      "bytes": 619997,
+      "sha256": "d55b6bd91f8e3b1bfaf30348f69be435d3e88ce894c41e7aa3114cde9eb63cea",
       "path": "downloads/pdf/Day-06.pdf",
       "chinese_characters": 3901
     },
@@ -59,8 +59,8 @@
       "day": 7,
       "title": "第一阶段测评：声音与清晰度",
       "pages": 9,
-      "bytes": 641734,
-      "sha256": "b0b34f9adf36776c5156b7a4a6495bc9d99208f548691bad059742a946ce5a23",
+      "bytes": 641732,
+      "sha256": "eb2acc599e4ea236c299496d37a8c15f4dc02959569d5563902f42c8fcebaaac",
       "path": "downloads/pdf/Day-07.pdf",
       "chinese_characters": 4038
     },
@@ -68,8 +68,8 @@
       "day": 8,
       "title": "先说结论：30秒讲清要点",
       "pages": 9,
-      "bytes": 625933,
-      "sha256": "7e40d5e8da75986ba07cf7ff512c671f88b2d717e6df70f586db5616c9e557ba",
+      "bytes": 625961,
+      "sha256": "dcba79a91dbf15dcdaa959044cf0484149ead3b43dfbe78cf63a7a9a54f6c4d5",
       "path": "downloads/pdf/Day-08.pdf",
       "chinese_characters": 3937
     },
@@ -77,8 +77,8 @@
       "day": 9,
       "title": "观点—理由—例子—回扣",
       "pages": 9,
-      "bytes": 629147,
-      "sha256": "b78e8ddf7da0ea3c50f098f818fbfd1d93bcc6c04561608fc9c6488f70dab219",
+      "bytes": 629144,
+      "sha256": "782697b224bcd5c5b97869cf876a9236ea71e12aa6b83039d88615c753462c08",
       "path": "downloads/pdf/Day-09.pdf",
       "chinese_characters": 4227
     },
@@ -86,8 +86,8 @@
       "day": 10,
       "title": "事实、证据与推测",
       "pages": 9,
-      "bytes": 627107,
-      "sha256": "f76da18bd08b9aeb74e5a4bb9bf91cda86ce0ce5306dd0ebad6f03505c3b2480",
+      "bytes": 626871,
+      "sha256": "901b0dddf9694d290a8c58442a1d0f8f4bd81d662077efcc11caa78dec42d594",
       "path": "downloads/pdf/Day-10.pdf",
       "chinese_characters": 4065
     },
@@ -95,8 +95,8 @@
       "day": 11,
       "title": "故事叙述：场景、冲突与转折",
       "pages": 9,
-      "bytes": 636422,
-      "sha256": "276e6937402f524a548101372dcfeef67ed49f92a8ee82bb19ac118eaaded957",
+      "bytes": 636185,
+      "sha256": "535aa59d36799643f267cab4b986b9c0b4df9635f93e13af4f036d9fbd9ed053",
       "path": "downloads/pdf/Day-11.pdf",
       "chinese_characters": 4070
     },
@@ -104,8 +104,8 @@
       "day": 12,
       "title": "通俗解释与类比",
       "pages": 9,
-      "bytes": 636438,
-      "sha256": "3abe3a79da84a9726484134e56452af5621413fa57c19aab41c2b6b7997198af",
+      "bytes": 636194,
+      "sha256": "2edb5f79588096a2d873d708d2d220fb71d3019d540c1488a36056210d6e6adc",
       "path": "downloads/pdf/Day-12.pdf",
       "chinese_characters": 4089
     },
@@ -113,8 +113,8 @@
       "day": 13,
       "title": "即兴表达：30秒准备，90秒开讲",
       "pages": 9,
-      "bytes": 628185,
-      "sha256": "3b03a64a98e3e6e2c59a347288bd1af7911fa437bf0277a3a99408f2a06180ed",
+      "bytes": 627954,
+      "sha256": "701cb1a6064971384ac34bf4614b474f34960200c6a31232dba84e6a22ac5586",
       "path": "downloads/pdf/Day-13.pdf",
       "chinese_characters": 4045
     },
@@ -122,8 +122,8 @@
       "day": 14,
       "title": "第二阶段测评：有逻辑地讲话",
       "pages": 9,
-      "bytes": 630303,
-      "sha256": "6f3442e88fe0b8253bc107d3880c79ac90eb35cb53bfbfae36cb27512a0beebe",
+      "bytes": 630094,
+      "sha256": "53f7485c88b8d7b3d5483574bb20f1bad4e9c44fdeb7d8f2029b7c8450415324",
       "path": "downloads/pdf/Day-14.pdf",
       "chinese_characters": 4067
     },
@@ -131,8 +131,8 @@
       "day": 15,
       "title": "倾听、复述与追问",
       "pages": 9,
-      "bytes": 625444,
-      "sha256": "ff17bad002462bd1753bc1fb0f556c693b8a9c49224960f349f2242fa60baeaa",
+      "bytes": 625219,
+      "sha256": "55b53f061eb99810f5da85d96649b9cb849139ca5ceccc5b0069cdafa966668a",
       "path": "downloads/pdf/Day-15.pdf",
       "chinese_characters": 4145
     },
@@ -140,8 +140,8 @@
       "day": 16,
       "title": "说服沟通：提出可接受的建议",
       "pages": 9,
-      "bytes": 630829,
-      "sha256": "78ac3273428ef253e12fd3ac0c095e9a03b1fe6e5084f6985b3a7b7e6db4cd05",
+      "bytes": 630600,
+      "sha256": "5f1739174d4165249e4a6cea7fef9495aa0ba2f68e92c337c8565fcd96f9044d",
       "path": "downloads/pdf/Day-16.pdf",
       "chinese_characters": 4109
     },
@@ -149,8 +149,8 @@
       "day": 17,
       "title": "现场答问：听懂问题再回答",
       "pages": 9,
-      "bytes": 627984,
-      "sha256": "222be528c37d9470a3bc90dae19eedd3e3ef3c68c2a711c16c71599b4dd126b0",
+      "bytes": 627746,
+      "sha256": "3387997ae9077971fcba5bd9d65d919c6a8d6cc82e7ed671426fcd9974ea73db",
       "path": "downloads/pdf/Day-17.pdf",
       "chinese_characters": 4051
     },
@@ -158,8 +158,8 @@
       "day": 18,
       "title": "会议进度汇报：90秒清楚交代",
       "pages": 9,
-      "bytes": 626612,
-      "sha256": "631219c7c8fc46bcfdedf125c7bced72220ef8dc4efb8185925e129165f64008",
+      "bytes": 626375,
+      "sha256": "8ae104cc0b8d956ad89393ab666fdea55fc3f1967cb5bf29940cb6d871e82219",
       "path": "downloads/pdf/Day-18.pdf",
       "chinese_characters": 4025
     },
@@ -167,8 +167,8 @@
       "day": 19,
       "title": "同一个主题，面对不同听众",
       "pages": 9,
-      "bytes": 635805,
-      "sha256": "00bfc12f4772769aeac6565c69304838f1339aab6e0ca433057c023bd3a9a444",
+      "bytes": 635567,
+      "sha256": "69fea9e91e410dbb16ae8a3db7336f2793a46fa8525422d64ae1712699c9402b",
       "path": "downloads/pdf/Day-19.pdf",
       "chinese_characters": 4134
     },
@@ -176,8 +176,8 @@
       "day": 20,
       "title": "限时与压力模拟",
       "pages": 9,
-      "bytes": 631150,
-      "sha256": "56bed3836b3081c496fe57c18965f2788fe30205c262c6d613de5ed018f2f94f",
+      "bytes": 630903,
+      "sha256": "073b3298f9633e4d7c0925d072d989448122aae92a509438cce24117adcc48c4",
       "path": "downloads/pdf/Day-20.pdf",
       "chinese_characters": 3977
     },
@@ -185,8 +185,8 @@
       "day": 21,
       "title": "结业演讲：五分钟讲清一个观点",
       "pages": 10,
-      "bytes": 653577,
-      "sha256": "707ca5294142b58db80cb11027641f65385ce81c7b01b0a13cbe025c7775dfd1",
+      "bytes": 653623,
+      "sha256": "c5bef6c0e0a62d161864acd0499d402c4654627e37694d2dd630319bb54ab633",
       "path": "downloads/pdf/Day-21.pdf",
       "chinese_characters": 5153
     }
@@ -194,7 +194,7 @@
   "collection": {
     "path": "downloads/21-days-complete-workbook.pdf",
     "pages": 192,
-    "bytes": 14097131
+    "bytes": 14093858
   },
   "bundle": {
     "path": "downloads/21-daily-pdfs.zip",
