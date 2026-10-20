@@ -1,0 +1,33 @@
+name: Verify published speaking curriculum
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/growth-course-live.yml'
+      - 'personal-growth-lab/README.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: personal-growth-live-check
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF verification dependency
+        run: python3 -m pip install --user pypdf==5.9.0
+      - name: Verify public pages and every daily PDF against the release manifest
+        run: |
+          set -o pipefail
+          python3 personal-growth-lab/tools/validate_workbooks.py --live 2>&1 | tee "$RUNNER_TEMP/growth-public-check.log"
+      - name: Preserve public verification results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: personal-growth-public-verification
+          path: ${{ runner.temp }}/growth-public-check.log
+          retention-days: 14
+          if-no-files-found: warn
