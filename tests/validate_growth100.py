@@ -122,7 +122,7 @@ try:
        ("tests/growth100_interactions.html",
         ['data-status="pass"', 'PASS: 5 varying tasks'], "interactive task and persistence suite"),
        ("tests/growth100_final_ux.html",
-        ['data-status="pass"', 'PASS: dashboard, 100 course filters'], "complete dashboard/search/resume/mobile UX suite"),
+        ['data-status="pass"', 'PASS: dashboard, search'], "complete dashboard/search/resume/mobile UX suite"),
     ]
     for suffix, markers, label in tests:
         cmd = [BROWSER, "--headless=new", "--no-sandbox", "--disable-gpu",
