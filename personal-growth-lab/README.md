@@ -18,6 +18,12 @@
 
 每课都有完整的分钟安排、专项练习、直接可读的句子、原创朗读短文、复述示范、生活与科研场景、错误纠正、100分自评与录音任务。没有“以后补内容”的空白课次。
 
+## 每天独立PDF教材
+
+21节课均提供独立、可打印的PDF手册，路径为 `downloads/pdf/Day-01.pdf` 至 `Day-21.pdf`。网站的课程页可一键下载，首页设有21份PDF目录。
+
+在原有练习基础上，新增逐课教练讲解、逐分钟训练动作、增加难度的句子练习、独立挑战与参考答案、量化评分指引及回听问题。学习记录保留在浏览器端，PDF不包含用户隐私数据。
+
 ## 功能
 
 - 全部课程可直接打开；可自主勾选任务和标记完成
@@ -41,6 +47,9 @@
     │   ├── week1.js
     │   ├── week2.js
     │   └── week3.js
+    ├── downloads/pdf/Day-01.pdf ... Day-21.pdf
+    ├── data/deep1.js ... deep3.js
+    ├── assets/workbook.css
     └── README.md
 
 当前部署在个人主页仓库 zbyloveyj/zbyloveyj.github.io 的 personal-growth-lab/ 目录。
