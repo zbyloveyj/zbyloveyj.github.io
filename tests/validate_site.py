@@ -43,32 +43,18 @@ def validate():
   subprocess.run(['node','--check',str(R/f)],check=True)
  output=subprocess.run(['node','-e','global.window={};require(process.argv[1]);console.log(JSON.stringify(global.window.ACADEMIC_DATA))',str(R/'assets/data.js')],capture_output=True,text=True,check=True)
  papers=json.loads(output.stdout)['publications']
- if len(papers)!=11 or len({p['doi'] for p in papers})!=11:raise AssertionError('Incorrect DOI count or duplicates')
+ if len(papers)!=10 or len({p['doi'] for p in papers})!=10:raise AssertionError('Incorrect DOI count or duplicates')
  for p in papers:
   if not re.fullmatch(r'10\.\d{4,9}/\S+',p['doi']):raise AssertionError('Malformed DOI '+p['doi'])
   if not p.get('fullAuthors') or not p.get('key') or not p.get('focusZh'):
    raise AssertionError('Incomplete full-author metadata '+p['doi'])
  bib=(R/'assets/Baoyuan_Zhu_Selected_Publications.bib').read_text('utf-8')
  ris=(R/'assets/Baoyuan_Zhu_Selected_Publications.ris').read_text('utf-8')
- if bib.count('@article{')!=len(papers) or ris.count('TY  - JOUR')!=len(papers) or ris.count('ER  -')!=len(papers):
+ if bib.count('@article{')!=10 or ris.count('TY  - JOUR')!=10 or ris.count('ER  -')!=10:
   raise AssertionError('Citation export is incomplete')
  for p in papers:
   if p['doi'] not in bib or p['doi'] not in ris:raise AssertionError('DOI missing in export '+p['doi'])
   if p['fullAuthors'][0] not in bib:raise AssertionError('First author absent in BibTeX')
- snapshot=json.loads((R/'assets/Baoyuan_Zhu_Selected_Publications.json').read_text('utf-8'))
- assert snapshot==papers, 'JSON export differs from canonical data'
- new=next(p for p in papers if p['doi']=='10.1016/j.biopsych.2026.09.020')
- assert new['role']=='coauthor' and new['fullAuthors'][2]=='Baoyuan Zhu'
- assert len(new['fullAuthors'])==14 and new['publishedOnline']=='2026-10-03'
- assert not any(new.get(k) for k in ('volume','number','pages'))
- entry=next(x for x in bib.split('@article{') if x.startswith(new['key']+','))
- assert all(a in entry for a in new['fullAuthors']) and 'ahead of print' in entry
- assert not re.search(r'\b(volume|number|pages)\s*=',entry)
- entry=next(x for x in ris.split('TY  - JOUR') if new['doi'] in x)
- assert entry.count('AU  - ')==14 and 'DA  - 2026/10/03' in entry
- assert not re.search(r'^(VL|IS|SP|EP)  -',entry,re.M)
- for name in ('index.html','cv.html','github-profile/README.md','github-profile/index.html'):
-  assert new['doi'] in (R/name).read_text('utf-8'),name
  if len(re.findall(r'class="project-detail"',(R/'projects.html').read_text('utf-8')))!=5:raise AssertionError('Expected five projects')
  for img in ('assets/favicon.svg','assets/ecology-plate.svg'):ET.parse(R/img)
  if (R/'assets/Baoyuan_Zhu_Academic_CV.pdf').read_bytes()[:5]!=b'%PDF-':raise AssertionError('PDF invalid')
@@ -100,5 +86,5 @@ def validate():
  profile_readme=(R/'github-profile/README.md').read_text('utf-8')
  if 'happily in a relationship' not in profile_readme or '和对象一起的日常生活' not in profile_readme:
   raise AssertionError('Profile README personal note missing')
- print('PASS: 6 HTML pages; 11 verified DOI records; full-author BibTeX/RIS; 5 projects; internal links; JS syntax; PDF and illustrations.')
+ print('PASS: 6 HTML pages; 10 verified DOI records; full-author BibTeX/RIS; 5 projects; internal links; JS syntax; PDF and illustrations.')
 if __name__=='__main__':validate()

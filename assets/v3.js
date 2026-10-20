@@ -25,8 +25,6 @@ setPageTitle();
 function bib(p){
  if(!p||!p.fullAuthors?.length)return '';
  const fields={title:p.title,author:p.fullAuthors.join(' and '),journal:p.journal,year:String(p.year),doi:p.doi,url:'https://doi.org/'+p.doi};
- if(p.publishedOnline)fields.date=p.publishedOnline;
- if(p.note)fields.note=p.note;
  for(const key of ['volume','number','pages'])if(p[key])fields[key]=p[key];
  const escapeBib=v=>String(v).replace(/[{}]/g,c=>'\\'+c).replace(/&/g,'\\&');
  return '@article{'+p.key+',\n'+Object.entries(fields).map(([k,v])=>'  '+k+' = {'+escapeBib(v)+'}').join(',\n')+'\n}';
@@ -50,7 +48,6 @@ if(pageName==='publications'){
   const topic=document.createElement('span');topic.className='pub-topic';topic.textContent=p.topic||'Research';detail.append(topic);
   const notes=document.createElement('details');notes.className='pub-details-summary';
   notes.innerHTML='<summary><span class="en-only">Research note</span><span class="zh-only">论文研究概览</span></summary><p class="en-only">'+htmlEscape(p.focus||'')+'</p><p class="zh-only">'+htmlEscape(p.focusZh||'')+'</p>';
-  if(p.authorshipNote){const credit=document.createElement('p');credit.innerHTML='<span class="en-only">'+htmlEscape(p.authorshipNote)+'</span><span class="zh-only">'+htmlEscape(p.authorshipNoteZh)+'</span>';notes.append(credit);}
   detail.append(notes);
   const cite=document.createElement('button');cite.className='bib-copy';cite.type='button';cite.textContent='BibTeX ↗';cite.setAttribute('aria-label','Copy full-author BibTeX for '+p.title);
   cite.addEventListener('click',()=>copy(bib(p)));actions.append(cite);

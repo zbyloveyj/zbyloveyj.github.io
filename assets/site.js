@@ -40,11 +40,11 @@
     if (!pubRoot) return;
     const entries = data.publications || [];
     pubRoot.innerHTML = entries.map((p, i) => {
-      const parts = esc(p.publishedOnline ? p.fullAuthors.join(', ') : p.authors).split(/(Baoyuan Zhu)/g).map(s => s === 'Baoyuan Zhu' ? '<b>Baoyuan Zhu</b>' : s).join('');
+      const parts = esc(p.authors).split(/(Baoyuan Zhu)/g).map(s => s === 'Baoyuan Zhu' ? '<b>Baoyuan Zhu</b>' : s).join('');
       return `<article class="pub-item" data-index="${i}" data-year="${Number(p.year)}" data-lead="${p.role === 'lead'}" aria-label="${esc(p.title)}">
         <span class="pub-year">${Number(p.year)}</span>
         <div class="pub-details"><h3 class="pub-title"><a href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener noreferrer" aria-label="Open journal article: ${esc(p.title)}">${esc(p.title)}</a></h3><p class="pub-authors">${parts}</p>
-        <p class="pub-meta"><span class="pub-journal">${esc(p.journal)}</span>${p.publishedOnline ? `<span class="pub-status">${bi(p.status,p.statusZh)} · <time datetime="${esc(p.publishedOnline)}">${esc(p.publishedOnline)}</time></span>` : ''}<span>DOI: ${esc(p.doi)}</span><span class="pub-role ${p.role === 'coauthor' ? 'coauthor' : ''}">${bi(p.leadLabel, p.leadLabelZh)}</span></p></div>
+        <p class="pub-meta"><span class="pub-journal">${esc(p.journal)}</span><span>DOI: ${esc(p.doi)}</span><span class="pub-role ${p.role === 'coauthor' ? 'coauthor' : ''}">${bi(p.leadLabel, p.leadLabelZh)}</span></p></div>
         <div class="pub-links"><a href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI for ${esc(p.title)}">PAPER ↗</a><button class="cite-copy" type="button" data-index="${i}" aria-label="Copy citation for ${esc(p.title)}">${bi('COPY CITE','复制引文')}</button></div>
       </article>`;
     }).join('');
@@ -61,7 +61,7 @@
     let visible=0;
     qsa('.pub-item').forEach(el => {
       const indexed = data.publications[Number(el.dataset.index)];
-      const text = indexed ? [indexed.title,indexed.authors,indexed.journal,indexed.doi,indexed.topic,indexed.focus,indexed.focusZh,String(indexed.year)].join(' ').toLocaleLowerCase() : el.textContent.toLocaleLowerCase();
+      const text = indexed ? [indexed.title,indexed.authors,indexed.journal,indexed.doi,String(indexed.year)].join(' ').toLocaleLowerCase() : el.textContent.toLocaleLowerCase();
       const matchesYear = value==='all' || (value==='lead' ? el.dataset.lead === 'true' : el.dataset.year===value);
       el.hidden = !(matchesYear && (!publicationQuery || text.includes(publicationQuery)));
       if(!el.hidden)visible++;
@@ -71,10 +71,10 @@
     updatePubCount();
   }
   function exportSelectedPublications(){
-    const rows=[['Year','Title','Authors','Journal','DOI','Contribution','Published online','Publication status']];
+    const rows=[['Year','Title','Authors (abbreviated)','Journal','DOI','Contribution']];
     qsa('.pub-item:not([hidden])').forEach(el=>{
       const p=data.publications[Number(el.dataset.index)];
-      if(p)rows.push([p.year,p.title,p.fullAuthors.join('; '),p.journal,'https://doi.org/'+p.doi,p.leadLabel,p.publishedOnline||'',p.status||'']);
+      if(p)rows.push([p.year,p.title,p.authors,p.journal,'https://doi.org/'+p.doi,p.leadLabel]);
     });
     if(rows.length<2){toast('No papers to export','没有可导出的论文');return;}
     const csv='\uFEFF'+rows.map(row=>row.map(value=>{

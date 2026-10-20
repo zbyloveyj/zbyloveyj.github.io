@@ -36,12 +36,3 @@ A profile photo or personally named social channels should be added only when th
 ## Remaining work
 
 The site has passed static validation and headless-browser responsive tests. It has **not** been pushed to GitHub Pages because the independent target repository does not exist. Creating `zbyloveyj.github.io` and enabling GitHub Pages are the remaining one-time account-side prerequisites.
-
-
-## BrainNetAnno addition — 20 October 2026
-
-- DOI: 10.1016/j.biopsych.2026.09.020. Publisher: https://www.biologicalpsychiatryjournal.com/article/S0006-3223(26)01579-9/fulltext ; ScienceDirect: https://www.sciencedirect.com/science/article/pii/S0006322326015799 ; PubMed: https://pubmed.ncbi.nlm.nih.gov/42829056/ .
-- Publisher-indexed metadata confirms all 14 authors, online date 3 October 2026, Articles in Press / Journal Pre-proof. No volume, issue or pagination assigned in the consulted record.
-- Baoyuan Zhu is third-listed. No accessible publisher equal-contribution or CRediT declaration was found; label is Co-author, not co-first. Direct publisher full-text retrieval returned 403; indexed publisher metadata and abstracts were consulted. Specific individual contributions remain unverified.
-- Added as the eleventh selected publication, without changing the separately reported career total of 18 or first/co-first count of 9: adding to a curated list does not establish a change in career totals.
-- Canonical data, JSON, BibTeX, RIS, per-paper BibTeX/CSV, homepage highlight, web/PDF CV and both live profile languages synchronized. No changes to the existing site palette or responsive breakpoints.
