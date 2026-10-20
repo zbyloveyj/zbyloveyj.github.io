@@ -1,0 +1,13 @@
+{
+  "version": "2026.10.20.1",
+  "site": "https://zbyloveyj.github.io/personal-growth-lab/academy/",
+  "projects": 10,
+  "units": 839,
+  "priority": ["english", "coding", "writing"],
+  "bibliography_items": 100,
+  "quality_workflow_run": "https://github.com/zbyloveyj/zbyloveyj.github.io/actions/runs/39396920530",
+  "quality_status": "success",
+  "storage": "browser-local; manual JSON backup; no cloud synchronization",
+  "existing_plans": "preserved",
+  "pdf": "browser print-to-PDF; not pre-generated textbooks"
+}
