@@ -34,7 +34,7 @@ jobs:
           node --check personal-growth-lab/assets/app.js
       - name: Build all 21 detailed daily PDFs and the complete collection
         run: |
-          python3 personal-growth-lab/tools/build_workbooks.py 2>&1 | tee "$RUNNER_TEMP/growth-quality/build.log"
+          python3 personal-growth-lab/tools/build_edition.py 2>&1 | tee "$RUNNER_TEMP/growth-quality/build.log"
           node --check personal-growth-lab/data/edition-v3.js
       - name: Verify content, embedded fonts, scores, downloads and responsive readers
         run: |
