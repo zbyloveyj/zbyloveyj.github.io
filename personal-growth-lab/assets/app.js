@@ -1,3 +1,4 @@
+// growth-final-reader-20261020
 // growth-reader-edition-r3
 (function growthApp(){
   "use strict";
@@ -41,7 +42,7 @@
   function phaseFor(d){return d<=7?0:d<=14?1:2}
   function decorate(s){return esc(s).replace(/\n/g,"<br>")}
   function getTasks(day){return day===21?
-    ["完成热身与关键词提纲","阅读结业文章并朗读","完成脱稿复述","完成五分钟演讲第一版","完成修改后的演讲","与Day01同题录制60秒自我介绍","评分并写结业复盘"]:
+    ["完成热身与关键词提纲","阅读结业文章并朗读","完成脱稿复述","完成五分钟演讲第一版","完成修改后的演讲","同题介绍复测并回答一项新追问","评分并写结业复盘"]:
     [7,14].includes(day)?["完成发音与声音热身","完成专项抽测","完成六句朗读","完整朗读文章","完成脱稿复述","完成独立表达测评","保存录音、评分和复盘"]:
     ["完成开口热身","完成今日专项材料","练完六句完整表达","朗读整篇训练文章","完成脱稿复述","完成至少一个实战场景","录音、评分并记录问题"]}
   function scheduleFor(d){
@@ -93,7 +94,7 @@
     const courseHtml=phases.map((p,i)=>`<section class="phase-block" aria-label="${p.name}"><div class="phase-label"><strong>0${i+1} / ${p.name}</strong><span>${p.period}</span></div>
       <div class="lesson-cards">${ALL.filter(x=>phaseFor(x.d)===i).map(cardHtml).join("")}</div></section>`).join("");
     const done=ALL.filter(x=>isDone(x.d));
-    const avg=done.length?Math.round(done.reduce((s,l)=>s+(Number(byDay(l.d).total)||0),0)/done.length):null;
+    const scored=done.filter(l=>{const a=byDay(l.d).scores;return Array.isArray(a)&&a.length===getRubric(l.d).length&&a.every(v=>v!==null&&v!==""&&Number.isFinite(Number(v)))}).length;
     const pdfHtml=`<section class="section pdf-library" id="pdf-library"><div class="container"><div class="section-header"><div><p class="overline">03 / DOWNLOADABLE WORKBOOKS</p><h2 class="section-heading">每天一份，21册PDF教材。</h2></div><p class="section-lead">每节独立排版，含逐分钟教学、完整练习、朗读材料、复述示范、实战讲稿与自评分表；打开即可下载，支持打印后手写打卡。</p></div><div class="download-actions"><a class="button primary" href="downloads/21-daily-pdfs.zip" download>下载全部21份PDF ↓</a><a class="button" href="downloads/21-days-complete-workbook.pdf" download>完整合订本 ↓</a><a class="button" href="downloads/">独立下载目录 ↗</a></div><div class="pdf-grid">${ALL.map(x=>`<a class="pdf-item" href="downloads/pdf/Day-${fmt(x.d)}.pdf" download><span>DAY ${fmt(x.d)}</span><b>${esc(x.t)}</b><small>${x.pdfPages||""}页 · ${(Number(x.pdfBytes||0)/1024).toFixed(0)} KB · 下载 ↓</small></a>`).join("")}</div></div></section>`;
     MAIN.innerHTML=`<section class="intro"><div class="container intro-layout">
       <div><p class="eyebrow">PERSONAL DEVELOPMENT / SERIES 01</p>
@@ -125,7 +126,7 @@
       <section class="section" id="journal"><div class="container"><div class="section-header"><div><p class="overline">03 / LEARNING JOURNAL</p><h2 class="section-heading">训练的价值，<br>在于看见自己的变化。</h2></div><p class="section-lead">通过勾选、评分、文字复盘记录进度；所有记录只保存在当前浏览器中。</p></div>
         <div class="record-panel">
           <div class="progress-wheel" style="--progress:${pct}%"><div class="wheel-inner"><b>${count}<span style="font-size:22px">/ 21</span></b><span>完成课程 · ${pct}%</span></div></div>
-          <div class="record-main"><p class="overline">YOUR PROGRESS</p><h3>${count===0?"新的练习，从今天开始。":count===21?"21节课程已经全部打卡。":"已经完成 "+count+" 节练习。"}</h3><p>${count?("完成课程自评均分："+(avg===null?"尚未评分":avg+" / 100")+"。"):"先保留第一天的原始录音，后面用同一主题做对照。"}</p>
+          <div class="record-main"><p class="overline">YOUR PROGRESS</p><h3>${count===0?"新的练习，从今天开始。":count===21?"21节课程已经全部打卡。":"已经完成 "+count+" 节练习。"}</h3><p>${count?("其中 "+scored+" 课已完整填写评分。各课任务不同，不计算跨课均分。"):"先保留第一天的原始录音，后面用同一主题做对照。"}</p>
           <div class="record-actions"><a href="${dayLink(next)}" class="button primary">${count===21?"回看 Day 21":"进入 Day "+fmt(next)+" →"}</a><button class="button subtle" type="button" id="export-progress">导出学习记录 ↓</button><button class="button subtle" type="button" id="import-progress">导入记录 ↑</button></div>
           <input type="file" id="import-file" accept=".json,application/json" hidden><p class="record-small"><strong>隐私说明：</strong>打卡、评分和文字笔记保存在此设备的浏览器里，不发送到GitHub或其他服务器。录音功能会在你的设备上生成下载文件，不自动上传。跨设备学习请使用导出/导入。</p></div>
         </div>
@@ -139,8 +140,8 @@
       if(f.size>2*1024*1024){toast("文件过大，请确认是本网站导出的记录。");return}
       try{
         const obj=JSON.parse(await f.text());
-        if(!obj||typeof obj!=="object"||obj.version!==1||typeof obj.lessons!=="object"||Array.isArray(obj.lessons)){throw Error("格式不正确")}
-        if(confirm("导入的记录会覆盖此浏览器当前的打卡和笔记，确定继续吗？")){STATE=obj;save();renderHome();toast("学习记录已导入。")}
+        if(!obj||typeof obj!=="object"||obj.version!==1||!obj.lessons||typeof obj.lessons!=="object"||Array.isArray(obj.lessons)||Object.values(obj.lessons).some(v=>!v||typeof v!=="object"||Array.isArray(v))){throw Error("格式不正确")}
+        if(confirm("导入的记录会覆盖此浏览器当前的打卡和笔记，确定继续吗？")){const previous=STATE;STATE=obj;if(!save()){STATE=previous;throw Error("无法保存")}renderHome();toast("学习记录已导入。");}
       }catch{toast("无法识别此记录文件，请使用本站导出的 JSON 文件。")}
     })}
   }
@@ -157,12 +158,12 @@
   function renderLesson(x){
     destroy();resetTimer();
     const d=x.d;document.title=`Day ${fmt(d)} · ${x.t}｜个人成长实验室`;
-    const s=scheduleFor(d),tasks=getTasks(d),entry=byDay(d),checks=Array.isArray(entry.checks)?entry.checks:[],rubric=getRubric(d),savedScores=Array.isArray(entry.scores)?entry.scores:rubric.map(()=>0);
+    const s=scheduleFor(d),tasks=getTasks(d),entry=byDay(d),checks=Array.isArray(entry.checks)?entry.checks:[],rubric=getRubric(d),savedScores=Array.isArray(entry.scores)?entry.scores:rubric.map(()=>null);
     const list=items=>`<ul class="exercise-list">${arr(items).map(v=>`<li>${esc(v)}</li>`).join("")}</ul>`;
     const reading=esc(x.reading||"").split(/\n\s*\n/).map(p=>`<p>${p.replace(/\n/g,"<br>")}</p>`).join("");
     const sample=`<div class="sample">${decorate(x.sample)}</div>`;
     const scheduleHtml=s.map(item=>`<div class="schedule-row"><span class="schedule-time">${esc(item[0])}</span><div class="schedule-body"><strong>${esc(item[1])}</strong><small>${esc(item[2])}</small></div></div>`).join("");
-    const rubricHtml=rubric.map((c,i)=>`<div class="rubric-line"><label for="score-${i}">${esc(c[0])} <small style="color:var(--muted)">/ ${c[1]}</small></label><input type="number" id="score-${i}" data-score="${i}" min="0" max="${c[1]}" step="1" value="${Math.max(0,Math.min(c[1],Number(savedScores[i])||0))}" aria-label="${esc(c[0])}，最高${c[1]}分"></div>`).join("");
+    const rubricHtml=rubric.map((c,i)=>`<div class="rubric-line"><label for="score-${i}">${esc(c[0])} <small style="color:var(--muted)">/ ${c[1]}</small></label><input type="number" id="score-${i}" data-score="${i}" min="0" max="${c[1]}" step="1" value="${savedScores[i]===null||savedScores[i]===undefined||savedScores[i]===""?"":Math.max(0,Math.min(c[1],Number(savedScores[i])||0))}" placeholder="未评分" aria-label="${esc(c[0])}，最高${c[1]}分"></div>`).join("");
     const rec=list(x.rec);
     MAIN.innerHTML=`<div class="container"><section class="lesson-header">
       <div class="breadcrumbs"><a href="./">所有课程</a><span>／</span><span>阶段 0${phaseFor(d)+1}</span><span>／</span><span>第 ${fmt(d)} 课</span></div>
@@ -180,7 +181,7 @@
           ${section("04A","选做复练：完整表达迁移",`<div class="speech-lines">${arr(x.moreLines).map((v,i)=>`<div class="speech-line"><span class="num">${fmt(i+1)}</span>${esc(v)}</div>`).join("")}</div>`,`<p class="section-explain">这是备用素材，不额外挤入今天必做60分钟；复练时替换原句，重点看自然讲话是否仍然清楚。</p>`)}
           ${section("05",`朗读原文：《${esc(x.readingName)}》`,`<div class="reading-caption"><span>ORIGINAL READING MATERIAL</span><span>／短停顿　∥较长停顿</span></div><div class="reading">${reading}</div>`,`<p class="section-explain">先默读并圈出难点，再慢读、自然读，最后保存不剪辑的完整录音。停顿秒数仅供参考，不能机械化。</p>`)}
           ${section("06","脱稿复述练习",`<div class="retell-chain">${arr(x.retell).map(v=>`<span>${esc(v)}</span>`).join("")}</div><p class="section-explain">只看五个关键词准备1分钟，再讲60—90秒。先保存首录；不为凑时长拖字，不按背出原句计分。</p><details class="answer-panel"><summary>完成首录后，查看完整复述示范</summary>${sample}</details>`)}
-          ${section("07","真实情境表达",`<div class="scene-card"><h3>生活情境｜${esc(x.dailyTitle)}</h3><p>${decorate(x.daily)}</p><small>先照读，再只看要点脱稿讲一遍。</small></div><div class="scene-card"><h3>科研交流｜${esc(x.labTitle)}</h3><p>${decorate(x.lab)}</p><small>用于表达练习的情境示范，不代表实际项目进展；只需任选一套。</small></div>`,`<p class="section-explain">两套示范为同一实战时段的替代材料，不要求全部练完；经历与数字均为教学情境，不能冒充自己的实际工作。</p>`)}
+          ${section("07","真实情境表达",`<div class="scene-card"><h3>生活情境｜${esc(x.dailyTitle)}</h3><p>${decorate(x.daily)}</p><small>独立首录后再参考；这是替代或复练材料，不额外增加一场必测。</small></div><div class="scene-card"><h3>科研交流｜${esc(x.labTitle)}</h3><p>${decorate(x.lab)}</p><small>用于表达练习的情境示范，不代表实际项目进展；只需任选一套。</small></div>`,`<p class="section-explain">两套示范为同一实战时段的替代材料，不要求全部练完；经历与数字均为教学情境，不能冒充自己的实际工作。</p>`)}
           ${section("07A","独立实战：先作答，再看示范",`<div class="workbook-panel"><h3>新情境</h3><p>${decorate(x.transfer?.situation)}</p><p class="transfer-brief">${esc(x.transfer?.brief)}</p><h3>三项核对标准</h3>${list(x.transfer?.checks)}<details class="answer-panel"><summary>保留独立首录后，展开完整参考</summary><p>${decorate(x.transfer?.model)}</p></details></div>`)}
           ${section("08","常见错误与修正",`<div class="fix-list">${arr(x.fix).map(pair=>`<div class="fix-item"><strong>常见问题：${esc(pair[0])}</strong><p>修正方法：${esc(pair[1])}</p></div>`).join("")}</div>`)}
           ${section("08A","100分：每一分按什么记录",`<div class="assessment-scroll"><table class="assessment-table"><thead><tr><th>项目</th><th>满分</th><th>具体依据</th></tr></thead><tbody>${arr(x.assessment).map(r=>`<tr><td>${esc(r.name)}</td><td>${r.max}</td><td>${esc(r.rule)}</td></tr>`).join("")}</tbody></table></div><p class="course-safety">${esc(x.scoreNote)}</p><h3>回听时请回答</h3>${list(x.questions)}`)}
@@ -190,9 +191,9 @@
           <div class="note-box"><h4>写下真正能改进的一件事</h4><p>例如：“语速变快时，我要先停半秒，再讲下一层意思。”尽量写可执行的动作，而不是空泛的评价。</p></div>`)}
         </div>
         <aside class="lesson-aside" aria-label="学习操作台">
-          <div class="aside-card"><h3>60分钟专注计时</h3><div id="timer-display" class="timer-display" aria-live="off">60:00</div><div class="timer-controls"><button class="button small primary" id="timer-start">开始</button><button class="button small" id="timer-pause">暂停</button><button class="button small" id="timer-reset">归零</button></div><p class="audio-note" style="margin:10px 0 0">计时器仅作参考，可以根据体力和实际情况暂停。</p></div>
+          <div class="aside-card"><h3>60分钟专注计时</h3><div id="timer-display" class="timer-display" aria-live="off">60:00</div><div class="timer-controls"><button class="button small primary" id="timer-start">开始</button><button class="button small" id="timer-pause">暂停</button><button class="button small" id="timer-reset">重置60分</button></div><p class="audio-note" style="margin:10px 0 0">计时器仅作参考，可以根据体力和实际情况暂停。</p></div>
           <div class="aside-card"><h3>完成今日7项任务</h3><p class="aside-caption" id="tasks-count">${checks.filter(Boolean).length} / ${tasks.length} 已完成</p>${tasks.map((v,i)=>`<label class="checkbox-row ${checks[i]?"checked":""}"><input type="checkbox" data-check="${i}" ${checks[i]?"checked":""}><span>${esc(v)}</span></label>`).join("")}</div>
-          <div class="aside-card"><h3>分项打分 · 满分100</h3>${rubricHtml}<div class="score-total"><span>本课评分</span><strong id="score-total">0 / 100</strong></div></div>
+          <div class="aside-card"><h3>分项打分 · 满分100</h3>${rubricHtml}<p class="audio-note">未评留空；0分仅用于已评但未达到要求。待核验音请记入笔记，分项未评齐时只显示暂记分。</p><div class="score-total"><span>本课评分</span><strong id="score-total">0 / 100</strong></div></div>
           <div class="aside-card"><h3>我的问题与改进</h3><p class="aside-caption">保存于当前浏览器，可随时修改。</p><textarea class="memo" id="day-notes" placeholder="今天哪句话卡住了？哪种音仍不稳定？下次准备怎么调整？">${esc(entry.notes||"")}</textarea><p class="memo-status" id="memo-status">输入后自动保存</p></div>
           <div class="aside-card"><h3>本地录音</h3><p class="audio-note">点击开始后浏览器会请求麦克风权限。点击停止后音频会下载到你的设备，不传到服务器；若不支持，可用手机录音。</p><div class="audio-controls"><button class="button small primary" id="record-start">开始录音</button><button class="button small" id="record-stop" disabled>停止并下载</button></div><p class="aside-feedback" id="record-status" aria-live="polite"></p></div>
           <div class="aside-card"><a class="button primary pdf-aside-button" href="downloads/pdf/Day-${fmt(d)}.pdf" download>↓ 下载本课完整PDF</a><button class="button primary" id="mark-complete" style="width:100%">${entry.completed?"✓ 已完成（点击取消）":"标记完成本课 ✓"}</button><p class="audio-note" style="margin:10px 0 0">不自动跳到下一课，也不强制连续打卡。</p><button class="button small subtle" id="print-lesson" style="width:100%;margin-top:8px">打印当前网页</button></div>
@@ -202,9 +203,14 @@
     </div>`;
     const total=document.getElementById("score-total");
     const scores=[...document.querySelectorAll("[data-score]")];
-    function setTotal(){let val=0;scores.forEach((e,i)=>{const upper=rubric[i][1];const v=Math.round(Math.max(0,Math.min(upper,Number(e.value)||0)));val+=v});total.textContent=`${val} / 100`;update(d,"total",val)}
-    scores.forEach((e,i)=>e.addEventListener("change",()=>{const upper=rubric[i][1];e.value=String(Math.round(Math.max(0,Math.min(upper,Number(e.value)||0))));update(d,"scores",scores.map(v=>Number(v.value)||0));setTotal()}));
-    setTotal();
+    function setTotal(persist=false){
+      const vals=scores.map((e,i)=>e.value.trim()===""?null:Math.round(Math.max(0,Math.min(rubric[i][1],Number(e.value)||0))));
+      const n=vals.filter(v=>v!==null).length,sum=vals.reduce((a,v)=>a+(v??0),0);
+      total.textContent=n===0?"未评分":n===vals.length?`${sum} / 100`:`已记 ${sum} 分（${n}/${vals.length}项）`;
+      if(persist){const ok=update(d,"scores",vals);update(d,"total",n===vals.length?sum:null);if(!ok)toast("浏览器未能保存评分，请导出记录备份。");}
+    }
+    scores.forEach((e,i)=>e.addEventListener("change",()=>{if(e.value.trim()!=="")e.value=String(Math.round(Math.max(0,Math.min(rubric[i][1],Number(e.value)||0))));setTotal(true)}));
+    setTotal(false);
     document.querySelectorAll("[data-check]").forEach(e=>e.addEventListener("change",()=>{
       const selected=[...document.querySelectorAll("[data-check]")].map(v=>v.checked);update(d,"checks",selected);
       document.getElementById("tasks-count").textContent=`${selected.filter(Boolean).length} / ${tasks.length} 已完成`;
@@ -216,13 +222,14 @@
     document.getElementById("timer-pause").addEventListener("click",pauseTimer);
     document.getElementById("timer-reset").addEventListener("click",resetTimer);
     document.getElementById("mark-complete").addEventListener("click",()=>{
-      const value=!isDone(d);update(d,"completed",value);const b=document.getElementById("mark-complete");b.textContent=value?"✓ 已完成（点击取消）":"标记完成本课 ✓";
+      const value=!isDone(d);const ok=update(d,"completed",value);if(!ok){toast("浏览器未能保存完成状态，请导出记录备份。");}const b=document.getElementById("mark-complete");b.textContent=value?"✓ 已完成（点击取消）":"标记完成本课 ✓";
       toast(value?"Day "+fmt(d)+" 已标记完成，可按自己的节奏继续。":"已取消本课完成标记。")
     });
     document.getElementById("print-lesson").addEventListener("click",()=>window.print());
     const recStart=document.getElementById("record-start"),recStop=document.getElementById("record-stop"),recStatus=document.getElementById("record-status");
     recStart.addEventListener("click",async()=>{
       if(!navigator.mediaDevices?.getUserMedia||typeof MediaRecorder==="undefined"){recStatus.textContent="当前浏览器不支持，请使用手机录音。";return}
+      recStart.disabled=true;
       try{
         stream=await navigator.mediaDevices.getUserMedia({audio:true});
         const format=["audio/webm;codecs=opus","audio/webm","audio/mp4"].find(m=>MediaRecorder.isTypeSupported(m));
@@ -231,12 +238,12 @@
         media.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data)};
         media.onstop=()=>{
           const mime=media?.mimeType||"audio/webm";const ext=mime.includes("mp4")?"m4a":"webm";
-          if(chunks.length){const blob=new Blob(chunks,{type:mime});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`PracticeLab_Day${fmt(d)}_${new Date().toISOString().replace(/[:.]/g,"-")}.${ext}`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);recStatus.textContent="录音已在本地生成下载文件。"}
+          if(chunks.length){const blob=new Blob(chunks,{type:mime});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`PracticeLab_Day${fmt(d)}_${new Date().toISOString().replace(/[:.]/g,"-")}.${ext}`;document.body.appendChild(a);a.click();a.remove();const box=document.createElement("div");box.className="recording-result";const audio=document.createElement("audio");audio.controls=true;audio.src=url;audio.style.width="100%";const link=document.createElement("a");link.href=url;link.download=a.download;link.textContent="再次下载这段录音";box.append(audio,link);recStatus.after(box);recStatus.textContent="已生成本地录音并请求下载，请确认文件已保存；也可在下方回听或再次下载。关闭页面后临时音频会失效。";}
           if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
           recStart.disabled=false;recStop.disabled=true;
         };
         media.start();recStart.disabled=true;recStop.disabled=false;recStatus.textContent="录音中……点击“停止并下载”结束。";
-      }catch(err){recStatus.textContent="未取得麦克风权限。可以使用手机录音。";if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}}
+      }catch(err){recStart.disabled=false;recStop.disabled=true;recStatus.textContent="无法开始录音，请检查麦克风权限或改用手机录音。";if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}}
     });
     recStop.addEventListener("click",stopMedia);
     showTimer();
