@@ -7,3 +7,21 @@
 @media(max-width:560px){.container{width:calc(100% - 28px)}.lesson-cards{grid-template-columns:1fr}.course-card{min-height:138px}.intro{padding-top:31px}.hero-title{font-size:39px}.hero-actions .button{flex:1}.hero-plate{min-height:285px}.phase{padding:23px}.stats-item{padding:14px 9px!important}.lesson-aside{grid-template-columns:1fr}.lesson-section{padding:19px 17px}.lesson-section h2{font-size:24px}.reading{font-size:15.5px;line-height:2.15}.record-panel{padding:18px}.retell-chain span{padding:6px 8px;font-size:11px}.lesson-steps-footer a{min-width:0;flex:1;font-size:12px;padding:10px}.footer{margin-top:35px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 @media print{body{background:#fff!important;color:#111}body::before,.topbar,.footer,.lesson-aside,.button,.lesson-steps-footer,.toast,.reading-meter,.hero-plate{display:none!important}.container{width:100%!important}.lesson-layout{display:block}.lesson-section{box-shadow:none;break-inside:avoid;border:1px solid #bbb}.reading{color:#111}.lesson-header{padding:10px 0}.lesson-title{font-size:33px}.lesson-section h2{font-size:21px}.lesson-content{width:100%}}
+/* Course 02 / 100-day life practice — visibly separate from the 21-day workbook */
+.topnav .nav-growth{color:var(--forest);font-weight:800}
+.growth-series-section{padding:18px 0 65px}
+.growth-series-card{display:grid;grid-template-columns:1.4fr .6fr;gap:35px;align-items:center;overflow:hidden;position:relative;background:#e9efe6;border:1px solid #d7e1d5;padding:38px 44px;color:#26493f}
+.growth-series-card::after{content:"";position:absolute;right:5%;top:-90px;width:270px;height:270px;border:1px solid #bfd2bd;border-radius:50%;opacity:.7;pointer-events:none}
+.growth-series-copy{position:relative;z-index:1}
+.growth-series-copy h2{font:600 clamp(29px,3vw,41px)/1.42 var(--serif);letter-spacing:-.04em;margin:13px 0}
+.growth-series-copy>p:not(.overline){font-size:13px;line-height:2;color:#576e61;max-width:650px;margin:0 0 20px}
+.growth-series-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.growth-series-meta span{padding:5px 11px;font-size:10px;border:1px solid #c5d6c7;color:#416857;border-radius:2px}
+.growth-series-emblem{display:flex;align-items:center;flex-direction:column;justify-content:center;align-self:stretch;border-left:1px solid #c5d6c7;min-height:230px;position:relative;z-index:1}
+.growth-series-emblem span{font-size:10px;letter-spacing:.22em;color:#71887c}
+.growth-series-emblem strong{font:500 clamp(95px,11vw,162px)/1 Georgia,serif;letter-spacing:-.06em;color:#528070}
+.growth-series-emblem small{font-size:9px;letter-spacing:.17em;color:#627a6c}
+.growth-series-emblem i{font:normal 22px Georgia,serif;color:#b9875e;margin-top:12px}
+@media(max-width:850px){.topnav{gap:16px}.growth-series-card{grid-template-columns:1fr .4fr;padding:30px 25px}.growth-series-emblem strong{font-size:103px}}
+@media(max-width:650px){.growth-series-card{grid-template-columns:1fr;padding:26px 20px;gap:12px}.growth-series-emblem{min-height:100px;border-left:0;border-top:1px solid #c5d6c7;flex-direction:row;gap:10px}.growth-series-emblem strong{font-size:78px}.growth-series-emblem i{display:none}.growth-series-copy h2{font-size:30px}.growth-series-copy>p:not(.overline){font-size:12px}.growth-series-section{padding-bottom:26px}}
+@media print{.growth-series-section{display:none!important}}
