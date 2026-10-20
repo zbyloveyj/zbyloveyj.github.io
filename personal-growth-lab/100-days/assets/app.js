@@ -115,11 +115,22 @@
     });
     return out;
   }
-  function completionGate(n){
+  function completionGate(n,mode=state.mode){
     const s=getDay(n),checked=s.tasks||{},core=["core1","core2","core3"];
-    if(state.mode==="lite")return {ok:checked.core1===true,text:"轻量：完成第1步即可"};
-    if(state.mode==="regular")return {ok:core.every(k=>checked[k]===true),text:"标准：完成核心3步"};
+    if(mode==="lite")return {ok:checked.core1===true,text:"轻量：完成第1步即可"};
+    if(mode==="regular")return {ok:core.every(k=>checked[k]===true),text:"标准：完成核心3步"};
     return {ok:core.every(k=>checked[k]===true)&&(checked.support1===true||checked.support2===true)&&String(s.note||"").trim().length>=8,text:"深入：核心3步＋辅助1项＋至少8字笔记"};
+  }
+  function refreshDaySummary(){
+    const n=countChecked(selectedDay),gate=completionGate(selectedDay),d=getDay(selectedDay);
+    const bar=$("day-content").querySelector(".completion-bar");
+    if(bar){bar.setAttribute("aria-valuenow",n);const fill=bar.querySelector(".completion-fill");if(fill)fill.style.width=n*20+"%";}
+    const done=$("day-content").querySelector(".completion-meta");
+    if(done){
+      const children=done.querySelectorAll("span");
+      if(children[0])children[0].textContent="已完成 "+n+"/5 个具体任务";
+    }
+    const node=$("gate-status");if(node)node.textContent=d.completed===true?"已确认（"+(modes[d.completedMode]?.name||"历史记录")+"）":gate.ok?"已达到当前模式的验收条件":"尚未达到当前模式的验收条件";
   }
   function setTheme(){
     document.documentElement.dataset.theme=state.theme;
@@ -338,6 +349,7 @@
     if(!obj||typeof obj!=="object"||Array.isArray(obj)||obj.version!==1||!validDate(obj.startDate))throw Error("备份文件格式不正确");
     const clean=fresh();
     clean.startDate=obj.startDate;
+    const restored=Number(obj.lastOpened);if(Number.isInteger(restored)&&restored>=1&&restored<=100)clean.lastOpened=restored;
     clean.mode=modes[obj.mode]?obj.mode:"regular";
     clean.theme=["light","dark"].includes(obj.theme)?obj.theme:"light";
     if(obj.days&&typeof obj.days==="object"&&!Array.isArray(obj.days)){
@@ -346,7 +358,7 @@
         if(!Number.isInteger(n)||n<1||n>100||!v||typeof v!=="object"||Array.isArray(v))continue;
         const tasks={};
         for(const id of [...TASK_IDS,...LEGACY_IDS]){if(v.tasks&&v.tasks[id]===true)tasks[id]=true;}
-        clean.days[String(n)]={tasks,completed:v.completed===true,note:typeof v.note==="string"?v.note.slice(0,5000):"",energy:Number.isInteger(v.energy)&&v.energy>=1&&v.energy<=5?v.energy:null};
+        clean.days[String(n)]={tasks,completed:v.completed===true,completedMode:modes[v.completedMode]?v.completedMode:null,note:typeof v.note==="string"?v.note.slice(0,5000):"",energy:Number.isInteger(v.energy)&&v.energy>=1&&v.energy<=5?v.energy:null,updatedAt:typeof v.updatedAt==="string"?v.updatedAt.slice(0,40):null};
       }
     }
     if(obj.weeklyNotes&&typeof obj.weeklyNotes==="object"&&!Array.isArray(obj.weeklyNotes)){
@@ -363,7 +375,7 @@
     try{
       const next=validateImport(JSON.parse(await file.text()));
       if(!confirm("导入将替换本浏览器中的现有100天记录，建议先导出备份。确定继续吗？"))return;
-      state=next;selectedDay=plannedToday();save();render();
+      state=next;selectedDay=next.lastOpened;save();render();
       toast("记录已导入，当前浏览器的进度已恢复。");
     }catch(e){toast("无法导入："+(e instanceof Error?e.message:"文件内容有误"));}
   }
@@ -374,28 +386,67 @@
     toast("新的起点日期已保存，原有Day编号记录保持不变。");
   });
   $("theme-toggle").addEventListener("click",()=>{state.theme=state.theme==="light"?"dark":"light";save();setTheme();});
+  $("resume-day").addEventListener("click",()=>selectDay(suggestedDay()));
+  $("calendar-day").addEventListener("click",()=>selectDay(plannedToday()));
+  $("backup-inline").addEventListener("click",exportData);
+  const jump=()=>{
+    const n=Number($("jump-day-input").value);
+    if(!Number.isInteger(n)||n<1||n>100){toast("请输入1至100之间的完整课程编号。");$("jump-day-input").focus();return;}
+    selectDay(n);
+    $("jump-day-input").value="";
+  };
+  $("jump-day-btn").addEventListener("click",jump);
+  $("jump-day-input").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();jump();}});
   $("prev-day").addEventListener("click",()=>selectDay(selectedDay-1));
   $("next-day").addEventListener("click",()=>selectDay(selectedDay+1));
   $("go-today").addEventListener("click",()=>selectDay(plannedToday()));
   $("mode-picker").addEventListener("click",e=>{
     const b=e.target.closest("button[data-mode]");
     if(!b||!modes[b.dataset.mode])return;
+    if(state.mode===b.dataset.mode)return;
     state.mode=b.dataset.mode;save();renderDay();
-    toast("已切换到"+modes[state.mode].name+"模式。");
+    toast("已选择"+modes[state.mode].name+"模式；已完成日期仍保留原来的确认模式。");
   });
   $("day-content").addEventListener("click",e=>{
     const task=e.target.closest("button[data-task]");
     if(task){
       const key=task.dataset.task,d=getDay(selectedDay),tasks={...(d.tasks||{})};
-      tasks[key]=!tasks[key];updateDay(selectedDay,{tasks});
-      renderDay();renderStats();renderMap();renderCharts();
+      tasks[key]=!tasks[key];
+      updateDay(selectedDay,{tasks});
+      const pressed=tasks[key]===true;
+      task.setAttribute("aria-pressed",String(pressed));
+      const label=task.getAttribute("aria-label")||"";
+      task.setAttribute("aria-label",label.replace(/，(?:已完成|未完成)$/,"，"+(pressed?"已完成":"未完成")));
+      if(d.completed===true&&modes[d.completedMode]&&!completionGate(selectedDay,d.completedMode).ok){
+        updateDay(selectedDay,{completed:false,completedMode:null});
+        toast("核心验收条件已改变，此日已恢复为进行中。");
+        renderDay();
+      }
+      refreshDaySummary();renderStats();renderMap();renderCharts();renderCatalog();renderRecent();
       return;
     }
     const energy=e.target.closest("button[data-energy]");
     if(energy){
       const value=Number(energy.dataset.energy),d=getDay(selectedDay);
       updateDay(selectedDay,{energy:d.energy===value?null:value});
-      renderDay();renderMap();return;
+      for(const b of $("day-content").querySelectorAll("button[data-energy]"))b.setAttribute("aria-pressed",String(Number(b.dataset.energy)===getDay(selectedDay).energy));
+      renderMap();renderCatalog();renderRecent();return;
+    }
+    if(e.target.closest("#copy-guide")){
+      const day=DATA.days[selectedDay-1],guide=GUIDES[selectedDay-1];
+      if(!guide){toast("未找到这一课的参考格式。");return;}
+      const value="Day "+pad(day.n)+" · "+day.title+"\n"+guide.template+"\n注：请用自己的真实记录替换[方括号]内容。";
+      (async()=>{
+        try{
+          if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(value);
+          else{
+            const ta=document.createElement("textarea");ta.value=value;document.body.appendChild(ta);ta.select();
+            const ok=document.execCommand("copy");ta.remove();if(!ok)throw Error("clipboard unavailable");
+          }
+          toast("空白记录结构已复制，可粘贴到笔记并填写。");
+        }catch(error){toast("无法使用剪贴板；请手动选择上方的参考格式复制。");}
+      })();
+      return;
     }
     if(e.target.closest("#finish-day")){
       const d=getDay(selectedDay),isPrevious=d.completed===true;
@@ -403,11 +454,16 @@
         toast("当前模式尚未达标。可以完成相应核心步骤，或选择更适合今天的轻量模式。");return;
       }
       updateDay(selectedDay,{completed:!isPrevious,completedMode:isPrevious?null:state.mode});
-      render();toast(isPrevious?"已撤销当日完成确认。":"本日成果已记录。");
+      render();toast(isPrevious?"已撤销当日完成确认。":"本日成果已记录，可以继续下一课。");
     }
   });
   $("day-content").addEventListener("input",e=>{
-    if(e.target.id==="day-note"){updateDay(selectedDay,{note:e.target.value});const node=$("gate-status");if(node)node.textContent=completionGate(selectedDay).ok?"已达到当前模式的验收条件":"尚未达到当前模式的验收条件";}
+    if(e.target.id==="day-note"){
+      updateDay(selectedDay,{note:e.target.value});
+      const d=getDay(selectedDay);
+      if(d.completed===true&&modes[d.completedMode]&&!completionGate(selectedDay,d.completedMode).ok)updateDay(selectedDay,{completed:false,completedMode:null});
+      refreshDaySummary();
+    }
   });
   $("day-content").addEventListener("click",e=>{
     const a=e.target.closest("a[data-open-day]");
@@ -417,12 +473,25 @@
     const b=e.target.closest("button[data-open-day]");
     if(b)selectDay(Number(b.dataset.openDay));
   });
+  $("course-domain").innerHTML='<option value="all">全部领域</option>'+Object.entries(DATA.categories).map(([k,v])=>'<option value="'+esc(k)+'">'+esc(v)+'</option>').join("");
+  $("course-filter-form").addEventListener("submit",e=>e.preventDefault());
+  for(const id of ["course-search","course-phase","course-domain","course-state"]){
+    $(id).addEventListener(id==="course-search"?"input":"change",()=>{catalogLimit=12;renderCatalog();});
+  }
+  $("course-more").addEventListener("click",()=>{catalogLimit=Math.min(100,catalogLimit+12);renderCatalog();});
+  $("course-reset").addEventListener("click",()=>{
+    $("course-search").value="";$("course-phase").value="all";$("course-domain").value="all";$("course-state").value="all";
+    catalogLimit=12;renderCatalog();$("course-search").focus();
+  });
   $("history").addEventListener("input",e=>{
     if(e.target.id==="weekly-note"){
       const week=String(e.target.dataset.week);
-      state.weeklyNotes[week]=e.target.value;
-      save();
+      state.weeklyNotes[week]=e.target.value;save();
     }
+  });
+  $("history").addEventListener("click",e=>{
+    const b=e.target.closest("button[data-open-day]");
+    if(b)selectDay(Number(b.dataset.openDay));
   });
   $("export-data").addEventListener("click",exportData);
   $("export-report").addEventListener("click",exportReport);
@@ -436,7 +505,7 @@
   },{passive:true});
   window.addEventListener("popstate",()=>{
     const d=Number(new URLSearchParams(location.search).get("day"));
-    if(Number.isInteger(d)&&d>=1&&d<=100){selectedDay=d;renderDay();renderMap();renderCharts();}
+    if(Number.isInteger(d)&&d>=1&&d<=100){selectedDay=d;state.lastOpened=d;save();render();}
   });
   renderDimensions();
   render();
