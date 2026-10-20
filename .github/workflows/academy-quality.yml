@@ -1,0 +1,66 @@
+name: Growth Academy quality and bibliography
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'personal-growth-lab/academy/**'
+      - '.github/workflows/academy-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: growth-academy-quality
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build fixed PubMed bibliography from official metadata
+        run: python personal-growth-lab/academy/tools/build_catalog.py
+      - name: Validate all curricula and JavaScript syntax
+        run: |
+          node personal-growth-lab/academy/tools/validate.js --full-catalog
+          for f in personal-growth-lab/academy/assets/*.js; do node --check "$f"; done
+      - name: Install test dependencies
+        run: |
+          python -m pip install numpy scikit-learn playwright
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m playwright install --with-deps chromium
+      - name: Execute all six synthetic-data project starters
+        run: |
+          mkdir -p qa-artifacts
+          for project in qc baseline representation multimodal signal retrieval; do
+            python personal-growth-lab/academy/downloads/starter_projects.py --project "$project" > "qa-artifacts/$project.json"
+            python -m json.tool "qa-artifacts/$project.json" > /dev/null
+          done
+      - name: Browser integration and responsive checks
+        run: python personal-growth-lab/academy/tools/browser_check.py
+      - name: Save verified bibliography without touching learning records
+        run: |
+          git add personal-growth-lab/academy/data/papers.js
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Complete fixed 100-item PubMed bibliography for Growth Academy'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Publish check summary
+        run: |
+          echo '## Growth Academy checks' >> "$GITHUB_STEP_SUMMARY"
+          cat qa-artifacts/report.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve check reports and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: growth-academy-quality
+          path: qa-artifacts/
+          retention-days: 14
+          if-no-files-found: warn

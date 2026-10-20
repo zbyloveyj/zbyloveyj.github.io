@@ -1,0 +1,31 @@
+name: Verify published Growth Academy
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'personal-growth-lab/academy/release.json'
+      - '.github/workflows/academy-live.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: growth-academy-live
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify public HTTPS files against exact release hashes
+        run: |
+          set -o pipefail
+          python3 personal-growth-lab/academy/tools/verify_live.py | tee "$RUNNER_TEMP/academy-live.json"
+      - name: Preserve public verification result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: growth-academy-live
+          path: ${{ runner.temp }}/academy-live.json
+          retention-days: 14
+          if-no-files-found: warn
