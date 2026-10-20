@@ -73,7 +73,7 @@ try:
 
     for url, markers, label in (
         (base + "100-days/", ["今天的七件小事", "第 100 天", "个人成长", "data-task=\"sleep\""], "100-day homepage"),
-        (base + "100-days/?day=100", ["给未来的自己一份交接", "DAY 100", "毕业"], "100-day final lesson"),
+        (base + "100-days/?day=100", ["给未来的自己一份交接", "DAY 100", "明天当作平常一天"], "100-day final lesson"),
         (base, ["growth-series-card", "进入100天成长计划"], "original lab links second course"),
     ):
         run = subprocess.run(
