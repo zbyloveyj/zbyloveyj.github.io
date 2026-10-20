@@ -107,7 +107,7 @@ try:
     tests = [
        ("personal-growth-lab/100-days/?day=1",
         ['DAY 001', '今天只聚焦一件事', '四行现状记录', 'data-task="core1"',
-         'data-task="support2"', '相关前置', '今天要留下什么', '验收：'], "first day's guided training"),
+         'data-task="support2"', '起点日', '今天要留下什么', '验收：'], "first day's guided training"),
        ("personal-growth-lab/100-days/?day=100",
         ['DAY 100', '给未来的自己一份交接', '一封100天交接信', '第15周',
          'data-task="core3"'], "final day and 15-week continuity"),
