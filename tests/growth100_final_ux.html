@@ -75,13 +75,22 @@
       const maps=d.querySelectorAll(".map-day");
       check(maps.length===100,"100-day map not fully rendered");
       check(d.querySelectorAll(".mobile-dock a").length===4,"Mobile bottom navigation missing");
+      check(!!by("clear-current-day")&&!!by("reset-all-records"),"Data reset controls missing");
+      w.confirm=()=>true;
+      by("jump-day-input").value="41";by("jump-day-btn").click();
+      by("clear-current-day").click();
+      check(getState().days["41"]===undefined,"Single-day reset failed to remove old notes");
+      w.prompt=()=> "清空100天";
+      by("reset-all-records").click();
+      check(Object.keys(getState().days).length===0,"Full confirmed reset did not clear all day data");
+      check(by("day-heading").textContent.includes("DAY 001"),"Full reset did not return to Day01");
       frame.style.width="390px";
       setTimeout(()=>{
         try{
           const vw=d.documentElement.clientWidth,sw=d.documentElement.scrollWidth;
           check(vw<=410,"Mobile iframe viewport was not applied");
           check(sw<=vw+3,"Mobile horizontal overflow, viewport="+vw+", document width="+sw);
-          pass("PASS: dashboard, 100 course filters, mixed filters, smart resume, direct jump, detailed lessons, unsaved-note safety, autosave, progress, recent history and 390px mobile layout");
+          pass("PASS: dashboard, search, mixed filters, resume, jump, detailed guides, focus-safe notes, autosave, recent history, reset safeguards and 390px mobile layout");
         }catch(e){fail(e);}
       },180);
     }catch(e){fail(e);}
