@@ -1,0 +1,28 @@
+
+/* Practice Lab / Instructor-edition enhancement */
+.lesson-download-banner{display:flex;justify-content:space-between;align-items:center;gap:22px;margin-top:26px;padding:20px 23px;border:1px solid #d6dfd7;background:#edf3ec;border-radius:12px}
+.lesson-download-banner strong{display:block;font-size:16px;color:#254636;letter-spacing:-.015em}
+.lesson-download-banner p{margin:6px 0 0;color:#65766a;font-size:12px;line-height:1.8}
+.lesson-download-banner .button{white-space:nowrap}
+.pdf-aside-button{display:block;text-align:center;width:100%;margin-bottom:12px;box-sizing:border-box}
+.pdf-library{background:linear-gradient(160deg,#f5f7f3,#ecefe8)}
+.pdf-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+.pdf-item{padding:19px 19px 17px;min-height:132px;display:flex;flex-direction:column;gap:8px;text-decoration:none;border:1px solid #d8dfd8;background:#fff;border-radius:8px;transition:transform .16s,border-color .16s,box-shadow .16s}
+.pdf-item:hover,.pdf-item:focus-visible{transform:translateY(-2px);border-color:#8daa98;box-shadow:0 6px 24px rgba(16,54,32,.09)}
+.pdf-item>span{font-size:11px;font-weight:800;letter-spacing:.1em;color:#66806f}
+.pdf-item>b{font-size:16px;line-height:1.45;color:#273c33;letter-spacing:-.02em}
+.pdf-item>small{margin-top:auto;color:#71847a;font-size:12px}
+.workbook-panel{padding:22px 24px;background:#f7f9f6;border:1px solid #dfe7dd;border-left:3px solid #65866f;border-radius:3px 9px 9px 3px;margin:12px 0 6px}
+.workbook-panel p{font-size:15px;line-height:2.08;letter-spacing:.009em;color:#36483e;margin:0 0 12px}
+.workbook-panel p:last-child{margin-bottom:0}
+.workbook-panel h3{font-size:14px;margin:8px 0 9px;color:#244d34}
+.workbook-panel h3:not(:first-child){margin-top:20px}
+.coaching-steps{border-top:1px solid #dce5db}
+.coaching-step{display:flex;align-items:flex-start;gap:15px;padding:17px 4px;border-bottom:1px solid #e0e7de}
+.coaching-step span{flex:none;width:31px;height:31px;border-radius:50%;background:#e8f0e9;color:#426b50;font-size:12px;font-weight:700;display:grid;place-items:center}
+.coaching-step p{font-size:14px;line-height:2;margin:0;color:#34463e}
+.self-check{padding-left:24px;margin:13px 0 0}
+.self-check li{margin-bottom:8px;line-height:1.85;color:#34463e;font-size:14px}
+@media(max-width:900px){.pdf-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.lesson-download-banner{flex-direction:column;align-items:stretch;padding:17px}.lesson-download-banner .button{text-align:center}.pdf-grid{grid-template-columns:1fr}.pdf-item{min-height:112px}.workbook-panel{padding:17px 15px}.workbook-panel p{font-size:14px}.coaching-step p{font-size:13px}}
+@media print{.pdf-library,.lesson-download-banner,.pdf-aside-button{display:none!important}.workbook-panel{background:none;border:1px solid #ddd}.coaching-step{break-inside:avoid}}
