@@ -1,0 +1,32 @@
+name: Verify 100-day growth course
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'personal-growth-lab/100-days/**'
+      - 'personal-growth-lab/assets/app.js'
+      - 'personal-growth-lab/assets/style.css'
+      - 'personal-growth-lab/index.html'
+      - 'tests/validate_growth100.py'
+      - '.github/workflows/validate-growth100.yml'
+  pull_request:
+    paths:
+      - 'personal-growth-lab/100-days/**'
+      - 'personal-growth-lab/assets/app.js'
+      - 'personal-growth-lab/index.html'
+      - 'tests/validate_growth100.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  course-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate lessons, JavaScript and browser rendering
+        run: python3 tests/validate_growth100.py
