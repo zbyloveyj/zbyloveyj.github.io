@@ -1,6 +1,6 @@
 (function growthApp(){
   "use strict";
-  const ALL=Array.isArray(window.GROWTH_LESSONS)?window.GROWTH_LESSONS.slice().sort((a,b)=>a.d-b.d):[];
+  const ALL=Array.isArray(window.GROWTH_LESSONS)?window.GROWTH_LESSONS.slice().map(x=>({...x,...((window.GROWTH_WORKBOOK||{})[x.d]||{})})).sort((a,b)=>a.d-b.d):[];
   const KEY="yixw_practice_lab_2026_v1";
   const START="2026-10-20";
   const MAIN=document.getElementById("app-main");
@@ -83,6 +83,7 @@
       <div class="lesson-cards">${ALL.filter(x=>phaseFor(x.d)===i).map(cardHtml).join("")}</div></section>`).join("");
     const done=ALL.filter(x=>isDone(x.d));
     const avg=done.length?Math.round(done.reduce((s,l)=>s+(Number(byDay(l.d).total)||0),0)/done.length):null;
+    const pdfHtml=`<section class="section pdf-library" id="pdf-library"><div class="container"><div class="section-header"><div><p class="overline">03 / DOWNLOADABLE WORKBOOKS</p><h2 class="section-heading">每天一份，21册PDF教材。</h2></div><p class="section-lead">每节独立排版，含逐分钟教学、完整练习、朗读材料、复述示范、实战讲稿与自评分表；打开即可下载，支持打印后手写打卡。</p></div><div class="pdf-grid">${ALL.map(x=>`<a class="pdf-item" href="downloads/pdf/Day-${fmt(x.d)}.pdf" download><span>DAY ${fmt(x.d)}</span><b>${esc(x.t)}</b><small>完整PDF教材 · 下载 ↓</small></a>`).join("")}</div></div></section>`;
     MAIN.innerHTML=`<section class="intro"><div class="container intro-layout">
       <div><p class="eyebrow">PERSONAL DEVELOPMENT / SERIES 01</p>
         <h1 class="hero-title">把表达，<br><em>练成一种可靠的能力。</em></h1>
@@ -100,6 +101,7 @@
       </section>
       <section class="section" id="approach"><div class="container"><div class="section-header"><div><p class="overline">01 / LEARNING DESIGN</p><h2 class="section-heading">不是课程清单，<br>而是一套可以真正练起来的教材。</h2></div><p class="section-lead">每节课含时间安排、逐字练习、完整朗读短文、脱稿复述、生活与科研情境、错误修正和100分评分。</p></div><div class="phases">${phaseHtml}</div></div></section>
       <section class="section curriculum" id="course-map"><div class="container"><div class="section-header"><div><p class="overline">02 / COMPLETE SYLLABUS</p><h2 class="section-heading">21天，完整开放。</h2></div><p class="section-lead">所有课程均可随时打开；建议按顺序练习，但不会锁住下一节课。</p></div>${courseHtml}</div></section>
+      ${pdfHtml}
       <section class="section" id="journal"><div class="container"><div class="section-header"><div><p class="overline">03 / LEARNING JOURNAL</p><h2 class="section-heading">训练的价值，<br>在于看见自己的变化。</h2></div><p class="section-lead">通过勾选、评分、文字复盘记录进度；所有记录只保存在当前浏览器中。</p></div>
         <div class="record-panel">
           <div class="progress-wheel" style="--progress:${pct}%"><div class="wheel-inner"><b>${count}<span style="font-size:22px">/ 21</span></b><span>完成课程 · ${pct}%</span></div></div>
@@ -145,17 +147,22 @@
     MAIN.innerHTML=`<div class="container"><section class="lesson-header">
       <div class="breadcrumbs"><a href="./">所有课程</a><span>／</span><span>阶段 0${phaseFor(d)+1}</span><span>／</span><span>第 ${fmt(d)} 课</span></div>
       <p class="lesson-kicker">LESSON ${fmt(d)} / 21　 ·　 60 MINUTES</p><h1 class="lesson-title">${esc(x.t)}</h1><p class="lesson-deck">${esc(x.sub)}</p>
-      <div class="outcome-pills">${arr(x.goal).map(g=>`<span>${esc(g)}</span>`).join("")}</div></section>
+      <div class="outcome-pills">${arr(x.goal).map(g=>`<span>${esc(g)}</span>`).join("")}</div><div class="lesson-download-banner"><div><strong>本课完整PDF手册</strong><p>可离线阅读、打印；含本课详解与打卡。</p></div><a class="button primary" href="downloads/pdf/Day-${fmt(d)}.pdf" download>下载 DAY ${fmt(d)} PDF ↓</a></div></section>
       <div class="lesson-layout">
         <div class="lesson-content">
           ${section("01","今天的60分钟",`<div class="schedule">${scheduleHtml}</div>`,`<p class="section-explain">时间从0分钟开始连续计入，可分段暂停，但不要跳过录音复盘。</p>`)}
           ${section("02","开口热身",list(x.warm),`<p class="section-explain">自然音量、不挤压喉咙；每句先慢读后自然说。</p>`)}
+          ${section("02A","本课核心方法",`<div class="workbook-panel"><p>${esc(x.concept||"")}</p><p>${esc(x.explain||"")}</p></div>`,`<p class="section-explain">先理解原理，再完成练习。每一条都以录音和真实表达为最终检验。</p>`)}
           ${section("03","本日核心专项",list(x.drill),`<p class="section-explain">不要只浏览；把下面每项真正读出来、讲出来或完成角色模拟。</p>`)}
+          ${section("03A","教练逐步带练",`<div class="coaching-steps">${arr(x.exercises).map((v,i)=>`<div class="coaching-step"><span>${fmt(i+1)}</span><p>${esc(v)}</p></div>`).join("")}</div>`,`<p class="section-explain">按时间完成操作。不要只读这些指令，必须实际张口或进行录音。</p>`)}
           ${section("04","完整句子练习",`<div class="speech-lines">${arr(x.lines).map((line,i)=>`<div class="speech-line"><span class="num">${fmt(i+1)}</span>${esc(line)}</div>`).join("")}</div>`,`<p class="section-explain">每句三轮：慢速准确、自然表达、最后尽量不看文字复述。“／”短停顿，“∥”较长停顿。</p>`)}
+          ${section("04A","增加难度：完整表达迁移",`<div class="speech-lines">${arr(x.moreLines).map((v,i)=>`<div class="speech-line"><span class="num">${fmt(i+1)}</span>${esc(v)}</div>`).join("")}</div>`,`<p class="section-explain">先照读，合上文字后只按意思重讲一遍。重点检查专项能力能否迁移到自然语言。</p>`)}
           ${section("05",`朗读原文：《${esc(x.readingName)}》`,`<div class="reading-caption"><span>ORIGINAL READING MATERIAL</span><span>／短停顿　∥较长停顿</span></div><div class="reading">${reading}</div>`,`<p class="section-explain">先默读并圈出难点，再慢读、自然读，最后保存不剪辑的完整录音。停顿秒数仅供参考，不能机械化。</p>`)}
           ${section("06","脱稿复述练习",`<div class="retell-chain">${arr(x.retell).map(v=>`<span>${esc(v)}</span>`).join("")}</div><p class="section-explain">先合上原文，只看上面五个关键词准备1分钟，然后连续讲60—90秒。请先独立完成，再看示范。</p><h3 style="font-size:14px;margin:19px 0 9px">参考复述</h3>${sample}`)}
           ${section("07","真实情境表达",`<div class="scene-card"><h3>生活情境｜${esc(x.dailyTitle)}</h3><p>${decorate(x.daily)}</p><small>先照读，再只看要点脱稿讲一遍。</small></div><div class="scene-card"><h3>科研交流｜${esc(x.labTitle)}</h3><p>${decorate(x.lab)}</p><small>用于表达练习的情境示范，不代表实际项目进展；只需任选一套。</small></div>`,`<p class="section-explain">每次选择至少一套实战稿练习，先录原始版，再修正一处具体问题。</p>`)}
+          ${section("07A","追加挑战与完整示范",`<div class="workbook-panel"><h3>独立挑战</h3><p>${esc(x.challenge||"")}</p><h3>参考示范（完成后再看）</h3><p>${esc(x.example||"")}</p></div>`,`<p class="section-explain">建议先不看示范完成一次。对照时只修改一处最影响听众理解的问题。</p>`)}
           ${section("08","常见错误与修正",`<div class="fix-list">${arr(x.fix).map(pair=>`<div class="fix-item"><strong>常见问题：${esc(pair[0])}</strong><p>修正方法：${esc(pair[1])}</p></div>`).join("")}</div>`)}
+          ${section("08A","本课专项评分标准与自检问题",`<div class="workbook-panel"><h3>100分怎样评</h3><p>${esc(x.rubric||"")}</p><h3>回听时请回答</h3><ol class="self-check">${arr(x.questions).map(q=>`<li>${esc(q)}</li>`).join("")}</ol></div>`)}
           ${section("09","100分评分与复盘",`<p style="font-size:13px;color:var(--muted)">评分请在练习完成后填写。初期的自评只用于追踪变化；发音准确性可以借助词典规范录音或他人听辨。</p>
           <div class="note-box"><h4>今日必须保留的录音</h4>${rec}</div>
           <div class="note-box"><h4>写下真正能改进的一件事</h4><p>例如：“语速变快时，我要先停半秒，再讲下一层意思。”尽量写可执行的动作，而不是空泛的评价。</p></div>`)}
@@ -166,7 +173,7 @@
           <div class="aside-card"><h3>分项打分 · 满分100</h3>${rubricHtml}<div class="score-total"><span>本课评分</span><strong id="score-total">0 / 100</strong></div></div>
           <div class="aside-card"><h3>我的问题与改进</h3><p class="aside-caption">保存于当前浏览器，可随时修改。</p><textarea class="memo" id="day-notes" placeholder="今天哪句话卡住了？哪种音仍不稳定？下次准备怎么调整？">${esc(entry.notes||"")}</textarea><p class="memo-status" id="memo-status">输入后自动保存</p></div>
           <div class="aside-card"><h3>本地录音</h3><p class="audio-note">点击开始后浏览器会请求麦克风权限。点击停止后音频会下载到你的设备，不传到服务器；若不支持，可用手机录音。</p><div class="audio-controls"><button class="button small primary" id="record-start">开始录音</button><button class="button small" id="record-stop" disabled>停止并下载</button></div><p class="aside-feedback" id="record-status" aria-live="polite"></p></div>
-          <div class="aside-card"><button class="button primary" id="mark-complete" style="width:100%">${entry.completed?"✓ 已完成（点击取消）":"标记完成本课 ✓"}</button><p class="audio-note" style="margin:10px 0 0">不自动跳到下一课，也不强制连续打卡。</p><button class="button small subtle" id="print-lesson" style="width:100%;margin-top:8px">打印 / 保存PDF</button></div>
+          <div class="aside-card"><a class="button primary pdf-aside-button" href="downloads/pdf/Day-${fmt(d)}.pdf" download>↓ 下载本课完整PDF</a><button class="button primary" id="mark-complete" style="width:100%">${entry.completed?"✓ 已完成（点击取消）":"标记完成本课 ✓"}</button><p class="audio-note" style="margin:10px 0 0">不自动跳到下一课，也不强制连续打卡。</p><button class="button small subtle" id="print-lesson" style="width:100%;margin-top:8px">打印 / 保存PDF</button></div>
         </aside>
       </div>
       <nav class="lesson-steps-footer" aria-label="课程切换"><a href="${dayLink(Math.max(1,d-1))}" ${d===1?'style="visibility:hidden"':''}><span>←</span><span>Day ${fmt(Math.max(1,d-1))}</span></a><a href="${d===21?"./":dayLink(d+1)}"><span>${d===21?"返回总览":"Day "+fmt(d+1)}</span><span>→</span></a></nav>
