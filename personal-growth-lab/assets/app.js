@@ -110,6 +110,15 @@
       </div></div>
       <div class="container stats-strip"><div class="stats-item"><strong>21</strong><span>完整逐日课程</span></div><div class="stats-item"><strong>60'</strong><span>每课建议时长</span></div><div class="stats-item"><strong>03</strong><span>能力进阶阶段</span></div><div class="stats-item"><strong>100</strong><span>每课量化自评</span></div></div>
       </section>
+      <section class="section growth-series-section" id="growth-series"><div class="container"><div class="growth-series-card">
+          <div class="growth-series-copy"><p class="overline">ALSO IN THE PRACTICE LAB / COURSE 02</p>
+            <h2>日有寸进。<br>100天，把生活慢慢养好。</h2>
+            <p>从作息、饮食和运动，到阅读、思考、冥想、专注与人际关系。100天不重复的具体练习、每日打卡与每周复盘，让成长可以发生在普通的日子里。</p>
+            <div class="growth-series-meta"><span>100天完整课程</span><span>8个成长维度</span><span>轻量 · 标准 · 深入</span></div>
+            <a class="button primary" href="100-days/">进入100天成长计划 <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="growth-series-emblem" aria-hidden="true"><span>VOL. 02</span><strong>100</strong><small>DAYS OF BECOMING</small><i>✳</i></div>
+        </div></div></section>
       <section class="section" id="approach"><div class="container"><div class="section-header"><div><p class="overline">01 / LEARNING DESIGN</p><h2 class="section-heading">不是课程清单，<br>而是一套可以真正练起来的教材。</h2></div><p class="section-lead">每节课含时间安排、逐字练习、完整朗读短文、脱稿复述、生活与科研情境、错误修正和100分评分。</p></div><div class="phases">${phaseHtml}</div></div></section>
       <section class="section curriculum" id="course-map"><div class="container"><div class="section-header"><div><p class="overline">02 / COMPLETE SYLLABUS</p><h2 class="section-heading">21天，完整开放。</h2></div><p class="section-lead">所有课程均可随时打开；建议按顺序练习，但不会锁住下一节课。</p></div>${courseHtml}</div></section>
       ${pdfHtml}
