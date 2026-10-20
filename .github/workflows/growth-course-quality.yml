@@ -1,0 +1,43 @@
+name: Personal growth course quality
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/growth-course-quality.yml'
+      - 'personal-growth-lab/tools/**'
+      - 'personal-growth-lab/data/**'
+      - 'personal-growth-lab/assets/**'
+      - 'personal-growth-lab/index.html'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: personal-growth-course-quality
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the current course sources
+        run: |
+          node --check personal-growth-lab/assets/app.js
+          for f in personal-growth-lab/data/*.js; do node --check "$f"; done
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('personal-growth-lab')
+          assert (p/'index.html').is_file()
+          pdf=list((p/'downloads/pdf').glob('Day-*.pdf'))
+          print('Course PDF files:',len(pdf))
+          for f in sorted(pdf):
+              assert f.read_bytes().startswith(b'%PDF-'),f
+              print(f.name,f.stat().st_size)
+          PY
+      - name: Archive the exact source and daily PDFs for editorial review
+        uses: actions/upload-artifact@v4
+        with:
+          name: personal-growth-course-review
+          path: personal-growth-lab/
+          retention-days: 7
+          if-no-files-found: error
