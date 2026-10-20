@@ -503,6 +503,24 @@
   $("import-trigger").addEventListener("click",()=>$("import-file").click());
   $("import-file").addEventListener("change",async e=>{await importData(e.target.files?.[0]);e.target.value="";});
   $("print-day").addEventListener("click",()=>{const guide=$("lesson-guide");if(guide)guide.open=true;window.print();});
+  $("clear-current-day").addEventListener("click",()=>{
+    const d=getDay(selectedDay);
+    if(!d.completed&&countChecked(selectedDay)===0&&!String(d.note||"").trim()&&!Number.isInteger(d.energy)){
+      toast("当前课程没有需要清空的记录。");return;
+    }
+    if(!confirm("确定清空 Day "+pad(selectedDay)+" 的任务勾选、笔记与完成状态吗？该操作不可撤销，建议先导出备份。"))return;
+    delete state.days[String(selectedDay)];save();render();
+    toast("Day "+pad(selectedDay)+" 的本地记录已清空，其他课程不受影响。");
+  });
+  $("reset-all-records").addEventListener("click",()=>{
+    const phrase=prompt("这将清空本浏览器的全部100天打卡、笔记和每周复盘，且不可撤销。\n请先导出JSON备份。确实要重置，请输入：清空100天");
+    if(phrase!=="清空100天"){if(phrase!==null)toast("确认文字不匹配，未清除记录。");return;}
+    if(!confirm("最后确认：重置全部100天本地记录？"))return;
+    const preservedTheme=state.theme;
+    state=fresh();state.theme=preservedTheme;selectedDay=1;
+    history.replaceState({day:1},"",location.pathname+"?day=1"+location.hash);
+    save();render();toast("100天的本地练习记录已重置。");
+  });
   window.addEventListener("scroll",()=>{
     const max=document.documentElement.scrollHeight-window.innerHeight;
     const fraction=max>0?window.scrollY/max:0;
