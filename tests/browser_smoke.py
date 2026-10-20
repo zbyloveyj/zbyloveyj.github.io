@@ -27,6 +27,7 @@ try:
         raise AssertionError("Cannot start local HTTP server")
 
     tests = [
+        ("../tests/publications_browser.html", ['data-status="passed"'], "academic publications: mobile/tablet/desktop, languages and filters"),
         ("?chapter=17", ['id="text-body"', '<h2 id="sec-', '第17章'], "chapter reader"),
         ("workshop.html", ['id="lab-raw">3.39', 'id="lab-adjusted">2.05'], "simulated data workshop"),
         ("print-book.html", ['id="chapter-50"', '已排版 50 章'], "book print layout"),

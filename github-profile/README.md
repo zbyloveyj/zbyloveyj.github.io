@@ -33,6 +33,10 @@ I'm **Baoyuan Zhu (朱宝圆)**, a PhD candidate at **South China University of 
 
 ### Selected publications / 代表论文
 
+**Biological Psychiatry · 2026 · Ahead of print (Journal Pre-proof)**  
+[Connection-Level Multi-Omics Reveals Cerebellar-Cortical Dysconnectivity and Divergent Molecular Signatures Across Major Psychiatric Disorders](https://doi.org/10.1016/j.biopsych.2026.09.020)  
+<sub>BrainNetAnno · Connection-level multi-omics annotation · Published online 3 October 2026 · Co-author (third-listed author)</sub>
+
 **2026 · Advanced Science**  
 [Dissecting the Ecological Structure of Health and Disease in the Global Gut Microbiome](https://doi.org/10.1002/advs.202517087)  
 <sub>Microbial ecological variation across 20,178 metagenomes from 36 countries.</sub>

@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Publication regression checks</title></head><body><pre id="results">RUNNING</pre><script>
+(async()=>{
+ const results=document.getElementById('results'), messages=[];
+ const check=(condition,message)=>{if(!condition)throw Error(message);};
+ const pause=()=>new Promise(r=>setTimeout(r,100));
+ try {
+  for(const width of [390,768,1440]) for(const route of ['publications.html','index.html']){
+   const frame=document.createElement('iframe');frame.style.cssText=`width:${width}px;height:950px;border:0`;document.body.append(frame);
+   await new Promise((resolve,reject)=>{frame.onload=resolve;frame.onerror=reject;frame.src='../'+route;});
+   const w=frame.contentWindow,d=w.document;
+   check(d.querySelectorAll('.pub-item').length===11,'11 rendered papers');
+   const first=d.querySelector('.pub-item');
+   check(first.textContent.includes('10.1016/j.biopsych.2026.09.020'),'new paper first');
+   check(first.dataset.lead==='false','co-author must not be lead');
+   check(first.querySelector('time').dateTime==='2026-10-03','online date');
+   check(first.querySelector('.pub-authors').textContent.includes('Kai Wu'),'full authors');
+   for(const language of ['zh','en']){
+    if(d.documentElement.dataset.lang!==language)d.getElementById('lang-toggle').click();
+    check(d.documentElement.dataset.lang===language,'language toggle');
+    for(const theme of ['light','dark']){
+     if(d.documentElement.dataset.theme!==theme)d.getElementById('theme-toggle').click();
+     await pause();
+     check(d.documentElement.scrollWidth<=width+2,`${route} overflow ${width} ${language} ${theme}: ${d.documentElement.scrollWidth}`);
+    }
+   }
+   const search=d.getElementById('pub-search');search.value='BrainNetAnno';search.dispatchEvent(new w.Event('input',{bubbles:true}));
+   check(d.querySelectorAll('.pub-item:not([hidden])').length===1,'framework search');
+   d.querySelector('[data-filter="lead"]').click();
+   check(d.querySelectorAll('.pub-item:not([hidden])').length===0,'lead filter excludes new paper');
+   search.value='';search.dispatchEvent(new w.Event('input',{bubbles:true}));d.querySelector('[data-filter="all"]').click();
+   if(route==='publications.html'){
+    first.querySelector('summary').click();check(first.querySelector('details').open,'research note opens');
+    check(first.querySelector('details').textContent.includes('2,453'),'bilingual research note');
+    check(first.querySelector('.bib-copy'),'single-paper BibTeX');
+   }
+   check(d.querySelectorAll('.pub-item:not([hidden])').length===11,'reset all');
+   messages.push(`PASS ${route}: ${width}px, both languages/themes, metadata, search and authorship filter`);
+   frame.remove();
+  }
+  results.textContent=messages.join('\n')+'\nALL PUBLICATION CHECKS PASSED';results.setAttribute('data-status','passed');
+ }catch(e){results.textContent=messages.join('\n')+'\nFAIL: '+e.message;}
+})();
+</script></body></html>

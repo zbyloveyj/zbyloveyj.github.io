@@ -18,3 +18,8 @@
 @media(max-width:650px){.cv-sheet{min-height:auto;padding:30px 23px 65px}.cv-identity h1{font-size:32px}.cv-idmark{display:none}.cv-school{grid-template-columns:80px 1fr}.cv-contact{gap:9px}.cv-work-grid{grid-template-columns:1fr}.cv-footer{left:23px;right:23px;bottom:22px}.cv-book{width:100%;margin:0}.cv-screen-tools{justify-content:center}}
 @page{size:A4;margin:0}
 @media print{html,body{background:#fff;print-color-adjust:exact;-webkit-print-color-adjust:exact}.cv-screen-tools{display:none!important}.cv-book{width:210mm!important;margin:0!important}.cv-sheet{margin:0!important;width:210mm;height:297mm!important;min-height:297mm!important;max-height:297mm!important;border:0!important;box-shadow:none!important;overflow:hidden;padding:19mm 18mm 17mm!important;break-after:page;page-break-after:always}.cv-sheet:last-child{break-after:auto;page-break-after:auto}.cv-paper-row{break-inside:avoid}}
+/* Eleven selected papers: keep the first printed sheet clear of its footer. */
+.cv-first .cv-section{margin-top:15px}
+.cv-first .cv-school{padding-top:5px;padding-bottom:6px}
+.cv-first .cv-identity{padding-top:16px}
+.cv-first .cv-paper-row{padding-top:7px;padding-bottom:8px}
