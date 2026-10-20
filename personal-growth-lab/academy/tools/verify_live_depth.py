@@ -16,8 +16,7 @@ if 'assets/depth-reader.js' not in committed:
     print('Candidate quality run: public entrypoint intentionally unchanged.')
     raise SystemExit(0)
 base = 'https://zbyloveyj.github.io/personal-growth-lab/academy/'
-files = ['index.html', 'assets/depth.css'] + ['assets/depth-' + x + '.js' for x in
-        ['core', 'english', 'writing', 'coding', 'research', 'visual', 'neuro', 'career', 'papers', 'thinking', 'life', 'reader']]
+files = ['index.html', 'assets/depth.css'] + [p.relative_to(root).as_posix() for p in sorted((root / 'assets').glob('depth-*.js'))]
 expected = {name: hashlib.sha256((root / name).read_bytes()).hexdigest() for name in files}
 last = []
 for attempt in range(1, 17):
