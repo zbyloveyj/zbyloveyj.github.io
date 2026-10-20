@@ -8,6 +8,7 @@ on:
       - 'personal-growth-lab/assets/style.css'
       - 'personal-growth-lab/index.html'
       - 'tests/validate_growth100.py'
+      - 'tests/growth100_interactions.html'
       - '.github/workflows/validate-growth100.yml'
   pull_request:
     paths:
@@ -15,6 +16,7 @@ on:
       - 'personal-growth-lab/assets/app.js'
       - 'personal-growth-lab/index.html'
       - 'tests/validate_growth100.py'
+      - 'tests/growth100_interactions.html'
   workflow_dispatch:
 permissions:
   contents: read
