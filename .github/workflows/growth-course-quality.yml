@@ -5,39 +5,59 @@ on:
     paths:
       - '.github/workflows/growth-course-quality.yml'
       - 'personal-growth-lab/tools/**'
-      - 'personal-growth-lab/data/**'
-      - 'personal-growth-lab/assets/**'
-      - 'personal-growth-lab/index.html'
+      - 'personal-growth-lab/data/editorial/**'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: personal-growth-course-quality
   cancel-in-progress: false
 jobs:
-  audit:
+  publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-      - name: Check the current course sources
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Install Chinese fonts and publication tools
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk libpango-1.0-0 libpangocairo-1.0-0
+          python3 -m pip install --user weasyprint==68.0 pypdf==5.9.0 playwright
+          python3 -m playwright install --with-deps chromium
+          mkdir -p "$RUNNER_TEMP/growth-quality"
+      - name: Upgrade the reader while preserving local record keys
+        run: |
+          python3 personal-growth-lab/tools/upgrade_reader.py
           node --check personal-growth-lab/assets/app.js
-          for f in personal-growth-lab/data/*.js; do node --check "$f"; done
-          python3 - <<'PY'
-          from pathlib import Path
-          p=Path('personal-growth-lab')
-          assert (p/'index.html').is_file()
-          pdf=list((p/'downloads/pdf').glob('Day-*.pdf'))
-          print('Course PDF files:',len(pdf))
-          for f in sorted(pdf):
-              assert f.read_bytes().startswith(b'%PDF-'),f
-              print(f.name,f.stat().st_size)
-          PY
-      - name: Archive the exact source and daily PDFs for editorial review
+      - name: Build all 21 detailed daily PDFs and the complete collection
+        run: |
+          python3 personal-growth-lab/tools/build_workbooks.py 2>&1 | tee "$RUNNER_TEMP/growth-quality/build.log"
+          node --check personal-growth-lab/data/edition-v3.js
+      - name: Verify content, embedded fonts, scores, downloads and responsive readers
+        run: |
+          python3 personal-growth-lab/tools/validate_workbooks.py --browser 2>&1 | tee "$RUNNER_TEMP/growth-quality/check.log"
+      - name: Publish only the personal growth curriculum files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add personal-growth-lab/index.html personal-growth-lab/assets personal-growth-lab/data/edition-v3.js personal-growth-lab/data/curriculum-v3.json personal-growth-lab/downloads
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish detailed 21-lesson workbooks and verified daily PDFs [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+          echo "Published curriculum commit: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
+          cat personal-growth-lab/downloads/pdf-manifest.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Archive the published PDFs, full source and QA evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: personal-growth-course-review
-          path: personal-growth-lab/
-          retention-days: 7
+          name: personal-growth-detailed-edition
+          path: |
+            personal-growth-lab/
+            ${{ runner.temp }}/growth-quality/
+          retention-days: 14
           if-no-files-found: error
