@@ -17,7 +17,16 @@
   const normalRubric=[["专项练习",20],["完整句子",15],["文章朗读",20],["脱稿复述",15],["情境实战",20],["录音与复盘",10]];
   const stageRubric=[["核心能力专项",20],["观点与结构",20],["文章朗读",15],["脱稿复述",15],["独立实战",20],["自我复盘",10]];
   const finalRubric=[["五分钟演讲",40],["同题自我介绍",15],["原文朗读",10],["文章复述",10],["结构与证据",15],["对比复盘",10]];
-  function getRubric(d){return d===21?finalRubric:[7,14].includes(d)?stageRubric:normalRubric}
+  const dailyRubrics={
+    1:[["一分钟自我介绍",15],["12组易混音",24],["完整句子",12],["文章朗读",20],["脱稿复述",12],["实战表达",12],["录音与复盘",5]],
+    2:[["18组平翘舌对照",36],["六句完整朗读",18],["文章朗读",16],["脱稿复述",12],["情境表达",12],["录音与纠音",6]],
+    3:[["18组前后鼻音",36],["六句完整朗读",18],["文章朗读",16],["脱稿复述",12],["情境表达",12],["录音与纠音",6]],
+    4:[["n/l对照词",20],["f/h对照词",20],["完整句子",18],["文章朗读",16],["脱稿复述",10],["情境表达",10],["纠音记录",6]],
+    5:[["原始语速记录",10],["三档语速切换",15],["语义停顿",20],["文章朗读",20],["脱稿复述",15],["情境表达",15],["复盘记录",5]],
+    7:[["专项抽测",20],["介绍结构",20],["文章朗读",15],["脱稿复述",15],["独立实战",20],["对比复盘",10]],
+    14:[["即时答题",20],["观点结构",20],["文章朗读",15],["脱稿复述",15],["独立实战",20],["对比复盘",10]]
+  };
+  function getRubric(d){return dailyRubrics[d]||(d===21?finalRubric:normalRubric)}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(STATE));return true}catch{return false}}
   function byDay(d){return STATE.lessons[String(d)]||{}}
   function update(d,field,value){STATE.lessons[String(d)]={...byDay(d),[field]:value,updated:new Date().toISOString()};save()}
