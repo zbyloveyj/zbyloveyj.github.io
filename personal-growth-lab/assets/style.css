@@ -10,18 +10,21 @@
 /* Course 02 / 100-day life practice — visibly separate from the 21-day workbook */
 .topnav .nav-growth{color:var(--forest);font-weight:800}
 .growth-series-section{padding:18px 0 65px}
-.growth-series-card{display:grid;grid-template-columns:1.4fr .6fr;gap:35px;align-items:center;overflow:hidden;position:relative;background:#e9efe6;border:1px solid #d7e1d5;padding:38px 44px;color:#26493f}
-.growth-series-card::after{content:"";position:absolute;right:5%;top:-90px;width:270px;height:270px;border:1px solid #bfd2bd;border-radius:50%;opacity:.7;pointer-events:none}
+.growth-series-card{display:grid;grid-template-columns:1.4fr .6fr;gap:35px;align-items:center;overflow:hidden;position:relative;background:#E7F1FF;border:1px solid #CCDFF4;padding:38px 44px;color:#204A7A}
+.growth-series-card::after{content:"";position:absolute;right:5%;top:-90px;width:270px;height:270px;border:1px solid #B8D1EE;border-radius:50%;opacity:.7;pointer-events:none}
 .growth-series-copy{position:relative;z-index:1}
 .growth-series-copy h2{font:600 clamp(29px,3vw,41px)/1.42 var(--serif);letter-spacing:-.04em;margin:13px 0}
-.growth-series-copy>p:not(.overline){font-size:13px;line-height:2;color:#576e61;max-width:650px;margin:0 0 20px}
+.growth-series-copy>p:not(.overline){font-size:13px;line-height:2;color:#536F91;max-width:650px;margin:0 0 20px}
 .growth-series-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.growth-series-meta span{padding:5px 11px;font-size:10px;border:1px solid #c5d6c7;color:#416857;border-radius:2px}
-.growth-series-emblem{display:flex;align-items:center;flex-direction:column;justify-content:center;align-self:stretch;border-left:1px solid #c5d6c7;min-height:230px;position:relative;z-index:1}
-.growth-series-emblem span{font-size:10px;letter-spacing:.22em;color:#71887c}
-.growth-series-emblem strong{font:500 clamp(95px,11vw,162px)/1 Georgia,serif;letter-spacing:-.06em;color:#528070}
-.growth-series-emblem small{font-size:9px;letter-spacing:.17em;color:#627a6c}
-.growth-series-emblem i{font:normal 22px Georgia,serif;color:#b9875e;margin-top:12px}
+.growth-series-meta span{padding:5px 11px;font-size:10px;border:1px solid #C5D9F0;color:#35679E;border-radius:2px}
+.growth-series-emblem{display:flex;align-items:center;flex-direction:column;justify-content:center;align-self:stretch;border-left:1px solid #C5D9F0;min-height:230px;position:relative;z-index:1}
+.growth-series-emblem span{font-size:10px;letter-spacing:.22em;color:#6A87A8}
+.growth-series-emblem strong{font:500 clamp(95px,11vw,162px)/1 Georgia,serif;letter-spacing:-.06em;color:#477EC1}
+.growth-series-emblem small{font-size:9px;letter-spacing:.17em;color:#6783A8}
+.growth-series-emblem i{font:normal 22px Georgia,serif;color:#4D7FB8;margin-top:12px}
 @media(max-width:850px){.topnav{gap:16px}.growth-series-card{grid-template-columns:1fr .4fr;padding:30px 25px}.growth-series-emblem strong{font-size:103px}}
-@media(max-width:650px){.growth-series-card{grid-template-columns:1fr;padding:26px 20px;gap:12px}.growth-series-emblem{min-height:100px;border-left:0;border-top:1px solid #c5d6c7;flex-direction:row;gap:10px}.growth-series-emblem strong{font-size:78px}.growth-series-emblem i{display:none}.growth-series-copy h2{font-size:30px}.growth-series-copy>p:not(.overline){font-size:12px}.growth-series-section{padding-bottom:26px}}
+@media(max-width:650px){.growth-series-card{grid-template-columns:1fr;padding:26px 20px;gap:12px}.growth-series-emblem{min-height:100px;border-left:0;border-top:1px solid #C5D9F0;flex-direction:row;gap:10px}.growth-series-emblem strong{font-size:78px}.growth-series-emblem i{display:none}.growth-series-copy h2{font-size:30px}.growth-series-copy>p:not(.overline){font-size:12px}.growth-series-section{padding-bottom:26px}}
 @media print{.growth-series-section{display:none!important}}
+
+.growth-series-card .button.primary{background:#2467B8;border-color:#2467B8;color:#fff}
+.growth-series-card .button.primary:hover{background:#194E91;border-color:#194E91}
