@@ -197,12 +197,20 @@
     const completed=doneTotal(),activities=countActivities(),ph=phaseIndex(plannedToday());
     const phaseDone=DATA.days.slice(ph*20,ph*20+20).filter(x=>isDone(x.n)).length;
     $("stats").innerHTML=[
-      [pad(completed),"亲自确认完成的天数"],
-      [pad(plannedToday()),"距离起点的计划日"],
-      [String(activities),"已经完成的小行动"],
-      [pad(phaseDone)+"/20","本阶段已完成天数"]
+      [pad(completed),"已经完成的课程"],
+      [pad(plannedToday()),"当前日历计划日"],
+      [String(activities),"已勾选的具体行动"],
+      [pad(phaseDone)+"/20","本阶段累计完成"]
     ].map(([v,label])=>`<div class="stat"><b>${esc(v)}</b><span>${esc(label)}</span></div>`).join("");
-    $("hero-progress").innerHTML=`<strong>${completed} / 100</strong><small>完成的日子 · ${Math.round(completed)}% 的旅程</small>`;
+    $("hero-progress").innerHTML=`<strong>${completed}<span class="dial-total">/100</span></strong><small>完成的课程</small>`;
+    $("dashboard-dial").style.setProperty("--pct",Math.round(completed)+"%");
+    const n=suggestedDay(),day=DATA.days[n-1];
+    $("dashboard-next-day").textContent="DAY "+String(n).padStart(3,"0");
+    $("dashboard-next-title").textContent=day.title;
+    $("dashboard-next-meta").textContent=DATA.phases[day.phase].name+" · "+DATA.categories[day.category];
+    const d=startDateDay(plannedToday());
+    $("dashboard-date").textContent="日历计划日 "+pad(plannedToday())+" · "+pad(d.getMonth()+1)+"/"+pad(d.getDate());
+    $("resume-day").innerHTML=completed===100?"回顾结业课程 <span aria-hidden=\"true\">→</span>":"继续 Day "+pad(n)+" <span aria-hidden=\"true\">→</span>";
   }
   function renderPhases(){
     $("phase-list").innerHTML=DATA.phases.map((p,i)=>{
@@ -237,13 +245,55 @@
     const week=Math.ceil(selectedDay/7);
     $("review-panel").innerHTML=`<div><span class="card-microheading">WEEKLY REVIEW / ${pad(week)}</span><h3>本周真正积累了什么？</h3><p>${esc(SUPPORT.weeklyObjectives[week-1])} · Day ${pad((week-1)*7+1)}—${pad(Math.min(100,week*7))}。</p><p>回看可见产出、没有做到的原因，以及下周准备调整的最小一件事。</p></div><div><label class="sr-only" for="weekly-note">第${week}周复盘笔记</label><textarea id="weekly-note" maxlength="5000" data-week="${week}" placeholder="本周保留什么证据？持续什么？调整什么？">${esc(state.weeklyNotes[String(week)]||"")}</textarea><p class="journal-tip">自动保存于当前浏览器，不公开上传。</p></div>`;
   }
-  function render(){setTheme();renderDay();renderStats();renderPhases();renderMap();renderCharts();}
+  let catalogLimit=12;
+  function renderCatalog(){
+    const q=$("course-search").value.trim().toLocaleLowerCase("zh-CN");
+    const phase=$("course-phase").value,domain=$("course-domain").value,status=$("course-state").value;
+    const found=DATA.days.filter(day=>{
+      if(phase!=="all"&&String(day.phase)!==phase)return false;
+      if(domain!=="all"&&day.category!==domain)return false;
+      if(status!=="all"&&dayStatus(day.n)!==status)return false;
+      if(q){
+        const source=[day.n,"day"+day.n,day.title,day.proof,day.question,...day.steps,DATA.categories[day.category],DATA.phases[day.phase].name].join(" ").toLocaleLowerCase("zh-CN");
+        if(!source.includes(q))return false;
+      }
+      return true;
+    });
+    $("course-results-count").textContent=found.length+" 节课程符合筛选 · 当前显示 "+Math.min(catalogLimit,found.length)+" 节";
+    $("course-list").innerHTML=found.length?found.slice(0,catalogLimit).map(day=>{
+      const status=dayStatus(day.n);
+      const label=status==="done"?"已完成":status==="partial"?"进行中":"未开始";
+      return `<button type="button" class="course-entry ${status}" data-open-day="${day.n}" aria-label="打开 Day ${pad(day.n)}：${esc(day.title)}，${label}">
+        <span class="entry-day">DAY <strong>${pad(day.n)}</strong></span>
+        <span class="entry-copy"><span class="entry-meta">${esc(DATA.phases[day.phase].name)} · ${esc(DATA.categories[day.category])}</span><strong class="entry-title">${esc(day.title)}</strong><span class="entry-proof">${esc(day.proof)}</span></span>
+        <span class="entry-side"><span class="entry-status ${status}">${label}</span><span class="entry-arrow" aria-hidden="true">↗</span></span>
+      </button>`;
+    }).join(""):`<div class="catalog-empty"><span aria-hidden="true">⌕</span><strong>没有找到匹配的课程</strong><p>试试“睡眠”“阅读”“表达”等更简单的关键词，或者清除筛选。</p></div>`;
+    $("course-more").hidden=found.length<=catalogLimit;
+  }
+  function renderRecent(){
+    const relevant=DATA.days.filter(x=>{
+      const d=getDay(x.n);return !!d.completed||countChecked(x.n)>0||String(d.note||"").trim().length>0;
+    }).sort((a,b)=>{
+      const da=getDay(a.n),db=getDay(b.n);
+      return String(db.updatedAt||"").localeCompare(String(da.updatedAt||""))||b.n-a.n;
+    }).slice(0,6);
+    $("recent-records").innerHTML=relevant.length?relevant.map(day=>{
+      const d=getDay(day.n);
+      const status=dayStatus(day.n),label=status==="done"?"已完成":"进行中";
+      return `<button type="button" class="recent-entry" data-open-day="${day.n}"><span class="recent-num">${pad(day.n)}</span><span class="recent-info"><strong>${esc(day.title)}</strong><small>${esc(DATA.categories[day.category])} · ${label} · ${countChecked(day.n)}/5 项</small></span><span class="recent-chevron" aria-hidden="true">↗</span></button>`;
+    }).join(""):`<div class="recent-empty">还没有学习记录。打开 Day 01 并完成第一个步骤，进度会自动出现在这里。</div>`;
+  }
+  function render(){setTheme();renderDay();renderStats();renderPhases();renderMap();renderCharts();renderCatalog();renderRecent();}
   function selectDay(n,scroll=true){
     const x=Number(n);
     if(!Number.isInteger(x)||x<1||x>100)return;
+    const changed=selectedDay!==x;
     selectedDay=x;
-    history.replaceState(null,"",location.pathname+"?day="+x+location.hash);
-    renderDay();renderMap();renderCharts();
+    state.lastOpened=x;
+    save();
+    if(changed)history.pushState({day:x},"",location.pathname+"?day="+x+location.hash);
+    renderDay();renderMap();renderCharts();renderCatalog();renderRecent();renderStats();
     if(scroll)$("today").scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
   }
   function download(filename,content,type){
