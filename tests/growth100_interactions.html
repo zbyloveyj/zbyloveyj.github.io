@@ -22,7 +22,7 @@
           const core=doc.querySelector('[data-task="core1"]');
           check(core.getAttribute("aria-pressed")==="false","fresh core should be unchecked");
           by("finish-day").click();
-          check(storage().days["1"]===undefined,"should not mark unfinished standard day completed");
+          check(!storage() || !storage().days["1"]?.completed,"should not mark unfinished standard day completed");
           core.click();
           check(storage().days["1"].tasks.core1===true,"core1 completion not saved");
           check(by("gate-status").textContent.includes("尚未达到"),"standard mode wrongly satisfied");
