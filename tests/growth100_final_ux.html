@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>100天最终交互与响应式检验</title></head>
+<body>
+<main>
+  <h1>100 Days · Final UI/UX Integration Test</h1>
+  <p id="result" data-status="running">RUNNING: course filtering, navigation, notes, completion, responsive overflow</p>
+  <iframe id="target" title="测试中的100天学习平台" src="../personal-growth-lab/100-days/?day=1" width="1100" height="800"></iframe>
+</main>
+<script>
+(function(){
+  "use strict";
+  const result=document.getElementById("result");
+  const frame=document.getElementById("target");
+  const check=(condition,reason)=>{if(!condition)throw new Error(reason);};
+  const pass=msg=>{result.textContent=msg;result.dataset.status="pass";};
+  const fail=e=>{result.textContent="FAIL: "+(e.stack||String(e));result.dataset.status="fail";};
+  frame.addEventListener("load",()=>{
+    try{
+      const d=frame.contentDocument,w=frame.contentWindow;
+      const by=id=>d.getElementById(id);
+      const change=(el,event="input")=>el.dispatchEvent(new w.Event(event,{bubbles:true}));
+      const getState=()=>JSON.parse(w.localStorage.getItem("yixw_growth_100_v1"));
+      check(!!by("resume-day")&&!!by("dashboard-dial"),"Resume dashboard is missing");
+      check(!!by("course-search")&&!!by("course-list"),"Searchable catalog missing");
+      check(!!by("save-status"),"Autosave feedback missing");
+      check(d.querySelectorAll(".course-entry").length===12,"Should initially preview 12 courses");
+      check(d.querySelectorAll(".lesson-guide").length===1,"Daily instruction guide missing");
+      check(d.querySelectorAll(".course-entry").length<=12,"Too many default catalog items");
+      check(d.querySelectorAll('[data-task]').length===5,"Expected 3 core plus 2 optional exercises");
+      check(d.body.textContent.includes("四行现状记录"),"Unique first day output not visible");
+      const finder=by("course-search");
+      finder.value="给未来的自己一份交接";
+      change(finder);
+      check(d.querySelectorAll(".course-entry").length===1,"Exact title search should return 1 day");
+      check(d.querySelector(".course-entry").dataset.openDay==="100","Filtered Day100 did not match");
+      d.querySelector(".course-entry").click();
+      check(by("day-heading").textContent.includes("DAY 100"),"Click-to-open from search broken");
+      check(by("day-content").textContent.includes("继续三件"),"Day100 guide missing");
+      by("course-reset").click();
+      check(finder.value===""&&d.querySelectorAll(".course-entry").length===12,"Reset filters failed");
+      by("course-phase").value="2";change(by("course-phase"),"change");
+      check(d.querySelectorAll(".course-entry").length===12,"Stage filter failed");
+      check([...d.querySelectorAll(".course-entry")].every(b=>Number(b.dataset.openDay)>=41&&Number(b.dataset.openDay)<=60),"Stage filter returned wrong days");
+      by("course-domain").value="reading";change(by("course-domain"),"change");
+      check(d.querySelectorAll(".course-entry").length>0,"Domain filter returned zero unexpectedly");
+      check([...d.querySelectorAll(".course-entry")].every(b=>Number(b.dataset.openDay)>=41&&Number(b.dataset.openDay)<=60),"Combined filters ignored stage");
+      by("course-reset").click();
+      by("jump-day-input").value="41";by("jump-day-btn").click();
+      check(by("day-heading").textContent.includes("DAY 041"),"Direct day jump failed");
+      check(by("day-content").textContent.includes("想回答的问题"),"Day-specific note example missing");
+      by("jump-day-input").value="103";by("jump-day-btn").click();
+      check(by("day-heading").textContent.includes("DAY 041"),"Invalid jump was not rejected");
+      by("jump-day-input").value="";
+      const note=by("day-note");
+      note.value="我已经梳理了三个问题，并保留了阅读目录。";
+      change(note);
+      const core=d.querySelector('[data-task="core1"]');
+      core.focus();
+      core.click();
+      check(d.querySelector('[data-task="core1"]')===core,"Toggling a task should not destroy its DOM node");
+      check(by("day-note")===note,"Toggling a task should not destroy typed notes");
+      check(note.value.includes("三个问题"),"Typed notes disappeared after task click");
+      check(core.getAttribute("aria-pressed")==="true","Task checkbox did not update");
+      check(by("save-status").textContent.includes("已保存"),"Autosave feedback not shown");
+      const local=getState();
+      check(local.days["41"].tasks.core1===true&&local.days["41"].note.includes("三个问题"),"Local notes/progress did not persist");
+      d.querySelector('[data-mode="lite"]').click();
+      by("finish-day").click();
+      check(getState().days["41"].completed===true,"Lite completion after task was not stored");
+      check(by("hero-progress").textContent.includes("1"),"Dashboard progress did not update");
+      check(by("recent-records").textContent.includes("绘制自己的阅读地图"),"Recent records did not display latest lesson");
+      by("resume-day").click();
+      check(by("day-heading").textContent.includes("DAY 042"),"Smart resume should progress from completed Day41 to Day42");
+      const maps=d.querySelectorAll(".map-day");
+      check(maps.length===100,"100-day map not fully rendered");
+      check(d.querySelectorAll(".mobile-dock a").length===4,"Mobile bottom navigation missing");
+      frame.style.width="390px";
+      setTimeout(()=>{
+        try{
+          const vw=d.documentElement.clientWidth,sw=d.documentElement.scrollWidth;
+          check(vw<=410,"Mobile iframe viewport was not applied");
+          check(sw<=vw+3,"Mobile horizontal overflow, viewport="+vw+", document width="+sw);
+          pass("PASS: dashboard, 100 course filters, mixed filters, smart resume, direct jump, detailed lessons, unsaved-note safety, autosave, progress, recent history and 390px mobile layout");
+        }catch(e){fail(e);}
+      },180);
+    }catch(e){fail(e);}
+  },{once:true});
+  setTimeout(()=>{if(result.dataset.status==="running")fail(new Error("Test timed out after 10 seconds"));},10000);
+})();
+</script>
+</body>
+</html>
