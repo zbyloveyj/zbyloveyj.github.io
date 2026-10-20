@@ -13,11 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / "personal-growth-lab" / "100-days"
 
 for rel in ("index.html", "assets/app.js", "assets/style.css",
-            "data/program.js", "data/support.js", "README.md"):
+            "data/program.js", "data/support.js", "data/guides.js", "assets/edition.css", "README.md"):
     if not (PROJECT / rel).is_file():
         raise AssertionError(f"Missing required course file: {rel}")
 
-for path in (PROJECT / "assets/app.js", PROJECT / "data/program.js", PROJECT / "data/support.js",
+for path in (PROJECT / "assets/app.js", PROJECT / "data/program.js", PROJECT / "data/support.js", PROJECT / "data/guides.js",
              ROOT / "personal-growth-lab" / "assets/app.js"):
     subprocess.run(["node", "--check", str(path)], cwd=ROOT, check=True, capture_output=True, text=True)
 
@@ -25,10 +25,13 @@ js = r"""
 global.window = {};
 require('./personal-growth-lab/100-days/data/program.js');
 require('./personal-growth-lab/100-days/data/support.js');
-const p=window.RESET100,s=window.RESET100_SUPPORT;
+require('./personal-growth-lab/100-days/data/guides.js');
+const p=window.RESET100,s=window.RESET100_SUPPORT,g=window.RESET100_GUIDES;
 if(!p || p.version!==2 || !s || s.version!==2)throw Error('Missing versioned course data');
 if(p.days.length!==100 || p.phases.length!==5 || p.dimensions.length!==8)throw Error('Wrong course dimensions');
 if(s.weeklyObjectives.length!==15)throw Error('Expected exactly 15 curriculum-week objectives');
+if(!g || g.guides.length!==100 || new Set(g.guides.map(x=>x.template)).size!==100)throw Error('Missing or duplicated daily notebook guides');
+if(g.guides.some((x,i)=>x.day!==i+1||!x.materials||!x.avoid||x.template.length<12))throw Error('Incomplete daily guide');
 if(new Set(p.days.map(x=>x.title)).size!==100)throw Error('Daily titles duplicated');
 if(new Set(p.days.map(x=>x.proof)).size!==100)throw Error('100 deliverables must be unique');
 if(s.banks.length!==5)throw Error('Five banks required');
@@ -63,15 +66,15 @@ for(const [pnum,group] of s.banks.entries()){
   }
 }
 if(supports!==200)throw Error('Expected 200 daily supporting task assignments');
-console.log('PASS: 100 unique outcomes, 100 progressive sessions, 99 prerequisite links, 160 curated support exercises, 200 assigned complementary tasks');
+console.log('PASS: 100 unique outcomes and day guides, 99 prerequisite links, 160 support variations, 200 complementary tasks');
 """
 out = subprocess.run(["node", "-e", js], cwd=ROOT, check=True, capture_output=True, text=True)
 print(out.stdout.strip())
 
 page = (PROJECT / "index.html").read_text(encoding="utf-8")
-for fragment in ("data/program.js?v=2", "data/support.js?v=2", "assets/app.js?v=2",
+for fragment in ("data/program.js?v=2", "data/support.js?v=2", "data/guides.js?v=3", "assets/app.js?v=3", "assets/edition.css?v=3",
                  'id="day-map"', 'id="day-content"', 'id="export-data"',
-                 'id="import-file"', 'id="evidence"'):
+                 'id="import-file"', 'id="evidence"', 'id="resume-day"', 'id="course-search"', 'id="course-list"', 'id="jump-day-btn"', 'id="save-status"'):
     if fragment not in page:
         raise AssertionError(f"Missing content/link: {fragment}")
 for domain in ("cdc.gov", "who.int", "nccih.nih.gov", "doi.org/10.1038"):
@@ -80,10 +83,13 @@ for domain in ("cdc.gov", "who.int", "nccih.nih.gov", "doi.org/10.1038"):
 styling = (PROJECT / "assets/style.css").read_text(encoding="utf-8")
 if "#2467B8" not in styling or ".weekly-brief" not in styling or ".outcome-card" not in styling:
     raise AssertionError("Blue design or revised practice styling missing")
+edition=(PROJECT / "assets/edition.css").read_text(encoding="utf-8")
+if ".home-dashboard" not in edition or ".mobile-dock" not in edition or ".course-entry" not in edition:
+    raise AssertionError("Final responsive product styling missing")
 root_page = (ROOT / "personal-growth-lab" / "index.html").read_text(encoding="utf-8")
 if 'href="100-days/"' not in root_page:
     raise AssertionError("Original speaking course no longer links to 100 days")
-print("PASS: official reference links, blue palette, page structure and course navigation")
+print("PASS: references, new guides, dashboard, filter markup and blue responsive styles")
 
 BROWSER = next((p for name in ("google-chrome", "google-chrome-stable", "chromium", "chromium-browser")
                 if (p := shutil.which(name))), None)
@@ -115,10 +121,12 @@ try:
         ['growth-series-card', '进入100天成长计划'], "original speaking course"),
        ("tests/growth100_interactions.html",
         ['data-status="pass"', 'PASS: 5 varying tasks'], "interactive task and persistence suite"),
+       ("tests/growth100_final_ux.html",
+        ['data-status="pass"', 'PASS: dashboard, 100 course filters'], "complete dashboard/search/resume/mobile UX suite"),
     ]
     for suffix, markers, label in tests:
         cmd = [BROWSER, "--headless=new", "--no-sandbox", "--disable-gpu",
-               "--disable-dev-shm-usage", "--no-first-run", "--virtual-time-budget=7500",
+               "--disable-dev-shm-usage", "--no-first-run", "--virtual-time-budget=14000",
                "--dump-dom", base+suffix]
         run = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=95)
         if run.returncode:
