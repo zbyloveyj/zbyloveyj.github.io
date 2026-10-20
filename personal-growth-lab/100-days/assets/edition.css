@@ -383,3 +383,16 @@ html[data-theme="dark"] .done-button:not(.is-done){background:#99c9ff;color:#102
  .day-checkout .done-button,.copy-guide{display:none!important}
  .recent-section{display:none!important}
 }
+
+/* Collapsed destructive settings: visible only on demand */
+.data-maintenance{margin-top:8px;border:1px solid var(--ui-stroke);border-radius:10px;background:var(--ui-card);padding:0 14px}
+.data-maintenance summary{display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;list-style:none;padding:13px 2px;color:var(--ui-muted);font-size:11px;font-weight:700}
+.data-maintenance summary::-webkit-details-marker{display:none}
+.data-maintenance[open] summary{color:var(--ui-blue);border-bottom:1px solid var(--ui-stroke)}
+.data-maintenance p{font-size:10px;line-height:1.7;color:var(--ui-muted);margin:12px 2px}
+.maintenance-button{width:100%;padding:11px 12px;margin:0 0 8px;border-radius:8px;border:1px solid var(--ui-stroke);background:var(--ui-card-muted);color:var(--ui-muted);font-size:11px;text-align:left}
+.maintenance-button:hover{border-color:var(--ui-blue);color:var(--ui-blue)}
+.maintenance-button.danger{border-color:color-mix(in srgb,#c74d5b,transparent 70%);color:#b44455;background:color-mix(in srgb,#fff0f2,var(--ui-card) 30%)}
+.maintenance-button.danger:hover{border-color:#b44455;background:color-mix(in srgb,#fce5e9,var(--ui-card) 20%)}
+html[data-theme="dark"] .maintenance-button.danger{background:#402632;color:#f5adb6}
+@media print{.data-maintenance{display:none!important}}
