@@ -7,6 +7,7 @@
     return;
   }
   const STORE="yixw_growth_100_v1";
+  const GUIDES=window.RESET100_GUIDES?.guides||[];
   const SUPPORT=window.RESET100_SUPPORT;
   if(!SUPPORT||SUPPORT.version!==2){const el=document.getElementById("day-content");if(el)el.textContent="辅助课程数据未加载，请检查网络或刷新页面。";return;}
   const TASK_IDS=["core1","core2","core3","support1","support2"];
@@ -24,7 +25,7 @@
     return [dt.getFullYear(),pad(dt.getMonth()+1),pad(dt.getDate())].join("-");
   };
   const validDate=s=>typeof s==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(new Date(s+"T12:00:00").getTime());
-  const fresh=()=>({version:1,startDate:todayString(),mode:"regular",theme:"light",days:{},weeklyNotes:{}});
+  const fresh=()=>({version:1,startDate:todayString(),mode:"regular",theme:"light",days:{},weeklyNotes:{},lastOpened:1});
   let state=fresh();
   try{
     const loaded=JSON.parse(localStorage.getItem(STORE)||"null");
@@ -43,7 +44,7 @@
     toastTimer=setTimeout(()=>node.hidden=true,3500);
   }
   function save(){
-    try{localStorage.setItem(STORE,JSON.stringify(state));}
+    try{localStorage.setItem(STORE,JSON.stringify(state));const node=$("save-status");if(node)node.textContent="已保存到当前浏览器 · "+new Date().toLocaleTimeString("zh-CN",{hour:"2-digit",minute:"2-digit"});}
     catch(e){if(!savedWarning){savedWarning=true;toast("浏览器禁止本地存储，请不要依赖当前打卡记录。");}}
   }
   function getDay(n){
@@ -53,6 +54,7 @@
   function updateDay(n,update){
     const old=getDay(n);
     state.days[String(n)]={...old,...update,updatedAt:new Date().toISOString()};
+    state.lastOpened=n;
     save();
   }
   function startDateDay(n){
@@ -70,12 +72,29 @@
     return d.getFullYear()+"."+pad(d.getMonth()+1)+"."+pad(d.getDate());
   }
   const queryDay=Number(new URLSearchParams(location.search).get("day"));
-  let selectedDay=Number.isInteger(queryDay)&&queryDay>=1&&queryDay<=100?queryDay:plannedToday();
+  const persistedDay=Number(state.lastOpened);
+  const initialResume=Number.isInteger(persistedDay)&&persistedDay>=1&&persistedDay<=100&&!state.days[String(persistedDay)]?.completed?persistedDay:DATA.days.find(x=>state.days[String(x.n)]?.completed!==true)?.n||100;
+  let selectedDay=Number.isInteger(queryDay)&&queryDay>=1&&queryDay<=100?queryDay:initialResume;
   const countChecked=day=>TASK_IDS.reduce((n,k)=>n+(getDay(day).tasks?.[k]===true?1:0),0);
   const isDone=day=>getDay(day).completed===true;
   const doneTotal=()=>DATA.days.reduce((n,d)=>n+(isDone(d.n)?1:0),0);
   const countActivities=()=>DATA.days.reduce((sum,d)=>sum+countChecked(d.n),0);
   const phaseIndex=day=>Math.min(4,Math.floor((day-1)/20));
+  function suggestedDay(){
+    const n=Number(state.lastOpened);
+    if(Number.isInteger(n)&&n>=1&&n<=100){
+      if(!isDone(n))return n;
+      const later=DATA.days.find(d=>d.n>n&&!isDone(d.n));
+      if(later)return later.n;
+    }
+    return DATA.days.find(d=>!isDone(d.n))?.n||100;
+  }
+  const dayStatus=n=>{
+    const info=getDay(n);
+    if(isDone(n))return "done";
+    if(countChecked(n)>0||String(info.note||"").trim()||Number.isInteger(info.energy))return "partial";
+    return "todo";
+  };
   function activityPlan(n){
     const day=DATA.days[n-1];
     const core=day.steps.map((description,i)=>({
@@ -108,6 +127,7 @@
   }
   function renderDay(){
     const day=DATA.days[selectedDay-1],phase=DATA.phases[day.phase],d=getDay(selectedDay),tasks=activityPlan(selectedDay);
+    const guide=GUIDES[selectedDay-1]||{materials:"纸笔或备忘录",template:"目标：[具体]；行动：[具体]；结果：[实际记录]",avoid:"根据身体情况和现实工作量调整，不用打卡代替真实行动。"};
     const week=Math.ceil(selectedDay/7),gate=completionGate(selectedDay);
     $("start-date").value=state.startDate;
     $("prev-day").disabled=selectedDay===1;
@@ -146,6 +166,14 @@
           <p class="block-desc">3个具体步骤，按顺序完成。每个步骤有独立打卡，避免把“看过课程”当作“做过练习”。</p>
           <div class="outcome-card"><span class="mini-label">今天要留下什么</span><p>${esc(day.proof)}</p></div>
           <div class="task-list main-task-list">${coreHtml}</div>
+          <details class="lesson-guide" id="lesson-guide">
+            <summary><span class="guide-head-icon" aria-hidden="true">▤</span><span class="guide-summary-text"><strong>这一课怎样做得更扎实？</strong><small>材料准备 · 记录示例 · 常见误区</small></span><span class="guide-chevron" aria-hidden="true">⌄</span></summary>
+            <div class="guide-body">
+              <div class="guide-info"><span>01 / 需要准备</span><p>${esc(guide.materials)}</p></div>
+              <div class="guide-info"><span>02 / 参考记录格式（示意，不是真实数据）</span><p class="guide-sample">${esc(guide.template)}</p><button type="button" class="copy-guide" id="copy-guide">复制空白记录结构 ↗</button></div>
+              <div class="guide-info"><span>03 / 容易忽略的地方</span><p>${esc(guide.avoid)}</p></div>
+            </div>
+          </details>
           <div class="path-box"><div class="path-title">学习衔接 · 在旧成果上继续</div><div class="path-links">${linkedText}${nextText}</div><p>前置课程可随时查看，没有完成也可以继续当前课程；关联是学习建议，不是强制解锁。</p></div>
         </div>
         <div class="daily-right">
@@ -157,13 +185,13 @@
             <span class="card-microheading">03 / WRITTEN REFLECTION</span><h4>给今天留一条证据。</h4>
             <p class="journal-question">${esc(day.question)}</p>
             <label class="sr-only" for="day-note">今日反思与成果笔记</label>
-            <textarea id="day-note" maxlength="5000" placeholder="例如：今天实际做了什么？留下了什么成果？下一次会怎样调整？">${esc(d.note||"")}</textarea>
+            <textarea id="day-note" maxlength="5000" placeholder="参考成果：${esc(day.proof)}&#10;只记录实际做过的事；不知道的部分可以写“尚不确定”。">${esc(d.note||"")}</textarea>
             <p class="journal-tip">笔记自动保存于当前浏览器；不要记录身份证、病历等敏感个人信息。</p>
             <div class="energy-row"><label>今天的精力状态（可选）</label><div class="energy-options" role="group" aria-label="精力状态，1分较低，5分充沛">${[1,2,3,4,5].map(i=>`<button type="button" data-energy="${i}" aria-label="精力 ${i} 分" aria-pressed="${d.energy===i}">${i}</button>`).join("")}</div></div>
           </div>
         </div>
       </div>
-      <div class="day-checkout"><div class="checkout-progress"><div class="completion-bar" role="progressbar" aria-label="当天具体任务完成进度" aria-valuemin="0" aria-valuemax="5" aria-valuenow="${checked}"><div class="completion-fill" style="width:${checked/5*100}%"></div></div><div class="completion-meta"><span>已完成 ${checked}/5 个具体任务</span><span id="gate-status">${gate.ok?"已达到当前模式的验收条件":"尚未达到当前模式的验收条件"}</span></div>${legacy}</div><button type="button" class="done-button ${completed?"is-done":""}" id="finish-day">${completed?"✓ 已确认 · 点击撤销":"✓ 按本模式确认完成"}</button></div>`;
+      <div class="day-checkout"><div class="checkout-progress"><div class="completion-bar" role="progressbar" aria-label="当天具体任务完成进度" aria-valuemin="0" aria-valuemax="5" aria-valuenow="${checked}"><div class="completion-fill" style="width:${checked/5*100}%"></div></div><div class="completion-meta"><span>已完成 ${checked}/5 个具体任务</span><span id="gate-status">${completed?"已确认（"+esc(modes[d.completedMode]?.name||"历史记录")+"）":gate.ok?"已达到当前模式的验收条件":"尚未达到当前模式的验收条件"}</span></div>${legacy}</div><button type="button" class="done-button ${completed?"is-done":""}" id="finish-day">${completed?"✓ 已确认 · 点击撤销":"✓ 按本模式确认完成"}</button></div>`;
   }
   function renderStats(){
     const completed=doneTotal(),activities=countActivities(),ph=phaseIndex(plannedToday());
