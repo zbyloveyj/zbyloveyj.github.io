@@ -12,10 +12,12 @@
   <meta property="og:url" content="https://zbyloveyj.github.io/personal-growth-lab/100-days/">
   <link rel="canonical" href="https://zbyloveyj.github.io/personal-growth-lab/100-days/">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css?v=2">
+  <link rel="stylesheet" href="assets/style.css?v=3">
+  <link rel="stylesheet" href="assets/edition.css?v=3">
   <script defer src="data/program.js?v=2"></script>
   <script defer src="data/support.js?v=2"></script>
-  <script defer src="assets/app.js?v=2"></script>
+  <script defer src="data/guides.js?v=3"></script>
+  <script defer src="assets/app.js?v=3"></script>
   <title>日有寸进 · 100 Days of Becoming</title>
 </head>
 <body>
@@ -28,7 +30,7 @@
         <span class="logo-name">日有寸进 <small>THE PRACTICE LAB · 02</small></span>
       </a>
       <nav class="nav" aria-label="本页导航">
-        <a href="#today">今日练习</a><a href="#journey">百日地图</a><a href="#blueprint">成长系统</a><a href="#history">复盘记录</a>
+        <a href="#today">今日练习</a><a href="#journey">课程总览</a><a href="#history">进度与复盘</a><a href="#evidence">使用依据</a>
       </nav>
       <div class="header-actions">
         <button type="button" class="icon-btn theme-btn" id="theme-toggle" aria-label="切换深色模式" title="切换明暗模式">◐</button>
@@ -38,33 +40,41 @@
   </header>
 
   <main id="content">
-    <section class="hero container" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-line"></span> PRACTICE NOTEBOOK / 100 DAYS</p>
-        <h1 id="hero-title">把日子，<br>过得<em>更有方向。</em></h1>
-        <p class="hero-description">100天，每天一项不同的核心训练。<br class="desktop-only">从作息与体能打底，逐步进入阅读思考、表达创造与长期习惯。</p>
+    <section class="hero container home-dashboard" id="home" aria-labelledby="hero-title">
+      <div class="dashboard-copy">
+        <div class="dashboard-kicker"><span class="kicker-line"></span><span>100 DAYS OF BECOMING</span><span class="kicker-chip">你的个人成长空间</span></div>
+        <h1 id="hero-title">让改变，<br><em>发生在每一天。</em></h1>
+        <p class="hero-description">一套可真正执行的100天成长课程。每天3步核心任务、2项轮换巩固，循序改善生活节律、学习能力、表达与关系。</p>
         <div class="hero-actions">
-          <a href="#today" class="primary-button">开始今天的练习 <span aria-hidden="true">↗</span></a>
-          <a href="#journey" class="quiet-link">查看完整100天 <span aria-hidden="true">↓</span></a>
+          <a href="#today" class="primary-button" id="hero-open">进入每日练习 <span aria-hidden="true">↗</span></a>
+          <a href="#journey" class="quiet-link">浏览100天课程 <span aria-hidden="true">→</span></a>
         </div>
-        <p class="hero-caption"><span class="caption-dot"></span> 每一天有行动、有证据、有下一步；允许重来。</p>
+        <div class="dashboard-benefits" aria-label="课程特色">
+          <span><i aria-hidden="true">✓</i> 100天独立内容</span>
+          <span><i aria-hidden="true">✓</i> 进度自动保存</span>
+          <span><i aria-hidden="true">✓</i> 按自己的节奏学</span>
+        </div>
+        <details class="getting-started"><summary>第一次使用？查看30秒上手指南 <span aria-hidden="true">⌄</span></summary>
+          <ol><li>选择开始日期，默认从 Day 01 练起。</li><li>根据时间选“轻量 / 标准 / 深入”模式。</li><li>阅读当天目标，勾选真正完成的任务，再写下观察。</li><li>错过几天不用补齐日历，点击“继续训练”按课程顺序往下走。</li></ol>
+          <p>所有记录只保存在当前浏览器，更换设备前请先导出 JSON 备份。</p>
+        </details>
       </div>
-      <aside class="hero-visual" aria-label="百日进度概览">
-        <div class="visual-top"><span>PERSONAL FIELD NOTES</span><span>01 / 100</span></div>
-        <div class="visual-illustration" aria-hidden="true">
-          <svg viewBox="0 0 380 265" fill="none" role="presentation">
-            <path d="M189 238c-2-64-5-120 7-194" stroke="#2D609E" stroke-width="2.3" stroke-linecap="round"/>
-            <path d="M193 149c-28-52-75-49-100-79 3 49 42 78 100 79Z" fill="#AEC8F3" stroke="#4779B1" stroke-width="1.3"/>
-            <path d="M192 113c38-57 85-45 112-88-1 55-39 92-112 88Z" fill="#D5E6FA" stroke="#4779B1" stroke-width="1.3"/>
-            <path d="M188 206c-33-47-67-37-92-71 0 46 36 69 92 71Z" fill="#BDD6EF" stroke="#648BB9" stroke-width="1.3"/>
-            <path d="M190 185c36-44 65-35 91-72-1 47-34 70-91 72Z" fill="#89B5E4" stroke="#4779B1" stroke-width="1.3"/>
-            <path d="M133 239c27 10 74 11 104 0" stroke="#4779B1" stroke-width="1.2" stroke-linecap="round"/>
-            <circle cx="191" cy="56" r="3.7" fill="#5B87C3"/><circle cx="78" cy="144" r="2.7" fill="#5B87C3"/><circle cx="294" cy="166" r="2.5" fill="#5B87C3"/>
-            <path d="M64 219c34-8 49-33 54-52M300 199c-12-10-23-26-25-48" stroke="#8CB3DA" stroke-width="1" stroke-dasharray="3 6"/>
-          </svg>
+      <aside class="dashboard-card" aria-label="当前计划与快速继续">
+        <div class="dashboard-card-top"><span class="dash-label">MY PRACTICE SPACE</span><span class="dash-date" id="dashboard-date">你的100天旅程</span></div>
+        <div class="dashboard-card-core">
+          <div class="progress-dial" id="dashboard-dial"><div class="dial-inner"><div id="hero-progress"><strong>0 / 100</strong><small>已经完成的练习日</small></div></div></div>
+          <div class="dash-day-info">
+            <span class="dash-overline">下一堂建议课程</span>
+            <strong id="dashboard-next-day">DAY 001</strong>
+            <h2 id="dashboard-next-title">写下真实起点</h2>
+            <p id="dashboard-next-meta">觉察重启 · 从真实记录开始</p>
+          </div>
         </div>
-        <div class="visual-bottom"><span>GROWTH IS A DAILY PRACTICE</span><span>✳</span></div>
-        <div class="visual-progress" id="hero-progress" aria-label="总体进度">已准备好开始新的练习</div>
+        <div class="dashboard-card-bottom">
+          <button type="button" id="resume-day" class="dashboard-resume-button">继续学习 <span aria-hidden="true">→</span></button>
+          <button type="button" id="calendar-day" class="dashboard-calendar-button">查看日历今天</button>
+        </div>
+        <div class="dashboard-safety"><span class="save-dot" aria-hidden="true"></span><span>无需登录 · 本机保存 · 可导出备份</span></div>
       </aside>
     </section>
 
@@ -77,10 +87,10 @@
       <div class="section-header"><div><p class="section-eyebrow">当天的课程与记录</p><h2 id="today-heading">每天都有具体可做的事。</h2></div><p class="section-summary">每天3步专属核心训练＋2项轮换巩固，有明确的成果与验收规则。前一阶段积累的东西，会在后一阶段重新用起来。</p></div>
       <div class="day-shell">
         <div class="day-toolbar">
-          <div class="date-control"><label for="start-date">我的起点日期</label><input type="date" id="start-date" aria-describedby="start-help"><small id="start-help">可修改；历史打卡按 Day 01—100 保存。</small></div>
-          <div class="day-nav"><button type="button" class="plain-button" id="prev-day" aria-label="上一天">← 上一天</button><button type="button" class="plain-button today-button" id="go-today">回到今天</button><button type="button" class="plain-button" id="next-day" aria-label="下一天">下一天 →</button></div>
+          <div class="date-control"><label for="start-date">开始日期</label><input type="date" id="start-date" aria-describedby="start-help"><small id="start-help">日期只用于日历定位，课程进度不会自动跳过。</small></div>
+          <div class="day-toolbar-actions"><div class="day-jump"><label for="jump-day-input">跳转</label><input id="jump-day-input" type="number" inputmode="numeric" min="1" max="100" placeholder="1—100" aria-label="输入课程天数，1至100"><button type="button" id="jump-day-btn" class="jump-button" aria-label="跳转到指定课程">前往</button></div><div class="day-nav"><button type="button" class="plain-button" id="prev-day" aria-label="上一天">← 上一天</button><button type="button" class="plain-button today-button" id="go-today">日历今天</button><button type="button" class="plain-button" id="next-day" aria-label="下一天">下一天 →</button></div></div>
         </div>
-        <div class="day-heading" id="day-heading"><span class="day-no">DAY 001</span><h3>正在打开课程…</h3></div>
+        <div class="day-heading" id="day-heading"><span class="day-no">DAY 001</span><h3>正在打开课程…</h3></div><div class="save-status-line"><span class="save-dot" aria-hidden="true"></span><span id="save-status" role="status" aria-live="polite">学习记录仅保存在此设备的浏览器中</span><button type="button" id="backup-inline" class="backup-inline">备份记录 ↗</button></div>
         <div class="mode-bar"><div><strong>选择今天的强度</strong><span>轻量完成核心1步；标准完成核心3步；深入增加辅助实践与笔记。</span></div><div class="mode-picker" id="mode-picker" role="group" aria-label="练习模式"><button type="button" data-mode="lite">轻量</button><button type="button" data-mode="regular">标准</button><button type="button" data-mode="deep">深入</button></div></div>
         <div id="day-content" aria-live="polite"><p class="loading-msg">课程加载中，请确认浏览器已启用 JavaScript。</p></div>
       </div>
@@ -89,8 +99,21 @@
     <section class="section journey-section" id="journey" aria-labelledby="journey-heading">
       <div class="container">
         <div class="section-topline"><span class="section-number">02 / THE 100-DAY MAP</span><span class="section-trailing">NOT A STREAK. A JOURNEY.</span></div>
-        <div class="section-header"><div><p class="section-eyebrow">成长的路线图</p><h2 id="journey-heading">100天，一步一步来。</h2></div><p class="section-summary">点击任意日期，打开当日完整任务。深色代表已完成，浅色代表已有记录；所有课程始终开放。</p></div>
+        <div class="section-header"><div><p class="section-eyebrow">目录 · 搜索 · 按阶段浏览</p><h2 id="journey-heading">找到下一堂想练的课。</h2></div><p class="section-summary">可以按主题、阶段或完成状态筛选课程。卡片展示当天的具体成果，不再需要在100个数字里逐个查找。</p></div>
         <div class="journey-layout"><div id="phase-list" class="phase-list" aria-label="五个阶段"></div><div class="map-panel"><div class="map-panel-head"><span>DAY 01 — DAY 100</span><span><i class="map-legend complete"></i> 已完成 &nbsp; <i class="map-legend underway"></i> 进行中</span></div><div class="day-map" id="day-map" aria-label="100天课程地图"></div><p class="map-tip">课程按照 Day 01—100 编号，不限制重新查看或补做。完成状态由你自己确认。</p></div></div>
+        <div class="catalog-tools" id="catalog-tools">
+          <div class="catalog-title"><div><p class="section-eyebrow">COURSE LIBRARY</p><h3>课程目录</h3></div><p>搜索当天关键词，或按阶段、领域、完成状态筛选。</p></div>
+          <form class="catalog-filters" id="course-filter-form" role="search" aria-label="搜索100天课程">
+            <label class="filter-search"><span class="sr-only">搜索课程</span><span class="filter-search-icon" aria-hidden="true">⌕</span><input id="course-search" type="search" autocomplete="off" placeholder="搜索主题 / 行动 / 产出，例如：睡眠、阅读、表达"></label>
+            <label><span class="sr-only">按阶段筛选</span><select id="course-phase"><option value="all">全部阶段</option><option value="0">01 · 觉察重启</option><option value="1">02 · 建立节律</option><option value="2">03 · 认知进阶</option><option value="3">04 · 拓展边界</option><option value="4">05 · 长期主义</option></select></label>
+            <label><span class="sr-only">按领域筛选</span><select id="course-domain"><option value="all">全部领域</option></select></label>
+            <label><span class="sr-only">按完成状态筛选</span><select id="course-state"><option value="all">全部进度</option><option value="todo">未开始</option><option value="partial">进行中</option><option value="done">已完成</option></select></label>
+            <button type="button" id="course-reset" class="reset-filters">清除筛选</button>
+          </form>
+          <div class="catalog-list-head"><span id="course-results-count" role="status" aria-live="polite">正在整理课程目录…</span><span>点击卡片即可打开课程</span></div>
+          <div id="course-list" class="course-list" aria-label="可筛选的课程列表"></div>
+          <div class="catalog-more-wrap"><button type="button" id="course-more" class="catalog-more">查看更多课程 ↓</button></div>
+        </div>
       </div>
     </section>
 
@@ -106,7 +129,7 @@
         <div class="section-topline"><span class="section-number">04 / FIELD NOTES</span><span class="section-trailing">MEASURE WITHOUT JUDGING.</span></div>
         <div class="section-header"><div><p class="section-eyebrow">复盘、记录与调整</p><h2 id="history-heading">让改变有迹可循。</h2></div><p class="section-summary">每周看一次，重点不是“是否全勤”，而是哪些行为对自己真正有效。</p></div>
         <div class="history-grid"><div class="history-card"><div class="history-card-head"><h3>每周练习概况</h3><span>15个课程周</span></div><div id="weekly-chart" class="weekly-chart" aria-label="每周完成天数统计"></div></div><div class="history-card"><div class="history-card-head"><h3>八个领域的练习覆盖</h3><span>核心训练与辅助任务的覆盖统计</span></div><div id="habit-chart" class="habit-chart"></div></div></div>
-        <div class="review-panel" id="review-panel"></div>
+        <div class="review-panel" id="review-panel"></div><div class="recent-section"><div class="recent-header"><h3>最近的学习记录</h3><span>快捷返回正在进行的课程</span></div><div id="recent-records" class="recent-records"><p>尚无记录，从 Day 01 开始。</p></div></div>
       </div>
     </section>
 
@@ -141,6 +164,6 @@
   </main>
 
   <footer class="footer"><div class="container footer-inner"><div><span class="footer-mark">日有寸进<span>✳</span></span><p>一心问道 · 个人成长实验室<br><small>100 DAYS OF BECOMING · COURSE 02</small></p></div><div class="footer-links"><a href="../">21天口才训练 ↗</a><a href="../../">返回学术主页 ↗</a><a href="#content">回到顶部 ↑</a></div><p class="footer-quote">真正持久的改变，往往安静而缓慢。</p></div></footer>
-  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <nav class="mobile-dock" aria-label="移动端快捷导航"><a href="#home"><span aria-hidden="true">⌂</span>首页</a><a href="#today"><span aria-hidden="true">✓</span>练习</a><a href="#journey"><span aria-hidden="true">▦</span>课程</a><a href="#history"><span aria-hidden="true">◫</span>记录</a></nav><div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 </body>
 </html>
