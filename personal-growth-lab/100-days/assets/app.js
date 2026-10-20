@@ -163,7 +163,7 @@
           </div>
         </div>
       </div>
-      <div class="day-checkout"><div class="checkout-progress"><div class="completion-bar" role="progressbar" aria-label="当天具体任务完成进度" aria-valuemin="0" aria-valuemax="5" aria-valuenow="${checked}"><div class="completion-fill" style="width:${checked/5*100}%"></div></div><div class="completion-meta"><span>已完成 ${checked}/5 个具体任务</span><span>${gate.ok?"已达到当前模式的验收条件":"尚未达到当前模式的验收条件"}</span></div>${legacy}</div><button type="button" class="done-button ${completed?"is-done":""}" id="finish-day">${completed?"✓ 已确认 · 点击撤销":"✓ 按本模式确认完成"}</button></div>`;
+      <div class="day-checkout"><div class="checkout-progress"><div class="completion-bar" role="progressbar" aria-label="当天具体任务完成进度" aria-valuemin="0" aria-valuemax="5" aria-valuenow="${checked}"><div class="completion-fill" style="width:${checked/5*100}%"></div></div><div class="completion-meta"><span>已完成 ${checked}/5 个具体任务</span><span id="gate-status">${gate.ok?"已达到当前模式的验收条件":"尚未达到当前模式的验收条件"}</span></div>${legacy}</div><button type="button" class="done-button ${completed?"is-done":""}" id="finish-day">${completed?"✓ 已确认 · 点击撤销":"✓ 按本模式确认完成"}</button></div>`;
   }
   function renderStats(){
     const completed=doneTotal(),activities=countActivities(),ph=phaseIndex(plannedToday());
@@ -253,7 +253,7 @@
     lines.push("## 每周复盘");
     Object.entries(state.weeklyNotes).sort((a,b)=>Number(a[0])-Number(b[0])).forEach(([k,v])=>{if(v&&v.trim())lines.push("### 第 "+k+" 周",v.trim(),"")});
     lines.push("","---","个人练习记录，不代表医疗评估或客观健康结论。");
-    download("日有寸进-成长档案-"+todayString()+".md",lines.join("\\n"),"text/markdown;charset=utf-8");
+    download("日有寸进-成长档案-"+todayString()+".md",lines.join("\n"),"text/markdown;charset=utf-8");
     toast("成长档案已导出。");
   }
   function validateImport(obj){
@@ -329,7 +329,7 @@
     }
   });
   $("day-content").addEventListener("input",e=>{
-    if(e.target.id==="day-note"){updateDay(selectedDay,{note:e.target.value});}
+    if(e.target.id==="day-note"){updateDay(selectedDay,{note:e.target.value});const node=$("gate-status");if(node)node.textContent=completionGate(selectedDay).ok?"已达到当前模式的验收条件":"尚未达到当前模式的验收条件";}
   });
   $("day-content").addEventListener("click",e=>{
     const a=e.target.closest("a[data-open-day]");
