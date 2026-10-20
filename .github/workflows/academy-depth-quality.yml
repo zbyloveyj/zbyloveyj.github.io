@@ -1,0 +1,58 @@
+name: Academy detailed edition quality
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'personal-growth-lab/academy/index.html'
+      - 'personal-growth-lab/academy/assets/depth*'
+      - 'personal-growth-lab/academy/tools/*depth*'
+      - '.github/workflows/academy-depth-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: academy-detailed-quality
+  cancel-in-progress: true
+jobs:
+  detailed-course:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DEPTH_TEST_OUTPUT: /tmp/academy-depth-qa
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      NODE_PATH: /tmp/academy-depth-deps/node_modules
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: personal-growth-lab/academy
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check JavaScript syntax and all 839 teaching units
+        run: |
+          for file in personal-growth-lab/academy/assets/*.js; do node --check "$file"; done
+          node personal-growth-lab/academy/tools/check_depth.cjs
+      - name: Install CPU-only teaching and browser dependencies
+        run: |
+          python -m pip install --disable-pip-version-check numpy scikit-learn
+          python -m pip install --disable-pip-version-check torch --index-url https://download.pytorch.org/whl/cpu
+          npm install --prefix /tmp/academy-depth-deps playwright
+          /tmp/academy-depth-deps/node_modules/.bin/playwright install --with-deps chromium
+      - name: Execute all 24 independent Python examples
+        run: python personal-growth-lab/academy/tools/test_depth_runtime.py
+      - name: Test detailed reader, exports, legacy records, print and responsive layout
+        run: node personal-growth-lab/academy/tools/test_depth_browser.cjs
+      - name: Verify actual public Pages bytes when the entrypoint is active
+        run: python personal-growth-lab/academy/tools/verify_live_depth.py
+      - name: Upload reproducible quality reports and browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: academy-detailed-qa
+          path: /tmp/academy-depth-qa
+          if-no-files-found: warn
+          retention-days: 7
