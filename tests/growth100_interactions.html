@@ -1,0 +1,54 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>100-day growth interactive QA</title></head>
+<body>
+  <div id="result">RUNNING INTERACTION TESTS</div>
+  <iframe title="课程交互测试" id="course-frame" src="../personal-growth-lab/100-days/?day=1" width="900" height="690"></iframe>
+  <script>
+    (function(){
+      const output=document.getElementById("result");
+      const frame=document.getElementById("course-frame");
+      function check(predicate,message){if(!predicate)throw Error(message);}
+      frame.addEventListener("load",()=>{
+        try{
+          const doc=frame.contentDocument;
+          const win=frame.contentWindow;
+          const by=id=>doc.getElementById(id);
+          const storage=()=>JSON.parse(win.localStorage.getItem("yixw_growth_100_v1"));
+          check(doc.querySelectorAll('[data-task]').length===5,"5 unique daily tasks expected");
+          check(doc.querySelectorAll('.core-task').length===3,"3 main steps expected");
+          check(doc.querySelectorAll('.support-task').length===2,"2 complementary tasks expected");
+          check(doc.body.innerText.includes("四行现状记录"),"day1 proof missing");
+          check(doc.body.innerText.includes("本阶段"),"phase goal missing");
+          const dayOneTitle=by("day-heading").innerText;
+          const core=doc.querySelector('[data-task="core1"]');
+          check(core.getAttribute("aria-pressed")==="false","fresh core should be unchecked");
+          by("finish-day").click();
+          check(storage().days["1"]===undefined,"should not mark unfinished standard day completed");
+          core.click();
+          check(storage().days["1"].tasks.core1===true,"core1 completion not saved");
+          check(by("gate-status").textContent.includes("尚未达到"),"standard mode wrongly satisfied");
+          doc.querySelector('[data-mode="lite"]').click();
+          check(by("gate-status").textContent.includes("已达到"),"lite mode should be satisfied after core1");
+          const note=by("day-note");note.value="我留下了基线数据，以后可以对比。";note.dispatchEvent(new win.Event("input",{bubbles:true}));
+          by("finish-day").click();
+          check(storage().days["1"].completed===true,"lite completion not persisted");
+          by("theme-toggle").click();
+          check(doc.documentElement.dataset.theme==="dark","dark mode not applied");
+          by("next-day").click();
+          check(by("day-heading").textContent.includes("DAY 002"),"next-day navigation failed");
+          check(by("day-heading").textContent!==dayOneTitle,"different day should have a different title");
+          check(doc.querySelectorAll('[data-task]').length===5,"day2 task count changed");
+          check(doc.body.textContent.includes("起床触发卡"),"day2 unique output missing");
+          check(doc.body.textContent.includes("相关前置"),"curricular prerequisite missing");
+          by("prev-day").click();
+          check(by("day-note").value.includes("以后可以对比"),"note did not persist");
+          check(doc.querySelector('[data-task="core1"]').getAttribute("aria-pressed")==="true","core1 did not persist");
+          const weekly=by("weekly-note");weekly.value="本周先建立基线，再调整环境。";weekly.dispatchEvent(new win.Event("input",{bubbles:true}));
+          check(storage().weeklyNotes["1"].includes("建立基线"),"weekly note not saved");
+          output.textContent="PASS: 5 varying tasks; core acceptance gates; lite completion; progress persistence; day-to-day continuity; note saving; dark-blue theme";
+          output.dataset.status="pass";
+        }catch(error){output.textContent="FAIL: "+(error&&error.stack||error);output.dataset.status="fail";}
+      },{once:true});
+      window.setTimeout(()=>{if(!output.dataset.status){output.textContent="FAIL: iframe interaction timed out";output.dataset.status="fail";}},5500);
+    })();
+  </script>
+</body></html>
