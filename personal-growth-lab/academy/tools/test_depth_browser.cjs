@@ -1,7 +1,7 @@
 'use strict';
 const {chromium}=require('playwright');
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{spawn}=require('node:child_process');
-const root=path.resolve(__dirname,'../../../..'),out=process.env.DEPTH_TEST_OUTPUT||'/tmp/academy-depth-qa';
+const root=path.resolve(__dirname,'../../..'),out=process.env.DEPTH_TEST_OUTPUT||'/tmp/academy-depth-qa';
 const base='http://127.0.0.1:8765/personal-growth-lab/academy/';
 const server=spawn('python3',['-m','http.server','8765','--bind','127.0.0.1'],{cwd:root,stdio:'ignore'});
 let browser;
