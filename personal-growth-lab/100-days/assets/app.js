@@ -24,7 +24,11 @@
     const dt=new Date();
     return [dt.getFullYear(),pad(dt.getMonth()+1),pad(dt.getDate())].join("-");
   };
-  const validDate=s=>typeof s==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(new Date(s+"T12:00:00").getTime());
+  const validDate=s=>{
+    if(typeof s!=="string"||!/^\d{4}-\d{2}-\d{2}$/.test(s))return false;
+    const [year,month,day]=s.split("-").map(Number),date=new Date(year,month-1,day);
+    return date.getFullYear()===year&&date.getMonth()+1===month&&date.getDate()===day;
+  };
   const fresh=()=>({version:1,startDate:todayString(),mode:"regular",theme:"light",days:{},weeklyNotes:{},lastOpened:1});
   let state=fresh();
   try{
@@ -219,8 +223,9 @@
     $("dashboard-next-day").textContent="DAY "+String(n).padStart(3,"0");
     $("dashboard-next-title").textContent=day.title;
     $("dashboard-next-meta").textContent=DATA.phases[day.phase].name+" · "+DATA.categories[day.category];
-    const d=startDateDay(plannedToday());
-    $("dashboard-date").textContent="日历计划日 "+pad(plannedToday())+" · "+pad(d.getMonth()+1)+"/"+pad(d.getDate());
+    const parts=state.startDate.split("-").map(Number);
+    const elapsed=Math.floor((Date.UTC(new Date().getFullYear(),new Date().getMonth(),new Date().getDate())-Date.UTC(parts[0],parts[1]-1,parts[2]))/86400000);
+    $("dashboard-date").textContent=elapsed<0?"尚未开始 · 可预览 Day 01":elapsed>=100?"百日已满 · 仍可自主补做":"日历计划日 "+pad(plannedToday());
     $("resume-day").innerHTML=completed===100?"回顾结业课程 <span aria-hidden=\"true\">→</span>":"继续 Day "+pad(n)+" <span aria-hidden=\"true\">→</span>";
   }
   function renderPhases(){
@@ -497,7 +502,7 @@
   $("export-report").addEventListener("click",exportReport);
   $("import-trigger").addEventListener("click",()=>$("import-file").click());
   $("import-file").addEventListener("change",async e=>{await importData(e.target.files?.[0]);e.target.value="";});
-  $("print-day").addEventListener("click",()=>window.print());
+  $("print-day").addEventListener("click",()=>{const guide=$("lesson-guide");if(guide)guide.open=true;window.print();});
   window.addEventListener("scroll",()=>{
     const max=document.documentElement.scrollHeight-window.innerHeight;
     const fraction=max>0?window.scrollY/max:0;
