@@ -1,0 +1,203 @@
+{
+  "edition": "2026.10.20-r3",
+  "lessons": [
+    {
+      "day": 1,
+      "title": "建立你的表达基线",
+      "pages": 9,
+      "bytes": 639231,
+      "sha256": "b1aab0e28b9e2f419ff11e7413295e881bbc941d3ba52775d98a90b8c8c18d89",
+      "path": "downloads/pdf/Day-01.pdf",
+      "chinese_characters": 4143
+    },
+    {
+      "day": 2,
+      "title": "平翘舌：z c s 与 zh ch sh",
+      "pages": 9,
+      "bytes": 627984,
+      "sha256": "8f07069ac3c98529035bfe2b80d6de19ef2a2f60e7b6acd9622af792d5740946",
+      "path": "downloads/pdf/Day-02.pdf",
+      "chinese_characters": 3820
+    },
+    {
+      "day": 3,
+      "title": "前后鼻音：-n 与 -ng",
+      "pages": 9,
+      "bytes": 637458,
+      "sha256": "2c8513e53ceb8b7ae4dec67c42d8a7c9c05c501073a65d57edd831af56e9a0d9",
+      "path": "downloads/pdf/Day-03.pdf",
+      "chinese_characters": 3784
+    },
+    {
+      "day": 4,
+      "title": "n / l、f / h 与个人错音",
+      "pages": 9,
+      "bytes": 644951,
+      "sha256": "aa5d4445077d1814462cfa2e376290da942ce8726760c04a0fced72fb28e02f5",
+      "path": "downloads/pdf/Day-04.pdf",
+      "chinese_characters": 3806
+    },
+    {
+      "day": 5,
+      "title": "语速与停顿",
+      "pages": 9,
+      "bytes": 633440,
+      "sha256": "69e07f15e955ee91ec416dc26cfd405aa792d4bcb7c7afc63640ea5fd8d827fe",
+      "path": "downloads/pdf/Day-05.pdf",
+      "chinese_characters": 4045
+    },
+    {
+      "day": 6,
+      "title": "重音与语调",
+      "pages": 9,
+      "bytes": 619997,
+      "sha256": "d3cdad4ddf7e74ba8dd5ec4f15ac5c411ac101363a602f37277d5e5a977d9515",
+      "path": "downloads/pdf/Day-06.pdf",
+      "chinese_characters": 3901
+    },
+    {
+      "day": 7,
+      "title": "第一阶段测评：声音与清晰度",
+      "pages": 9,
+      "bytes": 641731,
+      "sha256": "80c6edfdf4f14149bcd6770b22978f8e34b76207aa16d6b3a01b8045618c4f56",
+      "path": "downloads/pdf/Day-07.pdf",
+      "chinese_characters": 4038
+    },
+    {
+      "day": 8,
+      "title": "先说结论：30秒讲清要点",
+      "pages": 9,
+      "bytes": 625933,
+      "sha256": "3b71811c07d9351fd4a2234a2cf07a3459bfeb42dae589359ef0bc9e5e073511",
+      "path": "downloads/pdf/Day-08.pdf",
+      "chinese_characters": 3937
+    },
+    {
+      "day": 9,
+      "title": "观点—理由—例子—回扣",
+      "pages": 9,
+      "bytes": 629147,
+      "sha256": "405c6e37fd2f9ff676c04edcf17e5be9a76c3e531ffd041533db9f4d366de668",
+      "path": "downloads/pdf/Day-09.pdf",
+      "chinese_characters": 4227
+    },
+    {
+      "day": 10,
+      "title": "事实、证据与推测",
+      "pages": 9,
+      "bytes": 627093,
+      "sha256": "bdfccb51ede796d5239140075c24cabe8fa951b69039fe80ca0165dbdb1cb71d",
+      "path": "downloads/pdf/Day-10.pdf",
+      "chinese_characters": 4065
+    },
+    {
+      "day": 11,
+      "title": "故事叙述：场景、冲突与转折",
+      "pages": 9,
+      "bytes": 636421,
+      "sha256": "b5457e207d91e00681b2a41687a63f71e35fbbec3de60aa8d6c4fbe4ea99b830",
+      "path": "downloads/pdf/Day-11.pdf",
+      "chinese_characters": 4070
+    },
+    {
+      "day": 12,
+      "title": "通俗解释与类比",
+      "pages": 9,
+      "bytes": 636439,
+      "sha256": "0e0b3ff9bbd2f7690b4b96f66be85c11dfea2b27404586a4d36d70ca448483b4",
+      "path": "downloads/pdf/Day-12.pdf",
+      "chinese_characters": 4089
+    },
+    {
+      "day": 13,
+      "title": "即兴表达：30秒准备，90秒开讲",
+      "pages": 9,
+      "bytes": 628182,
+      "sha256": "9f0a20d7bc308ddc41233b5ecbfa3ccc9a453723d461e490fbe941872fd4c612",
+      "path": "downloads/pdf/Day-13.pdf",
+      "chinese_characters": 4045
+    },
+    {
+      "day": 14,
+      "title": "第二阶段测评：有逻辑地讲话",
+      "pages": 9,
+      "bytes": 630297,
+      "sha256": "47810d384edc6a3d149401d10412792ba59810a5f0882ed4d098e6b0ab78bee9",
+      "path": "downloads/pdf/Day-14.pdf",
+      "chinese_characters": 4067
+    },
+    {
+      "day": 15,
+      "title": "倾听、复述与追问",
+      "pages": 9,
+      "bytes": 625442,
+      "sha256": "b8d5e9388ec23d74aee1a1703ef679530ca64513ca15f4a9284c2f7e010c7f90",
+      "path": "downloads/pdf/Day-15.pdf",
+      "chinese_characters": 4145
+    },
+    {
+      "day": 16,
+      "title": "说服沟通：提出可接受的建议",
+      "pages": 9,
+      "bytes": 630834,
+      "sha256": "e4c3d5d505e8fbdd1e4b2f33656d27d40b724c4bed49612ccef48a8bdbd40fab",
+      "path": "downloads/pdf/Day-16.pdf",
+      "chinese_characters": 4109
+    },
+    {
+      "day": 17,
+      "title": "现场答问：听懂问题再回答",
+      "pages": 9,
+      "bytes": 627992,
+      "sha256": "c438ed4420ec0c31c053b08b2e40b3cc0401ddec2cfaca03b7af6fe6ec7f511f",
+      "path": "downloads/pdf/Day-17.pdf",
+      "chinese_characters": 4051
+    },
+    {
+      "day": 18,
+      "title": "会议进度汇报：90秒清楚交代",
+      "pages": 9,
+      "bytes": 626608,
+      "sha256": "226636668e01da5356efca0bacae14ecf79406d7acab9f7dd484242923259320",
+      "path": "downloads/pdf/Day-18.pdf",
+      "chinese_characters": 4025
+    },
+    {
+      "day": 19,
+      "title": "同一个主题，面对不同听众",
+      "pages": 9,
+      "bytes": 635796,
+      "sha256": "d31ff180fb2c35c3c633736f4791554a59810f3ebcc25fbbc4af17dfb6f3adb0",
+      "path": "downloads/pdf/Day-19.pdf",
+      "chinese_characters": 4134
+    },
+    {
+      "day": 20,
+      "title": "限时与压力模拟",
+      "pages": 9,
+      "bytes": 631147,
+      "sha256": "07d8bcdce2d195261fdf96e791ec763973ec410c26fb554c000103720e41233e",
+      "path": "downloads/pdf/Day-20.pdf",
+      "chinese_characters": 3977
+    },
+    {
+      "day": 21,
+      "title": "结业演讲：五分钟讲清一个观点",
+      "pages": 10,
+      "bytes": 653575,
+      "sha256": "16c164556829138ad8c800bfcba6b18e6a0987d750045857a381cd34d295c5a0",
+      "path": "downloads/pdf/Day-21.pdf",
+      "chinese_characters": 5153
+    }
+  ],
+  "collection": {
+    "path": "downloads/21-days-complete-workbook.pdf",
+    "pages": 192,
+    "bytes": 14097083
+  },
+  "bundle": {
+    "path": "downloads/21-daily-pdfs.zip",
+    "count": 21
+  }
+}
