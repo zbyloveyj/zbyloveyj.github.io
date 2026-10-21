@@ -1,10 +1,14 @@
 {
-  "version": "2026.10.21.1",
-  "lessons": 14,
-  "sections": 145,
-  "exercises": 55,
-  "quiz_questions": 70,
-  "paper_readings": 28,
-  "unique_sources": 28,
-  "chinese_characters": 68527
+  "version": "2026.10.21.2",
+  "lessons": 30,
+  "core_lessons": 14,
+  "advanced_lessons": 16,
+  "coverage_topics": 43,
+  "planned_minutes": 6420,
+  "sections": 318,
+  "exercises": 119,
+  "quiz_questions": 150,
+  "paper_readings": 76,
+  "unique_sources": 63,
+  "chinese_characters": 156993
 }

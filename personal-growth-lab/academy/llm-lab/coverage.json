@@ -1,0 +1,525 @@
+{
+  "version": "2026.10.21.2",
+  "scope": "30个单元：14个核心实战单元＋16个进阶单元；按能力与证据分层。",
+  "levels": {
+    "implemented": {
+      "label": "工程可运行",
+      "description": "提供本地工程或网页实现，已在交付环境执行；具体数据范围见每项说明。"
+    },
+    "mechanism": {
+      "label": "机制与实验",
+      "description": "以可执行的小例子、公式推导和诊断任务理解机制；不等于完整生产系统。"
+    },
+    "extension": {
+      "label": "研究拓展",
+      "description": "完整讲解、阅读与实验设计；真实大规模/多卡/多模态训练需要额外数据与环境。"
+    }
+  },
+  "groups": [
+    {
+      "id": "foundation",
+      "title": "数学与学习原理",
+      "description": "把公式变成可以推导、计算和诊断的对象。",
+      "topics": [
+        {
+          "title": "张量、线性层与广播",
+          "lessons": [
+            1,
+            3,
+            15
+          ],
+          "level": "implemented",
+          "outcome": "能追踪shape、参数量、梯度以及矩阵乘法含义。",
+          "artifact": "language.py / tests/test_core.py"
+        },
+        {
+          "title": "低秩、SVD与表示空间",
+          "lessons": [
+            8,
+            15,
+            20
+          ],
+          "level": "mechanism",
+          "outcome": "计算低秩重建误差，解释LoRA的表达限制及非唯一分解。",
+          "artifact": "第15课PyTorch实验；lora-demo"
+        },
+        {
+          "title": "条件概率、MLE、交叉熵与KL",
+          "lessons": [
+            3,
+            7,
+            15
+          ],
+          "level": "mechanism",
+          "outcome": "从似然推导目标，区分PPL、token尺度与任务表现。",
+          "artifact": "第15课概率与损失实验"
+        },
+        {
+          "title": "链式法则与数值梯度检查",
+          "lessons": [
+            3,
+            15
+          ],
+          "level": "mechanism",
+          "outcome": "将解析/自动微分结果与有限差分相互核验。",
+          "artifact": "第15课有限差分实验"
+        },
+        {
+          "title": "优化器、正则化与数值稳定性",
+          "lessons": [
+            6,
+            7,
+            15,
+            18
+          ],
+          "level": "implemented",
+          "outcome": "解释AdamW、梯度裁剪、softmax稳定化与训练诊断。",
+          "artifact": "language.py / advanced.py"
+        },
+        {
+          "title": "目标、指标、泛化与因果边界",
+          "lessons": [
+            1,
+            13,
+            23,
+            27
+          ],
+          "level": "implemented",
+          "outcome": "区分训练目标、选择指标、外部效度与因果证据。",
+          "artifact": "evaluation.py / benchmark.py"
+        }
+      ]
+    },
+    {
+      "id": "language",
+      "title": "语料、分词与模型架构",
+      "description": "从数据进入模型开始，理解主流架构的选择理由。",
+      "topics": [
+        {
+          "title": "UTF-8与真正的BPE训练",
+          "lessons": [
+            2,
+            16
+          ],
+          "level": "implemented",
+          "outcome": "训练合并规则、冻结tokenizer，验证中文与未见字符往返。",
+          "artifact": "advanced bpe → tokenizer.json"
+        },
+        {
+          "title": "语料清洗、去重、许可与污染",
+          "lessons": [
+            2,
+            16,
+            23
+          ],
+          "level": "mechanism",
+          "outcome": "按文档分区、追踪来源、识别跨分区重复与评价污染。",
+          "artifact": "第16课哈希与近重复实验"
+        },
+        {
+          "title": "因果注意力与完整Transformer",
+          "lessons": [
+            4,
+            5,
+            6
+          ],
+          "level": "implemented",
+          "outcome": "独立实现Q/K/V、因果遮罩、多头、残差、前馈和输出头。",
+          "artifact": "language.py / 浏览器注意力实验"
+        },
+        {
+          "title": "BERT、T5、GPT目标谱系",
+          "lessons": [
+            6,
+            17
+          ],
+          "level": "extension",
+          "outcome": "比较编码器、编码解码器与解码器的可见性和训练目标。",
+          "artifact": "第17课架构对照与原始论文"
+        },
+        {
+          "title": "RoPE、RMSNorm、SwiGLU与GQA",
+          "lessons": [
+            17,
+            24
+          ],
+          "level": "mechanism",
+          "outcome": "检查旋转与归一化公式，区分query heads与KV heads。",
+          "artifact": "第17课组件实验；advanced budget"
+        },
+        {
+          "title": "MoE、长上下文与位置外推",
+          "lessons": [
+            17,
+            19,
+            24
+          ],
+          "level": "mechanism",
+          "outcome": "区分总参数和激活参数，量化路由、上下文与缓存代价。",
+          "artifact": "第17/19/24课机制与账本"
+        },
+        {
+          "title": "SSM/Mamba与注意力的取舍",
+          "lessons": [
+            17
+          ],
+          "level": "extension",
+          "outcome": "理解状态递推、并行训练、历史压缩与检索能力边界。",
+          "artifact": "第17课递推对照与Mamba论文"
+        }
+      ]
+    },
+    {
+      "id": "training",
+      "title": "预训练、后训练与计算系统",
+      "description": "不仅能启动训练，还能解释训练状态和资源成本。",
+      "topics": [
+        {
+          "title": "从零预训练与文本采样",
+          "lessons": [
+            2,
+            6,
+            7
+          ],
+          "level": "implemented",
+          "outcome": "训练TinyGPT并解释右移目标、温度、top-k与验证损失。",
+          "artifact": "train-lm / generate"
+        },
+        {
+          "title": "批次、梯度累积与完整断点恢复",
+          "lessons": [
+            18
+          ],
+          "level": "implemented",
+          "outcome": "恢复模型、AdamW、调度器和随机状态，逐步对齐连续运行。",
+          "artifact": "advanced resume → checkpoint.pt / report.json"
+        },
+        {
+          "title": "AMP、DDP、FSDP与ZeRO",
+          "lessons": [
+            18,
+            19
+          ],
+          "level": "extension",
+          "outcome": "划分计算/通信/显存成本，设计多卡一致性与恢复检查。",
+          "artifact": "第18/19课；真实多卡实验需额外环境"
+        },
+        {
+          "title": "规模定律、token与显存账本",
+          "lessons": [
+            16,
+            19,
+            24
+          ],
+          "level": "mechanism",
+          "outcome": "估算训练预算、参数状态和KV cache，列明遗漏项。",
+          "artifact": "advanced budget → report.json"
+        },
+        {
+          "title": "SFT模板、答案遮罩与packing",
+          "lessons": [
+            8,
+            20
+          ],
+          "level": "implemented",
+          "outcome": "运行response-only SFT并检查首个回答token和padding监督。",
+          "artifact": "finetune / tests/test_finetuning.py；packing为课程拓展"
+        },
+        {
+          "title": "LoRA与QLoRA的区别",
+          "lessons": [
+            8,
+            20
+          ],
+          "level": "implemented",
+          "outcome": "实跑LoRA-SFT、检查基座不变；解释量化基座的额外条件。",
+          "artifact": "finetune --lora；QLoRA为拓展方案"
+        },
+        {
+          "title": "偏好目标、DPO与在线RL",
+          "lessons": [
+            8,
+            20
+          ],
+          "level": "mechanism",
+          "outcome": "验证DPO梯度；比较奖励模型、PPO/GRPO和离线偏好学习。",
+          "artifact": "alignment-demo；在线RL为拓展方案"
+        },
+        {
+          "title": "持续预训练、遗忘、蒸馏与压缩",
+          "lessons": [
+            19,
+            20,
+            24
+          ],
+          "level": "extension",
+          "outcome": "设计通用能力回归集与压缩前后比较，防止只看域内损失。",
+          "artifact": "第19/20/24课设计与机制"
+        }
+      ]
+    },
+    {
+      "id": "systems",
+      "title": "检索、工具、评价与部署",
+      "description": "使每个系统输出都有可检查的依据和失败处理。",
+      "topics": [
+        {
+          "title": "检索、证据引用与拒答",
+          "lessons": [
+            9,
+            21
+          ],
+          "level": "implemented",
+          "outcome": "运行可追溯检索基线、检查引用ID与无证据输入。",
+          "artifact": "curatemicrobiota.evidence / evidence_cards.json"
+        },
+        {
+          "title": "BM25、向量、融合与重排",
+          "lessons": [
+            21
+          ],
+          "level": "mechanism",
+          "outcome": "比较召回、排序、上下文预算和证据冲突处理。",
+          "artifact": "第21课排序/融合实验；完整向量服务为拓展"
+        },
+        {
+          "title": "工具schema与Agent状态机",
+          "lessons": [
+            22
+          ],
+          "level": "mechanism",
+          "outcome": "校验输入输出、控制调用次数、处理失败并记录状态。",
+          "artifact": "第22课受限本地工具机制实验"
+        },
+        {
+          "title": "提示注入、权限与研究审计",
+          "lessons": [
+            9,
+            22
+          ],
+          "level": "mechanism",
+          "outcome": "将检索文本视为数据，限制工具作用域，测试越界与失败。",
+          "artifact": "第22课合同与对抗用例"
+        },
+        {
+          "title": "任务指标、人工标注与LLM-as-judge",
+          "lessons": [
+            23
+          ],
+          "level": "mechanism",
+          "outcome": "区分检索/生成指标，分析标注一致性与评审偏差。",
+          "artifact": "第23课评价与一致性实验"
+        },
+        {
+          "title": "配对不确定性、校准与回归测试",
+          "lessons": [
+            13,
+            23,
+            27
+          ],
+          "level": "implemented",
+          "outcome": "对齐同一受试者的预测，报告概率质量与区间适用范围。",
+          "artifact": "benchmark.py / paired_auroc_difference"
+        },
+        {
+          "title": "KV cache、量化与推理成本",
+          "lessons": [
+            24
+          ],
+          "level": "mechanism",
+          "outcome": "计算缓存增长、量化误差与首token延迟/吞吐指标。",
+          "artifact": "第24课机制实验；advanced budget"
+        },
+        {
+          "title": "批处理、流式服务与监控",
+          "lessons": [
+            22,
+            24
+          ],
+          "level": "extension",
+          "outcome": "明确队列、超时、版本、日志、资源限制和服务验收。",
+          "artifact": "第24课部署合同；未提供生产服务"
+        }
+      ]
+    },
+    {
+      "id": "microbiome",
+      "title": "菌群数据与表示学习",
+      "description": "围绕真实数据的科学含义设计模型与对照。",
+      "topics": [
+        {
+          "title": "真实数据接口与可追溯数据合同",
+          "lessons": [
+            10,
+            25
+          ],
+          "level": "extension",
+          "outcome": "核对curatedMetagenomicData版本、单位、标签与队列来源。",
+          "artifact": "scripts/export_cmd.R；R导出需本地环境验证"
+        },
+        {
+          "title": "零、缺失、组合性与变换",
+          "lessons": [
+            10,
+            11,
+            25
+          ],
+          "level": "mechanism",
+          "outcome": "区分未检出、技术缺失与人工mask，比较log/CLR/ILR假设。",
+          "artifact": "data.py；第25课组合数据实验"
+        },
+        {
+          "title": "物种词表、版本与训练内预处理",
+          "lessons": [
+            10,
+            11,
+            25
+          ],
+          "level": "implemented",
+          "outcome": "冻结词表和尺度，检测缺少训练特征及丰度质量丢失。",
+          "artifact": "data.py / Preprocessor / align_abundance"
+        },
+        {
+          "title": "连续丰度与置换一致的编码器",
+          "lessons": [
+            11,
+            12,
+            26
+          ],
+          "level": "implemented",
+          "outcome": "实现taxon+abundance编码、掩码重建与样本表征。",
+          "artifact": "microbiome.py / 掩码与置换测试"
+        },
+        {
+          "title": "排序、层次、功能表示及对比学习",
+          "lessons": [
+            26,
+            28
+          ],
+          "level": "mechanism",
+          "outcome": "比较输入设计和预训练目标，辨析目标泄漏及增强有效性。",
+          "artifact": "第26课对照实验；大规模训练属拓展"
+        },
+        {
+          "title": "五类对照与预训练后微调",
+          "lessons": [
+            12,
+            13,
+            26,
+            27
+          ],
+          "level": "implemented",
+          "outcome": "比较逻辑回归、随机/预训练冻结表征、从零监督与全参数微调。",
+          "artifact": "curatemicrobiota.benchmark"
+        },
+        {
+          "title": "标签效率与半监督设定",
+          "lessons": [
+            26,
+            27
+          ],
+          "level": "implemented",
+          "outcome": "按训练受试者抽取标签，保持各模型一致的可用输入。",
+          "artifact": "benchmark --label-fraction 0.5"
+        },
+        {
+          "title": "批次、混杂与解释边界",
+          "lessons": [
+            10,
+            13,
+            25,
+            27
+          ],
+          "level": "mechanism",
+          "outcome": "识别study/药物/人群混杂，分清预测解释与可证伪因果假设。",
+          "artifact": "第25/27课混杂检查与实验设计"
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "title": "跨队列、序列与多模态科研",
+      "description": "从教学原型走向可以被同行检查的研究项目。",
+      "topics": [
+        {
+          "title": "留一队列外测与分组验证",
+          "lessons": [
+            13,
+            27
+          ],
+          "level": "implemented",
+          "outcome": "逐队列独立拟合预处理与模型；聚合重复随访并保留逐fold结果。",
+          "artifact": "benchmark → report.json / predictions.csv"
+        },
+        {
+          "title": "嵌套验证、跨队列区间与样本单位",
+          "lessons": [
+            23,
+            27
+          ],
+          "level": "mechanism",
+          "outcome": "区分人、研究、种子与训练重叠；设计嵌套调参与分层bootstrap。",
+          "artifact": "第27课；工程轮转一val并非穷尽nested CV"
+        },
+        {
+          "title": "DNA/蛋白/功能基础模型",
+          "lessons": [
+            28
+          ],
+          "level": "extension",
+          "outcome": "理解k-mer、反向互补、同源泄漏及基因到群落的映射。",
+          "artifact": "第28课序列机制实验与原始模型文献"
+        },
+        {
+          "title": "精神疾病、影像与跨模态对齐",
+          "lessons": [
+            29
+          ],
+          "level": "extension",
+          "outcome": "定义共享/特异目标、配对受试者、缺失模态与混杂控制。",
+          "artifact": "第29课合成机制实验；无真实临床模型"
+        },
+        {
+          "title": "纵向设计与时间泄漏",
+          "lessons": [
+            27,
+            29
+          ],
+          "level": "mechanism",
+          "outcome": "固定index time与预测窗，解释跨时点标签变化及训练可见信息。",
+          "artifact": "第29课时间与配对检查实验"
+        },
+        {
+          "title": "科研交付、消融、模型卡与扩展路线",
+          "lessons": [
+            14,
+            30
+          ],
+          "level": "implemented",
+          "outcome": "形成可复现清单、实验矩阵、负结果与可证伪研究问题。",
+          "artifact": "MODEL_CARD.md / REAL_DATA.md / 第30课验收"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "title": "核心闭环",
+      "duration": "14个核心单元，约44小时",
+      "units": "01–14",
+      "goal": "先完成从零GPT、SFT、微生物掩码预训练、证据检索和一次留出合成研究的完整评价流程。"
+    },
+    {
+      "title": "完整主线",
+      "duration": "30个单元，约100–110小时",
+      "units": "01–30，可按先修插读15–20",
+      "goal": "建议8–10周，每周10–14小时；时间包含讲解和机制练习，真实科研实验另计。"
+    },
+    {
+      "title": "科研深化",
+      "duration": "完成核心后，按课题持续推进",
+      "units": "25–30＋16/18/23",
+      "goal": "先建立数据合同与强基线，再评估多队列、标签效率、序列或多模态方向。"
+    }
+  ]
+}

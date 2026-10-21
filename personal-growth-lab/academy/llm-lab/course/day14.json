@@ -87,7 +87,10 @@
       ],
       "code": {
         "language": "python",
-        "text": "import json\nfrom pathlib import Path\nfrom curatemicrobiota.common import file_sha256\nroot = Path(\"runs/demo\")\nreport = json.loads((root / \"report.json\").read_text())\nmanifest = json.loads((root / \"microbiome/manifest.json\").read_text())\nassert report[\"source_kind\"] == \"synthetic_teaching_fixture\"\nassert report[\"data\"][\"samples\"] == 240\nassert report[\"data\"][\"subjects\"] == 120\nfor name, expected in manifest[\"data_sha256\"].items():\n    assert file_sha256(root / \"data\" / name) == expected, name\nassert file_sha256(root / \"microbiome/preprocessor.json\") == manifest[\"preprocessor_sha256\"]\nprint(\"Input identity checks passed\")\nfor name in (\"language/model.pt\", \"microbiome/encoder.pt\"):\n    print(name, file_sha256(root / name))\nprint(report[\"environment\"])"
+        "text": "import json\nfrom pathlib import Path\nfrom curatemicrobiota.common import file_sha256\nroot = Path(\"runs/demo\")\nreport = json.loads((root / \"report.json\").read_text())\nmanifest = json.loads((root / \"microbiome/manifest.json\").read_text())\nassert report[\"source_kind\"] == \"synthetic_teaching_fixture\"\nassert report[\"data\"][\"samples\"] == 240\nassert report[\"data\"][\"subjects\"] == 120\nfor name, expected in manifest[\"data_sha256\"].items():\n    assert file_sha256(root / \"data\" / name) == expected, name\nassert file_sha256(root / \"microbiome/preprocessor.json\") == manifest[\"preprocessor_sha256\"]\nprint(\"Input identity checks passed\")\nfor name in (\"language/model.pt\", \"microbiome/encoder.pt\"):\n    print(name, file_sha256(root / name))\nprint(report[\"environment\"])",
+        "requires": [
+          "quick_pipeline"
+        ]
       }
     },
     {
@@ -409,5 +412,5 @@
     "整个项目中哪一条失败结果最有价值？它排除了什么不可靠的说法？",
     "下一阶段你愿意用什么结果承认自己的假设不成立？请提前写下来。"
   ],
-  "next": "十四天课程完成。选择一个明确的真实数据问题，先完成来源与基线，再以独立研究评价逐步发展CurateMicrobiota；每次扩大能力，都保留能够被他人复算的证据。"
+  "next": "核心14课闭环完成后，进入第15–20课补齐数学、数据与训练系统，再通过第21–24课学习应用评价与部署，最后在第25–30课深化微生物与多模态科研。真实研究按独立的数据和外部验证计划持续推进。"
 }

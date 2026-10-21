@@ -1,0 +1,40 @@
+{
+  "parameters": 7000000000,
+  "layers": 32,
+  "kv_heads": 8,
+  "head_dim": 128,
+  "context_tokens": 8192,
+  "batch_size": 1,
+  "kv_element_bytes": 2,
+  "weight_bytes": {
+    "fp32": 28000000000,
+    "fp16_or_bf16": 14000000000,
+    "ideal_int8_payload": 7000000000,
+    "ideal_int4_payload": 3500000000
+  },
+  "weight_gib": {
+    "fp32": 26.0770320892334,
+    "fp16_or_bf16": 13.0385160446167,
+    "ideal_int8_payload": 6.51925802230835,
+    "ideal_int4_payload": 3.259629011154175
+  },
+  "kv_cache_bytes": 1073741824,
+  "kv_cache_gib": 1.0,
+  "kv_formula": "2 * layers * batch * context * kv_heads * head_dim * kv_bytes",
+  "training_parameter_state_bytes": {
+    "low_precision_weights": 14000000000,
+    "low_precision_gradients": 14000000000,
+    "fp32_master_weights": 28000000000,
+    "fp32_adam_moments": 56000000000
+  },
+  "training_parameter_state_total_gib": 104.3081283569336,
+  "scope": "Theoretical payload estimates; no model was loaded and no GPU capacity was measured.",
+  "excluded": [
+    "activations and attention intermediates",
+    "quantization scales/zero points/padding",
+    "temporary dequantization buffers",
+    "allocator fragmentation and CUDA context",
+    "logits, communication buffers and pipeline stages"
+  ],
+  "conventions": "GiB = 2^30 bytes. KV heads may differ from query heads in GQA. Cache includes prompt plus generated tokens. No KV sharding or sliding window is assumed."
+}

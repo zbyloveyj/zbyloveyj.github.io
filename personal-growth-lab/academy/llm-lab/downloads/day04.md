@@ -2,7 +2,7 @@
 
 手算 Q、K、V，写出稳定 softmax，并用扰动证明因果遮罩
 
-版本：2026.10.21.1｜建议 195 分钟，可分次完成
+版本：2026.10.21.2｜建议 195 分钟，可分次完成
 
 ## 学习目标
 
@@ -143,6 +143,14 @@ assert torch.count_nonzero(torch.triu(a, diagonal=1)) == 0
 若测试失败，检查是否有跨全部时间位置的归一化、在前向中使用完整序列汇总、目标被拼到输入或 mask 广播错误。逐层记录第一个出现前缀差异的位置，可以定位非法信息通路。科学建模里检验“模型是否用了不该知道的信息”，也是同样的思路。
 
 ```python
+import torch
+import math
+def attention(q, k, v):
+    scores = q @ k.transpose(-2, -1) / math.sqrt(q.shape[-1])
+    allowed = torch.ones(q.shape[-2], k.shape[-2], dtype=torch.bool).tril()
+    weights = scores.masked_fill(~allowed, float("-inf")).softmax(dim=-1)
+    return weights @ v, weights
+
 torch.manual_seed(11)
 x = torch.randn(1, 4, 6)
 x2 = x.clone(); x2[:, 2:] += 100

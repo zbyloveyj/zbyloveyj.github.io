@@ -77,7 +77,10 @@
       ],
       "code": {
         "language": "python",
-        "text": "import numpy as np\nfrom curatemicrobiota.data import load_cohort, Preprocessor\ncohort = load_cohort(\"data/demo\")\nsplit = cohort.indices()\nprep = Preprocessor.load(\"runs/microbiome/preprocessor.json\")\nz, alignment = prep.transform(cohort.values, cohort.taxa)\nscore = np.sqrt(np.mean(z.astype(float) ** 2, axis=1))\nthreshold = float(np.quantile(score[split[\"train\"]], 0.95))\nprint({\"teaching_threshold\": threshold, \"alignment\": alignment})\nfor name in (\"train\", \"val\"):\n    distance = score[split[name]]\n    print(name, {\"n\": len(distance), \"mean_distance\": float(distance.mean()),\n                 \"flag_fraction\": float(np.mean(distance > threshold))})\n# 描述性诊断，不是经过校准的OOD概率；没有使用测试数据调阈值。"
+        "text": "import numpy as np\nfrom curatemicrobiota.data import load_cohort, Preprocessor\ncohort = load_cohort(\"data/demo\")\nsplit = cohort.indices()\nprep = Preprocessor.load(\"runs/microbiome/preprocessor.json\")\nz, alignment = prep.transform(cohort.values, cohort.taxa)\nscore = np.sqrt(np.mean(z.astype(float) ** 2, axis=1))\nthreshold = float(np.quantile(score[split[\"train\"]], 0.95))\nprint({\"teaching_threshold\": threshold, \"alignment\": alignment})\nfor name in (\"train\", \"val\"):\n    distance = score[split[name]]\n    print(name, {\"n\": len(distance), \"mean_distance\": float(distance.mean()),\n                 \"flag_fraction\": float(np.mean(distance > threshold))})\n# 描述性诊断，不是经过校准的OOD概率；没有使用测试数据调阈值。",
+        "requires": [
+          "microbiome_preprocessor"
+        ]
       }
     },
     {

@@ -1,32 +1,40 @@
 {
   "project": "CurateMicrobiota",
-  "version": "2026.10.21.1",
-  "verified_at_utc": "2026-10-21T00:58:51.646908+00:00",
+  "version": "2026.10.21.2",
+  "verified_at_utc": "2026-10-21T02:24:59.750668+00:00",
   "status": "local_validation_passed",
   "curriculum": {
-    "version": "2026.10.21.1",
-    "lessons": 14,
-    "sections": 145,
-    "exercises": 55,
-    "quiz_questions": 70,
-    "paper_readings": 28,
-    "unique_sources": 28,
-    "chinese_characters": 68527
+    "version": "2026.10.21.2",
+    "lessons": 30,
+    "core_lessons": 14,
+    "advanced_lessons": 16,
+    "coverage_topics": 43,
+    "planned_minutes": 6420,
+    "sections": 318,
+    "exercises": 119,
+    "quiz_questions": 150,
+    "paper_readings": 76,
+    "unique_sources": 63,
+    "chinese_characters": 156993
   },
   "checks": {
     "python_unit_tests": {
-      "passed": 23,
+      "passed": 35,
       "failed": 0,
-      "command": "python -m unittest discover -s tests -v"
+      "command": "python -m unittest discover -s tests -v",
+      "scope": "Includes held-out-label mutation test, split invariants, Unicode BPE, deterministic resume and model data contracts."
     },
     "curriculum_schema": {
-      "lessons_passed": 14,
+      "lessons_passed": 30,
+      "coverage_topics": 43,
       "downloaded_content_matches_source": true
     },
     "teaching_python_examples": {
-      "executed_and_passed": 30,
-      "additional_day12_prediction_recalculation_passed": true,
-      "note": "Examples run in lesson order; relative demonstration data paths mapped to the corresponding local executed pipeline output."
+      "executed_and_passed": 77,
+      "failed": 0,
+      "report": "project/example-results/lesson_examples_report.json",
+      "command": "python tools/run_lesson_examples.py --fixture-run PATH_TO_EXECUTED_QUICK_PIPELINE --report examples.json",
+      "note": "Each Python block executes in a fresh process and temporary directory. Declared data/checkpoint prerequisites use genuinely executed pipeline files. Bash and R blocks are not included in this count."
     },
     "javascript_syntax": {
       "passed": [
@@ -36,26 +44,41 @@
         "academy/assets/curatemicrobiota-bridge.js"
       ]
     },
+    "progress_compatibility": {
+      "command": "node tools/check_app_state.cjs",
+      "legacy_completed_lessons_retained": 14,
+      "total_lessons_after_upgrade": 30,
+      "checks": [
+        "Legacy notes retained",
+        "All-correct quiz and acceptance gating",
+        "Day 14 links to Day 15; Day 30 links to project",
+        "Out-of-range lesson and invalid import schemas rejected"
+      ],
+      "storage_key_unchanged": "yixindao.curatemicrobiota.v1"
+    },
     "browser": {
       "environment": "Chrome desktop, managed static preview",
       "passed": [
-        "Home and all fourteen course entries rendered",
-        "Day 1 and Day 14 readers rendered",
-        "Full-text course search",
-        "Causal mask and attention temperature update; row sums equal one",
-        "UTF-8 round trip: 菌🧬 is two code points and seven bytes",
-        "Abundance masking control and distinct zero/mask display",
-        "Evidence retrieval and no-match state",
-        "Five-question grading and explanations",
-        "Completion requires all correct quiz answers and checked acceptance items",
-        "Notes and completion persist across reload",
-        "Academy eleven-project integration and course routing",
-        "Course completion mirrors into academy progress"
+        "All 30 lesson cards rendered",
+        "15–24 filter returns 10 lessons; 25–30 filter returns 6 lessons",
+        "SwiGLU full-text search returns Unit 17",
+        "43-topic coverage view and in-page jump",
+        "Unit 30 lesson, exercises and 5-question quiz render",
+        "Unit 30 correct answers graded 5/5; answers and explanations persist after reload",
+        "Completion remains disabled while acceptance items are unchecked",
+        "Existing completed Unit 1 appears as 1/30 after update",
+        "Academy integration renders 11 projects and 869 units with the same 1/30 completion",
+        "Project page renders five-arm actual synthetic benchmark table and report links",
+        "Full handbook has 30 units plus coverage section"
       ],
+      "app_source_errors_observed": 0,
       "limitations": [
         "No physical mobile device test",
-        "Import/print dialogs not manually exercised in this verification session"
-      ]
+        "Import/print dialogs not manually exercised in this session; import schema checked separately",
+        "The cloud browser cancelled the .py file download in HTTP preview; direct file-download UI was not verified there",
+        "Browser extension metadata errors appeared in the developer log; they were outside the application source"
+      ],
+      "screenshot": "assets/curatemicrobiota-complete-preview-20261021-v2.jpg"
     }
   },
   "executed_models": {
@@ -104,14 +127,167 @@
       "validation_response_ce_final": 3.24998,
       "base_weights_unchanged": true
     },
-    "dpo": "Executed fixed synthetic sequence log-probability objective and gradient demonstration; not a preference-trained language model."
+    "dpo": "Executed fixed synthetic sequence log-probability objective and gradient demonstration; not a preference-trained language model.",
+    "advanced_bpe": {
+      "report": "project/example-results/bpe_report.json",
+      "vocabulary_size": 320,
+      "merges": 64,
+      "all_roundtrips_exact": true,
+      "heldout_never_used_for_merges": true,
+      "note": "Standalone byte-BPE; existing TinyGPT keeps its original 256-byte vocabulary."
+    },
+    "complete_resume": {
+      "report": "project/example-results/resume_report.json",
+      "max_parameter_absolute_difference": 0.0,
+      "loss_sequences_exactly_equal": true,
+      "parameters_exactly_equal": true,
+      "learning_rate_equal": true,
+      "scope": "CPU, one process, single-thread Torch, in-memory corpus, fixed optimizer-step boundary.",
+      "not_covered": [
+        "GPU nondeterministic kernels",
+        "AMP GradScaler",
+        "distributed sampler/ranks",
+        "DataLoader worker/prefetch state",
+        "resume inside gradient accumulation"
+      ]
+    },
+    "resource_budget": {
+      "report": "project/example-results/budget_report.json",
+      "type": "theoretical_accounting_not_measured_gpu_memory"
+    },
+    "five_arm_loso": {
+      "report": "project/example-results/loso_report.json",
+      "predictions": "project/example-results/loso_predictions.csv",
+      "source_kind": "synthetic_teaching_fixture",
+      "full_loso": true,
+      "folds": 6,
+      "seeds": [
+        42,
+        43
+      ],
+      "pretrain_steps": 40,
+      "supervised_steps": 40,
+      "summaries": {
+        "logistic": {
+          "study_mean_auroc_across_seeds": {
+            "STUDY_01": 0.87,
+            "STUDY_02": 0.79,
+            "STUDY_03": 0.8,
+            "STUDY_04": 0.8,
+            "STUDY_05": 0.84,
+            "STUDY_06": 0.87
+          },
+          "macro_study_auroc": 0.8283333333333333,
+          "between_study_sd_descriptive": 0.03656045222185668,
+          "studies_with_defined_auroc": 6
+        },
+        "random_frozen": {
+          "study_mean_auroc_across_seeds": {
+            "STUDY_01": 0.7050000000000001,
+            "STUDY_02": 0.91,
+            "STUDY_03": 0.7899999999999999,
+            "STUDY_04": 0.925,
+            "STUDY_05": 0.66,
+            "STUDY_06": 0.485
+          },
+          "macro_study_auroc": 0.7458333333333335,
+          "between_study_sd_descriptive": 0.16617510844487712,
+          "studies_with_defined_auroc": 6
+        },
+        "pretrained_frozen": {
+          "study_mean_auroc_across_seeds": {
+            "STUDY_01": 0.64,
+            "STUDY_02": 0.9300000000000002,
+            "STUDY_03": 0.77,
+            "STUDY_04": 0.925,
+            "STUDY_05": 0.645,
+            "STUDY_06": 0.45499999999999996
+          },
+          "macro_study_auroc": 0.7275,
+          "between_study_sd_descriptive": 0.18468215939824836,
+          "studies_with_defined_auroc": 6
+        },
+        "supervised_scratch": {
+          "study_mean_auroc_across_seeds": {
+            "STUDY_01": 0.5,
+            "STUDY_02": 0.665,
+            "STUDY_03": 0.525,
+            "STUDY_04": 0.835,
+            "STUDY_05": 0.53,
+            "STUDY_06": 0.27
+          },
+          "macro_study_auroc": 0.5541666666666666,
+          "between_study_sd_descriptive": 0.18776092955315984,
+          "studies_with_defined_auroc": 6
+        },
+        "pretrained_finetuned": {
+          "study_mean_auroc_across_seeds": {
+            "STUDY_01": 0.485,
+            "STUDY_02": 0.745,
+            "STUDY_03": 0.5800000000000001,
+            "STUDY_04": 0.78,
+            "STUDY_05": 0.53,
+            "STUDY_06": 0.27999999999999997
+          },
+          "macro_study_auroc": 0.5666666666666667,
+          "between_study_sd_descriptive": 0.18313019048389229,
+          "studies_with_defined_auroc": 6
+        }
+      },
+      "protocol": {
+        "validation": "one rotating validation study per outer held-out study; not exhaustive nested CV",
+        "preprocessing": "refit using only each fold's training samples; no test self-supervision",
+        "label_budget": "subject-stratified training labels; all training inputs available to every arm",
+        "training_selection": "fixed architectures and step budgets; validation selects checkpoints/C, never test",
+        "compute_comparison": "equal supervised steps for scratch and finetuning; pretrained arm has extra unsupervised compute",
+        "statistics": "each study averages seeds before macro averaging; seeds are not independent people or studies",
+        "limitations": "Descriptive benchmark, not confirmatory significance testing. Related training sets overlap across outer folds. Fixed LR and simple baselines need broader tuning in real research. No clinical claim."
+      }
+    },
+    "half_label_branch_smoke": {
+      "report": "project/example-results/half_label_smoke_report.json",
+      "full_loso": false,
+      "folds": 2,
+      "seeds": [
+        42
+      ],
+      "label_fraction": 0.5,
+      "note": "Two-fold branch execution check; not a full label-efficiency study."
+    }
   },
   "scientific_limits": [
-    "Quick-run results validate a teaching pipeline, not real disease prediction or clinical utility.",
-    "The pretrained frozen encoder did not outperform the simple baseline in this synthetic held-out study.",
-    "The R curatedMetagenomicData exporter was checked against official API documentation and static data contracts; R/Bioconductor was unavailable here, so real-cohort export and training were not executed.",
-    "The evidence module retrieves eight original source summaries and exports a grounded prompt; an external text generator is an extension.",
-    "Large-scale QLoRA, full RLHF, multi-fold real-study evaluation, DNA modeling and multimodal pretraining remain documented extensions."
+    "All supplied numerical model performance is from synthetic teaching data, not real disease prediction or clinical validation.",
+    "In the full six-study synthetic benchmark the logistic baseline outperformed every complex model. The 0.0125 mean fine-tuned-minus-scratch AUROC difference is descriptive, not a significance or biological-benefit claim.",
+    "Each outer test study has one rotating validation study; the benchmark is not exhaustive nested cross-validation. Each fold fits preprocessing and pretraining without the outer test study.",
+    "Two seeds are not two additional independent studies. Per-study paired subject bootstrap conditions on the fitted models and test study; it excludes retraining and between-study uncertainty.",
+    "The R curatedMetagenomicData exporter was checked against official API documentation and static data contracts; R/Bioconductor was unavailable, so real-cohort export and training were not executed.",
+    "Evidence retrieval and prompt export are implemented; a remote text generator and production agent/serving systems are documented extensions.",
+    "Large-scale QLoRA, full RLHF, AMP/multi-GPU execution, DNA/protein foundation-model training and real clinical multimodal experiments remain documented extensions.",
+    "The complete-resume experiment validates the provided CPU configuration at optimizer-step boundaries; it does not establish bitwise determinism on other hardware or distributed loaders."
   ],
-  "release_checks": "Repository CI and GitHub Pages deployment status are recorded by their live workflow runs."
+  "release_checks": "Repository CI and GitHub Pages deployment status are recorded by their live workflow runs.",
+  "historical_browser_verification": {
+    "version": "2026.10.21.1",
+    "checks": {
+      "environment": "Chrome desktop, managed static preview",
+      "passed": [
+        "Home and all fourteen course entries rendered",
+        "Day 1 and Day 14 readers rendered",
+        "Full-text course search",
+        "Causal mask and attention temperature update; row sums equal one",
+        "UTF-8 round trip: 菌🧬 is two code points and seven bytes",
+        "Abundance masking control and distinct zero/mask display",
+        "Evidence retrieval and no-match state",
+        "Five-question grading and explanations",
+        "Completion requires all correct quiz answers and checked acceptance items",
+        "Notes and completion persist across reload",
+        "Academy eleven-project integration and course routing",
+        "Course completion mirrors into academy progress"
+      ],
+      "limitations": [
+        "No physical mobile device test",
+        "Import/print dialogs not manually exercised in this verification session"
+      ]
+    }
+  }
 }

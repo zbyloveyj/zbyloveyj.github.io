@@ -1,0 +1,314 @@
+{
+  "day": 16,
+  "title": "语料工程与真正的 BPE：模型之前的数据系统",
+  "subtitle": "从字节合并到来源清单、近重复、污染审计与中文token预算",
+  "phase": "进阶 · 原理与规模化",
+  "minutes": 225,
+  "objectives": [
+    "实现训练与编码规则分离的微型byte-level BPE。",
+    "构建文档级来源、规范化、去重和划分链。",
+    "区分准确重复、近重复、同源资料和评价污染。",
+    "测量中文、学名和标识符的token开销。",
+    "为语料混合与采样预算建立可审计的数据卡。"
+  ],
+  "deliverables": [
+    "可逆BPE实现与merge表。",
+    "带哈希和去重决策的语料清单。",
+    "三类文本的字符/字节/token统计。",
+    "评价污染审计和训练预算说明。"
+  ],
+  "prerequisites": [
+    "完成D2和D15，理解token、概率目标和数据划分。"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "一个可追溯文档，比一堆txt更有价值",
+      "paragraphs": [
+        "语料中的基本对象应是一条有来源的文档记录，至少包含document_id、source_id、URL或持久标识、获取时间、文档类型、语言、原始内容哈希、许可信息和处理版本。原始文本与清洗结果分开保存，通过父子关系追溯，而不是每次覆盖同名final.txt。",
+        "同一论文可能有预印本、期刊版、数据库摘要、新闻报道与综述转述。它们不应仅按文件名视作独立来源。先记录作品身份和版本，再决定训练采样权重与划分分组；否则一个研究可以因被多处转载而在模型里获得过大影响。",
+        "CurateMicrobiota的文献资料还要区分研究证据、教程、推测和评论。丰度数据的study_id与文本的source_id不是相同对象，但都在保护独立信息单位。模型前面的清单决定了你之后是否能解释某条训练内容从哪里来、为何被保留，以及是否进入过评价。"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "规范化有收益，也可能改变科学含义",
+      "paragraphs": [
+        "统一换行与常见空白有助于稳定去重，Unicode NFC可以合并一些规范等价字符。但盲目小写、去数字、去标点或使用兼容性变换，可能损坏菌株名、基因符号、单位、指数与数据库标识。清洗不是“越干净越好”，而是使任务相关信息保留且格式可处理。",
+        "先抽样查看修改前后，再对规则建立小型回归例子。例如同一语句多一个空格应当可归一，而不同剂量、不同物种版本或上下标变化不应被无意合并。为每条记录保存过滤理由，统计哪些语言、来源或研究类型更容易被排除。",
+        "自动质量分数也可能偏爱主流表达、排斥专业缩写或非英语内容。与其给所有资料一个模糊“高质量”标签，不如分开记录可读性、格式异常、来源可信度、重复性及任务相关性。每个维度用不同规则，便于后续审计与调整。"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "准确重复、近重复和同源关系",
+      "paragraphs": [
+        "准确去重可对规范化文本求哈希，哈希相同再按既定规则保留代表记录和来源映射。近重复需要比较片段，如词或字符shingle集合的Jaccard相似度；大规模系统可用MinHash或其他近似索引提出候选，再复核。阈值必须结合人工样本，不是0.8在所有语料上都正确。",
+        "集合Jaccard忽略重复次数和顺序中的部分信息，短文本会更不稳定。一个模板相同但实验结果相反的摘要，可能得到很高重叠；一篇转述很深的文章，字面相似却很低。因此近重复不是语义等价的证明，更不能代替作品级来源关系。",
+        "代码只演示准确哈希和短语集合重叠。输出用于提出待检查关系，不自动删除科学结果。建立重复簇后，评价划分应按簇或来源分组，防止同一信息以轻微改写形式进入训练与测试。"
+      ],
+      "code": {
+        "language": "python",
+        "text": "import hashlib, re, unicodedata\ndef normalize(text):\n    return re.sub(r'\\s+', ' ', unicodedata.normalize('NFC', text)).strip()\ndef digest(text):\n    return hashlib.sha256(normalize(text).encode('utf-8')).hexdigest()\nassert digest('Microbe   A') == digest('Microbe A')\nassert digest('dose 10 mg') != digest('dose 100 mg')\ndef shingles(text, n=3):\n    words = normalize(text).split()\n    return {tuple(words[i:i+n]) for i in range(max(0, len(words)-n+1))}\na = shingles('gut microbes affect host metabolic processes in this cohort')\nb = shingles('gut microbes affect host metabolic processes in another cohort')\nscore = len(a & b) / len(a | b)\nprint('Jaccard candidate score:', score)\nassert 0 < score < 1"
+      }
+    },
+    {
+      "id": "s4",
+      "title": "BPE训练：把合并规则真正学出来",
+      "paragraphs": [
+        "本课从完整256字节词表开始，分别把每个训练文档编码成整数序列。每轮统计各文档内部相邻token对，选择最高频的一对，赋予新ID，并在所有训练文档内做从左到右不重叠替换。并列时使用确定规则，确保同样语料与设置产生相同合并表。",
+        "新token对应两个旧token的字节拼接。词表仍包含全部原始字节，因此未见文本可以退回更小单位表示。合并次数控制额外词表容量，训练得到的顺序就是编码时使用的优先规则。这里没有跨文档统计相邻对，避免把文档结尾与下一篇开头学成一个片段。",
+        "这是完整可逆的教学byte-BPE，但未加入生产tokenizer中的复杂预切分、正则模式或特殊token策略。因此它能说明机制，不能直接声称与某个商业tokenizer逐token相同。实验应保存基础词表、merge顺序、语料哈希与训练配置。"
+      ],
+      "code": {
+        "language": "python",
+        "text": "from collections import Counter\ntexts = ['microbe microbiome microbe', 'gut microbiome and microbe', '菌群与微生物，菌群与宿主']\ndef merge_pair(seq, pair, new_id):\n    out, i = [], 0\n    while i < len(seq):\n        if i+1 < len(seq) and (seq[i], seq[i+1]) == pair:\n            out.append(new_id); i += 2\n        else:\n            out.append(seq[i]); i += 1\n    return out\nvocab = {i: bytes([i]) for i in range(256)}\nseqs = [list(t.encode('utf-8')) for t in texts]\nmerges = []\nfor _ in range(20):\n    counts = Counter(pair for seq in seqs for pair in zip(seq, seq[1:]))\n    if not counts: break\n    pair = min(counts, key=lambda p: (-counts[p], p))\n    new_id = len(vocab)\n    vocab[new_id] = vocab[pair[0]] + vocab[pair[1]]\n    seqs = [merge_pair(seq, pair, new_id) for seq in seqs]\n    merges.append((pair, new_id))\nprint('learned merges:', len(merges), 'vocabulary:', len(vocab))"
+      }
+    },
+    {
+      "id": "s5",
+      "title": "编码阶段不能重新训练词表",
+      "paragraphs": [
+        "新文本编码先转成字节，再按已学merge顺序应用规则。解码则把每个token对应的字节连接起来，最后按UTF-8还原。编码时不根据新文档重新统计频率，否则同一个ID的意义和训练时不一致，模型权重也会错位。",
+        "完整有效文本的编码—解码应可逆，但任意生成的token组合未必构成合法UTF-8；那是生成阶段另一个问题。某些token单独解码不成完整字符也正常，因为字节BPE可以保留字符的一部分，最终合并后的完整字节流才需要正确。",
+        "比较三个例子：中文短句、拉丁物种名、accession字符串，统计字符数、字节数与BPE token数。BPE压缩是否明显取决于训练语料，专业名词可能比常见英文更碎。真实预算应实测，不能用固定“一个token等于几个字”换算所有文本。",
+        "为使本节可独立运行，代码使用明确给出的六条固定合并规则作为已保存词表的机制夹具；它们不是在测试文本上重新训练的结果。真正从语料学习规则请运行上一节或本课BPE命令。新增microbe例子显示固定规则的合并效果，其余文本检验未见字节回退与完整往返。"
+      ],
+      "code": {
+        "language": "python",
+        "text": "vocab = {i: bytes([i]) for i in range(256)}\n# Fixed saved-rule fixture; use section 4 or advanced.bpe to train rules.\npairs = [(109,105), (256,99), (257,114), (258,111), (259,98), (260,101)]\nmerges = []\nfor pair in pairs:\n    new_id = len(vocab)\n    vocab[new_id] = vocab[pair[0]] + vocab[pair[1]]\n    merges.append((pair,new_id))\ndef merge_pair(seq, pair, new_id):\n    out, i = [], 0\n    while i < len(seq):\n        if i+1 < len(seq) and (seq[i],seq[i+1]) == pair:\n            out.append(new_id); i += 2\n        else:\n            out.append(seq[i]); i += 1\n    return out\ndef encode_bpe(text):\n    ids = list(text.encode('utf-8'))\n    for pair,new_id in merges:\n        ids = merge_pair(ids,pair,new_id)\n    return ids\ndef decode_bpe(ids):\n    return b''.join(vocab[i] for i in ids).decode('utf-8')\nassert encode_bpe('microbe') == [261]\nfor text in ['microbe microbiome', '菌群与宿主', 'Faecalibacterium prausnitzii', 'GCF_000166035.1']:\n    ids = encode_bpe(text)\n    assert decode_bpe(ids) == text\n    print(text, len(text), len(text.encode('utf-8')), len(ids))"
+      }
+    },
+    {
+      "id": "s6",
+      "title": "评价污染不仅是原文重叠",
+      "paragraphs": [
+        "训练与测试出现相同文档是最直接的污染，评价题目的答案、解释、改写或同源资料也可能进入训练。对特定知识任务，应检查问题、答案、关键片段与来源关系，而不只在完整文件上查哈希。时间切分能减少某些泄漏，却不能自动解决旧文献被后续重述的问题。",
+        "先冻结评价集，建立可供审计的来源清单，再对训练候选做重叠检查。检查结果要记录命中类型与处理决策，避免为了提高成绩选择性排除困难评价样本。污染审计的目标是解释评价独立性，不是清理出一个只剩容易题的测试集。",
+        "若模型已有外部预训练权重，其历史语料可能不完全可见。此时不能证明完全无污染，应通过新题、时间外数据、来源分组及消融减少影响，并如实描述证据边界。自己的BPE训练、继续预训练和微调数据则应完全可追溯。"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "许可、来源与公开数据的不同层次",
+      "paragraphs": [
+        "网页可访问不等于可任意再分发或用于所有训练目的。数据卡应记录每个来源给出的许可、使用条件、获取方式及是否包含第三方内容；条件不明时先保留元数据或链接，并在纳入前核实。不要把一个代码仓库的许可证自动套到仓库链接的全部文献和数据上。",
+        "对于PMC等资源，需要区分开放获取全文、仅摘要和具体文章的许可；对于公开微生物组表，还要检查研究级数据使用条件和受试者相关限制。课程本地示例使用原创教学内容，真实语料接入则需要独立来源台账。这里训练的是来源治理能力，而不是背一条万能许可规则。",
+        "一个合适记录可以写明“允许本项目研究使用，未确认再分发”；也可以记录只在本地缓存而不打包全文。最终发布模型、语料与证据卡是不同对象，分别核实其公开范围。把这些信息提前写进清单，后续打包时就能依据事实做选择。"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "语料混合与采样：你实际优化哪个分布",
+      "paragraphs": [
+        "假设一组文献占语料字节70%，教程占20%，论坛文本占10%。按token均匀采样时，文献将主导训练，但较长文章和重复来源仍可能获得额外权重。若人为提升某一来源采样率，改变的是训练分布，应记录权重与重复访问次数。",
+        "不同阶段也可以采用不同混合比例，例如通用文本保持语言结构、领域文本适配术语、结构化示例训练格式。比例应通过验证目标选择，同时检查通用能力遗忘和领域误差；不能只看领域训练loss更低。过量重复小型领域语料，可能让模型记住少数模板。",
+        "对于CurateMicrobiota，文献语料与丰度预训练数据不可放在同一个“token总数”里相加后比较规模。两者token语义、目标和独立单位不同，分别统计，再明确系统如何融合证据与表征。一个统一项目名不意味着只有一种数据分布。"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "数据加载、packing与token预算",
+      "paragraphs": [
+        "完整预算应至少区分原始字符数、编码后token数、去重后独立文档数、训练累计token访问量和有效计分token数。若每个序列长度2048但平均只有512个有效token，padding会占大量计算；按长度分桶或packing可以提高利用率，但需要维护边界和损失掩码。",
+        "把多篇文档装进一个序列时，要明确是否允许后篇读取前篇。若需要相互独立，可使用分块因果遮罩；仅加EOS并不在数学上阻断注意力。对SFT还要分别处理prompt与response计分，不能把节省padding的操作变成跨样本答案泄漏。",
+        "本课最后写一份预算：预计多少独立来源，平均每来源多少token，训练多少轮，哪些位置不计loss，窗口是否重叠。这样训练时长与数据量能被检查，发现预算不够时也能有针对性地减少词表、上下文或重复次数。"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "从语料到研究结论的验收链",
+      "paragraphs": [
+        "先验证可逆编码，再验证merge文件保存与重载，再验证划分和去重，最后才训练模型。若换了tokenizer，模型embedding与输出层维度通常也要调整，原权重不能无条件继续使用。词表相同大小也不表示ID语义相同，必须匹配实际编码规则。",
+        "进行一个单变量实验：固定文档来源和训练预算，比较字节编码与教学BPE，记录序列长度、词表参数量、吞吐及统一单位下的预测损失。token级PPL不能直接跨tokenizer比较；要设计共同评分单位，并检查窗口处理是否一致。",
+        "提交结果包含一个来源例子、一组重复簇、一段BPE合并过程、一项污染检查和一张预算表。它们共同说明数据系统是怎样得到的。即使模型成绩暂时没有提升，这套可审计流程仍使后续研究能够定位问题、复现实验和负责任地解释结果。"
+      ]
+    }
+  ],
+  "lab": {
+    "title": "构建最小可审计语料流水线",
+    "steps": [
+      {
+        "title": "记录来源与规范化",
+        "detail": "用三条原创文档运行哈希例子，保留原文、规范化结果和决策理由。",
+        "expected": "空白变体可匹配，科学数值差异仍保留。"
+      },
+      {
+        "title": "训练BPE",
+        "detail": "运行20轮合并，列出前三轮pair及其对应字节，确认不跨文档。",
+        "expected": "词表和merge顺序可复现。"
+      },
+      {
+        "title": "编码新文本",
+        "detail": "用中文、学名和accession测试往返，并统计三个长度。",
+        "expected": "新文本无需重训词表即可还原。"
+      },
+      {
+        "title": "做污染与预算卡",
+        "detail": "按来源簇设计划分，记录评价重叠检查、许可状态及累计token预算。",
+        "expected": "独立信息量与训练访问量分别呈现。"
+      },
+      {
+        "title": "运行工程中的BPE往返与留出统计",
+        "detail": "在project目录执行独立的advanced机制实验。打开runs/bpe/report.json，核对训练文档与heldout文档分开统计、序列化后解码保持原文，并解释bytes_per_token（每token对应字节数）的意义。这个BPE词表不替换已有TinyGPT的256字节词表；要让LM使用新词表，需要匹配嵌入维度并重新训练。",
+        "command": "python -m curatemicrobiota.advanced bpe --out runs/bpe",
+        "expected": "生成tokenizer.json与report.json；报告训练和留出token数，并验证编码解码往返。压缩多少取决于语料与词表，不能据此声称语言理解提升。"
+      }
+    ],
+    "acceptance": [
+      "三个代码块可独立执行，所有往返断言通过。",
+      "BPE训练与应用规则分开。",
+      "近重复仅作为复核候选，没有自动等同语义重复。",
+      "来源条件、划分和token预算可追溯。"
+    ]
+  },
+  "papers": [
+    {
+      "id": "bpe-full",
+      "title": "Neural Machine Translation of Rare Words with Subword Units",
+      "year": 2016,
+      "url": "https://arxiv.org/abs/1508.07909",
+      "why": "从原始方法理解频率合并与子词编码，再辨认本课字节版本增加的覆盖策略。",
+      "read": [
+        "阅读BPE操作和词边界处理。",
+        "对照本课merge表，列出方法相同与工程简化部分。"
+      ],
+      "questions": [
+        {
+          "question": "训练时统计与编码时规则有何不同？",
+          "answer": "训练学习频率合并顺序，编码固定应用该顺序。"
+        },
+        {
+          "question": "为何不能根据测试文本更新merge表？",
+          "answer": "会改变编码规则并利用评价分布，需要视为另一个实验设定。"
+        }
+      ]
+    },
+    {
+      "id": "dedup",
+      "title": "Deduplicating Training Data Makes Language Models Better",
+      "year": 2022,
+      "url": "https://arxiv.org/abs/2107.06499",
+      "why": "阅读重复、记忆与评价重叠的实证联系，不把论文中的具体收益当作本项目承诺。",
+      "read": [
+        "区分近重复文档与长重复片段。",
+        "记录作者如何检测训练—验证重叠。"
+      ],
+      "questions": [
+        {
+          "question": "去重为何也是评价问题？",
+          "answer": "重复信息跨集合会使评价更接近记忆测验。"
+        },
+        {
+          "question": "一次哈希去重足够吗？",
+          "answer": "哈希只处理定义下的准确重复，还需近重复与来源关系检查。"
+        }
+      ]
+    },
+    {
+      "id": "dolma",
+      "title": "Dolma: an Open Corpus of Three Trillion Tokens for Language Model Pretraining Research",
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2402.00159",
+      "why": "学习公开语料工程如何报告组成、处理步骤与中间状态，而不是只报告总token量。",
+      "read": [
+        "阅读语料构建与数据组成。",
+        "挑一项过滤决策，追踪其目的和评价证据。"
+      ],
+      "questions": [
+        {
+          "question": "总量能否替代语料说明？",
+          "answer": "不能，来源、重复、过滤和混合决定模型实际见到什么。"
+        },
+        {
+          "question": "可复现语料工程应保存什么？",
+          "answer": "来源清单、版本、处理配置、决策日志和各阶段统计。"
+        }
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "question": "两个文件哈希不同，是否说明没有重复？",
+      "hint": "考虑空白和改写。",
+      "answer": "不能。原文不同哈希只说明输入字节不同；规范化后的空白或Unicode等价变体可能相同，轻微改写也可能保留同一信息。先明确规范化规则，再做准确哈希；近重复用shingle或候选检索复核；同一论文版本关系则通过来源ID建立。不能因为哈希不同就把两个版本放入训练和测试。"
+    },
+    {
+      "question": "BPE将pair(a,b)合并为ID 256时，序列[a,b,a,b,a]变成什么？对[a,a,a,a]合并(a,a)应产生几个新token？新token如何解码？",
+      "hint": "替换从左到右进行，已被消耗的位置不能重复使用。",
+      "answer": "第一条变成[256,256,a]。第二条虽然统计中有三个相邻(a,a)窗口，非重叠替换只产生两个新token，即[256,256]。每个新token的解码字节是两个旧token字节的拼接；连接整条输出应还原原始字节。训练频数的重叠统计与一次实际替换的非重叠消费需要区分。"
+    },
+    {
+      "question": "平均有效512、最大长度2048，padding比例多少？",
+      "hint": "先算有效比例。",
+      "answer": "有效比例512/2048=25%，padding占75%。若有100个样本，固定补齐处理204800个位置，却只有51200个有效位置。长度分桶能减少同一batch内部长度差；packing还能装入多个短样本，但若目标要求独立，应保留分段因果mask、位置与目标mask。效率改进后仍要报告有效token吞吐。"
+    },
+    {
+      "question": "同一论文预印本在训练、期刊版在测试，会造成什么？",
+      "hint": "文件名不同不代表信息独立。",
+      "answer": "两版本可能共享大部分方法、结果和措辞，测试会混入对训练信息的记忆。应先建立作品或来源簇，将关联版本作为一个划分单位；若出于研究目的必须保留时间顺序，则明确采用时间泛化设置并单独报告重叠程度。仅换文件名或删几句话不足以建立独立性。"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "新文本编码时应怎样处理merge规则？",
+      "options": [
+        "重新拟合",
+        "根据答案调整",
+        "删除低频规则",
+        "固定应用训练规则"
+      ],
+      "correct": 3,
+      "explanation": "否则ID语义和模型不匹配。"
+    },
+    {
+      "question": "近重复Jaccard高意味着什么？",
+      "options": [
+        "值得复核的字面重叠",
+        "科学结论必相同",
+        "可直接删掉",
+        "许可相同"
+      ],
+      "correct": 0,
+      "explanation": "集合重叠不是语义或来源等价证明。"
+    },
+    {
+      "question": "真实预算最应区分哪两项？",
+      "options": [
+        "标题与作者",
+        "训练访问量与独立数据量",
+        "字体与行距",
+        "英文与数字"
+      ],
+      "correct": 1,
+      "explanation": "重复访问增加计算但不增加独立信息。"
+    },
+    {
+      "question": "EOS本身是否保证跨文档注意力隔离？",
+      "options": [
+        "保证",
+        "只中文保证",
+        "不保证",
+        "与mask无关所以无需考虑"
+      ],
+      "correct": 2,
+      "explanation": "需明确注意力边界策略。"
+    },
+    {
+      "question": "公开可访问资料是否自动允许任意再分发？",
+      "options": [
+        "是",
+        "只要有DOI就是",
+        "只要有引用就是",
+        "要核对来源与使用条件"
+      ],
+      "correct": 3,
+      "explanation": "访问、训练与再分发范围需要分别确认。"
+    }
+  ],
+  "reflection": [
+    "我的数据卡能否解释一个被过滤的文档？",
+    "如果成绩提高，能排除评价污染吗？"
+  ],
+  "next": "D17拆解现代模型组件，明确它们改变的数学与系统行为。"
+}

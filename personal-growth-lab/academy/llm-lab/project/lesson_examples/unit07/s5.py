@@ -1,0 +1,21 @@
+# 模型学会了什么：评价、生成与第一阶段答辩 / Top-k 与 top-p 分别截断什么
+# 前置：安装项目依赖
+from pathlib import Path as _CMPath
+import sys as _cm_sys
+_cm_sys.path.insert(0, str(_CMPath(__file__).resolve().parents[2]))
+
+import torch
+def nucleus_probs(logits, p=0.9):
+    if not 0 < p <= 1:
+        raise ValueError('p must be in (0, 1]')
+    sorted_logits, order = logits.sort(descending=True)
+    probs = sorted_logits.softmax(dim=-1)
+    remove = probs.cumsum(dim=-1) > p
+    remove[1:] = remove[:-1].clone()
+    remove[0] = False
+    kept = sorted_logits.masked_fill(remove, float('-inf')).softmax(dim=-1)
+    result = torch.zeros_like(kept).scatter(0, order, kept)
+    return result
+p = nucleus_probs(torch.tensor([0.4, 0.3, 0.2, 0.1]).log(), 0.65)
+assert torch.allclose(p, torch.tensor([4/7, 3/7, 0., 0.]))
+print(p)

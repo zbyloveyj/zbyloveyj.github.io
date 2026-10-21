@@ -6,7 +6,12 @@
       "type": "debugpy",
       "request": "launch",
       "module": "curatemicrobiota",
-      "args": ["pipeline", "--quick", "--out", "runs/debug-demo"],
+      "args": [
+        "pipeline",
+        "--quick",
+        "--out",
+        "runs/debug-demo"
+      ],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "justMyCode": true
@@ -16,7 +21,64 @@
       "type": "debugpy",
       "request": "launch",
       "module": "curatemicrobiota",
-      "args": ["train-lm", "--steps", "40", "--out", "runs/debug-lm"],
+      "args": [
+        "train-lm",
+        "--steps",
+        "40",
+        "--out",
+        "runs/debug-lm"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "BPE: inspect learned merges",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "curatemicrobiota.advanced",
+      "args": [
+        "bpe",
+        "--out",
+        "runs/debug-bpe"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Resume: verify exact CPU trajectory",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "curatemicrobiota.advanced",
+      "args": [
+        "resume",
+        "--out",
+        "runs/debug-resume"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Microbiome: five-arm LOSO (make-demo first)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "curatemicrobiota.benchmark",
+      "args": [
+        "--data",
+        "data/demo",
+        "--out",
+        "runs/debug-loso",
+        "--pretrain-steps",
+        "8",
+        "--supervised-steps",
+        "8",
+        "--seeds",
+        "42",
+        "--max-folds",
+        "2"
+      ],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "justMyCode": true

@@ -138,7 +138,7 @@
       ],
       "code": {
         "language": "python",
-        "text": "torch.manual_seed(11)\nx = torch.randn(1, 4, 6)\nx2 = x.clone(); x2[:, 2:] += 100\nWq, Wk, Wv = [torch.randn(6, 6) for _ in range(3)]\ndef forward(z):\n    return attention(z @ Wq, z @ Wk, z @ Wv)[0]\ny1, y2 = forward(x), forward(x2)\nassert torch.allclose(y1[:, :2], y2[:, :2], atol=1e-6)\nprint('future perturbation passed')"
+        "text": "import torch\nimport math\ndef attention(q, k, v):\n    scores = q @ k.transpose(-2, -1) / math.sqrt(q.shape[-1])\n    allowed = torch.ones(q.shape[-2], k.shape[-2], dtype=torch.bool).tril()\n    weights = scores.masked_fill(~allowed, float(\"-inf\")).softmax(dim=-1)\n    return weights @ v, weights\n\ntorch.manual_seed(11)\nx = torch.randn(1, 4, 6)\nx2 = x.clone(); x2[:, 2:] += 100\nWq, Wk, Wv = [torch.randn(6, 6) for _ in range(3)]\ndef forward(z):\n    return attention(z @ Wq, z @ Wk, z @ Wv)[0]\ny1, y2 = forward(x), forward(x2)\nassert torch.allclose(y1[:, :2], y2[:, :2], atol=1e-6)\nprint('future perturbation passed')"
       }
     },
     {

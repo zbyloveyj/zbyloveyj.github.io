@@ -1,0 +1,46 @@
+{
+  "experiment": "full-state CPU checkpoint resume",
+  "steps": 12,
+  "interrupted_after_step": 5,
+  "seed": 42,
+  "max_parameter_absolute_difference": 0.0,
+  "loss_sequences_exactly_equal": true,
+  "parameters_exactly_equal": true,
+  "learning_rate_equal": true,
+  "continuous_losses": [
+    5.543264627456665,
+    5.475484609603882,
+    5.351459980010986,
+    5.247350692749023,
+    5.181488037109375,
+    5.112756252288818,
+    5.06065559387207,
+    4.995502233505249,
+    4.9566216468811035,
+    4.924908638000488,
+    4.910839080810547,
+    4.929977178573608
+  ],
+  "resumed_losses": [
+    5.543264627456665,
+    5.475484609603882,
+    5.351459980010986,
+    5.247350692749023,
+    5.181488037109375,
+    5.112756252288818,
+    5.06065559387207,
+    4.995502233505249,
+    4.9566216468811035,
+    4.924908638000488,
+    4.910839080810547,
+    4.929977178573608
+  ],
+  "scope": "CPU, one process, single-thread Torch, in-memory corpus, fixed optimizer-step boundary.",
+  "not_covered": [
+    "GPU nondeterministic kernels",
+    "AMP GradScaler",
+    "distributed sampler/ranks",
+    "DataLoader worker/prefetch state",
+    "resume inside gradient accumulation"
+  ]
+}

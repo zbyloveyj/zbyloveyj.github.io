@@ -19,7 +19,7 @@ with sync_playwright() as p:
  expect(page.locator('.priority-card')).to_have_count(3)
  expect(page.locator('.project-card')).to_have_count(8)
  expect(page.locator('.project-card a.card-title[href="#/llm"]')).to_have_count(1)
- expect(page.locator('.project-card a.card-title[href="#/llm"]')).to_have_text('14天大模型实战 · CurateMicrobiota')
+ expect(page.locator('.project-card a.card-title[href="#/llm"]')).to_have_text('大模型全景实战 · CurateMicrobiota')
  expect(page.locator('.cm-launch a[href="llm-lab/"]')).to_be_visible()
  assert page.locator('.storage-alert').count()==0
  page.screenshot(path=str(OUT/'desktop.png'),full_page=True)

@@ -1,0 +1,4577 @@
+{
+  "benchmark": "study-held-out five-arm teaching benchmark",
+  "source_kind": "synthetic_teaching_fixture",
+  "source_sha256": {
+    "abundance.csv": "582bd2a00d87d9c292ae14b97609d464ed70eab40f79ec576059d8ae05f66f46",
+    "metadata.csv": "00629ffc1381dd7d781a061de9bc4cc1c871ec4ae3fa56e02050b72dd6145e58",
+    "split.json": "dd81c2cdf90085689d2297b7e42b4124deafac624956bbfcc8d44e2dcf36ec36"
+  },
+  "folds": 2,
+  "seeds": [
+    42
+  ],
+  "full_loso": false,
+  "label_fraction": 0.5,
+  "pretrain_steps": 8,
+  "supervised_steps": 8,
+  "summaries": {
+    "logistic": {
+      "study_mean_auroc_across_seeds": {
+        "STUDY_01": 0.81,
+        "STUDY_02": 0.6
+      },
+      "macro_study_auroc": 0.7050000000000001,
+      "between_study_sd_descriptive": 0.14849242404917504,
+      "studies_with_defined_auroc": 2
+    },
+    "random_frozen": {
+      "study_mean_auroc_across_seeds": {
+        "STUDY_01": 0.54,
+        "STUDY_02": 0.8800000000000001
+      },
+      "macro_study_auroc": 0.7100000000000001,
+      "between_study_sd_descriptive": 0.24041630560342622,
+      "studies_with_defined_auroc": 2
+    },
+    "pretrained_frozen": {
+      "study_mean_auroc_across_seeds": {
+        "STUDY_01": 0.48,
+        "STUDY_02": 0.8500000000000001
+      },
+      "macro_study_auroc": 0.665,
+      "between_study_sd_descriptive": 0.26162950903902266,
+      "studies_with_defined_auroc": 2
+    },
+    "supervised_scratch": {
+      "study_mean_auroc_across_seeds": {
+        "STUDY_01": 0.49000000000000005,
+        "STUDY_02": 0.68
+      },
+      "macro_study_auroc": 0.5850000000000001,
+      "between_study_sd_descriptive": 0.13435028842544403,
+      "studies_with_defined_auroc": 2
+    },
+    "pretrained_finetuned": {
+      "study_mean_auroc_across_seeds": {
+        "STUDY_01": 0.4600000000000001,
+        "STUDY_02": 0.73
+      },
+      "macro_study_auroc": 0.595,
+      "between_study_sd_descriptive": 0.19091883092036777,
+      "studies_with_defined_auroc": 2
+    }
+  },
+  "results": [
+    {
+      "fold": 1,
+      "seed": 42,
+      "split": {
+        "train": [
+          "STUDY_03",
+          "STUDY_04",
+          "STUDY_05",
+          "STUDY_06"
+        ],
+        "val": [
+          "STUDY_02"
+        ],
+        "test": [
+          "STUDY_01"
+        ]
+      },
+      "selected_taxa": 48,
+      "labelled_train_subjects": 40,
+      "alignment": {
+        "missing_trained_taxa": [],
+        "excluded_input_taxa": [],
+        "retained_abundance_mass_mean": 1.000000000001947,
+        "retained_fraction_of_input_mass_mean": 1.0,
+        "missing_assumed_zero": false
+      },
+      "arms": {
+        "logistic": {
+          "selected_C": 0.1,
+          "C_candidates": [
+            {
+              "C": 0.1,
+              "validation_subject_roc_auc": 0.6699999999999999
+            },
+            {
+              "C": 1.0,
+              "validation_subject_roc_auc": 0.5900000000000001
+            },
+            {
+              "C": 10.0,
+              "validation_subject_roc_auc": 0.56
+            }
+          ],
+          "validation_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.6699999999999999,
+            "average_precision": 0.6979220779220778,
+            "macro_f1_at_0_5": 0.595959595959596,
+            "balanced_accuracy_at_0_5": 0.6,
+            "brier_score": 0.24154635950138115,
+            "log_loss": 0.6706094346087749,
+            "ece_5_equal_width_bins": 0.2414221273594218,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 3,
+                "mean_probability": 0.16680719942774158,
+                "positive_fraction": 0.0
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 7,
+                "mean_probability": 0.3305333448189371,
+                "positive_fraction": 0.5714285714285714
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 4,
+                "mean_probability": 0.5214512853805651,
+                "positive_fraction": 0.75
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 2,
+                "mean_probability": 0.6954687699460387,
+                "positive_fraction": 0.0
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 4,
+                "mean_probability": 0.8341554910669887,
+                "positive_fraction": 0.75
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                7,
+                3
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "test_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.81,
+            "average_precision": 0.8614971139971139,
+            "macro_f1_at_0_5": 0.7493734335839599,
+            "balanced_accuracy_at_0_5": 0.75,
+            "brier_score": 0.17652045104480746,
+            "log_loss": 0.5295609988124768,
+            "ece_5_equal_width_bins": 0.12077419776199005,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 1,
+                "mean_probability": 0.10828832913849898,
+                "positive_fraction": 0.0
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 6,
+                "mean_probability": 0.29746368545216983,
+                "positive_fraction": 0.3333333333333333
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 8,
+                "mean_probability": 0.503135408112472,
+                "positive_fraction": 0.375
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 3,
+                "mean_probability": 0.7545148386138276,
+                "positive_fraction": 1.0
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 2,
+                "mean_probability": 0.8347805051219861,
+                "positive_fraction": 1.0
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                8,
+                2
+              ],
+              [
+                3,
+                7
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area",
+            "roc_auc_ci95_subject_bootstrap": [
+              0.5856060606060606,
+              0.9798030303030303
+            ],
+            "bootstrap_valid_replicates": 400,
+            "bootstrap_note": "Illustrative 400-replicate subject bootstrap within one held-out study; it does not quantify between-study uncertainty."
+          },
+          "test_sample_metrics_secondary": {
+            "n": 40,
+            "positive_n": 20,
+            "prevalence": 0.5,
+            "roc_auc": 0.7875,
+            "average_precision": 0.8172888603326577,
+            "macro_f1_at_0_5": 0.7,
+            "balanced_accuracy_at_0_5": 0.7,
+            "brier_score": 0.19015518490868039,
+            "log_loss": 0.5629141757826218,
+            "ece_5_equal_width_bins": 0.07329496120141937,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 7,
+                "mean_probability": 0.1524103424253728,
+                "positive_fraction": 0.2857142857142857
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 7,
+                "mean_probability": 0.29091629371675787,
+                "positive_fraction": 0.2857142857142857
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 14,
+                "mean_probability": 0.5136852472315083,
+                "positive_fraction": 0.42857142857142855
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 6,
+                "mean_probability": 0.7197479353051253,
+                "positive_fraction": 0.8333333333333334
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 6,
+                "mean_probability": 0.8481918232677857,
+                "positive_fraction": 0.8333333333333334
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                14,
+                6
+              ],
+              [
+                6,
+                14
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "labelled_samples_per_split": {
+            "train": 80,
+            "val": 40,
+            "test": 40
+          },
+          "supervised_fit": "train only; each subject has equal total sample weight; no validation refit",
+          "test_predictions": [
+            {
+              "subject_id": "STUDY_01_PERSON_001",
+              "label": 1,
+              "probability": 0.7660953953761491
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_002",
+              "label": 1,
+              "probability": 0.24834840352442722
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_003",
+              "label": 1,
+              "probability": 0.5679625136276218
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_004",
+              "label": 1,
+              "probability": 0.43224545797193115
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_005",
+              "label": 0,
+              "probability": 0.29835837861720416
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_006",
+              "label": 0,
+              "probability": 0.5818022491640067
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_007",
+              "label": 0,
+              "probability": 0.22619636662251852
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_008",
+              "label": 0,
+              "probability": 0.10828832913849898
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_009",
+              "label": 0,
+              "probability": 0.30676032887784255
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_010",
+              "label": 0,
+              "probability": 0.35459006948857846
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_011",
+              "label": 1,
+              "probability": 0.720915195954485
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_012",
+              "label": 1,
+              "probability": 0.35052856558244816
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_013",
+              "label": 0,
+              "probability": 0.4315864898964735
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_014",
+              "label": 1,
+              "probability": 0.5626892229155233
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_015",
+              "label": 0,
+              "probability": 0.5437992183192935
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_016",
+              "label": 1,
+              "probability": 0.8547248522344322
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_017",
+              "label": 1,
+              "probability": 0.81483615800954
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_018",
+              "label": 1,
+              "probability": 0.7765339245108487
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_019",
+              "label": 0,
+              "probability": 0.4955809454319973
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_020",
+              "label": 0,
+              "probability": 0.409417167572929
+            }
+          ]
+        },
+        "random_frozen": {
+          "selected_C": 10.0,
+          "C_candidates": [
+            {
+              "C": 0.1,
+              "validation_subject_roc_auc": 0.86
+            },
+            {
+              "C": 1.0,
+              "validation_subject_roc_auc": 0.86
+            },
+            {
+              "C": 10.0,
+              "validation_subject_roc_auc": 0.8900000000000001
+            }
+          ],
+          "validation_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.8900000000000001,
+            "average_precision": 0.9206196581196581,
+            "macro_f1_at_0_5": 0.7493734335839599,
+            "balanced_accuracy_at_0_5": 0.75,
+            "brier_score": 0.1634299437517125,
+            "log_loss": 0.4994374736412103,
+            "ece_5_equal_width_bins": 0.197650254934179,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 4,
+                "mean_probability": 0.364178676184716,
+                "positive_fraction": 0.0
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 7,
+                "mean_probability": 0.4809740214763028,
+                "positive_fraction": 0.2857142857142857
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 7,
+                "mean_probability": 0.7253293691833997,
+                "positive_fraction": 0.8571428571428571
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 2,
+                "mean_probability": 0.8966110860528023,
+                "positive_fraction": 1.0
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                7,
+                3
+              ],
+              [
+                2,
+                8
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "test_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.54,
+            "average_precision": 0.6417261904761904,
+            "macro_f1_at_0_5": 0.44862155388471175,
+            "balanced_accuracy_at_0_5": 0.45,
+            "brier_score": 0.2650888697033323,
+            "log_loss": 0.7229058447372188,
+            "ece_5_equal_width_bins": 0.15985040924041916,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 4,
+                "mean_probability": 0.3533146505718902,
+                "positive_fraction": 0.25
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 10,
+                "mean_probability": 0.48774222292659514,
+                "positive_fraction": 0.6
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 5,
+                "mean_probability": 0.692330836480023,
+                "positive_fraction": 0.4
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 1,
+                "mean_probability": 0.8004823706133416,
+                "positive_fraction": 1.0
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area",
+            "roc_auc_ci95_subject_bootstrap": [
+              0.29759615384615384,
+              0.8023448773448772
+            ],
+            "bootstrap_valid_replicates": 400,
+            "bootstrap_note": "Illustrative 400-replicate subject bootstrap within one held-out study; it does not quantify between-study uncertainty."
+          },
+          "test_sample_metrics_secondary": {
+            "n": 40,
+            "positive_n": 20,
+            "prevalence": 0.5,
+            "roc_auc": 0.51,
+            "average_precision": 0.6010738335953854,
+            "macro_f1_at_0_5": 0.4987468671679198,
+            "balanced_accuracy_at_0_5": 0.5,
+            "brier_score": 0.2785835591836608,
+            "log_loss": 0.7547232211241985,
+            "ece_5_equal_width_bins": 0.1989376348903708,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 2,
+                "mean_probability": 0.15098650191004848,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 10,
+                "mean_probability": 0.3365061847557847,
+                "positive_fraction": 0.6
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 14,
+                "mean_probability": 0.5145679865755216,
+                "positive_fraction": 0.35714285714285715
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 13,
+                "mean_probability": 0.7175090977166987,
+                "positive_fraction": 0.5384615384615384
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 1,
+                "mean_probability": 0.9070298353816094,
+                "positive_fraction": 1.0
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                9,
+                11
+              ],
+              [
+                9,
+                11
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "labelled_samples_per_split": {
+            "train": 80,
+            "val": 40,
+            "test": 40
+          },
+          "supervised_fit": "train only; each subject has equal total sample weight; no validation refit",
+          "test_predictions": [
+            {
+              "subject_id": "STUDY_01_PERSON_001",
+              "label": 1,
+              "probability": 0.4237978442481185
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_002",
+              "label": 1,
+              "probability": 0.4323916836378493
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_003",
+              "label": 1,
+              "probability": 0.8004823706133416
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_004",
+              "label": 1,
+              "probability": 0.28852797338143316
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_005",
+              "label": 0,
+              "probability": 0.7111744815064966
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_006",
+              "label": 0,
+              "probability": 0.5834629747047182
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_007",
+              "label": 0,
+              "probability": 0.35161886181585483
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_008",
+              "label": 0,
+              "probability": 0.5137029359452645
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_009",
+              "label": 0,
+              "probability": 0.6189092579474211
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_010",
+              "label": 0,
+              "probability": 0.39959479479956883
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_011",
+              "label": 1,
+              "probability": 0.5887631056073575
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_012",
+              "label": 1,
+              "probability": 0.4002561841707272
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_013",
+              "label": 0,
+              "probability": 0.37351697229070413
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_014",
+              "label": 1,
+              "probability": 0.423545112299115
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_015",
+              "label": 0,
+              "probability": 0.6732170690298985
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_016",
+              "label": 1,
+              "probability": 0.7576943174482655
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_017",
+              "label": 1,
+              "probability": 0.7006590564680333
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_018",
+              "label": 1,
+              "probability": 0.5234012489482797
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_019",
+              "label": 0,
+              "probability": 0.4321636049141596
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_020",
+              "label": 0,
+              "probability": 0.5559375347903617
+            }
+          ]
+        },
+        "pretrained_frozen": {
+          "selected_C": 10.0,
+          "C_candidates": [
+            {
+              "C": 0.1,
+              "validation_subject_roc_auc": 0.88
+            },
+            {
+              "C": 1.0,
+              "validation_subject_roc_auc": 0.87
+            },
+            {
+              "C": 10.0,
+              "validation_subject_roc_auc": 0.91
+            }
+          ],
+          "validation_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.91,
+            "average_precision": 0.9295482295482295,
+            "macro_f1_at_0_5": 0.696969696969697,
+            "balanced_accuracy_at_0_5": 0.7,
+            "brier_score": 0.17387556439815893,
+            "log_loss": 0.5234803572237814,
+            "ece_5_equal_width_bins": 0.21602394937476802,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 2,
+                "mean_probability": 0.3834350846699044,
+                "positive_fraction": 0.0
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 9,
+                "mean_probability": 0.4900967523607428,
+                "positive_fraction": 0.2222222222222222
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 6,
+                "mean_probability": 0.715452182102745,
+                "positive_fraction": 0.8333333333333334
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 3,
+                "mean_probability": 0.8548496201582214,
+                "positive_fraction": 1.0
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                6,
+                4
+              ],
+              [
+                2,
+                8
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "test_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.48,
+            "average_precision": 0.6039316239316239,
+            "macro_f1_at_0_5": 0.44862155388471175,
+            "balanced_accuracy_at_0_5": 0.45,
+            "brier_score": 0.27697848529659325,
+            "log_loss": 0.7489604002184912,
+            "ece_5_equal_width_bins": 0.09535786565654458,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 4,
+                "mean_probability": 0.34845993828920574,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 10,
+                "mean_probability": 0.49482562079806225,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 6,
+                "mean_probability": 0.7082088790447228,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area",
+            "roc_auc_ci95_subject_bootstrap": [
+              0.221969696969697,
+              0.7397806186868685
+            ],
+            "bootstrap_valid_replicates": 400,
+            "bootstrap_note": "Illustrative 400-replicate subject bootstrap within one held-out study; it does not quantify between-study uncertainty."
+          },
+          "test_sample_metrics_secondary": {
+            "n": 40,
+            "positive_n": 20,
+            "prevalence": 0.5,
+            "roc_auc": 0.4675,
+            "average_precision": 0.5628584243162247,
+            "macro_f1_at_0_5": 0.42174732872407295,
+            "balanced_accuracy_at_0_5": 0.425,
+            "brier_score": 0.2900143997327027,
+            "log_loss": 0.7792686122583994,
+            "ece_5_equal_width_bins": 0.23258790193508422,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 2,
+                "mean_probability": 0.15771130784573953,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 9,
+                "mean_probability": 0.32378409312741896,
+                "positive_fraction": 0.6666666666666666
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 13,
+                "mean_probability": 0.5057291402748884,
+                "positive_fraction": 0.3076923076923077
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 14,
+                "mean_probability": 0.6906163178952799,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 2,
+                "mean_probability": 0.8550558714329239,
+                "positive_fraction": 1.0
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                7,
+                13
+              ],
+              [
+                10,
+                10
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "labelled_samples_per_split": {
+            "train": 80,
+            "val": 40,
+            "test": 40
+          },
+          "supervised_fit": "train only; each subject has equal total sample weight; no validation refit",
+          "test_predictions": [
+            {
+              "subject_id": "STUDY_01_PERSON_001",
+              "label": 1,
+              "probability": 0.44757948865472985
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_002",
+              "label": 1,
+              "probability": 0.37666124665903966
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_003",
+              "label": 1,
+              "probability": 0.7865566771078654
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_004",
+              "label": 1,
+              "probability": 0.2715119090543211
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_005",
+              "label": 0,
+              "probability": 0.7157299405617401
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_006",
+              "label": 0,
+              "probability": 0.5799411063778257
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_007",
+              "label": 0,
+              "probability": 0.351346458295403
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_008",
+              "label": 0,
+              "probability": 0.5017320004734629
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_009",
+              "label": 0,
+              "probability": 0.6357970922755867
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_010",
+              "label": 0,
+              "probability": 0.40682667633702996
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_011",
+              "label": 1,
+              "probability": 0.5708631989763513
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_012",
+              "label": 1,
+              "probability": 0.42608202084695124
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_013",
+              "label": 0,
+              "probability": 0.39432013914805925
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_014",
+              "label": 1,
+              "probability": 0.4291235379459103
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_015",
+              "label": 0,
+              "probability": 0.6923038064648331
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_016",
+              "label": 1,
+              "probability": 0.7628410019532499
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_017",
+              "label": 1,
+              "probability": 0.656024755905062
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_018",
+              "label": 1,
+              "probability": 0.5082449023591412
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_019",
+              "label": 0,
+              "probability": 0.4910948717321867
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_020",
+              "label": 0,
+              "probability": 0.5867684042770333
+            }
+          ]
+        },
+        "supervised_scratch": {
+          "validation_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.88,
+            "average_precision": 0.8994444444444444,
+            "macro_f1_at_0_5": 0.3333333333333333,
+            "balanced_accuracy_at_0_5": 0.5,
+            "brier_score": 0.2782493361642667,
+            "log_loss": 0.7530911371601673,
+            "ece_5_equal_width_bins": 0.17347008883953097,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 20,
+                "mean_probability": 0.32652991116046903,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                10,
+                0
+              ],
+              [
+                10,
+                0
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "test_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.49000000000000005,
+            "average_precision": 0.6419626696832579,
+            "macro_f1_at_0_5": 0.3333333333333333,
+            "balanced_accuracy_at_0_5": 0.5,
+            "brier_score": 0.28061868623843245,
+            "log_loss": 0.7584837732715723,
+            "ece_5_equal_width_bins": 0.17503850758075712,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 20,
+                "mean_probability": 0.3249614924192429,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                10,
+                0
+              ],
+              [
+                10,
+                0
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "selected_step": 1,
+          "max_steps": 8,
+          "learning_rate": 0.001,
+          "selection": "validation subject AUROC, tie-break lower validation log loss; includes step zero",
+          "test_predictions": [
+            {
+              "subject_id": "STUDY_01_PERSON_001",
+              "label": 1,
+              "probability": 0.3243732750415802
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_002",
+              "label": 1,
+              "probability": 0.32119354605674744
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_003",
+              "label": 1,
+              "probability": 0.331201896071434
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_004",
+              "label": 1,
+              "probability": 0.3203624039888382
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_005",
+              "label": 0,
+              "probability": 0.3273376524448395
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_006",
+              "label": 0,
+              "probability": 0.3235429376363754
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_007",
+              "label": 0,
+              "probability": 0.3240632265806198
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_008",
+              "label": 0,
+              "probability": 0.32599958777427673
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_009",
+              "label": 0,
+              "probability": 0.32616595923900604
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_010",
+              "label": 0,
+              "probability": 0.3211539685726166
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_011",
+              "label": 1,
+              "probability": 0.3266242891550064
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_012",
+              "label": 1,
+              "probability": 0.32247889041900635
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_013",
+              "label": 0,
+              "probability": 0.324729785323143
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_014",
+              "label": 1,
+              "probability": 0.3248140513896942
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_015",
+              "label": 0,
+              "probability": 0.3264133185148239
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_016",
+              "label": 1,
+              "probability": 0.32938066124916077
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_017",
+              "label": 1,
+              "probability": 0.3266308754682541
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_018",
+              "label": 1,
+              "probability": 0.3228222727775574
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_019",
+              "label": 0,
+              "probability": 0.324478417634964
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_020",
+              "label": 0,
+              "probability": 0.32546283304691315
+            }
+          ],
+          "history": [
+            {
+              "step": 0,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.66,
+                "average_precision": 0.6583333333333333,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.25165805774722705,
+                "log_loss": 0.6964739699207628,
+                "ece_5_equal_width_bins": 0.04533948153257372,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 20,
+                    "mean_probability": 0.4546605184674263,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 1,
+              "train_batch_loss": 0.6836646795272827,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.88,
+                "average_precision": 0.8994444444444444,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.2782493361642667,
+                "log_loss": 0.7530911371601673,
+                "ece_5_equal_width_bins": 0.17347008883953097,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.32652991116046903,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 2,
+              "train_batch_loss": 0.5770280957221985,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.81,
+                "average_precision": 0.8028418803418802,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.32495023001250495,
+                "log_loss": 0.8713393695392624,
+                "ece_5_equal_width_bins": 0.27754037603735926,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.22245962396264077,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 4,
+              "train_batch_loss": 0.7978301048278809,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.86,
+                "average_precision": 0.8674847374847374,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.30321924123811395,
+                "log_loss": 0.8128215296894922,
+                "ece_5_equal_width_bins": 0.23530970364809034,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.26469029635190966,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 6,
+              "train_batch_loss": 0.748756468296051,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.74,
+                "average_precision": 0.7830860805860804,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.25426907973127905,
+                "log_loss": 0.7017535228121364,
+                "ece_5_equal_width_bins": 0.07579171583056449,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 20,
+                    "mean_probability": 0.4242082841694355,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 8,
+              "train_batch_loss": 0.6813645958900452,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.53,
+                "average_precision": 0.5358928571428572,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.2671123425258084,
+                "log_loss": 0.7286167037828182,
+                "ece_5_equal_width_bins": 0.1296495869755745,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 20,
+                    "mean_probability": 0.6296495869755745,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    0,
+                    10
+                  ],
+                  [
+                    0,
+                    10
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            }
+          ],
+          "train_subjects": 40,
+          "train_samples": 80,
+          "trainable_parameters": 40513
+        },
+        "pretrained_finetuned": {
+          "validation_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.88,
+            "average_precision": 0.8994444444444444,
+            "macro_f1_at_0_5": 0.3333333333333333,
+            "balanced_accuracy_at_0_5": 0.5,
+            "brier_score": 0.2731663250261969,
+            "log_loss": 0.7417628052919694,
+            "ece_5_equal_width_bins": 0.15674668699502947,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 20,
+                "mean_probability": 0.34325331300497053,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                10,
+                0
+              ],
+              [
+                10,
+                0
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "test_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.4600000000000001,
+            "average_precision": 0.6214523028571015,
+            "macro_f1_at_0_5": 0.3333333333333333,
+            "balanced_accuracy_at_0_5": 0.5,
+            "brier_score": 0.27497755994170114,
+            "log_loss": 0.7457833387553744,
+            "ece_5_equal_width_bins": 0.15798724368214606,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 20,
+                "mean_probability": 0.34201275631785394,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                10,
+                0
+              ],
+              [
+                10,
+                0
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "selected_step": 6,
+          "max_steps": 8,
+          "learning_rate": 0.001,
+          "selection": "validation subject AUROC, tie-break lower validation log loss; includes step zero",
+          "test_predictions": [
+            {
+              "subject_id": "STUDY_01_PERSON_001",
+              "label": 1,
+              "probability": 0.3414611220359802
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_002",
+              "label": 1,
+              "probability": 0.3389894366264343
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_003",
+              "label": 1,
+              "probability": 0.3468155711889267
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_004",
+              "label": 1,
+              "probability": 0.33826616406440735
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_005",
+              "label": 0,
+              "probability": 0.34372344613075256
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_006",
+              "label": 0,
+              "probability": 0.3407929390668869
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_007",
+              "label": 0,
+              "probability": 0.34090909361839294
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_008",
+              "label": 0,
+              "probability": 0.3430749773979187
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_009",
+              "label": 0,
+              "probability": 0.34316806495189667
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_010",
+              "label": 0,
+              "probability": 0.3390626460313797
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_011",
+              "label": 1,
+              "probability": 0.34311866760253906
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_012",
+              "label": 1,
+              "probability": 0.3404180258512497
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_013",
+              "label": 0,
+              "probability": 0.3422084450721741
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_014",
+              "label": 1,
+              "probability": 0.3419618159532547
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_015",
+              "label": 0,
+              "probability": 0.3431021571159363
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_016",
+              "label": 1,
+              "probability": 0.3453637510538101
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_017",
+              "label": 1,
+              "probability": 0.3432672768831253
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_018",
+              "label": 1,
+              "probability": 0.34033194184303284
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_019",
+              "label": 0,
+              "probability": 0.3417583107948303
+            },
+            {
+              "subject_id": "STUDY_01_PERSON_020",
+              "label": 0,
+              "probability": 0.3424612730741501
+            }
+          ],
+          "history": [
+            {
+              "step": 0,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.65,
+                "average_precision": 0.6386217948717948,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.24980576322171305,
+                "log_loss": 0.6927582161721106,
+                "ece_5_equal_width_bins": 0.015516646951437008,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 20,
+                    "mean_probability": 0.484483353048563,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 1,
+              "train_batch_loss": 0.6871538758277893,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.87,
+                "average_precision": 0.8921717171717171,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.27547785180124207,
+                "log_loss": 0.7468843229917581,
+                "ece_5_equal_width_bins": 0.1638652212917805,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.3361347787082195,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 2,
+              "train_batch_loss": 0.5800467133522034,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.78,
+                "average_precision": 0.797210142798378,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.32326763377984524,
+                "log_loss": 0.8665590633291324,
+                "ece_5_equal_width_bins": 0.27362350188195705,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.22637649811804295,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 4,
+              "train_batch_loss": 0.8126814365386963,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.79,
+                "average_precision": 0.8049879205761558,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.31798212579821666,
+                "log_loss": 0.8518224073486349,
+                "ece_5_equal_width_bins": 0.2638691645115614,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.2361308354884386,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 6,
+              "train_batch_loss": 0.7998455166816711,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.88,
+                "average_precision": 0.8994444444444444,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.2731663250261969,
+                "log_loss": 0.7417628052919694,
+                "ece_5_equal_width_bins": 0.15674668699502947,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.34325331300497053,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 8,
+              "train_batch_loss": 0.7476693391799927,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.6400000000000001,
+                "average_precision": 0.6342261904761904,
+                "macro_f1_at_0_5": 0.48717948717948717,
+                "balanced_accuracy_at_0_5": 0.55,
+                "brier_score": 0.24956022156835705,
+                "log_loss": 0.692267601123888,
+                "ece_5_equal_width_bins": 0.0028670512139796767,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 20,
+                    "mean_probability": 0.5028670512139797,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    2,
+                    8
+                  ],
+                  [
+                    1,
+                    9
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            }
+          ],
+          "train_subjects": 40,
+          "train_samples": 80,
+          "trainable_parameters": 40513
+        }
+      },
+      "paired_finetuned_minus_comparator": {
+        "supervised_scratch": {
+          "difference": -0.02999999999999997,
+          "ci95": [
+            -0.0833333333333334,
+            0.0
+          ],
+          "valid_resamples": 300,
+          "subjects": 20,
+          "scope": "Paired subject bootstrap conditional on this held-out study and these fitted models; excludes training and between-study uncertainty."
+        },
+        "logistic": {
+          "difference": -0.35,
+          "ci95": [
+            -0.60765625,
+            -0.07550000000000019
+          ],
+          "valid_resamples": 300,
+          "subjects": 20,
+          "scope": "Paired subject bootstrap conditional on this held-out study and these fitted models; excludes training and between-study uncertainty."
+        },
+        "pretrained_frozen": {
+          "difference": -0.019999999999999907,
+          "ci95": [
+            -0.17956565656565662,
+            0.16601767676767654
+          ],
+          "valid_resamples": 300,
+          "subjects": 20,
+          "scope": "Paired subject bootstrap conditional on this held-out study and these fitted models; excludes training and between-study uncertainty."
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "seed": 42,
+      "split": {
+        "train": [
+          "STUDY_01",
+          "STUDY_04",
+          "STUDY_05",
+          "STUDY_06"
+        ],
+        "val": [
+          "STUDY_03"
+        ],
+        "test": [
+          "STUDY_02"
+        ]
+      },
+      "selected_taxa": 48,
+      "labelled_train_subjects": 40,
+      "alignment": {
+        "missing_trained_taxa": [],
+        "excluded_input_taxa": [],
+        "retained_abundance_mass_mean": 1.000000000001947,
+        "retained_fraction_of_input_mass_mean": 1.0,
+        "missing_assumed_zero": false
+      },
+      "arms": {
+        "logistic": {
+          "selected_C": 0.1,
+          "C_candidates": [
+            {
+              "C": 0.1,
+              "validation_subject_roc_auc": 0.8999999999999999
+            },
+            {
+              "C": 1.0,
+              "validation_subject_roc_auc": 0.8400000000000001
+            },
+            {
+              "C": 10.0,
+              "validation_subject_roc_auc": 0.8
+            }
+          ],
+          "validation_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.8999999999999999,
+            "average_precision": 0.9051373626373626,
+            "macro_f1_at_0_5": 0.6875,
+            "balanced_accuracy_at_0_5": 0.7,
+            "brier_score": 0.17426012156602577,
+            "log_loss": 0.5270639146491907,
+            "ece_5_equal_width_bins": 0.12790420190208063,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 2,
+                "mean_probability": 0.17290096364680277,
+                "positive_fraction": 0.0
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 9,
+                "mean_probability": 0.27988517541943475,
+                "positive_fraction": 0.3333333333333333
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 5,
+                "mean_probability": 0.4911472962634839,
+                "positive_fraction": 0.6
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 4,
+                "mean_probability": 0.7032537072899152,
+                "positive_fraction": 1.0
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                9,
+                1
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "test_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.6,
+            "average_precision": 0.6902493778151673,
+            "macro_f1_at_0_5": 0.595959595959596,
+            "balanced_accuracy_at_0_5": 0.6,
+            "brier_score": 0.25622069482956944,
+            "log_loss": 0.7058117225265985,
+            "ece_5_equal_width_bins": 0.22535585287230853,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 2,
+                "mean_probability": 0.1530237972724659,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 7,
+                "mean_probability": 0.2667316942237809,
+                "positive_fraction": 0.42857142857142855
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 5,
+                "mean_probability": 0.48774861298982836,
+                "positive_fraction": 0.6
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 4,
+                "mean_probability": 0.6916627773346573,
+                "positive_fraction": 0.25
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 2,
+                "mean_probability": 0.8238107664159594,
+                "positive_fraction": 1.0
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                7,
+                3
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area",
+            "roc_auc_ci95_subject_bootstrap": [
+              0.34064285714285714,
+              0.8501785714285712
+            ],
+            "bootstrap_valid_replicates": 400,
+            "bootstrap_note": "Illustrative 400-replicate subject bootstrap within one held-out study; it does not quantify between-study uncertainty."
+          },
+          "test_sample_metrics_secondary": {
+            "n": 40,
+            "positive_n": 20,
+            "prevalence": 0.5,
+            "roc_auc": 0.595,
+            "average_precision": 0.6083262058339376,
+            "macro_f1_at_0_5": 0.595959595959596,
+            "balanced_accuracy_at_0_5": 0.6,
+            "brier_score": 0.28020029731032575,
+            "log_loss": 0.7917086038205051,
+            "ece_5_equal_width_bins": 0.2115601224280272,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 8,
+                "mean_probability": 0.12940244298131004,
+                "positive_fraction": 0.375
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 12,
+                "mean_probability": 0.2781838129328815,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 8,
+                "mean_probability": 0.5098307510803042,
+                "positive_fraction": 0.375
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 5,
+                "mean_probability": 0.6843114827250971,
+                "positive_fraction": 0.8
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 7,
+                "mean_probability": 0.8826773715927425,
+                "positive_fraction": 0.5714285714285714
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                14,
+                6
+              ],
+              [
+                10,
+                10
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "labelled_samples_per_split": {
+            "train": 80,
+            "val": 40,
+            "test": 40
+          },
+          "supervised_fit": "train only; each subject has equal total sample weight; no validation refit",
+          "test_predictions": [
+            {
+              "subject_id": "STUDY_02_PERSON_001",
+              "label": 1,
+              "probability": 0.7883024780383587
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_002",
+              "label": 1,
+              "probability": 0.43141136845815936
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_003",
+              "label": 0,
+              "probability": 0.30327839348150165
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_004",
+              "label": 1,
+              "probability": 0.5227536028164902
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_005",
+              "label": 1,
+              "probability": 0.8248706906277423
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_006",
+              "label": 0,
+              "probability": 0.13099319906270884
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_007",
+              "label": 1,
+              "probability": 0.17505439548222296
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_008",
+              "label": 1,
+              "probability": 0.2616575640448718
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_009",
+              "label": 0,
+              "probability": 0.2040437178375386
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_010",
+              "label": 1,
+              "probability": 0.27025864606389904
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_011",
+              "label": 0,
+              "probability": 0.43585869427845314
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_012",
+              "label": 1,
+              "probability": 0.30560688953848597
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_013",
+              "label": 0,
+              "probability": 0.2158975111292775
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_014",
+              "label": 0,
+              "probability": 0.3063791374708915
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_015",
+              "label": 0,
+              "probability": 0.719793794688482
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_016",
+              "label": 0,
+              "probability": 0.642417149710663
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_017",
+              "label": 1,
+              "probability": 0.8227508422041765
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_018",
+              "label": 0,
+              "probability": 0.6161376869011252
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_019",
+              "label": 1,
+              "probability": 0.5589429891719156
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_020",
+              "label": 0,
+              "probability": 0.4897764102241233
+            }
+          ]
+        },
+        "random_frozen": {
+          "selected_C": 1.0,
+          "C_candidates": [
+            {
+              "C": 0.1,
+              "validation_subject_roc_auc": 0.72
+            },
+            {
+              "C": 1.0,
+              "validation_subject_roc_auc": 0.75
+            },
+            {
+              "C": 10.0,
+              "validation_subject_roc_auc": 0.75
+            }
+          ],
+          "validation_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.75,
+            "average_precision": 0.7889194139194138,
+            "macro_f1_at_0_5": 0.6419437340153453,
+            "balanced_accuracy_at_0_5": 0.65,
+            "brier_score": 0.22252878936554898,
+            "log_loss": 0.63216118588827,
+            "ece_5_equal_width_bins": 0.1239421577038323,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 1,
+                "mean_probability": 0.1824609506491581,
+                "positive_fraction": 0.0
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 8,
+                "mean_probability": 0.30147154798708276,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 10,
+                "mean_probability": 0.5333181606207011,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 1,
+                "mean_probability": 0.6250270188828619,
+                "positive_fraction": 1.0
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                8,
+                2
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "test_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.8800000000000001,
+            "average_precision": 0.9076587301587301,
+            "macro_f1_at_0_5": 0.7442455242966752,
+            "balanced_accuracy_at_0_5": 0.75,
+            "brier_score": 0.18656956860001966,
+            "log_loss": 0.5591746389635052,
+            "ece_5_equal_width_bins": 0.15861061903002655,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 3,
+                "mean_probability": 0.3683336735636047,
+                "positive_fraction": 0.3333333333333333
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 10,
+                "mean_probability": 0.497399368207184,
+                "positive_fraction": 0.3
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 6,
+                "mean_probability": 0.6814269925459647,
+                "positive_fraction": 0.8333333333333334
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 1,
+                "mean_probability": 0.8182203668863355,
+                "positive_fraction": 1.0
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                6,
+                4
+              ],
+              [
+                1,
+                9
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area",
+            "roc_auc_ci95_subject_bootstrap": [
+              0.6978929924242424,
+              1.0
+            ],
+            "bootstrap_valid_replicates": 400,
+            "bootstrap_note": "Illustrative 400-replicate subject bootstrap within one held-out study; it does not quantify between-study uncertainty."
+          },
+          "test_sample_metrics_secondary": {
+            "n": 40,
+            "positive_n": 20,
+            "prevalence": 0.5,
+            "roc_auc": 0.8125,
+            "average_precision": 0.8268913830767921,
+            "macro_f1_at_0_5": 0.7248280175109443,
+            "balanced_accuracy_at_0_5": 0.725,
+            "brier_score": 0.1936704241980658,
+            "log_loss": 0.5724608865649777,
+            "ece_5_equal_width_bins": 0.07574979415944655,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 8,
+                "mean_probability": 0.35450569650676034,
+                "positive_fraction": 0.125
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 17,
+                "mean_probability": 0.4872383551264002,
+                "positive_fraction": 0.47058823529411764
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 12,
+                "mean_probability": 0.698472941575902,
+                "positive_fraction": 0.6666666666666666
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 3,
+                "mean_probability": 0.8235937139119495,
+                "positive_fraction": 1.0
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                14,
+                6
+              ],
+              [
+                5,
+                15
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "labelled_samples_per_split": {
+            "train": 80,
+            "val": 40,
+            "test": 40
+          },
+          "supervised_fit": "train only; each subject has equal total sample weight; no validation refit",
+          "test_predictions": [
+            {
+              "subject_id": "STUDY_02_PERSON_001",
+              "label": 1,
+              "probability": 0.6077313339175474
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_002",
+              "label": 1,
+              "probability": 0.5590255206646113
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_003",
+              "label": 0,
+              "probability": 0.4002485550335228
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_004",
+              "label": 1,
+              "probability": 0.7241286368665256
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_005",
+              "label": 1,
+              "probability": 0.6882908070087757
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_006",
+              "label": 0,
+              "probability": 0.45850583952264706
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_007",
+              "label": 1,
+              "probability": 0.547107304594766
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_008",
+              "label": 1,
+              "probability": 0.6912374042782261
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_009",
+              "label": 0,
+              "probability": 0.5065302293155146
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_010",
+              "label": 1,
+              "probability": 0.7343620449213126
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_011",
+              "label": 0,
+              "probability": 0.3747669191536244
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_012",
+              "label": 1,
+              "probability": 0.8182203668863355
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_013",
+              "label": 0,
+              "probability": 0.49859287163729005
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_014",
+              "label": 0,
+              "probability": 0.642811728283401
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_015",
+              "label": 0,
+              "probability": 0.3405574968507139
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_016",
+              "label": 0,
+              "probability": 0.4159281005968001
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_017",
+              "label": 1,
+              "probability": 0.5638333442944243
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_018",
+              "label": 0,
+              "probability": 0.500735640483533
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_019",
+              "label": 1,
+              "probability": 0.3896766046864758
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_020",
+              "label": 0,
+              "probability": 0.5234862759287319
+            }
+          ]
+        },
+        "pretrained_frozen": {
+          "selected_C": 10.0,
+          "C_candidates": [
+            {
+              "C": 0.1,
+              "validation_subject_roc_auc": 0.7
+            },
+            {
+              "C": 1.0,
+              "validation_subject_roc_auc": 0.73
+            },
+            {
+              "C": 10.0,
+              "validation_subject_roc_auc": 0.74
+            }
+          ],
+          "validation_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.74,
+            "average_precision": 0.7894096099978453,
+            "macro_f1_at_0_5": 0.6491228070175439,
+            "balanced_accuracy_at_0_5": 0.6499999999999999,
+            "brier_score": 0.21867411117342953,
+            "log_loss": 0.6255958184396254,
+            "ece_5_equal_width_bins": 0.24004593069546437,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 1,
+                "mean_probability": 0.1838125105878347,
+                "positive_fraction": 0.0
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 8,
+                "mean_probability": 0.29471810486374567,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 7,
+                "mean_probability": 0.5059566392858585,
+                "positive_fraction": 0.2857142857142857
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 4,
+                "mean_probability": 0.641711383192398,
+                "positive_fraction": 1.0
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                7,
+                3
+              ],
+              [
+                4,
+                6
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "test_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.8500000000000001,
+            "average_precision": 0.8812685843568197,
+            "macro_f1_at_0_5": 0.696969696969697,
+            "balanced_accuracy_at_0_5": 0.7,
+            "brier_score": 0.1874788061251742,
+            "log_loss": 0.5597261894795466,
+            "ece_5_equal_width_bins": 0.19716409090827272,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 2,
+                "mean_probability": 0.37408831657372166,
+                "positive_fraction": 0.0
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 10,
+                "mean_probability": 0.48161480809097235,
+                "positive_fraction": 0.3
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 7,
+                "mean_probability": 0.6828330759778911,
+                "positive_fraction": 0.8571428571428571
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 1,
+                "mean_probability": 0.8412113640464745,
+                "positive_fraction": 1.0
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                6,
+                4
+              ],
+              [
+                2,
+                8
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area",
+            "roc_auc_ci95_subject_bootstrap": [
+              0.6770833333333334,
+              0.98989898989899
+            ],
+            "bootstrap_valid_replicates": 400,
+            "bootstrap_note": "Illustrative 400-replicate subject bootstrap within one held-out study; it does not quantify between-study uncertainty."
+          },
+          "test_sample_metrics_secondary": {
+            "n": 40,
+            "positive_n": 20,
+            "prevalence": 0.5,
+            "roc_auc": 0.8,
+            "average_precision": 0.7929507760041815,
+            "macro_f1_at_0_5": 0.7206349206349206,
+            "balanced_accuracy_at_0_5": 0.725,
+            "brier_score": 0.1954498965045958,
+            "log_loss": 0.5769514177515356,
+            "ece_5_equal_width_bins": 0.08210901801748666,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 7,
+                "mean_probability": 0.3473716628317059,
+                "positive_fraction": 0.14285714285714285
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 20,
+                "mean_probability": 0.4995147864067344,
+                "positive_fraction": 0.45
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 10,
+                "mean_probability": 0.7405650602341981,
+                "positive_fraction": 0.7
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 3,
+                "mean_probability": 0.8477290831997149,
+                "positive_fraction": 1.0
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                12,
+                8
+              ],
+              [
+                3,
+                17
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "labelled_samples_per_split": {
+            "train": 80,
+            "val": 40,
+            "test": 40
+          },
+          "supervised_fit": "train only; each subject has equal total sample weight; no validation refit",
+          "test_predictions": [
+            {
+              "subject_id": "STUDY_02_PERSON_001",
+              "label": 1,
+              "probability": 0.6202449102081746
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_002",
+              "label": 1,
+              "probability": 0.5627898055994218
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_003",
+              "label": 0,
+              "probability": 0.39534577610261806
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_004",
+              "label": 1,
+              "probability": 0.7464870082041299
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_005",
+              "label": 1,
+              "probability": 0.714473264770178
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_006",
+              "label": 0,
+              "probability": 0.41805252631378
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_007",
+              "label": 1,
+              "probability": 0.49275041859359336
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_008",
+              "label": 1,
+              "probability": 0.6721635342255428
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_009",
+              "label": 0,
+              "probability": 0.4614775705182296
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_010",
+              "label": 1,
+              "probability": 0.7360848561336863
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_011",
+              "label": 0,
+              "probability": 0.40305138361436665
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_012",
+              "label": 1,
+              "probability": 0.8412113640464745
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_013",
+              "label": 0,
+              "probability": 0.5290293327852305
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_014",
+              "label": 0,
+              "probability": 0.6477789401920959
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_015",
+              "label": 0,
+              "probability": 0.35283085704482525
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_016",
+              "label": 0,
+              "probability": 0.41772019085199463
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_017",
+              "label": 1,
+              "probability": 0.6425990181114296
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_018",
+              "label": 0,
+              "probability": 0.5629349194822195
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_019",
+              "label": 1,
+              "probability": 0.41028450601371713
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_020",
+              "label": 0,
+              "probability": 0.5580574271371694
+            }
+          ]
+        },
+        "supervised_scratch": {
+          "validation_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.77,
+            "average_precision": 0.7855006105006104,
+            "macro_f1_at_0_5": 0.3333333333333333,
+            "balanced_accuracy_at_0_5": 0.5,
+            "brier_score": 0.251052816057103,
+            "log_loss": 0.6952525671970685,
+            "ece_5_equal_width_bins": 0.04644228965044023,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 20,
+                "mean_probability": 0.4535577103495598,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                10,
+                0
+              ],
+              [
+                10,
+                0
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "test_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.68,
+            "average_precision": 0.6564285714285715,
+            "macro_f1_at_0_5": 0.3333333333333333,
+            "balanced_accuracy_at_0_5": 0.5,
+            "brier_score": 0.25165599070551303,
+            "log_loss": 0.6964696939962385,
+            "ece_5_equal_width_bins": 0.04569017142057419,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 20,
+                "mean_probability": 0.4543098285794258,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                10,
+                0
+              ],
+              [
+                10,
+                0
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "selected_step": 0,
+          "max_steps": 8,
+          "learning_rate": 0.001,
+          "selection": "validation subject AUROC, tie-break lower validation log loss; includes step zero",
+          "test_predictions": [
+            {
+              "subject_id": "STUDY_02_PERSON_001",
+              "label": 1,
+              "probability": 0.45511628687381744
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_002",
+              "label": 1,
+              "probability": 0.45768123865127563
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_003",
+              "label": 0,
+              "probability": 0.4533716291189194
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_004",
+              "label": 1,
+              "probability": 0.45421302318573
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_005",
+              "label": 1,
+              "probability": 0.45383280515670776
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_006",
+              "label": 0,
+              "probability": 0.45496903359889984
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_007",
+              "label": 1,
+              "probability": 0.4508977681398392
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_008",
+              "label": 1,
+              "probability": 0.45584845542907715
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_009",
+              "label": 0,
+              "probability": 0.45791612565517426
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_010",
+              "label": 1,
+              "probability": 0.45677824318408966
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_011",
+              "label": 0,
+              "probability": 0.45320001244544983
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_012",
+              "label": 1,
+              "probability": 0.45618605613708496
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_013",
+              "label": 0,
+              "probability": 0.4537743777036667
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_014",
+              "label": 0,
+              "probability": 0.4528333395719528
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_015",
+              "label": 0,
+              "probability": 0.45295919477939606
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_016",
+              "label": 0,
+              "probability": 0.45513658225536346
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_017",
+              "label": 1,
+              "probability": 0.45316939055919647
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_018",
+              "label": 0,
+              "probability": 0.45192569494247437
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_019",
+              "label": 1,
+              "probability": 0.4537242501974106
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_020",
+              "label": 0,
+              "probability": 0.4526630640029907
+            }
+          ],
+          "history": [
+            {
+              "step": 0,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.77,
+                "average_precision": 0.7855006105006104,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.251052816057103,
+                "log_loss": 0.6952525671970685,
+                "ece_5_equal_width_bins": 0.04644228965044023,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 20,
+                    "mean_probability": 0.4535577103495598,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 1,
+              "train_batch_loss": 0.6834577322006226,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.76,
+                "average_precision": 0.8054901960784313,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.2789398605235462,
+                "log_loss": 0.7546569762488244,
+                "ece_5_equal_width_bins": 0.1738630823791027,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.3261369176208973,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 2,
+              "train_batch_loss": 0.6239404678344727,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.71,
+                "average_precision": 0.7132840688723041,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.3177181135544519,
+                "log_loss": 0.8511075830475088,
+                "ece_5_equal_width_bins": 0.26259195394814017,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.23740804605185986,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 4,
+              "train_batch_loss": 0.6740971803665161,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.76,
+                "average_precision": 0.779136974136974,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.25636057175003735,
+                "log_loss": 0.7059780052784568,
+                "ece_5_equal_width_bins": 0.1528570830821991,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 9,
+                    "mean_probability": 0.3895018498102824,
+                    "positive_fraction": 0.3333333333333333
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 11,
+                    "mean_probability": 0.40439772605895996,
+                    "positive_fraction": 0.6363636363636364
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 6,
+              "train_batch_loss": 0.7073431611061096,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.66,
+                "average_precision": 0.6848637911795806,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.24718628471800086,
+                "log_loss": 0.6874548531719399,
+                "ece_5_equal_width_bins": 0.04621490538120265,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 20,
+                    "mean_probability": 0.5462149053812027,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    0,
+                    10
+                  ],
+                  [
+                    0,
+                    10
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 8,
+              "train_batch_loss": 0.683907687664032,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.69,
+                "average_precision": 0.7060557416439769,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.2636780307441025,
+                "log_loss": 0.7212377056688146,
+                "ece_5_equal_width_bins": 0.1358284547924995,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 20,
+                    "mean_probability": 0.6358284547924995,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    0,
+                    10
+                  ],
+                  [
+                    0,
+                    10
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            }
+          ],
+          "train_subjects": 40,
+          "train_samples": 80,
+          "trainable_parameters": 40513
+        },
+        "pretrained_finetuned": {
+          "validation_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.79,
+            "average_precision": 0.8030006105006103,
+            "macro_f1_at_0_5": 0.3333333333333333,
+            "balanced_accuracy_at_0_5": 0.5,
+            "brier_score": 0.24993059303301965,
+            "log_loss": 0.6930011729463125,
+            "ece_5_equal_width_bins": 0.035895128548145305,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 20,
+                "mean_probability": 0.4641048714518547,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                10,
+                0
+              ],
+              [
+                10,
+                0
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "test_subject_metrics": {
+            "n": 20,
+            "positive_n": 10,
+            "prevalence": 0.5,
+            "roc_auc": 0.73,
+            "average_precision": 0.7358974358974358,
+            "macro_f1_at_0_5": 0.3333333333333333,
+            "balanced_accuracy_at_0_5": 0.5,
+            "brier_score": 0.25052375328725673,
+            "log_loss": 0.694194287935283,
+            "ece_5_equal_width_bins": 0.03469821512699128,
+            "calibration_bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.2,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 20,
+                "mean_probability": 0.4653017848730087,
+                "positive_fraction": 0.5
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1.0,
+                "n": 0,
+                "mean_probability": null,
+                "positive_fraction": null
+              }
+            ],
+            "confusion_matrix_labels_0_1": [
+              [
+                10,
+                0
+              ],
+              [
+                10,
+                0
+              ]
+            ],
+            "threshold": 0.5,
+            "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+          },
+          "selected_step": 0,
+          "max_steps": 8,
+          "learning_rate": 0.001,
+          "selection": "validation subject AUROC, tie-break lower validation log loss; includes step zero",
+          "test_predictions": [
+            {
+              "subject_id": "STUDY_02_PERSON_001",
+              "label": 1,
+              "probability": 0.4663034826517105
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_002",
+              "label": 1,
+              "probability": 0.4690501093864441
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_003",
+              "label": 0,
+              "probability": 0.4641001224517822
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_004",
+              "label": 1,
+              "probability": 0.4656352549791336
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_005",
+              "label": 1,
+              "probability": 0.46499453485012054
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_006",
+              "label": 0,
+              "probability": 0.46551764011383057
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_007",
+              "label": 1,
+              "probability": 0.46138638257980347
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_008",
+              "label": 1,
+              "probability": 0.4672805219888687
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_009",
+              "label": 0,
+              "probability": 0.4687148183584213
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_010",
+              "label": 1,
+              "probability": 0.46848417818546295
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_011",
+              "label": 0,
+              "probability": 0.4639453589916229
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_012",
+              "label": 1,
+              "probability": 0.46803951263427734
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_013",
+              "label": 0,
+              "probability": 0.4647730737924576
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_014",
+              "label": 0,
+              "probability": 0.46396367251873016
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_015",
+              "label": 0,
+              "probability": 0.46348458528518677
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_016",
+              "label": 0,
+              "probability": 0.46591539680957794
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_017",
+              "label": 1,
+              "probability": 0.464218333363533
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_018",
+              "label": 0,
+              "probability": 0.46228425204753876
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_019",
+              "label": 1,
+              "probability": 0.4644712507724762
+            },
+            {
+              "subject_id": "STUDY_02_PERSON_020",
+              "label": 0,
+              "probability": 0.46347321569919586
+            }
+          ],
+          "history": [
+            {
+              "step": 0,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.79,
+                "average_precision": 0.8030006105006103,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.24993059303301965,
+                "log_loss": 0.6930011729463125,
+                "ece_5_equal_width_bins": 0.035895128548145305,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 20,
+                    "mean_probability": 0.4641048714518547,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 1,
+              "train_batch_loss": 0.6852219104766846,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.76,
+                "average_precision": 0.8157932263814617,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.2765777720201895,
+                "log_loss": 0.7493433971004041,
+                "ece_5_equal_width_bins": 0.16626415997743604,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.33373584002256396,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 2,
+              "train_batch_loss": 0.6235895156860352,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.67,
+                "average_precision": 0.6391827616827617,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.3185643776563111,
+                "log_loss": 0.8534300167026437,
+                "ece_5_equal_width_bins": 0.2631124913692474,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.23688750863075256,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 4,
+              "train_batch_loss": 0.6834070086479187,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.79,
+                "average_precision": 0.8030006105006103,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.27059508805725485,
+                "log_loss": 0.7361214791244632,
+                "ece_5_equal_width_bins": 0.1512661173939705,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 20,
+                    "mean_probability": 0.3487338826060295,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 6,
+              "train_batch_loss": 0.6537668704986572,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.69,
+                "average_precision": 0.7123115773115772,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.24761068904329325,
+                "log_loss": 0.688348730782176,
+                "ece_5_equal_width_bins": 0.029365514963865302,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 20,
+                    "mean_probability": 0.4706344850361347,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    10,
+                    0
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            },
+            {
+              "step": 8,
+              "train_batch_loss": 0.6856478452682495,
+              "validation": {
+                "n": 20,
+                "positive_n": 10,
+                "prevalence": 0.5,
+                "roc_auc": 0.67,
+                "average_precision": 0.6877877677877677,
+                "macro_f1_at_0_5": 0.3333333333333333,
+                "balanced_accuracy_at_0_5": 0.5,
+                "brier_score": 0.25173254989774174,
+                "log_loss": 0.6965771491009634,
+                "ece_5_equal_width_bins": 0.07330568730831144,
+                "calibration_bins": [
+                  {
+                    "lower": 0.0,
+                    "upper": 0.2,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.2,
+                    "upper": 0.4,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.4,
+                    "upper": 0.6,
+                    "n": 20,
+                    "mean_probability": 0.5733056873083114,
+                    "positive_fraction": 0.5
+                  },
+                  {
+                    "lower": 0.6,
+                    "upper": 0.8,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  },
+                  {
+                    "lower": 0.8,
+                    "upper": 1.0,
+                    "n": 0,
+                    "mean_probability": null,
+                    "positive_fraction": null
+                  }
+                ],
+                "confusion_matrix_labels_0_1": [
+                  [
+                    0,
+                    10
+                  ],
+                  [
+                    0,
+                    10
+                  ]
+                ],
+                "threshold": 0.5,
+                "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+              }
+            }
+          ],
+          "train_subjects": 40,
+          "train_samples": 80,
+          "trainable_parameters": 40513
+        }
+      },
+      "paired_finetuned_minus_comparator": {
+        "supervised_scratch": {
+          "difference": 0.04999999999999993,
+          "ci95": [
+            0.0,
+            0.12499999999999997
+          ],
+          "valid_resamples": 300,
+          "subjects": 20,
+          "scope": "Paired subject bootstrap conditional on this held-out study and these fitted models; excludes training and between-study uncertainty."
+        },
+        "logistic": {
+          "difference": 0.13,
+          "ci95": [
+            -0.26773076923076927,
+            0.46532451923076906
+          ],
+          "valid_resamples": 300,
+          "subjects": 20,
+          "scope": "Paired subject bootstrap conditional on this held-out study and these fitted models; excludes training and between-study uncertainty."
+        },
+        "pretrained_frozen": {
+          "difference": -0.1200000000000001,
+          "ci95": [
+            -0.3793956043956043,
+            0.10053030303030298
+          ],
+          "valid_resamples": 300,
+          "subjects": 20,
+          "scope": "Paired subject bootstrap conditional on this held-out study and these fitted models; excludes training and between-study uncertainty."
+        }
+      }
+    }
+  ],
+  "protocol": {
+    "validation": "one rotating validation study per outer held-out study; not exhaustive nested CV",
+    "preprocessing": "refit using only each fold's training samples; no test self-supervision",
+    "label_budget": "subject-stratified training labels; all training inputs available to every arm",
+    "training_selection": "fixed architectures and step budgets; validation selects checkpoints/C, never test",
+    "compute_comparison": "equal supervised steps for scratch and finetuning; pretrained arm has extra unsupervised compute",
+    "statistics": "each study averages seeds before macro averaging; seeds are not independent people or studies",
+    "limitations": "Descriptive benchmark, not confirmatory significance testing. Related training sets overlap across outer folds. Fixed LR and simple baselines need broader tuning in real research. No clinical claim."
+  }
+}

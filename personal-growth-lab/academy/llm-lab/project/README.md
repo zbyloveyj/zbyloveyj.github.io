@@ -1,8 +1,10 @@
 # CurateMicrobiota · 从小型 GPT 到微生物表征模型
 
-这是「成长学院 · 14 天大模型实战营」的完整本地工程。你会亲手运行两个不同的模型：一个预测下一个 UTF-8 字节的小型 GPT，以及一个重建被遮蔽菌群丰度、学习样本表示的 Transformer。还可以从 GPT 检查点执行全参数 SFT、LoRA-SFT，以及独立的 LoRA 回归和 DPO 公式梯度实验。
+这是「成长学院 · 大模型全景实战」30 单元课程的完整本地工程（14 课核心＋16 课进阶）。你会亲手运行两个不同的模型：一个预测下一个 UTF-8 字节的小型 GPT，以及一个重建被遮蔽菌群丰度、学习样本表示的 Transformer。还可以从 GPT 检查点执行全参数 SFT、LoRA-SFT，以及独立的 LoRA 回归和 DPO 公式梯度实验。
 
 **默认实验完全使用明确标注的合成菌群数据和原创教学文本。安装依赖之后，核心命令无需联网、API Key、云服务、预训练模型或显卡。** 将流程接到真实研究数据，需要完成数据溯源、标签定义、分类词表统一和研究级验证。这里的 CurateMicrobiota 是本课程项目名；官方数据资源名为 **curatedMetagenomicData**。
+
+新增进阶实验、五方法留一队列基准、实际负结果及严格的解释边界，见 [ADVANCED_LABS.md](ADVANCED_LABS.md)。新入口包括真正的 BPE、完整状态恢复、资源账本、从零监督训练、预训练后微调和按受试者抽样的标签效率实验。
 
 ## 1. 在 VS Code 中启动
 
@@ -34,7 +36,7 @@ python -m curatemicrobiota doctor
 python -m curatemicrobiota pipeline --quick --out runs/demo
 ```
 
-本工程训练函数默认在 CPU 上运行，固定两个 CPU 计算线程。`doctor` 显示 CUDA/MPS 是否可用用于环境检查，并不自动切换训练设备。首次安装 PyTorch 需要下载依赖；`--quick` 是少量训练步骤的通路验证，运行时长取决于设备。
+核心流水线默认在 CPU 上运行，使用两个 CPU 计算线程；进阶恢复实验及监督对照采用单线程 CPU 以便检查可复现性。`doctor` 显示 CUDA/MPS 是否可用用于环境检查，并不自动切换训练设备。首次安装 PyTorch 需要下载依赖；`--quick` 是少量训练步骤的通路验证，运行时长取决于设备。
 
 ### 一次成功运行应产生什么
 
@@ -103,6 +105,8 @@ python -m unittest discover -s tests -v
 交付时两种 SFT 和 DPO 的实跑结果见 `example-results/finetuning_report.json`。其中 LoRA-SFT 仅训练 1,024 个参数，报告确认所有被冻结的基座参数保持逐值不变。语料很小，验证损失改善只是这个监督目标的结果，不代表回答的科学事实已获验证。
 
 `alignment-demo` 计算固定 chosen/rejected 与参考模型 log probability 上的 DPO loss，并输出偏导数。标准形式为 `-logsigmoid(beta * [(logπ_chosen-logπ_rejected) - (logπ_ref_chosen-logπ_ref_rejected)])`。参考值冻结；对 chosen log probability 的偏导应为负，对 rejected 的偏导应为正；增加相对 chosen 优势应降低损失。输入是回答序列 log probability **之和**，随意改成 token 均值会改变目标。这个命令验证公式、符号和梯度，不训练真实偏好模型、不拟合奖励模型，也不执行 RLHF。
+
+所有 Python 教学代码另外以脚本形式收录在 `lesson_examples/`，入口索引见 [lesson_examples/README.md](lesson_examples/README.md)。网页每个 Python 代码框可直接下载对应脚本；有数据或检查点前置的例子在脚本头注明命令。
 
 ## 3. 代码阅读顺序
 

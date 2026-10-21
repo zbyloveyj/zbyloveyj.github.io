@@ -1,8 +1,8 @@
 {
-  "version": "2026.10.21.1",
+  "version": "2026.10.21.2",
   "site": "https://zbyloveyj.github.io/personal-growth-lab/academy/",
   "projects": 11,
-  "units": 853,
+  "units": 869,
   "priority": [
     "english",
     "coding",
@@ -15,10 +15,13 @@
   "pdf": "full printable handbook and per-lesson browser print-to-PDF; downloadable Markdown provided",
   "llm_project": {
     "name": "CurateMicrobiota",
-    "lessons": 14,
+    "lessons": 30,
     "path": "llm-lab/",
     "data_source": "curatedMetagenomicData adapter; synthetic offline default",
-    "status": "complete course and locally executed teaching code"
+    "status": "expanded 30-unit course with executed CPU mechanisms and five-arm synthetic LOSO benchmark",
+    "core_lessons": 14,
+    "advanced_lessons": 16,
+    "coverage_topics": 43
   },
   "legacy_quality_workflow_run": "https://github.com/zbyloveyj/zbyloveyj.github.io/actions/runs/39396920530"
 }

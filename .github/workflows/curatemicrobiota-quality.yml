@@ -38,6 +38,7 @@ jobs:
           node --check personal-growth-lab/academy/llm-lab/assets/lab.js
           node --check personal-growth-lab/academy/llm-lab/assets/course-data.js
           node --check personal-growth-lab/academy/assets/curatemicrobiota-bridge.js
+          node personal-growth-lab/academy/llm-lab/tools/check_app_state.cjs
       - name: Install CPU teaching dependencies
         working-directory: personal-growth-lab/academy/llm-lab/project
         run: |
@@ -50,6 +51,11 @@ jobs:
           python -m curatemicrobiota pipeline --quick --out /tmp/curatemicrobiota-ci
           python -m curatemicrobiota finetune --checkpoint /tmp/curatemicrobiota-ci/language/model.pt --out /tmp/curatemicrobiota-sft --steps 8 --lora
           python -m curatemicrobiota alignment-demo --out /tmp/curatemicrobiota-alignment
+          python -m curatemicrobiota.advanced bpe --out /tmp/curatemicrobiota-bpe
+          python -m curatemicrobiota.advanced resume --out /tmp/curatemicrobiota-resume
+          python -m curatemicrobiota.advanced budget --out /tmp/curatemicrobiota-budget
+          python -m curatemicrobiota.benchmark --data /tmp/curatemicrobiota-ci/data --out /tmp/curatemicrobiota-loso --pretrain-steps 8 --supervised-steps 8 --seeds 42 --max-folds 2
+          python ../tools/run_lesson_examples.py --fixture-run /tmp/curatemicrobiota-ci --report /tmp/curatemicrobiota-examples.json
       - name: Upload genuine execution reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -59,5 +65,10 @@ jobs:
             /tmp/curatemicrobiota-ci/report.json
             /tmp/curatemicrobiota-sft/report.json
             /tmp/curatemicrobiota-alignment/report.json
+            /tmp/curatemicrobiota-bpe/report.json
+            /tmp/curatemicrobiota-resume/report.json
+            /tmp/curatemicrobiota-budget/report.json
+            /tmp/curatemicrobiota-loso/report.json
+            /tmp/curatemicrobiota-examples.json
           if-no-files-found: warn
           retention-days: 14

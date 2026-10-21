@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 lessons=[]
 python_blocks=0
-for day in range(1,15):
+for day in range(1,31):
     p=ROOT/'course'/f'day{day:02d}.json'
     l=json.loads(p.read_text(encoding='utf-8'))
     assert l['day']==day
@@ -18,7 +18,7 @@ for day in range(1,15):
     assert len(l['lab']['steps']) >= 3 and len(l['lab']['acceptance']) >= 3
     assert len(l['exercises']) >= 3 and len(l['quiz']) >= 5
     cjk=len(re.findall(r'[\u4e00-\u9fff]',json.dumps(l,ensure_ascii=False)))
-    assert cjk >= 3900, (day,'insufficient substance',cjk)
+    assert cjk >= (3900 if day<=14 else 3500), (day,'insufficient substance',cjk)
     md=(ROOT/'downloads'/f'day{day:02d}.md').read_text(encoding='utf-8')
     for section in l['sections']:
         assert section['title'] and section['paragraphs']
@@ -37,9 +37,16 @@ for day in range(1,15):
         assert p['url'].startswith('https://') and p['questions'] and p['read']
     lessons.append(l)
 
-for name in ['index.html','handbook.html','assets/course-data.js','assets/lab.js','assets/lab.css','assets/evidence-data.js','downloads/curatemicrobiota-course.md','course-manifest.json']:
+for name in ['index.html','handbook.html','assets/course-data.js','assets/lab.js','assets/lab.css','assets/evidence-data.js','downloads/curatemicrobiota-course.md','course-manifest.json','coverage.json']:
     assert (ROOT/name).is_file(),name
-assert len({l['day'] for l in lessons})==14
+assert len({l['day'] for l in lessons})==30
+coverage=json.loads((ROOT/'coverage.json').read_text(encoding='utf-8'))
+assert len(coverage['groups'])>=6
+for group in coverage['groups']:
+    for topic in group['topics']:
+        assert topic['level'] in coverage['levels']
+        assert topic['lessons'] and all(1<=d<=30 for d in topic['lessons'])
+        assert topic['outcome'] and topic['artifact']
 entry=(ROOT.parent/'index.html').read_text(encoding='utf-8')
 assert 'assets/curatemicrobiota-bridge.js' in entry and 'llm-lab/' in entry
 app=(ROOT.parent/'assets/app.js').read_text(encoding='utf-8')
