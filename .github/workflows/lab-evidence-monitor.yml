@@ -1,0 +1,64 @@
+name: Lab evidence monitor
+on:
+  schedule:
+    - cron: '17 22 * * *' # 06:17 Beijing; GitHub may queue scheduled runs.
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lab-evidence-monitor.yml'
+      - 'personal-growth-lab/academy/data/labs.json'
+      - 'personal-growth-lab/academy/tools/monitor_labs.py'
+      - 'personal-growth-lab/academy/tools/test_labs.py'
+permissions:
+  contents: write
+concurrency:
+  group: lab-evidence-monitor
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate editorial data and monitor rules
+        run: python personal-growth-lab/academy/tools/test_labs.py
+      - name: Check official sources
+        run: python personal-growth-lab/academy/tools/monitor_labs.py
+      - name: Persist only public monitor state
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add personal-growth-lab/academy/data/lab-monitor.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(academy): refresh public lab source monitor"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+  browser-quality:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify course compatibility and script syntax
+        run: |
+          node --check personal-growth-lab/academy/assets/labs.js
+          node personal-growth-lab/academy/tools/check_workbook.cjs
+      - name: Prepare browser test
+        run: |
+          npm install --prefix /tmp/lab-browser-deps playwright
+          /tmp/lab-browser-deps/node_modules/.bin/playwright install --with-deps chromium
+      - name: Test filters, comparison, freshness and responsive layout
+        env:
+          NODE_PATH: /tmp/lab-browser-deps/node_modules
+        run: node personal-growth-lab/academy/tools/test_labs_browser.cjs

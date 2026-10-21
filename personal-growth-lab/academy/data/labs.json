@@ -1,0 +1,1563 @@
+{
+  "schemaVersion": 1,
+  "edition": "2026.10.21",
+  "verifiedAt": "2026-10-21",
+  "reviewWindowDays": 30,
+  "title": "国际实验室与导师证据库",
+  "scope": "首批18组，5国；覆盖脑科学、计算生物学与AI虚拟细胞的选择性研究地图，不是全球排名或完整招聘目录。",
+  "tiers": {
+    "A": "A · 直接衔接",
+    "B": "B · 方法进阶",
+    "C": "C · 跨域训练"
+  },
+  "statuses": {
+    "recruiting": "正在招聘",
+    "inquiry": "可能接受机会咨询",
+    "unknown": "招聘状态未知"
+  },
+  "methodology": [
+    "分级依据：研究问题衔接、方法可迁移性和首个项目可实施性；不是导师全球排名、录取概率或薪酬评价。",
+    "科研优势依据跨年度代表作和公开平台，未进行统一口径的完整发文量/引用量统计。综述、研究、方法与会议成果分别标明；不声称已完成所有论文全文评审。",
+    "正在招聘：官网明确写招聘博士后或列出具体岗位，且未发现关闭或已过期信息；无日期公告额外注明未确认名额。咨询：官网明确欢迎主动申请或列出可联系的潜在博士后项目。未知：仅有联系方式、旧公告、已关闭岗位或信息不足。",
+    "任职与研究是公开事实；适配、技能缺口、过渡项目与分级均为编辑分析，不代表导师意见。指导质量、具体资源、薪酬、签证及接收资格未确认。",
+    "每条证据保留官方来源和内容核验日期；自动网页巡检只反映可访问性与文本变化，不刷新内容核验日期。超过30天或岗位证据发生变化时，页面将当前机会降为待复核。",
+    "公开库面向具备生物信息、神经影像和机器学习训练的研究者；不含个人姓名、申请进度、私信、履历细节或临床数据。",
+    "AIVC按AI Virtual Cell（AI虚拟细胞）组织：区分直接虚拟细胞项目、扰动预测方法和图谱/评价支撑；预训练模型不等于已验证的完整细胞模拟。"
+  ],
+  "labs": [
+    {
+      "id": "chang",
+      "name": "Edward F. Chang",
+      "country": "美国",
+      "institution": "UCSF · Chang Lab",
+      "role": "神经外科系主任、神经外科特聘教授",
+      "directions": [
+        "脑机接口",
+        "计算神经科学"
+      ],
+      "tier": "C",
+      "strength": "临床语音BCI：2023与2025年工作形成从多输出解码到流式语音合成的连续技术链。",
+      "question": "人类如何产生和感知语言；如何用皮层信号恢复瘫痪患者交流。",
+      "platforms": [
+        "高密度ECoG与微电极记录",
+        "BRAVO临床研究",
+        "实时语音解码、闭环反馈"
+      ],
+      "fit": "临床表型建模、机器学习评价与跨个体分析可迁移到解码稳健性；宏基因组不是该组的主要技术入口。",
+      "gaps": [
+        "ECoG预处理与高伽马特征",
+        "语音表征、序列解码与流式推理",
+        "跨日漂移与闭环实验设计"
+      ],
+      "bridge": "先复现公开语音解码基线，严格按会话划分，报告词错误率、延迟及跨日性能；以算法评价切入。",
+      "risk": "硬件岗要求模拟/数字电路与PCB经验，与纯数据分析路线差距明显。",
+      "opportunity": {
+        "status": "recruiting",
+        "summary": "官网Open Positions列出语音神经假体闭环学习、植入式接口电子工程两个全职博士后方向。语音岗要求Python，偏好ECoG/机器学习/闭环算法。公告未标截止日或更新时间，空缺与资格需再次确认。",
+        "url": "https://changlab.ucsf.edu/opportunities",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "导师与研究",
+          "url": "https://changlab.ucsf.edu/",
+          "claim": "当前任职、语言机制与采集方法",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "博士后机会",
+          "url": "https://changlab.ucsf.edu/opportunities",
+          "claim": "两个具体博士后方向；未注明截止时间",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "A high-performance neuroprosthesis for speech decoding and avatar control",
+          "venue": "Nature",
+          "year": 2023,
+          "url": "https://www.nature.com/articles/s41586-023-06443-4",
+          "why": "高密度皮层记录连接文字、语音和虚拟形象输出。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "A streaming brain-to-voice neuroprosthesis to restore naturalistic communication",
+          "venue": "Nature Neuroscience",
+          "year": 2025,
+          "url": "https://www.nature.com/articles/s41593-025-01905-6",
+          "why": "重点阅读流式输出和延迟约束，而不只比较离线准确率。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "nptl",
+      "name": "Frank Willett / Jaimie Henderson",
+      "country": "美国",
+      "institution": "Stanford · NPTL",
+      "role": "Willett为神经外科助理教授；与Henderson教授共同领导NPTL",
+      "directions": [
+        "脑机接口",
+        "人工智能与生物医学"
+      ],
+      "tier": "C",
+      "strength": "侵入式神经解码：2021手写、2023语音、2025手指控制等多代临床研究；当前领导结构已核查。",
+      "question": "如何从人类皮层群体活动恢复运动和交流，并在信号漂移时保持性能。",
+      "platforms": [
+        "Utah微电极阵列",
+        "BrainGate2临床试验协作",
+        "群体动力学、RNN与实时系统"
+      ],
+      "fit": "降维、表征学习和严谨验证可迁移；脑网络相关性分析不能直接替代脉冲信号建模。",
+      "gaps": [
+        "spike特征与群体动力学",
+        "CTC/序列解码",
+        "在线重校准与实时工程"
+      ],
+      "bridge": "用公开手写或语音数据复现跨会话解码，比较固定解码器和自适应方案，明确校准样本成本。",
+      "risk": "临床数据和植入平台的存在不代表访问人员可直接使用；需核实项目边界。",
+      "opportunity": {
+        "status": "unknown",
+        "summary": "官网确认现任共同负责人及持续研究，组成员页未提供本次可确认的具体博士后空缺。不将BrainGate参与身份视为招聘。",
+        "url": "https://nptl.stanford.edu/group",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "现任负责人及平台",
+          "url": "https://nptl.stanford.edu/",
+          "claim": "Willett/Henderson共同领导；Utah阵列、BrainGate2与近期成果",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "团队核查",
+          "url": "https://nptl.stanford.edu/group",
+          "claim": "成员信息；本次未确认博士后岗位",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "High-performance brain-to-text communication via handwriting",
+          "venue": "Nature",
+          "year": 2021,
+          "url": "https://nptl.stanford.edu/",
+          "why": "官网列出该代表作及原文入口；关注时间序列解码。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "A high-performance speech neuroprosthesis",
+          "venue": "Nature",
+          "year": 2023,
+          "url": "https://nptl.stanford.edu/",
+          "why": "官网列出原文；对照神经信号与语言模型各自贡献。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "bassett",
+      "name": "Dani S. Bassett",
+      "country": "美国",
+      "institution": "University of Pennsylvania · Complex Systems Lab",
+      "role": "生物工程教授；Penn心理学页面列为J. Peter Skirkanich Professor",
+      "directions": [
+        "神经影像",
+        "计算神经科学"
+      ],
+      "tier": "A",
+      "strength": "网络科学与控制理论方法突出；具有跨神经科学、数学、工程的长期研究积累。",
+      "question": "脑网络结构如何约束状态转移、学习与控制。",
+      "platforms": [
+        "结构与功能连接组",
+        "网络控制理论",
+        "多尺度网络分析"
+      ],
+      "fit": "脑网络拓扑、跨模态关联与精神疾病异质性分析衔接紧密；可加入组学作为外周协变量，但需有独立机制假设。",
+      "gaps": [
+        "线性系统与可控性",
+        "网络零模型与尺度敏感性",
+        "控制能量的生物学解释"
+      ],
+      "bridge": "在公开连接组上复现控制能量分析，再检验其相对传统连接指标的增量价值和重测稳定性。",
+      "risk": "理论控制能量不等于真实刺激剂量或临床疗效，指导方式与资源需面谈。",
+      "opportunity": {
+        "status": "inquiry",
+        "summary": "官网长期欢迎本科生、研究生和博士后申请，要求说明信与CV；属于开放咨询入口，未核实带经费、期限明确的岗位。",
+        "url": "https://complexsystemsupenn.com/",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "当前任职",
+          "url": "https://psychology.sas.upenn.edu/people/dani-bassett",
+          "claim": "Penn教授身份",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "研究与任职",
+          "url": "https://www.med.upenn.edu/apps/faculty/index.php/g275/p8676722",
+          "claim": "网络科学与复杂系统研究",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "加入团队",
+          "url": "https://complexsystemsupenn.com/",
+          "claim": "长期欢迎博士后申请，不是有明确截止日的岗位",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Data-driven control of complex networks",
+          "venue": "Nature Communications",
+          "year": 2021,
+          "url": "https://www.nature.com/articles/s41467-021-21554-0",
+          "why": "数据驱动的网络控制方法。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "A network control theory pipeline for studying the dynamics of the structural connectome",
+          "venue": "Nature Protocols",
+          "year": 2024,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12039364/",
+          "why": "提供可复现的控制理论分析流程。",
+          "kind": "方法流程",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "woolrich",
+      "name": "Mark Woolrich",
+      "country": "英国",
+      "institution": "University of Oxford · OHBA / OxCIN",
+      "role": "计算神经科学教授、OHBA主任",
+      "directions": [
+        "神经影像",
+        "人工智能与生物医学"
+      ],
+      "tier": "A",
+      "strength": "动态脑网络方法与开源软件突出；从HMM脑状态研究延伸到osl-dynamics工具。",
+      "question": "如何从fMRI与MEG/EEG中发现快速变化的脑状态及其临床意义。",
+      "platforms": [
+        "fMRI、MEG/EEG",
+        "HMM与生成模型",
+        "osl-dynamics"
+      ],
+      "fit": "静息态脑影像、网络异常及临床异质性是直接交集；适合从静态指标走向动态神经测量。",
+      "gaps": [
+        "MEG/EEG源空间分析",
+        "HMM状态数选择与稳定性",
+        "时间尺度和泄漏控制"
+      ],
+      "bridge": "用公开数据比较静态FC与HMM状态特征的重测稳定性和跨被试预测；固定测试集后再比较复杂模型。",
+      "risk": "MEG信号物理与fMRI血氧响应不同，不能直接复用所有预处理假设。",
+      "opportunity": {
+        "status": "inquiry",
+        "summary": "官方潜在DPhil/Postdoc项目页列出Woolrich为联系导师，支持项目适配咨询；这不是有效期明确的招聘公告。本次Oxford页面直接访问403，任职及项目内容由官方搜索索引核查。",
+        "url": "https://www.oxcin.ox.ac.uk/research/analysis-research/analysis-dphil-postdoc-projects",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "导师资料",
+          "url": "https://www.oxcin.ox.ac.uk/people/mark-woolrich",
+          "claim": "任职及fMRI/MEG机器学习方向",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方搜索索引；直接访问403"
+        },
+        {
+          "label": "潜在项目",
+          "url": "https://www.oxcin.ox.ac.uk/research/analysis-research/analysis-dphil-postdoc-projects",
+          "claim": "潜在博士后项目与联系导师，不证明现有薪酬名额",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方搜索索引；直接访问403"
+        },
+        {
+          "label": "研究软件",
+          "url": "https://github.com/OHBA-analysis/osl-dynamics",
+          "claim": "作者维护的开源实现",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Brain network dynamics are hierarchically organized in time",
+          "venue": "PNAS",
+          "year": 2017,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5715736/",
+          "why": "从状态转移刻画时间组织。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "osl-dynamics, a toolbox for modeling fast dynamic brain activity",
+          "venue": "eLife",
+          "year": 2024,
+          "url": "https://elifesciences.org/articles/91949",
+          "why": "从论文进入可复现分析工作流。",
+          "kind": "软件方法",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "behrens",
+      "name": "Timothy E. J. Behrens",
+      "country": "英国",
+      "institution": "University of Oxford · Computational Neuroscience Group",
+      "role": "计算神经科学教授；2025年Faraday Discovery Fellowship由Oxford与UCL共同承载",
+      "directions": [
+        "计算神经科学",
+        "人工智能与生物医学"
+      ],
+      "tier": "B",
+      "strength": "认知地图与表征学习：连接计算理论、行为与神经记录的研究路线成熟。",
+      "question": "脑如何形成可泛化的世界知识和任务结构表征。",
+      "platforms": [
+        "行为任务与计算模型",
+        "神经生理、神经化学及损伤证据",
+        "海马—皮层表征模型"
+      ],
+      "fit": "表征学习、认知表型与多模态统计经验可迁移；需把临床相关性问题转成可检验的认知计算任务。",
+      "gaps": [
+        "强化学习与状态表征",
+        "任务设计、模型恢复",
+        "计算模型与神经记录对齐"
+      ],
+      "bridge": "复现TEM的简化环境，检验未见任务结构上的泛化，而不是只训练一个分类器。",
+      "risk": "常规组学/影像关联离该组的机制问题仍有距离，不能只以发表期刊判断适配。",
+      "opportunity": {
+        "status": "inquiry",
+        "summary": "Oxford潜在研究项目页列有Behrens，可进行项目适配咨询；未核实具体博士后空缺。官网正式PhD申请建议走Oxford/UCL资助项目，不能视为联合培养通道。",
+        "url": "https://www.ndcn.ox.ac.uk/research/fmrib-analysis-upcoming-projects",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "任职与问题",
+          "url": "https://www.oxcin.ox.ac.uk/people/timothy-behrens",
+          "claim": "教授身份、知识表征及博士申请指引",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方搜索索引；同站直接访问受限"
+        },
+        {
+          "label": "潜在项目",
+          "url": "https://www.ndcn.ox.ac.uk/research/fmrib-analysis-upcoming-projects",
+          "claim": "项目咨询入口",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方搜索索引"
+        },
+        {
+          "label": "近期机构支持",
+          "url": "https://www.ox.ac.uk/news/2025-08-28-exceptional-oxford-researchers-awarded-first-royal-society-faraday-discovery",
+          "claim": "2025年研究支持及Oxford/UCL共同承载",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "The Tolman-Eichenbaum Machine: Unifying Space and Relational Memory through Generalization in the Hippocampal Formation",
+          "venue": "Cell",
+          "year": 2020,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7707106/",
+          "why": "把空间与关系记忆放入可泛化模型。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "A cellular basis for mapping behavioural structure",
+          "venue": "Nature",
+          "year": 2024,
+          "url": "https://www.nature.com/articles/s41586-024-08145-x",
+          "why": "连接细胞表征与行为结构；需进一步全文精读。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "friston",
+      "name": "Karl Friston",
+      "country": "英国",
+      "institution": "University College London · Imaging Neuroscience",
+      "role": "UCL神经学教授；官方个人页列科学主任",
+      "directions": [
+        "计算神经科学",
+        "神经影像"
+      ],
+      "tier": "B",
+      "strength": "SPM、DCM与主动推断的源头方法环境；适合明确的生成模型问题。",
+      "question": "用生成模型解释神经系统的有效连接、感知与行动。",
+      "platforms": [
+        "SPM / DCM",
+        "层级贝叶斯模型",
+        "主动推断与模型比较"
+      ],
+      "fit": "SPM脑影像和精神疾病网络分析可转向有效连接与机制假设；现有统计经验有价值。",
+      "gaps": [
+        "贝叶斯模型反演",
+        "参数可识别性与模型恢复",
+        "动态系统与主动推断数学"
+      ],
+      "bridge": "用小型合成网络验证DCM参数恢复，再在获准使用的影像数据上比较少量预设模型。",
+      "risk": "DCM依赖模型假设；有效连接不是单凭拟合就确立的生物学因果。需确认直接指导与共同导师。",
+      "opportunity": {
+        "status": "unknown",
+        "summary": "官方任职与研究页可确认方向，未核实Friston组当前具体博士后或访问博士公告。机构其他课题组岗位不计入。",
+        "url": "https://www.fil.ion.ucl.ac.uk/~karl/",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "官方研究与任职",
+          "url": "https://www.fil.ion.ucl.ac.uk/~karl/",
+          "claim": "UCL教授及SPM/DCM/主动推断研究；个人页部分书目较旧",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "机构个人档案",
+          "url": "https://profiles.ucl.ac.uk/2747-karl-friston",
+          "claim": "当前机构档案",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方搜索索引；页面正文未返回"
+        }
+      ],
+      "papers": [
+        {
+          "title": "The free-energy principle: a unified brain theory?",
+          "venue": "Nature Reviews Neuroscience",
+          "year": 2010,
+          "url": "https://www.fil.ion.ucl.ac.uk/~karl/",
+          "why": "奠基性综述；官方精选论文页提供原文入口。",
+          "kind": "综述",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "Linking fast and slow: The case for generative models",
+          "venue": "Network Neuroscience",
+          "year": 2024,
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38562283/",
+          "why": "跨时间尺度的生成模型；与动态影像问题相关。",
+          "kind": "综述",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "vandeville",
+      "name": "Dimitri Van De Ville",
+      "country": "瑞士",
+      "institution": "EPFL / University of Geneva · MIP:Lab",
+      "role": "教授、MIP:Lab负责人；实验室由EPFL与日内瓦大学共同承载",
+      "directions": [
+        "神经影像",
+        "计算神经科学"
+      ],
+      "tier": "A",
+      "strength": "图信号处理与动态连接组突出；能连接结构—功能、时间变化与临床表型。",
+      "question": "脑结构如何约束动态功能活动及认知、疾病差异。",
+      "platforms": [
+        "fMRI、M/EEG",
+        "图信号处理与结构—功能解耦",
+        "Campus Biotech / CIBM协作"
+      ],
+      "fit": "与脑网络、空间分子注释及多模态研究高度衔接，可把外周生物特征作为待验证解释变量。",
+      "gaps": [
+        "图傅里叶变换",
+        "动态连接可靠性",
+        "MEG/EEG与实时分析"
+      ],
+      "bridge": "复现结构—功能解耦指标，检验其对临床维度的增量解释，控制空间自相关及跨中心泛化。",
+      "risk": "网页平台不等于项目可用资源；不能把旧的神经反馈招聘当作当前机会。",
+      "opportunity": {
+        "status": "unknown",
+        "summary": "Jobs页面的2023 M/EEG神经反馈、2022 Sinergia及其他所列岗位均标记Closed。当前未确认新空缺；历史页面仅用于了解技能要求。",
+        "url": "https://miplab.epfl.ch/life/jobs",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "现任与平台",
+          "url": "https://miplab.epfl.ch/",
+          "claim": "现任负责人、联合机构与网络动力学方向",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "岗位已关闭",
+          "url": "https://miplab.epfl.ch/life/jobs",
+          "claim": "所列历史岗位明确Closed",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "持续成果入口",
+          "url": "https://miplab.epfl.ch/publications",
+          "claim": "实验室文献库",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Decoupling of brain function from structure reveals regional behavioral specialization in humans",
+          "venue": "Nature Communications",
+          "year": 2019,
+          "url": "https://www.nature.com/articles/s41467-019-12765-7",
+          "why": "图信号处理连接结构与功能。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "Dynamic functional connectivity to tile the spatiotemporal mosaic of brain states",
+          "venue": "Imaging Neuroscience",
+          "year": 2024,
+          "url": "https://direct.mit.edu/imag/article/doi/10.1162/imag_a_00364/124985/Dynamic-functional-connectivity-to-tile-the",
+          "why": "更新动态连接的概念和方法视角。",
+          "kind": "方法综述",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "micera",
+      "name": "Silvestro Micera",
+      "country": "瑞士",
+      "institution": "EPFL · Translational Neural Engineering Lab",
+      "role": "正教授、Bertarelli转化神经工程讲席教授",
+      "directions": [
+        "脑机接口",
+        "人工智能与生物医学"
+      ],
+      "tier": "C",
+      "strength": "感觉反馈与神经假体临床转化突出；2023–2024热感觉恢复研究持续推进。",
+      "question": "如何让神经假体恢复自然的感觉和运动功能。",
+      "platforms": [
+        "周围神经接口",
+        "神经刺激与感觉反馈",
+        "机器人假肢与人体实验"
+      ],
+      "fit": "生物医学数据分析可切入感觉反馈的个体差异和纵向评价，但不是直接延续微生物机制研究。",
+      "gaps": [
+        "神经刺激与传感器",
+        "感觉运动生理",
+        "控制系统与心理物理实验"
+      ],
+      "bridge": "先建模反馈时延、刺激参数与行为性能关系，形成信号分析和闭环控制的小项目。",
+      "risk": "以周围神经与感觉运动修复为主，不应与皮层语音BCI混为一类。",
+      "opportunity": {
+        "status": "unknown",
+        "summary": "TNE官网有学生项目入口，但明确为semester/Master项目；本次未核实博士后或访问博士名额。学生项目要求直接联系对应项目导师。",
+        "url": "https://www.epfl.ch/labs/tne/student-projects/",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "现任职务",
+          "url": "https://people.epfl.ch/silvestro.micera?lang=en",
+          "claim": "EPFL正教授及转化神经工程讲席",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "研究平台",
+          "url": "https://www.epfl.ch/labs/tne/",
+          "claim": "感觉运动修复与转化",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "机会边界",
+          "url": "https://www.epfl.ch/labs/tne/student-projects/",
+          "claim": "仅学期及硕士项目，不能据此确认联合培养",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Restoration of natural thermal sensation in upper-limb amputees",
+          "venue": "Science",
+          "year": 2023,
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37200444/",
+          "why": "恢复幻肢热感觉。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "A sensory-motor hand prosthesis with integrated thermal feedback",
+          "venue": "Med",
+          "year": 2024,
+          "url": "https://www.sciencedirect.com/science/article/pii/S266663402300404X",
+          "why": "热感觉系统整合进假肢的后续研究。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "lacour",
+      "name": "Stéphanie P. Lacour",
+      "country": "瑞士",
+      "institution": "EPFL · Laboratory for Soft Bioelectronic Interfaces",
+      "role": "正教授、Foundation Bertarelli神经假体技术讲席教授",
+      "directions": [
+        "脑机接口",
+        "人工智能与生物医学"
+      ],
+      "tier": "C",
+      "strength": "柔性生物电子与植入器件工程突出；长期神经接口和可展开ECoG器件具有代表性。",
+      "question": "如何让电子接口与软组织机械匹配，并减少植入损伤。",
+      "platforms": [
+        "MEMS与薄膜微加工",
+        "柔性电极与生物材料",
+        "体外、动物及转化验证"
+      ],
+      "fit": "生物医学与生物信息能力可用于界面反应和信号质量评价；若岗位主攻制造，当前能力匹配较低。",
+      "gaps": [
+        "电子电路与电化学",
+        "微纳加工和材料表征",
+        "器件可靠性与生物相容性"
+      ],
+      "bridge": "先联合器件团队做植入后信号稳定性或组织反应分析；确定愿意投入湿实验/制造训练后再申请器件主导项目。",
+      "risk": "这是高训练成本路线，不因团队声望排在算法或影像路线之前。",
+      "opportunity": {
+        "status": "unknown",
+        "summary": "当前官方研究与人员页面可确认研究方向，未核实LSBI具体博士后或联合培养岗位；不把EPFL通用岗位列表当作该组招聘。",
+        "url": "https://www.epfl.ch/labs/lsbi/",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "当前任职与技术",
+          "url": "https://people.epfl.ch/stephanie.lacour?lang=en",
+          "claim": "正教授、讲席及微加工/生物界面技术",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "实验室",
+          "url": "https://www.epfl.ch/labs/lsbi/",
+          "claim": "柔性生物电子方向",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "成员核验",
+          "url": "https://www.epfl.ch/labs/lsbi/lsbi-2/group/",
+          "claim": "实验室人员入口",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Electronic dura mater for long-term multimodal neural interfaces",
+          "venue": "Science",
+          "year": 2015,
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25574019/",
+          "why": "e-dura：软组织相容的多模态神经接口。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "Deployment of an electrocorticography system with a soft robotic actuator",
+          "venue": "Science Robotics",
+          "year": 2023,
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37163609/",
+          "why": "通过软体机构在较小开口下展开电极，证据为概念验证。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "eickhoff",
+      "name": "Simon B. Eickhoff",
+      "country": "德国",
+      "institution": "Forschungszentrum Jülich INM-7 / Heinrich Heine University Düsseldorf",
+      "role": "INM-7主任、杜塞尔多夫大学系统神经科学教授",
+      "directions": [
+        "神经影像",
+        "人工智能与生物医学"
+      ],
+      "tier": "A",
+      "strength": "脑—行为预测、神经影像方法与大型协作数据分析突出；2023–2024成果强调预测边界。",
+      "question": "个体脑结构与功能差异如何关联行为，以及预测受何种可靠性约束。",
+      "platforms": [
+        "多模态神经影像",
+        "大样本机器学习",
+        "脑区分区、元分析及研究软件"
+      ],
+      "fit": "精神疾病影像、脑网络和跨模态统计可直接衔接；组学经验可服务于稳健性和多尺度解释。",
+      "gaps": [
+        "嵌套交叉验证与外部验证",
+        "表型测量误差模型",
+        "可复现神经影像工程"
+      ],
+      "bridge": "比较脑网络、外周组学与联合模型在留中心外验证中的增量效益，报告置信区间和测量可靠性。",
+      "risk": "INM-7包含多个子组；机构职位不能直接归为Eickhoff亲自指导的空缺。",
+      "opportunity": {
+        "status": "unknown",
+        "summary": "机构招聘页出现INM-7相关岗位，但本次未逐项确认与Eickhoff直接指导及目标方向匹配的有效博士后公告。已见多模态岗位为PhD，不能当作博后。",
+        "url": "https://www.fz-juelich.de/en/careers/jobs?targetGroup=professionals",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "机构与研究",
+          "url": "https://www.fz-juelich.de/en/inm/inm-7",
+          "claim": "INM-7研究平台",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "组织负责人",
+          "url": "https://www.fz-juelich.de/en/inm/inm-7/about-us",
+          "claim": "Eickhoff领导的多研究组结构",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "双机构任职",
+          "url": "https://www.fz-juelich.de/de/ueber-uns/kontakt/besuch/wissenschaft-online/aufzeichnungen-wissenschaft-online",
+          "claim": "Jülich主任与HHU教授身份",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "机构岗位入口",
+          "url": "https://www.fz-juelich.de/en/careers/jobs?targetGroup=professionals",
+          "claim": "需要进一步确认组级归属",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "The challenges and prospects of brain-based prediction of behaviour",
+          "venue": "Nature Human Behaviour",
+          "year": 2023,
+          "url": "https://www.nature.com/articles/s41562-023-01670-1",
+          "why": "理解脑—行为预测的能力边界。",
+          "kind": "观点/综述",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "How measurement noise limits the accuracy of brain-behaviour predictions",
+          "venue": "Nature Communications",
+          "year": 2024,
+          "url": "https://www.nature.com/articles/s41467-024-54022-6",
+          "why": "表型可靠性对预测上限的影响。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "ritter",
+      "name": "Petra Ritter",
+      "country": "德国",
+      "institution": "BIH / Charité · Brain Simulation Section",
+      "role": "BIH Johanna Quandt脑模拟教授、Charité脑模拟研究负责人",
+      "directions": [
+        "神经影像",
+        "计算神经科学"
+      ],
+      "tier": "A",
+      "strength": "个体化全脑动力学与The Virtual Brain平台突出；影像、仿真和临床解释形成交叉优势。",
+      "question": "如何从个人连接组构建可检验的全脑动力学模型。",
+      "platforms": [
+        "The Virtual Brain / EBRAINS",
+        "同步EEG-fMRI",
+        "全脑网络仿真"
+      ],
+      "fit": "脑网络分析与多尺度关联可衔接到机制建模；可研究外周生物学变量是否解释模型参数差异。",
+      "gaps": [
+        "神经质量模型",
+        "参数估计和可识别性",
+        "仿真验证与高性能计算"
+      ],
+      "bridge": "先用公开连接组模拟FC，进行参数恢复与零模型比较；再提出外周生物学特征关联的独立验证设计。",
+      "risk": "虚拟脑参数的生物学解释需验证，不能用拟合好坏直接证明病因。",
+      "opportunity": {
+        "status": "inquiry",
+        "summary": "团队页明确欢迎speculative applications；本次页面未展示可确认的具体博士后项目/截止时间，标记为可咨询，不称已确认空缺。",
+        "url": "https://www.brainsimulation.org/bsw/zwei/team-jobs",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "任职与方向",
+          "url": "https://www.bihealth.org/en/research/research-group/ritter-lab-brain-simulation",
+          "claim": "BIH教授及个体脑模拟",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "开放咨询",
+          "url": "https://www.brainsimulation.org/bsw/zwei/team-jobs",
+          "claim": "明确欢迎主动申请",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "成果记录",
+          "url": "https://www.brainsimulation.org/bsw/zwei/research-publications",
+          "claim": "跨年度研究论文与预印本分别列示",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Learning how network structure shapes decision-making for bio-inspired computing",
+          "venue": "Nature Communications",
+          "year": 2023,
+          "url": "https://www.nature.com/articles/s41467-023-38626-y",
+          "why": "脑网络结构与决策计算的联系。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "Human connectome topology directs cortical traveling waves and shapes frequency gradients",
+          "venue": "Nature Communications",
+          "year": 2024,
+          "url": "https://www.nature.com/articles/s41467-024-47860-x",
+          "why": "用连接组和动力学解释传播波与频率梯度。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "bethge",
+      "name": "Matthias Bethge",
+      "country": "德国",
+      "institution": "University of Tübingen · Bethge Lab",
+      "role": "实验室PI；图宾根大学研究团队",
+      "directions": [
+        "人工智能与生物医学",
+        "计算神经科学"
+      ],
+      "tier": "B",
+      "strength": "NeuroAI、泛化与持续学习的算法环境强；需按当前项目而不是历史研究标签匹配。",
+      "question": "AI如何在部署后持续适应，以及神经科学如何约束模型与表征。",
+      "platforms": [
+        "大规模模型训练与评价",
+        "持续学习、域泛化",
+        "神经科学基础模型"
+      ],
+      "fit": "机器学习、跨队列泛化和多模态分析经验可迁移；需要证明软件工程和模型实验能力。",
+      "gaps": [
+        "PyTorch/JAX工程",
+        "持续学习与分布外泛化",
+        "系统性消融和可复现实验"
+      ],
+      "bridge": "构建神经数据跨会话域偏移基准，比较冻结、自适应与重训练，记录遗忘和计算成本。",
+      "risk": "当前招聘覆盖广泛AI方向，不应把每个名额都理解为脑科学项目；宏基因组不是主要入口。",
+      "opportunity": {
+        "status": "recruiting",
+        "summary": "Join页明确招聘博士后，包含持续学习与神经科学基础模型；支持提前咨询自带fellowship。通过官网表单提交，页面称按月审核；未给固定截止日期。",
+        "url": "https://bethgelab.org/join/",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "明确入口：官网写在读博士可进行research visit；不等于正式联合培养、已获资助或已被接收。页面另写目前不提供海外学生internship，应区分research visit与internship。"
+      },
+      "sources": [
+        {
+          "label": "实验室及研究",
+          "url": "https://bethgelab.org/",
+          "claim": "图宾根团队与研究方向",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "机会与访问",
+          "url": "https://bethgelab.org/join/",
+          "claim": "博士后招聘、在读博士research visit及申请表要求",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "跨年成果",
+          "url": "https://bethgelab.org/publications/",
+          "claim": "期刊、会议和预印本分别标注",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Shortcut learning in deep neural networks",
+          "venue": "Nature Machine Intelligence",
+          "year": 2020,
+          "url": "https://bethgelab.org/publications/",
+          "why": "识别模型走捷径的风险；实验室书目可核查。",
+          "kind": "综述",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "In Search of Forgotten Domain Generalization",
+          "venue": "ICLR",
+          "year": 2025,
+          "url": "https://openreview.net/forum?id=Fk3eod9aaD",
+          "why": "域泛化方向的近期会议成果；出版信息由实验室书目核查。",
+          "kind": "会议论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "marquand",
+      "name": "André F. Marquand",
+      "country": "荷兰",
+      "institution": "Radboud University / Radboudumc · Predictive Clinical Neuroscience Lab",
+      "role": "计算精神病学教授",
+      "directions": [
+        "神经影像",
+        "人工智能与生物医学"
+      ],
+      "tier": "A",
+      "strength": "规范建模与精准精神病学方法突出，具有公开工具和多模态临床研究积累。",
+      "question": "如何用个体偏离刻画精神疾病异质性，而不只比较病例与对照均值。",
+      "platforms": [
+        "规范建模与层级贝叶斯回归",
+        "PCNtoolkit",
+        "影像、行为及环境变量整合"
+      ],
+      "fit": "与精神疾病共享/特异、个体异质性及多模态统计最直接衔接；宏基因组可作为扩展模态，但需证明增量信息。",
+      "gaps": [
+        "规范模型校准与迁移",
+        "非高斯分布及不确定性",
+        "跨中心基准和临床可解释性"
+      ],
+      "bridge": "建立影像规范偏离基线，再检验外周组学与偏离谱的关联；严格留出验证，避免疾病标签泄漏。",
+      "risk": "这是稳健转入计算脑科学的入口，未必能直接提供植入式BCI训练。",
+      "opportunity": {
+        "status": "unknown",
+        "summary": "检索发现2021年博士后招聘旧文，不能据此认定2026年仍在招。本次未核实有效的新博士后公告；当前联系入口不等于开放名额。",
+        "url": "https://predictiveclinicalneuroscience.com/2021/06/03/we-are-hiring/",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "当前任职",
+          "url": "https://www.ru.nl/en/people/marquand-a",
+          "claim": "教授与神经影像统计方向",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "实验室方向",
+          "url": "https://predictiveclinicalneuroscience.com/",
+          "claim": "精准精神病学、多模态与临床转化",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "旧招聘排除",
+          "url": "https://predictiveclinicalneuroscience.com/2021/06/03/we-are-hiring/",
+          "claim": "2021年公告，不作为当前招聘证据",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "2025开放科研奖",
+          "url": "https://www.radboudumc.nl/en/research/news/news-items-by-our-research-institute/2025/three-radboudumc-research-awards-announced-at-strategy-day",
+          "claim": "近期研究环境活动与开放科研实践",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "The normative modeling framework for computational psychiatry",
+          "venue": "Nature Protocols",
+          "year": 2022,
+          "url": "https://www.nature.com/articles/s41596-022-00696-5",
+          "why": "建立可复现的个体偏离建模流程。",
+          "kind": "方法流程",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "Non-Gaussian normative modelling with hierarchical Bayesian regression",
+          "venue": "Imaging Neuroscience",
+          "year": 2024,
+          "url": "https://direct.mit.edu/imag/article/doi/10.1162/imag_a_00132/120371/Non-Gaussian-normative-modelling-with-hierarchical",
+          "why": "针对非高斯数据与多层结构进行扩展。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "vangerven",
+      "name": "Marcel van Gerven",
+      "country": "荷兰",
+      "institution": "Radboud University · Donders / Artificial Cognitive Systems",
+      "role": "教授、Artificial Cognitive Systems实验室负责人",
+      "directions": [
+        "人工智能与生物医学",
+        "计算神经科学",
+        "脑机接口"
+      ],
+      "tier": "B",
+      "strength": "神经启发AI与可微分神经假体建模兼具；为算法进入神经工程提供中间路线。",
+      "question": "自然与人工系统怎样学习、推断和控制；怎样构建具有生物约束的AI。",
+      "platforms": [
+        "深度神经网络",
+        "神经/行为数据及动力学模型",
+        "PyTorch可微分视幻觉模拟器"
+      ],
+      "fit": "多模态表征和AI分析可切入计算建模；视觉神经假体模拟可作为进入BCI的低硬件门槛项目。",
+      "gaps": [
+        "神经编码与表征比较",
+        "视觉神经生理",
+        "可微分模拟与控制"
+      ],
+      "bridge": "复现公开视幻觉模拟器，检验输入噪声和刺激预算下的编码鲁棒性；说明模拟与临床验证的边界。",
+      "risk": "组内多人协作，具体项目负责人可能不同；模型逼真不等于临床有效。",
+      "opportunity": {
+        "status": "unknown",
+        "summary": "官方联系人和实验室成员可确认；未核实有效博士后或联合培养公告，不将成员名单中的Postdocs理解为招聘。",
+        "url": "https://www.artcogsys.com/contact",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "当前任职",
+          "url": "https://www.ru.nl/en/people/gerven-m-van",
+          "claim": "教授与实验室领导身份",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "研究平台",
+          "url": "https://www.artcogsys.com/",
+          "claim": "学习、推断、控制及跨学科研究",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "成果",
+          "url": "https://www.artcogsys.com/publications",
+          "claim": "研究论文与预印本区分",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "联系入口",
+          "url": "https://www.artcogsys.com/contact",
+          "claim": "官方联系地址，非岗位公告",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "The neuroconnectionist research programme",
+          "venue": "Nature Reviews Neuroscience",
+          "year": 2023,
+          "url": "https://www.nature.com/articles/s41583-023-00705-w",
+          "why": "神经网络作为脑研究模型的研究框架。",
+          "kind": "观点/综述",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "Towards biologically plausible phosphene simulation for the differentiable optimization of visual cortical prostheses",
+          "venue": "eLife",
+          "year": 2024,
+          "url": "https://elifesciences.org/articles/85812",
+          "why": "可直接复现的神经假体模拟软件；Van Gerven为合作作者。",
+          "kind": "软件方法",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "ramsey",
+      "name": "Nick F. Ramsey / Utrecht-BCI",
+      "country": "荷兰",
+      "institution": "UMC Utrecht · Utrecht-BCI Lab",
+      "role": "认知神经科学教授；与Mariska Vansteensel等团队成员协作",
+      "directions": [
+        "脑机接口",
+        "神经影像"
+      ],
+      "tier": "C",
+      "strength": "全植入式BCI与长期家庭使用证据突出；适合关注真实世界稳定性而非仅离线指标。",
+      "question": "如何使严重瘫痪患者长期、独立地使用BCI交流。",
+      "platforms": [
+        "ECoG与植入式接口",
+        "fMRI定位",
+        "家庭场景纵向性能与语音解码"
+      ],
+      "fit": "临床纵向分析、脑影像和预测建模可迁移到BCI长期稳定性；仍需补足侵入式信号知识。",
+      "gaps": [
+        "ECoG信号处理",
+        "辅助交流设备与患者体验",
+        "跨日解码、失效与纵向评价"
+      ],
+      "bridge": "以公开ECoG数据检验长期漂移、校准频率与性能稳定性，明确家庭使用指标与实验室指标差异。",
+      "risk": "长期证据来自具体受试者与装置，不能推为所有患者的效果；访问角色需单独核实。",
+      "opportunity": {
+        "status": "unknown",
+        "summary": "找到NOTION博士后公告，但发布于2022-08-03，计划2022年11月入职，已作为旧公告排除。本次未确认2026年有效博后岗位。",
+        "url": "https://utrecht-bci.nl/open-position-for-a-postdoc/",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+      },
+      "sources": [
+        {
+          "label": "官方现任资料",
+          "url": "https://researchinformation.umcutrecht.nl/en/persons/nf-ramsey/",
+          "claim": "认知神经科学教授及BCI研究",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "当前团队环境",
+          "url": "https://research.umcutrecht.nl/research-groups/utrecht-bci-lab-developing-neurotechnology-for-people-with-motor-impairments/",
+          "claim": "UMC Utrecht临床BCI团队",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        },
+        {
+          "label": "旧岗位排除",
+          "url": "https://utrecht-bci.nl/open-position-for-a-postdoc/",
+          "claim": "2022年公告和预定入职时间",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "全文可读取"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Fully Implanted Brain–Computer Interface in a Locked-In Patient with ALS",
+          "venue": "New England Journal of Medicine",
+          "year": 2016,
+          "url": "https://www.nejm.org/doi/full/10.1056/nejmoa1608085",
+          "why": "全植入式交流系统的早期临床证据。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "Longevity of a Brain–Computer Interface for Amyotrophic Lateral Sclerosis",
+          "venue": "New England Journal of Medicine",
+          "year": 2024,
+          "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2314598",
+          "why": "7年家庭使用的纵向证据及局限。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "theis",
+      "name": "Fabian Theis",
+      "country": "德国",
+      "institution": "Helmholtz Munich · ICB / TUM",
+      "role": "Computational Health Center负责人、Institute of Computational Biology主任",
+      "directions": [
+        "计算生物学",
+        "AI虚拟细胞（AIVC）",
+        "单细胞与空间组学",
+        "人工智能与生物医学"
+      ],
+      "tier": "A",
+      "strength": "从scGen扰动预测到scPoli群体整合，持续发展单细胞生成模型与开源工具；领导VirtualCell项目。",
+      "question": "如何整合单细胞、空间与临床数据，预测细胞对未见扰动的反应。",
+      "platforms": [
+        "Scanpy / scverse生态",
+        "scGen、scPoli与细胞图谱",
+        "VirtualCell：多模态预测模型"
+      ],
+      "fit": "组学质控、批次效应处理、可复现分析和AI训练是直接入口；宏基因组经验需转换到细胞与供体层级。",
+      "gaps": [
+        "单细胞计数模型与AnnData",
+        "生成模型、扰动数据与因果边界",
+        "按供体/扰动留出的分布外评价"
+      ],
+      "bridge": "以公开Perturb-seq数据比较均值、线性与生成模型，按扰动和供体留出；报告差异表达恢复、校准和失败案例。",
+      "risk": "AIVC是预测与机制建模研究目标，不代表已能准确模拟任意完整细胞；须检验相对简单基线的增益。",
+      "opportunity": {
+        "status": "inquiry",
+        "summary": "组官网欢迎博士生/博士后主动申请。CHC年度公告虽写open，但截止2026-06-01已经过去，不作为当前开放岗位。其他具体岗位须单独复核。",
+        "url": "https://www.helmholtz-munich.de/en/icb/research-groups/theis-lab",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "未确认正式联合培养；普通PhD主动申请入口不等于访问博士接收。"
+      },
+      "sources": [
+        {
+          "label": "导师任职",
+          "url": "https://www.helmholtz-munich.de/en/icb/fabian-theis",
+          "claim": "当前职务、工具与研究范围",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方页面或官方检索记录"
+        },
+        {
+          "label": "研究与主动申请",
+          "url": "https://www.helmholtz-munich.de/en/icb/research-groups/theis-lab",
+          "claim": "单细胞方向、speculative application",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方页面或官方检索记录"
+        },
+        {
+          "label": "VirtualCell项目",
+          "url": "https://www.helmholtz.de/en/newsroom/article/a-digital-twin-for-the-future-of-medicine/",
+          "claim": "Theis领导的虚拟细胞研究计划",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方页面或官方检索记录"
+        },
+        {
+          "label": "年度项目日期",
+          "url": "https://www.helmholtz-munich.de/en/chc-postdoc",
+          "claim": "2026-06-01截止，已过期",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方页面或官方检索记录"
+        }
+      ],
+      "papers": [
+        {
+          "title": "scGen predicts single-cell perturbation responses",
+          "venue": "Nature Methods",
+          "year": 2019,
+          "url": "https://www.nature.com/articles/s41592-019-0494-8",
+          "why": "扰动预测的经典基线；不把早期结果当作当前最优。",
+          "kind": "方法论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "Population-level integration of single-cell datasets enables multi-scale analysis across samples",
+          "venue": "Nature Methods",
+          "year": 2023,
+          "url": "https://www.nature.com/articles/s41592-023-02035-2",
+          "why": "scPoli连接细胞与样本层级，适合从队列分析转向图谱建模。",
+          "kind": "方法论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "stegle",
+      "name": "Oliver Stegle",
+      "country": "德国",
+      "institution": "EMBL Heidelberg / DKFZ",
+      "role": "EMBL Heidelberg组长、DKFZ部门负责人；EMBL AI中心代理负责人",
+      "directions": [
+        "计算生物学",
+        "单细胞与空间组学",
+        "前沿生物信息学",
+        "AI虚拟细胞（AIVC）"
+      ],
+      "tier": "A",
+      "strength": "统计学习、多组学与时空建模形成连续方法体系；以MEFISTO等开源方法连接计算与实验。",
+      "question": "基因与环境变化如何通过细胞状态影响表型；如何从多组学和扰动数据识别结构。",
+      "platforms": [
+        "MOFA / MEFISTO",
+        "单细胞、多组学与空间测量",
+        "CRISPR扰动与因果推断"
+      ],
+      "fit": "高维组学、多队列验证和AI建模可直接迁移；适合从分析应用走向统计方法开发。",
+      "gaps": [
+        "概率潜变量模型与高斯过程",
+        "单细胞多模态对齐",
+        "扰动设计、因果识别与可扩展推断"
+      ],
+      "bridge": "用公开时序或空间组学复现MEFISTO，与无时空结构模型比较，检验缺失模态和供体留出性能。",
+      "risk": "与虚拟细胞的交集主要是多模态表示与扰动因果方法，不能把全部工作称为完整细胞仿真。",
+      "opportunity": {
+        "status": "inquiry",
+        "summary": "官网欢迎博士后通过DKFZ/EMBL项目或提交定制意向材料；这是主动申请渠道，未确认具体经费岗位或截止日。PhD仅走正式项目，不接受直接投递。",
+        "url": "https://steglelab.org/joinus/",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "官网欢迎research internship咨询，但未承诺博士联合培养；需核实身份、资助和时长。"
+      },
+      "sources": [
+        {
+          "label": "现任职务",
+          "url": "https://www.embl.org/people/person/oliver-stegle/",
+          "claim": "Heidelberg和DKFZ任职；不是仅按旧EBI地址归英国",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方页面或官方检索记录"
+        },
+        {
+          "label": "研究方向",
+          "url": "https://steglelab.org/research/",
+          "claim": "多组学、遗传与扰动因果方法",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方页面或官方检索记录"
+        },
+        {
+          "label": "申请渠道",
+          "url": "https://steglelab.org/joinus/",
+          "claim": "博士后主动申请与博士项目的不同规则",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方页面或官方检索记录"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Identifying temporal and spatial patterns of variation from multimodal data using MEFISTO",
+          "venue": "Nature Methods",
+          "year": 2022,
+          "url": "https://www.nature.com/articles/s41592-021-01343-9",
+          "why": "潜变量模型整合时空与多组学。",
+          "kind": "方法论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "Principles and challenges of modeling temporal and spatial omics data",
+          "venue": "Nature Methods",
+          "year": 2023,
+          "url": "https://www.nature.com/articles/s41592-023-01992-y",
+          "why": "梳理时空依赖的建模问题；此条为综述，不计作新模型验证。",
+          "kind": "综述",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "id": "teichmann",
+      "name": "Sarah Teichmann",
+      "country": "英国",
+      "institution": "University of Cambridge · Cambridge Stem Cell Institute",
+      "role": "干细胞医学教授、课题组PI；2024年起任职剑桥",
+      "directions": [
+        "计算生物学",
+        "单细胞与空间组学",
+        "前沿生物信息学",
+        "AI虚拟细胞（AIVC）"
+      ],
+      "tier": "A",
+      "strength": "Human Cell Atlas联合发起者；跨年度组织图谱与扰动评价研究，连接计算、生物学与组织测量。",
+      "question": "细胞多样性如何形成组织结构、发育和疾病微环境；如何可靠评价扰动预测。",
+      "platforms": [
+        "Human Cell Atlas与公开图谱",
+        "单细胞/空间转录组和多组学",
+        "Systema扰动预测评价（合作工作）"
+      ],
+      "fit": "宏基因组的数据质控与队列统计可迁移到图谱；将疾病表型与细胞状态连接，比直接转植入硬件更近。",
+      "gaps": [
+        "单细胞注释与供体伪重复",
+        "空间邻域、组织学与发育生物学",
+        "扰动特异性评价而非全基因相关性"
+      ],
+      "bridge": "复现Systema的一项评价，比较简单基线与预训练模型，区分系统变化与扰动特异变化，并按供体分割。",
+      "risk": "图谱和合作署名不代表每种实验平台都可由访问人员独立使用；需问清计算/实验共同指导。",
+      "opportunity": {
+        "status": "inquiry",
+        "summary": "官网明确欢迎联系加入，并指向剑桥干细胞研究所博士和博士后指南；未找到本次可确认的具体开放博士后名额。",
+        "url": "https://www.teichlab.org/contact",
+        "deadline": null,
+        "verifiedAt": "2026-10-21",
+        "visit": "官网可指导博士不等于已确认联合培养项目；短期访问与共同指导需单独核实。"
+      },
+      "sources": [
+        {
+          "label": "当前任职",
+          "url": "https://www.stemcells.cam.ac.uk/people/sarah-teichmann",
+          "claim": "2024年起剑桥干细胞医学教授",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方页面或官方检索记录"
+        },
+        {
+          "label": "论文目录",
+          "url": "https://www.teichlab.org/publications",
+          "claim": "跨年度组织图谱和Systema合作工作",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方页面或官方检索记录"
+        },
+        {
+          "label": "机会咨询",
+          "url": "https://www.teichlab.org/contact",
+          "claim": "欢迎联系及正式申请入口",
+          "kind": "official",
+          "verifiedAt": "2026-10-21",
+          "access": "官方页面或官方检索记录"
+        }
+      ],
+      "papers": [
+        {
+          "title": "Spatially resolved multiomics of human cardiac niches",
+          "venue": "Nature",
+          "year": 2023,
+          "url": "https://www.nature.com/articles/s41586-023-06311-1",
+          "why": "单细胞与空间多组学解析组织微环境。",
+          "kind": "研究论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        },
+        {
+          "title": "Systema: a framework for evaluating genetic perturbation response prediction beyond systematic variation",
+          "venue": "Nature Biotechnology（2025在线；2026卷期）",
+          "year": 2025,
+          "url": "https://www.nature.com/articles/s41587-025-02777-8",
+          "why": "评价框架由合作团队完成；用于识别预测只学到系统性变化的风险。",
+          "kind": "方法论文",
+          "review": "已同行评议",
+          "verifiedAt": "2026-10-21"
+        }
+      ],
+      "verifiedAt": "2026-10-21"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-10-21",
+      "type": "initial",
+      "summary": "建立18组、5国证据卡与36篇代表作；新增计算生物学、AI虚拟细胞、单细胞与空间组学。已排除过期与已关闭招聘公告。"
+    }
+  ]
+}

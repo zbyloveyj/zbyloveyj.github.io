@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": null,
+  "meaning": "等待首次自动网页巡检；内容核验日期独立记录于labs.json。",
+  "sources": {}
+}
