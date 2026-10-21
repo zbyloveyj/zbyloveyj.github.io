@@ -21,6 +21,69 @@
 
 .name-aliases{margin:-.4rem 0 .65rem;color:var(--muted,#62685f);font-size:.86rem;overflow-wrap:anywhere}
 
+/* Saved discovery, private follow-up and visible evidence coverage. */
+.saved-views-panel { margin: 14px 0 22px; padding: 13px 22px; border: 1px solid #d7e2ef; border-radius: 12px; background: #fff; }
+.saved-views-panel > summary { cursor: pointer; font-size: 13px; font-weight: 650; color: #345c8c; }
+.saved-views-panel > summary span { font-size: 11px; font-weight: 400; color: var(--muted); margin-left: 12px; }
+.save-view-controls { display: flex; align-items: end; gap: 12px; margin-top: 20px; }
+.save-view-controls label { flex: 1; max-width: 520px; display: grid; gap: 7px; font-size: 12px; color: var(--muted); min-width: 0; }
+.save-view-controls input, .coverage-scope select, .agenda-heading select, .personal-panel input { width: 100%; min-width: 0; max-width: 100%; border: 1px solid #ccdbed; border-radius: 8px; background: #f8fafd; color: var(--ink); font: inherit; font-size: 12px; padding: 10px 12px; min-height: 43px; }
+.save-view-controls button { min-height: 43px; font-size: 12px; }
+.saved-views { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+.saved-views article { display: flex; align-items: stretch; border: 1px solid #dce6f3; border-radius: 10px; background: #f6f9fd; overflow: hidden; }
+.saved-views .apply-view { flex: 1; min-width: 0; border: 0; background: transparent; text-align: left; padding: 12px; }
+.saved-views .apply-view b { display: block; font-size: 12px; color: #315e92; overflow-wrap: anywhere; }
+.saved-views .apply-view span { display: block; color: #6a7f97; font-size: 10px; margin-top: 5px; overflow-wrap: anywhere; }
+.saved-views .remove-view { border: 0; border-left: 1px solid #e2eaf5; background: transparent; border-radius: 0; font-size: 10px; padding: 9px; }
+.coverage-scope { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--muted); margin: 16px 0 12px; }
+.coverage-scope select { max-width: 240px; }
+.filtered-coverage { display: flex; flex-wrap: wrap; gap: 8px 17px; margin: 0 0 15px; padding: 12px 15px; font-size: 11px; background: #edf3fa; border-radius: 8px; color: #627b98; }
+.filtered-coverage b { color: #386290; font-weight: 550; margin-left: 6px; font-variant-numeric: tabular-nums; }
+.relax-suggestions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px auto 0; }
+.relax-suggestions button { font-size: 12px; text-align: left; max-width: 100%; overflow-wrap: anywhere; }
+.relax-suggestions span { display: block; color: #6986a8; font-size: 11px; margin-top: 4px; }
+.empty h3 { font-size: 18px; font-weight: 550; color: #3d6088; }
+.review-agenda { grid-column: 1 / -1; min-width: 0; border-top: 1px solid #dce6f2; padding-top: 25px; }
+.agenda-heading { display: flex; justify-content: space-between; align-items: start; gap: 25px; }
+.agenda-heading h3 { margin: 0 0 8px; color: #355c85; }
+.agenda-heading p { margin: 0; max-width: 620px; }
+.agenda-heading label { min-width: 190px; font-size: 11px; display: grid; gap: 6px; color: var(--muted); }
+.agenda-item { display: flex; justify-content: space-between; gap: 20px; padding: 17px 0; border-top: 1px solid #e1e9f3; }
+.agenda-item > div:first-child { min-width: 0; }
+.agenda-item h4 { margin: 0 0 6px; font-size: 13px; }
+.agenda-item p { margin: 4px 0 7px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.agenda-date { display: inline-block; border-radius: 5px; padding: 2px 7px; background: #e8eff8; color: #50719a; font-size: 10px; }
+.agenda-date.due { background: #fff1db; color: #805c25; }
+.agenda-actions { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+.agenda-actions button, #agenda-more { font-size: 11px; padding: 8px 11px; }
+.agenda-empty { padding: 20px; border: 1px dashed #c8d9ed; border-radius: 9px; background: #f8faff; }
+.related-panel { border-top: 1px solid #dce6f2; padding: 6px 0 20px; }
+.related-panel > button { font-size: 11px; color: #3d6ba5; padding: 8px 12px; margin: 8px 0; }
+.related-results article { border: 1px solid #dce7f5; background: #f7faff; padding: 13px; border-radius: 8px; margin: 12px 0 0; }
+.related-results h5 { font-size: 12px; line-height: 1.8; margin: 0 0 6px; }
+.related-results p { font-size: 11px; line-height: 1.8; color: #657e9a; }
+.related-results .related-reason { color: #3c6490; }
+@media (max-width:950px) { .saved-views { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width:700px) {
+  .saved-views-panel { padding: 14px 17px; }
+  .saved-views-panel > summary span { display: block; margin: 5px 0 0; }
+  .save-view-controls { flex-wrap: wrap; gap: 10px; }
+  .save-view-controls label { flex-basis: 100%; max-width: none; }
+  .saved-views { grid-template-columns: 1fr; }
+  .filtered-coverage { gap: 8px 14px; font-size: 10px; padding: 12px; }
+  .filtered-coverage > span:first-child { flex-basis: 100%; }
+  .coverage-scope { flex-wrap: wrap; gap: 7px; }
+  .coverage-scope select { max-width: 100%; }
+  .agenda-heading { flex-direction: column; gap: 14px; }
+  .agenda-heading label { width: 100%; min-width: 0; }
+  .agenda-item { flex-direction: column; gap: 10px; }
+  .agenda-actions { justify-content: start; }
+  .agenda-actions button { min-height: 40px; }
+  .personal-panel input { padding: 9px; }
+  .review-agenda { padding-top: 22px; }
+}
+@media print { .saved-views-panel, .review-agenda, .related-panel { display: none; } }
+
 /* Atlas visual refresh. Keep content, source distinctions and native controls intact. */
 :root {
   --ink: #19324e;
@@ -186,7 +249,7 @@ th:first-child { background: #f0f4fa; }
 thead th, .coverage-panel thead { background: #eaf0f8; }
 .compare-bar { width: max-content; background: #173c65; border-color: #436b99; border-radius: 13px; box-shadow: 0 8px 35px #172f4330; }
 .compare-bar button, #selected-count { white-space: nowrap; flex-shrink: 0; }
-.toast { background: #214b7c; border-radius: 10px; }
+.toast { width: max-content; background: #214b7c; border-radius: 10px; }
 footer { color: #718299; }
 @media (max-width:1050px) {
   .hero { padding: 34px; gap: 30px; grid-template-columns: minmax(0,1fr) 270px; }

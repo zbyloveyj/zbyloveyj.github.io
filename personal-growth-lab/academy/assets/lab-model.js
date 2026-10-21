@@ -45,22 +45,43 @@
   }
   const notebookType = 'growthlab-research-notebook';
   const storageKey = 'growthlab.research-directory.notebook.v1';
+  const viewsStorageKey = 'growthlab.research-directory.views.v1';
+  const viewKeys = new Set(['query','country','institution','direction','evidence','update-filter','collection','sort','page-size','method-filter','disease-filter','modality-filter','scale-filter','design-filter','role-filter','dimension-filter','min-evidence','stage-filter','review-filter','tier','status',...['domains','methods','diseases','modalities'].flatMap(a=>['pref-'+a,'weight-'+a])]);
+  const validId = id => typeof id === 'string' && /^[a-zA-Z0-9_-]{1,160}$/.test(id) && !['__proto__','prototype','constructor'].includes(id);
+  const validReviewDate = value => value === '' || typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value+'T00:00:00Z').toISOString().slice(0,10) === value;
+  function validateViews(raw) {
+    if(!Array.isArray(raw)||raw.length>100)throw Error('筛选方案最多保存100条（含删除记录）。');
+    const seen=new Set();
+    return raw.map(v=>{
+      if(!v||!validId(v.id)||seen.has(v.id)||typeof v.name!=='string'||!v.name.trim()||v.name.length>60||typeof v.query!=='string'||v.query.length>6000||typeof v.updatedAt!=='string'||!Number.isFinite(Date.parse(v.updatedAt))||typeof v.deleted!=='boolean')throw Error('筛选方案的名称、条件或日期无效。');
+      seen.add(v.id);const query=new URLSearchParams(v.query);
+      for(const [key,value] of query)if(!viewKeys.has(key)||value.length>500)throw Error('筛选方案含未识别或过长的条件。');
+      return {id:v.id,name:v.name.trim(),query:query.toString(),updatedAt:v.updatedAt,deleted:v.deleted};
+    });
+  }
+  function mergeViews(current,incoming) {
+    const out=new Map(validateViews(current).map(v=>[v.id,v]));
+    for(const v of validateViews(incoming)){const old=out.get(v.id);if(!old||Date.parse(v.updatedAt)>=Date.parse(old.updatedAt))out.set(v.id,v);}
+    return validateViews([...out.values()]);
+  }
   function validateNotebook(raw) {
     if(!raw || raw.type !== notebookType || raw.schemaVersion !== 1 || !Array.isArray(raw.entries) || raw.entries.length > 20000) throw Error('这不是可识别的研究名单备份（版本1，最多20000条）。');
     const seen = new Set();
     const entries = raw.entries.map(e => {
-      if(!e || typeof e.id !== 'string' || !/^[a-zA-Z0-9_-]{1,160}$/.test(e.id) || ['__proto__','prototype','constructor'].includes(e.id) || seen.has(e.id)) throw Error('备份含无效或重复的记录标识。');
+      if(!e || !validId(e.id) || seen.has(e.id)) throw Error('备份含无效或重复的记录标识。');
       seen.add(e.id);
       if(typeof e.note !== 'string' || e.note.length > 3000 || !Object.hasOwn(stages,e.stage) || typeof e.saved !== 'boolean' || typeof e.updatedAt !== 'string' || !Number.isFinite(Date.parse(e.updatedAt))) throw Error('备份中的阶段、笔记或日期不符合格式。');
-      return {id:e.id,name:String(e.name || '').slice(0,300),saved:e.saved,stage:e.stage,note:e.note,updatedAt:e.updatedAt};
+      if(e.nextAction!==undefined&&(typeof e.nextAction!=='string'||e.nextAction.length>400))throw Error('下一步任务必须是400字以内的文字。');
+      if(e.reviewDate!==undefined&&!validReviewDate(e.reviewDate))throw Error('复查日期必须是有效的 YYYY-MM-DD 日期。');
+      return {id:e.id,name:String(e.name || '').slice(0,300),saved:e.saved,stage:e.stage,note:e.note,updatedAt:e.updatedAt,...(e.nextAction!==undefined?{nextAction:e.nextAction}:{}),...(e.reviewDate!==undefined?{reviewDate:e.reviewDate}:{})};
     });
-    return {type:notebookType,schemaVersion:1,entries};
+    return {type:notebookType,schemaVersion:1,entries,...(raw.savedViews!==undefined?{savedViews:validateViews(raw.savedViews)}:{})};
   }
   function mergeNotebooks(current, incoming) {
     const out = new Map(validateNotebook(current).entries.map(e=>[e.id,e]));
-    for(const e of validateNotebook(incoming).entries){const previous=out.get(e.id);if(!previous || Date.parse(e.updatedAt)>=Date.parse(previous.updatedAt))out.set(e.id,e);}
+    for(const e of validateNotebook(incoming).entries){const previous=out.get(e.id);out.set(e.id,!previous||Date.parse(e.updatedAt)>=Date.parse(previous.updatedAt)?{...previous,...e}:{...e,...previous});}
     if(out.size>20000)throw Error('合并后超过20000条，请先精简备份。');
-    return {type:notebookType,schemaVersion:1,entries:[...out.values()]};
+    return {type:notebookType,schemaVersion:1,entries:[...out.values()],...((current.savedViews!==undefined||incoming.savedViews!==undefined)?{savedViews:mergeViews(current.savedViews||[],incoming.savedViews||[])}:{})};
   }
-  return {axes,dimensions,roles,stages,norm,values,evidence,evidenceCount,matchesFacets,match,searchText,storageKey,notebookType,validateNotebook,mergeNotebooks};
+  return {axes,dimensions,roles,stages,norm,values,evidence,evidenceCount,matchesFacets,match,searchText,storageKey,notebookType,validateNotebook,mergeNotebooks,viewsStorageKey,validateViews,mergeViews,validReviewDate};
 });

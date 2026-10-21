@@ -14,8 +14,11 @@ on:
       - 'personal-growth-lab/academy/tools/test_labs.py'
       - 'personal-growth-lab/academy/tools/test_labs_browser.cjs'
       - 'personal-growth-lab/academy/tools/test_lab_model.cjs'
+      - 'personal-growth-lab/academy/tools/test_lab_discovery.cjs'
+      - 'personal-growth-lab/academy/tools/test_labs_workspace.cjs'
       - 'personal-growth-lab/academy/assets/labs.*'
       - 'personal-growth-lab/academy/assets/lab-model.js'
+      - 'personal-growth-lab/academy/assets/lab-discovery.js'
       - 'personal-growth-lab/academy/labs.html'
       - '.github/lab-directory/enrich_candidates.py'
       - '.github/lab-directory/test_enrich_candidates.py'
@@ -65,7 +68,9 @@ jobs:
         run: |
           node --check personal-growth-lab/academy/assets/labs.js
           node --check personal-growth-lab/academy/assets/lab-model.js
+          node --check personal-growth-lab/academy/assets/lab-discovery.js
           node personal-growth-lab/academy/tools/test_lab_model.cjs
+          node personal-growth-lab/academy/tools/test_lab_discovery.cjs
           node personal-growth-lab/academy/tools/check_workbook.cjs
       - name: Prepare browser test
         run: |
@@ -74,5 +79,7 @@ jobs:
       - name: Test filters, comparison, freshness and responsive layout
         env:
           NODE_PATH: /tmp/lab-browser-deps/node_modules
-        run: node personal-growth-lab/academy/tools/test_labs_browser.cjs
+        run: |
+          node personal-growth-lab/academy/tools/test_labs_browser.cjs
+          node personal-growth-lab/academy/tools/test_labs_workspace.cjs
 
