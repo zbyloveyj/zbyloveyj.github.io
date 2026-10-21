@@ -29,7 +29,7 @@
       "title": "项目完成意味着能力可以被检查",
       "paragraphs": [
         "到今天，你应能够把一个问题拆成数据、模型、目标、优化、推理和评价，并指出每一步实际运行的证据。CurateMicrobiota包含小型字节语言模型、答案位置监督与低秩更新实验、文献证据卡检索、菌群丰度自监督编码器以及研究和受试者隔离的评价。它们共同构成一个可以继续研究的工程原型，而不是仅靠界面呈现的概念演示。",
-        "完成十四天不意味着任何人已经掌握大模型领域的全部知识，也不意味着四万参数的丰度编码器已经成为经过广泛验证的基础模型。可检查的毕业标准是：你能解释关键公式、修改并运行小实验、发现泄漏、复算指标、诚实界定结论，并独立提出下一项有效比较。今天的交付会把这些能力落实到文件和运行结果，让别人能够从入口重做，而不必依赖你的口头说明。"
+        "完成十四个核心单元不意味着任何人已经掌握大模型领域的全部知识，也不意味着四万参数的丰度编码器已经成为经过广泛验证的基础模型。可检查的毕业标准是：你能解释关键公式、修改并运行小实验、发现泄漏、复算指标、诚实界定结论，并独立提出下一项有效比较。今天的交付会把这些能力落实到文件和运行结果，让别人能够从入口重做，而不必依赖你的口头说明。"
       ]
     },
     {
@@ -87,7 +87,7 @@
       ],
       "code": {
         "language": "python",
-        "text": "import json\nfrom pathlib import Path\nfrom curatemicrobiota.common import file_sha256\nroot = Path(\"runs/demo\")\nreport = json.loads((root / \"report.json\").read_text())\nmanifest = json.loads((root / \"microbiome/manifest.json\").read_text())\nassert report[\"source_kind\"] == \"synthetic_teaching_fixture\"\nassert report[\"data\"][\"samples\"] == 240\nassert report[\"data\"][\"subjects\"] == 120\nfor name, expected in manifest[\"data_sha256\"].items():\n    assert file_sha256(root / \"data\" / name) == expected, name\nassert file_sha256(root / \"microbiome/preprocessor.json\") == manifest[\"preprocessor_sha256\"]\nprint(\"Input identity checks passed\")\nfor name in (\"language/model.pt\", \"microbiome/encoder.pt\"):\n    print(name, file_sha256(root / name))\nprint(report[\"environment\"])",
+        "text": "import json\nfrom pathlib import Path\nfrom curatemicrobiota.common import file_sha256\nroot = Path(\"runs/demo\")\nreport = json.loads((root / \"report.json\").read_text(encoding=\"utf-8\"))\nmanifest = json.loads((root / \"microbiome/manifest.json\").read_text(encoding=\"utf-8\"))\nassert report[\"source_kind\"] == \"synthetic_teaching_fixture\"\nassert report[\"data\"][\"samples\"] == 240\nassert report[\"data\"][\"subjects\"] == 120\nfor name, expected in manifest[\"data_sha256\"].items():\n    assert file_sha256(root / \"data\" / name) == expected, name\nassert file_sha256(root / \"microbiome/preprocessor.json\") == manifest[\"preprocessor_sha256\"]\nprint(\"Input identity checks passed\")\nfor name in (\"language/model.pt\", \"microbiome/encoder.pt\"):\n    print(name, file_sha256(root / name))\nprint(report[\"environment\"])",
         "requires": [
           "quick_pipeline"
         ]

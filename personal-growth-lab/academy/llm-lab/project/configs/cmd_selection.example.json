@@ -1,11 +1,21 @@
 {
   "_instructions": "First run the metadata-only list command. Replace study placeholders with exact reviewed study names; replace label_map with exact study_condition values. Copy to cmd_selection.json. The example does not choose cohorts or infer a disease for you.",
-  "train_studies": ["REPLACE_WITH_TRAIN_STUDY_1", "REPLACE_WITH_TRAIN_STUDY_2"],
-  "val_studies": ["REPLACE_WITH_VALIDATION_STUDY"],
-  "test_studies": ["REPLACE_WITH_EXTERNAL_TEST_STUDY"],
+  "train_studies": [
+    "REPLACE_WITH_TRAIN_STUDY_1",
+    "REPLACE_WITH_TRAIN_STUDY_2"
+  ],
+  "val_studies": [
+    "REPLACE_WITH_VALIDATION_STUDY"
+  ],
+  "test_studies": [
+    "REPLACE_WITH_EXTERNAL_TEST_STUDY"
+  ],
   "body_site": "stool",
-  "label_map": {"REPLACE_WITH_EXACT_CONTROL_CONDITION": 0, "REPLACE_WITH_EXACT_TARGET_DISEASE_CONDITION": 1},
-  "abundance_unit": "proportion",
+  "label_map": {
+    "REPLACE_WITH_EXACT_CONTROL_CONDITION": 0,
+    "REPLACE_WITH_EXACT_TARGET_DISEASE_CONDITION": 1
+  },
+  "abundance_unit": "percent",
   "include_unlabelled_train": false,
   "allow_unresolved_subject_ids": false
 }

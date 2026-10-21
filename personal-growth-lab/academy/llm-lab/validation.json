@@ -1,10 +1,10 @@
 {
   "project": "CurateMicrobiota",
-  "version": "2026.10.21.2",
-  "verified_at_utc": "2026-10-21T02:24:59.750668+00:00",
+  "version": "2026.10.21.3",
+  "verified_at_utc": "2026-10-21T04:28:42.790024+00:00",
   "status": "local_validation_passed",
   "curriculum": {
-    "version": "2026.10.21.2",
+    "version": "2026.10.21.3",
     "lessons": 30,
     "core_lessons": 14,
     "advanced_lessons": 16,
@@ -13,16 +13,16 @@
     "sections": 318,
     "exercises": 119,
     "quiz_questions": 150,
-    "paper_readings": 76,
-    "unique_sources": 63,
-    "chinese_characters": 156993
+    "paper_readings": 77,
+    "unique_sources": 64,
+    "chinese_characters": 157926
   },
   "checks": {
     "python_unit_tests": {
-      "passed": 35,
+      "passed": 36,
       "failed": 0,
       "command": "python -m unittest discover -s tests -v",
-      "scope": "Includes held-out-label mutation test, split invariants, Unicode BPE, deterministic resume and model data contracts."
+      "scope": "Includes held-out-label mutation, split invariants, Unicode BPE, deterministic resume, model data contracts and persisted runtime package version."
     },
     "curriculum_schema": {
       "lessons_passed": 30,
@@ -34,7 +34,7 @@
       "failed": 0,
       "report": "project/example-results/lesson_examples_report.json",
       "command": "python tools/run_lesson_examples.py --fixture-run PATH_TO_EXECUTED_QUICK_PIPELINE --report examples.json",
-      "note": "Each Python block executes in a fresh process and temporary directory. Declared data/checkpoint prerequisites use genuinely executed pipeline files. Bash and R blocks are not included in this count."
+      "note": "All 77 current Python blocks were executed in fresh processes and temporary directories. Declared prerequisites use genuinely executed pipeline files. The revised top-p and paired-bootstrap boundary assertions passed. Bash, R and GPU/distributed blocks are not included in this count."
     },
     "javascript_syntax": {
       "passed": [
@@ -59,26 +59,27 @@
     "browser": {
       "environment": "Chrome desktop, managed static preview",
       "passed": [
-        "All 30 lesson cards rendered",
-        "15–24 filter returns 10 lessons; 25–30 filter returns 6 lessons",
-        "SwiGLU full-text search returns Unit 17",
-        "43-topic coverage view and in-page jump",
-        "Unit 30 lesson, exercises and 5-question quiz render",
-        "Unit 30 correct answers graded 5/5; answers and explanations persist after reload",
-        "Completion remains disabled while acceptance items are unchecked",
-        "Existing completed Unit 1 appears as 1/30 after update",
-        "Academy integration renders 11 projects and 869 units with the same 1/30 completion",
-        "Project page renders five-arm actual synthetic benchmark table and report links",
-        "Full handbook has 30 units plus coverage section"
+        "Updated project-root instructions for both ZIP formats render",
+        "Windows environment command uses py -3 and displays version check guidance",
+        "All 77 lesson scripts are described as included in the project ZIP",
+        "Unit 1 introduction correctly describes 14 core plus 16 advanced units and 107 planned hours",
+        "Unit 1 in-page navigation retains its lesson route"
       ],
-      "app_source_errors_observed": 0,
+      "screenshot": "assets/curatemicrobiota-reviewed-20261021-v3.jpg",
       "limitations": [
         "No physical mobile device test",
-        "Import/print dialogs not manually exercised in this session; import schema checked separately",
-        "The cloud browser cancelled the .py file download in HTTP preview; direct file-download UI was not verified there",
-        "Browser extension metadata errors appeared in the developer log; they were outside the application source"
+        "Import and print dialogs not re-exercised in this revision",
+        "Earlier cloud-browser attempts cancelled individual .py downloads; ZIP archives contain the scripts"
       ],
-      "screenshot": "assets/curatemicrobiota-complete-preview-20261021-v2.jpg"
+      "baseline_functionality": "The unchanged course navigation, search, interactive labs, quiz and persistence checks are recorded in historical_browser_verification_v2 and the current check_app_state.cjs run."
+    },
+    "r_sample_contract": {
+      "fixture_checks": 12,
+      "command": "Rscript tests/test_cmd_contract.R",
+      "local_runtime_available": false,
+      "execution_location": "GitHub Actions: real-data-sample-contract job for the release commit",
+      "result_source": "Live workflow job log; no R execution is claimed for the local container.",
+      "scope": "Base-R matrix/metadata sample reconciliation; does not download real cohorts or test the full Bioconductor integration."
     }
   },
   "executed_models": {
@@ -260,7 +261,7 @@
     "In the full six-study synthetic benchmark the logistic baseline outperformed every complex model. The 0.0125 mean fine-tuned-minus-scratch AUROC difference is descriptive, not a significance or biological-benefit claim.",
     "Each outer test study has one rotating validation study; the benchmark is not exhaustive nested cross-validation. Each fold fits preprocessing and pretraining without the outer test study.",
     "Two seeds are not two additional independent studies. Per-study paired subject bootstrap conditions on the fitted models and test study; it excludes retraining and between-study uncertainty.",
-    "The R curatedMetagenomicData exporter was checked against official API documentation and static data contracts; R/Bioconductor was unavailable, so real-cohort export and training were not executed.",
+    "The R curatedMetagenomicData exporter was checked against pinned official source and maintainer analyses. Its base-R sample contract is tested separately in CI. Real Bioconductor resource download, full exporter integration and real-cohort training were not executed.",
     "Evidence retrieval and prompt export are implemented; a remote text generator and production agent/serving systems are documented extensions.",
     "Large-scale QLoRA, full RLHF, AMP/multi-GPU execution, DNA/protein foundation-model training and real clinical multimodal experiments remain documented extensions.",
     "The complete-resume experiment validates the provided CPU configuration at optimizer-step boundaries; it does not establish bitwise determinism on other hardware or distributed loaders."
@@ -289,5 +290,48 @@
         "Import/print dialogs not manually exercised in this verification session"
       ]
     }
+  },
+  "historical_browser_verification_v2": {
+    "version": "2026.10.21.2",
+    "checks": {
+      "environment": "Chrome desktop, managed static preview",
+      "passed": [
+        "All 30 lesson cards rendered",
+        "15–24 filter returns 10 lessons; 25–30 filter returns 6 lessons",
+        "SwiGLU full-text search returns Unit 17",
+        "43-topic coverage view and in-page jump",
+        "Unit 30 lesson, exercises and 5-question quiz render",
+        "Unit 30 correct answers graded 5/5; answers and explanations persist after reload",
+        "Completion remains disabled while acceptance items are unchecked",
+        "Existing completed Unit 1 appears as 1/30 after update",
+        "Academy integration renders 11 projects and 869 units with the same 1/30 completion",
+        "Project page renders five-arm actual synthetic benchmark table and report links",
+        "Full handbook has 30 units plus coverage section"
+      ],
+      "app_source_errors_observed": 0,
+      "limitations": [
+        "No physical mobile device test",
+        "Import/print dialogs not manually exercised in this session; import schema checked separately",
+        "The cloud browser cancelled the .py file download in HTTP preview; direct file-download UI was not verified there",
+        "Browser extension metadata errors appeared in the developer log; they were outside the application source"
+      ],
+      "screenshot": "assets/curatemicrobiota-complete-preview-20261021-v2.jpg"
+    }
+  },
+  "revision_review": {
+    "notes": "project/REVIEW_NOTES.md",
+    "code_version": "1.1.1",
+    "fixes": [
+      "top-p equality boundary and p=1 semantics",
+      "Padding-context versus response-only SFT loss masking",
+      "Paired bootstrap ID-score-group length contract",
+      "ILR nonredundant coordinates versus statistical independence",
+      "Core evaluate versus advanced five-arm benchmark scope and compute budgets",
+      "cMD sample IDs in colData row names and exact requested/returned sample-set matching",
+      "cMD percent/proportion example verified against source and maintainer numeric analyses",
+      "Windows interpreter selection, UTF-8 JSON reads and runtime report version"
+    ],
+    "historical_model_results_unchanged": true,
+    "new_real_cohort_claims": false
   }
 }

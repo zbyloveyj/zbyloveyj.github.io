@@ -4,11 +4,13 @@
 
 **默认实验完全使用明确标注的合成菌群数据和原创教学文本。安装依赖之后，核心命令无需联网、API Key、云服务、预训练模型或显卡。** 将流程接到真实研究数据，需要完成数据溯源、标签定义、分类词表统一和研究级验证。这里的 CurateMicrobiota 是本课程项目名；官方数据资源名为 **curatedMetagenomicData**。
 
+2026-10-21 校订记录、已修复的边界问题与验证范围，见 [REVIEW_NOTES.md](REVIEW_NOTES.md)。
+
 新增进阶实验、五方法留一队列基准、实际负结果及严格的解释边界，见 [ADVANCED_LABS.md](ADVANCED_LABS.md)。新入口包括真正的 BPE、完整状态恢复、资源账本、从零监督训练、预训练后微调和按受试者抽样的标签效率实验。
 
 ## 1. 在 VS Code 中启动
 
-使用 Python 3.10 或更新版本；本次交付的实测版本记录在实验报告的 `environment` 字段。解压后，在 VS Code 用「文件 → 打开文件夹」打开包含本 README 的 `project` 目录。打开集成终端，先执行 `python --version`，确认不是其他软件携带的 Python。
+使用 Python 3.10 或更新版本；本次交付的实测版本记录在实验报告的 `environment` 字段。解压后，在 VS Code 用「文件 → 打开文件夹」打开同时包含本 README、`pyproject.toml` 和 `curatemicrobiota/` 的工程根目录：工程 ZIP 中名为 `curatemicrobiota-project/`，完整离线包中则为 `curatemicrobiota-learning/project/`。打开集成终端，先执行 `python --version`，确认不是其他软件携带的 Python。
 
 ### Windows PowerShell
 
@@ -106,7 +108,7 @@ python -m unittest discover -s tests -v
 
 `alignment-demo` 计算固定 chosen/rejected 与参考模型 log probability 上的 DPO loss，并输出偏导数。标准形式为 `-logsigmoid(beta * [(logπ_chosen-logπ_rejected) - (logπ_ref_chosen-logπ_ref_rejected)])`。参考值冻结；对 chosen log probability 的偏导应为负，对 rejected 的偏导应为正；增加相对 chosen 优势应降低损失。输入是回答序列 log probability **之和**，随意改成 token 均值会改变目标。这个命令验证公式、符号和梯度，不训练真实偏好模型、不拟合奖励模型，也不执行 RLHF。
 
-所有 Python 教学代码另外以脚本形式收录在 `lesson_examples/`，入口索引见 [lesson_examples/README.md](lesson_examples/README.md)。网页每个 Python 代码框可直接下载对应脚本；有数据或检查点前置的例子在脚本头注明命令。
+所有 Python 教学代码另外以脚本形式收录在 `lesson_examples/`，入口索引见 [lesson_examples/README.md](lesson_examples/README.md)。网页每个 Python 代码框提供对应脚本链接；如果浏览器取消单个 `.py` 下载，请使用已包含全部脚本的工程 ZIP，在原目录运行。不要把脚本移动到其他目录。有数据或检查点前置的例子在脚本头注明命令。
 
 ## 3. 代码阅读顺序
 
@@ -176,7 +178,7 @@ python -m curatemicrobiota evaluate --data data/real --run runs/real
 
 ## 7. 预期限制与下一步研究
 
-14 天核心课可以让你解释并执行从 token、注意力、训练、适配到菌群表示与评价的完整流程。训练一个具有多任务迁移能力的研究级微生物基础模型，还需要更多异质研究、明确的跨研究分类词表、多随机种子、嵌套研究级交叉验证、年龄/药物等协变量检查、独立疾病与人群任务及充分消融。本工程提供这些工作的可审计起点。
+14 个核心学习单元帮助你解释并执行从 token、注意力、训练、适配到菌群表示与评价的完整流程。训练一个具有多任务迁移能力的研究级微生物基础模型，还需要更多异质研究、明确的跨研究分类词表、多随机种子、嵌套研究级交叉验证、年龄/药物等协变量检查、独立疾病与人群任务及充分消融。本工程提供这些工作的可审计起点。
 
 默认语言语料很小；输出不流畅或出现 UTF-8 替代符 `�` 是小模型尚未学好有效字节组合的可能结果。LoRA 回归演示的目标特意具有低秩结构，只验证低秩参数更新机制；独立的 `finetune` 才执行回答监督的全参数或 LoRA-SFT。DPO 部分仅是公式与梯度实验。本工程没有完成真实生物医学指令模型验证、完整偏好训练或 RLHF。
 

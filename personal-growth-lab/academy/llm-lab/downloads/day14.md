@@ -2,7 +2,7 @@
 
 用完整证据证明你做成了什么，再决定怎样走向真正的微生物基础模型
 
-版本：2026.10.21.2｜建议 180 分钟，可分次完成
+版本：2026.10.21.3｜建议 180 分钟，可分次完成
 
 ## 学习目标
 
@@ -30,7 +30,7 @@
 
 到今天，你应能够把一个问题拆成数据、模型、目标、优化、推理和评价，并指出每一步实际运行的证据。CurateMicrobiota包含小型字节语言模型、答案位置监督与低秩更新实验、文献证据卡检索、菌群丰度自监督编码器以及研究和受试者隔离的评价。它们共同构成一个可以继续研究的工程原型，而不是仅靠界面呈现的概念演示。
 
-完成十四天不意味着任何人已经掌握大模型领域的全部知识，也不意味着四万参数的丰度编码器已经成为经过广泛验证的基础模型。可检查的毕业标准是：你能解释关键公式、修改并运行小实验、发现泄漏、复算指标、诚实界定结论，并独立提出下一项有效比较。今天的交付会把这些能力落实到文件和运行结果，让别人能够从入口重做，而不必依赖你的口头说明。
+完成十四个核心单元不意味着任何人已经掌握大模型领域的全部知识，也不意味着四万参数的丰度编码器已经成为经过广泛验证的基础模型。可检查的毕业标准是：你能解释关键公式、修改并运行小实验、发现泄漏、复算指标、诚实界定结论，并独立提出下一项有效比较。今天的交付会把这些能力落实到文件和运行结果，让别人能够从入口重做，而不必依赖你的口头说明。
 
 ## 端到端命令覆盖了哪些组件
 
@@ -63,8 +63,8 @@ import json
 from pathlib import Path
 from curatemicrobiota.common import file_sha256
 root = Path("runs/demo")
-report = json.loads((root / "report.json").read_text())
-manifest = json.loads((root / "microbiome/manifest.json").read_text())
+report = json.loads((root / "report.json").read_text(encoding="utf-8"))
+manifest = json.loads((root / "microbiome/manifest.json").read_text(encoding="utf-8"))
 assert report["source_kind"] == "synthetic_teaching_fixture"
 assert report["data"]["samples"] == 240
 assert report["data"]["subjects"] == 120

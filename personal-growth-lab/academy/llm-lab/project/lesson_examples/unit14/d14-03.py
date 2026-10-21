@@ -8,8 +8,8 @@ import json
 from pathlib import Path
 from curatemicrobiota.common import file_sha256
 root = Path("runs/demo")
-report = json.loads((root / "report.json").read_text())
-manifest = json.loads((root / "microbiome/manifest.json").read_text())
+report = json.loads((root / "report.json").read_text(encoding="utf-8"))
+manifest = json.loads((root / "microbiome/manifest.json").read_text(encoding="utf-8"))
 assert report["source_kind"] == "synthetic_teaching_fixture"
 assert report["data"]["samples"] == 240
 assert report["data"]["subjects"] == 120

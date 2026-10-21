@@ -2,7 +2,7 @@
 
 理解困惑度、temperature、top-k、top-p，完成从 TinyGPT 到菌群模型的迁移判断
 
-版本：2026.10.21.2｜建议 195 分钟，可分次完成
+版本：2026.10.21.3｜建议 195 分钟，可分次完成
 
 ## 学习目标
 
@@ -88,7 +88,7 @@ for temperature in [0.5, 1.0, 2.0]:
 
 Top-k按分数保留最高的一组候选，再在保留集合重新归一化采样。k小会限制选择，k大更接近原分布；不同位置的概率形状不一样，固定k可能在某些位置保留太多低可信尾部，也可能在另一些位置过度限制合理选择。工程使用分数阈值实现，同分边界会一并保留。
 
-Top-p也叫nucleus sampling，按概率从高到低排序，保留累计概率首次达到阈值p所需的最小前缀，再归一化采样。它每个位置保留的token数可以不同。达到阈值的那个候选也要保留，否则累计质量可能不足。这里p是累计概率阈值，不是“保留前p比例的词表”。
+Top-p也叫nucleus sampling，按概率从高到低排序，保留累计概率首次达到阈值p所需的最小前缀，再归一化采样。它每个位置保留的token数可以不同。达到阈值的那个候选也要保留，否则累计质量可能不足。这里p是累计概率阈值，不是“保留前p比例的词表”。累计概率恰好等于p时，不必再多留一项；本例约定p=1不截断，保留完整分布。
 
 当前生成CLI主线提供temperature和top-k；下面的top-p是独立扩展练习，不把不存在的--top-p参数写入命令。将它接入工程前，应与现有采样测试一起检查合法范围、至少保留一个候选和概率归一化。
 
@@ -97,9 +97,11 @@ import torch
 def nucleus_probs(logits, p=0.9):
     if not 0 < p <= 1:
         raise ValueError('p must be in (0, 1]')
+    if p == 1:
+        return logits.softmax(dim=-1)  # 不截断完整分布。
     sorted_logits, order = logits.sort(descending=True)
     probs = sorted_logits.softmax(dim=-1)
-    remove = probs.cumsum(dim=-1) > p
+    remove = probs.cumsum(dim=-1) >= p
     remove[1:] = remove[:-1].clone()
     remove[0] = False
     kept = sorted_logits.masked_fill(remove, float('-inf')).softmax(dim=-1)
@@ -108,6 +110,19 @@ def nucleus_probs(logits, p=0.9):
 p = nucleus_probs(torch.tensor([0.4, 0.3, 0.2, 0.1]).log(), 0.65)
 assert torch.allclose(p, torch.tensor([4/7, 3/7, 0., 0.]))
 print(p)
+# 恰好达到阈值时，保留最小前缀；并列项的具体ID不影响项数。
+assert torch.count_nonzero(nucleus_probs(torch.zeros(2), 0.5)).item() == 1
+assert torch.count_nonzero(nucleus_probs(torch.zeros(4), 0.5)).item() == 2
+full = torch.tensor([0.4, 0.3, 0.2, 0.1])
+assert torch.allclose(nucleus_probs(full.log(), 1.0), full)
+for invalid_p in [0.0, -0.1, 1.1]:
+    try:
+        nucleus_probs(torch.zeros(2), invalid_p)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('invalid top-p threshold was accepted')
+print('top-p equality, full-distribution and range checks passed')
 ```
 
 ## 上下文裁剪与缓存，影响什么

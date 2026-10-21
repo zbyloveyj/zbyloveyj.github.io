@@ -2,7 +2,8 @@
 import ast
 import json
 import re
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 lessons=[]
@@ -51,4 +52,20 @@ entry=(ROOT.parent/'index.html').read_text(encoding='utf-8')
 assert 'assets/curatemicrobiota-bridge.js' in entry and 'llm-lab/' in entry
 app=(ROOT.parent/'assets/app.js').read_text(encoding='utf-8')
 assert 'A.externalCourses' in app
-print(json.dumps({'status':'passed','lessons':len(lessons),'python_blocks_syntax_checked':python_blocks,'downloaded_content_matches_source':True},ensure_ascii=False))
+archive_members = 0
+for archive_name, prefix, source_root in [
+    ('curatemicrobiota-project.zip', 'curatemicrobiota-project', ROOT/'project'),
+    ('curatemicrobiota-complete.zip', 'curatemicrobiota-learning', ROOT),
+]:
+    with ZipFile(ROOT/'downloads'/archive_name) as archive:
+        assert archive.testzip() is None, (archive_name, 'CRC failure')
+        for member in archive.infolist():
+            if member.is_dir():
+                continue
+            rel = PurePosixPath(member.filename)
+            assert rel.parts[0] == prefix and '..' not in rel.parts, member.filename
+            source = source_root.joinpath(*rel.parts[1:])
+            assert source.is_file(), (archive_name, 'missing source', member.filename)
+            assert archive.read(member) == source.read_bytes(), (archive_name, 'stale member', member.filename)
+            archive_members += 1
+print(json.dumps({'status':'passed','lessons':len(lessons),'python_blocks_syntax_checked':python_blocks,'downloaded_content_matches_source':True,'archive_members_verified':archive_members},ensure_ascii=False))

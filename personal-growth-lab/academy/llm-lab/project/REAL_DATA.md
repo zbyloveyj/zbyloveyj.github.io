@@ -16,7 +16,7 @@ install.packages("jsonlite")
 
 R 与 Bioconductor 版本需要彼此兼容，以 BiocManager 的检查结果为准。Python 教学环境与 R 数据导出是两个步骤，不必把 R 安装作为前七课的先决条件。
 
-本适配器按 2026-10-21 核验的官方 `returnSamples(sampleMetadata, dataType, counts, rownames)` 接口编写。交付环境没有 R / Bioconductor，未进行真实队列下载实跑；Python 的合成数据、训练与评估则已实际执行。首次真实导出必须检查返回对象、物种名、丰度单位和来源版本。
+本适配器按 2026-10-21 核验的官方 `returnSamples(sampleMetadata, dataType, counts, rownames)` 源码与维护者分析例子编写。新增的基础 R 合同检查使用构造的矩阵与元数据，验证样本对齐和错误输入，不下载队列。真实 Bioconductor 导出、资源可用性及真实队列训练仍未实际执行；Python 的合成数据、训练与评估已实际执行。首次真实导出必须检查返回对象、物种名、丰度单位和来源版本。
 
 ## 2. 先看元数据，再定义任务
 
@@ -39,7 +39,11 @@ Rscript scripts/export_cmd.R export configs/cmd_selection.json data/real_v1
 python -m curatemicrobiota inspect-data --data data/real_v1
 ```
 
-`returnSamples` 使用 `counts=FALSE`，保留长物种名，选择 `|s__` 且不含 `|t__` 的层级。输入单位必须在配置中明确写成 `proportion` 或 `percent`；百分数只做固定除以 100。导出不重新闭合组成，不对全体研究拟合 prevalence、缩放或 CLR。若物种行和超过允许范围，程序停止并要求核对层级与单位。
+`returnSamples` 使用 `counts=FALSE`，保留长物种名，选择 `|s__` 且不含 `|t__` 的层级。**`counts=FALSE` 不足以保证矩阵的数值单位是 0–1。** 已核验的 cMD 3 源码与维护者分析采用百分数相对丰度，官方分析先除以 100 转成比例，因此示例配置写为 `"abundance_unit": "percent"`。必须按实际安装版本、来源说明和原始矩阵核对；只有确认输入已为 0–1 比例时才写 `proportion`。脚本按显式配置转换，不根据行和自动猜单位。来源见本页末尾的维护者分析和固定提交源码。
+
+导出只对声明为百分数的输入作固定除以 100，不重新闭合组成，不对全体研究拟合 prevalence、缩放或 CLR。溯源记录同时保存转换前后的物种丰度行和摘要；超过允许范围会停止。行和较小可以来自保留的物种质量较少，不能单凭它推断单位正确。
+
+样本 ID 以返回对象的丰度矩阵列名为准。官方 `returnSamples` 通常把 ID 放在 `colData` 行名中，并不保留 `sample_id` 列；适配器按 ID 对齐元数据。若该列存在，还要核对它与行名一致。返回样本必须与预先选择的样本集合完全相同；如资源缺失导致上游丢样本，导出会明确报错，要求检查资源并重新确认选择，不静默改变队列。
 
 输出包括：
 
@@ -70,10 +74,21 @@ python -m curatemicrobiota evaluate --data data/real_v1 --run runs/real_v1
 
 核心 `evaluate` 保持三种固定划分比较。新增 `python -m curatemicrobiota.benchmark` 实现五方法留一研究循环，加入从零监督训练与预训练后全参数微调；详细协议见 `ADVANCED_LABS.md` 及第26–27课。真实输入至少需要4个研究，且每次训练/验证都要有两类有标签受试者；不满足时应重新定义科学划分，不能删除检查。该命令仍是研究教学基准，不提供临床部署。受试者级聚合要求重复采样的标签一致；存在治疗或疾病状态改变时，应先定义纵向目标，不能直接平均不同结局。
 
+## 5. 单独验证样本对齐合同
+
+```bash
+Rscript tests/test_cmd_contract.R
+```
+
+该检查只需要基础 R，覆盖 ID 在行名而无同名列、矩阵与元数据顺序不同、缺失/额外/重复样本、ID 列冲突、研究名冲突及行数不匹配。它检验导出器实际调用的对齐函数；不等同于真实队列下载或完整 Bioconductor 集成测试。
+
 ## 官方来源
 
 - [curatedMetagenomicData 官方教程](https://waldronlab.io/curatedMetagenomicData/articles/curatedMetagenomicData.html)
 - [returnSamples API](https://waldronlab.io/curatedMetagenomicData/reference/returnSamples.html)
+- [已核验的 returnSamples 源码](https://github.com/waldronlab/curatedMetagenomicData/blob/afd13adf72a4cda3c60ce60e7d5f20ef04bd5f8e/R/returnSamples.R)
+- [已核验的相对丰度与 counts 转换源码](https://github.com/waldronlab/curatedMetagenomicData/blob/afd13adf72a4cda3c60ce60e7d5f20ef04bd5f8e/R/curatedMetagenomicData.R)
+- [维护者 cMD 3 分析：相对丰度除以 100 转为比例](https://waldronlab.io/curatedMetagenomicDataAnalyses/articles/Sex_metaanalysis_vignette.html)
 - [Bioconductor 包信息与软件许可](https://bioconductor.org/packages/curatedMetagenomicData)
 - [SIAMCAT 原始论文](https://doi.org/10.1186/s13059-021-02306-1)
 

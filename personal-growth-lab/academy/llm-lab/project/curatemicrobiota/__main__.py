@@ -8,6 +8,8 @@ import platform
 import sys
 from pathlib import Path
 
+from . import __version__
+
 
 def environment():
     versions = {}
@@ -135,7 +137,7 @@ def dispatch(args):
         evaluation_report = evaluate_microbiome(out / "data", out / "microbiome", args.seed)
         print("[5/5] Verify LoRA mechanics", file=sys.stderr, flush=True)
         lora_report = lora_demo(out / "lora", 100 if args.quick else 200, args.seed)
-        report = {"project": "CurateMicrobiota", "version": "1.0.0", "status": "completed", "quick": args.quick,
+        report = {"project": "CurateMicrobiota", "version": __version__, "status": "completed", "quick": args.quick,
                   "source_kind": "synthetic_teaching_fixture", "seed": args.seed, "environment": environment(),
                   "data": data_report, "language": lm_report, "microbiome": microbe_report,
                   "evaluation": evaluation_report, "lora": lora_report,

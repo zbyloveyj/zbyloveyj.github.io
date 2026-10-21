@@ -9,10 +9,11 @@ import html
 import json
 import re
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 from zipfile import ZipFile, ZIP_DEFLATED
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "2026.10.21.2"
+VERSION = "2026.10.21.3"
 
 
 def esc(value):
@@ -169,22 +170,41 @@ def write_example_scripts(lessons):
     (directory/'README.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 
 
+def write_verified_archive(destination, entries):
+    """Publish a complete CRC-checked archive with one atomic replacement."""
+    with NamedTemporaryFile(dir=destination.parent, prefix='.cm-archive-', suffix='.tmp', delete=False) as handle:
+        temporary = Path(handle.name)
+    try:
+        with ZipFile(temporary, 'w', ZIP_DEFLATED) as archive:
+            for source, member in entries:
+                archive.write(source, member)
+        with ZipFile(temporary) as archive:
+            invalid = archive.testzip()
+            if invalid is not None:
+                raise ValueError('Archive CRC failed: '+invalid)
+        temporary.replace(destination)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
 def write_archives():
     downloads = ROOT/'downloads'
     excluded = {'.venv', '__pycache__', 'runs', 'build', 'dist'}
-    with ZipFile(downloads/'curatemicrobiota-project.zip','w',ZIP_DEFLATED) as archive:
-        for p in sorted((ROOT/'project').rglob('*')):
-            rel = p.relative_to(ROOT/'project')
-            if p.is_file() and not any(x in excluded or x.endswith('.egg-info') for x in rel.parts) and p.suffix != '.pyc':
-                archive.write(p,Path('curatemicrobiota-project')/rel)
-    with ZipFile(downloads/'curatemicrobiota-complete.zip','w',ZIP_DEFLATED) as archive:
-        for p in sorted(ROOT.rglob('*')):
-            rel = p.relative_to(ROOT)
-            if not p.is_file() or any(x in excluded or x.endswith('.egg-info') for x in rel.parts) or p.suffix=='.pyc':
-                continue
-            if p.name=='curatemicrobiota-complete.zip':
-                continue
-            archive.write(p,Path('curatemicrobiota-learning')/rel)
+    project_entries = []
+    for p in sorted((ROOT/'project').rglob('*')):
+        rel = p.relative_to(ROOT/'project')
+        if p.is_file() and not any(x in excluded or x.endswith('.egg-info') for x in rel.parts) and p.suffix != '.pyc':
+            project_entries.append((p, Path('curatemicrobiota-project')/rel))
+    write_verified_archive(downloads/'curatemicrobiota-project.zip', project_entries)
+    complete_entries = []
+    for p in sorted(ROOT.rglob('*')):
+        rel = p.relative_to(ROOT)
+        if not p.is_file() or any(x in excluded or x.endswith('.egg-info') for x in rel.parts) or p.suffix=='.pyc':
+            continue
+        if p.name=='curatemicrobiota-complete.zip' or p.name.startswith('.cm-archive-'):
+            continue
+        complete_entries.append((p, Path('curatemicrobiota-learning')/rel))
+    write_verified_archive(downloads/'curatemicrobiota-complete.zip', complete_entries)
 
 
 def build(archives=True):

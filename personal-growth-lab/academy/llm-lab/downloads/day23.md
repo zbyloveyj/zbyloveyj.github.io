@@ -2,7 +2,7 @@
 
 从污染与任务指标到配对统计、标注一致性、judge校准、拒答与回归验证
 
-版本：2026.10.21.2｜建议 240 分钟，可分次完成
+版本：2026.10.21.3｜建议 240 分钟，可分次完成
 
 ## 学习目标
 
@@ -46,7 +46,7 @@ TinyGPT的下一个字节交叉熵、检索器的Recall@k、证据答案的引�
 
 ## 配对比较：两套系统必须面对同一批问题
 
-比较A与B时，先按唯一题目ID对齐，计算同题得分差，再估计总体差异。如果每个文档衍生多个问题，独立单位通常更接近来源族，应整体重采样来源族。下面先对族内改写取平均，再对来源族做等权配对bootstrap：每次抽到的族同时用于A和B，保留两系统在同题上的相关性。若分别抽A与B，或把答案句子当独立题，会改变不确定性结构。
+比较A与B时，先核验ID、两套得分和来源分组的条数一致，再按唯一题目ID对齐，计算同题得分差，再估计总体差异。如果每个文档衍生多个问题，独立单位通常更接近来源族，应整体重采样来源族。下面先对族内改写取平均，再对来源族做等权配对bootstrap：每次抽到的族同时用于A和B，保留两系统在同题上的相关性。若分别抽A与B，或把答案句子当独立题，会改变不确定性结构。
 
 示例只含六个合成来源族，因此百分位区间只是演示重采样计算，不能被解读为广泛任务上的精确保证。报告差值方向B−A、独立族数、重采样次数和区间方法；零差与同预测检查用于发现配对错误。区间覆盖零不证明两者等效，区间不覆盖零也不说明改善具有实际意义。Dror等人的原始方法论文提醒我们，检验选择需要考虑任务、指标和实验设计，而不是看到两个平均值就套一个统一统计程序。
 
@@ -56,8 +56,9 @@ def paired_group_bootstrap(ids_a, a, ids_b, b, groups, seed=42):
     if list(ids_a) != list(ids_b) or len(set(ids_a)) != len(ids_a):
         raise ValueError("paired unique question IDs must match in order")
     a, b, groups = np.asarray(a, float), np.asarray(b, float), np.asarray(groups)
-    if a.ndim != 1 or a.shape != b.shape or a.shape != groups.shape or len(a) == 0:
-        raise ValueError("shape mismatch or empty evaluation")
+    if (a.ndim != 1 or a.shape != b.shape or a.shape != groups.shape
+            or len(a) == 0 or len(ids_a) != len(a)):
+        raise ValueError("IDs, scores and groups must have matching nonempty lengths")
     if not np.all(np.isfinite(a)) or not np.all(np.isfinite(b)):
         raise ValueError("nonfinite score")
     unique = np.unique(groups)
@@ -83,6 +84,12 @@ except ValueError:
     print("misaligned IDs rejected")
 else:
     raise AssertionError("pairing was not checked")
+try:
+    paired_group_bootstrap(["q1"], [0,1], ["q1"], [1,1], ["source1","source2"])
+except ValueError:
+    print("ID / score length mismatch rejected")
+else:
+    raise AssertionError("one ID was accepted for two score pairs")
 ```
 
 ## 人工标注先有规则，再计算一致性

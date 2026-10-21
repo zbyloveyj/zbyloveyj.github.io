@@ -6,6 +6,10 @@
 # https://waldronlab.io/curatedMetagenomicData/reference/returnSamples.html
 
 args <- commandArgs(trailingOnly = TRUE)
+script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
+if (length(script_arg) != 1L) stop("Run this adapter with Rscript scripts/export_cmd.R.")
+script_path <- normalizePath(sub("^--file=", "", script_arg), mustWork = TRUE)
+source(file.path(dirname(script_path), "cmd_contract.R"))
 usage <- paste(
   "Usage:",
   "  Rscript scripts/export_cmd.R list data/cmd_catalog",
@@ -101,24 +105,21 @@ se <- curatedMetagenomicData::returnSamples(
 )
 ab <- as.matrix(SummarizedExperiment::assay(se))
 cd <- as.data.frame(SummarizedExperiment::colData(se), stringsAsFactors = FALSE, check.names = FALSE)
-if (!all(c("sample_id", "study_name") %in% names(cd))) {
-  stop("Returned colData lacks sample_id/study_name; inspect the installed package output before adapting.")
-}
-if (ncol(ab) != nrow(cd)) stop("Abundance columns and returned colData rows do not align.")
+aligned <- reconcile_cmd_samples(colnames(ab), cd, sel)
+cd <- aligned$returned
+original <- aligned$original
+keys <- aligned$keys
 if (anyDuplicated(rownames(ab))) stop("Duplicated taxonomy row names; resolve the feature mapping before export.")
 species <- grepl("(^|\\|)s__", rownames(ab)) & !grepl("(^|\\|)t__", rownames(ab))
 if (sum(species) < 4L) stop("Fewer than four species rows found. Inspect taxonomy format; this adapter does not infer a different rank.")
 ab <- t(ab[species, , drop = FALSE])
 if (any(!is.finite(ab)) || any(ab < 0)) stop("Abundance has missing, nonfinite or negative values.")
+input_species_row_sums <- summary(rowSums(ab))
 if (cfg$abundance_unit == "percent") ab <- ab / 100
 if (any(ab > 1 + 1e-6) || any(rowSums(ab) > 1.01)) {
   stop("Species abundances exceed proportion units (or duplicated ranks remain). Inspect units/taxonomy; no automatic renormalization was performed.")
 }
 if (any(rowSums(ab) <= 0)) stop("Some selected samples have no positive species abundance.")
-keys <- paste(cd$study_name, cd$sample_id, sep = "::")
-match_original <- match(keys, paste(sel$study_name, sel$sample_id, sep = "::"))
-if (anyNA(match_original) || anyDuplicated(keys)) stop("Returned metadata cannot be uniquely reconciled with the requested sample keys.")
-original <- sel[match_original, , drop = FALSE]
 sid <- as.character(original$subject_id)
 missing_now <- is.na(sid) | !nzchar(trimws(sid))
 sid[missing_now] <- paste0("UNRESOLVED_SAMPLE_", original$sample_id[missing_now])
@@ -141,6 +142,9 @@ provenance <- list(
   package_version = as.character(utils::packageVersion("curatedMetagenomicData")),
   data_type = "relative_abundance", counts = FALSE,
   input_unit = cfg$abundance_unit, output_unit = "proportion",
+  input_species_row_sum_summary = as.list(input_species_row_sums),
+  output_species_row_sum_summary = as.list(summary(rowSums(ab))),
+  sample_alignment = "Assay column IDs matched to colData row names; exact requested/returned study-sample key set required.",
   preprocessing = "Species rank only; optional fixed division by 100. No prevalence filter, train/test fitting, CLR or row renormalization.",
   samples = nrow(ab), taxa = ncol(ab), studies = as.list(studies),
   subject_id_unresolved_count = sum(missing_now),

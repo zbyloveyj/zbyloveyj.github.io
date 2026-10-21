@@ -9,8 +9,9 @@ def paired_group_bootstrap(ids_a, a, ids_b, b, groups, seed=42):
     if list(ids_a) != list(ids_b) or len(set(ids_a)) != len(ids_a):
         raise ValueError("paired unique question IDs must match in order")
     a, b, groups = np.asarray(a, float), np.asarray(b, float), np.asarray(groups)
-    if a.ndim != 1 or a.shape != b.shape or a.shape != groups.shape or len(a) == 0:
-        raise ValueError("shape mismatch or empty evaluation")
+    if (a.ndim != 1 or a.shape != b.shape or a.shape != groups.shape
+            or len(a) == 0 or len(ids_a) != len(a)):
+        raise ValueError("IDs, scores and groups must have matching nonempty lengths")
     if not np.all(np.isfinite(a)) or not np.all(np.isfinite(b)):
         raise ValueError("nonfinite score")
     unique = np.unique(groups)
@@ -36,3 +37,9 @@ except ValueError:
     print("misaligned IDs rejected")
 else:
     raise AssertionError("pairing was not checked")
+try:
+    paired_group_bootstrap(["q1"], [0,1], ["q1"], [1,1], ["source1","source2"])
+except ValueError:
+    print("ID / score length mismatch rejected")
+else:
+    raise AssertionError("one ID was accepted for two score pairs")

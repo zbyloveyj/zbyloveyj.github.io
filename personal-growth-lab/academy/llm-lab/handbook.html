@@ -5,9 +5,10 @@
 <h2>学习目标</h2><ul><li>区分语言模型、菌群丰度模型和证据检索的输入、目标及能力边界。</li><li>在独立 Python 环境运行工程，并定位实际解释器。</li><li>解释 batch、序列长度、特征维度及矩阵乘法。</li><li>手算一次梯度，并用 autograd 核对。</li><li>先定义数据划分和验收证据，再开始训练。</li></ul>
 <div class="notice mint"><strong>今日作品：</strong>环境记录：Python、PyTorch、设备和依赖版本。；一个通过断言的张量与梯度练习。；项目任务卡：输入、目标、评价、基线和结论边界。</div>
 <h3>先修准备</h3><ul><li>能建立文件夹、解压文件并使用终端。</li><li>知道 Python 变量、列表、循环和函数；不熟悉时先完成本课基础练习。</li></ul>
-<h2>这 14 个单元，最终让你能解释什么</h2>
-<p>这门课沿着一个问题推进：怎样把“读懂模型代码”变成“自己能设计并检验一个微生物模型”？前七个单元完成一个小型自回归语言模型，后七个单元把表征学习迁移到菌群丰度表，并加入基线、跨研究验证、参数高效适配与证据检索。你将亲手看到输入如何变成张量、注意力如何混合信息、梯度如何修改参数，以及模型为什么可能记住错误的线索。</p>
-<p>这里的“14 天”是十四个连续学习单元。建议每单元先做 150 分钟核心任务，再用 45 分钟完成扩展阅读；时间不足时可拆成 28 天。完成标准是能够解释自己的实现、复现实验并判断结论强弱，不能用日历天数保证掌握全部前沿技术。第一次运行尤其不追求语言流畅或预测高分，先证明数据、目标、梯度和评价流程都正确。</p>
+<h2>30 个单元，怎样逐步学会解释、实现与验证</h2>
+<p>这门课沿着一个问题推进：怎样把“读懂模型代码”变成“自己能设计并检验一个微生物模型”？全课分为14个核心单元和16个进阶单元。核心段的前七课完成一个小型自回归语言模型，后七课把表征学习迁移到菌群丰度表，并加入参数高效适配、证据检索、基线与研究级验证。你将亲手看到输入如何变成张量、注意力如何混合信息、梯度如何修改参数，以及模型为什么可能记住错误的线索。</p>
+<p>第15–24课补齐数学、语料、现代架构、训练恢复与资源预算，继续学习后训练、检索、工具、系统评价和推理部署；第25–30课深入真实微生物数据、五方法比较、研究级统计、序列模型、多模态与研究交付。先把核心流程跑通，再按知识覆盖表返回补足先修：例如第15课的数学可以提前配合第3–6课学习，第25课的组成数据可以配合第10–13课学习。所有单元都有正文、实验、阅读和验收，进阶部分同时标明哪些已实现、哪些只演示机制、哪些仍需科研扩展。</p>
+<p>这里的“单元”不等于一个自然日。核心段预计43.75小时，全课预计107小时；建议8–10周、每周约10–14小时，按已有基础调整，真实科研实验另计。每课可分成阅读推导、运行实验、复盘纠错几次完成。完成标准是能够解释实现、复现实验并判断结论强弱，不能用日历天数保证掌握全部前沿技术。第一次运行先确认数据、目标、梯度和评价流程正确。</p>
 <p>为自己建立一个学习文件夹，每天保留一份代码变化、一张结果或日志，以及一个已经弄懂的错误。最后的成果应能回答三个问题：模型实际学的是什么；现有证据支持它完成什么任务；下一步扩展需要增加哪些数据和验证。</p>
 <h2>CurateMicrobiota 的三种对象</h2>
 <p>本课程把 CurateMicrobiota 用作实战项目名称。对接的公开数据资源 curatedMetagenomicData 提供统一处理的宏基因组物种和功能表及元数据。菌群相对丰度是一行样本、一列物种的非负数值表，它本身不是自然语言，也不是原始 DNA 序列。因此不能因为采用 Transformer，就把三类模型混为同一种任务。</p>
@@ -186,7 +187,7 @@ for doc_id, ids in docs.items():
 <p>例如把同一论文的题名、摘要和数据库描述当成三条独立资料，可能重复强化一个结论。把撤回文章或评论中的反例句子无标识地拼入训练文本，也可能制造误导。今天不需要解决完整知识审计，但应记录来源 ID 与文本类型，让后面的证据模块能解释资料从哪里来。</p>
 <h2>填充、边界和损失掩码不能混用</h2>
 <p>当同一批文本长度不同，常见做法是把较短序列补到相同长度。假设两个有效长度分别为三和五，补齐后都长五。较短样本后两个位置不是真实文本，如果把它们当作普通训练目标，模型会花精力学习人工填充频率。可以给这些目标设置忽略索引，计算平均损失时只统计真实目标位置。</p>
-<p>注意力掩码解决“能看谁”，损失掩码解决“哪些预测计分”，二者不是同一个对象。padding key 不应该被当成有效上下文；被忽略的输出位置即便不计分，也不能成为其他有效位置的信息来源。因果遮罩则处理未来位置，与 padding 遮罩具有不同原因，组合时必须检查布尔约定和形状。</p>
+<p>注意力掩码解决“能看谁”，损失掩码解决“哪些预测计分”，二者不是同一个对象。padding key 不应该被当成有效上下文；padding 位置即便不计分，也不应成为其他有效位置的信息来源。需要区分 padding 与提示：response-only SFT 中，提示目标可以不计入损失，但提示内容仍应作为答案预测的合法上下文。因果遮罩则处理未来位置，与 padding 遮罩具有不同原因，组合时必须检查布尔约定和形状。</p>
 <p>一个极端情况是整行位置都被遮蔽。如果给这一行分数全部写入负无穷，再计算 softmax，可能得到非有限数值。设计数据加载时避免空有效样本，并为边界情况写出断言。主线的固定等长窗口暂时绕开 padding，但你仍应知道这些掩码存在的理由，以便后面读懂指令微调的回答区间损失。</p>
 <h2>计算 token 预算，并给数据写一张卡</h2>
 <p>设 B=4、T=32，一次训练微批次包括 128 个预测位置。若优化器更新前累积四个同样大小的微批次，有效 token 数是 512；它不表示模型获得了 512 个独立文档。相邻窗口重叠、语料重复和连续抽样都会降低独立信息量。写清统计单位，有助于后面比较训练预算。</p>
@@ -747,15 +748,17 @@ for temperature in [0.5, 1.0, 2.0]:
     print(temperature, p.tolist(), float(-(p * p.log()).sum()))</code></pre></div>
 <h2>Top-k 与 top-p 分别截断什么</h2>
 <p>Top-k按分数保留最高的一组候选，再在保留集合重新归一化采样。k小会限制选择，k大更接近原分布；不同位置的概率形状不一样，固定k可能在某些位置保留太多低可信尾部，也可能在另一些位置过度限制合理选择。工程使用分数阈值实现，同分边界会一并保留。</p>
-<p>Top-p也叫nucleus sampling，按概率从高到低排序，保留累计概率首次达到阈值p所需的最小前缀，再归一化采样。它每个位置保留的token数可以不同。达到阈值的那个候选也要保留，否则累计质量可能不足。这里p是累计概率阈值，不是“保留前p比例的词表”。</p>
+<p>Top-p也叫nucleus sampling，按概率从高到低排序，保留累计概率首次达到阈值p所需的最小前缀，再归一化采样。它每个位置保留的token数可以不同。达到阈值的那个候选也要保留，否则累计质量可能不足。这里p是累计概率阈值，不是“保留前p比例的词表”。累计概率恰好等于p时，不必再多留一项；本例约定p=1不截断，保留完整分布。</p>
 <p>当前生成CLI主线提供temperature和top-k；下面的top-p是独立扩展练习，不把不存在的--top-p参数写入命令。将它接入工程前，应与现有采样测试一起检查合法范围、至少保留一个候选和概率归一化。</p>
 <div class="code-wrap"><div class="code-head">python</div><pre><code>import torch
 def nucleus_probs(logits, p=0.9):
     if not 0 &lt; p &lt;= 1:
         raise ValueError(&#x27;p must be in (0, 1]&#x27;)
+    if p == 1:
+        return logits.softmax(dim=-1)  # 不截断完整分布。
     sorted_logits, order = logits.sort(descending=True)
     probs = sorted_logits.softmax(dim=-1)
-    remove = probs.cumsum(dim=-1) &gt; p
+    remove = probs.cumsum(dim=-1) &gt;= p
     remove[1:] = remove[:-1].clone()
     remove[0] = False
     kept = sorted_logits.masked_fill(remove, float(&#x27;-inf&#x27;)).softmax(dim=-1)
@@ -763,7 +766,20 @@ def nucleus_probs(logits, p=0.9):
     return result
 p = nucleus_probs(torch.tensor([0.4, 0.3, 0.2, 0.1]).log(), 0.65)
 assert torch.allclose(p, torch.tensor([4/7, 3/7, 0., 0.]))
-print(p)</code></pre></div>
+print(p)
+# 恰好达到阈值时，保留最小前缀；并列项的具体ID不影响项数。
+assert torch.count_nonzero(nucleus_probs(torch.zeros(2), 0.5)).item() == 1
+assert torch.count_nonzero(nucleus_probs(torch.zeros(4), 0.5)).item() == 2
+full = torch.tensor([0.4, 0.3, 0.2, 0.1])
+assert torch.allclose(nucleus_probs(full.log(), 1.0), full)
+for invalid_p in [0.0, -0.1, 1.1]:
+    try:
+        nucleus_probs(torch.zeros(2), invalid_p)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError(&#x27;invalid top-p threshold was accepted&#x27;)
+print(&#x27;top-p equality, full-distribution and range checks passed&#x27;)</code></pre></div>
 <h2>上下文裁剪与缓存，影响什么</h2>
 <p>模型只接受不超过context的位置数。当前生成实现每一步取最近64个token作为输入，重新计算窗口内全部表示；更早内容从输入中退出，因此不能期待模型无限记住开头。若提示中重要限定早已被裁掉，后续生成不再直接看到它，这是一种明确的上下文边界。</p>
 <p>KV缓存保存先前位置的键和值，减少自回归推理中重复计算，但它不会自动扩大模型学过的上下文，也不是持久知识库。缓存是否正确还涉及位置编码、窗口策略和批次管理。核心TinyGPT生成器未集成KV缓存，代码让逐步生成完全可见；进阶第24课提供独立、可执行的缓存与全量因果注意力一致性实验，并说明实际服务接入还需要验证什么。</p>
@@ -1070,6 +1086,7 @@ python -m curatemicrobiota doctor</code></pre></div>
 <h2>通过官方接口选择与导出真实样本</h2>
 <p>先安装与本机R版本对应的Bioconductor环境，再安装curatedMetagenomicData。包内sampleMetadata可用于检查study_name、sample_id、body_site等字段。先查看研究与条件分布，再选择任务；不要假定某个标签值在所有版本中含义相同。官方returnSamples函数接受筛选后的元数据和数据类型，返回带样本信息的实验对象。对于起步项目，先选粪便相对丰度与少量研究，避免直接合并体量更大的基因家族矩阵。</p>
 <p>下面是独立的接口查看示例。它列出可用研究，不代表这些研究已经被本课程下载或训练。实际导出使用工程中的scripts/export_cmd.R，按文件说明核对研究、标签映射和输出位置。官方counts=TRUE会把相对丰度乘读深并取整，因此本课程坚持counts=FALSE，不能将换算值称为原始计数。还应知道，选择少量样本仍可能下载整个对应研究资源；这会影响网络和磁盘预算，下载清单要随实验保存。</p>
+<p>对接真实资源时还要检查两个接口细节。官方returnSamples通常将sample_id转为colData行名，不能假设它仍是普通列；按丰度矩阵列名对齐，并核对没有遗漏或新增样本。counts=FALSE也不等于数值必为0–1：已核验的cMD 3源码与维护者分析使用百分数，示例配置因此设为percent并显式除以100。请阅读工程REAL_DATA.md中的固定源码与分析链接，按实际资源核验单位，不凭矩阵大小自动猜测。</p>
 <div class="code-wrap"><div class="code-head">r</div><pre><code>if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) install.packages(&quot;BiocManager&quot;)
 BiocManager::install(&quot;curatedMetagenomicData&quot;, ask = FALSE, update = FALSE)
 library(curatedMetagenomicData)
@@ -1132,6 +1149,10 @@ assert len({r[&quot;subject_id&quot;] for r in meta}) == 120</code></pre></div>
 <p>这是函数行为的官方文档，非新的研究论文；用于核对参数、数据类型和下载方式。</p><ul><li>核对counts、rownames与dataType的定义。</li><li>阅读按研究下载资源的限制与mergeData说明。</li></ul>
 <p><strong>阅读问题：</strong>counts=TRUE是否返回原始测序计数？</p><p><strong>参考思路：</strong>不是。文档说明它把相对丰度乘读深后四舍五入。</p>
 <p><strong>阅读问题：</strong>只要选十个样本就一定只下载十行数据吗？</p><p><strong>参考思路：</strong>不一定。资源以研究为单位，函数可能仍需下载整个研究资源。</p>
+<h3>cMD 3 维护者分析：从返回矩阵核对丰度单位 (2025)</h3><p><a href="https://waldronlab.io/curatedMetagenomicDataAnalyses/articles/Sex_metaanalysis_vignette.html">https://waldronlab.io/curatedMetagenomicDataAnalyses/articles/Sex_metaanalysis_vignette.html</a></p>
+<p>作为接口核验资料，检查真实分析怎样把返回的百分数转换为比例；不把API文字中的proportions直接当作数值单位保证。</p><ul><li>定位returnSamples的调用与后续asin_trans函数中的rel_ab/100。</li><li>把函数参数文档、固定提交源码与数值转换相互核对，记录你实际安装的版本。</li></ul>
+<p><strong>阅读问题：</strong>counts=FALSE是否足以保证每个值已经是0–1比例？</p><p><strong>参考思路：</strong>不够。这里的维护者分析使用返回的百分数并除以100。应按实际资源核验，显式记录原始单位和转换。</p>
+<p><strong>阅读问题：</strong>看到行和接近100，是否应自动重新归一化？</p><p><strong>参考思路：</strong>不能用重新归一化代替来源与单位核验。确认原始单位为百分数时固定除以100；保留部分物种后行和可能小于1，需保留质量信息。</p>
 <h2>练习与完整参考解答</h2>
 <h3>1. 样本A有物种X=10、Y=10；样本B有X=20、Y=10。Y的相对变化能否说明它绝对减少？</h3><p><strong>提示：</strong>分别计算总量和Y的比例。</p><p><strong>参考解答：</strong>A中Y占1/2，B中Y占1/3，但Y的绝对量都为10。相对下降不能直接解释为绝对减少，需要额外的绝对定量或明确的相对关系表述。</p>
 <h3>2. 两个文件都是240行，但行顺序不同。为什么不能直接把第二个文件的label向量接到第一个文件后？</h3><p><strong>提示：</strong>行数相等不代表对象对应。</p><p><strong>参考解答：</strong>标签可能分配给错误样本。必须用唯一sample_id精确连接并验证集合相同，之后按丰度表顺序重新排列元数据。</p>
@@ -1259,8 +1280,8 @@ print(&quot;masked-input and permutation checks passed&quot;)</code></pre></div>
 <p>核心evaluate命令实现三种比较：对数丰度加逻辑回归、随机编码器的冻结线性探针、预训练编码器的冻结线性探针。本课先完成固定划分下的表示比较。新增进阶benchmark命令进一步实现从零监督训练、预训练后全参数微调，以及逐个留出研究的五方法循环；第26–27课解释完整协议。每个外层fold使用一个轮转验证研究，不等于穷尽式嵌套交叉验证。先理解每种对照排除的替代解释，再进入更广的实验矩阵。</p>
 <h2>强基线应与问题和数据匹配</h2>
 <p>简单基线能够提醒你：复杂模型可能没有利用更多有效信息。当前对数丰度逻辑回归直接使用训练集筛选并转换的物种特征，具有较少的自由度，是合理的起步参照。随机编码器探针控制网络结构和随机投影本身的作用；预训练探针再检验无标签训练带来的变化。三种探针都只在训练标签上拟合，并用同一验证任务选择正则化强度。不要给基线保留随意默认设置，却为新模型反复调参。</p>
-<p>研究扩展应加入CLR加正则化逻辑回归、随机森林或其他适合表格数据的基线，条件允许时增加临床协变量模型、微生物加协变量模型，以及监督Transformer从零训练。每个方法有独立而可比的训练域内调参预算。CLR的伪计数、特征筛选和归一化同样需要记录。不要把这些扩展在计划表里写过，就在结果表中标成已完成；当前自动报告只包含工程确实运行的三种方法。</p>
-<div class="table-scroll"><table><thead><tr><th>比较</th><th>当前状态</th><th>回答的问题</th></tr></thead><tbody><tr><td>对数丰度 + LR</td><td>已实现</td><td>简单数值表能达到什么水平</td></tr><tr><td>随机编码器 + 冻结探针</td><td>已实现</td><td>随机结构本身是否提供信息</td></tr><tr><td>预训练编码器 + 冻结探针</td><td>已实现</td><td>无标签训练是否改善表示</td></tr><tr><td>CLR/LR、RF、协变量模型</td><td>拓展实验</td><td>其他强表格基线与混杂解释</td></tr><tr><td>监督从零、全量微调、LoRA微调</td><td>拓展实验</td><td>预训练与更新策略的独立贡献</td></tr></tbody></table></div>
+<p>研究扩展应加入CLR加正则化逻辑回归、随机森林或其他适合表格数据的基线，条件允许时增加临床协变量模型和微生物加协变量模型。监督Transformer从零训练与预训练后全参数微调已在进阶benchmark实现，第26–27课将运行五方法比较。每个方法需要独立而可比的训练域内调参预算；CLR的伪计数、特征筛选和归一化也要记录。本课evaluate报告仍是固定划分的三方法比较，进阶benchmark报告另行保存；不能把计划中的CLR/RF、协变量或菌群LoRA实验标成已完成。</p>
+<div class="table-scroll"><table><thead><tr><th>比较</th><th>当前状态</th><th>回答的问题</th></tr></thead><tbody><tr><td>对数丰度 + LR</td><td>已实现</td><td>简单数值表能达到什么水平</td></tr><tr><td>随机编码器 + 冻结探针</td><td>已实现</td><td>随机结构本身是否提供信息</td></tr><tr><td>预训练编码器 + 冻结探针</td><td>已实现</td><td>无标签训练是否改善表示</td></tr><tr><td>CLR/LR、RF、协变量模型</td><td>拓展实验</td><td>其他强表格基线与混杂解释</td></tr><tr><td>监督从零、预训练后全参数微调</td><td>进阶benchmark已实现</td><td>与冻结探针合并为五方法，见第26–27课</td></tr><tr><td>菌群编码器LoRA微调</td><td>拓展实验</td><td>与全参数更新比较适配策略；语言LoRA-SFT已另行实现</td></tr></tbody></table></div>
 <h2>受试者层面的评价与重复测量</h2>
 <p>演示数据每名受试者有两次记录，若将四十条测试记录全部视为四十个独立人，就会错误放大有效样本量。当前工程的主评价先对同一受试者两次预测概率取平均，再得到二十名受试者的指标；样本层面结果作为补充。监督训练还让每个受试者的总权重相同，避免拥有更多访视的人自动占据更大影响。聚合方式是任务定义的一部分，需要事先固定。</p>
 <p>这个规则只适合标签在受试者内稳定且目标就是受试者分类的场景。如果你要预测每次访视的状态变化，或者同一人的标签随时间改变，就不能机械平均并沿用同一个分数。应该定义时间窗口、预测时点和纵向模型，并在受试者或未来时间上划分。课程程序遇到同一人标签变化会报错，提醒你任务不满足现有假设。真实研究中，患者数量、记录数量和研究数量应该同时出现在结果说明里。</p>
@@ -1293,8 +1314,8 @@ for i, test in enumerate(studies):
 <p>打开test_subject_predictions.csv，使用独立短代码复算AUROC、AP和Brier，确认报告指标与原始预测相符。这一步比盲目扩大测试数量更有价值，因为它检查了评价单位与输出数据的关系。随后为每种方法填一行结果，并注明选择过程和样本规模。如果某个模型表现较差，解释所能支持的范围；不要从同一测试表里挑另一项较好指标作为事后主结果。</p>
 <div class="code-wrap"><div class="code-head">bash</div><pre><code>python -m curatemicrobiota evaluate --data data/demo --run runs/microbiome</code></pre></div>
 <h2>预训练收益应该用消融拆开解释</h2>
-<p>冻结预训练表示胜过随机表示，可以支持训练改变了可用信息；胜过直接丰度的强基线，才进一步说明这种表示对任务有增益。若进一步微调后变好，还要与同样预算从零监督训练比较，排除只是增加训练计算的解释。改变预训练数据量、掩码比例、身份编码、丰度编码和汇聚方式时，每次明确一个问题并保持其他条件尽量一致。没有必要为了论文形式堆几十个不能解释的消融。</p>
-<p>合理的扩展顺序是先检查当前失败，再增加目标或数据。比如均值插补已接近模型，可以比较更有信息的遮蔽方案；随机与预训练表示都差，可检查平均汇聚是否丢掉任务相关变化。真实资料中还要比较临床协变量、研究偏移和跨疾病特异性。所有这些属于下一阶段研究设计，当前CLI没有自动运行全量微调、CLR/RF和完整LOSO。写清楚已执行和待验证，才有可靠的下一步。</p>
+<p>冻结预训练表示胜过随机表示，可以支持训练改变了可用信息；胜过直接丰度的强基线，才进一步说明这种表示对任务有增益。若进一步微调后变好，还要与相同监督训练预算的从零模型比较，并单独报告预训练计算；仅让监督步数相同，不能排除额外预训练计算的影响。必要时增加总计算预算匹配的对照。改变预训练数据量、掩码比例、身份编码、丰度编码和汇聚方式时，每次明确一个问题并保持其他条件尽量一致。没有必要为了论文形式堆几十个不能解释的消融。</p>
+<p>合理的扩展顺序是先检查当前失败，再增加目标或数据。比如均值插补已接近模型，可以比较更有信息的遮蔽方案；随机与预训练表示都差，可检查平均汇聚是否丢掉任务相关变化。真实资料中还要比较临床协变量、研究偏移和跨疾病特异性。本课evaluate不包含全参数微调和留一研究循环；进阶benchmark已补上从零监督、预训练后全参数微调和五方法LOSO，采用固定轮转验证研究，仍不是穷尽内层组合的嵌套交叉验证。CLR/RF、协变量模型和菌群LoRA仍是待实现的扩展。写清楚已执行和待验证，才有可靠的下一步。</p>
 <h2>把统计结论写到它能支持的范围</h2>
 <p>最终报告至少包括样本来源、独立单位、研究划分、训练与选择规则、指标定义、置信区间范围、强基线和失败案例。使用“在本次合成固定外测中”或“在某个独立研究中”的表述，让读者知道结论的范围。不要用“显著提升”指代一个没有统计比较的数值变化，也不要把概率分数称作临床风险。科研项目的可信度来自结论与证据相匹配，而不是每张图都显示新方法最好。</p>
 <p>今天请给快速案例写三句话：重建发生了怎样的变化；下游对照发现了什么；为什么还不能推广到真实疾病。再给自己的运行写同样三句话。你可以对失败感到不满意，但应该用设计解决问题，而不是改写数字。下一课将从解释、分布外输入和不确定性继续检查：模型依赖了什么、在哪些样本上不可靠，以及哪些生物学问题还需要另外的数据与实验。</p>
@@ -1454,7 +1475,7 @@ print({&quot;original&quot;: p.tolist(), &quot;augmented&quot;: q.tolist()})
 <h3>先修准备</h3><ul><li>已经理解D1–D13各模块的输入、损失与评价方法</li><li>能够解释合成数据和真实队列的区别</li><li>准备在project目录使用新的runs/demo输出目录执行最终验收</li></ul>
 <h2>项目完成意味着能力可以被检查</h2>
 <p>到今天，你应能够把一个问题拆成数据、模型、目标、优化、推理和评价，并指出每一步实际运行的证据。CurateMicrobiota包含小型字节语言模型、答案位置监督与低秩更新实验、文献证据卡检索、菌群丰度自监督编码器以及研究和受试者隔离的评价。它们共同构成一个可以继续研究的工程原型，而不是仅靠界面呈现的概念演示。</p>
-<p>完成十四天不意味着任何人已经掌握大模型领域的全部知识，也不意味着四万参数的丰度编码器已经成为经过广泛验证的基础模型。可检查的毕业标准是：你能解释关键公式、修改并运行小实验、发现泄漏、复算指标、诚实界定结论，并独立提出下一项有效比较。今天的交付会把这些能力落实到文件和运行结果，让别人能够从入口重做，而不必依赖你的口头说明。</p>
+<p>完成十四个核心单元不意味着任何人已经掌握大模型领域的全部知识，也不意味着四万参数的丰度编码器已经成为经过广泛验证的基础模型。可检查的毕业标准是：你能解释关键公式、修改并运行小实验、发现泄漏、复算指标、诚实界定结论，并独立提出下一项有效比较。今天的交付会把这些能力落实到文件和运行结果，让别人能够从入口重做，而不必依赖你的口头说明。</p>
 <h2>端到端命令覆盖了哪些组件</h2>
 <p>在工程目录运行pipeline的quick模式，会生成新的合成数据，训练TinyGPT四十步、丰度编码器六十步，评价三种下游方法，并运行一百步低秩线性回归演示。最终汇总写到runs/demo/report.json，各组件保留自己的结果。使用新目录可以让这次验收与之前一百步的学习实验区分开，避免把不同配置的曲线与测试分数拼在同一张结果图里。</p>
 <p>快速流水线不是所有课程实验的自动合集。TinyGPT全量SFT、LoRA-SFT和DPO公式演示需要按第8天的独立命令执行；证据检索也有独立入口。真实cMD导出、完整留一研究外测、监督Transformer从零训练、全量菌群微调和DNA模型不由这条命令完成。验收表逐项写明完成方式和输出位置，不能用一个“运行成功”状态代表这些拓展研究都已执行。</p>
@@ -1469,8 +1490,8 @@ python -m curatemicrobiota.evidence --query &quot;curatedMetagenomicData relativ
 from pathlib import Path
 from curatemicrobiota.common import file_sha256
 root = Path(&quot;runs/demo&quot;)
-report = json.loads((root / &quot;report.json&quot;).read_text())
-manifest = json.loads((root / &quot;microbiome/manifest.json&quot;).read_text())
+report = json.loads((root / &quot;report.json&quot;).read_text(encoding=&quot;utf-8&quot;))
+manifest = json.loads((root / &quot;microbiome/manifest.json&quot;).read_text(encoding=&quot;utf-8&quot;))
 assert report[&quot;source_kind&quot;] == &quot;synthetic_teaching_fixture&quot;
 assert report[&quot;data&quot;][&quot;samples&quot;] == 240
 assert report[&quot;data&quot;][&quot;subjects&quot;] == 120
@@ -2787,15 +2808,16 @@ print({&quot;same_version_hit&quot;:True, &quot;new_corpus_hit&quot;:False, &quo
 <p>封闭分类可用准确率、macro-F1与类别混淆；抽取任务可用严格匹配和约定的token重叠；检索使用召回与排序指标；开放回答需要逐句事实、引用支持、完整性和约束遵循。Exact Match依赖大小写、空格、标点及同义答案的标准化规则，规则必须提前固定。中文不能无解释套用英文空格分词。文本重叠指标能提供有限参照，但无法独立判断否定关系、单位、因果范围或科学事实。</p>
 <p>为每项指标写清统计单位和分母。引用支持率可以定义为有引用的事实断言中得到来源支持的比例，引用覆盖则看需要来源的全部事实断言中有多少被支持，二者不同。无输出、格式错误、超时和工具失败要有预定义处理，不能只统计成功返回的样本。开放题允许多种正确答案时，保留可接受变体与判错条件；答得更长可能增加需要核验的断言数量，不应仅靠篇幅或语气获得高分。</p>
 <h2>配对比较：两套系统必须面对同一批问题</h2>
-<p>比较A与B时，先按唯一题目ID对齐，计算同题得分差，再估计总体差异。如果每个文档衍生多个问题，独立单位通常更接近来源族，应整体重采样来源族。下面先对族内改写取平均，再对来源族做等权配对bootstrap：每次抽到的族同时用于A和B，保留两系统在同题上的相关性。若分别抽A与B，或把答案句子当独立题，会改变不确定性结构。</p>
+<p>比较A与B时，先核验ID、两套得分和来源分组的条数一致，再按唯一题目ID对齐，计算同题得分差，再估计总体差异。如果每个文档衍生多个问题，独立单位通常更接近来源族，应整体重采样来源族。下面先对族内改写取平均，再对来源族做等权配对bootstrap：每次抽到的族同时用于A和B，保留两系统在同题上的相关性。若分别抽A与B，或把答案句子当独立题，会改变不确定性结构。</p>
 <p>示例只含六个合成来源族，因此百分位区间只是演示重采样计算，不能被解读为广泛任务上的精确保证。报告差值方向B−A、独立族数、重采样次数和区间方法；零差与同预测检查用于发现配对错误。区间覆盖零不证明两者等效，区间不覆盖零也不说明改善具有实际意义。Dror等人的原始方法论文提醒我们，检验选择需要考虑任务、指标和实验设计，而不是看到两个平均值就套一个统一统计程序。</p>
 <div class="code-wrap"><div class="code-head">python</div><pre><code>import numpy as np
 def paired_group_bootstrap(ids_a, a, ids_b, b, groups, seed=42):
     if list(ids_a) != list(ids_b) or len(set(ids_a)) != len(ids_a):
         raise ValueError(&quot;paired unique question IDs must match in order&quot;)
     a, b, groups = np.asarray(a, float), np.asarray(b, float), np.asarray(groups)
-    if a.ndim != 1 or a.shape != b.shape or a.shape != groups.shape or len(a) == 0:
-        raise ValueError(&quot;shape mismatch or empty evaluation&quot;)
+    if (a.ndim != 1 or a.shape != b.shape or a.shape != groups.shape
+            or len(a) == 0 or len(ids_a) != len(a)):
+        raise ValueError(&quot;IDs, scores and groups must have matching nonempty lengths&quot;)
     if not np.all(np.isfinite(a)) or not np.all(np.isfinite(b)):
         raise ValueError(&quot;nonfinite score&quot;)
     unique = np.unique(groups)
@@ -2820,7 +2842,13 @@ try:
 except ValueError:
     print(&quot;misaligned IDs rejected&quot;)
 else:
-    raise AssertionError(&quot;pairing was not checked&quot;)</code></pre></div>
+    raise AssertionError(&quot;pairing was not checked&quot;)
+try:
+    paired_group_bootstrap([&quot;q1&quot;], [0,1], [&quot;q1&quot;], [1,1], [&quot;source1&quot;,&quot;source2&quot;])
+except ValueError:
+    print(&quot;ID / score length mismatch rejected&quot;)
+else:
+    raise AssertionError(&quot;one ID was accepted for two score pairs&quot;)</code></pre></div>
 <h2>人工标注先有规则，再计算一致性</h2>
 <p>制定评分规程时，用具体例子说明“正确”“部分正确”“缺证”“与来源矛盾”和“无法判断”。先让两位标注者独立审查一小批材料，记录分歧，再改进规则；正式保留集开始后固定规程，原始独立标签与后续裁决标签都要保存。标注者应尽量不知道系统名称与开发者预期，以减少品牌、文风或作者身份影响。分歧不是必须隐藏的噪声，它可能揭示题目歧义或证据不充分。</p>
 <p>Cohen kappa适用于两位标注者的类别标签，κ=(p_o−p_e)/(1−p_e)，其中p_o为观察一致率，p_e由两人的类别边际分布估计机会一致。下面与scikit-learn官方实现核对。所有人都只用一个类别时，分母可能为零，应报告不适用而不是机械填满分。类别极不平衡会影响kappa，所以应同时报告原始一致率、混淆表、样本量和分歧类型；不使用脱离任务的万能“合格阈值”。</p>
@@ -3118,9 +3146,9 @@ print(report)
 <p>prevalence过滤应在训练分区拟合，并记录分母是样本、受试者还是研究；拥有多次访视的人可能影响样本级出现率。可比较按受试者汇总的筛选规则，但不能为了让外部研究表现更好而查看测试标签后筛选。对每个研究汇报零比例、缺失比例、保留质量与测序相关信息，能帮助定位问题。删除全零特征、填补缺失和改变检测阈值是三个不同动作，应分别留下记录。</p>
 <h2>相对丰度不能恢复绝对微生物负荷</h2>
 <p>相对丰度是组成：分量描述彼此的比例，总量被约束或归一化。两个样本可以有完全相同的比例，却具有不同的绝对微生物数量；单个分量比例上升也可能来自其他分量减少。观察到比例变化时，结论应写清相对参考关系，而不是直接说某个物种绝对扩增。若研究目标需要绝对负荷，需要相应的额外测量与校正设计。</p>
-<p>cMD的returnSamples官方说明将counts=TRUE定义为相对丰度乘以read depth后取整。这是换算数值，不能自动当作最初比对到某物种的原始读段计数。比例、百分数、归一化功能丰度和原始计数也不能混在同一损失里。课程默认比例输入，只对元素做log1p和训练集标准化；它保留了工程可检查性，但并不宣称从此解决所有组合统计问题。</p>
+<p>cMD的returnSamples在counts=TRUE时，按已核验源码将资源中的百分数丰度除以100、乘以read depth后取整；counts=FALSE保留相对丰度，仍须按版本核验数值单位，见第10课的官方分析导读。这是换算数值，不能自动当作最初比对到某物种的原始读段计数。比例、百分数、归一化功能丰度和原始计数也不能混在同一损失里。课程默认比例输入，只对元素做log1p和训练集标准化；它保留了工程可检查性，但并不宣称从此解决所有组合统计问题。</p>
 <h2>CLR与ILR：转换的是相对关系</h2>
-<p>对严格正的D维组成x，CLR把每个分量的对数减去全体对数均值，即与几何平均的对数比。其分量之和为零，因此D个坐标实际位于D−1维子空间，协方差具有相应秩约束。ILR进一步选用这个子空间的一组正交归一基，得到D−1个独立坐标。不同合法基会给出不同坐标解释，但都可以保留同一组合几何结构。</p>
+<p>对严格正的D维组成x，CLR把每个分量的对数减去全体对数均值，即与几何平均的对数比。其分量之和为零，因此D个坐标实际位于D−1维子空间，协方差具有相应秩约束。ILR进一步选用这个子空间的一组正交归一基，得到D−1个无冗余坐标；基向量正交不保证这些坐标在观测数据中统计独立或互不相关。不同合法基会给出不同坐标解释，但都可以保留同一组合几何结构。</p>
 <p>下面以三个分量演示两个平衡坐标、CLR与ILR往返以及整体尺度不变性。基向量和特征顺序必须随模型保存；改了物种集合却继续使用旧基，会改变含义。ILR维度少一不代表它自动比其他表示预测更好，解释某个平衡也要说明分子与分母对应哪些分类单元。零不能直接取对数，例子后半部分专门展示加入不同伪计数后的敏感性。</p>
 <pre class="equation">clr(x)_j = log x_j − (1/D)Σ_k log x_k；ilr(x)=clr(x)V，VᵀV=I且Vᵀ1=0</pre>
 <div class="code-wrap"><div class="code-head">python</div><pre><code>import numpy as np
@@ -3366,7 +3394,7 @@ print(rows)
 print(&quot;macro study AUROC&quot;, np.mean([r[&quot;test_auc&quot;] for r in rows]))</code></pre></div>
 <h2>现有benchmark采用可检查的简化协议</h2>
 <p>工程的五方法benchmark依次留出每个研究测试，以排序中的下一研究作为验证，其余研究训练。每折分别拟合预处理、无标签编码器、冻结探针和监督网络；验证用于选择C或检查点，测试不参与选择。这个安排是真实执行的外层留一研究加固定轮转验证，没有穷尽所有内层研究组合。应沿用其准确名称，而不是把“每折有验证集”写成完整嵌套调参。</p>
-<p>命令默认可以运行六折和两个种子，报告full_loso说明是否覆盖全部研究。使用--max-folds 2时只完成局部流程检查，不能汇报成六队列外测。不同方法的下游监督步数相同，但预训练方法额外使用无标签计算，比较时同时报告这部分预算。真实研究可以扩展内层验证与基线搜索，不过新增选择必须发生在训练域，不能在看到外层结果后反复挑选最有利配置。</p>
+<p>命令默认可以运行六折和两个种子，报告full_loso说明是否覆盖全部研究。使用--max-folds 2时只完成局部流程检查，不能汇报成六队列外测。从零监督与预训练后全参数微调两臂使用相同的监督训练步数；逻辑回归及冻结探针则在验证集上选择正则化C，并不使用这一梯度步数预算。预训练方法额外使用无标签计算，比较时同时报告这部分预算；相同监督步数不等于相同总计算量。真实研究可以扩展内层验证与基线搜索，不过新增选择必须发生在训练域，不能在看到外层结果后反复挑选最有利配置。</p>
 <div class="code-wrap"><div class="code-head">bash</div><pre><code>python -m curatemicrobiota.benchmark --data data/demo --out runs/loso --pretrain-steps 40 --supervised-steps 40 --seeds 42 43</code></pre></div>
 <h2>六折实测：更完整的对照仍没有让预训练获胜</h2>
 <p>课程已实际运行六个外层合成研究、两个种子42与43，每折四十步自监督和四十步监督。先对同一研究的两个种子AUROC求平均，再对六个研究等权平均：逻辑回归0.828333，随机冻结0.745833，预训练冻结0.727500，从零监督0.554167，预训练后微调0.566667。所有数字来自实际report.json，不是教学目标分数。</p>
