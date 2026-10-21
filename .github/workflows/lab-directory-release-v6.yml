@@ -1,0 +1,51 @@
+name: Materialize reviewed lab directory v6
+on:
+  push:
+    branches: [labs-research-20261021-v6-stage]
+    paths:
+      - '.github/workflows/lab-directory-release-v6.yml'
+      - '.github/lab-directory/release-v6-checksums.json'
+      - 'personal-growth-lab/academy/data/labs.json.gz'
+permissions:
+  contents: write
+concurrency:
+  group: lab-directory-release-v6
+  cancel-in-progress: false
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify reviewed bytes and materialize canonical JSON
+        run: |
+          python - <<'PYCODE'
+          import gzip,hashlib,json
+          from pathlib import Path
+          d=Path('personal-growth-lab/academy/data')
+          checks=json.loads(Path('.github/lab-directory/release-v6-checksums.json').read_text())
+          previous=json.loads((d/'labs.json').read_bytes())
+          raw=gzip.decompress((d/'labs.json.gz').read_bytes())
+          sources=gzip.decompress(Path('.github/lab-directory/lab-sources-v6.json.gz').read_bytes())
+          assert len(raw)==checks['dataBytes'] and hashlib.sha256(raw).hexdigest()==checks['dataSha256']
+          assert len(sources)==checks['sourceBytes'] and hashlib.sha256(sources).hexdigest()==checks['sourceSha256']
+          revised=json.loads(raw);manifest=json.loads(sources)
+          assert revised['edition']==checks['version']==manifest['edition']
+          assert len(revised['labs'])==checks['total']
+          assert {l['id'] for l in previous['labs']}.issubset({l['id'] for l in revised['labs']})
+          assert previous['edition'] in [checks['previousVersion'],checks['version']]
+          (d/'labs.json').write_bytes(raw);(d/'lab-sources.json').write_bytes(sources)
+          print('Verified and materialized',len(revised['labs']),'public records')
+          PYCODE
+      - name: Validate data and compression
+        run: python personal-growth-lab/academy/tools/test_labs.py
+      - name: Commit only canonical public data to staging branch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add personal-growth-lab/academy/data/labs.json personal-growth-lab/academy/data/lab-sources.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data(academy): materialize reviewed v6 directory'
+            git push origin HEAD:labs-research-20261021-v6-stage
+          fi

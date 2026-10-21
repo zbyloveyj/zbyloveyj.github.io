@@ -6,9 +6,10 @@
   <title>全球科研团队导航 · 成长学院</title>
   <meta name="description" content="全球导师与研究团队长期候选库。覆盖微生物组、计算精神病学、医学人工智能、脑科学、计算生物学和多组学；按问题、方法、疾病、数据和研究设计交叉筛选，比较七项来源证据并建立个人关注名单。">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/labs.css?v=20261021-visual-v5">
-  <script defer src="assets/lab-model.js?v=20261021-global-v4"></script>
-  <script defer src="assets/labs.js?v=20261021-global-v4"></script>
+  <link rel="stylesheet" href="assets/labs.css?v=20261021-research-v6">
+  <script defer src="assets/lab-model.js?v=20261021-research-v6"></script>
+  <script defer src="assets/lab-discovery.js?v=20261021-research-v6"></script>
+  <script defer src="assets/labs.js?v=20261021-research-v6"></script>
 </head>
 <body>
 <a class="skip" href="#catalog">跳到课题组名单</a>
@@ -44,6 +45,7 @@
         <label>必须有哪项证据<select id="dimension-filter"><option value="">不限证据维度</option></select></label>
         <label>已整理证据维度数<select id="min-evidence"><option value="">不限</option><option value="3">至少3项 / 7项</option><option value="5">至少5项 / 7项</option><option value="7">7项均有资料</option></select></label>
         <label>我的准备阶段<select id="stage-filter"><option value="">全部阶段</option></select></label>
+        <label>我的复查计划<select id="review-filter"><option value="">不限复查时间</option><option value="due">已到复查日期</option><option value="week">未来7天内（含到期）</option><option value="planned">已有复查日期</option></select></label>
         <label>能力衔接层级<select id="tier"><option value="">全部层级</option></select></label>
         <label>接收机会（附加信息）<select id="status"><option value="">全部候选</option></select></label>
       </div>
@@ -57,14 +59,23 @@
     <div id="preference-controls" class="preference-controls"></div>
     <div class="match-actions"><button id="apply-match" type="button">按这些标准排序</button><button id="clear-match" type="button">清空匹配标准</button><span id="match-summary" class="small"></span></div>
   </details>
+  <details id="saved-views-panel" class="saved-views-panel">
+    <summary>我的筛选方案 <span>保存不同国家、方向和匹配标准，下次一键继续</span></summary>
+    <div class="save-view-controls"><label>方案名称<input id="view-name" maxlength="60" placeholder="例如：欧洲微生物组 · 联合培养" autocomplete="off"></label><button type="button" id="save-view">保存当前筛选</button></div>
+    <p class="small" id="views-status" role="status"></p><div id="saved-views" class="saved-views"></div>
+    <p class="small">方案保存在当前浏览器，使用时重新筛选本库最新数据；它不自动访问导师网站。方案随“我的名单”一起导出和导入。</p>
+  </details>
   <div id="evidence-summary" class="evidence-summary"></div>
   <p id="expansion-summary" class="expansion-summary"></p>
   <details id="coverage-panel" class="coverage-panel">
     <summary>查看各研究方向的覆盖深度 <span>收录范围 · 研究说明 · 方法标签</span></summary>
     <p class="small">研究依据包括官方目录中的个人简介或明确专题分组，深度须结合证据等级判断；有方法标签也不代表已审阅全部论文。方向相互交叉，数量不能相加；缺少标签表示尚未整理。机构数按本库机构 / 研究单元归类计算。</p>
+    <label class="coverage-scope">统计范围<select id="coverage-scope"><option value="all">整个导师库</option><option value="filtered">当前筛选结果</option></select></label>
+    <p id="coverage-context" class="small"></p>
     <div id="topic-coverage" class="table-scroll" tabindex="0" aria-label="方向覆盖表，可横向滚动"></div>
   </details>
   <div class="results-line"><p id="result-count" role="status" aria-live="polite"></p><div class="results-actions"><button id="share-view" type="button">复制筛选链接</button><button id="export-results" type="button">导出筛选结果 CSV</button></div></div>
+  <div id="filtered-coverage" class="filtered-coverage" aria-label="当前结果的资料覆盖程度"></div>
   <div id="active-filters" class="active-filters"></div>
   <p class="compare-help">可跨页选择至多4组比较研究问题、方法、成果、资源、转化、合作与培养路径。资料覆盖程度不等于科研水平。</p>
   <div id="cards" class="cards"><p>正在加载…</p></div>
@@ -79,6 +90,7 @@
 <section id="notebook" class="section notebook">
   <div><p class="eyebrow">04 / YOUR LONG-TERM SHORTLIST</p><h2>留下值得继续了解的人</h2><p>点卡片上的收藏，在详情里记录准备阶段与阅读笔记。记录保存在当前浏览器；换设备或清理浏览器前，请导出备份。</p></div>
   <div class="notebook-tools"><p id="notebook-status" role="status"></p><div><button type="button" id="show-saved">查看我的收藏</button><button type="button" id="export-notebook">导出名单与笔记</button><label class="file-button">导入备份<input type="file" id="import-notebook" accept="application/json,.json"></label></div><p class="small">导入按每条记录的修改时间合并，保留较新版本。笔记不上传，也不进入公共筛选CSV或分享链接。</p></div>
+  <div class="review-agenda"><div class="agenda-heading"><div><h3>下一步与复查清单</h3><p>在导师详情中记录下一步任务和复查日期，安排读论文、核对资格或查看团队近况。</p></div><label>查看计划<select id="agenda-filter"><option value="due">已到复查日期</option><option value="week">未来7天内（含到期）</option><option value="planned">所有有日期的计划</option><option value="tasks">所有下一步任务</option></select></label></div><p id="agenda-status" class="small" role="status"></p><div id="agenda-list"></div><button type="button" id="agenda-more" hidden>再显示8条计划</button><p class="small">日期按当前设备的当地日期计算。提醒在打开页面时显示，下一步任务和日期仅保存在你的私人备份中。</p></div>
 </section>
 <section id="sources" class="section">
   <div class="section-heading"><p class="eyebrow">05 / TRACEABLE INSTITUTIONAL SOURCES</p><h2>从机构目录继续探索</h2><p>下方是实际用于收录的官方目录。数量按本库当前收录计算，同一PI的跨机构任职合并显示；个人研究来源在各自卡片中。</p></div>
