@@ -120,6 +120,9 @@ class EvidenceTests(unittest.TestCase):
         self.assertFalse(any(l['country']=='中国香港' for l in labs))
         ucl=[l for l in labs if l['institution']=='University College London' or l['institution'].startswith('University College London ·')]
         self.assertEqual({l['institutionKey'] for l in ucl},{'UCL'})
+        bowang=next(l for l in labs if l['name']=='Bo Wang')
+        self.assertIn('AI虚拟细胞（AIVC）',bowang['directions'])
+        self.assertFalse(any('AI虚拟细胞' in l['directions'] for l in labs))
 
     def test_same_name_can_be_different_people(self):
         # Westlake explicitly lists two different Jian Yang research pages.

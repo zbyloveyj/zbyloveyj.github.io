@@ -65,6 +65,7 @@ DOMAIN_PARENTS={
  '土壤微生物组':['微生物组'],'植物微生物组':['微生物组'],'人工智能与精神病学':['医学人工智能']
 }
 ALIASES['methods'].update({'动态因果模型':'动态因果建模','行为计算建模':'计算建模','神经生理学':'神经电生理','电生理':'神经电生理','临床队列研究':'队列研究','动物疾病建模':'动物疾病模型','机制实验':'机制研究'})
+ALIASES['domains']['AI虚拟细胞']='AI虚拟细胞（AIVC）'
 ALIASES['diseases'].update({'ADHD':'注意缺陷多动障碍','PTSD':'创伤后应激障碍','焦虑症':'焦虑障碍','双相情感障碍':'双相障碍'})
 ALIASES['modalities'].update({'行为任务':'行为数据','行为':'行为数据','知觉行为任务':'行为数据','认知任务':'行为数据','脑影像':'神经影像','电生理':'神经电生理','全切片病理':'病理影像','组织病理':'病理影像','蛋白组':'蛋白质组','代谢数据':'代谢组','多模态医学影像':'医学影像','可穿戴设备':'可穿戴数据','可穿戴活动记录':'可穿戴数据'})
 ALIASES['studyDesigns'].update({'机制实验':'机制研究','动物研究':'动物实验','临床前实验':'临床前研究','临床观察':'观察性研究','临床观察研究':'观察性研究','观察研究':'观察性研究','人群队列':'队列研究','前瞻性队列研究':'前瞻性队列','前瞻性纵向队列':'前瞻性队列','临床人群研究':'人类研究','人群研究':'人类研究'})
@@ -213,7 +214,7 @@ def main():
         parents=[p for d in l['directions'] for p in DOMAIN_PARENTS.get(d,[])]
         if '代谢组学' in l['facets']['methods'] or any(v in l['facets']['modalities'] for v in ('代谢组','脂质组')):parents.append('代谢组学')
         l['directions']=unique(l['directions']+parents);l['facets']['domains']=l['directions'][:]
-        if parents:l['taxonomyNote']='上位方向依据细分研究主题归类；代谢组学也包含明确使用代谢组或脂质组数据的交叉团队。具体研究重点以个人介绍为准。'
+        if parents:l['taxonomyNote']='上位方向依据细分研究主题归类。'+('代谢组学也包含明确使用代谢组或脂质组数据的交叉团队。' if '代谢组学' in parents else '')+'具体研究重点以个人介绍为准。'
         for record in [l]+l.get('affiliations',[])+l.get('formerAffiliations',[])+l['sources']:
             if record.get('country')=='中国香港':record['country']='中国（香港）'
         for affiliation in [l]+l.get('affiliations',[]):
