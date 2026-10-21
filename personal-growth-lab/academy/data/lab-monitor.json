@@ -1,529 +1,2254 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-21T00:04:13+00:00",
-  "meaning": "网页可访问性和正文哈希巡检；不等于科研事实或招聘资格复核。",
+  "checkedAt": "2026-10-21T00:40:28+00:00",
+  "meaning": "每日巡检官方目录与详细证据；个人资料按最早检查时间分批轮巡。仅检查可访问性和正文变化，不等于科研事实或招生招聘资格复核。",
+  "batch": {
+    "checked": 240,
+    "prioritySources": 144,
+    "rotatingProfiles": 96,
+    "knownSources": 2264,
+    "neverChecked": 2024
+  },
   "sources": {
+    "https://aertslab.sites.vib.be/en": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "ebeb6499a3d1ceb486daed7b79663908675fa8810895ee4712c5828296442481",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "ebeb6499a3d1ceb486daed7b79663908675fa8810895ee4712c5828296442481",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://appel.weill.cornell.edu/labs/wu-laboratory": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f5caafaa321f8d969fdd47a8944b341189c1980cd48d6c15bfc08d07ec4d3143",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f5caafaa321f8d969fdd47a8944b341189c1980cd48d6c15bfc08d07ec4d3143",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/arcelab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "0fe3cb965b52824116b788d38934e0e3cf324d0811201d14faff7e387a627866",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "0fe3cb965b52824116b788d38934e0e3cf324d0811201d14faff7e387a627866",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/gilbertlab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "5a2a54f05183ab8c6a667c1c61a30849e8d6ebbfd9a462eeba94fc5e53d9b74e",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "5a2a54f05183ab8c6a667c1c61a30849e8d6ebbfd9a462eeba94fc5e53d9b74e",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/goodarzilab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "7f3385d115a680bc0884d7b4f343c2c297cb32f4f599879fa5cbb713aba045db",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "7f3385d115a680bc0884d7b4f343c2c297cb32f4f599879fa5cbb713aba045db",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/hielab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "98ac07b3a40af5b5bc0e01817b727dc8e51c6658b2eea21f712d2453caf1a955",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "98ac07b3a40af5b5bc0e01817b727dc8e51c6658b2eea21f712d2453caf1a955",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/hornslab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "e16d3b09549ed3617f11021fa9a53aa16b042060e4af40ff5b8e6a749b73b594",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "e16d3b09549ed3617f11021fa9a53aa16b042060e4af40ff5b8e6a749b73b594",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/hsulab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "b98d43482f7c4727804ef2fbd52c585385d201a8821930c98361ab9312cab1c6",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "b98d43482f7c4727804ef2fbd52c585385d201a8821930c98361ab9312cab1c6",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/jainlab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "a62d043bb07489d47fb3ee82b9adaafa0a18e5c197f6d269400aaff7d9ae3838",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "a62d043bb07489d47fb3ee82b9adaafa0a18e5c197f6d269400aaff7d9ae3838",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/konermannlab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "d38ee818be8bdd2ebb2b47e60f84a5a69058b08055b6a89a6c7320450b744b8c",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "d38ee818be8bdd2ebb2b47e60f84a5a69058b08055b6a89a6c7320450b744b8c",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/levylab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f402f2d285f79a0c3fd648b442f28cccd30f597a4e140f04300cc885baa3fd88",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f402f2d285f79a0c3fd648b442f28cccd30f597a4e140f04300cc885baa3fd88",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/lilab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "c8612185a4e9bc2ddf4ca9c4b4401126d5c1e4a630a64ac5ee4e8719e04b7f90",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "c8612185a4e9bc2ddf4ca9c4b4401126d5c1e4a630a64ac5ee4e8719e04b7f90",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/medohlab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "ad4afa68592daa566036a5b32648e986c7836028748ca4c0c6667689568a9f05",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "ad4afa68592daa566036a5b32648e986c7836028748ca4c0c6667689568a9f05",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/pluvinagelab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "0b241abbce7c7ed96f2db8d7e9a65fbff141575f0ed4db218f2855175c15de36",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "0b241abbce7c7ed96f2db8d7e9a65fbff141575f0ed4db218f2855175c15de36",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/labs/zhoulab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "3bd52fe918fa31fe45a7403a45da6d219736c7d357be1575bd621035c3a493c9",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "3bd52fe918fa31fe45a7403a45da6d219736c7d357be1575bd621035c3a493c9",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/news/hani-goodarzi-virtual-cell-quest": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "27ce8260744c24131ec244118560569a6f38f9c6199006093e14fc6c73828934",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "27ce8260744c24131ec244118560569a6f38f9c6199006093e14fc6c73828934",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://arcinstitute.org/team": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "a70c47bddae344aa45270f03742600d29ef0681973693b8c07cbcfc4b62af50b",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "a70c47bddae344aa45270f03742600d29ef0681973693b8c07cbcfc4b62af50b",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://barrettlab.eu/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "11cceaa8711d85fc2a8e26640da0c38c3fd92b62d30fa332b04f917e5f202afd",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "11cceaa8711d85fc2a8e26640da0c38c3fd92b62d30fa332b04f917e5f202afd",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "4ef44276a25c4788131530b18be34d4530acf4dd07fd97afac13eef22952bbaa",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "4ef44276a25c4788131530b18be34d4530acf4dd07fd97afac13eef22952bbaa",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/109": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "24b335cd31c0bff2761cf0d7f4ac4f062403ce7e93917d4ea721e491b45aadef",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "24b335cd31c0bff2761cf0d7f4ac4f062403ce7e93917d4ea721e491b45aadef",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/110": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "6fb042ea137916471cac7377c4ba32e3faa24a4360c5620f88caeec31e40c24c",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "6fb042ea137916471cac7377c4ba32e3faa24a4360c5620f88caeec31e40c24c",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/111": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "17109897a03a474ea1fcce35ea132689715eeaee32839022c0f98c4e80e0dd31",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "17109897a03a474ea1fcce35ea132689715eeaee32839022c0f98c4e80e0dd31",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/112": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "4fa894b6ad6bfcdc97e0b23e7b2198caf799be594136b1eabc18ced2472ea302",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "4fa894b6ad6bfcdc97e0b23e7b2198caf799be594136b1eabc18ced2472ea302",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/113": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "c2f1be29ac2b5eb15bfc34d69e52a472ecfe6d34bd3301b203a14fb58c3ffd5d",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "c2f1be29ac2b5eb15bfc34d69e52a472ecfe6d34bd3301b203a14fb58c3ffd5d",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/114": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "a8eb635ce925d77eeeb3f4456fd3e21f22c280fea93da762a084bd40b75ecd12",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "a8eb635ce925d77eeeb3f4456fd3e21f22c280fea93da762a084bd40b75ecd12",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/115": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "db2d79d5139a171d61a71dabb4b553a8549b6021461295d3c6e99c7da119ebd9",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "db2d79d5139a171d61a71dabb4b553a8549b6021461295d3c6e99c7da119ebd9",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/116": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "905b6fef7c564e9bc6c8e378356b45553175b6bba8d267d403898a508e33d86c",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "905b6fef7c564e9bc6c8e378356b45553175b6bba8d267d403898a508e33d86c",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/117": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "e3858e44a7e0a6020dc0658323c4abf355b2a4afd033d6f283eb119ef6ae8523",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "e3858e44a7e0a6020dc0658323c4abf355b2a4afd033d6f283eb119ef6ae8523",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/118": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "9c194aeec9eed296db677ab192a6a7fb61ccbf1cb8a29ce8c81ed93c407c1cf8",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "9c194aeec9eed296db677ab192a6a7fb61ccbf1cb8a29ce8c81ed93c407c1cf8",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/192": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "3316ad3b99d65b65e6b05a3c1d905fc1979866c841b42c1a76ad42118a94f66d",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "3316ad3b99d65b65e6b05a3c1d905fc1979866c841b42c1a76ad42118a94f66d",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/193": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f6a297da0a51b545c92b47500ecb807809598b9a113c2ee2628e058ac0b6533f",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f6a297da0a51b545c92b47500ecb807809598b9a113c2ee2628e058ac0b6533f",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/194": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "75355e8760f3e2a535de5f9dd857ec7ae8194904634d035be157898087c49732",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "75355e8760f3e2a535de5f9dd857ec7ae8194904634d035be157898087c49732",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/197": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "524f0dea42ade37833a18e036e99273e12265f43615beb6c6295c065b7d3250e",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "524f0dea42ade37833a18e036e99273e12265f43615beb6c6295c065b7d3250e",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/227": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "cfb498ac621ad99bc04a03ae2871d62364740e1a779a75e9d2f24f0f9e23db9b",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "cfb498ac621ad99bc04a03ae2871d62364740e1a779a75e9d2f24f0f9e23db9b",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/235": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "fd11bb50bddbdc2337fe073f3dd392006f0706a03989eb8e7feb20d85176548c",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "fd11bb50bddbdc2337fe073f3dd392006f0706a03989eb8e7feb20d85176548c",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/267": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "1f2f819e516788708d95565e698d2288daac816ea4f5022eaec0a01335a2694e",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "1f2f819e516788708d95565e698d2288daac816ea4f5022eaec0a01335a2694e",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/268": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "d15e259e4a157cb00d88a2425ccc773a3d32695f4d046c849761e1a334083667",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "d15e259e4a157cb00d88a2425ccc773a3d32695f4d046c849761e1a334083667",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/269": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "89b1418660e0c505e7e92cff3a6466fb059e6378913f2629ee192a78f679f52f",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "89b1418660e0c505e7e92cff3a6466fb059e6378913f2629ee192a78f679f52f",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.kaist.ac.kr/sub020101/view/id/294": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "8175e71893fe58818ddc41c0820463ebf7992f4bbe1e7411b2a0562210ea2730",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "8175e71893fe58818ddc41c0820463ebf7992f4bbe1e7411b2a0562210ea2730",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/alan-pradip-jasanoff": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "070788be44ab34acd9319f823e8cefd81d1319b01a89037ac22939eee55d5c0b",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "070788be44ab34acd9319f823e8cefd81d1319b01a89037ac22939eee55d5c0b",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/alexander-rakhlin": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "348689823194998ce3b70ab18b3c462f4066017ef1c3e8770c71f538d4e1531c",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "348689823194998ce3b70ab18b3c462f4066017ef1c3e8770c71f538d4e1531c",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/ann-m-graybiel": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f484239fb0231dfc5d59af514f6154683aa805f725d53e297334c0429a25248a",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f484239fb0231dfc5d59af514f6154683aa805f725d53e297334c0429a25248a",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/brandon-weissbourd": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "213c6ccb78bba5bfd74dbb81511943c2fd3e8405c192ee1f7f36b1753e3ce0e1",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "213c6ccb78bba5bfd74dbb81511943c2fd3e8405c192ee1f7f36b1753e3ce0e1",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/drazen-prelec": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "c75ad70043439b51eece8693b669c609f0992c44119559dc676d4ef405dd44bf",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "c75ad70043439b51eece8693b669c609f0992c44119559dc676d4ef405dd44bf",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/earl-k-miller": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "5860608c7e68341cb3c7879b4be73e8ea682478389cd90984dd3ddec87f9c788",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "5860608c7e68341cb3c7879b4be73e8ea682478389cd90984dd3ddec87f9c788",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/edward-gibson": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "a27b5927c6339be78c21b3a849487464d403a1630a9287bea9e97429055f068b",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "a27b5927c6339be78c21b3a849487464d403a1630a9287bea9e97429055f068b",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/edward-h-adelson": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "573ac384b77640a6496f76107b431d2efa4753e0fb28dd919b8817f0b57e15e4",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "573ac384b77640a6496f76107b431d2efa4753e0fb28dd919b8817f0b57e15e4",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/edward-stuart-boyden": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "6efaae099f22c43c64acffadeda1a38d0660ae4a1b843dcc80caa72cddf90d76",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "6efaae099f22c43c64acffadeda1a38d0660ae4a1b843dcc80caa72cddf90d76",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/elly-nedivi": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "5832e5122032468db8678f0f108510dd2b15bc40eb4c083990feba702383555e",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "5832e5122032468db8678f0f108510dd2b15bc40eb4c083990feba702383555e",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/evelina-fedorenko": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "c93f966e8271c1be6aaaa3fa6a31a1a3ade2d67fe8794856c35e95403a16f4e7",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "c93f966e8271c1be6aaaa3fa6a31a1a3ade2d67fe8794856c35e95403a16f4e7",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/fan-wang": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "bf644de19cbb3f5be570527289d70fab3954b912ff47aa3a50f4639b6afdee54",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "bf644de19cbb3f5be570527289d70fab3954b912ff47aa3a50f4639b6afdee54",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/feng-zhang": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "5fe2ac23da886b4a02569699bd6e03c896a1f37a326fe8accc75262d59714894",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "5fe2ac23da886b4a02569699bd6e03c896a1f37a326fe8accc75262d59714894",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/gloria-choi": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f04cbd0c7b87d11add21b9ef26a37ebc3699077f672a449e49e46a9c280f4d16",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f04cbd0c7b87d11add21b9ef26a37ebc3699077f672a449e49e46a9c280f4d16",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/guoping-feng": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f72915d04d524d63e6692738346abdc106c4ccfd12df1970e02dc61f822a60a7",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f72915d04d524d63e6692738346abdc106c4ccfd12df1970e02dc61f822a60a7",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/ila-fiete": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "582fdbfe5ffef19bf91f44cc47f5838f69570f75fa336f1fa1a18838885d0661",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "582fdbfe5ffef19bf91f44cc47f5838f69570f75fa336f1fa1a18838885d0661",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/james-dicarlo": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "546dd37cf3a298b38178cf0f1af77a96780117ba859420c1f9548da0961f0f63",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "546dd37cf3a298b38178cf0f1af77a96780117ba859420c1f9548da0961f0f63",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/john-d-e-gabrieli": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "2de8668ce11617e624a6e4a9e84322cac5de13371674e9aa42f110b6960ce24d",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "2de8668ce11617e624a6e4a9e84322cac5de13371674e9aa42f110b6960ce24d",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/josh-mcdermott": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "04c9148681eb222638e9418c10d7862b81d7d1cb71c3b34fe2d558de3271ae12",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "04c9148681eb222638e9418c10d7862b81d7d1cb71c3b34fe2d558de3271ae12",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/joshua-b-tenenbaum": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "1365680da389f782e3af0e94dae90188c2d58665fe422af84ed0e832b1f22dc4",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "1365680da389f782e3af0e94dae90188c2d58665fe422af84ed0e832b1f22dc4",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/kwanghun-chung": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f85130de04732be53d8efecbac379c8e34f754bdd756bac5e1c4a372859da15d",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f85130de04732be53d8efecbac379c8e34f754bdd756bac5e1c4a372859da15d",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/laura-e-schulz": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "393c2903227ad626fd879ddaf4ae96837eee218cab0b1b5b261eefa5cc43caa7",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "393c2903227ad626fd879ddaf4ae96837eee218cab0b1b5b261eefa5cc43caa7",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/li-huei-tsai": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "a1522c03ef8f687bbe9bdce24382db4642e12b441f6e644f4cce0e82c0535db4",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "a1522c03ef8f687bbe9bdce24382db4642e12b441f6e644f4cce0e82c0535db4",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/linlin-fan": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "7af64df1d2e252cb6aca585d8ddb0b903e5253b3dabf7bb207655c42ee02e38b",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "7af64df1d2e252cb6aca585d8ddb0b903e5253b3dabf7bb207655c42ee02e38b",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/mark-bear": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "28b327a4e1087817f0e9bc9eb26c2a587a6234dc1b52a9453fc23759633ad33e",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "28b327a4e1087817f0e9bc9eb26c2a587a6234dc1b52a9453fc23759633ad33e",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/mark-harnett": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "2965d9efd5ab031bd417425cde8ae34c80145afc12457d2292c0c8805573f6c2",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "2965d9efd5ab031bd417425cde8ae34c80145afc12457d2292c0c8805573f6c2",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/matthew-wilson": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "34c6fd148881d156cd715cf40d4ccc1fb4ea4b075b35fd6c4dd470660ae3c0a2",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "34c6fd148881d156cd715cf40d4ccc1fb4ea4b075b35fd6c4dd470660ae3c0a2",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/mehrdad-jazayeri": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "4d37f5f14848ba824c6227cba4a8463baceb43ea5d3a37a4ce97f56f95073524",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "4d37f5f14848ba824c6227cba4a8463baceb43ea5d3a37a4ce97f56f95073524",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/michale-s-fee": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "839f72d128faa6571e6e29c8a5980a90a6aa2912147eff21c003f750be8fe87c",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "839f72d128faa6571e6e29c8a5980a90a6aa2912147eff21c003f750be8fe87c",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/morgan-hwa-tze-sheng": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "35d972c54d7617d7f711424cbeb8d381e07e9b0813cb971f34b6e807a763b325",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "35d972c54d7617d7f711424cbeb8d381e07e9b0813cb971f34b6e807a763b325",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/mriganka-sur": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "78165c6f6345554f06c78aa88e07860337fee18e694ce5230ade7953457efe43",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "78165c6f6345554f06c78aa88e07860337fee18e694ce5230ade7953457efe43",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/myriam-heiman": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "fa4842419c187c11805fb45010962e10fc225b7e3afd40e3dfc4df13a12cdfad",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "fa4842419c187c11805fb45010962e10fc225b7e3afd40e3dfc4df13a12cdfad",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/nancy-kanwisher": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "b92f6be630ed903bc38fe825af38618e8777370bb59b0296d1de53af473ae2d0",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "b92f6be630ed903bc38fe825af38618e8777370bb59b0296d1de53af473ae2d0",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/nidhi-seethapathi": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "09bd0020bcf61b95dd34e520ffb65e25bddfa8ebf8af8ddd1fbf395131cf4bd6",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "09bd0020bcf61b95dd34e520ffb65e25bddfa8ebf8af8ddd1fbf395131cf4bd6",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/pawan-sinha": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f4f6613e4324b64f6c0ff7167e1eac7ae6d4eaf3774e5b20982b2284f2b70717",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f4f6613e4324b64f6c0ff7167e1eac7ae6d4eaf3774e5b20982b2284f2b70717",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/polina-anikeeva": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "a18b32e55763bc878b0480a651316a2c85deb0e17e7990286620936a000ad030",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "a18b32e55763bc878b0480a651316a2c85deb0e17e7990286620936a000ad030",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/rebecca-r-saxe": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "32a61bf18e9fd620c61c6631777d2815d2389c460837f82cc7e2c3b7403ac394",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "32a61bf18e9fd620c61c6631777d2815d2389c460837f82cc7e2c3b7403ac394",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/robert-desimone": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "e018cf73714045e9bef5b288e002dbfd30d459f6800fd231eb943d67f206c1ab",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "e018cf73714045e9bef5b288e002dbfd30d459f6800fd231eb943d67f206c1ab",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/robert-mark-richardson": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "b18444b5674f5c02f0eeebcb82cf70fde4fbd1ef98ff29618879ab1ecd1206a5",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "b18444b5674f5c02f0eeebcb82cf70fde4fbd1ef98ff29618879ab1ecd1206a5",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/roger-levy": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f9d2537c425d06f308f5d4958f56fc52763a370dfbd2c46038b24be270595787",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f9d2537c425d06f308f5d4958f56fc52763a370dfbd2c46038b24be270595787",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/sara-prescott": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "4b435e31e4fa049fa2c94ea6b5a7dcf0a25b5816cd3dd3cb985237e30c3b0177",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "4b435e31e4fa049fa2c94ea6b5a7dcf0a25b5816cd3dd3cb985237e30c3b0177",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/steven-flavell": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "a78979f7914ac874b19a71481b026950bd91773abdb5894cf5359ae7099df691",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "a78979f7914ac874b19a71481b026950bd91773abdb5894cf5359ae7099df691",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/susan-hockfield": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "ba0cd8ff75c09681ba450cb5ceb8af5c050bce5c638c8b4c8daf21b4d778626c",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "ba0cd8ff75c09681ba450cb5ceb8af5c050bce5c638c8b4c8daf21b4d778626c",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/sven-dorkenwald": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "b487b1d375cb2970870fa25c723c4f9d92c9b85d7664978118dc63a45ba6a962",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "b487b1d375cb2970870fa25c723c4f9d92c9b85d7664978118dc63a45ba6a962",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/tomaso-poggio": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "dba0e322a924340a9023d39c7a388d2d09d0da156e3fc43f5e02981367932e4d",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "dba0e322a924340a9023d39c7a388d2d09d0da156e3fc43f5e02981367932e4d",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/troy-littleton": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "2880fb8cf596d2b8060144252a9b40f96c9bf06b38c3fa085a510e4fbc2313de",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "2880fb8cf596d2b8060144252a9b40f96c9bf06b38c3fa085a510e4fbc2313de",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/directory/william-quinn": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "16de1875efcc11b02aa6e61eae917b90a2a51e7379c91774be959da61812e480",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "16de1875efcc11b02aa6e61eae917b90a2a51e7379c91774be959da61812e480",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.mit.edu/faculty": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f876fe2aeb794fef6fb97f2effca784d127c4c1432f02d9c98bfae57c1f04201",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f876fe2aeb794fef6fb97f2effca784d127c4c1432f02d9c98bfae57c1f04201",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bcs.snu.ac.kr/sub3_1_a.php": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "787caf3fe5443487362693bee61e77652a0e22e5790f7f69bdeb1e92d1772d2b",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "787caf3fe5443487362693bee61e77652a0e22e5790f7f69bdeb1e92d1772d2b",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bechstedt.lab.mcgill.ca/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "cdbd37567b14668b812051c29982bf2c9b4217b9dfdbe5a1c7fedbdf221a6c55",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "cdbd37567b14668b812051c29982bf2c9b4217b9dfdbe5a1c7fedbdf221a6c55",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://betelab.med.cornell.edu": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certif"
+    },
     "https://bethgelab.org/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "6d37b0bc48b5f854f457645d89d4f5f213ffa354057f519072207597dbf5fb09",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "6d37b0bc48b5f854f457645d89d4f5f213ffa354057f519072207597dbf5fb09",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://bethgelab.org/join/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "76bdf61acd1541c0ea561059ab0050135e4ab8b6fda14464ac32f9dbfced2da1",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "76bdf61acd1541c0ea561059ab0050135e4ab8b6fda14464ac32f9dbfced2da1",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://bethgelab.org/publications/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "7a284ba513826ce9e9900f6464bb105caa259b1c5e732435cc1cf51e5800e6d2",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "7a284ba513826ce9e9900f6464bb105caa259b1c5e732435cc1cf51e5800e6d2",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
+    },
+    "https://biology.stanford.edu/people/deborah-m-gordon": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "d718ae6a8ad2a3af31e6d7772b112fae0e2d69ba77fb9d1a0d75b74cf07f686d",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "d718ae6a8ad2a3af31e6d7772b112fae0e2d69ba77fb9d1a0d75b74cf07f686d",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://biology.stanford.edu/people/luis-hernandez-nunez": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "ed53d9f9ed9ed5e4a048efdf3e649c188b0c22e3d3895077a18bb00260598d1e",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "ed53d9f9ed9ed5e4a048efdf3e649c188b0c22e3d3895077a18bb00260598d1e",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://boninlab.sites.vib.be/en": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "d071254b03a3453efa7b4d3d5830c7e8fcc0f4d0e2745b148e33f6d2d7b51e53",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "d071254b03a3453efa7b4d3d5830c7e8fcc0f4d0e2745b148e33f6d2d7b51e53",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://bsse.ethz.ch/news-and-events/d-bsse-news/2026/05/stephen-quake-becoming-faculty-member.html": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "63a5df98d2e92490992a5cff1cf6d7b3b6a2d37abba88a10223f1ef911aad4df",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "63a5df98d2e92490992a5cff1cf6d7b3b6a2d37abba88a10223f1ef911aad4df",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://cellphysiol.snu.ac.kr/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "URLError: <urlopen error [Errno -2] Name or service not known>"
     },
     "https://changlab.ucsf.edu/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "c89a4cb23944d9400ac507e170f541d6d75c64075a2062a8d9aaa59e71fa8053",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "c89a4cb23944d9400ac507e170f541d6d75c64075a2062a8d9aaa59e71fa8053",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://changlab.ucsf.edu/opportunities": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "8f51c892ae5ab984558a058d2a1287b7da728c79675da2874227293bd61f58d5",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "8f51c892ae5ab984558a058d2a1287b7da728c79675da2874227293bd61f58d5",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://chtlab.org/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "747fcbdf71dc6db760afcbea9219b5e584f44deb601f176a4dcde6f4be0a0164",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "747fcbdf71dc6db760afcbea9219b5e584f44deb601f176a4dcde6f4be0a0164",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://cmn.sites.vib.be/en/labs": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "170c2c9d742a1a06b3474c7f1834322f358f66b93c0424d37c6656d28fe61271",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "170c2c9d742a1a06b3474c7f1834322f358f66b93c0424d37c6656d28fe61271",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://compbio.triiprograms.org/faculty-research/faculty-directory/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "959a3109d99f4f7222a3dfd5adb4109203208bb524fa72cf75e6bdecdfe6e03b",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "959a3109d99f4f7222a3dfd5adb4109203208bb524fa72cf75e6bdecdfe6e03b",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://complexsystemsupenn.com/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "8b072249879ca2f3ec972aa7fb6f9468b036b91a2302052a99e2cf99f94b1bc2",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "8b072249879ca2f3ec972aa7fb6f9468b036b91a2302052a99e2cf99f94b1bc2",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://componcmsk.org/jian-carrot-zhang-lab/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "77a3268819393498b948d14498b74d9d9dab194a3bb215aa4361b9883e1cc4d2",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "77a3268819393498b948d14498b74d9d9dab194a3bb215aa4361b9883e1cc4d2",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://componcmsk.org/personnel/jake-june-koo-lee-md-phd/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "efaa051a2eae351af43561abdabbded7ce38de9bc47ca36dd9f93ab8ef550b84",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "efaa051a2eae351af43561abdabbded7ce38de9bc47ca36dd9f93ab8ef550b84",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://couturierlab.com": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "ed827224d8f81e83fce84609eda3198daed0782c11a7acdbdcff2fdbac3c042b",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "ed827224d8f81e83fce84609eda3198daed0782c11a7acdbdcff2fdbac3c042b",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://crblm.ca/essential_grid/alexandre-lehmann/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "57074b7202f6b9654ed1012238f64578a128a78b6fb1f8bb31e417b6537999ce",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "57074b7202f6b9654ed1012238f64578a128a78b6fb1f8bb31e417b6537999ce",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://csbphd.mit.edu/faculty/david-k-gifford/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f329282ee07adafecaeeed945e62ed03e5fa37197198459de34112d4a1301c11",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f329282ee07adafecaeeed945e62ed03e5fa37197198459de34112d4a1301c11",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://dbds.stanford.edu/people/barbara-engelhardt/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "URLError: <urlopen error timed out>"
+    },
+    "https://fchampalimaud.org/champalimaud-research": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "b75d7393de1d791b8946736a9e4bee9fada6674986c14c6f3a03775203c04a43",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "b75d7393de1d791b8946736a9e4bee9fada6674986c14c6f3a03775203c04a43",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://github.com/OHBA-analysis/osl-dynamics": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "5c51ec1d161ce7d4a3fdccb1aa0cb5f9b040e93b00d301e040d196c8f75d11c6",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "5c51ec1d161ce7d4a3fdccb1aa0cb5f9b040e93b00d301e040d196c8f75d11c6",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://humantechnopole.it/en/ht-people/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "0af0ad34e09a7d6d5391c0a3e3a04462416d563a28aa682b24a5d32862815fe8",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "0af0ad34e09a7d6d5391c0a3e3a04462416d563a28aa682b24a5d32862815fe8",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://ki.se/en/neuro/research/group-and-team-leaders-at-neuro-a-o": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "ea0688681e34867508f827ea4d9ea809288f2538a8d4b8af18be3a5be4c509bb",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "ea0688681e34867508f827ea4d9ea809288f2538a8d4b8af18be3a5be4c509bb",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://life-sci.hkust.edu.hk/faculty-members/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "325fb330ffc4fca7dbb15786d76a09953f52e26411d51e544fbf95b9977c9e77",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "325fb330ffc4fca7dbb15786d76a09953f52e26411d51e544fbf95b9977c9e77",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://lifesciences.westlake.edu.cn/faculty/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "ValueError: empty or challenge page"
+    },
+    "https://med.stanford.edu/genetics/people/Faculty1/Faculty1.html": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "https://med.stanford.edu/genetics/people/Faculty1/genetics-faculty-f---l.html": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "https://med.stanford.edu/genetics/people/Faculty1/genetics-faculty-m-z.html": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    "https://med.stanford.edu/neurogradprogram/people/faculty.html": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "574c995b1273b2aff99c0b7a50985e8e173dfdf472a171e8a751b05890fba524",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "574c995b1273b2aff99c0b7a50985e8e173dfdf472a171e8a751b05890fba524",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://medicine.yale.edu/neuroscience/people/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "5cdce8e54e315e0bf0609dc59d3f4dd4557957d0d7404010165a91b303111afe",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "5cdce8e54e315e0bf0609dc59d3f4dd4557957d0d7404010165a91b303111afe",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://miplab.epfl.ch/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "7c037d3819c0280547c56d5be456c0eb326a7ab766b0ce3e132ca4c2ad10d883",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "7c037d3819c0280547c56d5be456c0eb326a7ab766b0ce3e132ca4c2ad10d883",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://miplab.epfl.ch/life/jobs": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "c33dd0be75ff6fc8f2c8f5e6b87930d45e6b9735f505f22b78fdb748b4b3bd77",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "c33dd0be75ff6fc8f2c8f5e6b87930d45e6b9735f505f22b78fdb748b4b3bd77",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://miplab.epfl.ch/publications": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "dcfe6c295ef7b30e5d3d28bf834e6de86b2d88ef85fbec22585907dcce5dd0ce",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "dcfe6c295ef7b30e5d3d28bf834e6de86b2d88ef85fbec22585907dcce5dd0ce",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://nin.nl/research-groups/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "47d358cfc6b6b5a720862e02325d16b70eb35b12f482da2661f82c8127034293",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "47d358cfc6b6b5a720862e02325d16b70eb35b12f482da2661f82c8127034293",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://nptl.stanford.edu/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "d225a2f05132eb9233f2328606d96476e78d533859d3aa54bfc7981c6b0be250",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "d225a2f05132eb9233f2328606d96476e78d533859d3aa54bfc7981c6b0be250",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://nptl.stanford.edu/group": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "2c8f4bbe8745e859c9f7b732c45052de7dda180729c80160711ca7d9996443f9",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "2c8f4bbe8745e859c9f7b732c45052de7dda180729c80160711ca7d9996443f9",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://parisbraininstitute.org/paris-brain-institute-research-teams": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "15266c0e6daf4693b2231bb75ad023ef072960419a6e78f941adb330565e06fd",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "15266c0e6daf4693b2231bb75ad023ef072960419a6e78f941adb330565e06fd",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://parisbraininstitute.org/paris-brain-institute-research-teams?page=1": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "59052283717dfc5952ec46bad5deae7aeb7ec938a2d6ff500d1661509bceff68",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "59052283717dfc5952ec46bad5deae7aeb7ec938a2d6ff500d1661509bceff68",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://parisbraininstitute.org/paris-brain-institute-research-teams?page=2": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "cd30e91bbd02ed125a9a4557778834b1382bd849432821236cc0f6e453be6cdf",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "cd30e91bbd02ed125a9a4557778834b1382bd849432821236cc0f6e453be6cdf",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://people.epfl.ch/silvestro.micera?lang=en": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "3e1edd7df7ecdce00cb9750d87c1d758f358c251f8ac2f0d31b52edb708d2e13",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "3e1edd7df7ecdce00cb9750d87c1d758f358c251f8ac2f0d31b52edb708d2e13",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://people.epfl.ch/stephanie.lacour?lang=en": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "43f13c83361db318e15ce0a0f2f9384ee0689632628a4215e2808918ec4aab2a",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "43f13c83361db318e15ce0a0f2f9384ee0689632628a4215e2808918ec4aab2a",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=0": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=1": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=10": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=11": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=12": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=13": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=14": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=15": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=2": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=3": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=4": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=5": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=6": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=7": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=8": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pinphd.hms.harvard.edu/faculty?page=9": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://pni.princeton.edu/people/faculty": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
     },
     "https://predictiveclinicalneuroscience.com/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "a65c57be57778afb47e543fc689ef50e226d478d7318ac5ff6f0c42b1310cd74",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "a65c57be57778afb47e543fc689ef50e226d478d7318ac5ff6f0c42b1310cd74",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://predictiveclinicalneuroscience.com/2021/06/03/we-are-hiring/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "3594567433de36eeb692ac1ad3e08bf005abb171ab1a214d5b6d74de8636e631",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "3594567433de36eeb692ac1ad3e08bf005abb171ab1a214d5b6d74de8636e631",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://profiles.stanford.edu/jure-leskovec?tab=bio": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "fe0c963a23627f0e4cad6d14754633138550ec258b10d920a8ba17e5747fcf4f",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "fe0c963a23627f0e4cad6d14754633138550ec258b10d920a8ba17e5747fcf4f",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://profiles.ucl.ac.uk/2747-karl-friston": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "state": "error",
       "error": "ValueError: empty or challenge page"
     },
     "https://psychology.sas.upenn.edu/people/dani-bassett": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "state": "error",
       "error": "HTTP 403"
     },
+    "https://qbi.uq.edu.au/qbi-group-leaders": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "647684d3251d3416e0c73cb777769041c48fc7f5d6e08f67dbca900ea2a64997",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "647684d3251d3416e0c73cb777769041c48fc7f5d6e08f67dbca900ea2a64997",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
     "https://research.umcutrecht.nl/research-groups/utrecht-bci-lab-developing-neurotechnology-for-people-with-motor-impairments/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "41a8abb00341f39a9be2ade12c3d8ec6dac80d4e17193ed35bed61c3a5ec1451",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "41a8abb00341f39a9be2ade12c3d8ec6dac80d4e17193ed35bed61c3a5ec1451",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://researchinformation.umcutrecht.nl/en/persons/nf-ramsey/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "90f12b132696746329a6e37298367defa0a206b2f5a4365040f36b4c546c15fb",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "90f12b132696746329a6e37298367defa0a206b2f5a4365040f36b4c546c15fb",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://steglelab.org/joinus/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "23debd4b2a2b6d7952124ebfab25d9ea4a52a2fa49cc0ba19e0498b3013cf49f",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "23debd4b2a2b6d7952124ebfab25d9ea4a52a2fa49cc0ba19e0498b3013cf49f",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://steglelab.org/research/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "57ce897e48945694b1814b1d7c9ea522f538d1948e58c4b247158854d7456828",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "57ce897e48945694b1814b1d7c9ea522f538d1948e58c4b247158854d7456828",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://utrecht-bci.nl/open-position-for-a-postdoc/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "b8e29fb66a809548437701fd9b603a19f0b2a215afc6b1d226f158f65c95d80f",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "b8e29fb66a809548437701fd9b603a19f0b2a215afc6b1d226f158f65c95d80f",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://vib.ai/en/vibai-labs": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "1be49026a7732d2ec8f283ed1fd8e62b6e93f10d7222ce007cc8445e805f5570",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "1be49026a7732d2ec8f283ed1fd8e62b6e93f10d7222ce007cc8445e805f5570",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://vibneuroscienceleuven.be/en/research/labs": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "86a13fbf7dce0d13d1c5bda3caeb84e1960a2951e022b9a6410c06cfabb6d5cb",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "86a13fbf7dce0d13d1c5bda3caeb84e1960a2951e022b9a6410c06cfabb6d5cb",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.a-star.edu.sg/bii/people/our-researchers": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "ValueError: empty or challenge page"
+    },
+    "https://www.a-star.edu.sg/gis/our-people/faculty-staff": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "ValueError: empty or challenge page"
+    },
+    "https://www.apps.mni.mcgill.ca/ipn/ipnprofessors/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "e33cf4e8f2cdc0db76c378bc5a4f715736d5b269ffa947d75b5b03ba9818ef87",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "e33cf4e8f2cdc0db76c378bc5a4f715736d5b269ffa947d75b5b03ba9818ef87",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.artcogsys.com/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "d5958eda3739e0e5233700c7c540d0a928224c6158fd50243db82a0da1c2ac54",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "d5958eda3739e0e5233700c7c540d0a928224c6158fd50243db82a0da1c2ac54",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.artcogsys.com/contact": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "a789e01de6f7fc4130bb38e567941a80ff5f2c4a37dce23c5cde53097d693a06",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "a789e01de6f7fc4130bb38e567941a80ff5f2c4a37dce23c5cde53097d693a06",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.artcogsys.com/publications": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "5f8fad238c6af46361de2293e5667bc2440cbc855b4e13039a68b367c4b9da52",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "5f8fad238c6af46361de2293e5667bc2440cbc855b4e13039a68b367c4b9da52",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.bdr.riken.jp/en/research/labs/index.html": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "4ad58e6e23819c9d745d24d36415b599bd590101871a89aeb0e313d91627db9b",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "4ad58e6e23819c9d745d24d36415b599bd590101871a89aeb0e313d91627db9b",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.bi.mpg.de/labs": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "6a5750f541a06a908c3a2ec9d006516ddef37a5c52dd76dfef44b179268b8388",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "6a5750f541a06a908c3a2ec9d006516ddef37a5c52dd76dfef44b179268b8388",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.bihealth.org/en/research/research-group/ritter-lab-brain-simulation": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "027f56f2afeeef43a569e4cbee0de3072ec4a96507efce34268c239511b3b0f4",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "027f56f2afeeef43a569e4cbee0de3072ec4a96507efce34268c239511b3b0f4",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.brainsimulation.org/bsw/zwei/research-publications": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "92184cff8daae57f4d81cc55d576bc66684931bb997eb7746da27d5dc9e0ac41",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "92184cff8daae57f4d81cc55d576bc66684931bb997eb7746da27d5dc9e0ac41",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.brainsimulation.org/bsw/zwei/team-jobs": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "3c8a09ee0cb02f464aeaebb06d1ff068f742fd284276a327186e2b227bcfe239",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "3c8a09ee0cb02f464aeaebb06d1ff068f742fd284276a327186e2b227bcfe239",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.bric.ku.dk/research-groups/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "4b670f7a8fb7b99d1d0341c9758701656285bb9a0ae7ecbb5e511e83c7d19877",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "4b670f7a8fb7b99d1d0341c9758701656285bb9a0ae7ecbb5e511e83c7d19877",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.broadinstitute.org/people/institute-members": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "2cada14f69e616f2e3d634179a64b8f9e0efc0b2d6adcef69161ac0096c0bfda",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "2cada14f69e616f2e3d634179a64b8f9e0efc0b2d6adcef69161ac0096c0bfda",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.cmu.edu/cbd/people/affiliated-faculty.html": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "ac9eb56f321bee49cd9b5f2e24d9d3a9e0be68c21b5c186761d0ea231982e508",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "ac9eb56f321bee49cd9b5f2e24d9d3a9e0be68c21b5c186761d0ea231982e508",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.cmu.edu/cbd/people/voting-faculty.html": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "4dec098f1d44ba58761d8ad53bd2757f1879158f9739e24d47abef357660a99c",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "4dec098f1d44ba58761d8ad53bd2757f1879158f9739e24d47abef357660a99c",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.cmu.edu/ni/people/faculty-directory": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "eaecc63923c3522428d8288f5c00f924e12548155c44a2ad8edcca9bc6eb538b",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "eaecc63923c3522428d8288f5c00f924e12548155c44a2ad8edcca9bc6eb538b",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.crg.eu/en/programme/programmes-groups/computational-biology-health-genomics": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "71a8d521b98df633b83aa1e684328626d59e633d3bd2335bc4661f621fcd704e",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "71a8d521b98df633b83aa1e684328626d59e633d3bd2335bc4661f621fcd704e",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.crg.eu/en/programme/programmes-groups/genome-biology": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "723cf24353fd96dbb600ae6a4d1707e06b09fde2a5a46dbbddd2cb462b99fdae",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "723cf24353fd96dbb600ae6a4d1707e06b09fde2a5a46dbbddd2cb462b99fdae",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.crg.eu/en/programme/programmes-groups/quantitative-cell-biology": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "1b4d68c320ff52701715419e1a334456ee6cb7238d85f3dfe2f27b9e1bcffb08",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "1b4d68c320ff52701715419e1a334456ee6cb7238d85f3dfe2f27b9e1bcffb08",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.crg.eu/en/programme/programmes-groups/systems-synthetic-biology": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "d4ccc3eaa3645d426f6896719a4001431d29189cf991f5c26ce78c0b5ec4ed44",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "d4ccc3eaa3645d426f6896719a4001431d29189cf991f5c26ce78c0b5ec4ed44",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.crick.ac.uk/research/a-z-research-labs": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://www.crick.ac.uk/research/a-z-research-labs?page=1": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://www.crick.ac.uk/research/a-z-research-labs?page=2": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://www.crick.ac.uk/research/a-z-research-labs?page=3": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://www.crick.ac.uk/research/a-z-research-labs?page=4": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://www.csail.mit.edu/person/bonnie-berger": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "2765de49a87c0bbabedd3ca1b7c0be5a955e5538e8131d7348a2f451158dd53e",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "2765de49a87c0bbabedd3ca1b7c0be5a955e5538e8131d7348a2f451158dd53e",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.csail.mit.edu/person/manolis-kellis": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "307b728da8924290e60fc50bb0a65923cccb91b653ce4c92f8bab03a02f9e179",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "307b728da8924290e60fc50bb0a65923cccb91b653ce4c92f8bab03a02f9e179",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.eecs.mit.edu/people/david-gifford/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "1cfdbce2e9cb36843fc481cd19f6b8de156668233eee4cf0b49c50f102e9fa29",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "1cfdbce2e9cb36843fc481cd19f6b8de156668233eee4cf0b49c50f102e9fa29",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.embl.org/people/person/oliver-stegle/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "f9611bff0fb4c346bda745ef2a79371433ee2bd5c9efefa552a46c9802bb80c5",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "f9611bff0fb4c346bda745ef2a79371433ee2bd5c9efefa552a46c9802bb80c5",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.embl.org/research/faculty/barcelona/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "0cd07476131ac8634293e1c0e643134a9720f07b098f0b657970a3212bb5ad10",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "0cd07476131ac8634293e1c0e643134a9720f07b098f0b657970a3212bb5ad10",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.embl.org/research/faculty/ebi/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "ae1af59888f516bdfb8f9f875d5bd387bbadd4e795f0e5c12d192aae1d679009",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "ae1af59888f516bdfb8f9f875d5bd387bbadd4e795f0e5c12d192aae1d679009",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.embl.org/research/faculty/grenoble/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "17d92cc72933f6c3edce99bc8802e867c2c9844d1091d36441416c4bb5a9d625",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "17d92cc72933f6c3edce99bc8802e867c2c9844d1091d36441416c4bb5a9d625",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.embl.org/research/faculty/hamburg/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "49e5547438a577d73282b1313896499faaf565d5e38489148f53e4ed1399955a",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "49e5547438a577d73282b1313896499faaf565d5e38489148f53e4ed1399955a",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.embl.org/research/faculty/heidelberg/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "fffadcfaa7be2c06859748b7471b44efc9c0b9ece12b8fd60e8a3fb2f6946f14",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "fffadcfaa7be2c06859748b7471b44efc9c0b9ece12b8fd60e8a3fb2f6946f14",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.embl.org/research/faculty/rome/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "c4f3898192d4df5ddd2f328ef107bda345a5c462646a1bb1a4f3cd53b7598036",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "c4f3898192d4df5ddd2f328ef107bda345a5c462646a1bb1a4f3cd53b7598036",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.epfl.ch/labs/lsbi/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "ff42b50486c09495a5cb48b823beea127e60e955dacede8da39d610bbb1be81c",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "ff42b50486c09495a5cb48b823beea127e60e955dacede8da39d610bbb1be81c",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.epfl.ch/labs/lsbi/lsbi-2/group/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "0a1edb2793828323f882af9c82937dee24290146e2b9fdb135135184254bdc12",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "0a1edb2793828323f882af9c82937dee24290146e2b9fdb135135184254bdc12",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.epfl.ch/labs/tne/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "f26de4b0660649c186538cd5a30533e6d2c0335a1d0f29544c96ffa33b80699e",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "f26de4b0660649c186538cd5a30533e6d2c0335a1d0f29544c96ffa33b80699e",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.epfl.ch/labs/tne/student-projects/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "6b0522fc557665fd814e1546ba504ce86ad77af161306f0d8833257e9ae396e7",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "6b0522fc557665fd814e1546ba504ce86ad77af161306f0d8833257e9ae396e7",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.epfl.ch/schools/sv/bmi/brain-mind-institute/bmi-research/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "affe86fd1f34c66bddd0a7f1a01337bfccac453086e6510c9f86a22e2a500634",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "affe86fd1f34c66bddd0a7f1a01337bfccac453086e6510c9f86a22e2a500634",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.fil.ion.ucl.ac.uk/~karl/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "4379bc194920c575d10404541330d1e1a60ea3cb280526916cf5a075755706d5",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "4379bc194920c575d10404541330d1e1a60ea3cb280526916cf5a075755706d5",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.fz-juelich.de/de/ueber-uns/kontakt/besuch/wissenschaft-online/aufzeichnungen-wissenschaft-online": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "ff5c59ea709af6c3b73cae3fe6a4dbb18351fe0128a05cc1f3bc7e999be199e1",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "ff5c59ea709af6c3b73cae3fe6a4dbb18351fe0128a05cc1f3bc7e999be199e1",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.fz-juelich.de/en/careers/jobs?targetGroup=professionals": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "38e86908dd3823c0e0a6cc33179982b51ac050d2c511cbb6bd8c22aa62a7dc9d",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "38e86908dd3823c0e0a6cc33179982b51ac050d2c511cbb6bd8c22aa62a7dc9d",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.fz-juelich.de/en/inm/inm-7": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "2c667d43ddc64f558d3a3e7e2d1c9b6f9736acccbad73eccc5f2199d97fad7cd",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "2c667d43ddc64f558d3a3e7e2d1c9b6f9736acccbad73eccc5f2199d97fad7cd",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.fz-juelich.de/en/inm/inm-7/about-us": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "fbea616073928be776f47bf8a049ee7a0ee95441e6031e4076c9d09c53f5d7c5",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "fbea616073928be776f47bf8a049ee7a0ee95441e6031e4076c9d09c53f5d7c5",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.garvan.org.au/research/labs-groups": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "aa66146bdbc54c2e79b13e8c71d2025f6d62250430c768e6e7eef0a766594ca9",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "aa66146bdbc54c2e79b13e8c71d2025f6d62250430c768e6e7eef0a766594ca9",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.gs.washington.edu/about/directory/faculty/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "05be835419d7a8df2dc86e29bc949de82c7cf094421ed08d6ee3f95917103924",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "05be835419d7a8df2dc86e29bc949de82c7cf094421ed08d6ee3f95917103924",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.helmholtz-munich.de/en/chc-postdoc": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "e46e8c3a33444edef85ecac823794061491b03fb810dd4625612fa6fa236e82c",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "e46e8c3a33444edef85ecac823794061491b03fb810dd4625612fa6fa236e82c",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.helmholtz-munich.de/en/icb/fabian-theis": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "294f40203be46555fdcf3cb6380b576f9ec797b0e514a951776351b7d6dd1aaa",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "294f40203be46555fdcf3cb6380b576f9ec797b0e514a951776351b7d6dd1aaa",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.helmholtz-munich.de/en/icb/research-groups/theis-lab": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "67e680cc8aecc216834f188a6c809f87f7c32cff073052ac3291ce8c96ca9b27",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "67e680cc8aecc216834f188a6c809f87f7c32cff073052ac3291ce8c96ca9b27",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.helmholtz.de/en/newsroom/article/a-digital-twin-for-the-future-of-medicine/": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "ac1abcdeda26ce4e71fe265c912c1dd65139c0ff150ef496e5461f6506ffb4f8",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "ac1abcdeda26ce4e71fe265c912c1dd65139c0ff150ef496e5461f6506ffb4f8",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.helsinki.fi/en/hilife-helsinki-institute-life-science/units/fimm/research-fimm/fimm-research-groups": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "b964f5310b1a970a1c362f6f91fdd6d879b482055260f19575ed37f436632607",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "b964f5310b1a970a1c362f6f91fdd6d879b482055260f19575ed37f436632607",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.helsinki.fi/en/hilife-helsinki-institute-life-science/units/neuroscience-center/research-groups": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
+    },
+    "https://www.ista.ac.at/en/research/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "88e600f6f57bf4beb1a763dca05cd83725f37bdfa1c38315d2cfe66bf35e3d52",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "88e600f6f57bf4beb1a763dca05cd83725f37bdfa1c38315d2cfe66bf35e3d52",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.janelia.org/people": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "6b312053aff725fc6e54bc9aba405415c74c903bed6311c0a8f165cfcca24a27",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "6b312053aff725fc6e54bc9aba405415c74c903bed6311c0a8f165cfcca24a27",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.kyb.tuebingen.mpg.de/275821/researchgroupleader": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "013c88ca05ae2631bbaf84efa88da1ebee1a999dd8b0ea6c98213052683026ae",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "013c88ca05ae2631bbaf84efa88da1ebee1a999dd8b0ea6c98213052683026ae",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.kyb.tuebingen.mpg.de/faculty": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "18eaf229d721c747da2f7bb80e27ea1e9365083ca05d25c3cef39beb5a60cecb",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "18eaf229d721c747da2f7bb80e27ea1e9365083ca05d25c3cef39beb5a60cecb",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.med.upenn.edu/apps/faculty/index.php/g275/p8676722": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "8998230efa052af5f987c4cf31b0f65f56b73ea0108fda7a81fbe9356ef80b0e",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "8998230efa052af5f987c4cf31b0f65f56b73ea0108fda7a81fbe9356ef80b0e",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.mskcc.org/research/ski/programs/computational-biology": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "1b8ca2fb08dac2abd7469fe8f4749a8b5cfd1efdc56e67016810470f8dcbdfc4",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "1b8ca2fb08dac2abd7469fe8f4749a8b5cfd1efdc56e67016810470f8dcbdfc4",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.ndcn.ox.ac.uk/research/fmrib-analysis-upcoming-projects": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "state": "error",
       "error": "HTTP 403"
     },
+    "https://www.ntnu.edu/kavli/research": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "d93db4d8920a624eed271c47dc60abdc50623486a8afa4379147040cc80def2e",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "d93db4d8920a624eed271c47dc60abdc50623486a8afa4379147040cc80def2e",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.nygenome.org/about-us/our-people/faculty-scientists/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "2e535fc712b2ef4606754d64d0b50a248f8d44cd5e6a13955449652387b341ce",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "2e535fc712b2ef4606754d64d0b50a248f8d44cd5e6a13955449652387b341ce",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.oist.jp/research/research-units": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "f0182b98018ebf33b01ba1948a15cb3a153d9bd7403ee36c2d8c7f929163b376",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "f0182b98018ebf33b01ba1948a15cb3a153d9bd7403ee36c2d8c7f929163b376",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
     "https://www.ox.ac.uk/news/2025-08-28-exceptional-oxford-researchers-awarded-first-royal-society-faraday-discovery": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "state": "error",
       "error": "HTTP 403"
     },
     "https://www.oxcin.ox.ac.uk/people/mark-woolrich": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "state": "error",
       "error": "HTTP 403"
     },
     "https://www.oxcin.ox.ac.uk/people/timothy-behrens": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "state": "error",
       "error": "HTTP 403"
     },
     "https://www.oxcin.ox.ac.uk/research/analysis-research/analysis-dphil-postdoc-projects": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "state": "error",
       "error": "HTTP 403"
     },
     "https://www.radboudumc.nl/en/research/news/news-items-by-our-research-institute/2025/three-radboudumc-research-awards-announced-at-strategy-day": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "7d7b9588800b821f56740bcbb33c9703f3d4481e84d4ead607d8d053b1fd69cb",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "7d7b9588800b821f56740bcbb33c9703f3d4481e84d4ead607d8d053b1fd69cb",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.riken.jp/en/research/pilist/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "d20093ae465b3f6dfe5648b97687667c86100565fa66fb9878b3dd04af4da7ff",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "d20093ae465b3f6dfe5648b97687667c86100565fa66fb9878b3dd04af4da7ff",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.ru.nl/en/people/gerven-m-van": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "a316d5d0bfc4dc71a5e83fdbb3d28163ba6f94dff36bf1dbe69cd85013120f2c",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "a316d5d0bfc4dc71a5e83fdbb3d28163ba6f94dff36bf1dbe69cd85013120f2c",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.ru.nl/en/people/marquand-a": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "1512e1847b76d7709612d4386b94f7f30c09bf23721024f17f5e0b958af5d148",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "1512e1847b76d7709612d4386b94f7f30c09bf23721024f17f5e0b958af5d148",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.sanger.ac.uk/people/faculty/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "d80b31f96e428699cc84215bc0c82cc081d81653468c8a4b7004b76be521fb38",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "d80b31f96e428699cc84215bc0c82cc081d81653468c8a4b7004b76be521fb38",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://www.sib.swiss/groups": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "dd48d1938f52aaa516a1dcd99f81fdb866a613bf1b102a3f35dce670e70fe8d5",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "dd48d1938f52aaa516a1dcd99f81fdb866a613bf1b102a3f35dce670e70fe8d5",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.stemcells.cam.ac.uk/people/sarah-teichmann": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "ea31524cdb676e4d55522323af66236e4509b3c1cd00a73072a3ff0d69fd7441",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "ea31524cdb676e4d55522323af66236e4509b3c1cd00a73072a3ff0d69fd7441",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.teichlab.org/contact": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "90249ca148e1e0c0103a7f150b10c44a9fbe34946bf98a08e08e58d79d493bec",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "90249ca148e1e0c0103a7f150b10c44a9fbe34946bf98a08e08e58d79d493bec",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
     },
     "https://www.teichlab.org/publications": {
       "reviewStamp": "2026-10-21",
-      "checkedAt": "2026-10-21T00:04:13+00:00",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
       "baselineHash": "264bfb9e295336334b8d31a085a2759e284c8b4c97094b668f668d95ce108a41",
       "baselineAt": "2026-10-21T00:01:50+00:00",
       "state": "ok",
       "hash": "264bfb9e295336334b8d31a085a2759e284c8b4c97094b668f668d95ce108a41",
-      "lastSuccessAt": "2026-10-21T00:04:13+00:00",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
       "changed": false
+    },
+    "https://www.weizmann.ac.il/brain-sciences/faculty-members": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "baselineHash": "e91ed2f737a64a9f68adcb6132075b6649625cfe2ef629b7982d7d596f1a294b",
+      "baselineAt": "2026-10-21T00:40:28+00:00",
+      "state": "ok",
+      "hash": "e91ed2f737a64a9f68adcb6132075b6649625cfe2ef629b7982d7d596f1a294b",
+      "lastSuccessAt": "2026-10-21T00:40:28+00:00",
+      "changed": false
+    },
+    "https://zuckermaninstitute.columbia.edu/our-people": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:40:28+00:00",
+      "state": "error",
+      "error": "HTTP 403"
     }
   }
 }
