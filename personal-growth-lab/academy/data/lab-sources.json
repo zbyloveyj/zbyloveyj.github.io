@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "edition": "2026.10.21-global-v4",
+  "edition": "2026.10.21-research-v6",
   "purpose": "官方名录与个人研究证据来源；个人任职、研究资料和接收机会分开核验。",
   "sources": [
     {
@@ -71364,6 +71364,1325 @@
       },
       "readMethod": "public_http_html",
       "reviewedAt": "2026-10-21"
+    },
+    {
+      "sourceId": "v6_cn_primary_415f0c132902",
+      "id": "v6_cn_primary_415f0c132902",
+      "url": "https://foodsci.jiangnan.edu.cn/szdw/js/C/cw.htm",
+      "title": "陈卫 — 官方个人资料",
+      "institution": "江南大学食品学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:21.554706+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "0d8fc6edb567e2aaa5ad733bda23c6d038df43bd29f0e9a4ff613be4a54afb7e"
+    },
+    {
+      "sourceId": "v6_cn_primary_e7e505434e6a",
+      "id": "v6_cn_primary_e7e505434e6a",
+      "url": "https://life.sjtu.edu.cn/teacher/ChenhongZhang",
+      "title": "张晨虹 — 官方个人资料",
+      "institution": "上海交通大学生命科学技术学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:21.555656+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "7d72f32df58867b1bc957fe9505a4f80693f045d2f5425d448e16e9f2caa5e09"
+    },
+    {
+      "sourceId": "v6_cn_primary_1db335a511a4",
+      "id": "v6_cn_primary_1db335a511a4",
+      "url": "https://people.ucas.ac.cn/~zhuyongguan",
+      "title": "朱永官 — 官方个人资料",
+      "institution": "中国科学院生态环境研究中心",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T09:00:40.728694+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "a387f9bd8c87384c4631e02c8e10e728366b8c8195fd5bef645aaf57fcc65707"
+    },
+    {
+      "sourceId": "v6_cn_primary_0a23d48955fd",
+      "id": "v6_cn_primary_0a23d48955fd",
+      "url": "https://iue.cas.cn/rcjy/ys/201911/t20191121_5440351.html",
+      "title": "中国科学院城市环境研究所 — 朱永官院士资料",
+      "institution": "中国科学院生态环境研究中心",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T09:00:40.729506+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "a66fa069ad426fc383392d2bc98211111149b6c5f49ad78790eb76e5ffa0e08f"
+    },
+    {
+      "sourceId": "v6_cn_primary_2a568bf5f1a5",
+      "id": "v6_cn_primary_2a568bf5f1a5",
+      "url": "https://rcees.cas.cn/",
+      "title": "中国科学院生态环境研究中心 — 现任领导与院士名录",
+      "institution": "中国科学院生态环境研究中心",
+      "country": "中国",
+      "selector": "已读取官网现任领导与院士名录，核对当前机构；研究方向另据 UCAS 个人页。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T09:04:14.876008+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_web_retrieval",
+      "accessScope": "已读取官网现任领导与院士名录，核对当前机构；研究方向另据 UCAS 个人页。",
+      "retrievalReference": "turn241view0",
+      "snapshotAvailable": false
+    },
+    {
+      "sourceId": "v6_cn_primary_6ca5d85501e6",
+      "id": "v6_cn_primary_6ca5d85501e6",
+      "url": "https://people.ucas.ac.cn/~dengye",
+      "title": "邓晔 — 官方个人资料",
+      "institution": "中国科学院生态环境研究中心",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T09:00:40.730039+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "a3777ec01a54b6f6405caf00fd93ad980c2d215906325f2d84a833711491da8b"
+    },
+    {
+      "sourceId": "v6_cn_primary_d9d4cb795c9a",
+      "id": "v6_cn_primary_d9d4cb795c9a",
+      "url": "https://portal.smu.edu.cn/bsbii/info/1074/3120.htm",
+      "title": "周宏伟 — 官方个人资料",
+      "institution": "南方医科大学深圳医院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:23.660850+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "75016cb4ff42bd09b7c2053c72048a39f2c6713a76da89ce54a64218806de890"
+    },
+    {
+      "sourceId": "v6_cn_primary_7a4ba25f8304",
+      "id": "v6_cn_primary_7a4ba25f8304",
+      "url": "https://person.zju.edu.cn/0014000",
+      "title": "胡海岚 — 官方个人资料",
+      "institution": "浙江大学医学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:23.860321+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "8203e8ec0ef8a9457afa5ae5f7a0b0fbe09ce1e7df0564603618646daf59c034"
+    },
+    {
+      "sourceId": "v6_cn_primary_70596534516a",
+      "id": "v6_cn_primary_70596534516a",
+      "url": "https://person.zju.edu.cn/0006042",
+      "title": "段树民 — 官方个人资料",
+      "institution": "浙江大学医学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:24.357326+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "d90db6f2adcf8258758c81c188fdc93c16e923da14311a6a037ec824d879aafa"
+    },
+    {
+      "sourceId": "v6_cn_primary_c026f0f6ea00",
+      "id": "v6_cn_primary_c026f0f6ea00",
+      "url": "https://person.zju.edu.cn/0020880",
+      "title": "李涛 — 官方个人资料",
+      "institution": "浙江大学医学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:24.578528+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "0bf2003f96110dbfa81df27fb5e4f41cea7f99bf2e8ce57e01915d12a40edc95"
+    },
+    {
+      "sourceId": "v6_cn_primary_2f052e36bd82",
+      "id": "v6_cn_primary_2f052e36bd82",
+      "url": "https://www.pkuh6.cn/Doctors/Main/?siteId=260",
+      "title": "陆林 — 官方个人资料",
+      "institution": "北京大学第六医院",
+      "country": "中国",
+      "selector": "已读取官方临床专家页中的身份、导师资格与专业范围；本次证据限于临床方向，不等同于完整科研评估。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:25.326341+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已读取官方临床专家页中的身份、导师资格与专业范围；本次证据限于临床方向，不等同于完整科研评估。",
+      "sha256": "0c7cba77a82b9af7c64aa5410ddbfbce96f0a27e47932960ce11751f278d95e4"
+    },
+    {
+      "sourceId": "v6_cn_primary_6234b27ffd21",
+      "id": "v6_cn_primary_6234b27ffd21",
+      "url": "https://pkuh6.cn/Html/News/Articles/101312.html",
+      "title": "司天梅 — 官方个人资料",
+      "institution": "北京大学第六医院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:25.341254+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "782add1869e20b97685404835880191e13bcafef54d1b8e1a9775cb109022eba"
+    },
+    {
+      "sourceId": "v6_cn_primary_c309f54666b3",
+      "id": "v6_cn_primary_c309f54666b3",
+      "url": "https://www.fahcqmu.cn/wshz_gjwjwgnxnjbzzzdsys_rydw_syszr",
+      "title": "谢鹏 — 官方个人资料",
+      "institution": "重庆医科大学附属第一医院",
+      "country": "中国",
+      "selector": "已通过网页检索服务读取官方实验室主任页正文；直接抓取遇到站点动态响应，未将空响应计为正文证据。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T09:04:14.876008+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_web_retrieval",
+      "accessScope": "已通过网页检索服务读取官方实验室主任页正文；直接抓取遇到站点动态响应，未将空响应计为正文证据。",
+      "retrievalReference": "turn231view0",
+      "snapshotAvailable": false
+    },
+    {
+      "sourceId": "v6_cn_primary_6c3aaba06409",
+      "id": "v6_cn_primary_6c3aaba06409",
+      "url": "https://www.fahcqmu.cn/wshz_gjwjwgnxnjbzzzdsys_kxyj_kycg/010128200031638.html",
+      "title": "重庆医科大学附属第一医院 — 肠道菌群与脑蛋白修饰研究进展",
+      "institution": "重庆医科大学附属第一医院",
+      "country": "中国",
+      "selector": "已通过网页检索服务读取官方实验室研究进展正文；直接抓取返回站点验证脚本，未以脚本作为正文证据。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T09:04:14.876008+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_web_retrieval",
+      "accessScope": "已通过网页检索服务读取官方实验室研究进展正文；直接抓取返回站点验证脚本，未以脚本作为正文证据。",
+      "retrievalReference": "turn228view3",
+      "snapshotAvailable": false
+    },
+    {
+      "sourceId": "v6_cn_primary_cc285caa4ee9",
+      "id": "v6_cn_primary_cc285caa4ee9",
+      "url": "https://www.smhc.org.cn/info/3101/15621.htm",
+      "title": "李春波 — 官方个人资料",
+      "institution": "上海市精神卫生中心",
+      "country": "中国",
+      "selector": "已通过网页检索服务读取官方专家页正文；直接请求返回 HTTP 503，未伪称本地完整抓取。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T09:04:14.876008+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_web_retrieval",
+      "accessScope": "已通过网页检索服务读取官方专家页正文；直接请求返回 HTTP 503，未伪称本地完整抓取。",
+      "retrievalReference": "turn241view1",
+      "snapshotAvailable": false
+    },
+    {
+      "sourceId": "v6_cn_primary_d000511a5549",
+      "id": "v6_cn_primary_d000511a5549",
+      "url": "https://foodsci.jiangnan.edu.cn/szdw/js/Z/zjx.htm",
+      "title": "赵建新 — 官方个人资料",
+      "institution": "江南大学食品学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:27.946354+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "d6e4482be95705e64eb43dc4167be09f538d68139656fb54d780ee32d4792910"
+    },
+    {
+      "sourceId": "v6_cn_primary_c6df043f67fc",
+      "id": "v6_cn_primary_c6df043f67fc",
+      "url": "https://foodsci.jiangnan.edu.cn/szdw/js/Z/zh.htm",
+      "title": "张灏 — 官方个人资料",
+      "institution": "江南大学食品学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:28.288198+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "70186cf13a6fdb6a593a559bac267f9e0eed00d719f1d1fd259dc8255120214a"
+    },
+    {
+      "sourceId": "v6_cn_primary_385e585e1ed7",
+      "id": "v6_cn_primary_385e585e1ed7",
+      "url": "https://foodsci.jiangnan.edu.cn/szdw/js/Z/zqx11.htm",
+      "title": "翟齐啸 — 官方个人资料",
+      "institution": "江南大学食品学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:28.545436+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "c85d55d81815089f27ca76a398e5d7af7a6bd62c5d639b3eb9660406857d5f08"
+    },
+    {
+      "sourceId": "v6_cn_primary_f22f268375f6",
+      "id": "v6_cn_primary_f22f268375f6",
+      "url": "https://foodsci.jiangnan.edu.cn/szdw/js/T/tfw.htm",
+      "title": "田丰伟 — 官方个人资料",
+      "institution": "江南大学食品学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:28.855280+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "a507966c2b39bb7b14c9bfb32fffc7bfe833a9e44d8c5f2917b063aadd0908e2"
+    },
+    {
+      "sourceId": "v6_cn_primary_bf7e2ecbe5a0",
+      "id": "v6_cn_primary_bf7e2ecbe5a0",
+      "url": "https://foodsci.jiangnan.edu.cn/szdw/js/C/csm.htm",
+      "title": "崔树茂 — 官方个人资料",
+      "institution": "江南大学食品学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:29.290233+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "deca6a4c047cc67e375648f837f11902b0dddeda7e650c197fe7cc7e6c95f2dd"
+    },
+    {
+      "sourceId": "v6_cn_primary_367d0a3e071d",
+      "id": "v6_cn_primary_367d0a3e071d",
+      "url": "https://foodsci.jiangnan.edu.cn/szdw/fjs1/M/mby.htm",
+      "title": "毛丙永 — 官方个人资料",
+      "institution": "江南大学食品学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:29.648906+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "13a4acd38fb345db1cfecd6445ace2d75b266b46c3a4fb6db8eebd0e264819e1"
+    },
+    {
+      "sourceId": "v6_cn_primary_0aef64538862",
+      "id": "v6_cn_primary_0aef64538862",
+      "url": "https://foodsci.jiangnan.edu.cn/szdw/js/L/lww.htm",
+      "title": "陆文伟 — 官方个人资料",
+      "institution": "江南大学食品学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:29.911553+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "fc6ceadc2caff5bba65053bf88da0d728e31bb4bff20c6802b39b82ce0f6b42a"
+    },
+    {
+      "sourceId": "v6_cn_primary_72de8d8067e2",
+      "id": "v6_cn_primary_72de8d8067e2",
+      "url": "https://foodsci.jiangnan.edu.cn/szdw/fjs1/T/tpj.htm",
+      "title": "田培郡 — 官方个人资料",
+      "institution": "江南大学食品学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:30.187056+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "dcb72aaae53a003e99cea3090d10e891dcd8bf7fcc216c79960a831624526785"
+    },
+    {
+      "sourceId": "v6_cn_primary_953f24accbd6",
+      "id": "v6_cn_primary_953f24accbd6",
+      "url": "https://foodsci.jiangnan.edu.cn/szdw/fjs1/T/tx1.htm",
+      "title": "唐鑫 — 官方个人资料",
+      "institution": "江南大学食品学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:30.211236+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "4194a62b78fb2e138a46820cdd0777cbc400403cc6c1562919c81f801ed13a22"
+    },
+    {
+      "sourceId": "v6_cn_primary_32fc703fe614",
+      "id": "v6_cn_primary_32fc703fe614",
+      "url": "https://foodsci.jiangnan.edu.cn/szdw/js/W/w_g1.htm",
+      "title": "王刚 — 官方个人资料",
+      "institution": "江南大学食品学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:30.515581+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "44504cbfb0f0d9b5c041f6726a1a908ca20e928d2d5fa47b8adb69d46d223319"
+    },
+    {
+      "sourceId": "v6_cn_primary_4fbabac747d6",
+      "id": "v6_cn_primary_4fbabac747d6",
+      "url": "https://people.ucas.ac.cn/~jianxu?language=en",
+      "title": "徐健 — 官方个人资料",
+      "institution": "中国科学院青岛生物能源与过程研究所",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:30.777684+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "ff0a6ec82a5901283b8da8aab3842626a741497ad4d28c256a7f92bcf8882794"
+    },
+    {
+      "sourceId": "v6_cn_primary_fe89e94a1a1e",
+      "id": "v6_cn_primary_fe89e94a1a1e",
+      "url": "https://www.sps.tsinghua.edu.cn/info/1144/2606.htm",
+      "title": "鲁白 — 官方个人资料",
+      "institution": "上海尚思自然科学研究院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:30.851666+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "d1f9ba54e32df8dfdb52a0caa4091cc679088c5643d9443e794a7f0a7ab72a4d"
+    },
+    {
+      "sourceId": "v6_cn_primary_1404c0cb6d19",
+      "id": "v6_cn_primary_1404c0cb6d19",
+      "url": "https://www.acsans.org.cn/cn/people/",
+      "title": "上海尚思自然科学研究院 — 科学家与院长",
+      "institution": "上海尚思自然科学研究院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:30.874050+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "3360322703954012a31097e8b6f3e44ee4be66b3780ed9eb5ac5307f9b0f83d4"
+    },
+    {
+      "sourceId": "v6_cn_primary_130c082ba39b",
+      "id": "v6_cn_primary_130c082ba39b",
+      "url": "https://maic.siat.ac.cn/siat/2025-03/06/article_2025030601283854855.html",
+      "title": "马迎飞 — 官方个人资料",
+      "institution": "中国科学院深圳先进技术研究院合成生物学研究所",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:21.556252+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "6bfe190649dcf87c085e1fde32ea11eb97ff5317801efef6dadf4939d2ef7622"
+    },
+    {
+      "sourceId": "v6_cn_primary_0f332bda4e7d",
+      "id": "v6_cn_primary_0f332bda4e7d",
+      "url": "https://www.im.ac.cn/rcdw/yjy/l/202510/t20251023_7995483.html",
+      "title": "刘双江 — 官方个人资料",
+      "institution": "中国科学院微生物研究所",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T09:00:40.727526+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "197b6367adb37e991282d7db1f945ca9b38a2635ac0f5da5d74f5b96749f661d"
+    },
+    {
+      "sourceId": "v6_cn_primary_6c77af1f1b5f",
+      "id": "v6_cn_primary_6c77af1f1b5f",
+      "url": "https://web.bio.pku.edu.cn/homes/Index/news_cont_jl/16/23.html",
+      "title": "李毓龙 — 官方个人资料",
+      "institution": "北京大学生命科学学院",
+      "country": "中国",
+      "selector": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "parser": "manual_primary_review",
+      "retrievedAt": "2026-10-21T08:56:31.584190+00:00",
+      "extractedCount": 1,
+      "includedCount": 1,
+      "readMethod": "official_page_body",
+      "accessScope": "已抓取并读取官方个人资料正文；身份、研究介绍及所引用成果目录已人工核对，论文全文未逐篇审阅。",
+      "sha256": "901f95dd5ae8d26a1d08a5e0ef35dab5ea8022c5a1552359eb2a6a0dcf042ac5"
+    },
+    {
+      "sourceId": "review-2aa5973686a9",
+      "id": "review-2aa5973686a9",
+      "url": "https://microbiome.ucsf.edu/content/susan-lynch-phd",
+      "title": "UCSF — Susan Lynch",
+      "institution": "University of California San Francisco · Benioff Center for Microbiome Medicine",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-susan-lynch-ad934bc8"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-bd19890848be",
+      "id": "review-bd19890848be",
+      "url": "https://uclouvain.be/fr/people/patrice.cani",
+      "title": "UCLouvain — Patrice Cani",
+      "institution": "UCLouvain · Louvain Drug Research Institute",
+      "country": "比利时",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-patrice-cani-924c762b"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-d51700a060f1",
+      "id": "review-d51700a060f1",
+      "url": "https://uclouvain.be/en/people/nathalie.delzenne",
+      "title": "UCLouvain — Nathalie Delzenne",
+      "institution": "UCLouvain · Louvain Drug Research Institute",
+      "country": "比利时",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-nathalie-delzenne-95a88f71"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-82797991fee0",
+      "id": "review-82797991fee0",
+      "url": "https://www.fibertag.eu/staff-members/2413/",
+      "title": "FiberTAG — Nathalie Delzenne",
+      "institution": "UCLouvain · Louvain Drug Research Institute",
+      "country": "比利时",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-nathalie-delzenne-95a88f71"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-c91683bc1201",
+      "id": "review-c91683bc1201",
+      "url": "https://uclouvain.be/en/research-institutes/ldri/metabolism-and-nutrition-mnut",
+      "title": "UCLouvain — MNUT",
+      "institution": "UCLouvain · Louvain Drug Research Institute",
+      "country": "比利时",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-nathalie-delzenne-95a88f71"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-1d2e37cc381e",
+      "id": "review-1d2e37cc381e",
+      "url": "https://www.gu.se/en/about/find-staff/fredrikbackhed",
+      "title": "University of Gothenburg — Fredrik Bäckhed",
+      "institution": "University of Gothenburg · Wallenberg Laboratory",
+      "country": "瑞典",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-fredrik-backhed-44423ed1"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-2f4b6f7577b0",
+      "id": "review-2f4b6f7577b0",
+      "url": "https://www.sorbonne-universite.fr/en/structures-de-recherche/nutrition-and-obesities-systemic-approaches",
+      "title": "Sorbonne Université — NutriOmics",
+      "institution": "Sorbonne Université / Inserm · NutriOmics",
+      "country": "法国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 2,
+      "recordIds": [
+        "pi-karine-clement-2f818d6c",
+        "pi-judith-aron-wisnewsky-1259fb55"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-b4626e186b5b",
+      "id": "review-b4626e186b5b",
+      "url": "https://www.ucc.ie/en/apc/people/retirees/fergusshanahan/",
+      "title": "UCC / APC — Fergus Shanahan（退休目录）",
+      "institution": "University College Cork · APC Microbiome Ireland",
+      "country": "爱尔兰",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-fergus-shanahan-a147bb75"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-0a7f132588c2",
+      "id": "review-0a7f132588c2",
+      "url": "https://faculty-directory.dartmouth.edu/john-d-murray",
+      "title": "Dartmouth — John D. Murray",
+      "institution": "Dartmouth College · Psychological and Brain Sciences",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-john-d-murray-9ce0f1e5"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-09121f908118",
+      "id": "review-09121f908118",
+      "url": "https://medicine.yale.edu/profile/john-murray/",
+      "title": "Yale — John D Murray",
+      "institution": "Dartmouth College · Psychological and Brain Sciences",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-john-d-murray-9ce0f1e5"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-69adf8aa48ff",
+      "id": "review-69adf8aa48ff",
+      "url": "https://www.kcl.ac.uk/people/toby-wise",
+      "title": "King’s College London — Toby Wise",
+      "institution": "King’s College London · IoPPN",
+      "country": "英国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-toby-wise-12cf3032"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-3ca63864b34a",
+      "id": "review-3ca63864b34a",
+      "url": "https://eng.ox.ac.uk/people/ben-seymour",
+      "title": "University of Oxford — Ben Seymour",
+      "institution": "University of Oxford",
+      "country": "英国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-ben-seymour-ed09c411"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-2144c7420ea9",
+      "id": "review-2144c7420ea9",
+      "url": "https://www.econ.uzh.ch/en/people/faculty/tobler.html",
+      "title": "University of Zurich — Philippe Tobler",
+      "institution": "University of Zurich · Zurich Center for Neuroeconomics",
+      "country": "瑞士",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-philippe-tobler-1ed1d5c4"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-cf5c6734e18f",
+      "id": "review-cf5c6734e18f",
+      "url": "https://www.econ.uzh.ch/en/people/faculty/tobler/research.html",
+      "title": "UZH — Tobler research",
+      "institution": "University of Zurich · Zurich Center for Neuroeconomics",
+      "country": "瑞士",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-philippe-tobler-1ed1d5c4"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-4ed63230d2fc",
+      "id": "review-4ed63230d2fc",
+      "url": "https://www.zne.uzh.ch/en/news/Promotion-Tobler0.html",
+      "title": "UZH — Promotion Philippe Tobler",
+      "institution": "University of Zurich · Zurich Center for Neuroeconomics",
+      "country": "瑞士",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-philippe-tobler-1ed1d5c4"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-ebb04f7eccce",
+      "id": "review-ebb04f7eccce",
+      "url": "https://lir-mainz.de/en/forschungsgruppe/ag-kalisch",
+      "title": "LIR — Kalisch Group",
+      "institution": "Leibniz Institute for Resilience Research / University Medical Center Mainz",
+      "country": "德国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-raffael-kalisch-d7da4813"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-0901d77c818b",
+      "id": "review-0901d77c818b",
+      "url": "https://people.eecs.berkeley.edu/~emmapierson/",
+      "title": "UC Berkeley — Emma Pierson",
+      "institution": "University of California, Berkeley",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-emma-pierson-7f8ff4c4"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-8188b842410f",
+      "id": "review-8188b842410f",
+      "url": "https://profiles.stanford.edu/emma-lundberg",
+      "title": "Stanford — Emma Lundberg",
+      "institution": "Stanford University · Bioengineering and Pathology",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-emma-lundberg-62dcb761"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-83e5b2a2c103",
+      "id": "review-83e5b2a2c103",
+      "url": "https://www.gene.com/scientists/our-scientists/aviv-regev",
+      "title": "Genentech — Aviv Regev",
+      "institution": "Genentech · Research and Early Development",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-aviv-regev-13d7443f"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-d9d9209edeb4",
+      "id": "review-d9d9209edeb4",
+      "url": "https://www.bio.purdue.edu/People/profile/annec.html",
+      "title": "Purdue — Anne Carpenter",
+      "institution": "Purdue University · Carpenter–Shen Lab",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-anne-e-carpenter-75afb0a1"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-6a3791220443",
+      "id": "review-6a3791220443",
+      "url": "https://carpentershenlab.org/",
+      "title": "Carpenter–Shen Lab — Research",
+      "institution": "Purdue University · Carpenter–Shen Lab",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 2,
+      "recordIds": [
+        "pi-anne-e-carpenter-75afb0a1",
+        "pi-runxi-shen-80752576"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-4c681ae71238",
+      "id": "review-4c681ae71238",
+      "url": "https://carpentershenlab.org/people/",
+      "title": "Carpenter–Shen Lab — People",
+      "institution": "Purdue University · Carpenter–Shen Lab",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 2,
+      "recordIds": [
+        "pi-anne-e-carpenter-75afb0a1",
+        "pi-runxi-shen-80752576"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-439a8505f3f3",
+      "id": "review-439a8505f3f3",
+      "url": "https://www.insitro.com/leadership/daphne-koller/",
+      "title": "insitro — Daphne Koller",
+      "institution": "insitro",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-daphne-koller-776d36de"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-81606563134f",
+      "id": "review-81606563134f",
+      "url": "https://www.insitro.com/platform/",
+      "title": "insitro — Platform",
+      "institution": "insitro",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-daphne-koller-776d36de"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-f8ed2d110720",
+      "id": "review-f8ed2d110720",
+      "url": "https://www.insitro.com/purpose/",
+      "title": "insitro — Purpose",
+      "institution": "insitro",
+      "country": "美国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-daphne-koller-776d36de"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-034f06ba00c4",
+      "id": "review-034f06ba00c4",
+      "url": "https://www.uke.de/english/physicians-and-scientists/wissenschaftlerprofilseite_christian_b%C3%BCchel.html",
+      "title": "UKE — Christian Büchel",
+      "institution": "University Medical Center Hamburg-Eppendorf · Institute for Systems Neuroscience",
+      "country": "德国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-christian-buchel-0170d78c"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-e165eab406e3",
+      "id": "review-e165eab406e3",
+      "url": "https://www.uke.de/kliniken-institute/institute/systemische-neurowissenschaften/forschung/arbeitsgruppen/affective-neuroscience.html",
+      "title": "UKE — Affective Neuroscience",
+      "institution": "University Medical Center Hamburg-Eppendorf · Institute for Systems Neuroscience",
+      "country": "德国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-christian-buchel-0170d78c"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-15ac419d0061",
+      "id": "review-15ac419d0061",
+      "url": "https://researchprofiles.ku.dk/en/persons/oluf-borbye-pedersen/",
+      "title": "University of Copenhagen — Oluf Borbye Pedersen",
+      "institution": "University of Copenhagen",
+      "country": "丹麦",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-oluf-borbye-pedersen-cf6e9af8"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-40faa90e5e25",
+      "id": "review-40faa90e5e25",
+      "url": "https://cbmr.ku.dk/research/research-groups/hansen-group/",
+      "title": "University of Copenhagen — Hansen Group",
+      "institution": "University of Copenhagen · CBMR",
+      "country": "丹麦",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-torben-hansen-e897e5ae"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-db203068f912",
+      "id": "review-db203068f912",
+      "url": "https://www.weizmann.ac.il/lsc/lab/prof-nir-yosef",
+      "title": "Weizmann — Prof. Nir Yosef",
+      "institution": "Weizmann Institute of Science · Systems Immunology",
+      "country": "以色列",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-nir-yosef-e5d97430"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-062ccdbcb426",
+      "id": "review-062ccdbcb426",
+      "url": "https://www.biochem.mpg.de/borgwardt",
+      "title": "Max Planck Institute of Biochemistry — Borgwardt",
+      "institution": "Max Planck Institute of Biochemistry · Machine Learning and Systems Biology",
+      "country": "德国",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-karsten-borgwardt-1fa2d9e5"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-a08b257430eb",
+      "id": "review-a08b257430eb",
+      "url": "https://www.computationalpathologygroup.eu/members/jeroen-van-der-laak/",
+      "title": "Radboudumc Computational Pathology — Jeroen van der Laak",
+      "institution": "Radboudumc · Computational Pathology Group",
+      "country": "荷兰",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-jeroen-van-der-laak-f4dde5f3"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-f7e1ef9344f7",
+      "id": "review-f7e1ef9344f7",
+      "url": "https://researchprofiles.ku.dk/en/persons/mani-arumugam/",
+      "title": "University of Copenhagen — Mani Arumugam",
+      "institution": "University of Copenhagen · CBMR",
+      "country": "丹麦",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-mani-arumugam-7befa6fa"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
+    },
+    {
+      "sourceId": "review-620a7dd8d368",
+      "id": "review-620a7dd8d368",
+      "url": "https://researchprofiles.ku.dk/en/persons/dennis-sandris-nielsen/",
+      "title": "University of Copenhagen — Dennis Sandris Nielsen",
+      "institution": "University of Copenhagen · Department of Food Science",
+      "country": "丹麦",
+      "kind": "research_profile",
+      "verifiedAt": "2026-10-21",
+      "reviewedAt": "2026-10-21",
+      "readMethod": "web_open",
+      "parser": "editorial individual-source review",
+      "selector": "Official individual / group research profile; only directly attributable facts",
+      "timestampOrigin": "actual editorial content review; not an inferred HTTP verification",
+      "includedCount": 1,
+      "recordIds": [
+        "pi-dennis-sandris-nielsen-5d22fc82"
+      ],
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-21",
+        "scope": "通过 web open / find 读取网页相关正文；未把检索摘要当作全文；不等同于核验论文、招聘或招生名额。"
+      }
     }
   ]
 }
