@@ -1,6 +1,529 @@
 {
   "schemaVersion": 1,
-  "checkedAt": null,
-  "meaning": "等待首次自动网页巡检；内容核验日期独立记录于labs.json。",
-  "sources": {}
+  "checkedAt": "2026-10-21T00:01:50+00:00",
+  "meaning": "网页可访问性和正文哈希巡检；不等于科研事实或招聘资格复核。",
+  "sources": {
+    "https://bethgelab.org/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "6d37b0bc48b5f854f457645d89d4f5f213ffa354057f519072207597dbf5fb09",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "6d37b0bc48b5f854f457645d89d4f5f213ffa354057f519072207597dbf5fb09",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://bethgelab.org/join/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "76bdf61acd1541c0ea561059ab0050135e4ab8b6fda14464ac32f9dbfced2da1",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "76bdf61acd1541c0ea561059ab0050135e4ab8b6fda14464ac32f9dbfced2da1",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://bethgelab.org/publications/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "7a284ba513826ce9e9900f6464bb105caa259b1c5e732435cc1cf51e5800e6d2",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "7a284ba513826ce9e9900f6464bb105caa259b1c5e732435cc1cf51e5800e6d2",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://changlab.ucsf.edu/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "c89a4cb23944d9400ac507e170f541d6d75c64075a2062a8d9aaa59e71fa8053",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "c89a4cb23944d9400ac507e170f541d6d75c64075a2062a8d9aaa59e71fa8053",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://changlab.ucsf.edu/opportunities": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "8f51c892ae5ab984558a058d2a1287b7da728c79675da2874227293bd61f58d5",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "8f51c892ae5ab984558a058d2a1287b7da728c79675da2874227293bd61f58d5",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://complexsystemsupenn.com/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "8b072249879ca2f3ec972aa7fb6f9468b036b91a2302052a99e2cf99f94b1bc2",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "8b072249879ca2f3ec972aa7fb6f9468b036b91a2302052a99e2cf99f94b1bc2",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://github.com/OHBA-analysis/osl-dynamics": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "5c51ec1d161ce7d4a3fdccb1aa0cb5f9b040e93b00d301e040d196c8f75d11c6",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "5c51ec1d161ce7d4a3fdccb1aa0cb5f9b040e93b00d301e040d196c8f75d11c6",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://miplab.epfl.ch/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "7c037d3819c0280547c56d5be456c0eb326a7ab766b0ce3e132ca4c2ad10d883",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "7c037d3819c0280547c56d5be456c0eb326a7ab766b0ce3e132ca4c2ad10d883",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://miplab.epfl.ch/life/jobs": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "c33dd0be75ff6fc8f2c8f5e6b87930d45e6b9735f505f22b78fdb748b4b3bd77",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "c33dd0be75ff6fc8f2c8f5e6b87930d45e6b9735f505f22b78fdb748b4b3bd77",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://miplab.epfl.ch/publications": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "dcfe6c295ef7b30e5d3d28bf834e6de86b2d88ef85fbec22585907dcce5dd0ce",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "dcfe6c295ef7b30e5d3d28bf834e6de86b2d88ef85fbec22585907dcce5dd0ce",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://nptl.stanford.edu/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "d225a2f05132eb9233f2328606d96476e78d533859d3aa54bfc7981c6b0be250",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "d225a2f05132eb9233f2328606d96476e78d533859d3aa54bfc7981c6b0be250",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://nptl.stanford.edu/group": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "2c8f4bbe8745e859c9f7b732c45052de7dda180729c80160711ca7d9996443f9",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "2c8f4bbe8745e859c9f7b732c45052de7dda180729c80160711ca7d9996443f9",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://people.epfl.ch/silvestro.micera?lang=en": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "3e1edd7df7ecdce00cb9750d87c1d758f358c251f8ac2f0d31b52edb708d2e13",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "3e1edd7df7ecdce00cb9750d87c1d758f358c251f8ac2f0d31b52edb708d2e13",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://people.epfl.ch/stephanie.lacour?lang=en": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "43f13c83361db318e15ce0a0f2f9384ee0689632628a4215e2808918ec4aab2a",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "43f13c83361db318e15ce0a0f2f9384ee0689632628a4215e2808918ec4aab2a",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://predictiveclinicalneuroscience.com/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "a65c57be57778afb47e543fc689ef50e226d478d7318ac5ff6f0c42b1310cd74",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "a65c57be57778afb47e543fc689ef50e226d478d7318ac5ff6f0c42b1310cd74",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://predictiveclinicalneuroscience.com/2021/06/03/we-are-hiring/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "3594567433de36eeb692ac1ad3e08bf005abb171ab1a214d5b6d74de8636e631",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "3594567433de36eeb692ac1ad3e08bf005abb171ab1a214d5b6d74de8636e631",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://profiles.ucl.ac.uk/2747-karl-friston": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "state": "error",
+      "error": "ValueError: empty or challenge page"
+    },
+    "https://psychology.sas.upenn.edu/people/dani-bassett": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://research.umcutrecht.nl/research-groups/utrecht-bci-lab-developing-neurotechnology-for-people-with-motor-impairments/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "41a8abb00341f39a9be2ade12c3d8ec6dac80d4e17193ed35bed61c3a5ec1451",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "41a8abb00341f39a9be2ade12c3d8ec6dac80d4e17193ed35bed61c3a5ec1451",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://researchinformation.umcutrecht.nl/en/persons/nf-ramsey/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "90f12b132696746329a6e37298367defa0a206b2f5a4365040f36b4c546c15fb",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "90f12b132696746329a6e37298367defa0a206b2f5a4365040f36b4c546c15fb",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://steglelab.org/joinus/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "23debd4b2a2b6d7952124ebfab25d9ea4a52a2fa49cc0ba19e0498b3013cf49f",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "23debd4b2a2b6d7952124ebfab25d9ea4a52a2fa49cc0ba19e0498b3013cf49f",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://steglelab.org/research/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "57ce897e48945694b1814b1d7c9ea522f538d1948e58c4b247158854d7456828",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "57ce897e48945694b1814b1d7c9ea522f538d1948e58c4b247158854d7456828",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://utrecht-bci.nl/open-position-for-a-postdoc/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "b8e29fb66a809548437701fd9b603a19f0b2a215afc6b1d226f158f65c95d80f",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "b8e29fb66a809548437701fd9b603a19f0b2a215afc6b1d226f158f65c95d80f",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.artcogsys.com/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "d5958eda3739e0e5233700c7c540d0a928224c6158fd50243db82a0da1c2ac54",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "d5958eda3739e0e5233700c7c540d0a928224c6158fd50243db82a0da1c2ac54",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.artcogsys.com/contact": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "a789e01de6f7fc4130bb38e567941a80ff5f2c4a37dce23c5cde53097d693a06",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "a789e01de6f7fc4130bb38e567941a80ff5f2c4a37dce23c5cde53097d693a06",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.artcogsys.com/publications": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "5f8fad238c6af46361de2293e5667bc2440cbc855b4e13039a68b367c4b9da52",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "5f8fad238c6af46361de2293e5667bc2440cbc855b4e13039a68b367c4b9da52",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.bihealth.org/en/research/research-group/ritter-lab-brain-simulation": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "027f56f2afeeef43a569e4cbee0de3072ec4a96507efce34268c239511b3b0f4",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "027f56f2afeeef43a569e4cbee0de3072ec4a96507efce34268c239511b3b0f4",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.brainsimulation.org/bsw/zwei/research-publications": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "92184cff8daae57f4d81cc55d576bc66684931bb997eb7746da27d5dc9e0ac41",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "92184cff8daae57f4d81cc55d576bc66684931bb997eb7746da27d5dc9e0ac41",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.brainsimulation.org/bsw/zwei/team-jobs": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "3c8a09ee0cb02f464aeaebb06d1ff068f742fd284276a327186e2b227bcfe239",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "3c8a09ee0cb02f464aeaebb06d1ff068f742fd284276a327186e2b227bcfe239",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.embl.org/people/person/oliver-stegle/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "f9611bff0fb4c346bda745ef2a79371433ee2bd5c9efefa552a46c9802bb80c5",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "f9611bff0fb4c346bda745ef2a79371433ee2bd5c9efefa552a46c9802bb80c5",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.epfl.ch/labs/lsbi/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "ff42b50486c09495a5cb48b823beea127e60e955dacede8da39d610bbb1be81c",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "ff42b50486c09495a5cb48b823beea127e60e955dacede8da39d610bbb1be81c",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.epfl.ch/labs/lsbi/lsbi-2/group/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "0a1edb2793828323f882af9c82937dee24290146e2b9fdb135135184254bdc12",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "0a1edb2793828323f882af9c82937dee24290146e2b9fdb135135184254bdc12",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.epfl.ch/labs/tne/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "f26de4b0660649c186538cd5a30533e6d2c0335a1d0f29544c96ffa33b80699e",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "f26de4b0660649c186538cd5a30533e6d2c0335a1d0f29544c96ffa33b80699e",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.epfl.ch/labs/tne/student-projects/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "6b0522fc557665fd814e1546ba504ce86ad77af161306f0d8833257e9ae396e7",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "6b0522fc557665fd814e1546ba504ce86ad77af161306f0d8833257e9ae396e7",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.fil.ion.ucl.ac.uk/~karl/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "4379bc194920c575d10404541330d1e1a60ea3cb280526916cf5a075755706d5",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "4379bc194920c575d10404541330d1e1a60ea3cb280526916cf5a075755706d5",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.fz-juelich.de/de/ueber-uns/kontakt/besuch/wissenschaft-online/aufzeichnungen-wissenschaft-online": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "ff5c59ea709af6c3b73cae3fe6a4dbb18351fe0128a05cc1f3bc7e999be199e1",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "ff5c59ea709af6c3b73cae3fe6a4dbb18351fe0128a05cc1f3bc7e999be199e1",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.fz-juelich.de/en/careers/jobs?targetGroup=professionals": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "38e86908dd3823c0e0a6cc33179982b51ac050d2c511cbb6bd8c22aa62a7dc9d",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "38e86908dd3823c0e0a6cc33179982b51ac050d2c511cbb6bd8c22aa62a7dc9d",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.fz-juelich.de/en/inm/inm-7": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "2c667d43ddc64f558d3a3e7e2d1c9b6f9736acccbad73eccc5f2199d97fad7cd",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "2c667d43ddc64f558d3a3e7e2d1c9b6f9736acccbad73eccc5f2199d97fad7cd",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.fz-juelich.de/en/inm/inm-7/about-us": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "fbea616073928be776f47bf8a049ee7a0ee95441e6031e4076c9d09c53f5d7c5",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "fbea616073928be776f47bf8a049ee7a0ee95441e6031e4076c9d09c53f5d7c5",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.helmholtz-munich.de/en/chc-postdoc": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "e46e8c3a33444edef85ecac823794061491b03fb810dd4625612fa6fa236e82c",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "e46e8c3a33444edef85ecac823794061491b03fb810dd4625612fa6fa236e82c",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.helmholtz-munich.de/en/icb/fabian-theis": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "294f40203be46555fdcf3cb6380b576f9ec797b0e514a951776351b7d6dd1aaa",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "294f40203be46555fdcf3cb6380b576f9ec797b0e514a951776351b7d6dd1aaa",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.helmholtz-munich.de/en/icb/research-groups/theis-lab": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "67e680cc8aecc216834f188a6c809f87f7c32cff073052ac3291ce8c96ca9b27",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "67e680cc8aecc216834f188a6c809f87f7c32cff073052ac3291ce8c96ca9b27",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.helmholtz.de/en/newsroom/article/a-digital-twin-for-the-future-of-medicine/": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "ac1abcdeda26ce4e71fe265c912c1dd65139c0ff150ef496e5461f6506ffb4f8",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "ac1abcdeda26ce4e71fe265c912c1dd65139c0ff150ef496e5461f6506ffb4f8",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.med.upenn.edu/apps/faculty/index.php/g275/p8676722": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "8998230efa052af5f987c4cf31b0f65f56b73ea0108fda7a81fbe9356ef80b0e",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "8998230efa052af5f987c4cf31b0f65f56b73ea0108fda7a81fbe9356ef80b0e",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.ndcn.ox.ac.uk/research/fmrib-analysis-upcoming-projects": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://www.ox.ac.uk/news/2025-08-28-exceptional-oxford-researchers-awarded-first-royal-society-faraday-discovery": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://www.oxcin.ox.ac.uk/people/mark-woolrich": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://www.oxcin.ox.ac.uk/people/timothy-behrens": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://www.oxcin.ox.ac.uk/research/analysis-research/analysis-dphil-postdoc-projects": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "state": "error",
+      "error": "HTTP 403"
+    },
+    "https://www.radboudumc.nl/en/research/news/news-items-by-our-research-institute/2025/three-radboudumc-research-awards-announced-at-strategy-day": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "7d7b9588800b821f56740bcbb33c9703f3d4481e84d4ead607d8d053b1fd69cb",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "7d7b9588800b821f56740bcbb33c9703f3d4481e84d4ead607d8d053b1fd69cb",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.ru.nl/en/people/gerven-m-van": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "a316d5d0bfc4dc71a5e83fdbb3d28163ba6f94dff36bf1dbe69cd85013120f2c",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "a316d5d0bfc4dc71a5e83fdbb3d28163ba6f94dff36bf1dbe69cd85013120f2c",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.ru.nl/en/people/marquand-a": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "1512e1847b76d7709612d4386b94f7f30c09bf23721024f17f5e0b958af5d148",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "1512e1847b76d7709612d4386b94f7f30c09bf23721024f17f5e0b958af5d148",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.stemcells.cam.ac.uk/people/sarah-teichmann": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "ea31524cdb676e4d55522323af66236e4509b3c1cd00a73072a3ff0d69fd7441",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "ea31524cdb676e4d55522323af66236e4509b3c1cd00a73072a3ff0d69fd7441",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.teichlab.org/contact": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "90249ca148e1e0c0103a7f150b10c44a9fbe34946bf98a08e08e58d79d493bec",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "90249ca148e1e0c0103a7f150b10c44a9fbe34946bf98a08e08e58d79d493bec",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    },
+    "https://www.teichlab.org/publications": {
+      "reviewStamp": "2026-10-21",
+      "checkedAt": "2026-10-21T00:01:50+00:00",
+      "baselineHash": "264bfb9e295336334b8d31a085a2759e284c8b4c97094b668f668d95ce108a41",
+      "baselineAt": "2026-10-21T00:01:50+00:00",
+      "state": "ok",
+      "hash": "264bfb9e295336334b8d31a085a2759e284c8b4c97094b668f668d95ce108a41",
+      "lastSuccessAt": "2026-10-21T00:01:50+00:00",
+      "changed": false
+    }
+  }
 }
