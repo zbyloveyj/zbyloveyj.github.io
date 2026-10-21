@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#142d46">
+  <meta name="theme-color" content="#132e50">
   <title>全球科研团队导航 · 成长学院</title>
   <meta name="description" content="全球导师与研究团队长期候选库。覆盖微生物组、计算精神病学、医学人工智能、脑科学、计算生物学和多组学；按问题、方法、疾病、数据和研究设计交叉筛选，比较七项来源证据并建立个人关注名单。">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/labs.css?v=20261021-global-v4">
+  <link rel="stylesheet" href="assets/labs.css?v=20261021-visual-v5">
   <script defer src="assets/lab-model.js?v=20261021-global-v4"></script>
   <script defer src="assets/labs.js?v=20261021-global-v4"></script>
 </head>
@@ -15,20 +15,12 @@
 <header class="top"><a class="brand" href="./">一心问道 <span>成长学院</span></a><nav aria-label="页面导航"><a href="#catalog">导师库</a><a href="#evaluation">评价维度</a><a href="#notebook">我的名单</a><a href="./#/career">申请课程</a></nav></header>
 <main>
 <section class="hero">
-  <div class="hero-copy"><p class="eyebrow">GLOBAL RESEARCH ATLAS / 持续扩充</p><h1>找到共同的问题，<br><em>再走近理想的导师。</em></h1><p class="intro">从微生物组与肠脑轴，到计算精神病学、医学AI和多组学。以研究问题、方法和成果建立长期候选名单，为未来一至两年的研究与申请做准备。</p><a class="primary" href="#catalog">探索全球团队 ↓</a><a class="hero-link" href="#evaluation">如何判断研究适配 ↗</a></div>
+  <div class="hero-copy"><p class="eyebrow">GLOBAL RESEARCH ATLAS / 持续扩充</p><h1>找到共同的问题，<br><em>再走近理想的导师。</em></h1><p class="intro">从微生物组与肠脑轴，到计算精神病学、医学AI和多组学。以研究问题、方法和成果建立长期候选名单，为未来一至两年的研究与申请做准备。</p><div class="hero-actions"><a class="primary" href="#catalog">探索全球团队 <span aria-hidden="true">↗</span></a><a class="hero-link" href="#evaluation">如何判断研究适配 <span aria-hidden="true">→</span></a></div><p class="hero-caption">研究问题优先 <span>·</span> 官方来源可追溯 <span>·</span> 长期关注与比较</p></div>
   <aside class="hero-aside"><p class="eyebrow">全球发现 · 逐层深入</p><div id="stats" class="stats">正在读取团队库…</div><p id="coverage-note">每条记录保留官方来源与核验范围</p><span class="line"></span><p>先看问题与方法，再读代表成果。<br>机会与联合培养资格单独核验。</p></aside>
 </section>
 <section class="monitor-band" aria-label="数据更新状态"><span class="dot" aria-hidden="true"></span><div id="freshness" role="status">正在读取核验与巡检时间…</div><button id="refresh" type="button">刷新数据 ↻</button></section>
 <section id="catalog" class="section">
   <div class="section-heading"><p class="eyebrow">01 / FIND YOUR RESEARCH COMMUNITY</p><h2>导师与研究团队</h2><p>搜索姓名、机构或关键词，也可以组合国家、研究方向和证据深度筛选。无论目前是否招生或招聘，相关团队都可作为长期候选。</p></div>
-  <div id="evidence-summary" class="evidence-summary"></div>
-  <p id="expansion-summary" class="expansion-summary"></p>
-  <details id="coverage-panel" class="coverage-panel">
-    <summary>查看各研究方向的覆盖深度 <span>收录范围 · 研究说明 · 方法标签</span></summary>
-    <p class="small">研究依据包括官方目录中的个人简介或明确专题分组，深度须结合证据等级判断；有方法标签也不代表已审阅全部论文。方向相互交叉，数量不能相加；缺少标签表示尚未整理。机构数按本库机构 / 研究单元归类计算。</p>
-    <div id="topic-coverage" class="table-scroll" tabindex="0" aria-label="方向覆盖表，可横向滚动"></div>
-  </details>
-  <div id="quick-filters" class="quick-filters" aria-label="常用研究方向"></div>
   <form id="filters" class="filters" role="search">
     <label class="search">搜索导师、机构、方法或研究问题<input type="search" id="query" placeholder="例如：微生物组、Huttenhower、计算精神病、临床预测" autocomplete="off"></label>
     <label>国家 / 地区<select id="country"><option value="">全部国家 / 地区</option></select></label>
@@ -58,11 +50,19 @@
       <p class="small">多个条件同时满足才会显示。未记录某种方法不代表团队不使用；可先放宽条件，再查看官方研究页。</p>
     </details>
   </form>
+  <div id="quick-filters" class="quick-filters" aria-label="常用研究方向"></div>
   <details id="match-panel" class="match-panel">
     <summary>我的匹配标准 <span>选择目标与权重，解释每条记录为什么匹配</span></summary>
     <p class="small">从已记录标签计算匹配覆盖率。权重为0表示忽略该项；空白不参与计算。这不是导师实力或录取概率评分。</p>
     <div id="preference-controls" class="preference-controls"></div>
     <div class="match-actions"><button id="apply-match" type="button">按这些标准排序</button><button id="clear-match" type="button">清空匹配标准</button><span id="match-summary" class="small"></span></div>
+  </details>
+  <div id="evidence-summary" class="evidence-summary"></div>
+  <p id="expansion-summary" class="expansion-summary"></p>
+  <details id="coverage-panel" class="coverage-panel">
+    <summary>查看各研究方向的覆盖深度 <span>收录范围 · 研究说明 · 方法标签</span></summary>
+    <p class="small">研究依据包括官方目录中的个人简介或明确专题分组，深度须结合证据等级判断；有方法标签也不代表已审阅全部论文。方向相互交叉，数量不能相加；缺少标签表示尚未整理。机构数按本库机构 / 研究单元归类计算。</p>
+    <div id="topic-coverage" class="table-scroll" tabindex="0" aria-label="方向覆盖表，可横向滚动"></div>
   </details>
   <div class="results-line"><p id="result-count" role="status" aria-live="polite"></p><div class="results-actions"><button id="share-view" type="button">复制筛选链接</button><button id="export-results" type="button">导出筛选结果 CSV</button></div></div>
   <div id="active-filters" class="active-filters"></div>
