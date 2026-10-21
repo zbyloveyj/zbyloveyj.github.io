@@ -22,4 +22,7 @@ assert.throws(()=>M.validateNotebook({...file,entries:[{...entry,note:'x'.repeat
 assert.throws(()=>M.validateNotebook({...file,entries:[{...entry,stage:'made-up'}]}));
 assert.throws(()=>M.validateNotebook({...file,entries:[{...entry,updatedAt:'not-a-date'}]}));
 assert.throws(()=>M.validateNotebook({entries:[entry]}));
+const largeNotebook={...file,entries:Array.from({length:10001},(_,i)=>({...entry,id:'example-'+i}))};
+assert.equal(M.validateNotebook(largeNotebook).entries.length,10001,'A directory with over ten thousand candidates must support a complete private backup.');
+assert.equal(M.mergeNotebooks(file,largeNotebook).entries.length,10001);
 console.log('Research model QA passed: cross-axis AND filters, explicit missing data, weighted tag coverage, evidence dimensions, private backup validation and newest-entry merge.');

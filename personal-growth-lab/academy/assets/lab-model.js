@@ -46,7 +46,7 @@
   const notebookType = 'growthlab-research-notebook';
   const storageKey = 'growthlab.research-directory.notebook.v1';
   function validateNotebook(raw) {
-    if(!raw || raw.type !== notebookType || raw.schemaVersion !== 1 || !Array.isArray(raw.entries) || raw.entries.length > 5000) throw Error('这不是可识别的研究名单备份（版本1，最多5000条）。');
+    if(!raw || raw.type !== notebookType || raw.schemaVersion !== 1 || !Array.isArray(raw.entries) || raw.entries.length > 20000) throw Error('这不是可识别的研究名单备份（版本1，最多20000条）。');
     const seen = new Set();
     const entries = raw.entries.map(e => {
       if(!e || typeof e.id !== 'string' || !/^[a-zA-Z0-9_-]{1,160}$/.test(e.id) || ['__proto__','prototype','constructor'].includes(e.id) || seen.has(e.id)) throw Error('备份含无效或重复的记录标识。');
@@ -59,7 +59,7 @@
   function mergeNotebooks(current, incoming) {
     const out = new Map(validateNotebook(current).entries.map(e=>[e.id,e]));
     for(const e of validateNotebook(incoming).entries){const previous=out.get(e.id);if(!previous || Date.parse(e.updatedAt)>=Date.parse(previous.updatedAt))out.set(e.id,e);}
-    if(out.size>5000)throw Error('合并后超过5000条，请先精简备份。');
+    if(out.size>20000)throw Error('合并后超过20000条，请先精简备份。');
     return {type:notebookType,schemaVersion:1,entries:[...out.values()]};
   }
   return {axes,dimensions,roles,stages,norm,values,evidence,evidenceCount,matchesFacets,match,searchText,storageKey,notebookType,validateNotebook,mergeNotebooks};

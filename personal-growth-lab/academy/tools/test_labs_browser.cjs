@@ -7,13 +7,23 @@ const M=require('../assets/lab-model.js');
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=`http://127.0.0.1:${server.address().port}`;
  const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
  try{
-  const context=await browser.newContext({viewport:{width:1440,height:1000}}),page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  const context=await browser.newContext({viewport:{width:1440,height:1000}}),page=await context.newPage();const errors=[],requests=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push(r.url()));
   await page.route('https://raw.githubusercontent.com/**',r=>r.abort());
   const ready=async()=>{await page.waitForSelector('.lab-card');await page.waitForFunction(()=>!document.querySelector('#refresh').disabled);};
   await page.goto(base+'/labs.html');await ready();
+  assert(requests.some(u=>u.endsWith('/data/labs.json.gz')),'Use the compressed directory');
+  assert(!requests.some(u=>u.endsWith('/data/labs.json')),'Do not download the larger fallback after successful decompression');
   assert.equal(await page.locator('.lab-card').count(),24);
   assert.match(await page.locator('#stats').innerText(),new RegExp(data.labs.length.toLocaleString('zh-CN')));
   assert.equal(await page.locator('#status').inputValue(),'');
+  // Source browsing stays bounded with a large directory, and search is exhaustive.
+  await page.locator('.source-directory').evaluate(el=>el.open=true);
+  assert.equal(await page.locator('#source-list article').count(),32);
+  await page.locator('#source-more').click();assert.equal(await page.locator('#source-list article').count(),64);
+  await page.locator('#source-search').fill('microbiology.washington.edu');
+  assert(await page.locator('#source-list article').count()>=1);
+  assert.equal(await page.locator('#source-list a[href="https://microbiology.washington.edu/faculty"]').count(),1);
+  await page.locator('#source-search').fill('');
   const totalPages=Math.ceil(data.labs.length/24);
   await page.locator(`#pagination [data-page="${totalPages}"]`).click();
   const lastId=await page.locator('.lab-card').first().getAttribute('id');
@@ -21,12 +31,31 @@ const M=require('../assets/lab-model.js');
   await page.locator('#pagination [data-page="1"]').first().click();
   for(const id of ['theis','stegle','chang'])await page.locator(`[data-compare="${id}"]`).check();
   await page.locator('[data-compare="bassett"]').click();assert.equal(await page.locator('[data-compare="bassett"]').isChecked(),false);
-  await page.locator('#compare-open').click();assert.equal(await page.locator('#comparison').isVisible(),true);assert.equal(await page.locator('thead th').count(),5);
+  await page.locator('#compare-open').click();assert.equal(await page.locator('#comparison').isVisible(),true);assert.equal(await page.locator('#comparison thead th').count(),5);
   await page.locator('#compare-clear').click();
   await page.getByRole('button',{name:'查看计算生物学 ↗'}).click();
   const compbio=data.labs.filter(l=>l.directions.includes('计算生物学')).length;
   assert.equal(await page.locator('.lab-card').count(),Math.min(24,compbio));
   await page.getByRole('button',{name:'重置筛选',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.lab-card').length===24);
+  // Expansion counts must refer to unique records, with shareable filters.
+  if(data.latestExpansion){
+    assert.match(await page.locator('#expansion-summary').innerText(),new RegExp(data.latestExpansion.newCount.toLocaleString('zh-CN')));
+    await page.locator('#update-filter').selectOption('new');
+    const added=data.labs.filter(l=>l.firstIncludedEdition===data.edition).length;
+    assert.equal(added,data.latestExpansion.newCount);
+    assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+added.toLocaleString('zh-CN')+' 个'));
+    await page.reload();await ready();assert.equal(await page.locator('#update-filter').inputValue(),'new');
+    await page.locator('#update-filter').selectOption('enriched');
+    const enriched=data.labs.filter(l=>l.lastEnrichedEdition===data.edition).length;
+    assert.equal(enriched,data.latestExpansion.enrichedCount);
+    assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+enriched.toLocaleString('zh-CN')+' 个'));
+    await page.getByRole('button',{name:'重置筛选',exact:true}).click();
+  }
+  await page.locator('#coverage-panel').evaluate(el=>el.open=true);
+  const microbiomeRow=page.locator('#topic-coverage tr').filter({has:page.getByRole('button',{name:'微生物组 ↗',exact:true})});
+  assert.equal(Number(await microbiomeRow.locator('td').first().innerText()),data.labs.filter(l=>l.directions.includes('微生物组')).length);
+  await page.getByRole('button',{name:'微生物组 ↗',exact:true}).click();assert.equal(await page.locator('#direction').inputValue(),'微生物组');
+  await page.getByRole('button',{name:'重置筛选',exact:true}).click();
   await page.locator('#country').selectOption('日本');
   const jp=data.labs.filter(l=>l.country==='日本'||(l.affiliations||[]).some(a=>a.country==='日本')).length;
   assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+jp.toLocaleString('zh-CN')+' 个'));
@@ -86,17 +115,20 @@ const M=require('../assets/lab-model.js');
   assert(medicalCount>=60);assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+medicalCount.toLocaleString('zh-CN')+' 个'));
   await page.getByRole('button',{name:'重置筛选',exact:true}).click();
   await page.locator('#advanced-filters').evaluate(el=>el.open=true);await page.locator('#match-panel').evaluate(el=>el.open=true);
+  await page.locator('#coverage-panel').evaluate(el=>el.open=true);
   for(const width of [320,390,768,1440]){await page.setViewportSize({width,height:1000});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`overflow at ${width}`);}
   const fixture=structuredClone(data);fixture.labs.find(l=>l.id==='chang').opportunity.verifiedAt='2000-01-01';
-  await page.route('**/data/labs.json',r=>r.fulfill({json:fixture}));await page.goto(base+'/labs.html?query=Edward%20F.%20Chang');await ready();assert.match(await page.locator('#lab-chang .review-note').innerText(),/超过30天/);assert.equal(await page.locator('#lab-chang .status').innerText(),data.statuses.unknown);
+  // A missing compressed asset must fall back to the complete canonical data.
+  await page.route('**/data/labs.json.gz',r=>r.fulfill({status:404,body:''}));
+  await page.route('**/data/labs.json',r=>r.fulfill({json:fixture}));await page.goto(base+'/labs.html?query=Edward%20F.%20Chang');await ready();assert.match(await page.locator('#lab-chang .opportunity-review-note').innerText(),/超过30天/);assert.equal(await page.locator('#lab-chang .status').innerText(),data.statuses.unknown);
   await page.unroute('**/data/labs.json');
   const currentFixture=structuredClone(data),chang=currentFixture.labs.find(l=>l.id==='chang');
   chang.opportunity.verifiedAt=new Date().toISOString().slice(0,10);chang.opportunity.deadline=null;
   await page.route('**/data/labs.json',r=>r.fulfill({json:currentFixture}));
   const changed={schemaVersion:1,checkedAt:new Date().toISOString(),sources:{[chang.opportunity.url]:{state:'ok',changed:true,reviewStamp:chang.opportunity.verifiedAt}}};
-  await page.route('**/data/lab-monitor.json',r=>r.fulfill({json:changed}));await page.reload();await ready();assert.match(await page.locator('#lab-chang .review-note').innerText(),/有变化/);
+  await page.route('**/data/lab-monitor.json',r=>r.fulfill({json:changed}));await page.reload();await ready();assert.match(await page.locator('#lab-chang .opportunity-review-note').innerText(),/有变化/);
   assert.equal(await page.evaluate(()=>localStorage.length),0);
-  await page.unroute('**/data/lab-monitor.json');await page.unroute('**/data/labs.json');await page.goto(base+'/labs.html');await ready();
+  await page.unroute('**/data/lab-monitor.json');await page.unroute('**/data/labs.json');await page.unroute('**/data/labs.json.gz');await page.goto(base+'/labs.html');await ready();
   // Private long-term notes use their own storage key and never enter public exports.
   await page.evaluate(()=>localStorage.setItem('academy.compatibility.fixture','keep-this-course-state'));
   await page.locator('#query').fill('Edward F. Chang');

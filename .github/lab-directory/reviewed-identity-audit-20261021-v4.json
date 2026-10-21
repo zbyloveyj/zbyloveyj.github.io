@@ -1,0 +1,2975 @@
+{
+  "reviewedAt": "2026-10-21",
+  "scope": "最终只读身份审计：原始第一批和第二批冻结输入、2663 baseline、6877 staged 与最终 China root 775。staged 作为第一批身份视图，避免把同一份导入数据反复计为重复人物。",
+  "method": [
+    "保留中文字符、Unicode去重音、标点与空格归一；名字与官网aliases仅用于找候选，不能自动合并。",
+    "补查英文名字顺序反转、中间名/首字母、省略变体、共享资料URL；共享组URL不等于同一人。",
+    "同人依明确个人互链、教育/任职轨迹、机构同时任职说明、稳定个人标识；原稳定ID保留。",
+    "已故/历史/招聘状态不由本身份扫描改写；本次没有修改任何 frozen records 或 enrich_candidates.py。"
+  ],
+  "counts": {
+    "scanRows": 12560,
+    "nameAliasCandidateGroups": 179,
+    "alreadyExplicitOrExactOverrideGroups": 115,
+    "remainingNameCollisionGroups": 64,
+    "unresolvedNameCollisionGroups": 50,
+    "reviewedDifferentCollisionGroups": 14,
+    "centralExactOverrides": 7,
+    "confirmedSamePeopleReviews": 21,
+    "confirmedDifferentReviews": 26,
+    "recommendedRecordCorrectionsChecked": 4
+  },
+  "confirmedSamePeople": [
+    {
+      "decision": "same_person",
+      "name": "Philip Corlett",
+      "keepId": "pi-philip-corlett-7fab76fa",
+      "input": {
+        "name": "Philip Corlett",
+        "institution": "Yale University",
+        "url": "https://medicine.yale.edu/bbs/profile/philip-corlett/",
+        "batch": "americas_phase2"
+      },
+      "existing": {
+        "id": "pi-philip-corlett-7fab76fa",
+        "name": "Philip Corlett",
+        "institution": "Yale University",
+        "profileUrl": "https://medicine.yale.edu/lab/corlett/"
+      },
+      "basis": "既有 Corlett 官方实验室主页明确列 Philip Corlett 为 PI，并直接链接 /lab/corlett/profile/philip-corlett/；新 BBS 是相同 Yale 个人资料标识，研究与任职一致。",
+      "evidenceUrls": [
+        "https://medicine.yale.edu/lab/corlett/",
+        "https://medicine.yale.edu/bbs/profile/philip-corlett/"
+      ],
+      "action": "apply_exact_name_and_url_override",
+      "updates": {}
+    },
+    {
+      "decision": "same_person",
+      "name": "Albert Powers",
+      "keepId": "pi-albert-powers-1dff6fd5",
+      "input": {
+        "name": "Albert Powers",
+        "institution": "Yale University",
+        "url": "https://medicine.yale.edu/bbs/profile/albert-powers/",
+        "batch": "americas_phase2"
+      },
+      "existing": {
+        "id": "pi-albert-powers-1dff6fd5",
+        "name": "Albert Powers",
+        "institution": "Yale University",
+        "profileUrl": "https://medicine.yale.edu/lab/powers/"
+      },
+      "basis": "既有 Powers 官方实验室主页直接链接本人 /lab/powers/profile/albert-powers/；新 BBS 是相同 Yale 个人资料标识，精神病学任职与幻觉计算研究一致。",
+      "evidenceUrls": [
+        "https://medicine.yale.edu/lab/powers/",
+        "https://medicine.yale.edu/bbs/profile/albert-powers/"
+      ],
+      "action": "apply_exact_name_and_url_override",
+      "updates": {}
+    },
+    {
+      "decision": "same_person",
+      "name": "Hongyu Zhao",
+      "keepId": "pi-hongyu-zhao-7c7041a7",
+      "input": {
+        "name": "Hongyu Zhao",
+        "institution": "Yale University",
+        "url": "https://medicine.yale.edu/bbs/profile/hongyu-zhao/",
+        "batch": "americas_phase2"
+      },
+      "existing": {
+        "id": "pi-hongyu-zhao-7c7041a7",
+        "name": "Hongyu Zhao",
+        "institution": "Yale University",
+        "profileUrl": "https://wti.yale.edu/profile/hongyu-zhao"
+      },
+      "basis": "既有 Yale Wu Tsai 个人页链接本人 Yale 公共卫生学院个人页；新 BBS 页列相同生物统计学、遗传学、统计与数据科学任职，以及相同统计基因组研究。",
+      "evidenceUrls": [
+        "https://wti.yale.edu/profile/hongyu-zhao",
+        "https://medicine.yale.edu/bbs/profile/hongyu-zhao/"
+      ],
+      "action": "apply_exact_name_and_url_override",
+      "updates": {}
+    },
+    {
+      "decision": "same_person",
+      "name": "Yang Kevin Xiang",
+      "keepId": "pi-yang-kevin-xiang-000a93d7",
+      "input": {
+        "name": "Yang Kevin Xiang",
+        "aliases": [
+          "Yang Kevin K. Xiang",
+          "Yang Kevin Xiang"
+        ],
+        "institution": "University of California Los Angeles",
+        "url": "https://profiles.ucla.edu/yang.xiang",
+        "batch": "americas_phase2"
+      },
+      "existing": {
+        "id": "pi-yang-kevin-xiang-000a93d7",
+        "name": "Yang Kevin Xiang",
+        "institution": "University of California Los Angeles",
+        "profileUrl": "https://profiles.ucla.edu/yang.xiang"
+      },
+      "basis": "两批资料使用同一个 UCLA 官方个人 URL；已读本人页列 Medicine Professor，并核对 UC Davis 关联。仅同人合并，不把 Davis 项目目录重新设为主聘。",
+      "evidenceUrls": [
+        "https://profiles.ucla.edu/yang.xiang"
+      ],
+      "action": "apply_exact_name_and_url_override",
+      "updates": {}
+    },
+    {
+      "decision": "same_person",
+      "name": "James E Rothman",
+      "keepId": "pi-james-rothman-f53dfb87",
+      "input": {
+        "name": "James E Rothman",
+        "institution": "Yale University",
+        "url": "https://medicine.yale.edu/bbs/profile/james-rothman/",
+        "batch": "americas_phase2"
+      },
+      "existing": {
+        "id": "pi-james-rothman-f53dfb87",
+        "name": "James Rothman",
+        "institution": "University College London",
+        "profileUrl": "https://profiles.ucl.ac.uk/38364-james-rothman"
+      },
+      "basis": "UCL 官方 2019 年报道同时明确 James Rothman 为 UCL Professorial Research Associate 和 Yale Sterling Professor，且是同一位 2013 诺贝尔奖得主；现 Yale 本人页列 Cell Biology primary appointment。UCL 个人站本次仅返回前端壳，未把壳页当作正文证据。",
+      "evidenceUrls": [
+        "https://medicine.yale.edu/bbs/profile/james-rothman/",
+        "https://www.ucl.ac.uk/news/2019/apr/three-ucl-scientists-elected-fellows-royal-society"
+      ],
+      "action": "apply_exact_name_and_url_override",
+      "updates": {
+        "institution": "Yale University",
+        "country": "美国",
+        "title": "Sterling Professor of Cell Biology; Director, Yale Nanobiology Institute",
+        "roleStatus": "current",
+        "roleCorrection": true,
+        "profileUrlCorrection": "https://medicine.yale.edu/bbs/profile/james-rothman/",
+        "aliases": [
+          "James Rothman",
+          "James E. Rothman"
+        ],
+        "roleNote": "现 Yale 官方本人页列细胞生物学主聘。UCL 的既有项目关联与 2019 年并行任职证据保留；未据旧报道单独推定 2026 年 UCL 具体聘任状态。",
+        "affiliationChange": {
+          "previousInstitution": "University College London",
+          "previousCountry": "英国",
+          "previousStatus": "directory_affiliation",
+          "url": "https://medicine.yale.edu/bbs/profile/james-rothman/",
+          "summary": "当前 Yale 本人页明确 Primary Cell Biology 任职；UCL 作为已核实同人的项目关联保留，不声称已从 UCL 离职。"
+        }
+      }
+    },
+    {
+      "decision": "same_person",
+      "name": "王晓晨",
+      "keepId": "pi-researcher-b2948ebd",
+      "input": {
+        "name": "王晓晨",
+        "institution": "南方科技大学生命科学学院",
+        "url": "https://faculty.sustech.edu.cn/?tagid=wangxc7&iscss=1&snapid=1&orderby=date&go=1",
+        "batch": "china_root"
+      },
+      "existing": null,
+      "basis": "两官方个人页均为北大 1999 博士、Colorado 1999–2006 博士后、NIBS 后任 IBP 的溶酶体研究者。IBP 页面明确“客座”，南科大页面明确现任讲席教授。IBP 离任年月表述与南科大略有差异，因此不填统一精确离职日。",
+      "evidenceUrls": [
+        "https://sustech.edu.cn/zh/faculties/wangxiaochen.html",
+        "https://www.ibp.cas.cn/rc/wxc/202411/t20241107_7435552.html"
+      ],
+      "action": "apply_exact_name_and_url_override",
+      "updates": {
+        "institution": "南方科技大学生命科学学院",
+        "country": "中国",
+        "title": "讲席教授",
+        "roleStatus": "current",
+        "roleCorrection": true,
+        "profileUrlCorrection": "https://sustech.edu.cn/zh/faculties/wangxiaochen.html",
+        "roleNote": "主聘依南科大现行官方个人页列为讲席教授；中国科学院生物物理研究所官方个人页明确客座。两条按同人合并，当前招生名额另核。",
+        "affiliationChange": {
+          "previousInstitution": "中国科学院生物物理研究所",
+          "previousCountry": "中国",
+          "previousStatus": "visiting",
+          "url": "https://sustech.edu.cn/zh/faculties/wangxiaochen.html",
+          "summary": "同人跨机构合并；现主聘南科大，IBP 现页面标注客座，不统一两页不一致的离职年月。"
+        },
+        "affiliations": [
+          {
+            "institution": "中国科学院生物物理研究所",
+            "country": "中国",
+            "status": "visiting",
+            "url": "https://www.ibp.cas.cn/rc/wxc/202411/t20241107_7435552.html",
+            "verifiedAt": "2026-10-21",
+            "note": "IBP 当前个人页标题明确客座。"
+          }
+        ]
+      },
+      "idCreationDependency": {
+        "beforeBatch": "china_root",
+        "createdByBatch": "asia_global/china_phase2",
+        "name": "王晓晨",
+        "url": "https://www.ibp.cas.cn/rc/wxc/202411/t20241107_7435552.html",
+        "expectedNewId": "pi-researcher-b2948ebd"
+      }
+    },
+    {
+      "decision": "same_person",
+      "name": "John R. Speakman",
+      "keepId": "pi-john-speakman-f55a3493",
+      "input": {
+        "name": "John R. Speakman",
+        "aliases": [
+          "John Speakman",
+          "John Roger Speakman"
+        ],
+        "institution": "中国科学院深圳先进技术研究院生物医药与技术研究所",
+        "url": "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062298773/index.html",
+        "batch": "asia_global/china_phase2"
+      },
+      "existing": {
+        "id": "pi-john-speakman-f55a3493",
+        "name": "John Speakman",
+        "institution": "中国科学院遗传与发育生物学研究所",
+        "profileUrl": "https://english.genetics.ac.cn/sourcedb/people/peop/faculty/202310/t20231031_439778.html"
+      },
+      "basis": "SIAT 官方个人页使用全名 John Roger Speakman，明确现任 SIAT 能量代谢与生殖中心首席科学家并兼任 IGDB 研究员、Aberdeen 教授；与既有 IGDB John Speakman 同人，保留并行机构关系。",
+      "evidenceUrls": [
+        "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062298773/index.html"
+      ],
+      "action": "apply_exact_name_and_url_override",
+      "updates": {
+        "affiliations": [
+          {
+            "institution": "中国科学院深圳先进技术研究院生物医药与技术研究所",
+            "country": "中国",
+            "status": "current",
+            "url": "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062298773/index.html",
+            "verifiedAt": "2026-10-21",
+            "note": "官方本人页明确 SIAT 能量代谢与生殖中心首席科学家；同时兼任 IGDB 研究员及 Aberdeen 教授。"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Jorge Ruas",
+      "existingId": "pi-jorge-ruas-7b873192",
+      "action": "merge_into_existing_keep_michigan_primary",
+      "evidenceUrls": [
+        "https://medschool.umich.edu/node/130226",
+        "https://ki.se/en/people/jorge-ruas"
+      ],
+      "summary": "Michigan official biography says he joined in 2023; KI profile/group expressly says lab moved to Michigan. Preserve Michigan primary and KI historical association.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-jorge-ruas-7b873192",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Oliver Schlüter",
+      "existingId": "pi-oliver-schluter-69b72e45",
+      "action": "merge_into_existing_add_parallel_umg",
+      "evidenceUrls": [
+        "https://www.cnup.pitt.edu/people/oliver-schluter-md-phd",
+        "https://www.uni-goettingen.de/en/58027.html"
+      ],
+      "summary": "Göttingen biography explicitly lists Pitt appointment history and since 2022 UMG Professor; same identity. Keep existing Pitt record and explicit current UMG parallel association; do not confuse the old 2016–2021 adjunct role with current UMG professor.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-oliver-schluter-69b72e45",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Olli-Pekka Kallioniemi",
+      "existingId": "pi-olli-kallioniemi-c4bdc078",
+      "action": "merge_into_existing_add_ki_parallel_role",
+      "evidenceUrls": [
+        "https://ki.se/en/people/olli-kallioniemi"
+      ],
+      "summary": "Same official short-name URL has full display name Olli-Pekka. About me concurrently lists KI professor and FIMM Research Director; preserve FIMM and add KI association.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-olli-kallioniemi-c4bdc078",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Robert Harris",
+      "existingId": "pi-robert-adam-harris-8a782a4d",
+      "action": "exclude_phase2_duplicate_keep_phase1",
+      "evidenceUrls": [
+        "https://ki.se/en/people/robert-harris"
+      ],
+      "summary": "Cancer-table short-name link has official h1 Robert Adam Harris, same KI immunotherapy PI as phase1. No second person.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-robert-adam-harris-8a782a4d",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Gerald Schwank",
+      "alias": "Gerhard Schwank",
+      "action": "merge_internal_directory_typo",
+      "evidenceUrls": [
+        "https://schwanklab.org/people/"
+      ],
+      "summary": "MLS and Cancer PhD rows point to identical lab URL; lab leader entry explicitly says Gerald Schwank. Gerhard is a directory spelling error, not another PI.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Julia Sliwa",
+      "existingId": "pi-sliwa-julia-4d018fd5",
+      "oldName": "SLIWA Julia",
+      "action": "merge_into_existing_correct_name_order",
+      "evidenceUrls": [
+        "https://parisbraininstitute.org/paris-brain-institute-research-teams"
+      ],
+      "oldTeamUrl": "https://parisbraininstitute.org/paris-brain-institute-research-teams/socialneuro-neurophysiology-social-cognition",
+      "newPersonUrl": "https://parisbraininstitute.org/collaborators/sliwa-julia",
+      "summary": "Exact old team URL and new named collaborator URL occur in the same official team card. First/last order reversal is the same researcher.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-sliwa-julia-4d018fd5",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Alberto Bacci",
+      "existingId": "pi-bacci-alberto-093d0590",
+      "oldName": "BACCI Alberto",
+      "action": "merge_into_existing_correct_name_order",
+      "evidenceUrls": [
+        "https://parisbraininstitute.org/paris-brain-institute-research-teams"
+      ],
+      "oldTeamUrl": "https://parisbraininstitute.org/paris-brain-institute-research-teams/cellular-physiology-cortical-microfoils",
+      "newPersonUrl": "https://parisbraininstitute.org/collaborators/bacci-alberto",
+      "summary": "Exact old team URL and new named collaborator URL occur in the same official team card. First/last order reversal is the same researcher.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-bacci-alberto-093d0590",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Nelson Rebola",
+      "existingId": "pi-rebola-nelson-858dacd0",
+      "oldName": "REBOLA Nelson",
+      "action": "merge_into_existing_correct_name_order",
+      "evidenceUrls": [
+        "https://parisbraininstitute.org/paris-brain-institute-research-teams?page=1"
+      ],
+      "oldTeamUrl": "https://parisbraininstitute.org/paris-brain-institute-research-teams/censor-cellular-mechanisms-sensory-processes",
+      "newPersonUrl": "https://parisbraininstitute.org/collaborators/rebola-nelson",
+      "summary": "Exact old team URL and new named collaborator URL occur in the same official team card. First/last order reversal is the same researcher.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-rebola-nelson-858dacd0",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Dafni Hadjieconomou",
+      "existingId": "pi-hadjieconomou-dafni-33988f58",
+      "oldName": "HADJIECONOMOU Dafni",
+      "action": "merge_into_existing_correct_name_order",
+      "evidenceUrls": [
+        "https://parisbraininstitute.org/paris-brain-institute-research-teams?page=1"
+      ],
+      "oldTeamUrl": "https://parisbraininstitute.org/paris-brain-institute-research-teams/gutsense-gut-brain-axis-communication-and-physiology",
+      "newPersonUrl": "https://parisbraininstitute.org/collaborators/hadjieconomou-dafni",
+      "summary": "Exact old team URL and new named collaborator URL occur in the same official team card. First/last order reversal is the same researcher.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-hadjieconomou-dafni-33988f58",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Claire Wyart",
+      "existingId": "pi-wyart-claire-dda5c0fc",
+      "oldName": "WYART Claire",
+      "action": "merge_into_existing_correct_name_order",
+      "evidenceUrls": [
+        "https://parisbraininstitute.org/paris-brain-institute-research-teams?page=1"
+      ],
+      "oldTeamUrl": "https://parisbraininstitute.org/paris-brain-institute-research-teams/sibbil-sensorimotor-integration-brain-body-integration-lab",
+      "newPersonUrl": "https://parisbraininstitute.org/collaborators/wyart-claire",
+      "summary": "Exact old team URL and new named collaborator URL occur in the same official team card. First/last order reversal is the same researcher.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-wyart-claire-dda5c0fc",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Bruno Stankoff",
+      "existingId": "pi-stankoff-bruno-268077b3",
+      "oldName": "STANKOFF Bruno",
+      "action": "merge_into_existing_correct_name_order",
+      "evidenceUrls": [
+        "https://parisbraininstitute.org/paris-brain-institute-research-teams?page=2"
+      ],
+      "oldTeamUrl": "https://parisbraininstitute.org/paris-brain-institute-research-teams/regain-ms-repair-demyelinating-diseases-biology-clinical-translation",
+      "newPersonUrl": "https://parisbraininstitute.org/collaborators/stankoff-bruno",
+      "summary": "Exact old team URL and new named collaborator URL occur in the same official team card. First/last order reversal is the same researcher.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-stankoff-bruno-268077b3",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Bassem Hassan",
+      "existingId": "pi-hassan-bassem-adfcf2a7",
+      "oldName": "HASSAN Bassem",
+      "action": "merge_into_existing_correct_name_order",
+      "evidenceUrls": [
+        "https://parisbraininstitute.org/paris-brain-institute-research-teams?page=2"
+      ],
+      "oldTeamUrl": "https://parisbraininstitute.org/paris-brain-institute-research-teams/braindev-brain-development",
+      "newPersonUrl": "https://parisbraininstitute.org/collaborators/hassan-bassem",
+      "summary": "Exact old team URL and new named collaborator URL occur in the same official team card. First/last order reversal is the same researcher.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-hassan-bassem-adfcf2a7",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Nicolas Renier",
+      "existingId": "pi-renier-nicolas-5409b2a5",
+      "oldName": "RENIER Nicolas",
+      "action": "merge_into_existing_correct_name_order",
+      "evidenceUrls": [
+        "https://parisbraininstitute.org/paris-brain-institute-research-teams?page=2"
+      ],
+      "oldTeamUrl": "https://parisbraininstitute.org/paris-brain-institute-research-teams/plastic-laboratory-brain-plasticity",
+      "newPersonUrl": "https://parisbraininstitute.org/collaborators/renier-nicolas",
+      "summary": "Exact old team URL and new named collaborator URL occur in the same official team card. First/last order reversal is the same researcher.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-renier-nicolas-5409b2a5",
+      "applicationLocation": "original_europe_phase2_batch"
+    },
+    {
+      "name": "Nikolas Karalis",
+      "existingId": "pi-karalis-nikolas-6c4ff004",
+      "oldName": "KARALIS Nikolas",
+      "action": "merge_into_existing_correct_name_order",
+      "evidenceUrls": [
+        "https://parisbraininstitute.org/paris-brain-institute-research-teams?page=2"
+      ],
+      "oldTeamUrl": "https://parisbraininstitute.org/paris-brain-institute-research-teams/neurocircuits-neuronal-circuits-brain-dynamics",
+      "newPersonUrl": "https://parisbraininstitute.org/collaborators/karalis-nikolas",
+      "summary": "Exact old team URL and new named collaborator URL occur in the same official team card. First/last order reversal is the same researcher.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "same_person",
+      "keepId": "pi-karalis-nikolas-6c4ff004",
+      "applicationLocation": "original_europe_phase2_batch"
+    }
+  ],
+  "confirmedDifferentPeople": [
+    {
+      "names": [
+        "David Williams (UCLA)",
+        "David Williams (Michigan)"
+      ],
+      "decision": "different_people",
+      "basis": "UCLA 为 David S Williams，眼科学/神经生物学 Professor-in-residence，1982 年 Australian National University 神经生物学 PhD；Michigan 为 David A Williams，麻醉学、内科学、精神病学和心理学教授，1988 年 Ohio State 临床心理学 PhD，研究慢性疼痛及数字自我管理。",
+      "urls": [
+        "https://profiles.ucla.edu/david.williams",
+        "https://medschool.umich.edu/profile/1779/david-williams"
+      ],
+      "linkIssue": "Michigan 原目录个人 URL 重定向至 medresearch.umich.edu 首页；已找到并读取现行官方个人页 https://medschool.umich.edu/profile/1779/david-williams，应更新资料入口。",
+      "recommendedRecords": [
+        {
+          "matchName": "David Williams",
+          "matchInstitution": "University of California Los Angeles",
+          "name": "David S. Williams",
+          "aliases": [
+            "David Williams",
+            "David S Williams"
+          ],
+          "url": "https://profiles.ucla.edu/david.williams",
+          "roleNote": "UCLA 眼科学与神经生物学 Professor-in-residence；1982 年 Australian National University 神经生物学博士。与 Michigan David A Williams 是不同人。"
+        },
+        {
+          "matchName": "David Williams",
+          "matchInstitution": "University of Michigan",
+          "name": "David A. Williams",
+          "aliases": [
+            "David Williams",
+            "David A Williams"
+          ],
+          "url": "https://medschool.umich.edu/profile/1779/david-williams",
+          "roleNote": "Michigan 麻醉学、内科学、精神病学及心理学教授；研究慢性疼痛及数字健康。原 pain-research 链接已重定向总首页，现行官方个人页已读取。"
+        }
+      ],
+      "reviewArtifact": "americas/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Steven A. Barnes (UCLA)",
+        "Steven Barnes (UBC)"
+      ],
+      "decision": "different_people",
+      "basis": "UCLA 为 Steven Andrew Barnes，眼科学/神经生物学 Professor-in-Residence，UC Berkeley BA&PhD 1985；UBC 为 Steven J. Barnes，Professor of Teaching，UBC 行为神经科学 MA 2000、PhD 2004，研究双相障碍、学生心理健康及数字学习，官方页明确可共同指导 Neuroscience 研究生。",
+      "urls": [
+        "https://profiles.ucla.edu/steven.barnes",
+        "https://psych.ubc.ca/profile/steven-barnes/"
+      ],
+      "eligibility": "UBC 属教学系列但有明确研究和 Neuroscience 共同指导资格；不能据此推断 Psychology 研究生指导资格，页面明确当前不能。",
+      "recommendedRecords": [
+        {
+          "matchName": "Steven A. Barnes",
+          "matchInstitution": "University of California Los Angeles",
+          "name": "Steven Andrew Barnes",
+          "aliases": [
+            "Steven A. Barnes",
+            "Steven Barnes"
+          ],
+          "url": "https://profiles.ucla.edu/steven.barnes",
+          "roleNote": "UCLA 眼科学与神经生物学 Professor-in-Residence；1985 年 UC Berkeley BA&PhD。与 UBC Steven J. Barnes 是不同人。"
+        },
+        {
+          "matchName": "Steven Barnes",
+          "matchInstitution": "University of British Columbia",
+          "name": "Steven J. Barnes",
+          "aliases": [
+            "Steven Barnes"
+          ],
+          "url": "https://psych.ubc.ca/profile/steven-barnes/",
+          "roleNote": "Professor of Teaching；研究双相障碍、学生心理健康与数字学习。官方个人页明确目前可共同指导 Neuroscience 研究生，目前不能指导 Psychology 研究生；该资格说明不等于具体资助或空缺保证。"
+        }
+      ],
+      "reviewArtifact": "americas/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Peter Kang — Minnesota",
+        "Peter Kang — WashU"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://www.neuroscience.umn.edu/node/2286",
+        "https://neurocriticalcare.wustl.edu/items/kang-lab/"
+      ],
+      "basis": "Minnesota 本人研究遗传性肌营养不良、MEGF10/JAG2；WashU 本人实验室研究脑小血管病、灌注、神经重症及临床试验，两个独立实验室。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Adriana Galvan — Emory",
+        "Adriana Galvan — UCLA"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://biomed.emory.edu/static/gdbbs-faculty-adriana-galvan-phd.json",
+        "https://profiles.ucla.edu/adriana.galvan"
+      ],
+      "basis": "Emory 为 CINVESTAV 2000 PhD、Neurology 副教授、帕金森灵长类研究；UCLA 为 Psychology 教授与青少年发展研究。自动 PubMed 同名混入不能作为合并证据。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Wei Zhou — Emory",
+        "Wei Zhou — HMS/MGH"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://biomed.emory.edu/static/gdbbs-faculty-wei-zhou-phd.json",
+        "https://bmiphd.hms.harvard.edu/people/wei-zhou"
+      ],
+      "basis": "Emory 为 1995 年 PhD、Hematology/Oncology 教授，研究 LKB1 肿瘤机制；MGH 为 Psychiatry 助理教授、统计遗传与生物样本库方法。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "James Lee — NYU",
+        "James Lee — Crick"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://med.nyu.edu/faculty/james-lee",
+        "https://www.crick.ac.uk/research/labs/james-lee"
+      ],
+      "basis": "NYU 为 Microbiology 助理教授、Harvard PhD、Rockefeller 博后，研究病毒免疫逃逸；Crick 为 Genetic Mechanisms of Disease 组长，研究人类自身免疫遗传机制。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Jun Wang — NYU",
+        "Jun Wang / 王军 — IMCAS"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://www.junwanglab.org",
+        "https://www.im.cas.cn/rcdw/yjy/w/202601/t20260109_8100975.html"
+      ],
+      "basis": "NYU 本人研究免疫检查点、T/B 细胞和抗肿瘤免疫；IMCAS 王军研究微生物组与宿主组学，教育履历与实验室均不同。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Paul M. Mathews — NYU",
+        "Paul J. Mathews — UCLA"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://med.nyu.edu/faculty/paul-m-mathews",
+        "https://profiles.ucla.edu/paul.mathews"
+      ],
+      "basis": "NYU Paul M. Mathews 为 JHU PhD、Psychiatry Research Associate Professor、内体/APP/阿尔茨海默病；UCLA Paul J. Mathews 为 UT Austin 2008 PhD、Neurology Associate Professor-in-Residence、小脑/共济失调研究。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Zhe Chen — Minnesota",
+        "Zhe S. Chen — NYU"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://www.neuroscience.umn.edu/node/2171",
+        "https://med.nyu.edu/faculty/zhe-s-chen"
+      ],
+      "basis": "Minnesota 助理教授研究轴突导向和发育回路，以小鼠遗传和分子实验为主；NYU 教授为 McMaster PhD，研究计算神经科学、NeuroAI 与脑机接口。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Kenneth R. Myers — Emory",
+        "Kenneth Myers — McGill"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://biomed.emory.edu/static/gdbbs-faculty-kenneth-r-myers-phd.json",
+        "https://www.mcgill.ca/peds/kenneth-myers"
+      ],
+      "basis": "Emory 为 Virginia 2012 PhD、Cell Biology 助理教授、神经元肌动蛋白与局部翻译研究；McGill 为 Calgary MD/PhD、儿科神经科医师、遗传性癫痫与临床试验研究。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Mark T. Wallace — Vanderbilt",
+        "Mark Wallace — Crick/KCL"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://wallacelab.org/",
+        "https://www.crick.ac.uk/research/labs/mark-wallace"
+      ],
+      "basis": "Vanderbilt 本人实验室研究多感觉整合与自闭症/ADHD；Crick/KCL 研究人工膜、膜蛋白和单分子生物物理。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Chen Liu — UTSW",
+        "Chen Liu — Yale"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://profiles.utsouthwestern.edu/profile/121839/",
+        "https://medicine.yale.edu/bbs/profile/chen-liu/"
+      ],
+      "basis": "UTSW 为 Case Western 神经科学 PhD、下丘脑/5-HT/代谢研究；Yale 为病理学教授与主任、UPenn Pathology PhD、病毒性肝炎与肝癌免疫研究。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Vikas Gupta — Emory",
+        "Vikas Gupta — Yale"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://biomed.emory.edu/static/gdbbs-faculty-vikas-gupta-md-phd.json",
+        "https://medicine.yale.edu/bbs/profile/vikas-gupta/"
+      ],
+      "basis": "Emory 为 UCSF 2009 MD/PhD、Hematology/Oncology、多发性骨髓瘤/BCL2 研究；Yale 为 Duke 2014 MD/PhD、Digestive Diseases、胆汁淤积/肝纤维化研究。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Jun Yao — Northwestern",
+        "Jun YAO — Tsinghua"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://www.feinberg.northwestern.edu/faculty-profiles/az/profile.html?xid=17510",
+        "https://www.nuin.northwestern.edu/faculty-and-research/faculty-directory-az.html?ch=ALL&page=17",
+        "https://life.tsinghua.edu.cn/lifeen/info/1035/1107.htm"
+      ],
+      "basis": "Northwestern 官方个人页与本人目录研究段落为人类运动控制、卒中康复和生物医学工程；清华为生命科学副教授、2007 Penn State PhD，以 iPSC、类器官和小鼠研究情绪障碍，独立任职及研究身份不同。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Jun Liu — Yale",
+        "Jun LIU — Peking University"
+      ],
+      "decision": "different_people",
+      "sources": [
+        "https://medicine.yale.edu/bbs/profile/jliu/",
+        "https://www.bio.pku.edu.cn/en/index/index/by_speciality_detail/cid/70/id/40.html"
+      ],
+      "basis": "Yale 为中科院物理所 1998 PhD、Microbial Pathogenesis 教授、冷冻电镜断层和细菌结构研究；北大为 2015 北大 Chemical Biology PhD、RNA 修饰及非编码 RNA 研究。",
+      "reviewArtifact": "americas_phase2/homonym-review.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "name": "Xinyu Zhao",
+      "urls": [
+        "https://ntp.neuroscience.wisc.edu/staff/zhao-xinyu/",
+        "https://life.tsinghua.edu.cn/lifeen/info/1035/1621.htm"
+      ],
+      "decision": "different_people",
+      "reason": "Wisconsin 官方履历为 University of Washington 药理学博士、Salk 神经发生训练，研究 FMRP、神经干细胞和智力障碍；清华官方中英文履历为 2009–2014 Northwestern 博士、2014–2021 Janelia 博士后／研究科学家，研究学习中的神经回路与计算规则。博士学校、履历和研究计划均不同。清华中文名由官网明确给出为赵昕宇。",
+      "evidenceUrls": [
+        "https://ntp.neuroscience.wisc.edu/staff/zhao-xinyu/",
+        "https://www.life.tsinghua.edu.cn/info/1035/4086.htm",
+        "https://life.tsinghua.edu.cn/lifeen/info/1035/1621.htm"
+      ],
+      "reviewArtifact": "asia_global/china_phase2/identity_corrections.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "name": "Steven Miller",
+      "urls": [
+        "https://neuroscience.ubc.ca/miller-steven/",
+        "https://research.monash.edu/en/persons/steven-miller"
+      ],
+      "decision": "different_people",
+      "reason": "UBC 官方页面为 Pediatrics 教授，SickKids 同一加拿大儿科研究者的官方项目条目标为 Steven P. Miller，研究早产儿／先心病新生儿脑损伤；Monash 官方个人资料为 Physiology 的 Adjunct Senior Research Fellow，署名 S. M. Miller，研究双眼竞争、双相障碍与前庭神经调控。姓名中间字母、专业任职及关联研究网络均不同；不得仅以首尾姓名合并。",
+      "evidenceUrls": [
+        "https://neuroscience.ubc.ca/miller-steven/",
+        "https://www.grad.ubc.ca/researcher/22023-miller",
+        "https://www.sickkids.ca/en/staff/m/steven-miller/",
+        "https://research.monash.edu/en/persons/steven-miller"
+      ],
+      "reviewArtifact": "asia_global/china_phase2/identity_corrections.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "decision": "different_people",
+      "records": [
+        {
+          "name": "李岩",
+          "institution": "中国科学院生物物理研究所",
+          "url": "https://www.ibp.cas.cn/rc/ly/202411/t20241108_7436075.html"
+        },
+        {
+          "name": "李岩",
+          "institution": "中国科学院生物物理研究所",
+          "url": "https://www.ibp.cas.cn/rc/lyjs/202411/t20241108_7436067.html"
+        }
+      ],
+      "evidence": [
+        "https://www.ibp.cas.cn/rc/ly/202411/t20241108_7436075.html",
+        "https://www.ibp.cas.cn/rc/lyjs/202411/t20241108_7436067.html"
+      ],
+      "basis": "同所同名不同人：神经生物学李岩于1998–2003年读中科院生物物理博士，研究果蝇神经环路；生物质谱李岩于2000–2004年读马里兰大学化学/生化博士，研究临床质谱与糖组学。",
+      "reviewArtifact": "asia_global/china_phase2/phase2_identity_audit.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "decision": "different_people",
+      "records": [
+        {
+          "name": "周兵",
+          "institution": "中国科学院上海药物研究所",
+          "url": "http://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202008/t20200825_5676122.html"
+        },
+        {
+          "name": "周兵",
+          "institution": "中国科学院上海药物研究所",
+          "url": "https://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202509/t20250916_7968825.html"
+        }
+      ],
+      "evidence": [
+        "http://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202008/t20200825_5676122.html",
+        "https://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202509/t20250916_7968825.html"
+      ],
+      "basis": "同所同名不同人：zhoubing@simm.ac.cn为2011年上海药物所博士，2016年起研究员，研究靶向药物/蛋白降解；bzhou@simm.ac.cn为2019年中国农业大学微生物博士，2025年起药物所组长，研究细菌耐药。",
+      "reviewArtifact": "asia_global/china_phase2/phase2_identity_audit.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "decision": "different_people",
+      "records": [
+        {
+          "name": "杨帆",
+          "institution": "中国科学院深圳先进技术研究院生物医药与技术研究所",
+          "url": "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062323403/index.html"
+        },
+        {
+          "name": "杨帆",
+          "institution": "中国科学院深圳先进技术研究院合成生物学研究所",
+          "url": "https://isynbio.siat.ac.cn/siat/isb/kydw/hcmyxyjzx/2026011211315875705/index.html"
+        }
+      ],
+      "evidence": [
+        "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062323403/index.html",
+        "https://isynbio.siat.ac.cn/siat/isb/kydw/hcmyxyjzx/2026011211315875705/index.html"
+      ],
+      "basis": "SIAT两位同名杨帆：生物医药所fan.yang@siat.ac.cn研究脑—骨代谢；合成生物学所f.yang1@siat.ac.cn于2012–2017年获多伦多大学博士、随后斯坦福博后，研究计算/系统免疫。",
+      "reviewArtifact": "asia_global/china_phase2/phase2_identity_audit.json",
+      "action": "retain_separate_ids"
+    },
+    {
+      "names": [
+        "Hao Wu — Penn",
+        "吴昊 / Hao Wu — SMART"
+      ],
+      "decision": "different_people",
+      "action": "retain_separate_ids",
+      "basis": "Penn 官方本人为 UCLA 2009 PhD、Tsinghua 2002 学士，研究表观基因组；SMART 本人为 IOZ 2022 博士、Jilin 2017 学士，2026 从 UTSW 博士后转入。两人的教育与独立研究履历不同。",
+      "sources": [
+        "https://www.med.upenn.edu/apps/faculty/index.php/g20000342/p8878781",
+        "https://smart.org.cn/faculty/wuhao"
+      ]
+    },
+    {
+      "names": [
+        "Jian Yang — Westlake B-REAL",
+        "Jian Yang — Westlake Statistical Genetics",
+        "杨建 / Jian Yang — SMART"
+      ],
+      "decision": "different_people",
+      "action": "retain_three_separate_ids",
+      "stableIds": [
+        "pi-jian-yang-c5af478e",
+        "pi-jian-yang-c097c24b"
+      ],
+      "basis": "B-REAL 的 Jian Yang 为 CAS Chemistry 2002 PhD，研究生物材料与再生工程；Westlake 统计遗传 Jian Yang 为 Zhejiang 2008 PhD；SMART 杨建为 Washington 1991 PhD、Columbia 1997–2024 离子通道教授。三个不同完整履历。Westlake 直接 HTML 本次为空壳，仅采用官方检索实际返回的个人履历段落。",
+      "sources": [
+        "https://en.westlake.edu.cn/faculty/b-real/jian-yang.html",
+        "https://en.westlake.edu.cn/faculty/jian-yang.html",
+        "https://smart.org.cn/faculty/yangjian"
+      ],
+      "readMethodNote": "Westlake: official_web_search_extract, full HTTP body unavailable; SMART: cached official HTTP body."
+    },
+    {
+      "names": [
+        "Wei Shi — Monash",
+        "石玮 / Wei Shi — CIBR"
+      ],
+      "decision": "different_people",
+      "action": "retain_separate_ids",
+      "basis": "Monash Wei Shi 为开发 featureCounts/Subread/Rsubread 的生物信息学教授，2024 前任 ONJCRI 和 WEHI 实验室负责人；CIBR 石玮为 Weill Cornell 2017 神经学博士，2017–2020 MSK 免疫博士后，研究肿瘤神经免疫。官方履历、任职轨迹与原创工具身份均不一致。",
+      "sources": [
+        "https://research.monash.edu/en/persons/wei-shi",
+        "https://cibr.ac.cn/teamDetail/cibrTeamteam/51f9311d6fa64267b4c5bd0a74870e36/Wei%20Shi"
+      ]
+    },
+    {
+      "names": [
+        "Li Feng — NYU",
+        "李锋 / Li Feng — CAS Psychology"
+      ],
+      "decision": "different_people",
+      "action": "retain_separate_ids",
+      "basis": "NYU Li Feng 官方本人为 NYU PhD、Radiology 副教授，开发 GRASP 动态 MRI；CAS 李锋为 CAS Psychology 2008 应用心理学博士，研究团队领导、工作压力与职业安全，教育和任职领域均不同。",
+      "sources": [
+        "https://med.nyu.edu/faculty/li-feng",
+        "https://psych.cas.cn/sourcedb/cn/expert/201504/t20150401_6369857.html"
+      ]
+    },
+    {
+      "names": [
+        "黄健 — Wuhan University",
+        "黄健 — SMART"
+      ],
+      "decision": "different_people",
+      "action": "retain_separate_ids",
+      "basis": "WHU 黄健为武汉大学 1999 微生物学博士、2009 起教授；SMART 黄健为清华 2021 化学博士、2021–2024 Princeton 博士后。不是同一人迁移。",
+      "sources": [
+        "https://bio.whu.edu.cn/info/1498/9400.htm",
+        "https://smart.org.cn/faculty/huangjian"
+      ]
+    },
+    {
+      "name": "Paul Taylor",
+      "differentPerson": "Paul C.J. Taylor",
+      "existingOtherId": "pi-paul-c-j-taylor-4ca7e5f6",
+      "action": "keep_distinct",
+      "evidenceUrls": [
+        "https://www.kcl.ac.uk/people/dr-paul-taylor"
+      ],
+      "summary": "KCL personal biography confirms cardiovascular physiology and maternal/fetal developmental programming; do not merge with different LMU full-name/research identity merely because first/last names match.",
+      "reviewedAt": "2026-10-21",
+      "reviewArtifact": "europe/europe_phase2/global-identity-corrections.json",
+      "decision": "different_people"
+    }
+  ],
+  "nameCollisions": [
+    {
+      "key": "jameslee",
+      "records": [
+        {
+          "id": "pi-james-lee-64798c68",
+          "name": "James Lee",
+          "institution": "Francis Crick Institute",
+          "profileUrl": "https://www.crick.ac.uk/research/labs/james-lee",
+          "batch": "staged-labs.json",
+          "index": 1270
+        },
+        {
+          "name": "James Lee",
+          "institution": "New York University",
+          "url": "https://med.nyu.edu/faculty/james-lee",
+          "batch": "americas_phase2/records.json",
+          "index": 632
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "jianyang",
+      "records": [
+        {
+          "id": "pi-jian-yang-c5af478e",
+          "name": "Jian Yang",
+          "institution": "Westlake University, School of Life Sciences",
+          "profileUrl": "https://lifesciences.westlake.edu.cn/faculty/jian-yang-b-real-lab.html",
+          "batch": "staged-labs.json",
+          "index": 2063
+        },
+        {
+          "id": "pi-jian-yang-c097c24b",
+          "name": "Jian Yang",
+          "institution": "Westlake University, School of Life Sciences",
+          "profileUrl": "https://lifesciences.westlake.edu.cn/faculty/jian-yang.html",
+          "batch": "staged-labs.json",
+          "index": 2151
+        },
+        {
+          "name": "杨建",
+          "aliases": [
+            "Jian Yang"
+          ],
+          "institution": "深圳医学科学院",
+          "url": "https://smart.org.cn/faculty/yangjian",
+          "batch": "china_root/records.json",
+          "index": 597
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "junwang",
+      "records": [
+        {
+          "id": "pi-jun-wang-182b5786",
+          "name": "Jun Wang",
+          "aliases": [
+            "王军",
+            "Jun Wang"
+          ],
+          "institution": "中国科学院微生物研究所",
+          "profileUrl": "https://www.im.cas.cn/rcdw/yjy/w/202601/t20260109_8100975.html",
+          "batch": "staged-labs.json",
+          "index": 2425
+        },
+        {
+          "name": "Jun Wang",
+          "institution": "New York University",
+          "url": "https://www.junwanglab.org",
+          "batch": "americas_phase2/records.json",
+          "index": 660
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "weizhou",
+      "records": [
+        {
+          "id": "pi-wei-zhou-c6cbe31d",
+          "name": "Wei Zhou",
+          "institution": "Harvard Medical School / Massachusetts General Hospital",
+          "profileUrl": "https://bmiphd.hms.harvard.edu/people/wei-zhou",
+          "batch": "staged-labs.json",
+          "index": 2633
+        },
+        {
+          "name": "Wei Zhou",
+          "institution": "Emory University",
+          "url": "https://biomed.emory.edu/about-us/faculty-detail/wei-zhou-phd",
+          "batch": "americas_phase2/records.json",
+          "index": 453
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "adrianagalvan",
+      "records": [
+        {
+          "id": "pi-adriana-galvan-3e6efc3a",
+          "name": "Adriana Galvan",
+          "institution": "University of California Los Angeles",
+          "profileUrl": "https://profiles.ucla.edu/adriana.galvan",
+          "batch": "staged-labs.json",
+          "index": 2817
+        },
+        {
+          "name": "Adriana Galvan",
+          "institution": "Emory University",
+          "url": "https://biomed.emory.edu/about-us/faculty-detail/adriana-galvan-phd",
+          "batch": "americas_phase2/records.json",
+          "index": 80
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "paulmathews",
+      "records": [
+        {
+          "id": "pi-paul-mathews-b66a93ea",
+          "name": "Paul Mathews",
+          "institution": "University of California Los Angeles",
+          "profileUrl": "https://profiles.ucla.edu/paul.mathews",
+          "batch": "staged-labs.json",
+          "index": 2867
+        },
+        {
+          "name": "Paul M. Mathews",
+          "aliases": [
+            "Paul Mathews"
+          ],
+          "institution": "New York University",
+          "url": "https://med.nyu.edu/faculty/paul-m-mathews",
+          "batch": "americas_phase2/records.json",
+          "index": 736
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "haowu",
+      "records": [
+        {
+          "id": "pi-hao-wu-dafd5c49",
+          "name": "Hao Wu",
+          "institution": "University of Pennsylvania",
+          "profileUrl": "https://www.med.upenn.edu/apps/faculty/index.php/g20000342/p8878781",
+          "batch": "staged-labs.json",
+          "index": 3313
+        },
+        {
+          "name": "吴昊",
+          "aliases": [
+            "Hao Wu"
+          ],
+          "institution": "深圳医学科学院",
+          "url": "https://smart.org.cn/faculty/wuhao",
+          "batch": "china_root/records.json",
+          "index": 593
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "peterkang",
+      "records": [
+        {
+          "id": "pi-peter-kang-b1f3870b",
+          "name": "Peter Kang",
+          "institution": "Washington University in St. Louis",
+          "profileUrl": "https://neurocriticalcare.wustl.edu/items/kang-lab/",
+          "batch": "staged-labs.json",
+          "index": 3559
+        },
+        {
+          "name": "Peter Kang",
+          "institution": "University of Minnesota",
+          "url": "https://www.neuroscience.umn.edu/node/2286",
+          "batch": "americas_phase2/records.json",
+          "index": 1265
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "junyao",
+      "records": [
+        {
+          "id": "pi-jun-yao-b9633f09",
+          "name": "Jun YAO",
+          "institution": "清华大学生命科学学院",
+          "profileUrl": "https://life.tsinghua.edu.cn/lifeen/info/1035/1107.htm",
+          "batch": "staged-labs.json",
+          "index": 5548
+        },
+        {
+          "name": "Jun Yao",
+          "institution": "Northwestern University",
+          "url": "https://www.feinberg.northwestern.edu/faculty-profiles/az/profile.html?xid=17510",
+          "batch": "americas_phase2/records.json",
+          "index": 897
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "junliu",
+      "records": [
+        {
+          "id": "pi-jun-liu-11b10574",
+          "name": "Jun LIU",
+          "aliases": [
+            "LIU, Jun"
+          ],
+          "institution": "北京大学生命科学学院",
+          "profileUrl": "https://www.bio.pku.edu.cn/en/index/index/by_speciality_detail/cid/70/id/40.html",
+          "batch": "staged-labs.json",
+          "index": 5593
+        },
+        {
+          "name": "Jun Liu",
+          "institution": "Yale University",
+          "url": "https://medicine.yale.edu/bbs/profile/jliu/",
+          "batch": "americas_phase2/records.json",
+          "index": 1784
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "weishi",
+      "records": [
+        {
+          "id": "pi-wei-shi-9f8bc3b7",
+          "name": "Wei Shi",
+          "institution": "Monash University · Biomedicine Discovery Institute",
+          "profileUrl": "https://research.monash.edu/en/persons/wei-shi",
+          "batch": "staged-labs.json",
+          "index": 5704
+        },
+        {
+          "name": "石玮",
+          "aliases": [
+            "Wei Shi"
+          ],
+          "institution": "北京脑科学与类脑研究所",
+          "url": "https://cibr.ac.cn/teamDetail/cibrTeamteam/51f9311d6fa64267b4c5bd0a74870e36/Wei%20Shi",
+          "batch": "china_root/records.json",
+          "index": 722
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "杨帆",
+      "records": [
+        {
+          "id": "pi-researcher-664a204a",
+          "name": "杨帆",
+          "institution": "浙江大学基础医学院",
+          "profileUrl": "http://person.zju.edu.cn/fanyang",
+          "batch": "staged-labs.json",
+          "index": 6030
+        },
+        {
+          "name": "杨帆",
+          "institution": "中国科学技术大学生命科学学院",
+          "url": "http://dslx.ustc.edu.cn/?menu=expert_paper&expertid=6569669",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 550
+        },
+        {
+          "name": "杨帆",
+          "aliases": [
+            "Fan YANG"
+          ],
+          "institution": "中国科学院深圳先进技术研究院生物医药与技术研究所",
+          "url": "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062323403/index.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1087
+        },
+        {
+          "name": "杨帆",
+          "institution": "中国科学院深圳先进技术研究院合成生物学研究所",
+          "url": "https://isynbio.siat.ac.cn/siat/isb/kydw/hcmyxyjzx/2026011211315875705/index.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1412
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "张晓明",
+      "records": [
+        {
+          "id": "pi-researcher-83e655e9",
+          "name": "张晓明",
+          "institution": "浙江大学基础医学院",
+          "profileUrl": "http://person.zju.edu.cn/0095479",
+          "batch": "staged-labs.json",
+          "index": 6047
+        },
+        {
+          "name": "张晓明",
+          "institution": "中国科学院上海药物研究所",
+          "url": "https://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202507/t20250713_7886970.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 214
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "于淼",
+      "records": [
+        {
+          "id": "pi-researcher-925dfcf6",
+          "name": "于淼",
+          "institution": "浙江大学基础医学院",
+          "profileUrl": "https://person.zju.edu.cn/yumiao",
+          "batch": "staged-labs.json",
+          "index": 6088
+        },
+        {
+          "name": "于淼",
+          "institution": "武汉大学生命科学学院",
+          "url": "https://bio.whu.edu.cn/info/1499/96176.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 763
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "李毅",
+      "records": [
+        {
+          "id": "pi-researcher-1c5fd374",
+          "name": "李毅",
+          "institution": "中国科学院脑科学与智能技术卓越创新中心",
+          "profileUrl": "https://cebsit.cas.cn/yjz/ly/",
+          "batch": "staged-labs.json",
+          "index": 6217
+        },
+        {
+          "name": "李毅",
+          "institution": "南京大学医学院附属金陵医院",
+          "url": "https://med.nju.edu.cn/ly2_51191/main.psp",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1351
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "王凯",
+      "records": [
+        {
+          "id": "pi-researcher-f427d971",
+          "name": "王凯",
+          "institution": "中国科学院脑科学与智能技术卓越创新中心",
+          "profileUrl": "https://cebsit.cas.cn/yjz/wk_/",
+          "batch": "staged-labs.json",
+          "index": 6233
+        },
+        {
+          "name": "王凯",
+          "institution": "中国科学院苏州纳米技术与纳米仿生研究所",
+          "url": "http://dslx.ustc.edu.cn/?menu=expert_paper&expertid=6571016",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 654
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "周毅",
+      "records": [
+        {
+          "id": "pi-researcher-37065448",
+          "name": "周毅",
+          "institution": "中国科学院脑科学与智能技术卓越创新中心",
+          "profileUrl": "https://cebsit.cas.cn/yjz/zy/",
+          "batch": "staged-labs.json",
+          "index": 6254
+        },
+        {
+          "name": "周毅",
+          "institution": "中山大学中山医学院",
+          "url": "https://zssom.sysu.edu.cn/teacher/ZhouYi",
+          "batch": "china_root/records.json",
+          "index": 492
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "高永强",
+      "records": [
+        {
+          "id": "pi-researcher-1191af8a",
+          "name": "高永强",
+          "institution": "中国科学院微生物研究所",
+          "profileUrl": "https://im.cas.cn/rcdw/jcqn/202510/t20251010_7985967.html",
+          "batch": "staged-labs.json",
+          "index": 6527
+        },
+        {
+          "name": "高永强",
+          "institution": "武汉大学生命科学学院",
+          "url": "https://bio.whu.edu.cn/info/1502/96256.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 806
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "李明",
+      "records": [
+        {
+          "id": "pi-researcher-2973898a",
+          "name": "李明",
+          "institution": "中国科学院微生物研究所",
+          "profileUrl": "https://im.cas.cn/rcdw/jcqn/202601/t20260109_8101137.html",
+          "batch": "staged-labs.json",
+          "index": 6539
+        },
+        {
+          "name": "李明",
+          "institution": "中山大学中山医学院",
+          "url": "https://zssom.sysu.edu.cn/teacher/liming",
+          "batch": "china_root/records.json",
+          "index": 438
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "刘钢",
+      "records": [
+        {
+          "id": "pi-researcher-ee91b20d",
+          "name": "刘钢",
+          "institution": "中国科学院微生物研究所",
+          "profileUrl": "https://im.cas.cn/rcdw/jcqn/202511/t20251110_8008951.html",
+          "batch": "staged-labs.json",
+          "index": 6544
+        },
+        {
+          "name": "刘钢",
+          "institution": "华中科技大学生命科学与技术学院",
+          "url": "https://faculty.hust.edu.cn/liugang5/zh_CN/index.htm",
+          "batch": "china_root/records.json",
+          "index": 215
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "王斌",
+      "records": [
+        {
+          "id": "pi-researcher-5970b3f8",
+          "name": "王斌",
+          "institution": "中国科学院微生物研究所",
+          "profileUrl": "https://im.cas.cn/rcdw/jcqn/202510/t20251023_7995478.html",
+          "batch": "staged-labs.json",
+          "index": 6564
+        },
+        {
+          "name": "王斌",
+          "institution": "南京大学生命科学学院",
+          "url": "http://life.nju.edu.cn/wb/list.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1194
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "张杰",
+      "records": [
+        {
+          "id": "pi-researcher-1a8087df",
+          "name": "张杰",
+          "institution": "中国科学院微生物研究所",
+          "profileUrl": "https://im.cas.cn/rcdw/jcqn/202510/t20251010_7985955.html",
+          "batch": "staged-labs.json",
+          "index": 6582
+        },
+        {
+          "name": "张杰",
+          "institution": "厦门大学生命科学学院",
+          "url": "https://life.xmu.edu.cn/info/1039/2097.htm",
+          "batch": "china_root/records.json",
+          "index": 30
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "vikasgupta",
+      "records": [
+        {
+          "name": "Vikas Gupta",
+          "institution": "Emory University",
+          "url": "https://biomed.emory.edu/about-us/faculty-detail/vikas-gupta-md-phd",
+          "batch": "americas_phase2/records.json",
+          "index": 447
+        },
+        {
+          "name": "Vikas Gupta",
+          "institution": "Yale University",
+          "url": "https://medicine.yale.edu/bbs/profile/vikas-gupta/",
+          "batch": "americas_phase2/records.json",
+          "index": 2013
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "lifeng",
+      "records": [
+        {
+          "name": "Li Feng",
+          "institution": "New York University",
+          "url": "https://med.nyu.edu/faculty/li-feng",
+          "batch": "americas_phase2/records.json",
+          "index": 677
+        },
+        {
+          "name": "李锋",
+          "aliases": [
+            "Li Feng"
+          ],
+          "institution": "中国科学院心理研究所",
+          "url": "https://psych.cas.cn/sourcedb/cn/expert/201504/t20150401_6369857.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1475
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "yuchen",
+      "records": [
+        {
+          "name": "Yu Chen",
+          "institution": "New York University",
+          "url": "https://osrsites.com/findalab/#m329",
+          "batch": "americas_phase2/records.json",
+          "index": 808
+        },
+        {
+          "name": "Yu CHEN",
+          "institution": "中国科学院深圳先进技术研究院脑认知与脑疾病研究所",
+          "url": "https://cxqjzx.siat.ac.cn/siat/ibcbd/kydw/sxkxjjxkdtr/2025021201135224607/index.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1015
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "chenliu",
+      "records": [
+        {
+          "name": "Chen Liu",
+          "institution": "University of Texas Southwestern Medical Center",
+          "url": "https://profiles.utsouthwestern.edu/profile/121839/",
+          "batch": "americas_phase2/records.json",
+          "index": 1309
+        },
+        {
+          "name": "Chen Liu",
+          "institution": "Yale University",
+          "url": "https://medicine.yale.edu/bbs/profile/chen-liu/",
+          "batch": "americas_phase2/records.json",
+          "index": 1604
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "徐涛",
+      "records": [
+        {
+          "name": "徐涛",
+          "institution": "中国科学院生物物理研究所",
+          "url": "https://www.ibp.cas.cn/rc/xt/202411/t20241107_7435403.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 8
+        },
+        {
+          "name": "徐涛",
+          "institution": "中山大学中山医学院",
+          "url": "https://zssom.sysu.edu.cn/teacher/xutao",
+          "batch": "china_root/records.json",
+          "index": 474
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "王磊",
+      "records": [
+        {
+          "name": "王磊",
+          "institution": "中国科学院生物物理研究所",
+          "url": "https://www.ibp.cas.cn/rc/wl/202411/t20241107_7435607.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 33
+        },
+        {
+          "name": "王磊",
+          "institution": "中国科学院深圳先进技术研究院生物医学与健康工程研究所",
+          "url": "https://cxqjzx.siat.ac.cn/siat/ibhe/kydw/swdz/2025022802085885478/index.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 966
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "王晓晨",
+      "records": [
+        {
+          "name": "王晓晨",
+          "institution": "中国科学院生物物理研究所",
+          "url": "https://www.ibp.cas.cn/rc/wxc/202411/t20241107_7435552.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 37
+        },
+        {
+          "name": "王晓晨",
+          "institution": "南方科技大学生命科学学院",
+          "url": "https://faculty.sustech.edu.cn/?tagid=wangxc7&iscss=1&snapid=1&orderby=date&go=1",
+          "batch": "china_root/records.json",
+          "index": 343
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "张凯",
+      "records": [
+        {
+          "name": "张凯",
+          "institution": "中国科学院生物物理研究所",
+          "url": "https://www.ibp.cas.cn/rc/zk/202411/t20241107_7435310.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 51
+        },
+        {
+          "name": "张凯",
+          "institution": "中国科学技术大学生命科学学院",
+          "url": "https://biox.ustc.edu.cn/2026/0618/c24188a744906/page.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 715
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "李伟",
+      "records": [
+        {
+          "name": "李伟",
+          "institution": "中国科学院生物物理研究所",
+          "url": "https://www.ibp.cas.cn/rc/lw/202411/t20241108_7436126.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 74
+        },
+        {
+          "name": "李伟",
+          "institution": "中国科学院动物研究所",
+          "url": "https://ioz.cas.cn/sourcedb/zw/zjrc/201309/t20130917_3932481.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 334
+        },
+        {
+          "name": "李伟",
+          "institution": "南京大学医学院附属鼓楼医院",
+          "url": "https://med.nju.edu.cn/lw/main.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1318
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "李岩",
+      "records": [
+        {
+          "name": "李岩",
+          "institution": "中国科学院生物物理研究所",
+          "url": "https://www.ibp.cas.cn/rc/ly/202411/t20241108_7436075.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 76
+        },
+        {
+          "name": "李岩",
+          "institution": "中国科学院生物物理研究所",
+          "url": "https://www.ibp.cas.cn/rc/lyjs/202411/t20241108_7436067.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 77
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "陈勋",
+      "records": [
+        {
+          "name": "陈勋",
+          "institution": "中国科学院上海药物研究所",
+          "url": "https://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202512/t20251205_8022405.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 86
+        },
+        {
+          "name": "陈勋",
+          "institution": "中国科学技术大学生物医学工程学院",
+          "url": "http://dslx.ustc.edu.cn/?menu=expert_paper&expertid=6487",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 617
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "李佳",
+      "records": [
+        {
+          "name": "李佳",
+          "institution": "中国科学院上海药物研究所",
+          "url": "https://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202008/t20200825_5676021.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 128
+        },
+        {
+          "name": "李佳",
+          "institution": "武汉大学泰康医学院（基础医学院）",
+          "url": "https://wbm.whu.edu.cn/info/11004/71832.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 924
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "刘强",
+      "records": [
+        {
+          "name": "刘强",
+          "institution": "中国科学院上海药物研究所",
+          "url": "https://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202405/t20240527_7172265.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 145
+        },
+        {
+          "name": "刘强",
+          "institution": "中国科学技术大学生命科学学院",
+          "url": "http://dslx.ustc.edu.cn/?menu=expert_paper&expertid=3815",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 493
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "赵越",
+      "records": [
+        {
+          "name": "赵越",
+          "institution": "中国科学院上海药物研究所",
+          "url": "http://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202210/t20221014_6531463.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 223
+        },
+        {
+          "name": "赵越",
+          "institution": "南京大学医学院基础医学部",
+          "url": "https://med.nju.edu.cn/zy2/main.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1279
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "周兵",
+      "records": [
+        {
+          "name": "周兵",
+          "institution": "中国科学院上海药物研究所",
+          "url": "https://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202008/t20200825_5676122.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 226
+        },
+        {
+          "name": "周兵",
+          "institution": "中国科学院上海药物研究所",
+          "url": "https://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202509/t20250916_7968825.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 227
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "周宇",
+      "records": [
+        {
+          "name": "周宇",
+          "institution": "中国科学院上海药物研究所",
+          "url": "http://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202008/t20200825_5676139.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 230
+        },
+        {
+          "name": "周宇",
+          "institution": "武汉大学生命科学学院",
+          "url": "https://bio.whu.edu.cn/info/1498/9428.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 755
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "陈浩",
+      "records": [
+        {
+          "name": "陈浩",
+          "institution": "中国科学院上海药物研究所",
+          "url": "http://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202008/t20200825_5676135.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 241
+        },
+        {
+          "name": "陈浩",
+          "institution": "南方科技大学医学院",
+          "url": "https://med.sustech.edu.cn/Home/Default/teachersMore?AID=376",
+          "batch": "china_root/records.json",
+          "index": 647
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "周斌",
+      "records": [
+        {
+          "name": "周斌",
+          "institution": "中国科学院分子细胞科学卓越创新中心",
+          "url": "https://cemcs.cas.cn/sourcedb/zw/pi/202008/t20200823_5670075.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 318
+        },
+        {
+          "name": "周斌",
+          "aliases": [
+            "Zhou Bin"
+          ],
+          "institution": "中国科学院心理研究所",
+          "url": "https://psych.cas.cn/sourcedb/cn/expert/201604/t20160427_6369867.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1480
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "高飞",
+      "records": [
+        {
+          "name": "高飞",
+          "institution": "中国科学院动物研究所",
+          "url": "https://ioz.cas.cn/sourcedb/zw/zjrc/200907/t20090716_2088417.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 325
+        },
+        {
+          "name": "高飞",
+          "institution": "中国科学技术大学生物医学工程学院",
+          "url": "http://dslx.ustc.edu.cn/?menu=expert_paper&expertid=6572452",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 638
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "王红梅",
+      "records": [
+        {
+          "name": "王红梅",
+          "institution": "中国科学院动物研究所",
+          "url": "https://ioz.cas.cn/sourcedb/zw/zjrc/200907/t20090716_2088414.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 347
+        },
+        {
+          "name": "王红梅",
+          "institution": "中国科学院苏州生物医学工程技术研究所",
+          "url": "http://dslx.ustc.edu.cn/?menu=expert_paper&expertid=6269",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 682
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "王晶",
+      "records": [
+        {
+          "name": "王晶",
+          "institution": "中国科学院心理研究所",
+          "url": "http://psych.cas.cn/sourcedb/cn/expert/200907/t20090714_6369771.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 423
+        },
+        {
+          "name": "王晶",
+          "institution": "复旦大学类脑智能科学与技术研究院",
+          "url": "https://istbi.fudan.edu.cn/info/1774/4707.htm",
+          "batch": "china_root/records.json",
+          "index": 770
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "刘欣",
+      "records": [
+        {
+          "name": "刘欣",
+          "institution": "中国科学院北京基因组研究所（国家生物信息中心）",
+          "url": "https://big.cas.cn/sourcedb/zw/zjrc_/yjsds/202312/t20231227_6930941.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 444
+        },
+        {
+          "name": "刘欣",
+          "institution": "华中科技大学生命科学与技术学院",
+          "url": "https://faculty.hust.edu.cn/liuxin9/zh_CN/index.htm",
+          "batch": "china_root/records.json",
+          "index": 220
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "王毅",
+      "records": [
+        {
+          "name": "王毅",
+          "institution": "中国科学技术大学生命科学学院",
+          "url": "http://dslx.ustc.edu.cn/?menu=expert_paper&expertid=101861",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 546
+        },
+        {
+          "name": "王毅",
+          "aliases": [
+            "Wang Yi"
+          ],
+          "institution": "中国科学院心理研究所",
+          "url": "https://psych.cas.cn/sourcedb/cn/expert/201809/t20180930_6369889.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1489
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "杨亮",
+      "records": [
+        {
+          "name": "杨亮",
+          "institution": "中国科学技术大学生物医学工程学院",
+          "url": "http://dslx.ustc.edu.cn/?menu=expert_paper&expertid=6566548",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 627
+        },
+        {
+          "name": "杨亮",
+          "institution": "南方科技大学医学院",
+          "url": "https://med.sustech.edu.cn/Home/Default/teachersMore?AID=353",
+          "batch": "china_root/records.json",
+          "index": 681
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "刘敏",
+      "records": [
+        {
+          "name": "刘敏",
+          "institution": "中国科学院苏州生物医学工程技术研究所",
+          "url": "http://dslx.ustc.edu.cn/?menu=expert_paper&expertid=7105",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 692
+        },
+        {
+          "name": "刘敏",
+          "institution": "武汉大学泰康医学院（基础医学院）",
+          "url": "https://wbm.whu.edu.cn/info/10584/62482.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 910
+        },
+        {
+          "name": "刘敏",
+          "institution": "厦门大学生命科学学院",
+          "url": "https://life.xmu.edu.cn/info/1039/2060.htm",
+          "batch": "china_root/records.json",
+          "index": 67
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "王冬梅",
+      "records": [
+        {
+          "name": "王冬梅",
+          "institution": "中国科学技术大学生命科学学院",
+          "url": "https://biox.ustc.edu.cn/2011/0427/c24191a473171/page.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 725
+        },
+        {
+          "name": "王冬梅",
+          "aliases": [
+            "Wang Dongmei"
+          ],
+          "institution": "中国科学院心理研究所",
+          "url": "https://psych.cas.cn/sourcedb/cn/expert/201908/t20190826_6369891.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1490
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "刘凯",
+      "records": [
+        {
+          "name": "刘凯",
+          "institution": "武汉大学生命科学学院",
+          "url": "https://bio.whu.edu.cn/info/1498/9437.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 747
+        },
+        {
+          "name": "刘凯",
+          "institution": "中国科学院深圳先进技术研究院生物医药与技术研究所",
+          "url": "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062261091/index.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1088
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "黄健",
+      "records": [
+        {
+          "name": "黄健",
+          "institution": "武汉大学生命科学学院",
+          "url": "https://bio.whu.edu.cn/info/1498/9400.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 759
+        },
+        {
+          "name": "黄健",
+          "aliases": [
+            "Jian Huang"
+          ],
+          "institution": "深圳医学科学院",
+          "url": "https://smart.org.cn/faculty/huangjian",
+          "batch": "china_root/records.json",
+          "index": 581
+        }
+      ],
+      "decision": "reviewed_in_confirmedDifferentPeople",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "胡骏",
+      "records": [
+        {
+          "name": "胡骏",
+          "institution": "武汉大学生命科学学院",
+          "url": "https://bio.whu.edu.cn/info/1500/9364.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 782
+        },
+        {
+          "name": "胡骏",
+          "institution": "中山大学中山医学院",
+          "url": "https://zssom.sysu.edu.cn/teacher/HuJun",
+          "batch": "china_root/records.json",
+          "index": 427
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "张鹏",
+      "records": [
+        {
+          "name": "张鹏",
+          "institution": "武汉大学泰康医学院（基础医学院）",
+          "url": "https://wbm.whu.edu.cn/info/10514/62712.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 891
+        },
+        {
+          "name": "张鹏",
+          "institution": "华中科技大学生命科学与技术学院",
+          "url": "https://faculty.hust.edu.cn/ZhangPeng/zh_CN/index.htm",
+          "batch": "china_root/records.json",
+          "index": 333
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "周伟",
+      "records": [
+        {
+          "name": "周伟",
+          "institution": "中国科学院深圳先进技术研究院生物医学与健康工程研究所",
+          "url": "https://cxqjzx.siat.ac.cn/siat/ibhe/kydw/swyxcx/2025022802095321375/index.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1056
+        },
+        {
+          "name": "周伟",
+          "institution": "华中科技大学生命科学与技术学院",
+          "url": "https://bmp.hust.edu.cn/info/1153/1390.htm",
+          "batch": "china_root/records.json",
+          "index": 336
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "李程",
+      "records": [
+        {
+          "name": "李程",
+          "institution": "中国科学院深圳先进技术研究院生物医学与健康工程研究所",
+          "url": "https://cxqjzx.siat.ac.cn/siat/ibhe/kydw/swyxcx/2026020917331772351/index.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1078
+        },
+        {
+          "name": "李程",
+          "institution": "厦门大学医学院",
+          "url": "https://med.xmu.edu.cn/info/1236/6760.htm",
+          "batch": "china_root/records.json",
+          "index": 138
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "陈炜",
+      "records": [
+        {
+          "name": "陈炜",
+          "institution": "南京大学生命科学学院",
+          "url": "http://life.nju.edu.cn/cw/list.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1147
+        },
+        {
+          "name": "陈炜",
+          "institution": "南方科技大学生命科学学院",
+          "url": "https://chenlab.bio.sustech.edu.cn/",
+          "batch": "china_root/records.json",
+          "index": 339
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "张峰",
+      "records": [
+        {
+          "name": "张峰",
+          "institution": "南京大学生命科学学院",
+          "url": "http://life.nju.edu.cn/zf2/list.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1224
+        },
+        {
+          "name": "张峰",
+          "institution": "南京大学医学院附属鼓楼医院",
+          "url": "https://med.nju.edu.cn/zf1/main.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1337
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "陈鑫",
+      "records": [
+        {
+          "name": "陈鑫",
+          "institution": "南京大学医学院基础医学部",
+          "url": "https://med.nju.edu.cn/cx/main.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1239
+        },
+        {
+          "name": "陈鑫",
+          "institution": "厦门大学生命科学学院",
+          "url": "https://life.xmu.edu.cn/info/1039/2091.htm",
+          "batch": "china_root/records.json",
+          "index": 35
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "张青",
+      "records": [
+        {
+          "name": "张青",
+          "institution": "南京大学医学院模式动物研究所",
+          "url": "https://med.nju.edu.cn/f7/8c/c48687a587660/page.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1304
+        },
+        {
+          "name": "张青",
+          "institution": "南京大学医学院附属鼓楼医院",
+          "url": "https://med.nju.edu.cn/zq1/main.htm",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1340
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "王宇",
+      "records": [
+        {
+          "name": "王宇",
+          "institution": "中国科学院深圳先进技术研究院合成生物学研究所",
+          "url": "https://isynbio.siat.ac.cn/siat/isb/kydw/hcmyxyjzx/2025030601120052566/index.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1410
+        },
+        {
+          "name": "王宇",
+          "institution": "南方科技大学生命科学学院",
+          "url": "https://www.sustech.edu.cn/zh/faculties/rowan-wang.html",
+          "batch": "china_root/records.json",
+          "index": 354
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "王博",
+      "records": [
+        {
+          "name": "王博",
+          "institution": "中国科学院深圳先进技术研究院合成生物学研究所",
+          "url": "https://isynbio.siat.ac.cn/siat/isb/kydw/clhcswxyjzx/2025030601251179797/index.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1419
+        },
+        {
+          "name": "王博",
+          "institution": "华中科技大学生命科学与技术学院",
+          "url": "https://faculty.hust.edu.cn/bowang/zh_CN/index.htm",
+          "batch": "china_root/records.json",
+          "index": 316
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "zhangzhen",
+      "records": [
+        {
+          "name": "张镇",
+          "aliases": [
+            "Zhang Zhen"
+          ],
+          "institution": "中国科学院心理研究所",
+          "url": "https://psych.cas.cn/sourcedb/cn/expert/201303/t20130321_6369842.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1464
+        },
+        {
+          "name": "张真",
+          "aliases": [
+            "Zhang Zhen"
+          ],
+          "institution": "中国科学院心理研究所",
+          "url": "https://psych.cas.cn/sourcedb/cn/expert/202010/t20201023_6369900.html",
+          "batch": "asia_global/china_phase2/records.json",
+          "index": 1497
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "刘波",
+      "records": [
+        {
+          "name": "刘波",
+          "institution": "厦门大学生命科学学院",
+          "url": "https://life.xmu.edu.cn/info/1039/2111.htm",
+          "batch": "china_root/records.json",
+          "index": 21
+        },
+        {
+          "name": "刘波",
+          "institution": "华中科技大学生命科学与技术学院",
+          "url": "https://faculty.hust.edu.cn/liubo6/zh_CN/index.htm",
+          "batch": "china_root/records.json",
+          "index": 296
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "朱斌",
+      "records": [
+        {
+          "name": "朱斌",
+          "institution": "华中科技大学生命科学与技术学院",
+          "url": "https://faculty.hust.edu.cn/zhubin3/zh_CN/index.htm",
+          "batch": "china_root/records.json",
+          "index": 272
+        },
+        {
+          "name": "朱斌",
+          "institution": "南方科技大学医学院",
+          "url": "https://med.sustech.edu.cn/Home/Default/teachersMore?AID=451",
+          "batch": "china_root/records.json",
+          "index": 609
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    },
+    {
+      "key": "蔡静",
+      "records": [
+        {
+          "name": "蔡静",
+          "institution": "中山大学中山医学院",
+          "url": "https://zssom.sysu.edu.cn/teacher/caijing",
+          "batch": "china_root/records.json",
+          "index": 495
+        },
+        {
+          "name": "蔡静",
+          "aliases": [
+            "Jing Cai"
+          ],
+          "institution": "北京脑科学与类脑研究所",
+          "url": "https://cibr.ac.cn/teamDetail/cibrTeamteam/c31cb1be2bd04583aa0806872bee95e9/Jing%20Cai",
+          "batch": "china_root/records.json",
+          "index": 724
+        }
+      ],
+      "decision": "unresolved_name_collision",
+      "action": "keep_separate_pending_positive_identity_evidence",
+      "basis": "仅为同名或官网别名候选；未取得足够跨页履历、个人标识或明确任职迁移证据，禁止仅按名字合并。已明确不同人的判断另见 confirmedDifferentPeople。"
+    }
+  ],
+  "fourRecommendedRecordsImpact": [
+    {
+      "keepId": "pi-david-williams-0acd6e90",
+      "matchName": "David Williams",
+      "matchInstitution": "University of California Los Angeles",
+      "oldUrl": "https://profiles.ucla.edu/david.williams",
+      "canonicalName": "David S. Williams",
+      "aliases": [
+        "David Williams",
+        "David S Williams"
+      ],
+      "newUrl": "https://profiles.ucla.edu/david.williams",
+      "phase2ExistingIdReferences": 0,
+      "phase2NameCollisions": [],
+      "recommendation": "先按旧姓名+机构+原有ID锁定，再在末尾追加 canonicalName / profileUrlCorrection；保留ID，不从新姓名或新URL重新生成ID。共有别名不能用于姓名单独合并。"
+    },
+    {
+      "keepId": "pi-david-williams-c1dc8e95",
+      "matchName": "David Williams",
+      "matchInstitution": "University of Michigan",
+      "oldUrl": "https://www.medicine.umich.edu/dept/pain-research/david-williams-phd",
+      "canonicalName": "David A. Williams",
+      "aliases": [
+        "David Williams",
+        "David A Williams"
+      ],
+      "newUrl": "https://medschool.umich.edu/profile/1779/david-williams",
+      "phase2ExistingIdReferences": 0,
+      "phase2NameCollisions": [],
+      "recommendation": "先按旧姓名+机构+原有ID锁定，再在末尾追加 canonicalName / profileUrlCorrection；保留ID，不从新姓名或新URL重新生成ID。共有别名不能用于姓名单独合并。"
+    },
+    {
+      "keepId": "pi-steven-a-barnes-40d9558c",
+      "matchName": "Steven A. Barnes",
+      "matchInstitution": "University of California Los Angeles",
+      "oldUrl": "https://profiles.ucla.edu/steven.barnes",
+      "canonicalName": "Steven Andrew Barnes",
+      "aliases": [
+        "Steven A. Barnes",
+        "Steven Barnes"
+      ],
+      "newUrl": "https://profiles.ucla.edu/steven.barnes",
+      "phase2ExistingIdReferences": 0,
+      "phase2NameCollisions": [],
+      "recommendation": "先按旧姓名+机构+原有ID锁定，再在末尾追加 canonicalName / profileUrlCorrection；保留ID，不从新姓名或新URL重新生成ID。共有别名不能用于姓名单独合并。"
+    },
+    {
+      "keepId": "pi-steven-barnes-e8cb2d8c",
+      "matchName": "Steven Barnes",
+      "matchInstitution": "University of British Columbia",
+      "oldUrl": "https://neuroscience.ubc.ca/barnes-steven/",
+      "canonicalName": "Steven J. Barnes",
+      "aliases": [
+        "Steven Barnes"
+      ],
+      "newUrl": "https://psych.ubc.ca/profile/steven-barnes/",
+      "phase2ExistingIdReferences": 0,
+      "phase2NameCollisions": [],
+      "recommendation": "先按旧姓名+机构+原有ID锁定，再在末尾追加 canonicalName / profileUrlCorrection；保留ID，不从新姓名或新URL重新生成ID。共有别名不能用于姓名单独合并。"
+    }
+  ],
+  "cautions": [
+    "剩余同名碰撞不是已确认重复人数，不能按碰撞组数直接扣除总人数。",
+    "两位姓名相同但履历未完整的记录继续分开；相同名字或姓氏和首名并不能证明同人。",
+    "Westlake 个人页本次直读为空壳，学历依据明确标注为官方检索结果的实际返回段落，不伪装已读完整正文。",
+    "原始 sourceSnapshots 是审计时刻内容；Europe agent 的最终内部拼写/反转姓名修正由其独立审计文件追踪。"
+  ],
+  "edition": "2026.10.21-global-v4",
+  "datasetSha256": "51d7b7975bdf62cacca676ac290782fd87162fc6726382fced4f62b8f511afe6",
+  "datasetCount": 12441,
+  "baselineIdsRetained": 2663,
+  "exactOverrides": [
+    {
+      "name": "Philip Corlett",
+      "url": "https://medicine.yale.edu/bbs/profile/philip-corlett/",
+      "existingId": "pi-philip-corlett-7fab76fa",
+      "identitySources": [
+        {
+          "url": "https://medicine.yale.edu/lab/corlett/",
+          "label": "Philip Corlett — 跨批次身份核验",
+          "claim": "既有 Corlett 官方实验室主页明确列 Philip Corlett 为 PI，并直接链接 /lab/corlett/profile/philip-corlett/；新 BBS 是相同 Yale 个人资料标识，研究与任职一致。"
+        },
+        {
+          "url": "https://medicine.yale.edu/bbs/profile/philip-corlett/",
+          "label": "Philip Corlett — 跨批次身份核验",
+          "claim": "既有 Corlett 官方实验室主页明确列 Philip Corlett 为 PI，并直接链接 /lab/corlett/profile/philip-corlett/；新 BBS 是相同 Yale 个人资料标识，研究与任职一致。"
+        }
+      ]
+    },
+    {
+      "name": "Albert Powers",
+      "url": "https://medicine.yale.edu/bbs/profile/albert-powers/",
+      "existingId": "pi-albert-powers-1dff6fd5",
+      "identitySources": [
+        {
+          "url": "https://medicine.yale.edu/lab/powers/",
+          "label": "Albert Powers — 跨批次身份核验",
+          "claim": "既有 Powers 官方实验室主页直接链接本人 /lab/powers/profile/albert-powers/；新 BBS 是相同 Yale 个人资料标识，精神病学任职与幻觉计算研究一致。"
+        },
+        {
+          "url": "https://medicine.yale.edu/bbs/profile/albert-powers/",
+          "label": "Albert Powers — 跨批次身份核验",
+          "claim": "既有 Powers 官方实验室主页直接链接本人 /lab/powers/profile/albert-powers/；新 BBS 是相同 Yale 个人资料标识，精神病学任职与幻觉计算研究一致。"
+        }
+      ]
+    },
+    {
+      "name": "Hongyu Zhao",
+      "url": "https://medicine.yale.edu/bbs/profile/hongyu-zhao/",
+      "existingId": "pi-hongyu-zhao-7c7041a7",
+      "identitySources": [
+        {
+          "url": "https://wti.yale.edu/profile/hongyu-zhao",
+          "label": "Hongyu Zhao — 跨批次身份核验",
+          "claim": "既有 Yale Wu Tsai 个人页链接本人 Yale 公共卫生学院个人页；新 BBS 页列相同生物统计学、遗传学、统计与数据科学任职，以及相同统计基因组研究。"
+        },
+        {
+          "url": "https://medicine.yale.edu/bbs/profile/hongyu-zhao/",
+          "label": "Hongyu Zhao — 跨批次身份核验",
+          "claim": "既有 Yale Wu Tsai 个人页链接本人 Yale 公共卫生学院个人页；新 BBS 页列相同生物统计学、遗传学、统计与数据科学任职，以及相同统计基因组研究。"
+        }
+      ]
+    },
+    {
+      "name": "Yang Kevin Xiang",
+      "url": "https://profiles.ucla.edu/yang.xiang",
+      "existingId": "pi-yang-kevin-xiang-000a93d7",
+      "identitySources": [
+        {
+          "url": "https://profiles.ucla.edu/yang.xiang",
+          "label": "Yang Kevin Xiang — 跨批次身份核验",
+          "claim": "两批资料使用同一个 UCLA 官方个人 URL；已读本人页列 Medicine Professor，并核对 UC Davis 关联。仅同人合并，不把 Davis 项目目录重新设为主聘。"
+        }
+      ]
+    },
+    {
+      "name": "James E Rothman",
+      "url": "https://medicine.yale.edu/bbs/profile/james-rothman/",
+      "existingId": "pi-james-rothman-f53dfb87",
+      "identitySources": [
+        {
+          "url": "https://medicine.yale.edu/bbs/profile/james-rothman/",
+          "label": "James E Rothman — 跨批次身份核验",
+          "claim": "UCL 官方 2019 年报道同时明确 James Rothman 为 UCL Professorial Research Associate 和 Yale Sterling Professor，且是同一位 2013 诺贝尔奖得主；现 Yale 本人页列 Cell Biology primary appointment。UCL 个人站本次仅返回前端壳，未把壳页当作正文证据。"
+        },
+        {
+          "url": "https://www.ucl.ac.uk/news/2019/apr/three-ucl-scientists-elected-fellows-royal-society",
+          "label": "James E Rothman — 跨批次身份核验",
+          "claim": "UCL 官方 2019 年报道同时明确 James Rothman 为 UCL Professorial Research Associate 和 Yale Sterling Professor，且是同一位 2013 诺贝尔奖得主；现 Yale 本人页列 Cell Biology primary appointment。UCL 个人站本次仅返回前端壳，未把壳页当作正文证据。"
+        }
+      ],
+      "institution": "Yale University",
+      "country": "美国",
+      "title": "Sterling Professor of Cell Biology; Director, Yale Nanobiology Institute",
+      "roleStatus": "current",
+      "roleCorrection": true,
+      "profileUrlCorrection": "https://medicine.yale.edu/bbs/profile/james-rothman/",
+      "aliases": [
+        "James Rothman",
+        "James E. Rothman"
+      ],
+      "roleNote": "现 Yale 官方本人页列细胞生物学主聘。UCL 的既有项目关联与 2019 年并行任职证据保留；未据旧报道单独推定 2026 年 UCL 具体聘任状态。",
+      "affiliationChange": {
+        "previousInstitution": "University College London",
+        "previousCountry": "英国",
+        "previousStatus": "directory_affiliation",
+        "url": "https://medicine.yale.edu/bbs/profile/james-rothman/",
+        "summary": "当前 Yale 本人页明确 Primary Cell Biology 任职；UCL 作为已核实同人的项目关联保留，不声称已从 UCL 离职。"
+      }
+    },
+    {
+      "name": "王晓晨",
+      "url": "https://faculty.sustech.edu.cn/?tagid=wangxc7&iscss=1&snapid=1&orderby=date&go=1",
+      "existingId": "pi-researcher-b2948ebd",
+      "identitySources": [
+        {
+          "url": "https://sustech.edu.cn/zh/faculties/wangxiaochen.html",
+          "label": "王晓晨 — 跨批次身份核验",
+          "claim": "两官方个人页均为北大 1999 博士、Colorado 1999–2006 博士后、NIBS 后任 IBP 的溶酶体研究者。IBP 页面明确“客座”，南科大页面明确现任讲席教授。IBP 离任年月表述与南科大略有差异，因此不填统一精确离职日。"
+        },
+        {
+          "url": "https://www.ibp.cas.cn/rc/wxc/202411/t20241107_7435552.html",
+          "label": "王晓晨 — 跨批次身份核验",
+          "claim": "两官方个人页均为北大 1999 博士、Colorado 1999–2006 博士后、NIBS 后任 IBP 的溶酶体研究者。IBP 页面明确“客座”，南科大页面明确现任讲席教授。IBP 离任年月表述与南科大略有差异，因此不填统一精确离职日。"
+        }
+      ],
+      "institution": "南方科技大学生命科学学院",
+      "country": "中国",
+      "title": "讲席教授",
+      "roleStatus": "current",
+      "roleCorrection": true,
+      "profileUrlCorrection": "https://sustech.edu.cn/zh/faculties/wangxiaochen.html",
+      "roleNote": "主聘依南科大现行官方个人页列为讲席教授；中国科学院生物物理研究所官方个人页明确客座。两条按同人合并，当前招生名额另核。",
+      "affiliationChange": {
+        "previousInstitution": "中国科学院生物物理研究所",
+        "previousCountry": "中国",
+        "previousStatus": "visiting",
+        "url": "https://sustech.edu.cn/zh/faculties/wangxiaochen.html",
+        "summary": "同人跨机构合并；现主聘南科大，IBP 现页面标注客座，不统一两页不一致的离职年月。"
+      },
+      "affiliations": [
+        {
+          "institution": "中国科学院生物物理研究所",
+          "country": "中国",
+          "status": "visiting",
+          "url": "https://www.ibp.cas.cn/rc/wxc/202411/t20241107_7435552.html",
+          "verifiedAt": "2026-10-21",
+          "note": "IBP 当前个人页标题明确客座。"
+        }
+      ]
+    },
+    {
+      "name": "John R. Speakman",
+      "url": "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062298773/index.html",
+      "existingId": "pi-john-speakman-f55a3493",
+      "identitySources": [
+        {
+          "url": "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062298773/index.html",
+          "label": "John R. Speakman — 跨批次身份核验",
+          "claim": "SIAT 官方个人页使用全名 John Roger Speakman，明确现任 SIAT 能量代谢与生殖中心首席科学家并兼任 IGDB 研究员、Aberdeen 教授；与既有 IGDB John Speakman 同人，保留并行机构关系。"
+        }
+      ],
+      "affiliations": [
+        {
+          "institution": "中国科学院深圳先进技术研究院生物医药与技术研究所",
+          "country": "中国",
+          "status": "current",
+          "url": "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062298773/index.html",
+          "verifiedAt": "2026-10-21",
+          "note": "官方本人页明确 SIAT 能量代谢与生殖中心首席科学家；同时兼任 IGDB 研究员及 Aberdeen 教授。"
+        }
+      ]
+    }
+  ],
+  "xmuJointFaculty": [
+    {
+      "name": "何承勇",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2120.htm",
+        "https://med.xmu.edu.cn/info/1236/9651.htm"
+      ]
+    },
+    {
+      "name": "张云武",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2094.htm",
+        "https://med.xmu.edu.cn/info/1236/4539.htm"
+      ]
+    },
+    {
+      "name": "张凌娟",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2045.htm",
+        "https://med.xmu.edu.cn/info/1236/9451.htm"
+      ]
+    },
+    {
+      "name": "张杰",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2097.htm",
+        "https://med.xmu.edu.cn/info/1236/4538.htm"
+      ]
+    },
+    {
+      "name": "张永有",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2095.htm",
+        "https://med.xmu.edu.cn/info/1236/4560.htm"
+      ]
+    },
+    {
+      "name": "李博安",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2107.htm",
+        "https://med.xmu.edu.cn/info/1236/4583.htm"
+      ]
+    },
+    {
+      "name": "李庆阁",
+      "decision": "same_person",
+      "basis": "两页的博士学校与年份、历任岗位、分子诊断工程中心经历和公开办公电话一致；不采用医学院邮箱拼写差异作为新人的依据。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2077.htm",
+        "https://med.xmu.edu.cn/info/1236/9561.htm"
+      ]
+    },
+    {
+      "name": "林圣彩",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2075.htm",
+        "https://med.xmu.edu.cn/info/1236/25741.htm"
+      ]
+    },
+    {
+      "name": "林舒勇",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2074.htm",
+        "https://med.xmu.edu.cn/info/1236/9551.htm"
+      ]
+    },
+    {
+      "name": "欧阳高亮",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2105.htm",
+        "https://med.xmu.edu.cn/info/1236/4575.htm"
+      ]
+    },
+    {
+      "name": "毛开睿",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2051.htm",
+        "https://med.xmu.edu.cn/info/1236/9531.htm"
+      ]
+    },
+    {
+      "name": "王洪睿",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2101.htm",
+        "https://med.xmu.edu.cn/info/1236/9501.htm"
+      ]
+    },
+    {
+      "name": "王海滨",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2102.htm",
+        "https://med.xmu.edu.cn/info/1236/4541.htm"
+      ]
+    },
+    {
+      "name": "王鑫",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2100.htm",
+        "https://med.xmu.edu.cn/info/1236/4557.htm"
+      ]
+    },
+    {
+      "name": "肖能明",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2048.htm",
+        "https://med.xmu.edu.cn/info/1236/4584.htm"
+      ]
+    },
+    {
+      "name": "邓贤明",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2058.htm",
+        "https://med.xmu.edu.cn/info/1236/9571.htm"
+      ]
+    },
+    {
+      "name": "陈小芬",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2109.htm",
+        "https://med.xmu.edu.cn/info/1236/4580.htm"
+      ]
+    },
+    {
+      "name": "陈颖",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2108.htm",
+        "https://med.xmu.edu.cn/info/1236/4576.htm"
+      ]
+    },
+    {
+      "name": "韩家淮",
+      "decision": "same_person",
+      "basis": "两学院官方个人页的唯一联系信息一致。",
+      "urls": [
+        "https://life.xmu.edu.cn/info/1039/2057.htm",
+        "https://med.xmu.edu.cn/info/1236/4547.htm"
+      ]
+    }
+  ],
+  "chineseHomonyms": [
+    {
+      "decision": "same_person_merge",
+      "keptName": "李国红",
+      "keptUrl": "https://bio.whu.edu.cn/info/1500/22832.htm",
+      "mergedName": "李国红",
+      "mergedUrl": "https://www.ibp.cas.cn/rc/lgh/202411/t20241108_7436232.html",
+      "evidence": [
+        "https://bio.whu.edu.cn/info/1500/22832.htm",
+        "https://www.ibp.cas.cn/rc/lgh/202411/t20241108_7436232.html"
+      ],
+      "basis": "武汉大学官方履历列2022.12起教授/院长，及此前IBP经历；IBP现目录明确客座，两个页面的海德堡博士与后续经历吻合。保留武汉大学主单位和IBP客座关联。"
+    },
+    {
+      "decision": "distinct_people",
+      "records": [
+        {
+          "name": "李岩",
+          "institution": "中国科学院生物物理研究所",
+          "url": "https://www.ibp.cas.cn/rc/ly/202411/t20241108_7436075.html"
+        },
+        {
+          "name": "李岩",
+          "institution": "中国科学院生物物理研究所",
+          "url": "https://www.ibp.cas.cn/rc/lyjs/202411/t20241108_7436067.html"
+        }
+      ],
+      "evidence": [
+        "https://www.ibp.cas.cn/rc/ly/202411/t20241108_7436075.html",
+        "https://www.ibp.cas.cn/rc/lyjs/202411/t20241108_7436067.html"
+      ],
+      "basis": "同所同名不同人：神经生物学李岩于1998–2003年读中科院生物物理博士，研究果蝇神经环路；生物质谱李岩于2000–2004年读马里兰大学化学/生化博士，研究临床质谱与糖组学。"
+    },
+    {
+      "decision": "distinct_people",
+      "records": [
+        {
+          "name": "周兵",
+          "institution": "中国科学院上海药物研究所",
+          "url": "http://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202008/t20200825_5676122.html"
+        },
+        {
+          "name": "周兵",
+          "institution": "中国科学院上海药物研究所",
+          "url": "https://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202509/t20250916_7968825.html"
+        }
+      ],
+      "evidence": [
+        "http://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202008/t20200825_5676122.html",
+        "https://simm.cas.cn/sourcedb/zw/gb2020/yjzz/202509/t20250916_7968825.html"
+      ],
+      "basis": "同所同名不同人：zhoubing@simm.ac.cn为2011年上海药物所博士，2016年起研究员，研究靶向药物/蛋白降解；bzhou@simm.ac.cn为2019年中国农业大学微生物博士，2025年起药物所组长，研究细菌耐药。"
+    },
+    {
+      "decision": "same_person_merge",
+      "keptName": "杨帆",
+      "keptUrl": "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062323403/index.html",
+      "mergedName": "Fan YANG",
+      "mergedUrl": "https://cxqjzx.siat.ac.cn/siat/ibcbd/kydw/sxkxjjxkdtr/2025021201135262226/index.html",
+      "evidence": [
+        "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062323403/index.html",
+        "https://cxqjzx.siat.ac.cn/siat/ibcbd/kydw/sxkxjjxkdtr/2025021201135262226/index.html"
+      ],
+      "basis": "两份官方个人页使用相同的个人邮箱fan.yang@siat.ac.cn，且脑—骨代谢研究与具体研究履历一致；中文生物医药所页面为主，脑认知所作为同院关联。"
+    },
+    {
+      "decision": "distinct_people",
+      "records": [
+        {
+          "name": "杨帆",
+          "institution": "中国科学院深圳先进技术研究院生物医药与技术研究所",
+          "url": "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062323403/index.html"
+        },
+        {
+          "name": "杨帆",
+          "institution": "中国科学院深圳先进技术研究院合成生物学研究所",
+          "url": "https://isynbio.siat.ac.cn/siat/isb/kydw/hcmyxyjzx/2026011211315875705/index.html"
+        }
+      ],
+      "evidence": [
+        "https://isynbio.siat.ac.cn/siat/ibb/kydw/zgjyjry/2025021110062323403/index.html",
+        "https://isynbio.siat.ac.cn/siat/isb/kydw/hcmyxyjzx/2026011211315875705/index.html"
+      ],
+      "basis": "SIAT两位同名杨帆：生物医药所fan.yang@siat.ac.cn研究脑—骨代谢；合成生物学所f.yang1@siat.ac.cn于2012–2017年获多伦多大学博士、随后斯坦福博后，研究计算/系统免疫。"
+    },
+    {
+      "decision": "same_person_merge",
+      "keptName": "毕国强",
+      "keptUrl": "http://dslx.ustc.edu.cn/?menu=expert_paper&expertid=1005",
+      "mergedName": "Guoqiang BI",
+      "mergedUrl": "https://cxqjzx.siat.ac.cn/siat/ibcbd/kydw/sxkxjjxkdtr/2025021201191016205/index.html",
+      "evidence": [
+        "https://people.ucas.ac.cn/~GuoqiangBi",
+        "https://biox.ustc.edu.cn/2010/0626/c24188a508657/page.htm",
+        "https://cxqjzx.siat.ac.cn/siat/ibcbd/kydw/sxkxjjxkdtr/2025021201191016205/index.html"
+      ],
+      "basis": "UCAS官方个人页以毕国强中文名及同一个gqbiustc@gmail.com确认身份，明确2007起中科大教授、2020起SIAT双聘教授。保留中科大主记录和SIAT双聘关联。"
+    },
+    {
+      "decision": "same_person_merge",
+      "keptName": "刘北明",
+      "keptUrl": "http://dslx.ustc.edu.cn/?menu=expert_paper&expertid=1116",
+      "mergedName": "Pak-Ming Lau",
+      "mergedUrl": "https://cxqjzx.siat.ac.cn/siat/ibcbd/kydw/sxkxjjxkdtr/2025021201135296199/index.html",
+      "evidence": [
+        "https://biomed.ustc.edu.cn/2010/0906/c41923a735606/page.htm",
+        "https://neurophysics.ustc.edu.cn/15816/list.htm",
+        "https://cxqjzx.siat.ac.cn/siat/ibcbd/kydw/sxkxjjxkdtr/2025021201135296199/index.html"
+      ],
+      "basis": "中科大现行实验室页面明确双语LAU Pakming（刘北明），中科大与SIAT两份个人履历均为北大物理学士、伯克利分子细胞博士，研究与对应论文一致。保留中科大主记录和SIAT关联，不据关联推定转职。"
+    },
+    {
+      "decision": "same_person_existing",
+      "name": "赵方庆",
+      "existingId": "pi-fangqing-zhao-faff666b",
+      "evidence": [
+        "https://ioz.cas.cn/sourcedb/zw/zjrc/202406/t20240625_7196307.html",
+        "https://bioinfo.ioz.ac.cn/people.php"
+      ],
+      "basis": "已读旧卡指定研究组网页，唯一Principal Investigator明确双语Fangqing Zhao（赵方庆）、IOZ现职及组学/非编码RNA研究。"
+    }
+  ],
+  "editorialCorrections": [
+    "三条Vienna BioCenter页面中被误取为姓名的项目标题已按官方个人标题纠正。",
+    "不以机器学习／深度学习关键词推断认知神经科学。",
+    "中英文别名仅采用官方人物信息；未按姓名猜测中文译名。",
+    "较浅目录补充不能覆盖较深个人研究范围、任职说明或资料入口。",
+    "个人研究标签不从奖项或期刊名称推断；空间组织不等于空间组学，已按具体研究段复查受影响条目。"
+  ]
+}

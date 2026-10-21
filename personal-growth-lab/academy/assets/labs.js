@@ -13,10 +13,10 @@
   const evidenceLabel = l => ({reviewed:'代表作 + 适配已整理',research_profile:'个人研究资料已整理',official_directory:'官方团队名录'}[level(l)] || '证据待核验');
   const facetFilters = {'method-filter':'methods','disease-filter':'diseases','modality-filter':'modalities','scale-filter':'researchScales','design-filter':'studyDesigns'};
   const preferenceAxes = ['domains','methods','diseases','modalities'];
-  const filterIds = ['query','country','institution','direction','evidence','collection','sort','page-size',...Object.keys(facetFilters),'role-filter','dimension-filter','min-evidence','stage-filter','tier','status'];
+  const filterIds = ['query','country','institution','direction','evidence','update-filter','collection','sort','page-size',...Object.keys(facetFilters),'role-filter','dimension-filter','min-evidence','stage-filter','tier','status'];
   const preferenceIds = preferenceAxes.flatMap(a=>['pref-'+a,'weight-'+a]);
   const selected = new Set(), notebook = new Map();
-  let data, monitor={sources:{}}, filtered=[], page=1, loading=false, restored=false, toastTimer, storageAvailable=true, notebookWarning='';
+  let data, monitor={sources:{}}, filtered=[], page=1, loading=false, restored=false, toastTimer, storageAvailable=true, notebookWarning='', directorySources=[], sourceLimit=32;
 
   function notify(message) { $('announce').textContent=message;$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>{$('toast').hidden=true;},4500); }
   function notebookFile() {return {type:M.notebookType,schemaVersion:1,exportedAt:new Date().toISOString(),entries:[...notebook.values()]};}
@@ -99,7 +99,7 @@
   }
   function directoryDetails(l,r) {
     const affiliations=(l.affiliations||[]).filter(a=>a.institution!==l.institution);
-    return `<h4>${level(l)==='research_profile'?'个人研究资料核验范围':'官方名录收录依据'}</h4><p>${E(l.evidenceScope||l.directoryNote||'官方研究组或导师目录列有该条目，并提供课题组或个人资料链接。')}</p>${l.role?`<p>${E(l.role)}</p>`:''}${l.groupName?`<p>研究组：${E(l.groupName)}</p>`:''}<p class="small">${E(l.fieldBasis||'方向依据官方条目或所属专题目录；宽泛标签不能代替个人研究方向复核。')}</p>${affiliations.length?`<h4>其他官方关联记录</h4>${affiliations.map(a=>`<p>${E(a.institution)} · ${E(a.country)}${a.url?' · '+link(a.url,'官方记录'):''}</p>`).join('')}`:''}${l.affiliationNote?`<p class="small">${E(l.affiliationNote)}</p>`:''}${opportunityDetails(l,r)}`;
+    return `<h4>${level(l)==='research_profile'?'个人研究资料核验范围':'官方名录收录依据'}</h4><p>${E(l.evidenceScope||l.directoryNote||'官方研究组或导师目录列有该条目，并提供课题组或个人资料链接。')}</p>${l.role?`<p>${E(l.role)}</p>`:''}${l.groupName?`<p>研究组：${E(l.groupName)}</p>`:''}<p class="small">${E(l.fieldBasis||'方向依据官方条目或所属专题目录；宽泛标签不能代替个人研究方向复核。')}</p>${affiliations.length?`<h4>其他官方关联记录</h4>${affiliations.map(a=>`<p>${E(a.institution)} · ${E(a.country)}${a.url?' · '+link(a.url,'官方记录'):''}${a.note?`<br><span class="small">${E(a.note)}</span>`:''}</p>`).join('')}`:''}${l.affiliationNote?`<p class="small">${E(l.affiliationNote)}</p>`:''}${opportunityDetails(l,r)}`;
   }
   function personalPanel(l) {
     const entry=notebook.get(l.id)||{stage:'watch',note:''};
@@ -114,8 +114,9 @@
   function card(l) {
     const r=review(l),detailed=level(l)==='reviewed',saved=!!notebook.get(l.id)?.saved;
     const methods=M.values(l,'methods').slice(0,3), diseases=M.values(l,'diseases').slice(0,2);
+    const aliases=(l.aliases||[]).filter(n=>M.norm(n)!==M.norm(l.name)).slice(0,3);
     const role=M.roles[l.roleStatus]||M.roles.unknown;
-    return `<article class="lab-card ${detailed?'reviewed':level(l)==='research_profile'?'profile':'directory'}" id="lab-${E(l.id)}"><div class="card-top"><div class="card-meta"><span>${E(countries(l).join(' / '))}</span><span>${E(detailed?data.tiers[l.tier]:role)}</span></div><span class="evidence-badge ${E(level(l))}">${E(evidenceLabel(l))}</span><h3>${E(l.name)}</h3><p class="institution">${E(l.institution)}${l.affiliations?.length?` <span class="affiliation-note">+${l.affiliations.length}条关联记录</span>`:''}</p><div class="tags">${l.directions.map(t=>`<button type="button" data-direction="${E(t)}">${E(t)}</button>`).join('')}</div><p class="question">${E(l.question||'官方目录已收录；具体研究问题请查阅团队资料。')}</p>${methods.length?`<p class="facet-line"><span>方法</span>${E(methods.join(' · '))}</p>`:''}${diseases.length?`<p class="facet-line"><span>健康问题</span>${E(diseases.join(' · '))}</p>`:''}<div class="evidence-meter" aria-label="7项评价维度中${M.evidenceCount(l)}项有证据">${Object.keys(M.dimensions).map(d=>`<span class="${M.evidence(l,d).length?'filled':''}" title="${E(M.dimensions[d][0])}：${M.evidence(l,d).length?'已有资料':'待补充'}"></span>`).join('')}<small>${M.evidenceCount(l)} / 7项证据</small></div>${matchDetails(l,true)}<div class="card-links">${link(profile(l),'官方团队 / PI资料')}<span class="status ${r.status}">${E(data.statuses[r.status])}</span></div>${r.reason?`<p class="review-note opportunity-review-note">待复核：${E(r.reason)}</p>`:''}<div class="date">${level(l)==='official_directory'?'名录核验':'内容核验'} ${E(l.verifiedAt)} · ${E(evidenceMonitor(l))}</div></div><div class="card-actions"><label><input type="checkbox" data-compare="${E(l.id)}" ${selected.has(l.id)?'checked':''} aria-label="比较 ${E(l.name)}">比较</label><button class="save-button ${saved?'saved':''}" type="button" data-save="${E(l.id)}" aria-pressed="${saved}" aria-label="收藏 ${E(l.name)}">${saved?'★ 已收藏':'☆ 收藏'}</button><a href="#lab-${E(l.id)}" data-open="${E(l.id)}">定位 ↗</a></div><details><summary>${detailed?`完整证据 · ${l.papers.length}篇代表作`:'研究详情与多维证据'}</summary><div class="details-body">${facetDetails(l)}${matchDetails(l)}${assessmentDetails(l)}${detailed?reviewedDetails(l,r):directoryDetails(l,r)}${personalPanel(l)}<h4>官方证据与核验范围</h4>${sourceDetails(l)}</div></details></article>`;
+    return `<article class="lab-card ${detailed?'reviewed':level(l)==='research_profile'?'profile':'directory'}" id="lab-${E(l.id)}"><div class="card-top"><div class="card-meta"><span>${E(countries(l).join(' / '))}</span><span>${E(detailed?data.tiers[l.tier]:role)}</span></div><span class="evidence-badge ${E(level(l))}">${E(evidenceLabel(l))}</span><h3>${E(l.name)}</h3>${aliases.length?`<p class="name-aliases">${E(aliases.join(" · "))}</p>`:""}<p class="institution">${E(l.institution)}${l.affiliations?.length?` <span class="affiliation-note">+${l.affiliations.length}条关联记录</span>`:''}</p><div class="tags">${l.directions.map(t=>`<button type="button" data-direction="${E(t)}">${E(t)}</button>`).join('')}</div><p class="question">${E(l.question||'官方目录已收录；具体研究问题请查阅团队资料。')}</p>${methods.length?`<p class="facet-line"><span>方法</span>${E(methods.join(' · '))}</p>`:''}${diseases.length?`<p class="facet-line"><span>健康问题</span>${E(diseases.join(' · '))}</p>`:''}<div class="evidence-meter" aria-label="7项评价维度中${M.evidenceCount(l)}项有证据">${Object.keys(M.dimensions).map(d=>`<span class="${M.evidence(l,d).length?'filled':''}" title="${E(M.dimensions[d][0])}：${M.evidence(l,d).length?'已有资料':'待补充'}"></span>`).join('')}<small>${M.evidenceCount(l)} / 7项证据</small></div>${matchDetails(l,true)}<div class="card-links">${link(profile(l),'官方团队 / PI资料')}<span class="status ${r.status}">${E(data.statuses[r.status])}</span></div>${r.reason?`<p class="review-note opportunity-review-note">待复核：${E(r.reason)}</p>`:''}<div class="date">${level(l)==='official_directory'?'名录核验':'内容核验'} ${E(l.verifiedAt)} · ${E(evidenceMonitor(l))}</div></div><div class="card-actions"><label><input type="checkbox" data-compare="${E(l.id)}" ${selected.has(l.id)?'checked':''} aria-label="比较 ${E(l.name)}">比较</label><button class="save-button ${saved?'saved':''}" type="button" data-save="${E(l.id)}" aria-pressed="${saved}" aria-label="收藏 ${E(l.name)}">${saved?'★ 已收藏':'☆ 收藏'}</button><a href="#lab-${E(l.id)}" data-open="${E(l.id)}">定位 ↗</a></div><details><summary>${detailed?`完整证据 · ${l.papers.length}篇代表作`:'研究详情与多维证据'}</summary><div class="details-body">${facetDetails(l)}${matchDetails(l)}${assessmentDetails(l)}${detailed?reviewedDetails(l,r):directoryDetails(l,r)}${personalPanel(l)}<h4>官方证据与核验范围</h4>${sourceDetails(l)}</div></details></article>`;
   }
   function counts(values) {const m=new Map();for(const v of values)m.set(v,(m.get(v)||0)+1);return [...m].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'zh'));}
   function opts(id,entries) {const v=$(id).value;$(id).innerHTML=$(id).options[0].outerHTML+entries.map(([k,t])=>`<option value="${E(k)}">${E(t)}</option>`).join('');$(id).value=[...$(id).options].some(o=>o.value===v)?v:'';}
@@ -153,7 +154,9 @@
     const q=M.norm($('query').value.trim()).split(/\s+/).filter(Boolean), pref=preferences();
     const criteria=Object.fromEntries(Object.entries(facetFilters).map(([id,a])=>[a,$(id).value]));
     const list=data.labs.filter(l=>{
-      const n=notebook.get(l.id),collect=$('collection').value;
+      const n=notebook.get(l.id),collect=$('collection').value,updated=$('update-filter').value;
+      if(updated==='new'&&l.firstIncludedEdition!==data.edition)return false;
+      if(updated==='enriched'&&l.lastEnrichedEdition!==data.edition)return false;
       return q.every(t=>l._search.includes(t))&&(!$('country').value||countries(l).includes($('country').value))&&(!$('institution').value||institutions(l).includes($('institution').value))&&(!$('direction').value||l.directions.includes($('direction').value))&&(!$('evidence').value||level(l)===$('evidence').value)&&(!$('tier').value||l.tier===$('tier').value)&&(!$('status').value||review(l).status===$('status').value)&&M.matchesFacets(l,criteria)&&(!$('role-filter').value||(l.roleStatus||'unknown')===$('role-filter').value)&&(!$('dimension-filter').value||M.evidence(l,$('dimension-filter').value).length)&&(!$('min-evidence').value||M.evidenceCount(l)>=Number($('min-evidence').value))&&(!collect||(collect==='saved'?n?.saved:n?.note.trim()))&&(!$('stage-filter').value||n?.stage===$('stage-filter').value);
     });
     const ranks={reviewed:3,research_profile:2,official_directory:1},sort=$('sort').value;
@@ -194,19 +197,44 @@
     $('coverage-note').textContent=`${directory}条名录 · ${research}份研究资料 · ${detailed}张代表作与适配卡`;
     $('evidence-summary').innerHTML=`<div><b>名录发现 <span>${directory}</span></b><p>核对官方目录中的身份与机构关联；个人研究细节继续补充。</p></div><div><b>研究资料 <span>${research}</span></b><p>逐人整理研究介绍；读取限制和核验范围逐条说明。</p></div><div><b>代表作与适配 <span>${detailed}</span></b><p>另含至少两篇代表论文、技能缺口与起步项目，支持深入比较。</p></div>`;
     $('country-overview').innerHTML=cs.map(([c,n])=>`<button type="button" data-country="${E(c)}">${E(c)}<b>${n}</b></button>`).join('');
+    const expansion=data.latestExpansion;
+    $('expansion-summary').textContent=expansion?`本轮 ${expansion.date}：新增 ${expansion.newCount.toLocaleString('zh-CN')} 条候选，补充 ${expansion.enrichedCount.toLocaleString('zh-CN')} 条已有资料。可用“本轮更新”筛选查看。`:'';
+    const topicNames=['微生物组','微生物学','微生物生态','肠脑轴','宿主-微生物互作','神经免疫','代谢组学','计算精神病学','精神病学','神经影像','计算神经科学','脑科学','医学人工智能','计算生物学','生物信息学','AI for Biology','AI虚拟细胞（AIVC）','单细胞与空间组学','基因组学','脑机接口'];
+    const topicRows=topicNames.map(t=>{const records=data.labs.filter(l=>l.directions.includes(t));return records.length?`<tr><th scope="row"><button type="button" data-direction="${E(t)}">${E(t)} ↗</button></th><td>${records.length}</td><td>${new Set(records.flatMap(institutions)).size}</td><td>${records.filter(l=>M.evidence(l,'research').length).length}</td><td>${records.filter(l=>M.values(l,'methods').length).length}</td></tr>`:'';}).join('');
+    $('topic-coverage').innerHTML=`<table><caption>重点方向在当前库中的覆盖情况；可点击方向查看候选。</caption><thead><tr><th scope="col">研究方向</th><th scope="col">候选条目</th><th scope="col">机构 / 单元</th><th scope="col">已列研究依据</th><th scope="col">有方法标签</th></tr></thead><tbody>${topicRows}</tbody></table>`;
     const sources=new Map();for(const l of data.labs)for(const s of l.sources||[]){if(s.kind!=='directory')continue;const row=sources.get(s.url)||{url:s.url,label:s.label,country:s.country||l.country,ids:new Set(),date:s.verifiedAt};row.ids.add(l.id);sources.set(s.url,row);}
-    $('source-list').innerHTML=[...sources.values()].sort((a,b)=>b.ids.size-a.ids.size).map(s=>`<article><h3>${link(s.url,s.label)}</h3><p>${E(s.country)} · 本库收录 ${s.ids.size} 条候选记录</p><p class="small">名录核验 ${E(s.date)}</p></article>`).join('')||'<p>个人证据卡提供各自官方来源。</p>';
+    directorySources=[...sources.values()].sort((a,b)=>b.ids.size-a.ids.size);sourceLimit=32;renderSources();
+  }
+  function renderSources() {
+    const query=M.norm($('source-search').value).trim(),list=directorySources.filter(s=>M.norm(s.label+' '+s.country+' '+s.url).includes(query));
+    $('source-count').textContent=`共 ${directorySources.length} 个官方目录 · 符合条件 ${list.length} 个 · 已显示 ${Math.min(sourceLimit,list.length)} 个`;
+    $('source-list').innerHTML=list.slice(0,sourceLimit).map(s=>`<article><h3>${link(s.url,s.label)}</h3><p>${E(s.country)} · 本库收录 ${s.ids.size} 条候选记录</p><p class="small">名录核验 ${E(s.date)}</p></article>`).join('')||'<p>没有匹配的官方目录。个人研究来源也可在导师卡片中查看。</p>';
+    $('source-more').hidden=sourceLimit>=list.length;
   }
   function openHash() {
     const id=location.hash.slice(1);if(!id.startsWith('lab-')||!data)return;const target=data.labs.find(l=>'lab-'+l.id===id);if(!target)return;
     let index=filtered.findIndex(l=>l.id===target.id);if(index<0){resetFilters();filtered=getFiltered();index=filtered.findIndex(l=>l.id===target.id);}
     page=Math.floor(index/(Number($('page-size').value)||24))+1;render({preserveHash:true});const el=$(id);if(el){el.querySelector('details').open=true;el.scrollIntoView({block:'start'});}
   }
-  async function json(url) {const r=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}
+  async function json(url,timeout=12000) {const r=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(timeout)});if(!r.ok)throw Error('HTTP '+r.status);return r.json();}
+  async function loadDirectory() {
+    if('DecompressionStream' in window){
+      try{
+        const r=await fetch('data/labs.json.gz',{cache:'no-store',signal:AbortSignal.timeout(15000)});
+        if(!r.ok)throw Error('HTTP '+r.status);
+        const bytes=new Uint8Array(await r.arrayBuffer());
+        // Hosting may decode an HTTP Content-Encoding layer. Inspect the actual
+        // bytes so an already-decoded response is not decompressed twice.
+        const decoded=bytes[0]===31&&bytes[1]===139?await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text():new TextDecoder().decode(bytes);
+        const parsed=JSON.parse(decoded);if(parsed.schemaVersion!==1||!Array.isArray(parsed.labs))throw Error('Invalid compressed directory');return parsed;
+      }catch{/* The canonical JSON remains available for old browsers or failed compression transport. */}
+    }
+    return json('data/labs.json',45000);
+  }
   async function load() {
     if(loading)return;loading=true;$('refresh').disabled=true;
     try{
-      const next=await json('data/labs.json');if(next.schemaVersion!==1||!Array.isArray(next.labs))throw Error('数据格式不兼容');
+      const next=await loadDirectory();if(next.schemaVersion!==1||!Array.isArray(next.labs))throw Error('数据格式不兼容');
       data=next;for(const l of data.labs)l._search=M.searchText(l);for(const id of selected)if(!data.labs.some(l=>l.id===id))selected.delete(id);
       populate();if(!restored){restoreUrl();restored=true;}renderCoverage();
       $('methodology').innerHTML='<ol>'+data.methodology.map(t=>`<li>${E(t)}</li>`).join('')+'</ol>';
@@ -244,6 +272,8 @@
     const a=e.target.closest('[data-open]');if(a)document.getElementById('lab-'+a.dataset.open)?.querySelector('details').setAttribute('open','');
   });
   $('pagination').addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(!b||b.disabled)return;page=Number(b.dataset.page);render();$('result-count').scrollIntoView({block:'start'});});
+  $('source-search').addEventListener('input',()=>{sourceLimit=32;renderSources();});
+  $('source-more').addEventListener('click',()=>{sourceLimit+=32;renderSources();});
   document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>preset('direction',b.dataset.preset)));
   $('compare-open').addEventListener('click',()=>{$('comparison').hidden=false;$('comparison').scrollIntoView();$('comparison').querySelector('h2').focus({preventScroll:true});});
   $('compare-clear').addEventListener('click',()=>{selected.clear();render();});
@@ -254,14 +284,14 @@
   });
   $('export-results').addEventListener('click',()=>{
     const cell=v=>'"'+String(v??'').replace(/^(\s*[=+@-])/u,"'$1").replace(/"/g,'""')+'"';
-    const rows=[['姓名 / 团队','机构','国家 / 地区','任职类型',...Object.values(M.axes),'证据深度','已整理维度数','研究问题','官方资料','内容核验日期','接收机会','标签匹配率','已匹配标准','待确认标准',...Object.values(M.dimensions).map(d=>d[0]+' · 公开证据与来源')],...filtered.map(l=>{const m=M.match(l,preferences());return [l.name,institutions(l).join('；'),countries(l).join('；'),M.roles[l.roleStatus]||M.roles.unknown,...Object.keys(M.axes).map(a=>M.values(l,a).join('；')),evidenceLabel(l),M.evidenceCount(l),l.question,profile(l),l.verifiedAt,data.statuses[review(l).status],m.score===null?'':m.score+'%',m.matched.map(x=>x.value).join('；'),m.missing.map(x=>x.value).join('；'),...Object.keys(M.dimensions).map(d=>M.evidence(l,d).map(e=>e.summary+' ['+e.url+']').join('；'))];})];
+    const rows=[['姓名 / 团队','姓名别名 / 中文名','机构','国家 / 地区','任职类型',...Object.values(M.axes),'证据深度','已整理维度数','研究问题','官方资料','内容核验日期','接收机会','标签匹配率','已匹配标准','待确认标准',...Object.values(M.dimensions).map(d=>d[0]+' · 公开证据与来源')],...filtered.map(l=>{const m=M.match(l,preferences());return [l.name,(l.aliases||[]).join('；'),institutions(l).join('；'),countries(l).join('；'),M.roles[l.roleStatus]||M.roles.unknown,...Object.keys(M.axes).map(a=>M.values(l,a).join('；')),evidenceLabel(l),M.evidenceCount(l),l.question,profile(l),l.verifiedAt,data.statuses[review(l).status],m.score===null?'':m.score+'%',m.matched.map(x=>x.value).join('；'),m.missing.map(x=>x.value).join('；'),...Object.keys(M.dimensions).map(d=>M.evidence(l,d).map(e=>e.summary+' ['+e.url+']').join('；'))];})];
     download('\uFEFF'+rows.map(r=>r.map(cell).join(',')).join('\r\n'),'research-teams-'+new Date().toISOString().slice(0,10)+'.csv','text/csv;charset=utf-8');notify(`已导出全部 ${filtered.length} 条公开筛选结果，含多维证据；私人笔记未包含。`);
   });
   $('show-saved').addEventListener('click',()=>preset('collection','saved'));
   $('export-notebook').addEventListener('click',()=>download(JSON.stringify(notebookFile(),null,2),'research-notebook-'+new Date().toISOString().slice(0,10)+'.json','application/json;charset=utf-8'));
   $('import-notebook').addEventListener('change',async e=>{
     const file=e.target.files?.[0];if(!file)return;
-    try{if(file.size>5*1024*1024)throw Error('备份文件不能超过5MB。');const incoming=JSON.parse(await file.text());mergeStoredNotebook();const merged=M.mergeNotebooks(notebookFile(),incoming);notebook.clear();for(const row of merged.entries)notebook.set(row.id,row);notebookWarning='';const ok=saveNotebook();render();notify(ok?`已合并 ${merged.entries.length} 条记录，保留每条较新的版本。`:'已读入备份，但浏览器存储不可用；请导出本页记录。');}catch(err){notify('未导入：'+err.message);}finally{e.target.value='';}
+    try{if(file.size>64*1024*1024)throw Error('备份文件不能超过64MB。');const incoming=JSON.parse(await file.text());mergeStoredNotebook();const merged=M.mergeNotebooks(notebookFile(),incoming);notebook.clear();for(const row of merged.entries)notebook.set(row.id,row);notebookWarning='';const ok=saveNotebook();render();notify(ok?`已合并 ${merged.entries.length} 条记录，保留每条较新的版本。`:'已读入备份，但浏览器存储不可用；请导出本页记录。');}catch(err){notify('未导入：'+err.message);}finally{e.target.value='';}
   });
   $('refresh').addEventListener('click',load);window.addEventListener('hashchange',openHash);window.addEventListener('popstate',()=>{restoreUrl();render({preserveHash:true});openHash();});
   window.addEventListener('storage',e=>{if(e.key!==M.storageKey&&e.key!==null)return;try{const raw=localStorage.getItem(M.storageKey),next=raw?M.mergeNotebooks(notebookFile(),JSON.parse(raw)):{entries:[]};notebook.clear();for(const row of next.entries)notebook.set(row.id,row);syncNotebookControls();}catch{notify('另一个标签页的名单格式无法读取，当前页面已保留原记录。');}});

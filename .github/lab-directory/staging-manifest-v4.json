@@ -1,0 +1,149 @@
+[
+  {
+    "path": ".github/lab-directory/enrich_candidates.py",
+    "size": 37015,
+    "chars": 30570,
+    "sha": "dad86037a8eef1a6860cc0f4eeb3afd4d59b42c0",
+    "sha256": "5826b99da59f7e9fcbc5fa8c6ea2be8bd6d6a7fbe05fe37a93c7a3a1a9ddd5ba"
+  },
+  {
+    "path": ".github/lab-directory/test_enrich_candidates.py",
+    "size": 6866,
+    "chars": 6814,
+    "sha": "cf1a5313458d1b00997bb0ef36164b9b21779416",
+    "sha256": "dc1f347c9afc7ffc4af657546df9c18982c745a5d7d7d50ca719ac19ce47c8d7"
+  },
+  {
+    "path": ".github/lab-directory/institution-aliases.json",
+    "size": 20849,
+    "chars": 19576,
+    "sha": "92668faaba7286cc2e494d6aef9409a21d6d9ea6",
+    "sha256": "1dd234b14c440fdf94b6045351fa83c04ff265c79e584d31f1a6f5b63f2733d4"
+  },
+  {
+    "path": ".github/lab-directory/README.md",
+    "size": 14174,
+    "chars": 8002,
+    "sha": "28df8de121f198400bbec7683d1a7595b3b4ab6f",
+    "sha256": "b9da18b3ec0403bd4506a79ea20c8e0e563a4ab2eba7bacb986c3b0d81d5ef2c"
+  },
+  {
+    "path": ".github/lab-directory/.gitignore",
+    "size": 634,
+    "chars": 634,
+    "sha": "98695a8d419ed7ae21f124b142ef87295ca44fb0",
+    "sha256": "011ccbe90270e3d81020f56ff7ffc19cda096d0f08aee8069c0c4fdffde9afc8"
+  },
+  {
+    "path": ".github/lab-directory/reviewed-additions-20261021-v4.json",
+    "size": 18655044,
+    "chars": 14085373,
+    "sha": "40c5b80a3a307bc6ca3f260c5c8eb7e423d3b2ce",
+    "sha256": "217855f3e40c2bbb885861b442fddd1f1d505eea4772749b1cf17990221ec748"
+  },
+  {
+    "path": ".github/lab-directory/reviewed-provenance-20261021-v4.json",
+    "size": 1733954,
+    "chars": 1641830,
+    "sha": "35b1e2b61a3b279bbef96ff6021c4ab262fb25d4",
+    "sha256": "071ecbac888c274fdee09db3c546c103c0e2b4c50e41ea27995012a46ee76142"
+  },
+  {
+    "path": ".github/lab-directory/reviewed-expansion-report-20261021-v4.json",
+    "size": 408512,
+    "chars": 399001,
+    "sha": "3be0fea30393435e872f271d0b934f772b6b6aa4",
+    "sha256": "95366063921d820480e05a44de9c4023408a94647d078a02adf5bd02cf536b32"
+  },
+  {
+    "path": ".github/lab-directory/reviewed-identity-audit-20261021-v4.json",
+    "size": 132311,
+    "chars": 111036,
+    "sha": "a411126a95d82ec2a4f3ea1b55f023745c6d278b",
+    "sha256": "d54a8289967a750b77b24e89959d0f6b9a7e032ac3d3d1092920bd6393fd305a"
+  },
+  {
+    "path": ".github/workflows/lab-evidence-monitor.yml",
+    "size": 3090,
+    "chars": 3090,
+    "sha": "0775b139e81e6a14dc3f1df2e98268aed3bc712e",
+    "sha256": "85a9b3d020139fa3f1d028f0811b0cfe2ad428ae1c806a1ffda4e5bc7d154780"
+  },
+  {
+    "path": "personal-growth-lab/academy/labs.html",
+    "size": 14071,
+    "chars": 10189,
+    "sha": "51c02c5e0f49b29b1d436e18b3955fc3ae38dac5",
+    "sha256": "6a3460977f37179e9dd45d32e757047bad897893e122d2370f495a03f8e385bb"
+  },
+  {
+    "path": "personal-growth-lab/academy/assets/labs.js",
+    "size": 42607,
+    "chars": 38328,
+    "sha": "a32121ec381b4f92f729c260f69be2b85afa04c0",
+    "sha256": "8b3cbf486799b580c32eaf913924039f8361080b9fafaad662285fae579325b4"
+  },
+  {
+    "path": "personal-growth-lab/academy/assets/labs.css",
+    "size": 23913,
+    "chars": 23913,
+    "sha": "342179dbfbe0cd6fea3dcc9844c910fb64e10a3a",
+    "sha256": "e84e0b638e5e27f227082472a08366c798e43944bf0724538ce87e7bd2aa1c2e"
+  },
+  {
+    "path": "personal-growth-lab/academy/assets/lab-model.js",
+    "size": 5432,
+    "chars": 4615,
+    "sha": "c3b41a4d9b18aa1ad82e2b67b844ddeed4ef46a7",
+    "sha256": "3ba1b1b90254ef598721acaf0dd7b1a86a8af690dcf837199eb1a1c1010b32ef"
+  },
+  {
+    "path": "personal-growth-lab/academy/data/labs.json",
+    "size": 35055112,
+    "chars": 23735679,
+    "sha": "8b6933384395a8ae5c06436c33c1c40729fe4b15",
+    "sha256": "51d7b7975bdf62cacca676ac290782fd87162fc6726382fced4f62b8f511afe6"
+  },
+  {
+    "path": "personal-growth-lab/academy/data/labs.json.gz",
+    "size": 1325598,
+    "chars": null,
+    "sha": "08b837519ee24b63b202dcb830aa2df6d6c4a610",
+    "sha256": "9a4d30e744b2b293e54eac72071506ab0fbbd09b59be2c6da8d5f54933f7540a"
+  },
+  {
+    "path": "personal-growth-lab/academy/data/lab-sources.json",
+    "size": 3796847,
+    "chars": 3631904,
+    "sha": "43dc4fe33ba931ea43303a947de74a230d0c16e1",
+    "sha256": "e5c542d1983b8095c6e396d73ef6c1001497e085d2365c0d59048e64490910b7"
+  },
+  {
+    "path": "personal-growth-lab/academy/LAB_DATABASE.md",
+    "size": 13657,
+    "chars": 6112,
+    "sha": "57ea2a32d8fd3b600ea060833d3edac6c775add5",
+    "sha256": "9f30edf27d45c34d8bfe029eae7d16393e8eb32dd36c129ed4f594136456f7dd"
+  },
+  {
+    "path": "personal-growth-lab/academy/tools/test_labs.py",
+    "size": 12850,
+    "chars": 12539,
+    "sha": "7d2c0d097e24fbbcfd23d36f2cca689b80bc9eab",
+    "sha256": "27692546dffb7fc5c328900d0ac28501ca9e982faa9f67c85df21c530ddf120a"
+  },
+  {
+    "path": "personal-growth-lab/academy/tools/test_lab_model.cjs",
+    "size": 2694,
+    "chars": 2603,
+    "sha": "40bb4e00b4608f63ba5cc34e5f91be1f85601fbc",
+    "sha256": "ce624449c73bd9eda7b6b22d0dca59e6d9f232c9a7fe0d3385e37313c0d5afaa"
+  },
+  {
+    "path": "personal-growth-lab/academy/tools/test_labs_browser.cjs",
+    "size": 23249,
+    "chars": 22957,
+    "sha": "8a5af7df5e3c6a3dbe39032a9908041c38106ca1",
+    "sha256": "362ec6005506c64c5ca02d0e29f97d00f6ada80d941384238c4c1226126902a9"
+  }
+]

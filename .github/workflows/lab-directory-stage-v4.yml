@@ -1,0 +1,31 @@
+name: Prepare lab directory v4 data transfer
+
+on:
+  push:
+    branches: [labs-expand-20261021-v4]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lab-directory-stage-v4
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    if: github.ref == 'refs/heads/labs-expand-20261021-v4'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify inputs, test, and create the new data carrier branch
+        run: python .github/lab-directory/stage-release-v4.py
