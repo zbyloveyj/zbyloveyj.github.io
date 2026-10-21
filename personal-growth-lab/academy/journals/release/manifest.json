@@ -1,0 +1,610 @@
+{
+  "schema": 1,
+  "purpose": "Publish verified journal data only",
+  "checkedAt": "2026-10-21",
+  "archiveSHA256": "244511b333bc549091b249821d66cc354637b904190b2522709c8e84c8ab87d9",
+  "archiveBytes": 50241929,
+  "chunks": [
+    {
+      "name": "data-00.part",
+      "size": 6291456,
+      "sha256": "ae217f70e5801d92a5c8ccfc14e93cf5291622a90213668a18fd4f181b184fb0",
+      "gitSha": "b72ffce9aba37299ee59ef43f79d99a94747ec23"
+    },
+    {
+      "name": "data-01.part",
+      "size": 6291456,
+      "sha256": "56cf10d24792a9a574c3d336c9c8340ca3e4f2fb8b7f916fbfb5fa92388e0603",
+      "gitSha": "915372005dd1e3e1b6714f2d91eee9922bc499ae"
+    },
+    {
+      "name": "data-02.part",
+      "size": 6291456,
+      "sha256": "270db1b1330384640a3509271d97a1132b6680158e4bf3dfb8418fbba862583a",
+      "gitSha": "3dc03729ac1a810b1dddbbcfa715e17d5a7346f6"
+    },
+    {
+      "name": "data-03.part",
+      "size": 6291456,
+      "sha256": "2d22a28bc70a3bdada8fd6ca3a16cda83d55bfbcadc4a0ebcb2e4db79a890a63",
+      "gitSha": "1bf41b6a3e7b4d0c9ebf71847d9d129835214057"
+    },
+    {
+      "name": "data-04.part",
+      "size": 6291456,
+      "sha256": "4be399ac8ed0ae0ebe42f4b6eaf8c0f4e67f02d46433b4cf370394af87ccd052",
+      "gitSha": "36e1c1582419d370db4d0584f3e486d6ec01a9dc"
+    },
+    {
+      "name": "data-05.part",
+      "size": 6291456,
+      "sha256": "05f311b69a83aca1e422c44cbbe2c9ca390d17670d6540c3a23b5f34468593dd",
+      "gitSha": "a0aa63f30c5920845d98f2a8c6351b1cbecb5377"
+    },
+    {
+      "name": "data-06.part",
+      "size": 6291456,
+      "sha256": "89050c895454f3b0aa2a6e585fb9acb6ca331d8e28093f123f48c52a5bf91581",
+      "gitSha": "f04952177a2dce5353a8fcec7f44b14aa41b18e0"
+    },
+    {
+      "name": "data-07.part",
+      "size": 6201737,
+      "sha256": "5065814523c9ff43279246bd9248b8f78954a29294c9d5b0a79e6c118930b789",
+      "gitSha": "c0839d2a25c4c64227c3299bf38dd60cbce33845"
+    }
+  ],
+  "files": [
+    {
+      "path": "personal-growth-lab/academy/journals/data/catalog-meta.json.gz",
+      "size": 13551,
+      "sha256": "af192614c4a3b52be303df4bab867a7e4f214e7acd3d9fd73caeaef851596534"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/catalog.json.gz",
+      "size": 9235190,
+      "sha256": "1002ca11fa441513ee274ad676cb401583caf8cd54898e8b197352ecc5382f65"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/featured.json.gz",
+      "size": 35290,
+      "sha256": "55684806dda653501abfc6799a0cbe47c3ae971523f91cba41505296de9fd0b8"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/metric-evidence.json.gz",
+      "size": 1630055,
+      "sha256": "136f293086887d57c415e97bfd35e2df0972f43bf8e55c01b4d740e4008f6509"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/publisher-evidence.json.gz",
+      "size": 13148,
+      "sha256": "d22383c0e104c348f44ccf74620000f24b4c2697e8865efb883e98d4c3629465"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/00.json.gz",
+      "size": 397709,
+      "sha256": "4b6f82d956be64e6efce4bbb366ac1142722414c98d8702014fe79d21474d778"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/01.json.gz",
+      "size": 405438,
+      "sha256": "3ab9eb122f545bda1f69daa93041a196fa354504512df8662787f498e066dac2"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/02.json.gz",
+      "size": 369201,
+      "sha256": "04126d9c51a41c993ac4b9bd50931e71f2024ce521445112a610a0da4930728b"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/03.json.gz",
+      "size": 405470,
+      "sha256": "101e49b7f1534df2ebe0f9dba8e8e7a6cfe70e2606f6b3a9fd7eac6183b937bf"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/04.json.gz",
+      "size": 381094,
+      "sha256": "aae11b2dceaecd0c05329fcd321ae8212b53fac38abcceeee8c39c60cd072ab1"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/05.json.gz",
+      "size": 391540,
+      "sha256": "274617c5b763664ebdb1411bc244ee22189130639f129b43c39151bd36ec47b2"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/06.json.gz",
+      "size": 393830,
+      "sha256": "c782378ce6018221a3e19679166d72976d19515b4c40008ee93400b0456dd0bb"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/07.json.gz",
+      "size": 367061,
+      "sha256": "a6b72dc25c62ad16884ca4deaeab4dbc48515544cd006abaf661c5756da00084"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/08.json.gz",
+      "size": 375532,
+      "sha256": "aa90e07442de6a04875dd85e8a98003eaa74b6f137724e725e865516739e1b28"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/09.json.gz",
+      "size": 352255,
+      "sha256": "dcd87ddf51343276d669a82a3f9381730363f9e5631b866cc5754e79b1c6068f"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/10.json.gz",
+      "size": 391988,
+      "sha256": "e6791fe01f8edb93804342a865f4d6ccfb80ca02365a263cc9547ed546ba03dd"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/11.json.gz",
+      "size": 411128,
+      "sha256": "18587383e8db107bea4dfa73619e056da930c969ad3952c3e3baeac17df52a0e"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/12.json.gz",
+      "size": 402568,
+      "sha256": "bde844d64f637e62f0b32d6d7b863ff2bc628bd11c1f1693e60f4256cff1d2fc"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/13.json.gz",
+      "size": 383390,
+      "sha256": "f36334cca50471d414d154f28413b45dea2e796efc0ce9240550af423ddba129"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/14.json.gz",
+      "size": 398391,
+      "sha256": "029e7cf860abd9635bbfe3fd81cbfeb3057076a4712baa1af045d48e120a5d56"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/15.json.gz",
+      "size": 385294,
+      "sha256": "9650a0b5788be9f5ca5ad9e260bd39726ab6adecca680c6da2070eed19aac1e5"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/16.json.gz",
+      "size": 393574,
+      "sha256": "fafaa35177e85626cecc115b34e65b6fbe8f73f8b5a43bc5f33d776851a2e831"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/17.json.gz",
+      "size": 375760,
+      "sha256": "81b105dbfb85d6bb9afe2ac70441f3e355e69b30ddafd7f532799c7dc4795f0f"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/18.json.gz",
+      "size": 342387,
+      "sha256": "df8c638abc7e78e576808b6ca9306fe1bfa333d603c1146704e702194afd994e"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/19.json.gz",
+      "size": 381591,
+      "sha256": "081fab360e63c852ac616a772ed2bbd15bfdb5f0dc1ea22d6773941150f2c11b"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/20.json.gz",
+      "size": 382036,
+      "sha256": "2a8e5cd61d3d74b4b190a0594ee57f3b61f392b67fee5889eb0aa1be48b51707"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/21.json.gz",
+      "size": 366234,
+      "sha256": "2f4a20ee222e8760253069e7da0a21df837ee44bc3475c548a7a15a72a6012d4"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/22.json.gz",
+      "size": 387546,
+      "sha256": "0ff2daca69b0477223a5059b2609ce4f3ad5c50af55f4b623fc319f085db6671"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/23.json.gz",
+      "size": 381426,
+      "sha256": "738fd2fe5caeacc9a4a8803f1161111a996d281a1a61170b780308c4304a0777"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/24.json.gz",
+      "size": 400915,
+      "sha256": "6acffe3d86c1a64f575703e2ff1c995f19011e60dbc69b2b81f2fcdae9bbb460"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/25.json.gz",
+      "size": 375518,
+      "sha256": "d17b283c479a1b16af5ad823447c0272f7ee8aeb5a433b86a97569619adcb98b"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/26.json.gz",
+      "size": 368291,
+      "sha256": "1fa93d1bc5e6b789e5f76cacb1eb732ca721b8ffc625d154527c22efef4ab986"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/27.json.gz",
+      "size": 403756,
+      "sha256": "cf0b45c0c29f6031723d9e748a57f3eb6a8badc4ae80f574e676bebfe01fce21"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/28.json.gz",
+      "size": 407889,
+      "sha256": "c36e950ef81c6926fdd14cc5d4e1f764516bc21f9ff41bdca1427db2701ef8dc"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/29.json.gz",
+      "size": 420147,
+      "sha256": "de3c2c139a019f0ad60c25ce4f463ddb5fea5563fdd5f6e32d22a1ec601b29c0"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/30.json.gz",
+      "size": 388959,
+      "sha256": "42874a953d6a7ff5601cf79112438e23c434f627e7a43e35b80f782c5b73a268"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/31.json.gz",
+      "size": 379603,
+      "sha256": "1a33b631132ba6a590a01f527397b4850a210db80212d829f51eb36a8bb36026"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/32.json.gz",
+      "size": 358582,
+      "sha256": "ecfdd0016f6bf6cd8b5ea2ae6edb331c6c5e65a2a6581215479833718c0faf26"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/33.json.gz",
+      "size": 391146,
+      "sha256": "2600799f5496b3d805aa10ad6b0f25de3c10cf09b2a5bf8017e035b222febd5a"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/34.json.gz",
+      "size": 400534,
+      "sha256": "541593d3ea6d2e76eab095f0a36b32f3e3c4da72529a01beed59e3eab3a8a725"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/35.json.gz",
+      "size": 379344,
+      "sha256": "45796868e9fa2593fa71ee2d476557dba65193c3959627c8119c41340f56df09"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/36.json.gz",
+      "size": 384585,
+      "sha256": "60e946ab452a5ffa5f43987d04bd738c9509c3a17259862274f2462a86611f07"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/37.json.gz",
+      "size": 383563,
+      "sha256": "de3ff4e69564837ac7f0699a1ade94798ece67d5def5cf2b77d8a1ba21e04746"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/38.json.gz",
+      "size": 365433,
+      "sha256": "88f87a470c8f99c751beaee81e5bb9960195f088538e89a93d42836629eb1979"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/39.json.gz",
+      "size": 385762,
+      "sha256": "d50bc0ae1795df826d6ddbb81d3ee8c6ea155078c27dddaf6733135f8b2510b5"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/40.json.gz",
+      "size": 375255,
+      "sha256": "c90f075f05cbb3006f5f42df714de08ef9cabf395e855894dc720ddf870b79c8"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/41.json.gz",
+      "size": 389074,
+      "sha256": "915cdac7ddf738e27ce6ff510331a37e1690f88b2ae5c4c5c65822c669eba670"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/42.json.gz",
+      "size": 380557,
+      "sha256": "56fba94f93263c54d0ede4356cc0dc65d182410d174deb8b6ac767a0c1c61d39"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/43.json.gz",
+      "size": 398699,
+      "sha256": "9fba4789392ef56ddbc43aff6287cc63aaee13363af20171221a87fae2686734"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/44.json.gz",
+      "size": 401164,
+      "sha256": "369210f3e983c7fba16490d769474fb53077c7bfc1a24f952093bd08334a17ee"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/45.json.gz",
+      "size": 369192,
+      "sha256": "da9f07de0d16b4e740c1a4c88965a305e7b67af98d67d0dbd69e94a8324399a9"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/46.json.gz",
+      "size": 382855,
+      "sha256": "48a71d1bdbc9c9ef94fd33c4ef9e6820182c00f7759dc5f0d44780df15b4c71d"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/47.json.gz",
+      "size": 391301,
+      "sha256": "36ef1c112b5fbf2cea01a23cc54fa0248f3ba1111a342dfadcceb720fd0f704e"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/48.json.gz",
+      "size": 399038,
+      "sha256": "db52fad1cbc1ae39894d9cdfb9f72cb917edbccd9ee6b8e2ba94c85c8404b124"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/49.json.gz",
+      "size": 369093,
+      "sha256": "e065a8b9ed46571f0dc441a727a37408f7dd928507c4964075ef4a82e5c3ee48"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/50.json.gz",
+      "size": 405924,
+      "sha256": "b6d1987a2d6e58fc7b40f7d3accc2a69e7fe83b5eaad84710d59d78267c7810a"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/51.json.gz",
+      "size": 385754,
+      "sha256": "82e1ffbd165e6a9d71a241d12ab235bf90c34e6dda09e5659bedbe13c2001f5e"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/52.json.gz",
+      "size": 401905,
+      "sha256": "c52d328f402f8be6cf9cd31721a6403c95c9b4bc027539ac1983405d698952a1"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/53.json.gz",
+      "size": 391997,
+      "sha256": "09d9e0a980cb9444a2e1b25f1459ef82d91814bf52b6a35ee001795f77b51541"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/54.json.gz",
+      "size": 388975,
+      "sha256": "4773e05c868a6f2748b4032e60f01375a7c43c12227c480f9c79f5223efbf7d3"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/55.json.gz",
+      "size": 403516,
+      "sha256": "9e6da6027f11c83dc34817e6769e3c332286bf20daa00dbd54f3da8430b8918f"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/56.json.gz",
+      "size": 373767,
+      "sha256": "85a028a4bc24ff72c7ca1900445441c8955a9bb677b4176687e7d1ab3fb7034a"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/57.json.gz",
+      "size": 380064,
+      "sha256": "e4220eace05b46e9fe01f6121542222035e359a69b271cc61744f652b9abe5b9"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/58.json.gz",
+      "size": 394461,
+      "sha256": "b1a55a33811a4f2b3984706d2295e020b667d569cf2ccd6bcd13b08cc4032aa0"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/59.json.gz",
+      "size": 376935,
+      "sha256": "5bfde8aa14eccc6bf6020450ce9c9606d58af1e4794fa7d0283a117b29e7af2c"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/60.json.gz",
+      "size": 408649,
+      "sha256": "98f6fde87e10d13d50991534d76d1e06e6527217f5fbc4b183d7e209c46eab70"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/61.json.gz",
+      "size": 384010,
+      "sha256": "7ac1ee31e87c502c8c5ea27fbaddf34d5eb7ce02bdde5f7f14b17796e5c161de"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/62.json.gz",
+      "size": 403935,
+      "sha256": "c412bf0d0036befb4b117f2ec631e0715edc9172a58950c492d8cb0bcec96eca"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/63.json.gz",
+      "size": 369640,
+      "sha256": "c49eefde63d1020069c9e33a48d4fcac79c3a785eae0eb62da983ae91b81bd05"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/64.json.gz",
+      "size": 379737,
+      "sha256": "063ca875e16f1cb60e948ebf36799e846d254139bb6522ae65d868a6c90c0b14"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/65.json.gz",
+      "size": 397916,
+      "sha256": "3d9979a99c11ea3ea40c2ef37f646e5e30a4f3b0228c67ad57ddda6721035206"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/66.json.gz",
+      "size": 402879,
+      "sha256": "1800ae9cb554e4d796b943b5a20d15a8cedfd6898957261247a7029ab16f36de"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/67.json.gz",
+      "size": 375341,
+      "sha256": "b28cb41f2367c233ea39633ffd1adddcf7d2bf51d26a1b56320225822f23ead4"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/68.json.gz",
+      "size": 373510,
+      "sha256": "9b2c282c59c64491b78861fdaf3f8d6cdf0d57bf9a90e0be0b15a57abf991e52"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/69.json.gz",
+      "size": 401140,
+      "sha256": "1817cce6f5af84a1fd373a9ce9ff6d1424564d51a922f36b7922f5309a991a24"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/70.json.gz",
+      "size": 351186,
+      "sha256": "626ef655c36260e0325d3cd72b64b6f881b9c06b21249ee2d2d56ad0a6042f0d"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/71.json.gz",
+      "size": 376111,
+      "sha256": "e752fce7fed02b0d8a43934dd7ade2d6a1bf39cd915fc44f285e5bc9bcd80dec"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/72.json.gz",
+      "size": 383316,
+      "sha256": "2d6415b7ce2ebecffdaed059ecdb39b02dcb9690099be9023eb04eb9fd615e0d"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/73.json.gz",
+      "size": 380069,
+      "sha256": "22d2a9cfd40e4d916ba400b93505e02d2dc461559801a05ec51bf1c121ffb57a"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/74.json.gz",
+      "size": 384139,
+      "sha256": "1013fa46d40c8e0cbbc9216237b275e583f8c7e15f74b785a827e216ab10da79"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/75.json.gz",
+      "size": 380268,
+      "sha256": "e426af24dd65af302ad8674804db4c038eea910e23f5dd1372c51932b9d3b6ed"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/76.json.gz",
+      "size": 393841,
+      "sha256": "95982b8b526e6a61b9afec8c96185b2c636a0274ef8f6ce012e4eff59fb91e7f"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/77.json.gz",
+      "size": 394952,
+      "sha256": "5bd8a162c65f8007ac4dc1a890b6ea447db28e7e40ea93a9cb8d589d8969df53"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/78.json.gz",
+      "size": 369274,
+      "sha256": "a7e76be5a49bc8cf0112e9e184300a94e899a13fa293a09843b00dfd8479c995"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/79.json.gz",
+      "size": 361537,
+      "sha256": "7d73aba22fa6946b0ab42a33ac09ba54e592bfc72d228343822f71e77ea43a1f"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/80.json.gz",
+      "size": 378500,
+      "sha256": "85f5581eece8f5774dba5df18cfc2d920ba1be8dd4dc21a29df234d3852fe52b"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/81.json.gz",
+      "size": 374612,
+      "sha256": "07ce369358af90d465ce7189babb8540df987b9da5a732a9947bd0000bc8bf89"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/82.json.gz",
+      "size": 365879,
+      "sha256": "3406d160a89325a8596b79aee382d24915ad583a43afc5d6866febc1669c8aa2"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/83.json.gz",
+      "size": 392200,
+      "sha256": "7bf81220082f1be8551053c4f9b7f478951b047783b4839b5cadebd69ff12939"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/84.json.gz",
+      "size": 385970,
+      "sha256": "31cade6763c1814e7515a88ff0708042c08a1d72be4a38dd970c15de04a44218"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/85.json.gz",
+      "size": 382366,
+      "sha256": "090222cff506e738c068d7e01f8e0d9d2d42090e21ca548bdef28fd4a66fbbae"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/86.json.gz",
+      "size": 365812,
+      "sha256": "972f37b3c2232edf0ffb92a06d4c488cbc88044cf23834cd38c8059247344d63"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/87.json.gz",
+      "size": 377944,
+      "sha256": "5ca7909202902c7107917db5cf67757b45ee7a9bbe9d9926ac2cdb72c9342ef7"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/88.json.gz",
+      "size": 411507,
+      "sha256": "803d1b0bd6d50406b698354bba6f62810076174e83988de832edaea8affa4769"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/89.json.gz",
+      "size": 390707,
+      "sha256": "55572ffd4b5fbae8d1f40a2e382b91cf3c8d60c0226152384c9248cfc1677633"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/90.json.gz",
+      "size": 399258,
+      "sha256": "8d068cc3908f914d83cb0d169fd9add310f2ac20852f3d1127c45f06ab1bb46d"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/91.json.gz",
+      "size": 383793,
+      "sha256": "38f9ae7009d409f1a1d748f0b7a931f24ef1d32f8c2376de6907fdda3c2312a1"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/92.json.gz",
+      "size": 400037,
+      "sha256": "e6612c488d530e2973a9a6f9b2f0f1866dc7852c0d8e594171bd66a609e5a770"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/93.json.gz",
+      "size": 396257,
+      "sha256": "80a92e5e39586ade71ab4cf7ccd23614f99efcdd9b4d7e25e2754dfdaf5a750a"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/94.json.gz",
+      "size": 380269,
+      "sha256": "f2a11f31c5f908fe30efd4865cff79dc434d3441a1150489a9ff8a37de0f9237"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/95.json.gz",
+      "size": 397960,
+      "sha256": "d718db5ca71580c0213afcf3ffd80d6a38e945a0c5b95d6cf5bcbdb6fd8f0611"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/96.json.gz",
+      "size": 372425,
+      "sha256": "3ecea9328b2d4b3d94679dc9c2731c282a28a17e451dbac86a8eb2975a92214c"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/97.json.gz",
+      "size": 368242,
+      "sha256": "0dc3ead9c0327d6939e50eaf959ffad786d34375c8ae5b672accdb448ddce190"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/98.json.gz",
+      "size": 383361,
+      "sha256": "96e6882014c7bc840be45d53a887af04a490c106724cd4e8f8c3eac0f540cf1a"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/details/99.json.gz",
+      "size": 387492,
+      "sha256": "3bf54c33bc2cbc067653ab88f1c754495ae6fc80bb11158a0cd1ae08f77ab847"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/featured.json",
+      "size": 239031,
+      "sha256": "9785a7fc0fd8e78e73339d8fae60447272902995169d3e2966649a36ef3f7635"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/catalog-meta.json",
+      "size": 63568,
+      "sha256": "2d212694a185532f1be0e940311e2dfb4f468a0fdd1dbf9678d06776cedcffc3"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/index-manifest.json",
+      "size": 30284,
+      "sha256": "592b1acf8e09f14fa2c616585efac8fdd0c30877a9657239b28be2feeee3f0f3"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/enrichment-audit.json",
+      "size": 247390,
+      "sha256": "77e41847d1c0c89755ba6c55256dc3af869686b6d5caf6d1cf0bc39d6dd5bf66"
+    },
+    {
+      "path": "personal-growth-lab/academy/journals/data/publisher-evidence.json",
+      "size": 170777,
+      "sha256": "a937fa928e5d4ba24d52c7050596a8bc70f5422e41356c7521a2bf3e18346e5f"
+    }
+  ],
+  "catalogJournals": 70419
+}
