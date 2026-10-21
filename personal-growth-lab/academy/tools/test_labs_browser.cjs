@@ -1,6 +1,9 @@
 'use strict';
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const root=path.resolve(__dirname,'..'),data=require('./load_lab_data.cjs')();
+// Keep scenario responses on the production partitioned path. Sending the
+// expanded catalog through route.fulfill would duplicate and encode ~130 MB.
+const manifest=JSON.parse(fs.readFileSync(path.join(root,'data/labs.json'),'utf8'));
 const M=require('../assets/lab-model.js'),T=require('../assets/lab-taxonomy.js');
 const csvRowCount=text=>{const value=text.trimEnd();let rows=1,quoted=false;for(let i=0;i<value.length;i++){if(value[i]==='"'){if(quoted&&value[i+1]==='"')i++;else quoted=!quoted;}else if(value[i]==='\n'&&!quoted)rows++;}return rows;};
 (async()=>{
@@ -138,12 +141,12 @@ const csvRowCount=text=>{const value=text.trimEnd();let rows=1,quoted=false;for(
   await page.locator('#advanced-filters').evaluate(el=>el.open=true);await page.locator('#match-panel').evaluate(el=>el.open=true);
   await page.locator('#coverage-panel').evaluate(el=>el.open=true);
   for(const width of [320,390,768,1440]){await page.setViewportSize({width,height:1000});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`overflow at ${width}`);}
-  const fixture=structuredClone(data);fixture.labs.find(l=>l.id==='chang').opportunity.verifiedAt='2000-01-01';
+  const fixture=structuredClone(manifest);fixture.labs.find(l=>l.id==='chang').opportunity.verifiedAt='2000-01-01';
   // A missing compressed asset must fall back to the complete canonical data.
   await page.route('**/data/labs.json.gz',r=>r.fulfill({status:404,body:''}));
   await page.route('**/data/labs.json',r=>r.fulfill({json:fixture}));await page.goto(base+'/labs.html?query=Edward%20F.%20Chang');await ready();assert.match(await page.locator('#lab-chang .opportunity-review-note').innerText(),/超过30天/);assert.equal(await page.locator('#lab-chang .status').innerText(),data.statuses.unknown);
   await page.unroute('**/data/labs.json');
-  const currentFixture=structuredClone(data),chang=currentFixture.labs.find(l=>l.id==='chang');
+  const currentFixture=structuredClone(manifest),chang=currentFixture.labs.find(l=>l.id==='chang');
   chang.opportunity.verifiedAt=new Date().toISOString().slice(0,10);chang.opportunity.deadline=null;
   await page.route('**/data/labs.json',r=>r.fulfill({json:currentFixture}));
   const changed={schemaVersion:1,checkedAt:new Date().toISOString(),sources:{[chang.opportunity.url]:{state:'ok',changed:true,reviewStamp:chang.opportunity.verifiedAt}}};
