@@ -19,3 +19,20 @@
 
 .code-actions{display:flex;align-items:center;gap:12px}.code-actions a{font-size:11px;color:#b7d3f5}.code-head{gap:10px}.code-actions button{white-space:nowrap}
 @media print{.code-actions{display:none!important}}
+
+/* Supplemental units and an evidence-based personal assessment. */
+.route-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.audit-gap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.audit-gap{padding:25px;border:1px solid var(--line);border-top:3px solid var(--mint);border-radius:12px;background:var(--white);box-shadow:var(--shadow)}
+.audit-gap h3{font-size:21px;margin:17px 0 13px}.audit-gap p{font-size:14px;color:var(--muted);line-height:1.9}.audit-gap .audit-outcome{padding-top:14px;margin-bottom:0;border-top:1px solid var(--line);color:var(--ink)}
+.audit-rubric{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:28px}
+.audit-rubric article{padding:22px;background:var(--pale);border-radius:10px}.audit-rubric strong{font:500 33px/1.2 var(--mono);color:var(--blue)}.audit-rubric h3{font-size:17px;margin:12px 0 8px}.audit-rubric p{font-size:13px;margin-bottom:0;color:var(--muted)}
+.audit-checkpoints{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.audit-checkpoint{border:1px solid var(--line);background:var(--white);padding:26px;border-radius:12px;min-width:0}.audit-checkpoint-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:17px}.audit-checkpoint-head .day-no{font-size:23px;line-height:1.4}.audit-checkpoint h3{font-size:20px;margin:0 0 5px}.audit-checkpoint p{font-size:14px;line-height:1.9}.audit-checkpoint .notice{font-size:13px;margin:15px 0;padding:15px 18px}.audit-extensions{padding-left:22px;max-width:1000px}.audit-extensions li{margin:12px 0;line-height:1.9}
+@media(max-width:1100px){.route-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.audit-gap-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.audit-gap-grid,.audit-checkpoints,.route-grid{grid-template-columns:1fr}.audit-rubric{grid-template-columns:repeat(2,minmax(0,1fr))}.audit-gap,.audit-checkpoint{padding:21px}.audit-rubric article{padding:18px}.audit-checkpoint h3,.audit-gap h3{font-size:19px}}
+@media print{.audit-gap-grid,.audit-rubric,.audit-checkpoints{display:block}.audit-gap,.audit-checkpoint,.audit-rubric article{break-inside:avoid;box-shadow:none;margin:12px 0}.audit-checkpoints .unit-links{display:none}}
+
+.audit-frontier-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1100px){.audit-frontier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.audit-frontier-grid{grid-template-columns:1fr}}

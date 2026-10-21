@@ -13,7 +13,8 @@ from tempfile import NamedTemporaryFile
 from zipfile import ZipFile, ZIP_DEFLATED
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "2026.10.21.3"
+CONFIG = json.loads((ROOT/'course-config.json').read_text(encoding='utf-8'))
+VERSION = CONFIG['version']
 
 
 def esc(value):
@@ -98,6 +99,43 @@ def make_coverage_html(coverage):
     return ''.join(out)
 
 
+def make_audit_markdown(audit):
+    lines = ['# '+audit['title'], '', audit['scope'], '', '## 本轮查漏补缺', '']
+    for gap in audit['gaps']:
+        lines += [f'### 第 {gap["unit"]} 课 · '+gap['title'], '', '原有缺口：'+gap['before'], '', '补全后的验收：'+gap['after'], '']
+    lines += ['## 原课程新增的前沿插读', '']
+    for item in audit.get('inserts',[]):
+        lines += [f'- 第{item["unit"]}课 · '+item['title']+'：'+item['outcome']]
+    lines += ['']
+    lines += ['## 独立能力验收', '', audit['completion_rule'], '']
+    for item in audit['checkpoints']:
+        lines += ['### '+item['title'], '', '回学单元：'+', '.join(map(str,item['lessons'])), '',
+                  '任务：'+item['task'], '', '通过标准：'+item['pass'], '', '提交证据：'+item['evidence'], '', '自评分（0–3）：____；证据路径：____', '']
+    lines += ['## 自评分标准', '']
+    for level in audit['rubric']:
+        lines += [f'- {level["score"]}分 · {level["label"]}：{level["description"]}']
+    lines += ['', '## 仍须在相应环境完成的扩展', '', *['- '+s for s in audit['remaining_extensions']], '']
+    return '\n'.join(lines)
+
+
+def make_audit_html(audit):
+    out=['<section class="book-chapter" id="learning-audit"><article class="reader"><h1>'+esc(audit['title'])+'</h1><p>'+esc(audit['scope'])+'</p><h2>本轮查漏补缺</h2>']
+    for gap in audit['gaps']:
+        out += [f'<h3>第 {gap["unit"]} 课 · '+esc(gap['title'])+'</h3><p>'+esc(gap['before'])+'</p><p><strong>补全后的验收：</strong>'+esc(gap['after'])+'</p>']
+    out += ['<h2>原课程新增的前沿插读</h2><ul>']
+    for item in audit.get('inserts',[]):
+        out += [f'<li>第{item["unit"]}课 · '+esc(item['title'])+'：'+esc(item['outcome'])+'</li>']
+    out += ['</ul>']
+    out += ['<h2>独立能力验收</h2><p>'+esc(audit['completion_rule'])+'</p>']
+    for item in audit['checkpoints']:
+        out += ['<h3>'+esc(item['title'])+'</h3><p>回学单元：'+esc(', '.join(map(str,item['lessons'])))+'</p><p>'+esc(item['task'])+'</p><p><strong>通过标准：</strong>'+esc(item['pass'])+'</p><p><strong>提交证据：</strong>'+esc(item['evidence'])+'</p><p>自评分（0–3）：____；证据路径：____</p>']
+    out += ['<h2>自评分标准</h2>']
+    for level in audit['rubric']:
+        out += [f'<p><strong>{level["score"]}分 · '+esc(level['label'])+'：</strong>'+esc(level['description'])+'</p>']
+    out += ['<h2>仍须在相应环境完成的扩展</h2><ul>'+''.join('<li>'+esc(s)+'</li>' for s in audit['remaining_extensions'])+'</ul></article></section>']
+    return ''.join(out)
+
+
 def make_html(l):
     out = [f'<section class="book-chapter" id="day-{l["day"]}"><article class="reader">',
            f'<p class="eyebrow">UNIT {l["day"]:02d} / {esc(l["phase"])}</p>',
@@ -145,7 +183,7 @@ def write_example_scripts(lessons):
     directory.mkdir(parents=True, exist_ok=True)
     lines = ['# 可运行的课程机制实验', '',
              '本目录由 course/dayNN.json 自动生成。建议从 project 根目录运行以下命令；不要将代码文件移动到未知位置。', '',
-             '这些脚本与网页代码一致。第10/13/14课有明确的演示数据或训练产物前置；它们会检查真实生成文件，不使用伪造结果。', '',
+             '这些脚本与网页代码一致。第10/13/14/36课有明确的演示数据或训练产物前置；它们会检查真实生成文件，不使用伪造结果。', '',
              '| 单元 | 实验 | 从 project 目录运行 | 前置 |', '| --- | --- | --- | --- |']
     prerequisites = {
         'demo_data': '先运行 python -m curatemicrobiota make-demo --out data/demo',
@@ -209,8 +247,12 @@ def write_archives():
 
 def build(archives=True):
     lessons = [json.loads(p.read_text(encoding='utf-8')) for p in sorted((ROOT/'course').glob('day[0-9][0-9].json'))]
-    assert len(lessons)==30, 'The complete edition requires all 30 units.'
+    assert len(lessons)==CONFIG['expected_lessons'], 'The complete edition requires all configured units.'
     coverage = json.loads((ROOT/'coverage.json').read_text(encoding='utf-8'))
+    audit = json.loads((ROOT/'learning-audit.json').read_text(encoding='utf-8'))
+    total = len(lessons)
+    hours = round(sum(l['minutes'] for l in lessons)/60,2)
+    breakdown = f'{CONFIG["core_lessons"]}核心＋{CONFIG["advanced_lessons"]}进阶＋{CONFIG["supplemental_lessons"]}专题补全'
     benchmark = json.loads((ROOT/'project/example-results/loso_report.json').read_text(encoding='utf-8'))
     for i,l in enumerate(lessons,1):
         assert l['day']==i
@@ -219,26 +261,28 @@ def build(archives=True):
         for q in l['quiz']:
             assert len(q['options'])==4 and 0<=q['correct']<4
     write_example_scripts(lessons)
-    package = {'version':VERSION,'project':'CurateMicrobiota','source_name':'curatedMetagenomicData','lessons':lessons,'coverage':coverage,'benchmark':{'summaries':benchmark['summaries'],'folds':benchmark['folds'],'seeds':benchmark['seeds'],'source_kind':benchmark['source_kind'],'pretrain_steps':benchmark['pretrain_steps'],'supervised_steps':benchmark['supervised_steps']}}
+    package = {'version':VERSION,'project':'CurateMicrobiota','source_name':'curatedMetagenomicData','config':CONFIG,'lessons':lessons,'coverage':coverage,'audit':audit,'benchmark':{'summaries':benchmark['summaries'],'folds':benchmark['folds'],'seeds':benchmark['seeds'],'source_kind':benchmark['source_kind'],'pretrain_steps':benchmark['pretrain_steps'],'supervised_steps':benchmark['supervised_steps']}}
     (ROOT/'assets/course-data.js').write_text('window.CM_COURSE = '+json.dumps(package,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
     downloads = ROOT/'downloads'
     downloads.mkdir(exist_ok=True)
-    front = '# CurateMicrobiota · 大模型全景实战\n\n30个学习单元：14课核心实战＋16课进阶专题。从数学、语料、架构与训练，到后训练、检索、工具、评价、部署，再到菌群、序列与多模态研究。\n\n建议8–10周、每周10–14小时，真实科研实验另计。完成标准是能独立推导、实现、运行、诊断和评价原型；不会把完成阅读等同于已掌握所有前沿研究。默认工程使用合成数据与原创教学文本，真实多队列生物学结论需另行验证。\n\n## 知识覆盖与实现层级\n\n'+make_coverage_markdown(coverage)+'\n\n'
+    front = f'# CurateMicrobiota · 大模型全景实战\n\n{total}个学习单元：{breakdown}，约{hours:g}小时。从数学、语料、架构与训练，到后训练、检索、工具、评价、部署，再到菌群、序列与多模态研究。新增提示与上下文、推理时计算、蒸馏、外部模型适配、学习型检索、本地服务、原始测量、图与潜变量、外推可靠性九个专题。\n\n{CONFIG["schedule"]}。完成标准是能独立推导、实现、运行、诊断和评价原型；不会把完成阅读等同于已掌握所有前沿研究。默认工程使用合成数据与原创教学文本，真实多队列生物学结论需另行验证。\n\n## 知识覆盖与实现层级\n\n'+make_coverage_markdown(coverage)+'\n\n'+make_audit_markdown(audit)+'\n\n'
     full = [front]
     for l in lessons:
         md = make_markdown(l)
         (downloads/f'day{l["day"]:02d}.md').write_text(md,encoding='utf-8')
         full.append(md)
     (downloads/'knowledge-coverage.md').write_text('# CurateMicrobiota 知识覆盖与实现边界\n\n'+make_coverage_markdown(coverage),encoding='utf-8')
+    (downloads/'learning-audit.md').write_text(make_audit_markdown(audit),encoding='utf-8')
     (downloads/'curatemicrobiota-course.md').write_text('\n\n---\n\n'.join(full),encoding='utf-8')
     toc = ''.join(f'<p><a href="#day-{l["day"]}">UNIT {l["day"]:02d} · {esc(l["title"])}</a></p>' for l in lessons)
-    book = '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CurateMicrobiota · 完整教材</title><link rel="stylesheet" href="assets/lab.css"></head><body><div class="shell"><header class="book-head"><p class="eyebrow">CURATEMICROBIOTA / COMPLETE HANDBOOK</p><h1>从零写 GPT，<br>到微生物表征模型。</h1><p>一心问道 · 成长学院</p><p>30 个学习单元｜14核心＋16进阶｜讲义、论文、机制实验、完整解答与科研验收</p><div class="notice">默认代码运行使用合成教学数据。真实数据适配 curatedMetagenomicData；完成教学原型不等于完成经过验证的微生物基础模型。</div><p class="no-print"><button onclick="window.print()">打印完整教材 / 另存 PDF</button> <a href="index.html">返回交互课程</a></p>'+'<p><a href="index.html#/coverage">打开知识覆盖表与学习路线</a></p>'+toc+'</header>'+make_coverage_html(coverage)+''.join(make_html(l) for l in lessons)+'</div></body></html>'
+    book = '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CurateMicrobiota · 完整教材</title><link rel="stylesheet" href="assets/lab.css"></head><body><div class="shell"><header class="book-head"><p class="eyebrow">CURATEMICROBIOTA / COMPLETE HANDBOOK</p><h1>从零写 GPT，<br>到微生物表征模型。</h1><p>一心问道 · 成长学院</p>'+f'<p>{total} 个学习单元｜{breakdown}｜约{hours:g}小时｜讲义、论文、机制实验、完整解答与科研验收</p>'+'<div class="notice">默认代码运行使用合成教学数据。真实数据适配 curatedMetagenomicData；完成教学原型不等于完成经过验证的微生物基础模型。</div><p class="no-print"><button onclick="window.print()">打印完整教材 / 另存 PDF</button> <a href="index.html">返回交互课程</a></p>'+'<p><a href="index.html#/coverage">打开知识覆盖表与学习路线</a> · <a href="#learning-audit">独立能力验收</a></p>'+toc+'</header>'+make_coverage_html(coverage)+make_audit_html(audit)+''.join(make_html(l) for l in lessons)+'</div></body></html>'
+    book = book.replace('href="assets/lab.css"', f'href="assets/lab.css?v={VERSION}"').replace('href="index.html"', f'href="index.html?v={VERSION}"')
     (ROOT/'handbook.html').write_text(book,encoding='utf-8')
-    bridge={'id':'llm','number':'11','name':'大模型全景实战 · CurateMicrobiota','en':'LANGUAGE TO MICROBIOME','unit':'课','priority':False,'pace':'30个学习单元 · 14核心＋16进阶 · 可分次完成','external':'llm-lab/','intro':'从数学、架构与训练到RAG、Agent、评估部署，以微生物建模贯通30课；附五模型跨队列实战。','outcome':'完整原理教材、可运行CPU工程、模型训练日志、研究外测报告与学习档案。','note':'默认运行使用合成教学数据；真实数据通过curatedMetagenomicData接口接入。','lessons':[]}
+    bridge={'id':'llm','number':'11','name':'大模型全景实战 · CurateMicrobiota','en':'LANGUAGE TO MICROBIOME','unit':'课','priority':False,'pace':f'{total}个学习单元 · {breakdown} · 可分次完成','external':f'llm-lab/?v={VERSION}','intro':f'从数学、架构与训练到RAG、Agent、评估部署，以微生物建模贯通{total}课；附学习型检索、本地推理服务和五模型跨队列实战。','outcome':'完整原理教材、可运行CPU工程、模型训练日志、研究外测报告与独立能力验收。','note':'默认运行使用合成教学数据；真实数据通过curatedMetagenomicData接口接入。','lessons':[]}
     for l in lessons:
         bridge['lessons'].append({'id':l['day'],'title':l['title'],'stage':l['phase'],'minutes':l['minutes'],'concept':l['subtitle'],'tasks':['完成本课实验并检查全部验收项','完成全部概念自测并理解参考解析','在专属学习页确认本课完成'],'output':'；'.join(l['deliverables']),'criteria':l['lab']['acceptance'],'refs':[]})
     (ROOT.parent/'assets/curatemicrobiota-bridge.js').write_text("'use strict';\nwindow.ACADEMY.externalCourses = "+json.dumps([bridge],ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
-    stats={'version':VERSION,'lessons':len(lessons),'core_lessons':14,'advanced_lessons':len(lessons)-14,'coverage_topics':sum(len(g['topics']) for g in coverage['groups']),'planned_minutes':sum(l['minutes'] for l in lessons),'sections':sum(len(l['sections']) for l in lessons),'exercises':sum(len(l['exercises']) for l in lessons),'quiz_questions':sum(len(l['quiz']) for l in lessons),'paper_readings':sum(len(l['papers']) for l in lessons),'unique_sources':len({p['url'] for l in lessons for p in l['papers']}),'chinese_characters':sum(len(re.findall(r'[\u4e00-\u9fff]',json.dumps(l,ensure_ascii=False))) for l in lessons)}
+    stats={'version':VERSION,'lessons':len(lessons),'core_lessons':CONFIG['core_lessons'],'advanced_lessons':CONFIG['advanced_lessons'],'supplemental_lessons':CONFIG['supplemental_lessons'],'coverage_topics':sum(len(g['topics']) for g in coverage['groups']),'independent_checkpoints':len(audit['checkpoints']),'planned_minutes':sum(l['minutes'] for l in lessons),'sections':sum(len(l['sections']) for l in lessons),'exercises':sum(len(l['exercises']) for l in lessons),'quiz_questions':sum(len(l['quiz']) for l in lessons),'python_examples':sum(s.get('code',{}).get('language','').lower()=='python' for l in lessons for s in l['sections']),'paper_readings':sum(len(l['papers']) for l in lessons),'unique_sources':len({p['url'] for l in lessons for p in l['papers']}),'chinese_characters':sum(len(re.findall(r'[\u4e00-\u9fff]',json.dumps(l,ensure_ascii=False))) for l in lessons)}
     (ROOT/'course-manifest.json').write_text(json.dumps(stats,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     if archives:
         write_archives()

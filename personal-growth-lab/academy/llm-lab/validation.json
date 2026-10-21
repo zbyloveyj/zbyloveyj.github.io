@@ -1,40 +1,47 @@
 {
   "project": "CurateMicrobiota",
-  "version": "2026.10.21.3",
-  "verified_at_utc": "2026-10-21T04:28:42.790024+00:00",
-  "status": "local_validation_passed",
+  "version": "2026.10.21.4",
+  "verified_at_utc": "2026-10-21T06:18:48.985765+00:00",
+  "status": "local_validation_passed_with_one_socket_environment_skip",
   "curriculum": {
-    "version": "2026.10.21.3",
-    "lessons": 30,
+    "version": "2026.10.21.4",
+    "lessons": 39,
     "core_lessons": 14,
     "advanced_lessons": 16,
-    "coverage_topics": 43,
-    "planned_minutes": 6420,
-    "sections": 318,
-    "exercises": 119,
-    "quiz_questions": 150,
-    "paper_readings": 77,
-    "unique_sources": 64,
-    "chinese_characters": 157926
+    "supplemental_lessons": 9,
+    "coverage_topics": 71,
+    "independent_checkpoints": 12,
+    "planned_minutes": 8760,
+    "sections": 417,
+    "exercises": 159,
+    "quiz_questions": 195,
+    "python_examples": 104,
+    "paper_readings": 117,
+    "unique_sources": 103,
+    "chinese_characters": 208556
   },
   "checks": {
     "python_unit_tests": {
-      "passed": 36,
+      "run": 45,
+      "passed": 44,
       "failed": 0,
+      "skipped": 1,
       "command": "python -m unittest discover -s tests -v",
-      "scope": "Includes held-out-label mutation, split invariants, Unicode BPE, deterministic resume, model data contracts and persisted runtime package version."
+      "scope": "Core model, split, resume, fine-tuning and local-service contracts. Includes request-local RNG, UTF-8 budgets, full LoRA checkpoints and generator inference-mode isolation.",
+      "skip": "Actual HTTP socket contract is skipped only when the local sandbox raises PermissionError. Verify that this test executes without skipping in the release GitHub Actions job."
     },
     "curriculum_schema": {
-      "lessons_passed": 30,
-      "coverage_topics": 43,
+      "lessons_passed": 39,
+      "coverage_topics": 71,
+      "independent_checkpoints": 12,
       "downloaded_content_matches_source": true
     },
     "teaching_python_examples": {
-      "executed_and_passed": 77,
+      "executed_and_passed": 104,
       "failed": 0,
       "report": "project/example-results/lesson_examples_report.json",
       "command": "python tools/run_lesson_examples.py --fixture-run PATH_TO_EXECUTED_QUICK_PIPELINE --report examples.json",
-      "note": "All 77 current Python blocks were executed in fresh processes and temporary directories. Declared prerequisites use genuinely executed pipeline files. The revised top-p and paired-bootstrap boundary assertions passed. Bash, R and GPU/distributed blocks are not included in this count."
+      "note": "All 104 current Python teaching blocks ran in fresh processes and temporary directories. Four blocks use declared artifacts from an actually executed quick pipeline. External HF weights, terminal commands, R export and GPU/distributed instructions are not included in this count."
     },
     "javascript_syntax": {
       "passed": [
@@ -46,39 +53,46 @@
     },
     "progress_compatibility": {
       "command": "node tools/check_app_state.cjs",
-      "legacy_completed_lessons_retained": 14,
-      "total_lessons_after_upgrade": 30,
+      "legacy_completed_lessons_retained": 30,
+      "total_lessons_after_upgrade": 39,
       "checks": [
-        "Legacy notes retained",
-        "All-correct quiz and acceptance gating",
-        "Day 14 links to Day 15; Day 30 links to project",
-        "Out-of-range lesson and invalid import schemas rejected"
+        "All thirty old notes and completed records retained",
+        "Day 14 to 15 and Day 30 to 31 navigation",
+        "All supplemental lesson routes and final project navigation",
+        "Coverage and independent-audit routes",
+        "Completion gate and invalid import rejection"
       ],
       "storage_key_unchanged": "yixindao.curatemicrobiota.v1"
     },
     "browser": {
-      "environment": "Chrome desktop, managed static preview",
+      "environment": "Chrome desktop, managed isolated static preview",
       "passed": [
-        "Updated project-root instructions for both ZIP formats render",
-        "Windows environment command uses py -3 and displays version check guidance",
-        "All 77 lesson scripts are described as included in the project ZIP",
-        "Unit 1 introduction correctly describes 14 core plus 16 advanced units and 107 planned hours",
-        "Unit 1 in-page navigation retains its lesson route"
+        "39 lesson cards and updated 146-hour curriculum render",
+        "Supplement filter returns 9 units; microbiome-research filter returns 9 units",
+        "Full-text search for 保形 reaches Unit 39",
+        "71-topic coverage view renders",
+        "Audit page renders 9 gap cards, 4 inserted topics and 12 independent tasks",
+        "Personal audit JSON download contains 12 tasks with unfilled score/evidence",
+        "Unit 39 quiz grades 5/5; five selections and explanations persist after reload",
+        "Unit 39 completion remains disabled until acceptance items are checked",
+        "Project page displays the actual local-service commands and 104-script count",
+        "Handbook contains 39 lessons plus coverage and audit chapters (41 sections)"
       ],
-      "screenshot": "assets/curatemicrobiota-reviewed-20261021-v3.jpg",
+      "app_source_errors_observed": 0,
+      "screenshot": "assets/curatemicrobiota-audit-20261021-v4.jpg",
       "limitations": [
         "No physical mobile device test",
-        "Import and print dialogs not re-exercised in this revision",
-        "Earlier cloud-browser attempts cancelled individual .py downloads; ZIP archives contain the scripts"
+        "Import and print dialogs were not manually re-exercised; progress schema checked separately",
+        "Browser extension metadata errors are outside application source"
       ],
-      "baseline_functionality": "The unchanged course navigation, search, interactive labs, quiz and persistence checks are recorded in historical_browser_verification_v2 and the current check_app_state.cjs run."
+      "baseline_functionality": "Unchanged interactive labs are covered by earlier browser verification and existing source tests."
     },
     "r_sample_contract": {
       "fixture_checks": 12,
       "command": "Rscript tests/test_cmd_contract.R",
       "local_runtime_available": false,
-      "execution_location": "GitHub Actions: real-data-sample-contract job for the release commit",
-      "result_source": "Live workflow job log; no R execution is claimed for the local container.",
+      "execution_location": "GitHub Actions real-data-sample-contract job; current release status is recorded by its live workflow run.",
+      "result_source": "Previously passed CI fixture contract; require the current release job to pass. No local R execution is claimed.",
       "scope": "Base-R matrix/metadata sample reconciliation; does not download real cohorts or test the full Bioconductor integration."
     }
   },
@@ -262,9 +276,10 @@
     "Each outer test study has one rotating validation study; the benchmark is not exhaustive nested cross-validation. Each fold fits preprocessing and pretraining without the outer test study.",
     "Two seeds are not two additional independent studies. Per-study paired subject bootstrap conditions on the fitted models and test study; it excludes retraining and between-study uncertainty.",
     "The R curatedMetagenomicData exporter was checked against pinned official source and maintainer analyses. Its base-R sample contract is tested separately in CI. Real Bioconductor resource download, full exporter integration and real-cohort training were not executed.",
-    "Evidence retrieval and prompt export are implemented; a remote text generator and production agent/serving systems are documented extensions.",
+    "Evidence retrieval, prompt export and a real localhost TinyGPT HTTP/NDJSON service are implemented. External text-generation integration and production agent/serving systems remain extensions; the local service has no public authentication, multi-request scheduler or KV cache.",
     "Large-scale QLoRA, full RLHF, AMP/multi-GPU execution, DNA/protein foundation-model training and real clinical multimodal experiments remain documented extensions.",
-    "The complete-resume experiment validates the provided CPU configuration at optimizer-step boundaries; it does not establish bitwise determinism on other hardware or distributed loaders."
+    "The complete-resume experiment validates the provided CPU configuration at optimizer-step boundaries; it does not establish bitwise determinism on other hardware or distributed loaders.",
+    "New distillation, dual-encoder retrieval, graph, VAE, diffusion-coordinate, missingness and conformal examples are small mechanism experiments. Teacher agreement, training retrieval hits, known-noise recovery and synthetic coverage are not real-world task validity."
   ],
   "release_checks": "Repository CI and GitHub Pages deployment status are recorded by their live workflow runs.",
   "historical_browser_verification": {
@@ -319,19 +334,54 @@
     }
   },
   "revision_review": {
-    "notes": "project/REVIEW_NOTES.md",
-    "code_version": "1.1.1",
+    "notes": "project/COMPLETENESS_REVIEW.md",
+    "code_version": "1.2.0",
+    "added_units": [
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "targeted_insertions": [
+      17,
+      24,
+      28,
+      30
+    ],
+    "independent_checkpoints": 12,
     "fixes": [
-      "top-p equality boundary and p=1 semantics",
-      "Padding-context versus response-only SFT loss masking",
-      "Paired bootstrap ID-score-group length contract",
-      "ILR nonredundant coordinates versus statistical independence",
-      "Core evaluate versus advanced five-arm benchmark scope and compute budgets",
-      "cMD sample IDs in colData row names and exact requested/returned sample-set matching",
-      "cMD percent/proportion example verified against source and maintainer numeric analyses",
-      "Windows interpreter selection, UTF-8 JSON reads and runtime report version"
+      "No inference-mode context survives a generator yield",
+      "Optional HF inference explicitly fixes single greedy tensor output",
+      "Missing chat template is raw-text continuation, not proof of a base model",
+      "Earlier serving text now links to the actual Unit 36 implementation",
+      "Course, handbook and archive entry links carry edition identifiers"
     ],
     "historical_model_results_unchanged": true,
     "new_real_cohort_claims": false
+  },
+  "historical_browser_verification_v3": {
+    "version": "2026.10.21.3",
+    "checks": {
+      "environment": "Chrome desktop, managed static preview",
+      "passed": [
+        "Updated project-root instructions for both ZIP formats render",
+        "Windows environment command uses py -3 and displays version check guidance",
+        "All 77 lesson scripts are described as included in the project ZIP",
+        "Unit 1 introduction correctly describes 14 core plus 16 advanced units and 107 planned hours",
+        "Unit 1 in-page navigation retains its lesson route"
+      ],
+      "screenshot": "assets/curatemicrobiota-reviewed-20261021-v3.jpg",
+      "limitations": [
+        "No physical mobile device test",
+        "Import and print dialogs not re-exercised in this revision",
+        "Earlier cloud-browser attempts cancelled individual .py downloads; ZIP archives contain the scripts"
+      ],
+      "baseline_functionality": "The unchanged course navigation, search, interactive labs, quiz and persistence checks are recorded in historical_browser_verification_v2 and the current check_app_state.cjs run."
+    }
   }
 }

@@ -1,0 +1,400 @@
+# 第 33 课 · 持续学习与知识蒸馏：学新任务时怎样保留旧能力
+
+从领域适配和回放，到软目标梯度、学生训练、遗忘矩阵与模型合并边界
+
+版本：2026.10.21.4｜建议 240 分钟，可分次完成
+
+## 学习目标
+
+- 区分领域持续预训练、任务适配、SFT、检索更新与蒸馏的目标。
+- 设计新旧任务共同评价，量化性能退化而非只报告领域收益。
+- 推导软目标KL、温度与T²缩放，核对教师冻结和损失分母。
+- 运行真实小学生优化，区分模仿教师与对真值正确。
+- 判断词表不一致、回放预算与模型合并的适用条件。
+
+## 今日交付物
+
+- 一份领域适配合同，明确语料、许可、时间切分、更新参数与基线。
+- 通过自动梯度核验的软目标损失，以及实际学生训练记录。
+- 新任务单独更新与回放混合的冲突机制实验。
+- 新旧能力矩阵、成本清单和保留/回滚的预定标准。
+
+## 先修准备
+
+- 完成 D8、D15、D18、D19 与 D20，理解KL、优化状态和参数高效适配。
+- 先完成 D23 的固定评价集与 D27 的外测概念，避免把适配目标混进测试集。
+- 脚本使用已安装的CPU PyTorch与标准库，无网络与外部模型下载。
+
+## 01｜先判断变化的是知识来源、行为还是表征
+
+如果新增的是近期文献和可追溯事实，更新检索库通常比直接把文本继续训练进权重更容易核验；如果是稳定的输出任务与格式，提示或SFT是合适候选；如果是领域术语与文本分布的系统差异，持续预训练可以作为实验；如果是部署预算有限，可考虑蒸馏或压缩。选择依据是问题和评价，不是哪个名称更接近“大模型”。
+
+领域持续预训练保留原有自监督目标，在领域语料上继续优化；任务适配预训练使用与目标任务更接近的未标注文本。Gururangan 等人的工作系统比较了领域与任务适配，但其经验结果不保证任何语料、模型、疾病任务都能获益。对菌群丰度编码器，继续做掩码重建也属于表示适配，却不是文本LM的下一token训练。
+
+把目标分别写清：改善生物术语建模、提高抽取准确率、增强跨队列表征、或降低推理成本。单一领域loss下降只说明对应训练目标变化，不足以证明所有这些目标同时改善。原始底座、检索方案和小模型基线都应保留，避免只比较若干复杂适配版本。
+
+## 02｜持续预训练仍然受语料与评价隔离约束
+
+继续训练前固定底座哈希、词表、上下文、语料来源与切分。生物医学论文的预印本、正式版和数据库重述可能同源，去重应覆盖这些关系。以未来文献能力为目标时，可以预先按时间切分；把最终测试论文全文用于无监督训练再测试其问答，属于不同可见信息设定，不能称为完全未见来源外测。
+
+领域文本可以与允许使用的通用回放语料混合。混合比例必须说明按文档、批次还是有效token实现：长文档和不同分词长度会使这些比例不相等。若50%的文档来自领域，不能自动声称50%的训练token来自领域。每次训练报告记录实际有效token与采样重复，不只记录文件数量。
+
+已有模型底座的完整预训练语料往往不可得，不应虚构一个等价回放集。可以建立有限、授权、代表目标通用能力的代理数据，并说明覆盖边界。领域语料规模很小时，先测学习曲线和过拟合，再增加步数；对错误标签或低质量材料的高效学习并不是进步。
+
+## 03｜用能力矩阵观察保留、退化和迁移
+
+建立一个矩阵：行是适配阶段或检查点，列是固定任务集。至少包含领域任务、通用保留任务、格式/引用/拒答回归，以及与当前训练来源不同的外部任务。各列保持题目、评分规则和单位一致；AUROC、交叉熵与格式通过率不能直接混合成一个未经解释的平均数。
+
+对于越高越好的同类指标，可将某旧任务过去最佳值减去当前值定义为一种遗忘量；也可报告当前值减去学完该任务时的值，作为后向迁移的一种定义。不同文献定义可能不同，报告必须写公式。性能提高时后向差值为正，出现退化时为负；不要只展示新任务增益而隐藏旧列。
+
+比较预训练底座、领域单独适配、回放适配和不同更新范围时，应记录各自的总有效token、更新步数、学习率及选模依据。增加回放会改变数据量或新任务曝光量，预算不能同时假装完全相同。优先明确主比较控制的变量，再报告另一项作为成本。
+
+```text
+旧任务 j 的阶段变化 Δ_j = score(current,j) − score(reference,j)；高分优指标下 Δ_j<0 表示退化。
+```
+
+## 04｜回放保留旧信号，却不会消除目标冲突
+
+回放将旧任务数据重新加入优化，参数约束则惩罚偏离某些重要旧参数，适配器分离让不同任务使用不同更新模块。这些方案改变干扰方式和成本，但不能保证任务兼容。EWC通过对旧任务重要参数施加约束缓解遗忘；重要性估计、近似与超参数仍需验证，不能把冻结部分权重写成零遗忘证明。
+
+下面构造最小冲突：一个参数w，旧目标希望w=1，新目标希望w=−1。单独优化新目标会丢失旧最优；等权回放趋向w=0，使两边都产生损失。代码让你直接看到折中，不把回放包装成免费同时改善。真实高维模型可能有兼容解，但是否存在、能否找到，取决于数据、容量和优化。
+
+回放权重应由开发集的新旧任务权衡选择，最终测试不参与。若旧能力有明确最低要求，可以把它写成发布门槛；若旧任务本身已经过时，允许退化也需要明确原因。对科研助手，更换术语版本可能是有意更新，但丢失引用绑定和单位检查通常应触发回归检查。
+
+```python
+def adapt(start, replay_weight, steps=100, learning_rate=0.1):
+    if not 0 <= replay_weight <= 1:
+        raise ValueError('replay weight must lie in [0,1]')
+    value = start
+    for _ in range(steps):
+        # Old objective A=(w-1)^2; new objective B=(w+1)^2.
+        gradient = 2*((1-replay_weight)*(value+1) + replay_weight*(value-1))
+        value -= learning_rate*gradient
+    return value
+
+after_A = 1.0
+naive = adapt(after_A, replay_weight=0.0)
+replay = adapt(after_A, replay_weight=0.5)
+def losses(value): return {'old_loss': (value-1)**2, 'new_loss': (value+1)**2}
+assert abs(naive+1) < 1e-7
+assert abs(replay) < 1e-7
+assert losses(replay)['old_loss'] < losses(naive)['old_loss']
+assert losses(replay)['new_loss'] > losses(naive)['new_loss']
+print({'after_A': losses(after_A), 'after_B_only': losses(naive),
+       'after_B_with_replay': losses(replay)})
+print('A deliberately conflicting one-parameter example, not a language-model benchmark.')
+```
+
+## 05｜蒸馏的监督来自教师，但真值仍需独立评价
+
+输出蒸馏让学生模仿教师的类别或token概率；序列蒸馏用教师生成的回答作为训练样本；表示蒸馏匹配某层特征，通常需要维度映射与合适的对齐目标。它们传递的信息不同，教师最高概率标签、完整分布与自然语言解释不能当作同一种监督。
+
+教师可以是大模型、集成模型，也可以是更慢但准确的流程。教师越大不一定越适合该任务，尤其在新领域、偏移输入和证据不足问题上。训练学生前，先用独立标签评价教师；保留教师错误、人工复核和学生纠正/继承情况。学生与教师一致只能证明模仿，不是生物事实正确或临床可用。
+
+如果使用教师生成的文本，需要记录生成配置、版本、来源、许可和筛选规则，防止把模型幻觉变成新语料。最终测试题不能先让教师生成答案再进入训练。若教师API只返回文字而不返回完整概率，不能声称执行了逐token全词表KL蒸馏，应按实际的序列监督命名。
+
+## 06｜软目标、温度与T²要一起推导
+
+设教师logits为z_t，学生为z_s，温度T>0，软分布分别为softmax(z_t/T)与softmax(z_s/T)。一种常见目标将真实标签CE与T²·KL(p_t||p_s)加权组合。对固定教师，KL与软目标交叉熵只差教师熵，因此对学生的梯度相同。KL方向不能无说明地反写，反向KL是另一目标。
+
+对于N个有效样本，未缩放软目标梯度为(p_s−p_t)/(NT)；乘T²后变成T(p_s−p_t)/N。大温度下两分布差异也通常按1/T缩小，T²用于补偿梯度尺度变化，并不保证所有温度产生完全相同的梯度。下面同时验证解析式、缩放关系与教师分布相同时的零KL。
+
+在语言模型中，N通常应对应实际参与监督的token位置。先对词表维求和，再对合法位置求均值；padding、提示和截断范围要服从既定任务合同。PyTorch kl_div通常输入学生log概率和教师概率，batchmean的默认分母只适合你定义的批维，不能不检查形状就套到[B,T,V]上。经典软目标蒸馏见Hinton等原始论文。
+
+```text
+L = α CE(y,p_s(T=1)) + (1−α) T² KL(p_t(T) || p_s(T))；∂[T²KL]/∂z_s = T(p_s−p_t)/N
+```
+
+```python
+import torch
+import torch.nn.functional as F
+
+torch.set_num_threads(1)
+teacher_logits = torch.tensor([[2.,0.,-1.],[0.,1.,2.]], dtype=torch.float64)
+initial = torch.tensor([[0.1,-0.2,0.3],[0.4,0.2,-0.1]], dtype=torch.float64)
+temperature = 3.0
+
+def soft_loss(student_logits, scaled):
+    target = F.softmax(teacher_logits/temperature, dim=-1).detach()
+    value = F.kl_div(F.log_softmax(student_logits/temperature, dim=-1),
+                     target, reduction='batchmean')
+    return value * (temperature**2 if scaled else 1.0)
+
+unscaled = initial.clone().requires_grad_()
+scaled = initial.clone().requires_grad_()
+soft_loss(unscaled, False).backward()
+soft_loss(scaled, True).backward()
+assert torch.allclose(scaled.grad, temperature**2 * unscaled.grad)
+expected = (temperature/initial.shape[0]) * (
+    F.softmax(initial/temperature, dim=-1)-F.softmax(teacher_logits/temperature, dim=-1))
+assert torch.allclose(scaled.grad, expected, atol=1e-12)
+assert teacher_logits.grad is None
+assert soft_loss(teacher_logits.clone(), True).abs() < 1e-12
+print('scaled soft-target KL:', float(soft_loss(initial, True)))
+print('gradient norm:', float(scaled.grad.norm()))
+print('T^2 corrects objective scale; it does not make gradients equal for all T.')
+```
+
+## 07｜实际训练一个学生，并审计教师是否冻结
+
+下面确实执行120次学生参数更新。教师是一个固定、随机初始化的合成函数，学生是较小的线性模型；两者没有生物学意义。训练集128个输入，另留64个输入只用于末次评价，教师不参与优化且状态前后逐项检查。这个实验验证蒸馏链条，不把随机教师包装成已训练专家。
+
+输出包括教师和学生参数量、初始与最终训练KL、留出KL与教师预测一致率。训练KL应下降，但留出一致率不是对真实标签的准确率。现实蒸馏还需要学生直接监督基线、教师原始质量、资源测量及真实任务外测，才能决定小模型是否值得替代教师。
+
+脚本使用固定步数，未根据留出集挑检查点。若要选择温度、学生宽度或训练步数，再划出验证集，留出测试只用于最终报告。这里学生比教师小，但参数少不自动等于在所有设备更快；实际延迟和峰值内存要按D24的相同负载测量。
+
+```python
+import copy
+import torch
+from torch import nn
+from torch.nn import functional as F
+
+torch.manual_seed(33)
+torch.set_num_threads(1)
+x = torch.randn(192, 4)
+x_train, x_holdout = x[:128], x[128:]
+# Fixed synthetic teacher function: random initialization, not a trained biological model.
+teacher = nn.Sequential(nn.Linear(4, 24), nn.Tanh(), nn.Linear(24, 3)).eval()
+teacher.requires_grad_(False)
+student = nn.Linear(4, 3)
+teacher_before = copy.deepcopy(teacher.state_dict())
+temperature = 2.0
+with torch.no_grad():
+    target_train = F.softmax(teacher(x_train)/temperature, dim=-1)
+    target_holdout = F.softmax(teacher(x_holdout)/temperature, dim=-1)
+
+def objective(model, features, targets):
+    return temperature**2 * F.kl_div(
+        F.log_softmax(model(features)/temperature, dim=-1), targets, reduction='batchmean')
+
+initial = float(objective(student, x_train, target_train).detach())
+optimizer = torch.optim.Adam(student.parameters(), lr=0.03)
+for _ in range(120):
+    optimizer.zero_grad(set_to_none=True)
+    loss = objective(student, x_train, target_train)
+    loss.backward()
+    optimizer.step()
+with torch.no_grad():
+    final = float(objective(student, x_train, target_train))
+    heldout = float(objective(student, x_holdout, target_holdout))
+    agreement = float((student(x_holdout).argmax(1) == teacher(x_holdout).argmax(1)).float().mean())
+assert final < initial
+assert all(torch.equal(value, teacher_before[key]) for key,value in teacher.state_dict().items())
+assert all(parameter.grad is None for parameter in teacher.parameters())
+print({'teacher_parameters': sum(p.numel() for p in teacher.parameters()),
+       'student_parameters': sum(p.numel() for p in student.parameters()),
+       'train_KL_initial': initial, 'train_KL_final': final,
+       'heldout_KL': heldout, 'heldout_teacher_agreement': agreement})
+print('Teacher agreement is imitation quality, not truth or clinical accuracy.')
+```
+
+## 08｜词表不一致时，逐token KL可能根本没有定义
+
+对同一词表同一位置做蒸馏时，第v个概率应代表同一个事件。教师和学生使用不同tokenizer时，即使logits维度碰巧相同，token ID也可能指向不同文本；不同切分还导致位置不一一对应。直接按数组下标做KL会优化错误对象。
+
+可选择共享词表、对明确事件进行概率映射，或改用教师生成序列再按学生词表训练。最后一种方法不需要逐token概率对齐，但丢失了教师在同一位置上的完整分布信息，并带入生成采样和筛选偏差。表示蒸馏还需要说明哪一层、哪些位置和怎样处理尺度，不能仅因为隐藏维度相同就直接相减。
+
+映射到微生物组时，教师与学生的taxon词表、MetaPhlAn版本或功能单元也必须对齐。若缺少关键物种、父子层级重复或不同功能定义被当成同一坐标，蒸馏loss下降可能只是在匹配技术产物。沿用D25的数据合同，并对每个输出坐标保存科学含义。
+
+## 09｜模型合并与集成、蒸馏不是一回事
+
+集成在推理时组合多个模型输出，蒸馏通过训练让学生模仿输出或表示，参数合并直接组合兼容权重或相对共同底座的任务增量。设任务增量ΔA=θA−θ0，最简单的合并为θ0+λAΔA+λBΔB；它并不自动保持两个任务性能，也不等于合并两本知识库。
+
+共同底座、相同结构、词表和参数坐标是直接任务增量合并的重要前提。独立训练网络可存在隐藏单元置换等对称性，相同形状并不保证语义对齐；连词表行含义不同的两个权重矩阵更不能盲目平均。LoRA的A与B因子还存在非唯一分解，直接平均因子通常不等于平均完整BA增量。
+
+TIES-Merging讨论小更新和符号冲突造成的干扰，并设计相应处理；它是需要按条件评价的方法，不是无训练成本地累积任意能力的保证。本课仅讲解合并合同，不提供完整TIES实现。真正尝试时保留底座、单任务模型、输出集成与合并结果，并在独立开发集选择系数。
+
+## 10｜用新旧任务和成本共同决定是否发布
+
+建立适配结果卡：新领域的主要指标、旧任务各列变化、教师与学生关系、独立真实标签表现、输入来源、更新预算、有效token、参数量与实测延迟。新任务收益很小而关键旧能力明显退化时，保留旧版本或采用任务路由可能更合适；不要因一次训练完成就默认升级。
+
+为CurateMicrobiota安排一个可执行研究顺序：先冻结原始底座与强基线，再比较领域单独适配和预算明确的回放适配；只有教师在目标任务上有可验证价值时，才尝试压缩成学生。丰度模型外测仍遵守研究和受试者分区，不能因为训练目标不使用标签就让测试队列默认进入预训练。若研究传导式适配，应单独命名和比较。
+
+本课完成的是软目标梯度、实际学生优化和冲突回放的机制验证。真实领域持续预训练、跨词表蒸馏和参数合并实验需要额外数据与模型，不属于已经取得的研究结果。带着清晰的目标、来源和回归矩阵进入后续工程单元，才能知道某次升级是在增加能力还是移动错误。
+
+## 动手实验 · 核对蒸馏梯度，训练学生，观察新旧目标冲突
+
+### 1. 建立适配合同
+
+用一页说明当前问题应采用检索更新、领域预训练、SFT还是蒸馏。列出两项新任务指标与两项必须保留的旧任务指标。
+
+检查什么：目标和指标一一对应，底座与评价资料预先冻结。
+
+### 2. 执行软目标梯度检查
+
+运行脚本，手算T=3时缩放与未缩放梯度相差9倍，再把解析式与自动梯度对应。
+
+```bash
+python lesson_examples/unit33/soft_gradient.py
+```
+
+检查什么：KL方向、教师冻结、温度和分母全部通过断言。
+
+### 3. 执行学生训练
+
+运行固定120步的学生优化，保存控制台记录；说明教师随机函数、参数量和留出一致率的含义。
+
+```bash
+python lesson_examples/unit33/student_training.py
+```
+
+检查什么：训练KL下降，教师状态完全未变，留出指标没有被用于选模。
+
+### 4. 执行回放冲突实验
+
+运行单参数例子，比较无回放与0.5回放权重下的新旧损失，解释为什么没有同时达到两个最优。
+
+```bash
+python lesson_examples/unit33/replay.py
+```
+
+检查什么：观察到旧目标保留改善但新目标损失高于单独适配，报告折中。
+
+### 5. 写能力保留与回滚规则
+
+给真实项目拟定一个包含领域、通用、引用、缺证和外部研究任务的矩阵；没有实际实验的格子标未执行。
+
+检查什么：不把教师一致率、训练loss或模拟结果当成真实临床性能。
+
+### 实验验收
+
+- [ ] 能区分持续预训练、SFT、检索、蒸馏和参数合并。
+- [ ] 三个CPU机制实验实际运行，输出与断言可复查。
+- [ ] 说明温度T²只处理目标尺度，不承诺不同温度梯度完全相同。
+- [ ] 能解释词表不对齐时逐token KL为何不成立。
+- [ ] 新旧能力矩阵与资源口径明确，测试集未用于选择适配方案。
+
+## 论文导读
+
+### Don’t Stop Pretraining: Adapt Language Models to Domains and Tasks (2020)
+
+https://aclanthology.org/2020.acl-main.740/
+
+建立领域适配与任务适配的受控比较思路。
+
+- 区分DAPT与TAPT所用未标注资料。
+- 检查下游任务与选择规则，再写出本项目对应的基线和外测。
+
+**阅读问题：** 看到领域预训练有效，是否可以把最终测试来源加入适配？
+
+**参考思路：** 必须依据预先声明的信息可见性；加入测试来源会改变归纳式外测设定，应与严格留出方案分开报告。
+
+### Distilling the Knowledge in a Neural Network (2015)
+
+https://arxiv.org/abs/1503.02531
+
+核对软目标、温度和硬标签组合的经典定义。
+
+- 阅读第2节温度与软目标梯度。
+- 对照本课解析式，解释T²缩放与高温近似的区别。
+
+**阅读问题：** 学生与教师预测完全一致是否说明学生真实任务准确率为100%？
+
+**参考思路：** 不说明。学生可能完整继承教师错误，一致率需要与独立真值指标分别报告。
+
+### Overcoming catastrophic forgetting in neural networks (2017)
+
+https://arxiv.org/abs/1612.00796
+
+理解按旧任务参数重要性约束更新的思路；论文发表于PNAS 2017，预印本首发于2016年。
+
+- 识别旧任务重要性估计与新任务优化的关系。
+- 比较参数约束、回放和独立适配器各自需要保存什么。
+
+**阅读问题：** 参数约束能否保证任意新旧任务同时达到各自最优？
+
+**参考思路：** 不能。任务可能冲突，重要性估计和近似也有限；需检查新旧任务矩阵而不是只看约束存在。
+
+### TIES-Merging: Resolving Interference When Merging Models (2023)
+
+https://arxiv.org/abs/2306.01708
+
+理解参数增量合并时的干扰，以及它与输出集成和蒸馏的区别。
+
+- 读修剪、符号选择和合并三个步骤的目的。
+- 列出在本项目尝试参数合并前需要一致的底座、结构与词表。
+
+**阅读问题：** 两个相同形状但独立训练的网络能否无条件逐元素平均？
+
+**参考思路：** 不能。参数坐标可能不具可比语义，存在置换对称、词表差异与任务干扰，必须建立兼容条件并评价。
+
+## 练习与完整参考解答
+
+### 练习 1. 两个样本的软目标KL使用batchmean，T=4。乘T²前后对学生logits的梯度比例是多少？不同T的缩放梯度是否必然相等？
+
+提示：固定同一个T比较缩放；改变T会同时改变两个分布。
+
+参考解答：在同一T=4下乘T²使梯度放大16倍。改变T时p_s与p_t也变化，因此缩放梯度不必相等；高温近似下T²用于补偿主要尺度变化。
+
+### 练习 2. 领域适配后新任务准确率从0.70到0.80，旧任务从0.90到0.75。如何写结果？
+
+提示：两列分别给出差值，不只写最好的一列。
+
+参考解答：新任务提高0.10，旧任务下降0.15；如果按旧参考减当前定义遗忘量则为0.15。是否接受取决于预先规定的用途、门槛和不确定性，不能概括为整体提高10%。
+
+### 练习 3. 教师token ID 17代表“micro”，学生同一ID代表“tion”，直接对齐logits做KL有什么问题？
+
+提示：概率的坐标必须表示同一个事件。
+
+参考解答：同一数组位置不是同一个文本事件，直接KL没有所声称的教师—学生语义对应。应共享或显式映射词表和位置，或者使用教师序列经学生tokenizer构造另一种监督目标。
+
+### 练习 4. 旧目标(w−1)²，新目标(w+1)²，等权混合最优w是多少？旧新损失各多少？
+
+提示：展开后一次项抵消。
+
+参考解答：混合目标为w²+1，最优w=0，旧新损失均为1。单独优化新目标w=−1时新损失0、旧损失4；回放是折中，不是同时恢复两个不兼容最优。
+
+## 验收自测
+
+### 1. 领域持续预训练与SFT最核心的区别之一是什么？
+
+A. 永远使用不同GPU
+B. 前者只能更新LoRA
+C. 训练资料组织和监督目标不同
+D. 两者完全相同且无需评价
+
+参考答案：C。持续预训练通常保留自监督目标；SFT使用任务示例监督。更新参数范围是另一维度。
+
+### 2. 软目标蒸馏时教师通常怎样参与梯度？
+
+A. 冻结并提供目标分布
+B. 与学生共享同一optimizer自动更新
+C. 每步必须随机重置
+D. 必须接收学生梯度
+
+参考答案：A。固定教师是本课定义，目标分布detach并检查教师状态不变。
+
+### 3. 本课学生的教师一致率是什么？
+
+A. 临床正确率
+B. 对真实标签的准确率
+C. 所有未来队列的泛化率
+D. 对固定合成教师预测的模仿指标
+
+参考答案：D。无真实生物标签，不能将一致率转换为领域正确性。
+
+### 4. 在[B,T,V]上直接使用batchmean可能忽略什么？
+
+A. GPU型号
+B. 有效token数量与损失分母
+C. 文件扩展名
+D. 模型颜色
+
+参考答案：B。KL先沿词表归约后，仍应按任务定义对有效位置求均值。
+
+### 5. 直接模型合并前最应核对什么？
+
+A. 文件名是否都含final
+B. 训练日志是否足够长
+C. 共同底座、结构、词表和参数坐标是否兼容
+D. 两个文件大小完全相同就足够
+
+参考答案：C。形状相同不保证参数语义对齐，合并后还需独立评价。
+
+## 收尾思考
+
+- 你的领域适配是否真的需要更新权重，还是可靠检索已经足够？
+- 你愿意为新任务收益容忍哪些旧能力变化，哪些必须设为门槛？
+- 如果教师在外部研究上失败，学生蒸馏成功究竟复制了什么？
+
+下一步：继续工程补全单元，将模型来源、装载、检索与运行接口落实为可复现配置；再用本课能力矩阵评价真实升级。

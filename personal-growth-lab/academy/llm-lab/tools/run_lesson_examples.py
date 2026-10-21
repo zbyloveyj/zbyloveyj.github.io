@@ -3,8 +3,9 @@
 This runner executes trusted, repository-owned lesson source. It does not run
 terminal/R snippets or downloaded material. Every block gets a fresh directory
 and process so examples cannot depend accidentally on earlier notebook state.
-Three core snippets inspect files from the real quick pipeline; their declared
-prerequisites are copied from an actual executed pipeline, never mocked reports.
+Four snippets, including the local inference service example, inspect real
+quick-pipeline files. Declared prerequisites come from an actual executed
+pipeline, never mocked reports.
 """
 from __future__ import annotations
 
@@ -19,15 +20,18 @@ import tempfile
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
+CONFIG = json.loads((ROOT / 'course-config.json').read_text(encoding='utf-8'))
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--report", default="/tmp/curatemicrobiota-examples.json")
     parser.add_argument("--from-unit", type=int, default=1)
-    parser.add_argument("--to-unit", type=int, default=30)
+    parser.add_argument("--to-unit", type=int, default=CONFIG['expected_lessons'])
     parser.add_argument("--fixture-run", help="Existing actual quick-pipeline directory; otherwise run one when required.")
     args = parser.parse_args()
+    if not 1 <= args.from_unit <= args.to_unit <= CONFIG['expected_lessons']:
+        parser.error('Unit range must be ordered and within the configured course.')
     records = []
     env = dict(os.environ)
     env["PYTHONPATH"] = str(ROOT / "project") + os.pathsep + env.get("PYTHONPATH", "")

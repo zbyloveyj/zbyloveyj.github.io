@@ -1,15 +1,15 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CurateMicrobiota · 完整教材</title><link rel="stylesheet" href="assets/lab.css"></head><body><div class="shell"><header class="book-head"><p class="eyebrow">CURATEMICROBIOTA / COMPLETE HANDBOOK</p><h1>从零写 GPT，<br>到微生物表征模型。</h1><p>一心问道 · 成长学院</p><p>30 个学习单元｜14核心＋16进阶｜讲义、论文、机制实验、完整解答与科研验收</p><div class="notice">默认代码运行使用合成教学数据。真实数据适配 curatedMetagenomicData；完成教学原型不等于完成经过验证的微生物基础模型。</div><p class="no-print"><button onclick="window.print()">打印完整教材 / 另存 PDF</button> <a href="index.html">返回交互课程</a></p><p><a href="index.html#/coverage">打开知识覆盖表与学习路线</a></p><p><a href="#day-1">UNIT 01 · 先把问题说清，再让第一个模型动起来</a></p><p><a href="#day-2">UNIT 02 · 从文字到 token：把训练样本做对</a></p><p><a href="#day-3">UNIT 03 · 词向量与位置：沿形状走完一次前向传播</a></p><p><a href="#day-4">UNIT 04 · 注意力：让每个位置只读取允许的信息</a></p><p><a href="#day-5">UNIT 05 · 组装 TinyGPT：多头、残差、归一化与前馈网络</a></p><p><a href="#day-6">UNIT 06 · 训练不是按下开始：目标、优化、验证与恢复</a></p><p><a href="#day-7">UNIT 07 · 模型学会了什么：评价、生成与第一阶段答辩</a></p><p><a href="#day-8">UNIT 08 · 让模型适应任务：指令微调与 LoRA</a></p><p><a href="#day-9">UNIT 09 · 让回答有出处：证据检索与 RAG</a></p><p><a href="#day-10">UNIT 10 · 接入真实微生物数据：从样本到训练契约</a></p><p><a href="#day-11">UNIT 11 · 训练你的微生物自监督 Transformer</a></p><p><a href="#day-12">UNIT 12 · 让模型经得起比较：基线、外测与不确定性</a></p><p><a href="#day-13">UNIT 13 · 理解模型的边界：解释、分布变化与跨模态</a></p><p><a href="#day-14">UNIT 14 · 交付 CurateMicrobiota：从可复现原型到研究路线</a></p><p><a href="#day-15">UNIT 15 · 数学底座：从矩阵低秩到概率目标</a></p><p><a href="#day-16">UNIT 16 · 语料工程与真正的 BPE：模型之前的数据系统</a></p><p><a href="#day-17">UNIT 17 · 现代架构拆解：位置、归一化、门控与稀疏专家</a></p><p><a href="#day-18">UNIT 18 · 训练工程：把一次下降变成可恢复的实验</a></p><p><a href="#day-19">UNIT 19 · 规模化与系统：先算清账，再扩大模型</a></p><p><a href="#day-20">UNIT 20 · 后训练全景：从答案监督到偏好优化</a></p><p><a href="#day-21">UNIT 21 · 深入 RAG：从找到材料到可核验的证据系统</a></p><p><a href="#day-22">UNIT 22 · 工具与 Agent：把科研步骤变成受限、可验证的工作流</a></p><p><a href="#day-23">UNIT 23 · 语言模型与系统评价：让提升经得起比较</a></p><p><a href="#day-24">UNIT 24 · 推理与部署：把模型放进资源与延迟预算</a></p><p><a href="#day-25">UNIT 25 · 真实菌群数据工程：版本、组合性与测量边界</a></p><p><a href="#day-26">UNIT 26 · 微生物模型设计谱系：表示、目标与对照</a></p><p><a href="#day-27">UNIT 27 · 跨队列与小样本实战：嵌套验证、统计与校准</a></p><p><a href="#day-28">UNIT 28 · DNA、蛋白与功能基础模型：从序列到群落</a></p><p><a href="#day-29">UNIT 29 · 精神疾病、脑影像与纵向研究：配对、特异性与可证伪假设</a></p><p><a href="#day-30">UNIT 30 · 科研级 Capstone：从合成流程到多队列证据</a></p></header><section class="book-chapter" id="knowledge-coverage"><article class="reader"><h1>知识覆盖与实现边界</h1><p><strong>工程可运行：</strong>提供本地工程或网页实现，已在交付环境执行；具体数据范围见每项说明。</p><p><strong>机制与实验：</strong>以可执行的小例子、公式推导和诊断任务理解机制；不等于完整生产系统。</p><p><strong>研究拓展：</strong>完整讲解、阅读与实验设计；真实大规模/多卡/多模态训练需要额外数据与环境。</p><h2>数学与学习原理</h2><p>把公式变成可以推导、计算和诊断的对象。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>张量、线性层与广播</td><td>1, 3, 15</td><td><strong>工程可运行</strong><br>能追踪shape、参数量、梯度以及矩阵乘法含义。<br>language.py / tests/test_core.py</td></tr><tr><td>低秩、SVD与表示空间</td><td>8, 15, 20</td><td><strong>机制与实验</strong><br>计算低秩重建误差，解释LoRA的表达限制及非唯一分解。<br>第15课PyTorch实验；lora-demo</td></tr><tr><td>条件概率、MLE、交叉熵与KL</td><td>3, 7, 15</td><td><strong>机制与实验</strong><br>从似然推导目标，区分PPL、token尺度与任务表现。<br>第15课概率与损失实验</td></tr><tr><td>链式法则与数值梯度检查</td><td>3, 15</td><td><strong>机制与实验</strong><br>将解析/自动微分结果与有限差分相互核验。<br>第15课有限差分实验</td></tr><tr><td>优化器、正则化与数值稳定性</td><td>6, 7, 15, 18</td><td><strong>工程可运行</strong><br>解释AdamW、梯度裁剪、softmax稳定化与训练诊断。<br>language.py / advanced.py</td></tr><tr><td>目标、指标、泛化与因果边界</td><td>1, 13, 23, 27</td><td><strong>工程可运行</strong><br>区分训练目标、选择指标、外部效度与因果证据。<br>evaluation.py / benchmark.py</td></tr></tbody></table><h2>语料、分词与模型架构</h2><p>从数据进入模型开始，理解主流架构的选择理由。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>UTF-8与真正的BPE训练</td><td>2, 16</td><td><strong>工程可运行</strong><br>训练合并规则、冻结tokenizer，验证中文与未见字符往返。<br>advanced bpe → tokenizer.json</td></tr><tr><td>语料清洗、去重、许可与污染</td><td>2, 16, 23</td><td><strong>机制与实验</strong><br>按文档分区、追踪来源、识别跨分区重复与评价污染。<br>第16课哈希与近重复实验</td></tr><tr><td>因果注意力与完整Transformer</td><td>4, 5, 6</td><td><strong>工程可运行</strong><br>独立实现Q/K/V、因果遮罩、多头、残差、前馈和输出头。<br>language.py / 浏览器注意力实验</td></tr><tr><td>BERT、T5、GPT目标谱系</td><td>6, 17</td><td><strong>研究拓展</strong><br>比较编码器、编码解码器与解码器的可见性和训练目标。<br>第17课架构对照与原始论文</td></tr><tr><td>RoPE、RMSNorm、SwiGLU与GQA</td><td>17, 24</td><td><strong>机制与实验</strong><br>检查旋转与归一化公式，区分query heads与KV heads。<br>第17课组件实验；advanced budget</td></tr><tr><td>MoE、长上下文与位置外推</td><td>17, 19, 24</td><td><strong>机制与实验</strong><br>区分总参数和激活参数，量化路由、上下文与缓存代价。<br>第17/19/24课机制与账本</td></tr><tr><td>SSM/Mamba与注意力的取舍</td><td>17</td><td><strong>研究拓展</strong><br>理解状态递推、并行训练、历史压缩与检索能力边界。<br>第17课递推对照与Mamba论文</td></tr></tbody></table><h2>预训练、后训练与计算系统</h2><p>不仅能启动训练，还能解释训练状态和资源成本。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>从零预训练与文本采样</td><td>2, 6, 7</td><td><strong>工程可运行</strong><br>训练TinyGPT并解释右移目标、温度、top-k与验证损失。<br>train-lm / generate</td></tr><tr><td>批次、梯度累积与完整断点恢复</td><td>18</td><td><strong>工程可运行</strong><br>恢复模型、AdamW、调度器和随机状态，逐步对齐连续运行。<br>advanced resume → checkpoint.pt / report.json</td></tr><tr><td>AMP、DDP、FSDP与ZeRO</td><td>18, 19</td><td><strong>研究拓展</strong><br>划分计算/通信/显存成本，设计多卡一致性与恢复检查。<br>第18/19课；真实多卡实验需额外环境</td></tr><tr><td>规模定律、token与显存账本</td><td>16, 19, 24</td><td><strong>机制与实验</strong><br>估算训练预算、参数状态和KV cache，列明遗漏项。<br>advanced budget → report.json</td></tr><tr><td>SFT模板、答案遮罩与packing</td><td>8, 20</td><td><strong>工程可运行</strong><br>运行response-only SFT并检查首个回答token和padding监督。<br>finetune / tests/test_finetuning.py；packing为课程拓展</td></tr><tr><td>LoRA与QLoRA的区别</td><td>8, 20</td><td><strong>工程可运行</strong><br>实跑LoRA-SFT、检查基座不变；解释量化基座的额外条件。<br>finetune --lora；QLoRA为拓展方案</td></tr><tr><td>偏好目标、DPO与在线RL</td><td>8, 20</td><td><strong>机制与实验</strong><br>验证DPO梯度；比较奖励模型、PPO/GRPO和离线偏好学习。<br>alignment-demo；在线RL为拓展方案</td></tr><tr><td>持续预训练、遗忘、蒸馏与压缩</td><td>19, 20, 24</td><td><strong>研究拓展</strong><br>设计通用能力回归集与压缩前后比较，防止只看域内损失。<br>第19/20/24课设计与机制</td></tr></tbody></table><h2>检索、工具、评价与部署</h2><p>使每个系统输出都有可检查的依据和失败处理。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>检索、证据引用与拒答</td><td>9, 21</td><td><strong>工程可运行</strong><br>运行可追溯检索基线、检查引用ID与无证据输入。<br>curatemicrobiota.evidence / evidence_cards.json</td></tr><tr><td>BM25、向量、融合与重排</td><td>21</td><td><strong>机制与实验</strong><br>比较召回、排序、上下文预算和证据冲突处理。<br>第21课排序/融合实验；完整向量服务为拓展</td></tr><tr><td>工具schema与Agent状态机</td><td>22</td><td><strong>机制与实验</strong><br>校验输入输出、控制调用次数、处理失败并记录状态。<br>第22课受限本地工具机制实验</td></tr><tr><td>提示注入、权限与研究审计</td><td>9, 22</td><td><strong>机制与实验</strong><br>将检索文本视为数据，限制工具作用域，测试越界与失败。<br>第22课合同与对抗用例</td></tr><tr><td>任务指标、人工标注与LLM-as-judge</td><td>23</td><td><strong>机制与实验</strong><br>区分检索/生成指标，分析标注一致性与评审偏差。<br>第23课评价与一致性实验</td></tr><tr><td>配对不确定性、校准与回归测试</td><td>13, 23, 27</td><td><strong>工程可运行</strong><br>对齐同一受试者的预测，报告概率质量与区间适用范围。<br>benchmark.py / paired_auroc_difference</td></tr><tr><td>KV cache、量化与推理成本</td><td>24</td><td><strong>机制与实验</strong><br>计算缓存增长、量化误差与首token延迟/吞吐指标。<br>第24课机制实验；advanced budget</td></tr><tr><td>批处理、流式服务与监控</td><td>22, 24</td><td><strong>研究拓展</strong><br>明确队列、超时、版本、日志、资源限制和服务验收。<br>第24课部署合同；未提供生产服务</td></tr></tbody></table><h2>菌群数据与表示学习</h2><p>围绕真实数据的科学含义设计模型与对照。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>真实数据接口与可追溯数据合同</td><td>10, 25</td><td><strong>研究拓展</strong><br>核对curatedMetagenomicData版本、单位、标签与队列来源。<br>scripts/export_cmd.R；R导出需本地环境验证</td></tr><tr><td>零、缺失、组合性与变换</td><td>10, 11, 25</td><td><strong>机制与实验</strong><br>区分未检出、技术缺失与人工mask，比较log/CLR/ILR假设。<br>data.py；第25课组合数据实验</td></tr><tr><td>物种词表、版本与训练内预处理</td><td>10, 11, 25</td><td><strong>工程可运行</strong><br>冻结词表和尺度，检测缺少训练特征及丰度质量丢失。<br>data.py / Preprocessor / align_abundance</td></tr><tr><td>连续丰度与置换一致的编码器</td><td>11, 12, 26</td><td><strong>工程可运行</strong><br>实现taxon+abundance编码、掩码重建与样本表征。<br>microbiome.py / 掩码与置换测试</td></tr><tr><td>排序、层次、功能表示及对比学习</td><td>26, 28</td><td><strong>机制与实验</strong><br>比较输入设计和预训练目标，辨析目标泄漏及增强有效性。<br>第26课对照实验；大规模训练属拓展</td></tr><tr><td>五类对照与预训练后微调</td><td>12, 13, 26, 27</td><td><strong>工程可运行</strong><br>比较逻辑回归、随机/预训练冻结表征、从零监督与全参数微调。<br>curatemicrobiota.benchmark</td></tr><tr><td>标签效率与半监督设定</td><td>26, 27</td><td><strong>工程可运行</strong><br>按训练受试者抽取标签，保持各模型一致的可用输入。<br>benchmark --label-fraction 0.5</td></tr><tr><td>批次、混杂与解释边界</td><td>10, 13, 25, 27</td><td><strong>机制与实验</strong><br>识别study/药物/人群混杂，分清预测解释与可证伪因果假设。<br>第25/27课混杂检查与实验设计</td></tr></tbody></table><h2>跨队列、序列与多模态科研</h2><p>从教学原型走向可以被同行检查的研究项目。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>留一队列外测与分组验证</td><td>13, 27</td><td><strong>工程可运行</strong><br>逐队列独立拟合预处理与模型；聚合重复随访并保留逐fold结果。<br>benchmark → report.json / predictions.csv</td></tr><tr><td>嵌套验证、跨队列区间与样本单位</td><td>23, 27</td><td><strong>机制与实验</strong><br>区分人、研究、种子与训练重叠；设计嵌套调参与分层bootstrap。<br>第27课；工程轮转一val并非穷尽nested CV</td></tr><tr><td>DNA/蛋白/功能基础模型</td><td>28</td><td><strong>研究拓展</strong><br>理解k-mer、反向互补、同源泄漏及基因到群落的映射。<br>第28课序列机制实验与原始模型文献</td></tr><tr><td>精神疾病、影像与跨模态对齐</td><td>29</td><td><strong>研究拓展</strong><br>定义共享/特异目标、配对受试者、缺失模态与混杂控制。<br>第29课合成机制实验；无真实临床模型</td></tr><tr><td>纵向设计与时间泄漏</td><td>27, 29</td><td><strong>机制与实验</strong><br>固定index time与预测窗，解释跨时点标签变化及训练可见信息。<br>第29课时间与配对检查实验</td></tr><tr><td>科研交付、消融、模型卡与扩展路线</td><td>14, 30</td><td><strong>工程可运行</strong><br>形成可复现清单、实验矩阵、负结果与可证伪研究问题。<br>MODEL_CARD.md / REAL_DATA.md / 第30课验收</td></tr></tbody></table></article></section><section class="book-chapter" id="day-1"><article class="reader">
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CurateMicrobiota · 完整教材</title><link rel="stylesheet" href="assets/lab.css?v=2026.10.21.4"></head><body><div class="shell"><header class="book-head"><p class="eyebrow">CURATEMICROBIOTA / COMPLETE HANDBOOK</p><h1>从零写 GPT，<br>到微生物表征模型。</h1><p>一心问道 · 成长学院</p><p>39 个学习单元｜14核心＋16进阶＋9专题补全｜约146小时｜讲义、论文、机制实验、完整解答与科研验收</p><div class="notice">默认代码运行使用合成教学数据。真实数据适配 curatedMetagenomicData；完成教学原型不等于完成经过验证的微生物基础模型。</div><p class="no-print"><button onclick="window.print()">打印完整教材 / 另存 PDF</button> <a href="index.html?v=2026.10.21.4">返回交互课程</a></p><p><a href="index.html#/coverage">打开知识覆盖表与学习路线</a> · <a href="#learning-audit">独立能力验收</a></p><p><a href="#day-1">UNIT 01 · 先把问题说清，再让第一个模型动起来</a></p><p><a href="#day-2">UNIT 02 · 从文字到 token：把训练样本做对</a></p><p><a href="#day-3">UNIT 03 · 词向量与位置：沿形状走完一次前向传播</a></p><p><a href="#day-4">UNIT 04 · 注意力：让每个位置只读取允许的信息</a></p><p><a href="#day-5">UNIT 05 · 组装 TinyGPT：多头、残差、归一化与前馈网络</a></p><p><a href="#day-6">UNIT 06 · 训练不是按下开始：目标、优化、验证与恢复</a></p><p><a href="#day-7">UNIT 07 · 模型学会了什么：评价、生成与第一阶段答辩</a></p><p><a href="#day-8">UNIT 08 · 让模型适应任务：指令微调与 LoRA</a></p><p><a href="#day-9">UNIT 09 · 让回答有出处：证据检索与 RAG</a></p><p><a href="#day-10">UNIT 10 · 接入真实微生物数据：从样本到训练契约</a></p><p><a href="#day-11">UNIT 11 · 训练你的微生物自监督 Transformer</a></p><p><a href="#day-12">UNIT 12 · 让模型经得起比较：基线、外测与不确定性</a></p><p><a href="#day-13">UNIT 13 · 理解模型的边界：解释、分布变化与跨模态</a></p><p><a href="#day-14">UNIT 14 · 交付 CurateMicrobiota：从可复现原型到研究路线</a></p><p><a href="#day-15">UNIT 15 · 数学底座：从矩阵低秩到概率目标</a></p><p><a href="#day-16">UNIT 16 · 语料工程与真正的 BPE：模型之前的数据系统</a></p><p><a href="#day-17">UNIT 17 · 现代架构拆解：位置、归一化、门控与稀疏专家</a></p><p><a href="#day-18">UNIT 18 · 训练工程：把一次下降变成可恢复的实验</a></p><p><a href="#day-19">UNIT 19 · 规模化与系统：先算清账，再扩大模型</a></p><p><a href="#day-20">UNIT 20 · 后训练全景：从答案监督到偏好优化</a></p><p><a href="#day-21">UNIT 21 · 深入 RAG：从找到材料到可核验的证据系统</a></p><p><a href="#day-22">UNIT 22 · 工具与 Agent：把科研步骤变成受限、可验证的工作流</a></p><p><a href="#day-23">UNIT 23 · 语言模型与系统评价：让提升经得起比较</a></p><p><a href="#day-24">UNIT 24 · 推理与部署：把模型放进资源与延迟预算</a></p><p><a href="#day-25">UNIT 25 · 真实菌群数据工程：版本、组合性与测量边界</a></p><p><a href="#day-26">UNIT 26 · 微生物模型设计谱系：表示、目标与对照</a></p><p><a href="#day-27">UNIT 27 · 跨队列与小样本实战：嵌套验证、统计与校准</a></p><p><a href="#day-28">UNIT 28 · DNA、蛋白与功能基础模型：从序列到群落</a></p><p><a href="#day-29">UNIT 29 · 精神疾病、脑影像与纵向研究：配对、特异性与可证伪假设</a></p><p><a href="#day-30">UNIT 30 · 科研级 Capstone：从合成流程到多队列证据</a></p><p><a href="#day-31">UNIT 31 · 提示与上下文工程：让每一次输入成为可比较的实验</a></p><p><a href="#day-32">UNIT 32 · 推理与推理时计算：候选、验证器和预算怎样共同决定结果</a></p><p><a href="#day-33">UNIT 33 · 持续学习与知识蒸馏：学新任务时怎样保留旧能力</a></p><p><a href="#day-34">UNIT 34 · 接上真实预训练模型：从文件快照到可复现适配</a></p><p><a href="#day-35">UNIT 35 · 把检索向量训练出来：双塔、负例与索引验收</a></p><p><a href="#day-36">UNIT 36 · 让模型真正可调用：本地接口、流式输出与运行验收</a></p><p><a href="#day-37">UNIT 37 · 从原始宏基因组到模型输入：把测量链补完整</a></p><p><a href="#day-38">UNIT 38 · 结构先验与生成目标：图模型、VAE 和扩散怎样进入菌群研究</a></p><p><a href="#day-39">UNIT 39 · 外推与研究可信度：分布变化、缺失、预测集合与因果识别</a></p></header><section class="book-chapter" id="knowledge-coverage"><article class="reader"><h1>知识覆盖与实现边界</h1><p><strong>工程可运行：</strong>提供本地工程或网页实现，已在交付环境执行；具体数据范围见每项说明。</p><p><strong>机制与实验：</strong>以可执行的小例子、公式推导和诊断任务理解机制；不等于完整生产系统。</p><p><strong>研究拓展：</strong>完整讲解、阅读与实验设计；真实大规模/多卡/多模态训练需要额外数据与环境。</p><h2>数学与学习原理</h2><p>把公式变成可以推导、计算和诊断的对象。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>张量、线性层与广播</td><td>1, 3, 15</td><td><strong>工程可运行</strong><br>能追踪shape、参数量、梯度以及矩阵乘法含义。<br>language.py / tests/test_core.py</td></tr><tr><td>低秩、SVD与表示空间</td><td>8, 15, 20</td><td><strong>机制与实验</strong><br>计算低秩重建误差，解释LoRA的表达限制及非唯一分解。<br>第15课PyTorch实验；lora-demo</td></tr><tr><td>条件概率、MLE、交叉熵与KL</td><td>3, 7, 15</td><td><strong>机制与实验</strong><br>从似然推导目标，区分PPL、token尺度与任务表现。<br>第15课概率与损失实验</td></tr><tr><td>链式法则与数值梯度检查</td><td>3, 15</td><td><strong>机制与实验</strong><br>将解析/自动微分结果与有限差分相互核验。<br>第15课有限差分实验</td></tr><tr><td>优化器、正则化与数值稳定性</td><td>6, 7, 15, 18</td><td><strong>工程可运行</strong><br>解释AdamW、梯度裁剪、softmax稳定化与训练诊断。<br>language.py / advanced.py</td></tr><tr><td>目标、指标、泛化与因果边界</td><td>1, 13, 23, 27</td><td><strong>工程可运行</strong><br>区分训练目标、选择指标、外部效度与因果证据。<br>evaluation.py / benchmark.py</td></tr></tbody></table><h2>语料、分词与模型架构</h2><p>从数据进入模型开始，理解主流架构的选择理由。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>UTF-8与真正的BPE训练</td><td>2, 16</td><td><strong>工程可运行</strong><br>训练合并规则、冻结tokenizer，验证中文与未见字符往返。<br>advanced bpe → tokenizer.json</td></tr><tr><td>语料清洗、去重、许可与污染</td><td>2, 16, 23</td><td><strong>机制与实验</strong><br>按文档分区、追踪来源、识别跨分区重复与评价污染。<br>第16课哈希与近重复实验</td></tr><tr><td>因果注意力与完整Transformer</td><td>4, 5, 6</td><td><strong>工程可运行</strong><br>独立实现Q/K/V、因果遮罩、多头、残差、前馈和输出头。<br>language.py / 浏览器注意力实验</td></tr><tr><td>BERT、T5、GPT目标谱系</td><td>6, 17</td><td><strong>研究拓展</strong><br>比较编码器、编码解码器与解码器的可见性和训练目标。<br>第17课架构对照与原始论文</td></tr><tr><td>RoPE、RMSNorm、SwiGLU与GQA</td><td>17, 24</td><td><strong>机制与实验</strong><br>检查旋转与归一化公式，区分query heads与KV heads。<br>第17课组件实验；advanced budget</td></tr><tr><td>MoE、长上下文与位置外推</td><td>17, 19, 24</td><td><strong>机制与实验</strong><br>区分总参数和激活参数，量化路由、上下文与缓存代价。<br>第17/19/24课机制与账本</td></tr><tr><td>SSM/Mamba与注意力的取舍</td><td>17</td><td><strong>研究拓展</strong><br>理解状态递推、并行训练、历史压缩与检索能力边界。<br>第17课递推对照与Mamba论文</td></tr><tr><td>离散扩散语言模型</td><td>17, 38</td><td><strong>研究拓展</strong><br>区分自回归、固定掩码、时间加权去噪与反向生成；不把丰度重建直接命名为扩散语言模型。<br>第17课目标比较；第38课连续生成机制</td></tr></tbody></table><h2>预训练、后训练与计算系统</h2><p>不仅能启动训练，还能解释训练状态和资源成本。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>从零预训练与文本采样</td><td>2, 6, 7</td><td><strong>工程可运行</strong><br>训练TinyGPT并解释右移目标、温度、top-k与验证损失。<br>train-lm / generate</td></tr><tr><td>批次、梯度累积与完整断点恢复</td><td>18</td><td><strong>工程可运行</strong><br>恢复模型、AdamW、调度器和随机状态，逐步对齐连续运行。<br>advanced resume → checkpoint.pt / report.json</td></tr><tr><td>AMP、DDP、FSDP与ZeRO</td><td>18, 19</td><td><strong>研究拓展</strong><br>划分计算/通信/显存成本，设计多卡一致性与恢复检查。<br>第18/19课；真实多卡实验需额外环境</td></tr><tr><td>规模定律、token与显存账本</td><td>16, 19, 24</td><td><strong>机制与实验</strong><br>估算训练预算、参数状态和KV cache，列明遗漏项。<br>advanced budget → report.json</td></tr><tr><td>SFT模板、答案遮罩与packing</td><td>8, 20</td><td><strong>工程可运行</strong><br>运行response-only SFT并检查首个回答token和padding监督。<br>finetune / tests/test_finetuning.py；packing为课程拓展</td></tr><tr><td>LoRA与QLoRA的区别</td><td>8, 20</td><td><strong>工程可运行</strong><br>实跑LoRA-SFT、检查基座不变；解释量化基座的额外条件。<br>finetune --lora；QLoRA为拓展方案</td></tr><tr><td>偏好目标、DPO与在线RL</td><td>8, 20</td><td><strong>机制与实验</strong><br>验证DPO梯度；比较奖励模型、PPO/GRPO和离线偏好学习。<br>alignment-demo；在线RL为拓展方案</td></tr><tr><td>持续预训练、遗忘、蒸馏与压缩</td><td>19, 20, 24, 33</td><td><strong>机制与实验</strong><br>推导蒸馏软目标，实际训练小型学生模型并计算跨任务遗忘；大型持续预训练另需环境。<br>第33课蒸馏与遗忘机制实验；第19/24课压缩账本</td></tr></tbody></table><h2>检索、工具、评价与部署</h2><p>使每个系统输出都有可检查的依据和失败处理。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>检索、证据引用与拒答</td><td>9, 21</td><td><strong>工程可运行</strong><br>运行可追溯检索基线、检查引用ID与无证据输入。<br>curatemicrobiota.evidence / evidence_cards.json</td></tr><tr><td>BM25、向量、融合与重排</td><td>21</td><td><strong>机制与实验</strong><br>比较召回、排序、上下文预算和证据冲突处理。<br>第21课排序/融合实验；完整向量服务为拓展</td></tr><tr><td>工具schema与Agent状态机</td><td>22</td><td><strong>机制与实验</strong><br>校验输入输出、控制调用次数、处理失败并记录状态。<br>第22课受限本地工具机制实验</td></tr><tr><td>提示注入、权限与研究审计</td><td>9, 22</td><td><strong>机制与实验</strong><br>将检索文本视为数据，限制工具作用域，测试越界与失败。<br>第22课合同与对抗用例</td></tr><tr><td>任务指标、人工标注与LLM-as-judge</td><td>23</td><td><strong>机制与实验</strong><br>区分检索/生成指标，分析标注一致性与评审偏差。<br>第23课评价与一致性实验</td></tr><tr><td>配对不确定性、校准与回归测试</td><td>13, 23, 27</td><td><strong>工程可运行</strong><br>对齐同一受试者的预测，报告概率质量与区间适用范围。<br>benchmark.py / paired_auroc_difference</td></tr><tr><td>KV cache、量化与推理成本</td><td>24</td><td><strong>机制与实验</strong><br>计算缓存增长、量化误差与首token延迟/吞吐指标。<br>第24课机制实验；advanced budget</td></tr><tr><td>批处理、流式服务与监控</td><td>22, 24, 36</td><td><strong>工程可运行</strong><br>运行本地TinyGPT服务并检查请求、流式事件和错误；批处理、生产监控与扩容仍为设计拓展。<br>curatemicrobiota.local_service；第24课系统预算</td></tr><tr><td>推测解码与分布校正</td><td>24, 32</td><td><strong>机制与实验</strong><br>核验草稿接受与残余分布保持目标概率，区分计算加速与答案选择。<br>第24课speculative_sampling.py；未集成多token加速器</td></tr></tbody></table><h2>菌群数据与表示学习</h2><p>围绕真实数据的科学含义设计模型与对照。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>真实数据接口与可追溯数据合同</td><td>10, 25</td><td><strong>研究拓展</strong><br>核对curatedMetagenomicData版本、单位、标签与队列来源。<br>scripts/export_cmd.R / cmd_contract.R；基础样本合同在R CI验证，真实队列下载与完整导出仍需相应环境</td></tr><tr><td>零、缺失、组合性与变换</td><td>10, 11, 25</td><td><strong>机制与实验</strong><br>区分未检出、技术缺失与人工mask，比较log/CLR/ILR假设。<br>data.py；第25课组合数据实验</td></tr><tr><td>物种词表、版本与训练内预处理</td><td>10, 11, 25</td><td><strong>工程可运行</strong><br>冻结词表和尺度，检测缺少训练特征及丰度质量丢失。<br>data.py / Preprocessor / align_abundance</td></tr><tr><td>连续丰度与置换一致的编码器</td><td>11, 12, 26</td><td><strong>工程可运行</strong><br>实现taxon+abundance编码、掩码重建与样本表征。<br>microbiome.py / 掩码与置换测试</td></tr><tr><td>排序、层次、功能表示及对比学习</td><td>26, 28</td><td><strong>机制与实验</strong><br>比较输入设计和预训练目标，辨析目标泄漏及增强有效性。<br>第26课对照实验；大规模训练属拓展</td></tr><tr><td>五类对照与预训练后微调</td><td>12, 13, 26, 27</td><td><strong>工程可运行</strong><br>比较逻辑回归、随机/预训练冻结表征、从零监督与全参数微调。<br>curatemicrobiota.benchmark</td></tr><tr><td>标签效率与半监督设定</td><td>26, 27</td><td><strong>工程可运行</strong><br>按训练受试者抽取标签，保持各模型一致的可用输入。<br>benchmark --label-fraction 0.5</td></tr><tr><td>批次、混杂与解释边界</td><td>10, 13, 25, 27</td><td><strong>机制与实验</strong><br>识别study/药物/人群混杂，分清预测解释与可证伪因果假设。<br>第25/27课混杂检查与实验设计</td></tr></tbody></table><h2>跨队列、序列与多模态科研</h2><p>从教学原型走向可以被同行检查的研究项目。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>留一队列外测与分组验证</td><td>13, 27</td><td><strong>工程可运行</strong><br>逐队列独立拟合预处理与模型；聚合重复随访并保留逐fold结果。<br>benchmark → report.json / predictions.csv</td></tr><tr><td>嵌套验证、跨队列区间与样本单位</td><td>23, 27</td><td><strong>机制与实验</strong><br>区分人、研究、种子与训练重叠；设计嵌套调参与分层bootstrap。<br>第27课；工程轮转一val并非穷尽nested CV</td></tr><tr><td>DNA/蛋白/功能基础模型</td><td>28</td><td><strong>研究拓展</strong><br>理解k-mer、反向互补、同源泄漏及基因到群落的映射。<br>第28课序列机制实验与原始模型文献</td></tr><tr><td>精神疾病、影像与跨模态对齐</td><td>29</td><td><strong>研究拓展</strong><br>定义共享/特异目标、配对受试者、缺失模态与混杂控制。<br>第29课合成机制实验；无真实临床模型</td></tr><tr><td>纵向设计与时间泄漏</td><td>27, 29</td><td><strong>机制与实验</strong><br>固定index time与预测窗，解释跨时点标签变化及训练可见信息。<br>第29课时间与配对检查实验</td></tr><tr><td>科研交付、消融、模型卡与扩展路线</td><td>14, 30</td><td><strong>工程可运行</strong><br>形成可复现清单、实验矩阵、负结果与可证伪研究问题。<br>MODEL_CARD.md / REAL_DATA.md / 第30课验收</td></tr><tr><td>视觉语言对齐与指令学习</td><td>28, 29, 34</td><td><strong>机制与实验</strong><br>区分双塔对比与视觉连接器，运行配对标签实验并设计受试者级对照。<br>第28课vision_language_alignment.py；真实影像模型为扩展</td></tr><tr><td>联邦学习与差分隐私边界</td><td>30, 39</td><td><strong>机制与实验</strong><br>核对加权一步梯度等价，解释中心异质性、保护单位、噪声与隐私记账。<br>第30课federated_privacy.py；未实现私有训练系统</td></tr></tbody></table><h2>提示、推理与持续学习</h2><p>把模型使用与模型更新写成可比较的实验，补齐过去只提到但缺少完整练习的部分。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>零/少样本、ICL与提示消融</td><td>23, 31</td><td><strong>机制与实验</strong><br>固定题集与模板，区分示例选择、顺序、模型权重更新和上下文条件化。<br>第31课提示版本与实验合同</td></tr><tr><td>上下文预算与结构化生成</td><td>21, 31, 34</td><td><strong>机制与实验</strong><br>使用对应tokenizer核算上下文，区分JSON语法、schema、语义及引用有效性。<br>第31课预算/结构化输出实验；外部tokenizer为可选路径</td></tr><tr><td>推理时计算、候选搜索与选择</td><td>7, 32</td><td><strong>机制与实验</strong><br>区分pass@k、验证器选中率与部署成功率，比较相同题集下的成本。<br>第32课候选选择与有限预算实验</td></tr><tr><td>验证器可靠性与奖励利用</td><td>20, 23, 32</td><td><strong>机制与实验</strong><br>构造格式正确但答案错误的反例，检查验证器是否泄漏测试真值。<br>第32课验证器误差与成本分析</td></tr><tr><td>领域继续预训练与遗忘回归</td><td>18, 20, 33</td><td><strong>机制与实验</strong><br>区分DAPT/TAPT/SFT目标，计算旧任务退化并比较回放的代价。<br>第33课任务矩阵；真实大型继续预训练为扩展</td></tr><tr><td>软目标蒸馏与学生训练</td><td>15, 33</td><td><strong>机制与实验</strong><br>推导KL方向与温度补偿，运行小型学生并解释词表一致性条件。<br>第33课蒸馏目标与梯度实验</td></tr><tr><td>模型合并与可兼容的参数空间</td><td>8, 33, 34</td><td><strong>研究拓展</strong><br>解释同架构、共同底座与任务向量假设，保留合并后能力回归。<br>第33/34课设计；未宣称真实大型模型合并实验</td></tr></tbody></table><h2>外部模型、检索训练与本地服务</h2><p>补齐从下载产物到可调用模型的工程链，所有需要额外权重或环境的步骤独立标记。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>模型选择、许可与不可变快照</td><td>16, 34</td><td><strong>机制与实验</strong><br>核对模型许可、revision、配置、权重分片与哈希，区分可用权重和可再分发权重。<br>第34课快照清单与文件验证</td></tr><tr><td>分词器、聊天模板与权重兼容</td><td>20, 31, 34</td><td><strong>机制与实验</strong><br>核对词表、特殊token、模板与输入输出接口，识别静默错配。<br>第34课离线契约实验；真实权重为可选实操</td></tr><tr><td>适配器加载与底座依赖</td><td>8, 34</td><td><strong>研究拓展</strong><br>记录底座revision与适配器配置，验证合并/未合并输出和量化限制。<br>第34课PEFT适配路径；大型权重未在课程环境运行</td></tr><tr><td>双塔检索表示与对比目标</td><td>21, 26, 35</td><td><strong>机制与实验</strong><br>实际训练小型检索器，检查归一化、温度和正负配对的梯度。<br>第35课可训练双塔实验</td></tr><tr><td>假负例、硬负例与检索泄漏</td><td>16, 23, 35</td><td><strong>机制与实验</strong><br>识别一个问题的多条正确证据，隔离训练配对、验证问题与测试问题。<br>第35课负例与召回验收</td></tr><tr><td>精确向量搜索与ANN索引评价</td><td>21, 35</td><td><strong>机制与实验</strong><br>以exact search作参照，区分ANN召回、语义相关性与重排效果。<br>第35课索引机制；大型向量服务为扩展</td></tr><tr><td>真实检查点的本地HTTP调用</td><td>24, 36</td><td><strong>工程可运行</strong><br>读取TinyGPT训练产物并生成真实响应，限制监听地址、上下文与输出预算。<br>curatemicrobiota/local_service.py</td></tr><tr><td>流式事件、失败返回与请求预算</td><td>22, 24, 36</td><td><strong>工程可运行</strong><br>核验终止事件、无效请求与可检查错误；区分客户端等待和服务端计算预算。<br>第36课本地服务合同与客户端示例</td></tr></tbody></table><h2>测量来源、生成目标与研究外推</h2><p>把丰度表之前的测量过程，以及跨人群迁移之后的识别问题接回建模主线。</p><table><thead><tr><th>能力</th><th>课程</th><th>层级与验收</th></tr></thead><tbody><tr><td>原始reads到物种与功能表</td><td>10, 25, 37</td><td><strong>研究拓展</strong><br>解释质控、宿主去除、物种与功能分析的产物及版本合同。<br>第37课测量链；真实原始reads处理需本地数据</td></tr><tr><td>MAG、SGB、菌株与序列层次</td><td>28, 37</td><td><strong>研究拓展</strong><br>区分样本丰度、重建基因组、物种簇和菌株变异，设计同源/来源隔离。<br>第37课数据字典与层次比较</td></tr><tr><td>层级重复计数与丰度单位</td><td>25, 37</td><td><strong>机制与实验</strong><br>检测功能分层表的总量/贡献重复计数，并核对单位与样本可比性。<br>第37课独立数值验收</td></tr><tr><td>系统发育与图归纳偏置</td><td>26, 38</td><td><strong>机制与实验</strong><br>说明图边的来源、归一化与信息传播，比较随机图/去先验/无图对照。<br>第38课图先验机制实验</td></tr><tr><td>潜变量生成、重建与ELBO</td><td>15, 29, 38</td><td><strong>机制与实验</strong><br>区分掩码目标、VAE潜变量与群落生成，核对KL项及输入分布假设。<br>第38课潜变量目标实验；真实生成有效性需外测</td></tr><tr><td>患病率变化与概率迁移</td><td>12, 27, 39</td><td><strong>机制与实验</strong><br>区分类不均衡、先验变化与条件分布变化，说明校准修正的假设。<br>第39课迁移机制与失败情形</td></tr><tr><td>缺失机制与敏感性分析</td><td>25, 29, 39</td><td><strong>机制与实验</strong><br>比较MCAR/MAR/MNAR假设，避免把缺失指示器或插补视作无条件修复。<br>第39课合成缺失与敏感性实验</td></tr><tr><td>保形预测与交换性边界</td><td>23, 27, 39</td><td><strong>机制与实验</strong><br>解释校准分数、有限样本分位数及边际覆盖，指出跨队列失效情形。<br>第39课覆盖实验；不保证每个亚组覆盖</td></tr><tr><td>因果DAG、中介与负对照</td><td>13, 29, 39</td><td><strong>机制与实验</strong><br>识别混杂、碰撞与时间顺序，区分关联预测与可识别的因果估计。<br>第39课DAG分析与实验设计；不提供真实因果结论</td></tr></tbody></table></article></section><section class="book-chapter" id="learning-audit"><article class="reader"><h1>课程补全与独立能力验收</h1><p>以从零理解语言模型、适配与调用模型、形成可复现的微生物研究原型为范围。覆盖表表示课程提供了学习路径；自己的掌握程度须用独立作品验证。</p><h2>本轮查漏补缺</h2><h3>第 31 课 · 提示、上下文与结构化输出</h3><p>原课程已讲聊天模板与RAG，但缺少零/少样本对照、样例选择、上下文预算与输出约束的独立实验。</p><p><strong>补全后的验收：</strong>版本化提示，检查样例与测试隔离，比较上下文编排与格式/语义验收。</p><h3>第 32 课 · 推理时计算与验证器</h3><p>生成采样已有讲解，但候选搜索、pass@k、最终选中率和验证器错误尚未形成完整学习闭环。</p><p><strong>补全后的验收：</strong>在同一题集与预算下核对候选覆盖、实际选中和成本，识别验证器失效。</p><h3>第 33 课 · 持续学习、蒸馏与遗忘</h3><p>持续预训练、蒸馏只在扩展段落出现，缺少目标推导与能力回归实验。</p><p><strong>补全后的验收：</strong>推导软目标蒸馏，运行小型学生模型与遗忘/回放机制，保留跨任务回归矩阵。</p><h3>第 34 课 · 外部预训练模型的适配</h3><p>从零模型能运行，但外部模型的权重、配置、分词器、模板与版本匹配未系统验收。</p><p><strong>补全后的验收：</strong>建立模型快照清单，验证文件匹配和离线加载条件，明确需下载权重的可选实操。</p><h3>第 35 课 · 可训练检索器与向量索引</h3><p>已有词项检索和向量排序机制，缺少检索表示的训练与负例设计实验。</p><p><strong>补全后的验收：</strong>实际训练微型双塔，检查假负例、候选召回及检索与生成的独立评价。</p><h3>第 36 课 · 可调用的本地模型服务</h3><p>原部署课程给出合同与性能指标，尚无读取实际检查点的HTTP入口。</p><p><strong>补全后的验收：</strong>启动仅监听本机的TinyGPT服务，核验请求、流式事件、预算和错误返回。</p><h3>第 37 课 · 宏基因组测量链</h3><p>课程从已整理的丰度表开始，未系统串联reads、物种、功能、MAG与菌株层次。</p><p><strong>补全后的验收：</strong>建立测量来源表，检查层级重复计数、单位、样本和版本可比性。</p><h3>第 38 课 · 图先验、潜变量与生成目标</h3><p>集合式注意力已实现，但图/系统发育先验与潜变量生成目标的假设和对照不足。</p><p><strong>补全后的验收：</strong>用小型实验核对图归一化、潜变量目标与生成结果约束，设计去先验对照。</p><h3>第 39 课 · 外推可靠性与识别假设</h3><p>已有LOSO与校准，缺失机制、患病率变化、保形预测和因果识别尚缺完整例子。</p><p><strong>补全后的验收：</strong>区分可修正的分布变化与不能识别的情形，验证覆盖条件、缺失假设与因果边界。</p><h2>原课程新增的前沿插读</h2><ul><li>第17课 · 扩散语言模型：区分固定mask重建、时间加权扩散目标和完整反向生成。</li><li>第24课 · 推测解码：实际核验接受/拒绝校正后的单位置目标分布；未宣称实现加速器。</li><li>第28课 · 视觉语言模型：区分CLIP对比表征与LLaVA生成监督，运行配对顺序实验。</li><li>第30课 · 联邦学习与差分隐私：核对一步聚合等价条件，区分联邦组织、隐私机制与外部效度。</li></ul><h2>独立能力验收</h2><p>课程结业建议：12项能力均达到2分，且提交各项证据；研究独立性由3分任务与真实外部验证进一步支持。此处为个人自评框架，不是经验证的心理测量量表，也不由网页阅读或选择题分数自动推断。</p><h3>独立追踪一次前向与反向</h3><p>回学单元：3, 4, 5, 15</p><p>给定未见过的B/T/D/H/V配置，从embedding到logits逐轴写shape、统计参数，并用有限差分核对一个梯度。</p><p><strong>通过标准：</strong>形状、参数量和数值梯度都有实际计算；能解释误差容限。</p><p><strong>提交证据：</strong>shape_notes.md、梯度断言与原始输出</p><p>自评分（0–3）：____；证据路径：____</p><h3>证明因果遮罩真的阻止偷看</h3><p>回学单元：2, 4, 6, 18</p><p>改变序列未来位置，验证此前logits不变；检查目标移位、padding、训练/验证边界及恢复状态。</p><p><strong>通过标准：</strong>包含会失败的反例，并能定位遮罩、对齐或随机状态中的原因。</p><p><strong>提交证据：</strong>扰动对照、恢复日志、数据划分清单</p><p>自评分（0–3）：____；证据路径：____</p><h3>解释微调与蒸馏究竟更新什么</h3><p>回学单元：8, 20, 33, 34</p><p>核对答案mask、LoRA可训练参数和底座不变；对蒸馏温度及任务混合比例做单变量实验。</p><p><strong>通过标准：</strong>明确训练目标、更新范围和回归集；不能只交最终loss。</p><p><strong>提交证据：</strong>参数摘要、mask例子、域内与通用任务回归表</p><p>自评分（0–3）：____；证据路径：____</p><h3>让提示实验具备可比较性</h3><p>回学单元：16, 23, 31, 32</p><p>冻结题集和提示模板，隔离少样本示例与测试，分别统计格式通过、答案正确、候选覆盖、实际选中和成本。</p><p><strong>通过标准：</strong>把样例选择与模板调整留在验证集；解释pass@k不能代替最终交付正确率。</p><p><strong>提交证据：</strong>提示版本、题目ID、逐题结果和预算表</p><p>自评分（0–3）：____；证据路径：____</p><h3>构建可以解释失败的证据链</h3><p>回学单元：9, 21, 22, 35</p><p>给同一证据库加入缺证、矛盾、同义及无关问题，比较词项与学习型检索；核验引用存在、支持关系与适当拒答。</p><p><strong>通过标准：</strong>检索召回与回答质量分别评分；工具失败和来源冲突有明确处理。</p><p><strong>提交证据：</strong>相关性标注、检索排名、证据ID和错误分析</p><p>自评分（0–3）：____；证据路径：____</p><h3>将真实检查点作为受限服务调用</h3><p>回学单元：19, 24, 34, 36</p><p>从本地训练产物加载模型，调用健康检查与生成；发送超出预算、畸形及流式请求。</p><p><strong>通过标准：</strong>输出来自实际模型；记录模型/分词器版本、停止原因、延迟和失败响应。</p><p><strong>提交证据：</strong>本地服务命令、客户端结果和合同测试输出</p><p>自评分（0–3）：____；证据路径：____</p><h3>把每个菌群特征追到测量来源</h3><p>回学单元：10, 25, 28, 37</p><p>为物种、功能及菌株特征注明工具/数据库版本、单位和测量层次，找出一个重复计数或样本错配反例。</p><p><strong>通过标准：</strong>没有用同名列掩盖不同定义；计数、比例、覆盖与绝对量明确区分。</p><p><strong>提交证据：</strong>数据字典、来源清单、单位检查和错配断言</p><p>自评分（0–3）：____；证据路径：____</p><h3>把生态假设写成模型目标</h3><p>回学单元：11, 25, 26, 38</p><p>比较连续丰度掩码、图先验与潜变量目标，检查可见信息、重闭合泄漏、置换一致性和去先验对照。</p><p><strong>通过标准：</strong>每个目标都有随机变量、损失项与对照；合成结果没有写成真实生态发现。</p><p><strong>提交证据：</strong>目标推导、可见性测试、基线与消融设计</p><p>自评分（0–3）：____；证据路径：____</p><h3>冻结测试边界后再比较模型</h3><p>回学单元：12, 23, 27, 30</p><p>按研究与受试者划分，训练内拟合预处理，复算五模型的逐研究和宏平均指标；说明调参预算及种子单位。</p><p><strong>通过标准：</strong>测试标签不影响训练、选择或阈值；不把重叠外层训练集和随机种子当独立样本。</p><p><strong>提交证据：</strong>split manifest、逐受试者预测、汇总脚本与限制说明</p><p>自评分（0–3）：____；证据路径：____</p><h3>解释一次失效的外部泛化</h3><p>回学单元：13, 25, 27, 39</p><p>构造患病率变化、缺失与协变量外推情境，说明哪些校准/保形条件成立，哪些需要新数据或新假设。</p><p><strong>通过标准：</strong>区分边际与条件保证；明确保形交换性和因果识别所需假设。</p><p><strong>提交证据：</strong>分布诊断、敏感性分析与不能识别的情形</p><p>自评分（0–3）：____；证据路径：____</p><h3>让跨模态与纵向分析遵守时间</h3><p>回学单元：28, 29, 37, 39</p><p>写出受试者—时间—模态匹配表，定义预测时点和可用输入；比较菌群单模态、协变量和融合模型。</p><p><strong>通过标准：</strong>未来信息不进入基线预测；缺失模态、药物、同源和队列重叠都有处理方案。</p><p><strong>提交证据：</strong>匹配合同、可用性时间表、简单基线与敏感性方案</p><p>自评分（0–3）：____；证据路径：____</p><h3>在新目录重现一份完整研究证据</h3><p>回学单元：14, 18, 30, 36</p><p>按README在新环境或新目录运行，保留配置、哈希、原始输出与失败记录，写一页结论和下一步可证伪问题。</p><p><strong>通过标准：</strong>别人能定位每条结论的输入、代码和结果；未执行的真实队列、多卡、外部权重步骤单独标记。</p><p><strong>提交证据：</strong>复现记录、模型卡、数据卡与一页研究说明</p><p>自评分（0–3）：____；证据路径：____</p><h2>自评分标准</h2><p><strong>0分 · 尚未掌握：</strong>不能说明输入、目标和验证方式，或没有可检查产物。</p><p><strong>1分 · 能够复述：</strong>能解释讲义和示例，但需要参考答案逐步完成。</p><p><strong>2分 · 能够独立复现：</strong>关闭参考答案后完成，能解释反例、失败和实验边界。</p><p><strong>3分 · 能够迁移验证：</strong>在新数据或新任务上作出合理调整，并用独立验证判断有效性。</p><h2>仍须在相应环境完成的扩展</h2><ul><li>真实curatedMetagenomicData下载、完整导出和多队列训练需在相应R/Bioconductor与数据环境执行；课程的合成实验不替代这一步。</li><li>大型开源权重、GPU量化、AMP、多卡/分布式、在线强化学习和生产级服务保留明确环境与验收要求，不能因为已阅读就标为已运行。</li><li>真实DNA/蛋白基础模型、临床多模态与因果研究需要独立数据、识别假设和外部证据；本课程提供可迁移的方法与实验设计。</li></ul></article></section><section class="book-chapter" id="day-1"><article class="reader">
 <p class="eyebrow">UNIT 01 / 理解与实现</p>
 <h1>先把问题说清，再让第一个模型动起来</h1><p class="subtitle">建立大模型地图，在 VS Code 中验证张量、梯度与项目环境</p>
 <p class="subtle">建议 195 分钟，可分次完成。</p>
 <h2>学习目标</h2><ul><li>区分语言模型、菌群丰度模型和证据检索的输入、目标及能力边界。</li><li>在独立 Python 环境运行工程，并定位实际解释器。</li><li>解释 batch、序列长度、特征维度及矩阵乘法。</li><li>手算一次梯度，并用 autograd 核对。</li><li>先定义数据划分和验收证据，再开始训练。</li></ul>
 <div class="notice mint"><strong>今日作品：</strong>环境记录：Python、PyTorch、设备和依赖版本。；一个通过断言的张量与梯度练习。；项目任务卡：输入、目标、评价、基线和结论边界。</div>
 <h3>先修准备</h3><ul><li>能建立文件夹、解压文件并使用终端。</li><li>知道 Python 变量、列表、循环和函数；不熟悉时先完成本课基础练习。</li></ul>
-<h2>30 个单元，怎样逐步学会解释、实现与验证</h2>
-<p>这门课沿着一个问题推进：怎样把“读懂模型代码”变成“自己能设计并检验一个微生物模型”？全课分为14个核心单元和16个进阶单元。核心段的前七课完成一个小型自回归语言模型，后七课把表征学习迁移到菌群丰度表，并加入参数高效适配、证据检索、基线与研究级验证。你将亲手看到输入如何变成张量、注意力如何混合信息、梯度如何修改参数，以及模型为什么可能记住错误的线索。</p>
-<p>第15–24课补齐数学、语料、现代架构、训练恢复与资源预算，继续学习后训练、检索、工具、系统评价和推理部署；第25–30课深入真实微生物数据、五方法比较、研究级统计、序列模型、多模态与研究交付。先把核心流程跑通，再按知识覆盖表返回补足先修：例如第15课的数学可以提前配合第3–6课学习，第25课的组成数据可以配合第10–13课学习。所有单元都有正文、实验、阅读和验收，进阶部分同时标明哪些已实现、哪些只演示机制、哪些仍需科研扩展。</p>
-<p>这里的“单元”不等于一个自然日。核心段预计43.75小时，全课预计107小时；建议8–10周、每周约10–14小时，按已有基础调整，真实科研实验另计。每课可分成阅读推导、运行实验、复盘纠错几次完成。完成标准是能够解释实现、复现实验并判断结论强弱，不能用日历天数保证掌握全部前沿技术。第一次运行先确认数据、目标、梯度和评价流程正确。</p>
-<p>为自己建立一个学习文件夹，每天保留一份代码变化、一张结果或日志，以及一个已经弄懂的错误。最后的成果应能回答三个问题：模型实际学的是什么；现有证据支持它完成什么任务；下一步扩展需要增加哪些数据和验证。</p>
+<h2>39 个单元，怎样逐步学会解释、实现与验证</h2>
+<p>这门课沿着一个问题推进：怎样把“读懂模型代码”变成“自己能设计并检验一个微生物模型”？全课分为14个核心单元、16个进阶单元和9个专题补全单元。核心段的前七课完成一个小型自回归语言模型，后七课把表征学习迁移到菌群丰度表，并加入参数高效适配、证据检索、基线与研究级验证。你将亲手看到输入如何变成张量、注意力如何混合信息、梯度如何修改参数，以及模型为什么可能记住错误的线索。</p>
+<p>第15–24课补齐数学、语料、现代架构、训练恢复与资源预算，继续学习后训练、检索、工具、系统评价和推理部署；第25–30课深入真实微生物数据、五方法比较、研究级统计、序列模型、多模态与研究交付。第31–39课进一步补齐提示与上下文、推理时计算、持续学习与蒸馏、外部权重接入、检索训练、本地服务、宏基因组测量链、图与生成模型，以及外推和因果识别。先把核心流程跑通，再按知识覆盖表返回补足先修：例如第15课的数学可以提前配合第3–6课学习，第25课的组成数据可以配合第10–13课学习。所有单元都有正文、实验、阅读和验收，进阶部分同时标明哪些已实现、哪些只演示机制、哪些仍需科研扩展。</p>
+<p>这里的“单元”不等于一个自然日。核心段预计43.75小时，全课预计146小时；建议12–15周、每周约10–12小时，按已有基础调整，真实科研实验另计。每课可分成阅读推导、运行实验、复盘纠错几次完成。完成标准是能够解释实现、复现实验并判断结论强弱，不能用日历天数保证掌握全部前沿技术。第一次运行先确认数据、目标、梯度和评价流程正确。</p>
+<p>为自己建立一个学习文件夹，每天保留一份代码变化、一张结果或日志，以及一个已经弄懂的错误。最后的成果应能回答三个问题：模型实际学的是什么；现有证据支持它完成什么任务；下一步扩展需要增加哪些数据和验证。最后还要完成“查漏验收”页面的12项独立任务，提交代码、结果和解释；课内打勾或自测通过本身不能证明已经独立掌握。</p>
 <h2>CurateMicrobiota 的三种对象</h2>
 <p>本课程把 CurateMicrobiota 用作实战项目名称。对接的公开数据资源 curatedMetagenomicData 提供统一处理的宏基因组物种和功能表及元数据。菌群相对丰度是一行样本、一列物种的非负数值表，它本身不是自然语言，也不是原始 DNA 序列。因此不能因为采用 Transformer，就把三类模型混为同一种任务。</p>
 <p>TinyGPT 接收文本 token，学习“给定前文，下一个 token 的概率”。微生物表征模型接收物种身份和丰度，学习从可见组成重建被遮蔽的信息，之后再检验学到的表征能否迁移到标签预测。证据检索模块接收问题，返回可追溯的文献片段或证据卡。三者可以连接成系统，但各自需要不同的数据、损失和评价。</p>
@@ -1869,7 +1869,7 @@ for text in [&#x27;microbe microbiome&#x27;, &#x27;菌群与宿主&#x27;, &#x27;
 </article></section><section class="book-chapter" id="day-17"><article class="reader">
 <p class="eyebrow">UNIT 17 / 进阶 · 原理与规模化</p>
 <h1>现代架构拆解：位置、归一化、门控与稀疏专家</h1><p class="subtitle">用公式与小实验理解 RoPE、RMSNorm、SwiGLU、GQA、MoE 和长上下文</p>
-<p class="subtle">建议 240 分钟，可分次完成。</p>
+<p class="subtle">建议 270 分钟，可分次完成。</p>
 <h2>学习目标</h2><ul><li>推导RoPE点积中的相对位置关系并验证范数保持。</li><li>区分RMSNorm与LayerNorm的中心化和尺度性质。</li><li>计算SwiGLU、多头与GQA的参数及缓存预算。</li><li>解释MoE总参数、活跃参数、路由与负载均衡。</li><li>把长上下文能力拆成位置、训练、内存与任务评价。</li><li>按学习目标区分BERT、T5与因果解码器，并比较SSM递推与注意力。</li></ul>
 <div class="notice mint"><strong>今日作品：</strong>五个可独立运行的组件机制例子。；标准MLP与SwiGLU等预算比较。；MHA/MQA/GQA缓存计算表。；一份根据任务选择组件的架构卡。</div>
 <h3>先修准备</h3><ul><li>完成D4、D5与D15，能解释QKV、残差、矩阵秩和梯度。</li></ul>
@@ -1973,6 +1973,14 @@ for value in x:
 weights = torch.tensor([0.8**(len(x)-1-t) for t in range(len(x))], dtype=x.dtype)
 assert torch.allclose(h, (weights*x).sum())
 print(states, &#x27;final:&#x27;, float(h))</code></pre></div>
+<h2>扩散语言模型：掩码预训练何时成为生成模型</h2>
+<p>自回归只是语言生成的一种概率建模方式。LLaDA原始工作通过前向随机遮蔽和反向去噪生成建模文本，并使用双向Transformer预测被遮蔽token。阅读时先区分三个对象：完整文本x、按时间t扰动后的x_t，以及用于恢复隐藏位置的预测分布。生成不是把普通BERT的mask随意补一次，而是由训练目标、时间或噪声水平、反向更新和停止策略共同定义。</p>
+<p>在简单吸收式遮蔽设定中，t表示每个位置被遮蔽的概率；对t抽样后，只对遮蔽位置计算带1/t权重的负对数概率，再对样本和时间取期望。这里的积分目标、归一化和采样分布应与具体论文一致，不能把“固定遮蔽15%且对mask求平均”的实现直接命名为该扩散目标。接近零的t还需要数值处理。训练时双向读取的是扰动后可见的内容，不能把目标原值保留在输入张量里。</p>
+<p>把这条路线迁移到菌群前先核对随机变量：语言token是离散类别，连续丰度还受非负和总量约束，技术缺失不等于吸收态mask。即便都使用去噪Transformer，也不能把第11课的单步丰度重建模型改名为扩散生成模型。最低研究对照应包括固定mask重建、具有明确概率目标的生成方法和简单组成数据生成基线，再比较外部任务、模式覆盖和隐私风险。</p>
+<p>本节完成标准是一张自回归、固定掩码、扩散三列对照表，逐行写出训练可见信息、目标分布、生成顺序、并行性和评估代价。扩散的并行预测不保证端到端更快；反向步数、重新遮蔽和模型调用次数都要计入。这里完成的是原理与研究设计，工程没有实现LLaDA训练或采样。</p>
+<pre class="equation">吸收式遮蔽示意：t∈(0,1]，m_i∼Bernoulli(t)，x_t,i=MASK if m_i=1
+L ∝ E_{x,t,m}[ (1/t) Σ_i m_i · (−log p_θ(x_i | x_t)) ]
+该式描述目标结构；时间采样、长度归一化与反向过程以对应模型定义为准。</pre>
 <h2>动手实验 · 验证现代组件的局部机制</h2>
 <h3>1. 旋转位置</h3><p>运行RoPE点积例子，改m和n，比较保持差值时结果。</p>
 <div class="expected">检查什么：相对位置关系与范数保持断言成立。</div>
@@ -1998,11 +2006,15 @@ print(states, &#x27;final:&#x27;, float(h))</code></pre></div>
 <p>阅读稀疏专家路由、容量与负载问题，建立总容量与实际计算的分离。</p><ul><li>阅读router与专家计算路径。</li><li>记录负载均衡和容量限制的作用。</li></ul>
 <p><strong>阅读问题：</strong>top-1路由是否只需保存一个专家？</p><p><strong>参考思路：</strong>不是，通常仍需要保存或分片全部专家权重。</p>
 <p><strong>阅读问题：</strong>路由图能直接命名生物功能专家吗？</p><p><strong>参考思路：</strong>不能，需要独立任务、数据分层和功能验证。</p>
+<h3>Large Language Diffusion Models (2025)</h3><p><a href="https://arxiv.org/abs/2502.09992">https://arxiv.org/abs/2502.09992</a></p>
+<p>在自回归、BERT和T5之后补齐离散扩散语言模型的目标与生成过程。</p><ul><li>读第2节的概率目标与反向生成，先标出x、x_t、t的含义。</li><li>将第11课丰度重建与论文生成目标逐项对照，不直接类比。</li></ul>
+<p><strong>阅读问题：</strong>为什么双向mask预测器不自动等于扩散语言模型？</p><p><strong>参考思路：</strong>还需明确噪声过程、时间加权目标、反向更新与采样协议。固定mask率重建只给出了一个监督任务，尚不能定义完整生成分布或其采样过程。</p>
 <h2>练习与完整参考解答</h2>
 <h3>1. q与k同时旋转同一角度，点积怎样变化？</h3><p><strong>提示：</strong>使用RᵀR=I。</p><p><strong>参考解答：</strong>(Rq)ᵀ(Rk)=qᵀRᵀRk=qᵀk，因为旋转矩阵正交。因此共同旋转不改变点积；若两者旋转角分别为mθ、nθ，点积变为qᵀR((n−m)θ)k。把m与n一起加上相同整数后差值不变，这正是代码可以检查的相对位置性质。</p>
 <h3>2. D=96，匹配普通4D MLP参数时SwiGLU隐藏宽度约多少？</h3><p><strong>提示：</strong>3DH=8D²。</p><p><strong>参考解答：</strong>普通无偏置4D MLP有D×4D+4D×D=8D²=73728个权重。SwiGLU三个矩阵共3DH；令二者相等得到H=8D/3=256，对应3×96×256=73728。若仍使用H=384，门控版会增加到110592个权重，此时比较结果同时改变了架构和参数预算。</p>
 <h3>3. 32查询头由32 KV头改为8，在其他条件相同下缓存理论变成多少？</h3><p><strong>提示：</strong>缓存与KV头数成正比。</p><p><strong>参考解答：</strong>在L、B、T、d与dtype不变时，KV载荷比为8/32=1/4。例如L=24、B=2、T=1024、d=64、每元素2字节，8个KV头的缓存为2×24×2×1024×8×64×2=100663296字节，即96MiB；32个KV头则为384MiB。查询头仍有32个，所以不能据此承诺端到端四倍加速。</p>
 <h3>4. 八专家top-2为何仍可能显存很大？</h3><p><strong>提示：</strong>区分存储与每token调用。</p><p><strong>参考解答：</strong>假设每个专家600万参数，共享模块400万参数，则总参数为8×600万+400万=5200万，每token活跃约2×600万+400万=1600万。即使每token只算两个专家，八个专家权重仍需存储或分片，另外有激活、路由与通信缓冲。活跃参数解释部分计算预算，总参数解释主要权重容量，两者不可互换。</p>
+<h3>5. 把菌群掩码重建直接称作“微生物扩散大模型”缺少哪些证据？</h3><p><strong>提示：</strong>从随机变量、训练目标和采样三个方面回答。</p><p><strong>参考解答：</strong>先定义连续组成或离散词元的随机变量、扰动核及可见性，再给出与之匹配的概率目标和反向采样程序；检验非负、总量、零值、技术缺失及外部任务。当前单步MSE重建不满足这些条件，不能由网络名称推断生成能力。</p>
 <h2>验收自测与解析</h2>
 <h3>1. RoPE常施加到什么？</h3><ol type="A"><li>Q和K</li><li>只有标签</li><li>只改变loss</li><li>所有输入必须排序</li></ol>
 <p><strong>参考答案：A。</strong>位置旋转通过QK匹配体现相对位置。</p>
@@ -2958,7 +2970,7 @@ assert not (confidence &gt;= 1.0).any()  # 零覆盖时风险应为不适用，�
 </article></section><section class="book-chapter" id="day-24"><article class="reader">
 <p class="eyebrow">UNIT 24 / 进阶 · 系统构建与评价</p>
 <h1>推理与部署：把模型放进资源与延迟预算</h1><p class="subtitle">验证 KV cache、量化误差和时间指标，建立上下文、内存、批处理与服务合同</p>
-<p class="subtle">建议 240 分钟，可分次完成。</p>
+<p class="subtle">建议 270 分钟，可分次完成。</p>
 <h2>学习目标</h2><ul><li>区分预填充、逐token解码、KV缓存与请求调度</li><li>能复算权重和KV缓存内存，并解释实际峰值高于理论下界的原因</li><li>能执行缓存等价性、对称量化与延迟指标机制实验</li><li>能设计上下文预留、批处理、流式输出和取消规则</li><li>能说明本地原型与生产服务的完成边界，建立版本、监控与回滚依据</li></ul>
 <div class="notice mint"><strong>今日作品：</strong>三个实际运行的缓存、量化和延迟定义实验；一份包含权重、KV、临时张量和运行时余量的内存账本；固定工作负载下的基准测量计划与指标定义；受限本地服务的请求响应合同和停止原因表；包含权重、tokenizer、适配器、提示和依赖版本的部署清单</div>
 <h3>先修准备</h3><ul><li>理解第4至7单元的因果注意力、生成与上下文窗口</li><li>理解第23单元的质量评价与公平比较</li><li>Python环境具有CPU版PyTorch和numpy；无需下载大型权重或购买GPU</li></ul>
@@ -3057,11 +3069,32 @@ print({&quot;remaining_context_tokens&quot;:context_limit-prompt_tokens-template
 <p>实际计时应记录模型初始化是否计入、预热次数、提示与输出长度、批量、线程数、精度、设备和软件版本。用单调高分辨率计时器包围目标阶段；GPU计算常为异步，需要适当同步或使用设备事件，不能只计CPU提交工作的时间。推理使用eval与无梯度上下文，避免把训练模式开销和随机性混进比较。不要给缓存版喂完全重复的热前缀，却给非缓存版全新输入，再把差异都归给算法。</p>
 <p>至少展示预设负载下的延迟分布和样本数，并说明是否含排队、网络和tokenization。冷启动、首请求和稳定运行分别报告。出现OOM、超时或失败请求时，保留失败率与资源记录，不能从吞吐分母中偷偷删掉慢请求。CPU与GPU数字只在相同质量与工作负载下比较；没有GPU就报告CPU条件，不推测另一台设备能达到多少速度。理想内存公式、合成时间戳与真实基准应在表中清楚区分。</p>
 <h2>轻量本地服务的合同与边界</h2>
-<p>如果未来把CLI包装为本地服务，请先限定监听地址、请求方法、body字节上限和并发。请求仅包含明确支持的字段，如prompt、max_new_tokens、seed和model_version，拒绝未知字段与过长输入；服务端再核验真实token长度及模型上下文。返回request_id、输出、模型版本、输入输出计数和stop_reason，错误使用稳定错误码。默认在本机回环地址实验，不因为浏览器能访问就宣称具备公网安全、认证与高可用能力。</p>
-<p>当前工程没有因为这一节文字就自动拥有HTTP服务器；本课实际可运行的是CLI预算和三个独立机制脚本。若要实现服务，应单独增加超时、取消、队列上限与背压，验证同时请求的缓存不串扰。模型加载路径来自固定配置，不由外部请求任意指定；密钥不进入网页前端，日志按需要记录长度、哈希和错误，避免无必要保存完整输入。代码执行、任意文件读取或患者自动处置不属于这个文本推理接口。</p>
+<p>把CLI包装为本地服务时，先限定监听地址、请求方法、body字节上限和并发。请求仅包含明确支持的字段，如prompt、max_new_tokens、seed和model_version，拒绝未知字段与过长输入；服务端再核验真实token长度及模型上下文。返回request_id、输出、模型版本、输入输出计数和stop_reason，错误使用稳定错误码。默认在本机回环地址实验，不因为浏览器能访问就宣称具备公网安全、认证与高可用能力。</p>
+<p>本课先解释接口与资源合同；第36课提供可实际运行的本机回环HTTP教学服务，支持请求校验、真实检查点推理和流式事件。本课的CLI预算与机制脚本仍可独立运行。教学服务的截止检查发生在token边界，不是硬实时中断；它没有实现生产级并发队列、身份认证或自动扩缩容，具体限制以第36课为准。模型加载路径来自启动配置，不由请求任意指定；密钥不进入网页前端，日志按需要记录长度、哈希和错误。若扩展到生产环境，还要设计取消、队列上限、背压与缓存隔离；代码执行、任意文件读取或患者自动处置不属于这个文本推理接口。</p>
 <h2>发布与监控：让速度提升也能被安全回滚</h2>
 <p>发布清单应记录代码提交、权重哈希、tokenizer词表与模板、适配器、量化配置、依赖、检索索引以及关键运行参数。模型权重没有变，提示或检索索引改变也可能影响行为，版本不能只写一个模型名。监控质量回归、拒答、格式错误、工具失败、缓存命中、队列长度、TTFT、吞吐和峰值内存；设置能解释的异常阈值，并保留上一个已验证版本的回滚路径。日志证明运行发生，不自动证明科学结论正确。</p>
 <p>本课可以拆为四十五分钟预填充与KV、六十分钟缓存和量化实验、四十五分钟预算及时间指标、四十五分钟测量与服务合同、四十五分钟阅读和报告。分别保存day24_cache.py、day24_quantization.py和day24_metrics.py执行，项目预算命令从project目录运行。交付中标出合成时间戳、理论估计与真实执行的边界，保留质量损失或速度无改善的结果。下一阶段再把这些工程约束用于微生物模型的扩大验证与研究设计，而不急于把教学原型描述为生产级基础模型。</p>
+<h2>推测解码：用校正保持目标分布</h2>
+<p>推测解码让较便宜的草稿模型提出token，再由目标模型并行核验一段候选。原始算法的关键不是“多数同意就采纳”，而是使用有严格校正的接受与重采样。对于同一前缀，设草稿分布q、目标分布p，草稿x按q抽出后，以min(1,p(x)/q(x))接受；拒绝时从归一化的正部[p−q]+抽样。多token算法还需要在首次拒绝处处理后续候选及缓存。</p>
+<p>下面只核验一个位置的概率守恒，不实现多token加速器，也不声称本地服务使用推测解码。接受后落在每个token的联合质量为min(p,q)，总拒绝质量等于sum([p−q]+)，将残余分布补回后得到p。当p=q时从不拒绝；q=0的位置不会被草稿抽到，相关目标质量由残余分布补回。浮点误差与截断必须单独处理。</p>
+<p>比较效率时同时记录草稿成本、目标模型核验成本、接受长度和实际墙钟时间。低接受率、大草稿、批处理或硬件条件都可能吃掉收益。相同输出分布也不保证相同随机种子给出逐字相同文本；它与第32课通过验证器挑选高分答案的机制不同，后者通常会有意改变交付分布。</p>
+<pre class="equation">a(x)=min(1,p(x)/q(x))；r(x)=[p(x)−q(x)]₊ / Σ_v[p(v)−q(v)]₊
+P(output=x)=min(p(x),q(x))+P(reject)·r(x)=p(x)</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import numpy as np
+p = np.array([0.1, 0.3, 0.6])
+q = np.array([0.7, 0.1, 0.2])
+assert np.all(p &gt;= 0) and np.all(q &gt;= 0)
+assert np.isclose(p.sum(), 1) and np.isclose(q.sum(), 1)
+accepted_mass = np.minimum(p, q)
+reject_mass = 1 - accepted_mass.sum()
+residual = np.maximum(p - q, 0)
+assert np.isclose(residual.sum(), reject_mass)
+output_mass = accepted_mass + reject_mass * residual / residual.sum()
+assert np.allclose(output_mass, p)
+assert not np.allclose(q, p)  # accepting every draft would be wrong
+assert np.isclose(np.minimum(p, p).sum(), 1)  # p=q: no rejection
+print({&quot;accepted_probability&quot;: float(accepted_mass.sum()),
+       &quot;corrected_distribution&quot;: output_mass.tolist()})</code></pre></div>
 <h2>动手实验 · 建立一份可复算的推理与服务预算</h2>
 <h3>1. 执行缓存等价性</h3><p>将第3节代码保存为day24_cache.py，核对全部位置的输出一致和缓存字节数；不要把它称作TinyGPT整模型缓存实现。</p>
 <div class="code-wrap"><div class="code-head">terminal</div><pre><code>python day24_cache.py</code></pre></div>
@@ -3091,11 +3124,15 @@ print({&quot;remaining_context_tokens&quot;:context_limit-prompt_tokens-template
 <p>从原始研究理解KV缓存管理与服务吞吐的联系，避免把分页、量化和注意力kernel混为一谈。</p><ul><li>辨认缓存碎片、共享和请求动态长度造成的问题。</li><li>阅读实验工作负载与硬件条件，再说明哪些倍数不能直接迁移到本项目。</li></ul>
 <p><strong>阅读问题：</strong>分页管理是否消除了所有KV信息的存储需求？</p><p><strong>参考思路：</strong>没有。它改善组织和共享、减少浪费，缓存仍需要存储相应信息与管理元数据。</p>
 <p><strong>阅读问题：</strong>服务吞吐提高就说明每个用户的首token更快吗？</p><p><strong>参考思路：</strong>不一定。批量和排队可能提高总吞吐但增加单请求延迟，需要同时报告TTFT、尾部延迟与失败率。</p>
+<h3>Fast Inference from Transformers via Speculative Decoding (2023)</h3><p><a href="https://arxiv.org/abs/2211.17192">https://arxiv.org/abs/2211.17192</a></p>
+<p>补齐推理加速中“更快但不改变目标分布”的重要机制。</p><ul><li>读第2节接受/拒绝规则和附录正确性证明。</li><li>阅读性能分析时区分接受率、模型成本与测量到的延迟。</li></ul>
+<p><strong>阅读问题：</strong>用目标模型给草稿打分并选最高分，是否保留目标抽样分布？</p><p><strong>参考思路：</strong>一般不保留。要证明抽样分布一致，必须使用匹配的接受概率和拒绝后的残余分布；任意排序选择是另一个采样策略。</p>
 <h2>练习与完整参考解答</h2>
 <h3>1. 32层、8个KV头、每头128维、上下文8192、批量1、FP16缓存需要多少字节？若批量变4，其他不变呢？</h3><p><strong>提示：</strong>K与V各一份，FP16每元素2字节。</p><p><strong>参考解答：</strong>2×32×1×8192×8×128×2=1073741824字节，即1GiB。批量4时理论值线性变成4GiB。该值不含权重、临时激活、分页元数据、分配器与服务开销；若各请求实际长度不同，要按缓存布局计算已分配容量。</p>
 <h3>2. 首token在0.12秒，最后一个在0.19秒，总共4个token。TTFT、平均TPOT和端到端输出速率是什么？</h3><p><strong>提示：</strong>首token之后只有三段token间隔。</p><p><strong>参考解答：</strong>TTFT=0.12秒；TPOT=(0.19−0.12)/(4−1)=0.02333秒；端到端输出速率=4/0.19≈21.05token/秒。解码阶段速率则为3/0.07≈42.86token/秒，不能拿它冒充含预填充和排队的端到端速率。</p>
 <h3>3. 某脚本把INT8权重还原为FP32后执行矩阵乘法，打印“量化加速4倍”。你应要求什么证据或修改？</h3><p><strong>提示：</strong>分开检查存储表示、计算kernel与计时。</p><p><strong>参考解答：</strong>删除未经测量的加速结论，报告已验证的量化误差和包含比例因子的存储大小。若要证明速度，需使用实际支持的量化kernel，在相同模型、负载和质量要求下预热并重复计时，正确同步设备，报告失败率与延迟分布。反量化后的FP32乘法不能证明整数执行。</p>
 <h3>4. 一个使用绝对位置的模型裁掉最早token后，把剩余token重新从位置0开始编号，却继续复用全部旧K/V。可能出现什么问题？</h3><p><strong>提示：</strong>检查缓存对应的输入表示是否仍相同。</p><p><strong>参考解答：</strong>旧缓存是在原位置和前缀下计算，重新编号或上下文改变后表示可能不同，增量结果不再等价于完整重算。应先定义窗口和位置策略，再按模型实际规则重新构建或维护缓存，并对跨越窗口边界的结果做等价测试，不能只验证未满窗口的短例子。</p>
+<h3>5. 当p=[0.1,0.3,0.6]、q=[0.7,0.1,0.2]时，单位置推测接受率和拒绝后分布是多少？</h3><p><strong>提示：</strong>先计算min(p,q)和[p−q]+。</p><p><strong>参考解答：</strong>接受联合质量是[0.1,0.1,0.2]，总接受率0.4；拒绝率0.6，残余分布为[0,1/3,2/3]。两部分相加恢复p。该手算只能验证单位置抽样，不能据此宣称任何硬件加速倍数。</p>
 <h2>验收自测与解析</h2>
 <h3>1. 标准KV缓存主要保存什么？</h3><ol type="A"><li>未来生成答案的正确性标签</li><li>每层过去位置的键与值</li><li>全部训练优化器状态</li><li>任意用户共享的秘密数据</li></ol>
 <p><strong>参考答案：B。</strong>缓存复用过去位置的K/V，仍需确保层、前缀、位置与授权范围匹配。</p>
@@ -3493,7 +3530,7 @@ print({&quot;macro_auc_difference_B_minus_A&quot;: float(point),
 </article></section><section class="book-chapter" id="day-28"><article class="reader">
 <p class="eyebrow">UNIT 28 / 微生物与跨模态科研进阶</p>
 <h1>DNA、蛋白与功能基础模型：从序列到群落</h1><p class="subtitle">理解不同生物模态的词元、顺序、同源关系与聚合假设，建立可验证的跨模态路线</p>
-<p class="subtle">建议 240 分钟，可分次完成。</p>
+<p class="subtle">建议 285 分钟，可分次完成。</p>
 <h2>学习目标</h2><ul><li>能区分丰度、DNA、蛋白、功能谱与文本的输入和目标</li><li>能解释k-mer、反向互补、长序列窗口和词元单位</li><li>能识别相同序列、近同源、共享基因组与预训练污染</li><li>能把序列表示聚合到样本并报告映射覆盖与信息损失</li><li>能设计单模态、简单融合与复杂融合的公平比较</li></ul>
 <div class="notice mint"><strong>今日作品：</strong>五类模态的数据与任务对照表；人工DNA的k-mer与反向互补实验；基因表示到群落的带覆盖率聚合实验；按序列簇、来源与受试者设计的防泄漏划分；一个不需要从零训练巨型模型的跨模态预测基准</div>
 <h3>先修准备</h3><ul><li>完成D13、D25和D26，理解身份嵌入与测量数据的区别</li><li>掌握字符串、字典、矩阵乘法和预训练/微调概念</li><li>本课使用人工序列与人工向量，不下载大权重、不执行DNA或蛋白模型训练</li></ul>
@@ -3566,6 +3603,28 @@ print({&quot;sample_embeddings&quot;: h.tolist(), &quot;covered_mass_fraction&qu
 <h2>从冻结表征基准开始，而不是直接重训一切</h2>
 <p>一个可行的研究扩展是固定序列来源与去重规则，使用适用的公开模型提取冻结表示，再在训练域选择池化和简单预测头。缓存应记录序列哈希、检查点、分词器、层、精度和池化方式，避免更新某个组件后沿用不兼容向量。随后再比较适配器或全量微调，并与相同监督预算的基线对照，只有证据支持时才扩大计算。</p>
 <p>本课验收是两段可运行的表示实验与一份完整基准方案，没有完成DNA模型训练、蛋白嵌入提取或真实多模态预测。你应能指出从当前丰度项目到序列模态缺少哪张映射表、哪项测量和哪种独立验证。下一课将把这些要求放入精神疾病与脑影像的具体研究情境，重点处理配对、时间和共享/特异解释，而不把跨模态网络名称当作结论。</p>
+<h2>视觉语言模型：对齐、连接器与科研图像的边界</h2>
+<p>多模态并不限于把菌群向量和影像数值拼在一起。CLIP使用图像—文字配对学习可比较的表示；LLaVA则把视觉编码器与语言模型连接，并使用视觉指令数据训练回答行为。前者的相似度目标与后者的生成监督不同。学习时应分别画出图像token、投影连接器、文字token、注意力可见性和损失位置，不能把一个可检索的图像向量自动视为可生成报告的模型。</p>
+<p>下面的矩阵是人工配对表示，演示对称对比损失：图像到文字和文字到图像各计算一次交叉熵，再求平均。把第二模态的行顺序打乱而不改标签，会让原来的正确配对变错；若同时重排正确目标，问题则只是索引变换。真实研究还要处理一对多报告、相似图像和同一受试者多次扫描造成的假负例。四个单位向量不证明图像编码器或语言模型学到了任何能力。</p>
+<p>对微生物—脑研究，可以先用冻结编码器提取影像表示，与丰度、临床和文本说明作简单比较，再考虑连接器或跨注意力。影像切片、同一人的重复扫描、报告模板和机构水印必须按受试者/研究隔离。文本若直接包含诊断标签，需要先决定任务是否允许这条信息。模型读图的自然语言解释不能替代病灶定位、定量影像分析或临床外部验证。</p>
+<p>动手时先写“只有菌群”“只有影像”“协变量”“简单拼接”“配对对比”五个基线接口，再添加大型视觉语言模型。比较统一受试者集合与缺失模态策略，并报告图像/文本对应错误时性能如何变化。外部视觉权重的加载与许可按第34课处理；此处不下载权重、不处理真实影像，也不生成临床报告。</p>
+<pre class="equation">zᵛ_i=normalize(fᵥ(image_i))，zᵗ_j=normalize(fₜ(text_j))
+S_ij=〈zᵛ_i,zᵗ_j〉/τ
+L=(CE(S, matched_text_ids)+CE(Sᵀ, matched_image_ids))/2</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import torch
+import torch.nn.functional as F
+image = torch.eye(4, dtype=torch.float64)
+text = torch.eye(4, dtype=torch.float64)
+labels = torch.arange(4)
+def paired_loss(v, t):
+    logits = F.normalize(v, dim=-1) @ F.normalize(t, dim=-1).T / 0.1
+    return (F.cross_entropy(logits, labels) + F.cross_entropy(logits.T, labels)) / 2
+correct = paired_loss(image, text)
+wrong = paired_loss(image, text[[1, 0, 2, 3]])
+assert correct &lt; wrong
+permutation = torch.tensor([2, 0, 3, 1])
+assert torch.allclose(correct, paired_loss(image[permutation], text[permutation]))
+print({&quot;correct_pair_loss&quot;: float(correct), &quot;mispaired_loss&quot;: float(wrong)})</code></pre></div>
 <h2>动手实验 · 搭建从人工序列到样本表示的透明原型</h2>
 <h3>1. 明确任务与模态</h3><p>选择基因级预测或受试者级表型之一，写出每种输入的自然单位与标签来源；仅使用一般科研情境。</p>
 <div class="expected">检查什么：知道哪些是新测量、哪些是派生特征，不能把物种名当作序列。</div>
@@ -3591,11 +3650,18 @@ print({&quot;sample_embeddings&quot;: h.tolist(), &quot;covered_mass_fraction&qu
 <p>理解蛋白语言表示与结构预测系统的连接，并区分它们与样本级功能或表型推断。</p><ul><li>在原论文中区分ESM-2表征与ESMFold结构输出。</li><li>阅读官方https://github.com/facebookresearch/esm关于表征层、池化和模型版本的说明。</li><li>选择一项与你的预测问题相关的对照，避免仅因结构图精细就判断群落模型有效。</li></ul>
 <p><strong>阅读问题：</strong>有蛋白结构预测，是否已经知道它在样本中表达？</p><p><strong>参考思路：</strong>不是。结构、表达量、环境与体内作用是不同层面的信息，需要相应测量。</p>
 <p><strong>阅读问题：</strong>提取平均蛋白嵌入时为什么要检查特殊词元？</p><p><strong>参考思路：</strong>起止与padding通常不代表实际残基，是否包含会改变池化数值；应使用与任务一致的掩码并记录规则。</p>
+<h3>Learning Transferable Visual Models From Natural Language Supervision (2021)</h3><p><a href="https://arxiv.org/abs/2103.00020">https://arxiv.org/abs/2103.00020</a></p>
+<p>从配对监督理解多模态表征与零样本迁移的区别。</p><ul><li>读训练目标和双编码器结构。</li><li>列出医学影像/文字配对与网络图片/描述配对的差异。</li></ul>
+<p><strong>阅读问题：</strong>CLIP的图文相似度是否就是疾病概率？</p><p><strong>参考思路：</strong>不是。相似度由训练配对和候选描述定义；若要解释为疾病概率，需要特定任务建模、概率校准及独立验证。</p>
+<h3>Visual Instruction Tuning (2023)</h3><p><a href="https://arxiv.org/abs/2304.08485">https://arxiv.org/abs/2304.08485</a></p>
+<p>理解视觉编码器、连接器与语言生成目标的衔接。</p><ul><li>读模型连接方式和分阶段训练。</li><li>标注哪些模块冻结、哪些更新，以及文本监督位置。</li></ul>
+<p><strong>阅读问题：</strong>有图像embedding后，为什么还不能直接生成可靠科研说明？</p><p><strong>参考思路：</strong>还缺对应模态的连接/对齐、生成监督与任务评价。像素可见性、标签泄漏、来源偏差和科学证据均需独立验证。</p>
 <h2>练习与完整参考解答</h2>
 <h3>1. 将一条基因组切成重叠窗口后随机分训练与测试，会出现什么问题？</h3><p><strong>提示：</strong>考虑共享片段、来源和任务泛化单位。</p><p><strong>参考解答：</strong>不同集合可能含完全重叠片段或同源相邻区域，模型可能识别已见来源而非新基因组。应先按基因组、序列簇或目标需要的更高层级划分，再在各分区内部切窗口，保留原始坐标与来源映射。</p>
 <h3>2. canonical k-mer在反向互补后不变，为什么不一定适合所有任务？</h3><p><strong>提示：</strong>考虑链方向和相对位置是否属于标签信息。</p><p><strong>参考解答：</strong>它丢弃方向与长程顺序。若标签具有链特异或位置方向语义，强制不变可能删除必要信号；需同步转换标签坐标或选择保留方向的模型，并通过对应任务验证。</p>
 <h3>3. 只有75%的基因权重有可用嵌入，平均向量该如何报告？</h3><p><strong>提示：</strong>分母决定它代表全部群落还是覆盖部分。</p><p><strong>参考解答：</strong>报告已覆盖权重、缺失原因和对覆盖部分归一化的规则，明确表示条件于这75%。可比较覆盖率作为诊断或筛选条件，但不能无说明把缺失向量当真实零，也不能声称已表示全部功能。</p>
 <h3>4. 序列嵌入加丰度的模型优于丰度单独，但不优于简单拼接，该怎样解释？</h3><p><strong>提示：</strong>分清新增信息与复杂融合结构的贡献。</p><p><strong>参考解答：</strong>结果可能支持新增模态在该任务的增量，但尚未支持复杂融合优于简单整合。继续检查预算、缺失样本与外测稳定性，不能把全部收益归因于跨模态注意力或新的生物机制。</p>
+<h3>5. 同一受试者的十张切片与同一份报告可当作十个独立图文配对吗？</h3><p><strong>提示：</strong>区分训练条目数量与独立评价单位。</p><p><strong>参考解答：</strong>可作为有依赖关系的训练输入，但不能当十个独立受试者；应按人及研究划分，记录切片聚合，防止同人的图像/报告跨集合。对比损失还需处理一对多正例，不能把同一人的另一张切片机械当负例。</p>
 <h2>验收自测与解析</h2>
 <h3>1. 物种身份嵌入能直接提供什么？</h3><ol type="A"><li>训练词表中该身份的学习向量</li><li>该物种所有菌株的完整DNA</li><li>真实受试者中的表达量</li><li>已验证的疾病因果效应</li></ol>
 <p><strong>参考答案：A。</strong>身份向量与序列、表达和因果证据属于不同数据层次。</p>
@@ -3755,7 +3821,7 @@ print({&quot;standardized_predictive_residuals&quot;: standardized.tolist(), &qu
 </article></section><section class="book-chapter" id="day-30"><article class="reader">
 <p class="eyebrow">UNIT 30 / 微生物与跨模态科研进阶</p>
 <h1>科研级 Capstone：从合成流程到多队列证据</h1><p class="subtitle">以可复核的实验、负结果与阶段门槛，完成 CurateMicrobiota 的科研交付</p>
-<p class="subtle">建议 240 分钟，可分次完成。</p>
+<p class="subtle">建议 285 分钟，可分次完成。</p>
 <h2>学习目标</h2><ul><li>把微生物基础模型愿景写成任务、数据、预算和评价目标明确的可证伪主张</li><li>独立解释五臂跨研究基准，区别模型训练成功、迁移收益与真实生物学结论</li><li>建立数据、划分、配置、模型和图表的来源索引，理解摘要能够与不能够证明的事实</li><li>设计公平消融、标签效率与跨队列统计协议，避免种子伪重复和测试集反复选择</li><li>完成模型卡、数据说明与复现入口，并设定从合成到真实数据、再到规模化的阶段门槛</li></ul>
 <div class="notice mint"><strong>今日作品：</strong>一页 Capstone 研究协议：主要问题、对照、外层单位、主要指标、预算与成功或失败判定；五模型逐研究结果表及对 0.0125 平均差的有边界解释；数据与配置摘要小实验、汇总复核小实验，以及真实运行记录的证据索引；研究级模型卡、数据说明、消融矩阵、论文图表草案和下一阶段验收清单</div>
 <h3>先修准备</h3><ul><li>完成 D10–D14 的菌群预训练与评估，理解合成数据的用途</li><li>完成 D25–D27 的测量合同、模型对照与跨队列统计</li><li>了解 D28–D29 的序列、多模态与纵向研究边界；尚未执行真实数据导出不妨碍本课合成验收</li></ul>
@@ -3855,6 +3921,27 @@ print(&quot;Descriptive synthetic result; no significance or biological benefit 
 <h2>11｜下一阶段的门槛：用证据决定何时扩大规模</h2>
 <p>第一阶段验收是合成闭环：命令可运行，受试者不泄漏，五臂对照完整，负结果如实报告。第二阶段是小规模真实数据工程：实际执行导出、核对许可与测量合同，先建立传统基线和版本审计，不急于宣称大模型。第三阶段是独立多队列评估：冻结研究问题，执行训练域内调参、逐研究外测、误差分析与外部复现，确认信号不是研究来源或诊断流程的替代指标。第四阶段才根据学习曲线、跨任务迁移和可承担预算，判断是否增加未标注数据、模型容量或训练长度。</p>
 <p>DNA、蛋白、功能、脑影像与纵向研究分别引入新的测量单位和泄漏路径，应该在单模态基准可信后逐项扩展，保持受试者配对、同源关系、预测时间和缺失机制可追踪。合成验证通过意味着具备了实施研究的工具链，真实多队列结果才决定领域主张是否成立。最终答辩时，请展示一个完整可复查的科学问题、一个支持或否定它的实验、一次你如何发现并修正错误的记录，以及下一项最能减少不确定性的实验。这样的项目既能体现你对大模型原理的理解，也能说明你知道何时应该克制地解释结果。</p>
+<h2>多中心协作：联邦聚合、隐私与可复现性</h2>
+<p>当真实队列不能集中时，可以研究联邦学习：各中心保留原始数据，交换模型更新并聚合。FedAvg按本地样本权重合并更新；它改变训练组织方式，不自动消除队列异质性、标签定义差异或更新泄漏。中心数量、每轮参与率、本地步数、聚合权重及掉线处理都应成为协议的一部分。</p>
+<p>以下二次目标说明一个精确边界：所有中心从相同参数出发，只走一步相同学习率的完整本地梯度，样本加权平均等于集中目标的一步梯度。多走几步后，如果本地曲率不同，局部轨迹通常不再等同集中训练。这个例子只核验数学与实现，不模拟网络、站点安全或完整联邦训练系统。</p>
+<p>差分隐私需要定义相邻数据集、保护单位及隐私预算，再使用匹配的机制和组合分析。DP-SGD中的逐样本梯度裁剪、加噪和隐私记账缺一不可；一个人有多个随访样本时，保护单条记录不自动等于保护该受试者。安全聚合控制服务器能看到什么，差分隐私控制输出分布对个体变化的敏感性，两者也不能互相替代。</p>
+<p>科研交付时，不公开敏感个体数据仍可交付处理规则、数据字典、版本、允许共享的划分摘要和可复现的合成夹具。公开权重能否分享另行取决于数据与训练协议。数据删除、模型遗忘和保证完全移除训练影响是不同任务，不能把删掉CSV、重新命名模型或一次反向微调当作充分证明。先用中心留出评价与威胁模型明确需要解决的问题。</p>
+<pre class="equation">wᵢ¹=w⁰−η∇Fᵢ(w⁰)；w̄¹=Σᵢ(nᵢ/N)wᵢ¹=w⁰−η∇[Σᵢ(nᵢ/N)Fᵢ](w⁰)
+逐样本裁剪：ḡᵢ=gᵢ/max(1,||gᵢ||₂/C)；随后按定义聚合、加噪和记账。</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import numpy as np
+counts = np.array([2., 8., 10.])
+weights = counts / counts.sum()
+curvature = np.array([1., 2., 4.])
+centers = np.array([1., 3., 5.])
+w0, lr = 0.0, 0.1
+local1 = w0 - lr * curvature * (w0 - centers)
+central1 = w0 - lr * np.dot(weights, curvature * (w0 - centers))
+assert np.isclose(weights @ local1, central1)
+local2 = local1 - lr * curvature * (local1 - centers)
+central2 = central1 - lr * np.dot(weights, curvature * (central1 - centers))
+assert not np.isclose(weights @ local2, central2)
+print({&quot;one_step_equal&quot;: True, &quot;two_local_steps_average&quot;: float(weights @ local2),
+       &quot;two_central_steps&quot;: float(central2), &quot;privacy_guarantee&quot;: &quot;none&quot;})</code></pre></div>
 <h2>动手实验 · 240 分钟科研级毕业验收：让每一条结论有可追踪证据</h2>
 <h3>1. 第一步｜冻结一页协议（25 分钟）</h3><p>写清楚一个主要预测任务、输入模态、独立单位、可用时点、一个主要模型比较和主要指标。把标签、未标注、计算与调参预算分开填写，并规定何时使用外测结果。协议中把合成演示和待执行的真实数据研究分开描述。</p>
 <div class="expected">检查什么：任何读者都能据此判断一项结果是在检验哪句话，以及什么结果会否定它。</div>
@@ -3881,11 +3968,18 @@ python -m curatemicrobiota.benchmark --data data/demo --out runs/loso --pretrain
 <h3>Improving Reproducibility in Machine Learning Research: A Report from the NeurIPS 2019 Reproducibility Program (2021)</h3><p><a href="https://jmlr.org/papers/v22/20-303.html">https://jmlr.org/papers/v22/20-303.html</a></p>
 <p>该原始报告讨论代码、复现挑战与研究清单的实践，为毕业项目建立可核查的运行记录提供依据。</p><ul><li>阅读三项组成：代码政策、复现挑战和可复现性清单。</li><li>将项目的主要表格拆成输入文件、命令、配置和输出，再交给另一名读者核查。</li><li>讨论相同代码数据的结果复现，与独立新队列上的结论推广分别需要什么证据。</li></ul>
 <p><strong>阅读问题：</strong>代码开源后，为什么仍可能无法复现主要结果？</p><p><strong>参考思路：</strong>可能缺少确切数据版本、受试者划分、预处理拟合范围、环境、超参数搜索记录或检查点选择规则。代码只是证据链的一部分，发布时还要提供这些条件与可核对的输出。</p>
+<h3>Communication-Efficient Learning of Deep Networks from Decentralized Data (2017)</h3><p><a href="https://proceedings.mlr.press/v54/mcmahan17a.html">https://proceedings.mlr.press/v54/mcmahan17a.html</a></p>
+<p>理解模型平均与本地步数对多中心学习协议的影响。</p><ul><li>读FedAvg算法，记录采样中心、本地迭代和聚合权重。</li><li>为菌群跨研究差异设计中心留出对照。</li></ul>
+<p><strong>阅读问题：</strong>联邦学习是否自动保证隐私和跨队列泛化？</p><p><strong>参考思路：</strong>不保证。数据不集中不等于更新不泄漏；需要明确威胁模型、保护机制、预算与独立外测。</p>
+<h3>Deep Learning with Differential Privacy (2016)</h3><p><a href="https://arxiv.org/abs/1607.00133">https://arxiv.org/abs/1607.00133</a></p>
+<p>理解裁剪、噪声和隐私成本分析为何必须一起定义。</p><ul><li>识别保护单位、裁剪、噪声与组合记账。</li><li>区分record-level与subject-level邻接关系。</li></ul>
+<p><strong>阅读问题：</strong>只给平均梯度加一个随机噪声，能报告ε隐私预算吗？</p><p><strong>参考思路：</strong>不能。还需灵敏度或裁剪界、采样机制、噪声分布、步数、邻接定义与相应记账；没有这些量就不能给出有效ε保证。</p>
 <h2>练习与完整参考解答</h2>
 <h3>1. 将“我们构建了首个强大的微生物大模型，显著改善精神疾病诊断”改写成当前课程证据能够支持的结果描述。</h3><p><strong>提示：</strong>分别核对首个、强大、显著、真实数据与诊断用途这几个主张。</p><p><strong>参考解答：</strong>可以写：我们实现了 CurateMicrobiota 教学流程，并在六个合成研究、两个随机种子及固定短训练预算下完成五臂留一研究评估。传统 logistic 的研究宏平均 AUROC 为 0.828333，预训练微调为 0.566667，从零监督为 0.554167；后两者平均差为 0.0125，逐研究表现不一致。当前结果验证了工程与评估流程，没有建立真实精神疾病预测、统计显著迁移收益或临床诊断效用。首创性也需要完整文献比较，不能由本实验推出。</p>
 <h3>2. 某团队运行六个研究、两个种子，把十二个 AUROC 当独立样本做普通 t 检验。问题是什么，应该如何重设计？</h3><p><strong>提示：</strong>种子共享测试受试者和研究环境，研究内相关不能忽略。</p><p><strong>参考解答：</strong>同一研究的两个种子复用测试对象，不能视为十二次独立人群抽样。先明确估计目标：若关心这些固定研究上的模型差，应在相同研究和受试者上做配对比较，并区分固定预测器的不确定性与训练波动；若关心未来新研究，还需要考虑研究间变异，研究数少时结论应保守。可先展示研究内种子结果及研究均值，按研究再按受试者进行有明确假设的配对重采样，必要时重复训练。任何统计方案都不能把合成研究的结果自动推广到真实人群。</p>
 <h3>3. 模型文件和数据摘要一致，但另一位同学得到不同 AUROC。至少列出四个需要核查的原因，并说明摘要为什么不够。</h3><p><strong>提示：</strong>检查特征顺序、变换、聚合和选择过程。</p><p><strong>参考解答：</strong>需要核查是否按相同词表顺序构造输入、是否加载了同一份训练域预处理、是否使用同一受试者聚合方式、是否读取同一个验证选定检查点、标签和预测行是否正确对齐、软件和数值精度是否一致，以及宏平均与合并所有样本计算是否混用。摘要只说明被摘要对象的内容一致；如果未把这些规则和参数纳入记录，仍可在后续处理产生不同结果。应保存来源合同、配置、划分、预处理、受试者预测及汇总代码。</p>
 <h3>4. 有限预算下，下一轮应先把模型扩大十倍，还是先开展跨测量版本的传统基线与特征映射审计？给出具体决策条件。</h3><p><strong>提示：</strong>判断目前主要不确定性来自数据合同、优化不足还是表示容量。</p><p><strong>参考解答：</strong>若真实数据的分类数据库、零值语义、表型定义与受试者映射还没有核对，先做审计和传统基线，因为扩大模型无法修复错误测量合同。若合同可靠且不同队列的简单模型表现已明确，再通过训练与验证学习曲线检验是否欠拟合、是否存在预训练收益和数据规模效应。只有在模型容量或训练预算成为有证据的限制、且有独立评价资源时，扩大规模才有明确目的。增加算力后仍需与相应预算对照比较，并将以前用于指导选择的测试集标为已查看。</p>
+<h3>5. 两个中心不共享原始数据，只共享梯度，为什么仍需隐私与外部验证协议？</h3><p><strong>提示：</strong>分别看信息泄漏和目标人群差异。</p><p><strong>参考解答：</strong>更新仍可能含有个体信息；保护范围要由威胁模型、聚合/差分隐私等机制和预算定义。同时各中心的测量、患病率、药物与人群分布可能不同，聚合不会自动创造外部效度。应明确受试者级保护单位，并使用中心留出评价。</p>
 <h2>验收自测与解析</h2>
 <h3>1. 当前六研究合成基准中，微调相对从零监督平均 AUROC 高 0.0125，最严谨的解释是什么？</h3><ol type="A"><li>两种子等于十二次独立临床验证</li><li>可以直接将模型作为真实诊断工具</li><li>当前预算下存在一个描述性均值差，尚未建立显著性或真实生物收益</li><li>证明所有微生物预训练模型优于传统模型</li></ol>
 <p><strong>参考答案：C。</strong>均值差必须结合逐研究变化、独立单位、训练波动和数据来源解释。当前传统基线更高，且所有数据均为合成教学数据。</p>
@@ -3898,5 +3992,1482 @@ python -m curatemicrobiota.benchmark --data data/demo --out runs/loso --pretrain
 <h3>5. 项目的合成五臂流程已完成，但真实 R 导出和多模态训练尚未执行，最终报告应如何写？</h3><ol type="A"><li>删除负结果，只展示未来目标</li><li>将合成数据直接称为外部临床队列</li><li>分别标注已执行证据与后续扩展，并给真实阶段设置验收条件</li><li>把全部路线图写成已验证能力</li></ol>
 <p><strong>参考答案：C。</strong>清楚区分实现、运行、验证与研究设想，才能让读者判断证据覆盖的范围，也让下一阶段有明确进入条件。</p>
 <h2>收尾思考</h2><ul><li>如果删去项目名称和所有视觉设计，仅凭协议、预测与结果文件，别人能否复核你的主要主张？</li><li>当前最重要的不确定性来自测量合同、标签定义、验证设计、模型容量还是训练预算？哪一个实验最能降低它？</li><li>如果下一轮仍然没有超过传统基线，你能否解释失败、保留结果并提出更清楚的研究问题？</li><li>你能否向不同背景的合作者解释文本模型、菌群丰度模型、DNA 模型和证据检索各自学到了什么，又没有验证什么？</li></ul>
-<p><strong>下一步：</strong>完成 30 个单元后进入研究循环：先通过真实数据合同与传统基线验收，再按预先固定的跨队列协议评估迁移；只有证据支持时才扩大规模或加入新的模态。</p>
+<p><strong>下一步：</strong>完成前30个单元后，继续第31–39课按缺口补齐，并用“查漏验收”的12项独立任务检查能力。进入真实研究前，先通过数据合同与传统基线验收，再按预先固定的跨队列协议评估迁移；只有证据支持时才扩大规模或加入新的模态。</p>
+</article></section><section class="book-chapter" id="day-31"><article class="reader">
+<p class="eyebrow">UNIT 31 / 补全 · 语言与适配</p>
+<h1>提示与上下文工程：让每一次输入成为可比较的实验</h1><p class="subtitle">从零样本、少样本与示例选择，到上下文预算、约束输出和提示消融</p>
+<p class="subtle">建议 210 分钟，可分次完成。</p>
+<h2>学习目标</h2><ul><li>区分上下文内学习、检索补充、参数微调与外部记忆的状态变化。</li><li>把一个科研任务写成可核验的输入、输出、证据与失败约定。</li><li>构造不泄漏测试答案的零样本和少样本提示对照。</li><li>用真实编码器分配上下文，保存最终输入及版本摘要。</li><li>解释约束解码、JSON解析、模式校验与科学语义核验的不同作用。</li></ul>
+<div class="notice mint"><strong>今日作品：</strong>一份版本化的科研证据抽取提示，含字段定义和缺证示例。；四种提示条件的预注册比较表，记录样例来源、顺序与预算。；可执行上下文编排器及其保留、丢弃、超限拒绝记录。；结构合法但科学结论错误的反例与独立核验说明。</div>
+<h3>先修准备</h3><ul><li>完成 D2、D7、D9 与 D23；理解编码器、生成概率、来源留出与评价指标。</li><li>完成 D20 的聊天模板部分和 D21 的证据字段部分更容易衔接。</li><li>本课两个脚本仅需项目已有依赖，不需要模型下载、API 密钥或 GPU。</li></ul>
+<h2>01｜任务合同先于提示措辞</h2>
+<p>提示的作用，是把模型的条件输入组织成能够支持目标任务的信息。先把任务写成“输入是什么、需要决定什么、输出如何核验、哪些信息缺少时停止”，再决定语气或角色。以微生物论文抽取为例，输入是一段已定位的原文，输出是样本来源、测量方法、表型、比较方向、效应量及出处；如果原文没有效应量，空值和缺失原因本身就是正确结果。</p>
+<p>把“你是世界顶级专家，请全面深入分析”改成具体要求：每项结论必须绑定证据 ID；相对丰度与绝对负荷分别记录；观察性关联使用关联表述；找不到信息就标为 missing。这些规则能形成独立评分表。长提示不自动更好，重复的礼貌、身份和形容词消耗预算，却没有增加任务约束。</p>
+<p>本课使用的证据卡与回答都是原创教学材料，不把模拟句子当作真实研究结果。真正接入文献时，保留文章、版本、段落位置和可用许可。任务描述、输入材料与评价答案分开保存：评价答案应只进入评分环节，否则所谓提示改进可能只是把答案复制到了上下文。</p>
+<h2>02｜上下文内学习没有更新模型权重</h2>
+<p>零样本提示只描述任务；少样本提示再提供输入—输出例子。模型在当前条件序列上预测新答案，这就是上下文内学习的一种操作定义。常规推理没有反向传播或 optimizer.step，所以权重不随这些例子更新；对话历史和缓存可以变化，但不等于写入了长期参数知识。Brown 等人的原始工作把不同示例数量作为评价条件，见文末阅读。</p>
+<p>这也解释了三种适配的区别：提示改变本次条件，RAG把可追溯外部材料放进条件，SFT通过损失更新参数。它们可以组合。若模型不能按给定字段输出，少量正确示例可能有帮助；若需要最新文献事实，应补充可核验证据；若大量重复任务需要稳定行为，可以在独立评价后考虑微调。不要用一个技术名替代问题诊断。</p>
+<p>ICL 并不意味着任意小模型都能学会任意规则。当前 TinyGPT 的规模、上下文和训练文本只支持机制学习，不能拿它的失败证明少样本方法无效，也不能把随机输出称为领域推理。需要真实模型能力实验时，选定可支持任务的模型、固定版本、保存实际提示，并与零样本结果在同一题集比较。</p>
+<h2>03｜示例选择、标签空间与顺序都属于实验因素</h2>
+<p>一个好的示例不仅给答案，还明确格式和边界：什么是缺证、何时保留冲突、哪些字段不能推断。先覆盖正常、否定、缺失与相互矛盾的案例，再考虑例子数量。样例应来自开发资料，与最终测试文献按研究或文档家族隔离；同一摘要换一种问法仍可能泄漏。</p>
+<p>Min 等人的研究发现，在其考察的分类和选择题任务中，示例的标签空间、输入分布与格式可以产生重要影响，不能据此推断所有任务的标签可以随意写错。科研抽取的示例应保持正确。可将标签打乱作为研究对照，用来分辨格式提示与输入—标签映射分别贡献多少，但必须清楚标为实验扰动。</p>
+<p>改变示例顺序时保留同一组例子，才是在比较顺序；换成更相关的例子后再改变顺序，会同时改变两个因素。固定几种事先规定的排列，报告均值与范围。不要在最终测试集上反复试排列再挑最高分。类别不平衡时还需检查模型是否只是沿用了示例中最常见的标签。</p>
+<h2>04｜写一份能直接使用的科研提示</h2>
+<p>建议把模板分成任务、字段、证据、例子、当前问题与输出约定。任务写“只根据本次材料抽取研究信息”；字段明确 host、assay、design、association、effect、uncertainty 与 evidence_ids；缺失允许 null；冲突保留双方来源。信息来源与指令层由应用明确分开，但文字分隔符不是执行权限边界，工具权限仍由 D22 的执行层控制。</p>
+<p>示范任务可以这样写：“读取 E1 与 E2，给出二者是否研究同一测量对象；输出 comparability 为 comparable、partly_comparable 或 insufficient，并附最多两条理由。理由只能引用给定证据，不能补写原文没有的样本数。”然后给一个 16S 与 shotgun 测量差异的示例，再给一个方法缺失的反例。示例说明判断尺度，不能代替真正方法学核对。</p>
+<p>模型输出用于继续计算时，把可机器读取的字段与面向人的简短说明分开；不要要求评分器解析一篇随意散文。多轮编辑应保存模板版本、所用示例和最终实际输入，而不只保存最初手写的提示。模型名称相同但模板或证据不同，仍然是不同实验条件。</p>
+<h2>05｜先分配上下文，再装入材料</h2>
+<p>可用输入预算等于模型上下文容量减去预留输出及真实模板开销。容量应来自实际模型配置，计数应来自对应 tokenizer。中文字符、字节、子词 token 不能混用。消息序列还可能被聊天模板加入角色标记和终止符，因此最后必须编码完整渲染结果，而不能只把各段字符数相加。</p>
+<p>下面用项目的 UTF-8 字节编码器做可重复编排：任务与问题是必需部分，证据按已给定顺序尝试放入，过长证据整块丢弃并记录 ID。它没有按字符截断原文，也没有偷偷改变问题。这是一个贪心可复核规则，不保证取得所有组合中信息量最大的集合。信息价值与长度需要独立评估。</p>
+<p>代码中的 360 是编排演示预算，未加载任何模型，也没有把默认上下文 64 的 TinyGPT 扩成 360。实际接入模型时必须以它的真实上限重新运行。观察中文三字符占九个字节，以及过长 B 被跳过后更短 C 仍可进入；如果必需内容本身放不下，应报错并重新设计任务。</p>
+<pre class="equation">L_input + L_reserved_output ≤ L_context；L_input = len(tokenizer(final_rendered_input))</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import hashlib
+import json
+from curatemicrobiota.language import ByteTokenizer
+
+def render(question, cards):
+    # This is an explicit teaching template, not an external model&#x27;s chat template.
+    return (&#x27;TASK: use only the supplied evidence; preserve uncertainty.\n&#x27;
+            + &#x27;\n&#x27;.join(&#x27;EVIDENCE &#x27;+c[&#x27;id&#x27;]+&#x27;: &#x27;+c[&#x27;text&#x27;] for c in cards)
+            + &#x27;\nQUESTION: &#x27;+question+&#x27;\nANSWER:&#x27;)
+
+def assemble(question, ranked_cards, context_limit, output_reserve):
+    if context_limit &lt;= 0 or not 0 &lt;= output_reserve &lt; context_limit:
+        raise ValueError(&#x27;invalid context/output budget&#x27;)
+    selected, dropped = [], []
+    if len(ByteTokenizer.encode(render(question, []))) + output_reserve &gt; context_limit:
+        raise ValueError(&#x27;mandatory task and question do not fit&#x27;)
+    if len({c[&#x27;id&#x27;] for c in ranked_cards}) != len(ranked_cards):
+        raise ValueError(&#x27;duplicate evidence ID&#x27;)
+    for card in ranked_cards:
+        candidate = render(question, selected+[card])
+        if len(ByteTokenizer.encode(candidate)) + output_reserve &lt;= context_limit:
+            selected.append(card)
+        else:
+            dropped.append(card[&#x27;id&#x27;])
+    prompt = render(question, selected)
+    manifest = {&#x27;template&#x27;: &#x27;evidence-v1&#x27;, &#x27;tokenizer&#x27;: &#x27;utf8-byte-v1&#x27;,
+                &#x27;context_limit&#x27;: context_limit, &#x27;output_reserve&#x27;: output_reserve,
+                &#x27;input_tokens&#x27;: len(ByteTokenizer.encode(prompt)),
+                &#x27;kept&#x27;: [c[&#x27;id&#x27;] for c in selected], &#x27;dropped&#x27;: dropped,
+                &#x27;sha256&#x27;: hashlib.sha256(prompt.encode(&#x27;utf-8&#x27;)).hexdigest()}
+    return prompt, manifest
+
+cards = [{&#x27;id&#x27;: &#x27;A&#x27;, &#x27;text&#x27;: &#x27;关联不等于因果。&#x27;},
+         {&#x27;id&#x27;: &#x27;B&#x27;, &#x27;text&#x27;: &#x27;Repeated explanatory background. &#x27;*30},
+         {&#x27;id&#x27;: &#x27;C&#x27;, &#x27;text&#x27;: &#x27;A held-out study was not used in training.&#x27;}]
+prompt, report = assemble(&#x27;What can the study establish?&#x27;, cards, 360, 40)
+assert report[&#x27;kept&#x27;] == [&#x27;A&#x27;, &#x27;C&#x27;] and report[&#x27;dropped&#x27;] == [&#x27;B&#x27;]
+assert report[&#x27;input_tokens&#x27;] + report[&#x27;output_reserve&#x27;] &lt;= 360
+assert len(ByteTokenizer.encode(&#x27;微生物&#x27;)) == 9 and len(&#x27;微生物&#x27;) == 3
+assert report == assemble(&#x27;What can the study establish?&#x27;, cards, 360, 40)[1]
+try:
+    assemble(&#x27;x&#x27;*400, cards, 360, 40)
+except ValueError:
+    pass
+else:
+    raise AssertionError(&#x27;mandatory content must not be silently truncated&#x27;)
+print(json.dumps(report, ensure_ascii=False, indent=2))
+print(&#x27;Assembly only: no model was loaded; 360 is not TinyGPT default capacity.&#x27;)</code></pre></div>
+<h2>06｜长上下文、摘要与记忆有不同失效方式</h2>
+<p>能放入长材料不等于能可靠使用所有材料。Lost in the Middle 在特定模型与任务中观察到答案位置改变会影响表现；它给出的是应当检查的位置敏感性，不是对所有新模型的恒定规律。对自己的任务，将关键证据移到开头、中间、结尾，保持其余内容不变，分别测正确性与引用定位。</p>
+<p>对话摘要会压缩上下文，但也可能丢失否定、单位、时间和来源。可以把“已确认事实、未决问题、当前约束、证据定位”分成字段，对摘要后的一项关键结论回查原文。摘要不应成为一个失去出处的新权威。模型说“之前已核实”时，系统仍需要能找到原始核验记录。</p>
+<p>外部记忆还涉及写入规则与过期：旧方法版本、撤回文献或被用户更正的条件必须能更新。短期工作状态可以只保存本次任务，长期知识库需要来源、时间和版本。课程中的学习记录、RAG索引和模型权重属于不同状态，清空聊天历史不会重新训练模型，更新索引也不会改变权重。</p>
+<h2>07｜约束解码保证可接受形式，仍要检查意义</h2>
+<p>提示“请输出 JSON”只是一个生成要求；JSON 解析检查语法；模式校验检查字段类型、枚举和必填项；约束解码在生成时限制下一 token 的可选集合。PICARD通过增量解析约束特定形式语言的生成，是理解这一层次的原始研究。真正的子词语法约束还要处理 token 片段跨越语法边界，不能把下面的枚举掩码当作完整 JSON 引擎。</p>
+<p>在有限枚举例子中，给非法标签的 logit 设为负无穷，使其归一化概率为零。所有候选都被禁止时必须显式失败，不能继续对全负无穷做 softmax。即使最终状态是合法的 supported，也没有证明一句科学断言得到支持。下方故意构造“引文存在、结构正确、因果结论不成立”的例子。</p>
+<p>示例的设计字段检查只拒绝一个明显越界推断，不能承担一般科学事实判定；即使研究标注为随机干预，也要核对干预对象、终点、偏差与主张范围。项目应保存结构校验结果和证据支持核验结果两个字段，不能让模型自己填 human_verified 就绕过独立审查。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import json
+import torch
+
+# A one-token enum is a small constraint example, not a complete JSON grammar.
+vocabulary = [&#x27;supported&#x27;, &#x27;insufficient&#x27;, &#x27;invented&#x27;]
+logits = torch.tensor([1., 0., 8.], dtype=torch.float64)
+allowed = torch.tensor([True, True, False])
+masked = logits.masked_fill(~allowed, float(&#x27;-inf&#x27;))
+probability = torch.softmax(masked, dim=0)
+assert float(probability[2]) == 0.0
+chosen = vocabulary[int(probability.argmax())]
+assert chosen == &#x27;supported&#x27;
+
+def validate_shape(raw):
+    obj = json.loads(raw)
+    if not isinstance(obj, dict) or set(obj) != {&#x27;status&#x27;, &#x27;claim&#x27;, &#x27;evidence_ids&#x27;}:
+        raise ValueError(&#x27;unexpected fields&#x27;)
+    if obj[&#x27;status&#x27;] not in {&#x27;supported&#x27;, &#x27;insufficient&#x27;}:
+        raise ValueError(&#x27;invalid status&#x27;)
+    if not isinstance(obj[&#x27;claim&#x27;], str) or not obj[&#x27;claim&#x27;]:
+        raise ValueError(&#x27;claim must be nonempty text&#x27;)
+    if not isinstance(obj[&#x27;evidence_ids&#x27;], list) or not all(type(x) is str for x in obj[&#x27;evidence_ids&#x27;]):
+        raise ValueError(&#x27;evidence_ids must be a string list&#x27;)
+    return obj
+
+catalog = {&#x27;E1&#x27;: {&#x27;design&#x27;: &#x27;observational&#x27;, &#x27;measured&#x27;: [&#x27;relative_abundance&#x27;]}}
+bad = validate_shape(json.dumps({&#x27;status&#x27;: &#x27;supported&#x27;,
+    &#x27;claim&#x27;: &#x27;The microbe causes the phenotype.&#x27;, &#x27;evidence_ids&#x27;: [&#x27;E1&#x27;]}))
+assert set(bad[&#x27;evidence_ids&#x27;]) &lt;= set(catalog)
+# The ID exists and JSON is valid, but these checks have not proved the claim.
+verified_causal_claim = any(catalog[i][&#x27;design&#x27;] == &#x27;randomized_intervention&#x27;
+                            for i in bad[&#x27;evidence_ids&#x27;])
+assert not verified_causal_claim
+try:
+    validate_shape(&#x27;{&quot;status&quot;:&quot;supported&quot;,&quot;claim&quot;:&quot;x&quot;,&quot;evidence_ids&quot;:42}&#x27;)
+except ValueError:
+    pass
+else:
+    raise AssertionError(&#x27;wrong field type accepted&#x27;)
+print(&#x27;enum:&#x27;, chosen, &#x27;| schema: valid | citation ID: valid | causal support: absent&#x27;)
+print(&#x27;A randomized label would still require detailed scientific review.&#x27;)</code></pre></div>
+<h2>08｜提示消融要比较同一件事</h2>
+<p>为 CurateMicrobiota 设计四个条件：A 任务＋字段；B 在 A 上加固定正确示例；C 在 B 上加入同一检索证据；D 在 C 上加入形式约束和独立核验。A→B主要问示例是否有帮助；B→C问证据是否有帮助；C→D问输出合同是否改善可用率。最后一个条件包含两项组件时，必要时再拆开为约束、核验两组。</p>
+<p>固定模型、问题来源、允许证据与输出预算；分别报告字段准确率、格式通过率、引用支持率、缺证识别率及耗时。示例长度不同导致输入 token 不同，既可报告实际方案比较，也可增加预算匹配的比较。若模型生成有随机性，使用相同题目、多次重复及预定汇总规则，不把每次重复当成独立文献。</p>
+<p>开发集负责选择提示，测试集负责最终评价。若没有可用大模型，本课可先交付提示、评分规则与脚本通过的机制结果，模型表现一栏明确写未执行。填写真实的零分或失败比虚构一个“90%准确率”更有价值；用户能据此决定下一步应改善材料、提示还是模型。</p>
+<div class="table-scroll"><table><thead><tr><th>条件</th><th>主要改变</th><th>独立观察</th></tr></thead><tbody><tr><td>A：任务＋字段</td><td>建立最小合同</td><td>字段正确性与缺证处理</td></tr><tr><td>B：增加示例</td><td>固定来源与排列</td><td>相对A的逐题变化</td></tr><tr><td>C：增加证据</td><td>保存证据版本和ID</td><td>支持率、冲突与来源归属</td></tr><tr><td>D：约束＋核验</td><td>区分格式与意义</td><td>合法率、核验拒绝率与最终可用率</td></tr></tbody></table></div>
+<h2>09｜以反例检查提示是否真正清楚</h2>
+<p>至少准备四类反例：原文没有样本数、结论含否定、两个来源方向冲突、相同菌名来自不同测量或人群。对每个反例先写正确行为，再让系统运行。如果只是把提示写得更长却仍在缺少样本数时猜数字，任务约定还没有成为稳定行为。</p>
+<p>另设一次输入置换：把研究A的效应量与研究B的出处交换，评分器应该发现绑定关系错误。仅检查“输出中有 DOI”会遗漏此类失效。还要比较含义等价的提问改写，区分语义稳健性与格式脆弱性；改变问题真正范围时，则不能期待答案保持相同。</p>
+<p>最终把失败归到可行动原因：未提供所需证据、证据被预算删除、模板不兼容、生成违约、校验不足或任务本身无法从材料回答。这样下一轮修改有明确目标，不会把所有失败都归结为“提示还不够专业”。</p>
+<h2>10｜把提示当作研究配置交付</h2>
+<p>一份可复现提示包至少包含任务定义、模板文本、样例来源与顺序、证据版本、编码器与模型版本、生成参数、输入摘要、评分规则和错误清单。摘要用于发现变动，不能替代可合法保存的原始材料。含敏感信息的输入应按数据授权处理，公开仓库只放教学案例。</p>
+<p>将本课接回 D21：检索器输出候选证据，编排器记录实际装入的子集，模型在该子集上生成，核验器只认可本次允许的来源。评价时分析检索、装入、生成与核验四个阶段，才能知道正确材料在哪一步丢失。一个漂亮回答不应掩盖这条可追踪链条。</p>
+<p>完成本课后，你应能解释为什么同样模型在不同输入条件下结果不同，如何建立公平比较，以及哪些错误不能靠提示解决。下一课把“多生成几次、让模型多想一会”拆成可测的候选生成、选择和预算问题。</p>
+<h2>动手实验 · 建立可追溯的证据提示与预算合同</h2>
+<h3>1. 写最小任务合同</h3><p>选择“抽取测量对象与结论强度”作为任务。写两条正常例子、一条缺证例子和一条冲突例子；每条先写期望字段，再决定表达。</p>
+<div class="expected">检查什么：四种输入都有明确可判定的正确行为，未把缺证改成猜测。</div>
+<h3>2. 运行上下文编排器</h3><p>从 project 根目录执行脚本。将预算由360改成较小值，先观察丢弃列表，再使必需问题超限；恢复原始脚本后再提交。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit31/context_budget.py</code></pre></div>
+<div class="expected">检查什么：原始示例保留A、C并跳过B；超限任务明确抛错；最终输入字节数和摘要可复查。</div>
+<h3>3. 运行约束与语义反例</h3><p>对照非法枚举概率、JSON字段校验、存在的引用ID与缺少因果支持四层结果。把 evidence_ids 改成数值，确认被拒绝。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit31/constraints.py</code></pre></div>
+<div class="expected">检查什么：格式合法不被解释为科学结论成立。</div>
+<h3>4. 冻结提示比较表</h3><p>建立A/B/C/D四种配置，按研究或文档家族准备开发/测试资料。能接入合适模型时再实跑；本课默认不调用外部模型。</p>
+<div class="expected">检查什么：保留未执行标记，不填写假想准确率；所有条件共享题目和评分规则。</div>
+<h3>实验验收</h3><ul><li>□ 能说明 ICL 不更新权重，区分提示、RAG、微调与外部记忆。</li><li>□ 预算代码实际运行通过，输入计数来自实际渲染和对应编码器。</li><li>□ 交付至少一个模式合法但科学语义错误的反例。</li><li>□ 提示版本、例子顺序、证据清单和最终测试隔离规则全部明确。</li></ul>
+<h2>论文导读</h2>
+<h3>Language Models are Few-Shot Learners (2020)</h3><p><a href="https://arxiv.org/abs/2005.14165">https://arxiv.org/abs/2005.14165</a></p>
+<p>建立不做任务梯度更新的零样本、单样本与少样本实验定义。</p><ul><li>读任务设置，找出各条件提供给模型的信息差别。</li><li>选择一个任务，说明示例数量变化是否同时改变输入预算。</li></ul>
+<p><strong>阅读问题：</strong>少样本结果改善能否直接说明权重学习了新任务？</p><p><strong>参考思路：</strong>不能。推理条件发生变化，但没有由该任务执行梯度更新；需区分表现变化与参数变化。</p>
+<h3>Rethinking the Role of Demonstrations: What Makes In-Context Learning Work? (2022)</h3><p><a href="https://aclanthology.org/2022.emnlp-main.759/">https://aclanthology.org/2022.emnlp-main.759/</a></p>
+<p>用受控对照理解示例内容、标签空间与格式，而非把示例数量当作唯一解释。</p><ul><li>定位标签扰动、输入分布和格式的比较。</li><li>检查考察任务的范围，再判断哪些结论可以迁移到科研抽取。</li></ul>
+<p><strong>阅读问题：</strong>为何不能据此在科研示例中随意填写错误标签？</p><p><strong>参考思路：</strong>原研究结论受任务和模型条件约束；错误样例可能改变任务规则、污染输出，生产示例仍应正确。</p>
+<h3>Lost in the Middle: How Language Models Use Long Contexts (2023)</h3><p><a href="https://arxiv.org/abs/2307.03172">https://arxiv.org/abs/2307.03172</a></p>
+<p>为长上下文增加位置敏感性检查。</p><ul><li>比较关键材料在不同位置时的评价设计。</li><li>写出在自己的模型和文献任务上复测的位置置换方案。</li></ul>
+<p><strong>阅读问题：</strong>模型标称支持长上下文是否保证所有位置一样可靠？</p><p><strong>参考思路：</strong>容量只是可接收长度；有效使用能力需要在对应模型、任务和证据位置上实际检验。</p>
+<h3>PICARD: Parsing Incrementally for Constrained Auto-Regressive Decoding from Language Models (2021)</h3><p><a href="https://aclanthology.org/2021.emnlp-main.779/">https://aclanthology.org/2021.emnlp-main.779/</a></p>
+<p>理解生成时限制可接受 token 与生成后解析之间的区别。</p><ul><li>阅读增量解析如何拒绝不可接受的后续 token。</li><li>区分 SQL 语法合法、查询意图正确和结果事实可信。</li></ul>
+<p><strong>阅读问题：</strong>本课单标签掩码能否被称为完整 PICARD 重现？</p><p><strong>参考思路：</strong>不能。它只演示有限集合上的概率掩码；完整增量语法解析和模型集成没有在本课实现。</p>
+<h2>练习与完整参考解答</h2>
+<h3>1. 某配置上下文上限为4096，最终模板与问题占640，预留输出512。还可放多少证据token？若加入标题后多80token怎么办？</h3><p><strong>提示：</strong>所有实际序列标记都要计入输入。</p><p><strong>参考解答：</strong>证据初始预算为4096−640−512=2944。若标题原本未计入，剩余变成2864；最终对完整渲染序列重新编码确认。不能靠字符长度替代。</p>
+<h3>2. 四个示例来自测试文献的改写句，但没有直接复制最终答案。这能算完全独立的少样本评价吗？</h3><p><strong>提示：</strong>独立单位不只是一句话。</p><p><strong>参考解答：</strong>不能直接声称独立。研究对象、表述和事实可能来自同一文档家族，形成来源泄漏。按论文或研究分区，开发示例不使用最终测试来源，再冻结评价。</p>
+<h3>3. 一个回答 JSON 合法、引用 ID 存在，并写“菌群变化导致症状改善”。只有观察性相关证据时，应如何记录？</h3><p><strong>提示：</strong>把结构结果和主张支持结果分开。</p><p><strong>参考解答：</strong>结构可通过，ID归属可通过，但该因果主张的证据支持不通过。保留原始回答与失败原因，将结论改回材料能够支持的关联，或返回证据不足；不能伪造干预来源。</p>
+<h3>4. 提示B比A更好，但B同时增加4个示例和2篇检索文献。如何判断改善来自哪里？</h3><p><strong>提示：</strong>设计一次只改变主要因素的对照。</p><p><strong>参考解答：</strong>增加A＋示例与A＋证据两组，必要时形成2×2设计；固定模型、题目、选择规则和预算报告。先在开发集选配置，测试集只用于最终比较。</p>
+<h2>验收自测与解析</h2>
+<h3>1. 常规少样本推理中，最直接变化的是什么？</h3><ol type="A"><li>本次条件输入</li><li>训练集梯度已自动写入权重</li><li>优化器动量</li><li>模型参数规模</li></ol>
+<p><strong>参考答案：A。</strong>示例进入上下文；没有反向传播和参数更新时，不发生任务微调。</p>
+<h3>2. 预算统计最可靠的对象是什么？</h3><ol type="A"><li>中文字符数</li><li>原始消息的字节数总和适用于任何模型</li><li>最终渲染文本经实际tokenizer编码后的长度</li><li>文档页数</li></ol>
+<p><strong>参考答案：C。</strong>模板与特殊标记影响实际序列；编码器也因模型而异。</p>
+<h3>3. 约束解码使枚举标签合法，能否保证结论真实？</h3><ol type="A"><li>能，概率归一化就是事实检查</li><li>不能，仍需证据与语义核验</li><li>只要温度为零就能</li><li>只要输出够长就能</li></ol>
+<p><strong>参考答案：B。</strong>形式集合与事实支持属于不同问题。</p>
+<h3>4. 测量示例顺序影响时应怎样做？</h3><ol type="A"><li>每次同时换示例和模型</li><li>在测试集上试到最高分</li><li>保持同组示例并使用预先确定的排列</li><li>只展示最好一次</li></ol>
+<p><strong>参考答案：C。</strong>改变一个主要因素，避免测试集选择偏差。</p>
+<h3>5. 本课360字节预算演示说明什么？</h3><ol type="A"><li>TinyGPT默认已支持360上下文</li><li>已训练大型领域模型</li><li>长上下文没有位置问题</li><li>编排规则可执行，实际模型容量仍需独立核对</li></ol>
+<p><strong>参考答案：D。</strong>脚本不加载生成模型；演示预算不是模型配置变更。</p>
+<h2>收尾思考</h2><ul><li>如果任务失败，怎样区分没有提供证据和模型没有使用证据？</li><li>你的科研提示中，哪些字段能程序核验，哪些仍需专业判断？</li><li>哪些已知缺失信息应明确返回，而不能通过更长提示补出来？</li></ul>
+<p><strong>下一步：</strong>进入 D32，把多次采样、候选选择、验证器和搜索预算纳入同一评价。</p>
+</article></section><section class="book-chapter" id="day-32"><article class="reader">
+<p class="eyebrow">UNIT 32 / 补全 · 语言与适配</p>
+<h1>推理与推理时计算：候选、验证器和预算怎样共同决定结果</h1><p class="subtitle">理解逐步解题、重复采样、自一致性、搜索与 pass@k，交付能复核的答案选择实验</p>
+<p class="subtle">建议 240 分钟，可分次完成。</p>
+<h2>学习目标</h2><ul><li>区分模型前向推理、任务推理和用于搜索的推理时计算。</li><li>解释候选中有正确答案与系统最终选对答案的差异。</li><li>正确计算小样本 pass@k，说明无偏估计所需的采样条件。</li><li>实现有预算、终态与独立证书核验的有限搜索。</li><li>为科研任务设计生成器、选择器、验证器和评价器的隔离。</li></ul>
+<div class="notice mint"><strong>今日作品：</strong>一张包含单次回答、候选覆盖、最终选中率与总成本的比较表。；带参数合法性检查的 pass@k 脚本及多数答案错误的反例。；可复核路径的有限搜索脚本，区分预算耗尽与搜索空间耗尽。；一份微生物科研任务验证器合同，列出可验证内容和不能证明的结论。</div>
+<h3>先修准备</h3><ul><li>完成 D7 的采样、D20 的后训练目标、D22 的状态机与 D23 的评价。</li><li>建议先完成 D31，能够固定任务、提示、示例与上下文预算。</li><li>本课脚本只用 Python 标准库；候选和搜索空间是显式教学构造，不下载外部模型。</li></ul>
+<h2>01｜三个“推理”需要分别定义</h2>
+<p>工程中的 inference 是用已训练模型计算输出；任务中的 reasoning 是完成需要组合信息、计算或约束满足的问题；test-time compute 则是为一次问题额外投入生成、搜索、工具或验证计算。三者有关但不等同：一次前向调用必然是工程推理，不一定完成可靠推理任务；调用更多次也不必然更正确。</p>
+<p>对微生物科研助手，可先选择可核验的小任务：从两个明确数值计算变化率、检查数据划分是否同一受试者跨区、验证效应单位是否一致、将结论绑定到给定证据。把“提出一个正确机制”作为任务时，程序很难给出充分的真值判断，应改成列出假设、支持条件与可证伪预测，并由独立证据审查。</p>
+<p>本课聚焦如何管理候选与证据，不以模型叙述的长度评价思考深度。一个可复核答案可以非常简短，只要计算、来源和适用条件齐全；一段流畅解释可能仍建立在错误前提上。最终报告应保存足够的工作证据，而不是把文字风格当作内部计算过程的证明。</p>
+<h2>02｜分步求解的价值在可检查的中间对象</h2>
+<p>逐步提示将一个问题拆成中间子任务。原始 Chain-of-Thought 工作考察带中间解题示例的提示，见 https://arxiv.org/abs/2201.11903；它提供一种实验设置，不意味着任何任务都应要求更长回答。对提取、翻译或简单判断，额外步骤可能增加错误机会和成本，应在任务评价中决定是否使用。</p>
+<p>可以把科研计算拆成明确接口：先抽取数值和单位，再由确定性函数计算，最后用来源与结果生成简洁说明。比如先确认分母是相对丰度还是绝对负荷，再算变化率；若分母无法确定，计算器再精确也没有回答原问题。模型负责解释的环节与工具负责计算的环节都需独立检查。</p>
+<p>模型输出的中间解释不是其神经网络内部因果机制的直接记录。系统真正需要的是可重复的输入、工具调用、结果与引用。对代码或公式任务，检查输出与约束是否一致；对科学论断，检查原始证据与范围。不要仅因解释看起来细致，就把错误答案改判为正确。</p>
+<h2>03｜多次采样增加机会，也增加重复与成本</h2>
+<p>对同一问题生成多个候选，可以改变采样种子、温度或候选方案，但要记录实际设置。若每次都确定性输出相同答案，调用十次只是在重复同一个候选。多样性可以增加覆盖，也可能制造更多低质量答案；它的作用需通过候选正确比例、去重率和最终选中率共同判断。</p>
+<p>自一致性把多条解题结果按最终答案聚合，常用多数选择。原始 Self-Consistency 研究在规定的算术与常识任务中检验这种策略。多数相同只说明候选之间一致，不保证真实；共享模型和相同错误前提会产生高度相关的错误，不能把投票当作独立专家意见。</p>
+<p>聚合前需要明确答案规范化：数值是否允许容差、单位如何换算、同义词怎样映射、空答案与无效格式如何处理。不能把不同单位的“1”当作同一个答案，也不能在看到正确标签后临时修改聚合规则。平票规则与无有效答案的终态须提前固定。</p>
+<h2>04｜pass@k 衡量候选覆盖，不是最终交付正确率</h2>
+<p>假设每题独立同分布地采样 n 个候选，其中 c 个通过预定判分，k≤n。常用估计为 1−组合数(n−c,k)/组合数(n,k)，再按题目平均。它等于从已生成候选中无放回抽取 k 个时至少命中一个正确候选的比例；在所述生成假设下可作为总体 pass@k 的无偏估计。不能把它直接套在互相依赖的自适应搜索轨迹上。</p>
+<p>候选中有正确答案，并不说明系统知道哪一个正确。实际用户拿到的是某个选择器输出，因此必须另报最终选中正确率。验证器可以缩小两者差距，但也可能放过错误、拒绝正确。用于最终评价的隐藏参考答案不能偷偷成为在线选择器输入；若任务本身能由公开的确定性规则验证，明确说明验证成本与合同。</p>
+<p>代码使用手工构造的候选而非语言模型采样，目的是检查统计量与选择逻辑。第一个问题有正确答案但多数答案错误；第二个有平票；第三个无正确候选。小数值使用精确组合数便于核对，大规模候选应采用稳定的乘积或对数形式，并验证边界。原始估计讨论见 Evaluating Large Language Models Trained on Code 的评价章节与附录。</p>
+<pre class="equation">估计 pass@k = 1 − C(n−c,k)/C(n,k)，1≤k≤n；最终选中率 = 正确交付题数 / 全部评价题数</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>from collections import Counter
+from math import comb
+
+def pass_at_k(n, correct, k):
+    if not (type(n) is int and type(correct) is int and type(k) is int
+            and n &gt;= 1 and 0 &lt;= correct &lt;= n and 1 &lt;= k &lt;= n):
+        raise ValueError(&#x27;require 0&lt;=correct&lt;=n and 1&lt;=k&lt;=n&#x27;)
+    return 1.0 if n-correct &lt; k else 1-comb(n-correct, k)/comb(n, k)
+
+assert pass_at_k(4, 1, 2) == 0.5
+assert pass_at_k(4, 0, 4) == 0.0
+assert pass_at_k(4, 4, 1) == 1.0
+try:
+    pass_at_k(4, 1, 5)
+except ValueError:
+    pass
+else:
+    raise AssertionError(&#x27;k&gt;n must be rejected&#x27;)
+
+# These are hand-authored candidates, not samples from a trained LLM.
+cases = [((2,3), [4,4,5,4]), ((4,7), [11,12,11,12]), ((6,6), [10,10,11,11])]
+rows=[]
+for operands, candidates in cases:
+    truth = sum(operands)  # exact arithmetic contract, not a learned judge
+    correct = sum(answer == truth for answer in candidates)
+    counts = Counter(candidates)
+    # Fixed tie rule: earliest candidate among those with maximum frequency.
+    majority = max(counts, key=counts.get)
+    accepted = [answer for answer in candidates if answer == sum(operands)]
+    selected = accepted[0] if accepted else None
+    row = {&#x27;operands&#x27;: operands, &#x27;pass@2_estimate&#x27;: pass_at_k(4,correct,2),
+           &#x27;any_correct_in_4&#x27;: bool(correct),
+           &#x27;majority_correct&#x27;: majority == truth,
+           &#x27;verified_selection_correct&#x27;: selected == truth,
+           &#x27;verified_selection_status&#x27;: &#x27;accepted&#x27; if accepted else &#x27;no_valid_candidate&#x27;}
+    rows.append(row)
+    print(row)
+assert rows[0][&#x27;any_correct_in_4&#x27;] and not rows[0][&#x27;majority_correct&#x27;]
+assert rows[0][&#x27;verified_selection_correct&#x27;]
+assert rows[2][&#x27;verified_selection_status&#x27;] == &#x27;no_valid_candidate&#x27;
+print(&#x27;Coverage of candidates, majority success, and selected-answer success differ.&#x27;)</code></pre></div>
+<h2>05｜验证器本身也是一个需要评价的模型或程序</h2>
+<p>结果验证只看最终答案是否符合规则；过程验证还检查中间步骤。精确算术或受限路径可以用确定性判定；开放科学问题往往只能检查局部条件。比如程序可以确认物种 ID 存在、研究划分无重叠、计算公式与单位一致，却不能由这些通过项推导出疾病机制成立。</p>
+<p>给验证器建立独立挑战集：正确答案、表面格式正确但数值错误、引用存在但不支持、训练与测试偷换、边界输入与等价正确表达。分别记录错误接受率和正确拒绝率。使用同一语言模型生成和评审时，还要检查共享偏差、长度偏好与提示注入，不把二次询问“你确定吗”当作独立验证。</p>
+<p>选择器只允许看到部署时可得的信息；最终评价器可以使用保留的真值。把这两个组件混在一起，会把“候选内有正确答案”的上界包装成实际系统能力。科研基准尤其要保留验证器开发集和最终测试集的隔离，避免评审规则对测试题特征过拟合。</p>
+<h2>06｜搜索需要状态、扩展、排序与停止</h2>
+<p>将解题过程看成搜索时，先定义状态保存什么、允许哪些扩展、如何评分和什么时候结束。宽度增加让系统保留更多备选，深度增加让每条方案走得更远；广度优先、束搜索、深度优先或回溯都有不同内存与选择偏差。Tree of Thoughts 将文本中间方案纳入此类框架，不能据论文名称推断搜索自动有效。</p>
+<p>束搜索按评分保留少量候选，如果早期评分错了，正确路径可能永远被删掉。自我评价分数高也不等于最终答案正确。一个可复核系统需要区分生成概率、启发式得分和验证通过状态。对科研工作流，明确数据预处理、模型拟合和评价的状态依赖，比让模型自由写“下一步计划”更容易验证。</p>
+<p>本课只实现一个整数图：从 1 出发，每步允许加 1 或乘 2，状态限于 1–12。它没有 LLM 生成器或学习到的评分器，但完整展示了队列、去重、预算、证书与终态。通过这个小例子再设计文本搜索，就知道哪些组件是真正新增，哪些结果还没有证据。</p>
+<h2>07｜用可核验证书区分成功和停止</h2>
+<p>下面搜索给每次状态扩展计费；检查已经出队的目标不再增加扩展计数，这是一项明确的预算约定。扩展预算用尽时返回 budget_exhausted，有限空间全部遍历后仍未找到则返回 search_exhausted，找到合法路径才返回 verified。三种结果的含义不同，不能把预算耗尽写成“证明无解”。</p>
+<p>独立证书检查器只读取最终路径，确认起点、终点、每一步合法且没有超出状态范围。它与搜索过程分离，因此能发现被篡改的路径。搜索器在有限无权图上按广度展开与去重，得到的首次路径具有最少边数性质；这来自本例的图和队列规则，不能迁移成任意语言模型搜索的最优性保证。</p>
+<p>将上限改为 2，观察提前停止；设为 20，可找到到达 7 的证书；目标改为 13 时，有限状态空间没有该目标，才得到空间耗尽。科研任务常没有可穷尽的状态空间，因此更常见的结论是“当前预算与候选内未找到”，而不是“这个研究假说不可能成立”。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>from collections import deque
+
+def check_certificate(path, start=1, goal=7):
+    return (isinstance(path, list) and bool(path)
+            and path[0] == start and path[-1] == goal
+            and all(type(x) is int and 1 &lt;= x &lt;= 12 for x in path)
+            and all(b in (a+1, a*2) for a,b in zip(path,path[1:])))
+
+def bounded_search(max_expansions, goal=7):
+    if type(max_expansions) is not int or max_expansions &lt; 0:
+        raise ValueError(&#x27;budget must be a nonnegative integer&#x27;)
+    queue = deque([[1]])
+    seen = {1}
+    expanded = 0
+    while queue:
+        path = queue.popleft()
+        if path[-1] == goal:
+            assert check_certificate(path, goal=goal)
+            return {&#x27;status&#x27;: &#x27;verified&#x27;, &#x27;expanded&#x27;: expanded, &#x27;path&#x27;: path}
+        if expanded &gt;= max_expansions:
+            return {&#x27;status&#x27;: &#x27;budget_exhausted&#x27;, &#x27;expanded&#x27;: expanded, &#x27;path&#x27;: None}
+        expanded += 1
+        for value in (path[-1]+1, path[-1]*2):
+            if value &lt;= 12 and value not in seen:
+                seen.add(value)
+                queue.append(path+[value])
+    return {&#x27;status&#x27;: &#x27;search_exhausted&#x27;, &#x27;expanded&#x27;: expanded, &#x27;path&#x27;: None}
+
+small = bounded_search(2)
+enough = bounded_search(20)
+impossible = bounded_search(20, goal=13)
+assert small[&#x27;status&#x27;] == &#x27;budget_exhausted&#x27; and small[&#x27;expanded&#x27;] == 2
+assert enough[&#x27;status&#x27;] == &#x27;verified&#x27; and check_certificate(enough[&#x27;path&#x27;])
+assert impossible[&#x27;status&#x27;] == &#x27;search_exhausted&#x27;
+assert not check_certificate([1,2,7])
+print(small)
+print(enough)
+print(impossible)
+print(&#x27;Finite arithmetic graph only: no LLM proposal or learned verifier is used.&#x27;)</code></pre></div>
+<h2>08｜更多计算是否值得，要看成本—质量曲线</h2>
+<p>总成本包括所有候选生成、验证器调用、工具运算、重试与失败，不能只统计最终选中答案的 token。输入上下文可能被每次调用重复处理，缓存命中也要按实际系统计量。并行采样能缩短墙钟时间，却不自动减少累计计算；同时报告总工作量和用户等待时间。</p>
+<p>先比较 k=1、2、4 等预定预算，画最终选中正确率随累计成本的变化，再考虑按难度自适应分配。Snell 等人的工作研究了推理计算分配与题目难度的关系。应用到本项目时，需要在开发集确定分配规则，不能用测试答案是否正确来决定哪题再多算几次。</p>
+<p>例如先生成一个答案并运行便宜的格式、单位和计算检查，确定失败后再尝试一次；若仍缺证则停止并报告信息缺口。这种策略可能比对每题生成十条长解释更节省，但必须实测。对涉及来源支持的问题，增加采样不能制造不存在的文献，预算应转向可靠检索或人工审查。</p>
+<div class="table-scroll"><table><thead><tr><th>指标</th><th>统计口径</th><th>常见误读</th></tr></thead><tbody><tr><td>候选覆盖</td><td>至少一个候选正确的题目比例</td><td>误当成最终答案正确率</td></tr><tr><td>最终选中率</td><td>实际交付答案正确/全部题目</td><td>排除失败与拒答后虚增分数</td></tr><tr><td>累计成本</td><td>所有生成、验证、工具与重试</td><td>只算选中答案</td></tr><tr><td>墙钟延迟</td><td>用户请求到终态的实际时间</td><td>把并行提速当作算力节省</td></tr></tbody></table></div>
+<h2>09｜把奖励投机与自我确认加入失败分析</h2>
+<p>如果选择器偏好包含更多菌名的答案，多次采样会更容易找到堆砌菌名的候选；如果验证器只核对 JSON 模式，搜索会更快找到格式合法的错误。这种优化评分却没有改善真实任务的现象，应通过独立结果指标发现。D20 的偏好训练和本课的候选选择在这一点上共享同样风险。</p>
+<p>递归“批评—修改”也可能让正确答案被改错，尤其在没有外部新证据时。评估应保留首答、每次修改、验证分项与最终结果，统计修正成功和过度修正。不能只展示成功修复的一道题，或者将所有修改后的自信表达当作进步。</p>
+<p>对于微生物机制推断，模型可能把相关性重新写成更流畅的因果故事。正确改进应让证据、假设和未知项更明确。例如将“某功能降低导致疾病”拆成“观察到差异、测量的是功能潜力、是否有表达/代谢/干预支持”，这是提高可核验性，不是自动完成生物学机制证明。</p>
+<h2>10｜把生成、选择与科研证据放进同一协议</h2>
+<p>建议把项目扩展为四个可替换组件：候选生成器接收固定问题与证据，选择器按部署可得规则挑选，独立核验器检查计算和来源，评价器对最终留出的任务计分。代码、配置与数据记录每个组件的版本，升级验证器时也要重新审查回归集，而不只升级生成模型。</p>
+<p>实验报告至少写清题目来源、候选采样方式、预算、去重规则、验证标准、平票与失败处理、最终指标和成本。若本课只运行了手工候选与算术搜索，就交付机制通过记录；真实 LLM 推理性能需要另行运行，不能在报告中添上未测的模型准确率或推理提升。</p>
+<p>从本课毕业的标准，是能辨别“答案在候选里”“系统知道该选哪个”“选出的结论得到什么证据”三个问题。下一课转向参数更新，检查模型学习新领域后是否遗忘旧能力，以及如何让较小学生模型继承可验证的教师行为。</p>
+<h2>动手实验 · 从候选覆盖到带证书的有限预算搜索</h2>
+<h3>1. 手算并执行候选指标</h3><p>先算 n=4、c=1、k=2 的组合比，再执行代码。核对第一个题目的多数答案与真正正确答案。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit32/pass_at_k.py</code></pre></div>
+<div class="expected">检查什么：pass@2为0.5；候选覆盖为真并不意味着多数选择正确。</div>
+<h3>2. 审查选择器能看到的信息</h3><p>为同一组候选分别标出部署时可得的算术规则与仅最终评分可得的隐藏标签。设计一个没有精确判定器的科学主张反例。</p>
+<div class="expected">检查什么：不会用测试答案挑候选，再宣称得到实际系统正确率。</div>
+<h3>3. 运行有预算的搜索</h3><p>执行脚本，解释预算为2、预算为20以及目标13三种结果，再向证书检查器传入[1,2,7]。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit32/bounded_search.py</code></pre></div>
+<div class="expected">检查什么：预算耗尽、搜索耗尽、已验证成功各有不同终态；非法路径被拒绝。</div>
+<h3>4. 制定真实模型扩展协议</h3><p>选择一个可核验的科研数值或字段任务，固定k=1/2/4及预先规定的选择器。尚无模型运行时，只填写配置和预期检查，性能留空。</p>
+<div class="expected">检查什么：报告表含候选覆盖、最终选中率、失败和累计成本；机制结果与真实模型结果分开。</div>
+<h3>实验验收</h3><ul><li>□ 解释 pass@k 的采样条件及 k≤n 约束，并通过边界输入检查。</li><li>□ 提交多数答案错误、候选内无正确答案两类反例。</li><li>□ 成功路径能由独立检查器复核，预算耗尽不被写成无解证明。</li><li>□ 研究评价没有使用最终测试真值作为在线选择器输入。</li></ul>
+<h2>论文导读</h2>
+<h3>Self-Consistency Improves Chain of Thought Reasoning in Language Models (2023)</h3><p><a href="https://arxiv.org/abs/2203.11171">https://arxiv.org/abs/2203.11171</a></p>
+<p>理解候选采样与答案聚合的区别；论文发表于 ICLR 2023，预印本首发于2022年。</p><ul><li>读采样与最终答案聚合的流程。</li><li>检查主要任务和采样预算，列出无法从这些实验直接推出的科学应用结论。</li></ul>
+<p><strong>阅读问题：</strong>为什么多数票可能稳定地产生错误？</p><p><strong>参考思路：</strong>候选共享模型、提示和前提，错误可能高度相关；一致性是候选之间的关系，不是真值证明。</p>
+<h3>Evaluating Large Language Models Trained on Code (2021)</h3><p><a href="https://arxiv.org/abs/2107.03374">https://arxiv.org/abs/2107.03374</a></p>
+<p>核对功能正确性与 pass@k 的评价对象。</p><ul><li>读第2.1节估计公式及附录A，解释组合数的含义。</li><li>区分测试通过的候选覆盖与实际选择器输出的质量。</li></ul>
+<p><strong>阅读问题：</strong>将经验正确率代入1−(1−p)^k与组合数估计是否相同？</p><p><strong>参考思路：</strong>有限样本下不相同；直接代入经验比例一般有偏，论文给出了对应估计讨论。</p>
+<h3>Tree of Thoughts: Deliberate Problem Solving with Large Language Models (2023)</h3><p><a href="https://arxiv.org/abs/2305.10601">https://arxiv.org/abs/2305.10601</a></p>
+<p>把中间候选、搜索与评价组件拆开阅读。</p><ul><li>画出状态、候选扩展、评分与回溯分别由什么组件完成。</li><li>检查论文任务的验证条件，思考开放科学主张缺少哪一种判定器。</li></ul>
+<p><strong>阅读问题：</strong>本课整数广度搜索是否重现完整 ToT？</p><p><strong>参考思路：</strong>没有；本课只验证搜索和证书机制，没有文本候选生成、模型评分和论文任务评价。</p>
+<h3>Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters (2024)</h3><p><a href="https://arxiv.org/abs/2408.03314">https://arxiv.org/abs/2408.03314</a></p>
+<p>阅读固定计算预算与题目难度共同影响策略效果的研究。</p><ul><li>区分生成分布调整与基于验证器搜索两类机制。</li><li>检查难度、预算和模型规模的比较口径，设计自己的开发集预算分配。</li></ul>
+<p><strong>阅读问题：</strong>是否可以看到测试题答错后才决定额外给该题计算？</p><p><strong>参考思路：</strong>若用隐藏真值做分配，会形成部署不可得的信息；策略必须仅依赖部署时可观察的信号，并在开发集冻结。</p>
+<h2>练习与完整参考解答</h2>
+<h3>1. n=5个候选中c=2个正确，求k=2的pass@k估计；这是否说明最终答案有70%概率正确？</h3><p><strong>提示：</strong>从5个候选中无放回取2个，先计算全错比例。</p><p><strong>参考解答：</strong>估计为1−C(3,2)/C(5,2)=1−3/10=0.7。它描述候选覆盖；最终正确率还取决于选择器，可能更低，不能直接替代交付指标。</p>
+<h3>2. 五个候选中四个回答“增加10%”，一个回答“减少10%”。可以直接把多数答案作为科学结论吗？</h3><p><strong>提示：</strong>先确认单位、计算和证据，不看票数就判断。</p><p><strong>参考解答：</strong>不能。需要核对测量对象、方向、分母与原始数据。共享的错误前提可让多数一致错误；若没有可支持的证据，应保留不确定而非通过投票制造结论。</p>
+<h3>3. 系统运行到预算上限仍没找到合法分析流程，应输出“无解”还是其他状态？</h3><p><strong>提示：</strong>预算终止与穷尽可行空间不同。</p><p><strong>参考解答：</strong>输出 budget_exhausted 或等价状态，并记录已用预算、已检查候选及未完成部分。只有在明确有限空间被完整枚举且检查器正确等条件下，才可以给出该空间内不存在解的结论。</p>
+<h3>4. 候选生成使用4000token，选择器又用1200token，最终答案只有200token。如何报告成本？</h3><p><strong>提示：</strong>不要只统计可见的最后输出。</p><p><strong>参考解答：</strong>至少记录生成4000、选择1200及相关输入和工具成本，累计不能只写200。并行时另报墙钟延迟；若有缓存与重试，按实际发生项注明。</p>
+<h2>验收自测与解析</h2>
+<h3>1. 下列哪项可以直接表示用户最终拿到的答案质量？</h3><ol type="A"><li>候选中至少一条正确</li><li>平均候选长度</li><li>实际选择结果在完整题集上的正确率</li><li>模型自己给出的置信表达</li></ol>
+<p><strong>参考答案：C。</strong>候选覆盖是机会，真正交付取决于选择及失败处理。</p>
+<h3>2. pass@k 的组合数估计要求哪一项合法范围？</h3><ol type="A"><li>k可以大于n</li><li>1≤k≤n，且0≤c≤n</li><li>c必须大于n</li><li>只有k=1时能计算</li></ol>
+<p><strong>参考答案：B。</strong>候选数与正确数应满足统计定义，超范围必须拒绝。</p>
+<h3>3. 为什么高多数一致性仍可能错误？</h3><ol type="A"><li>因为所有一致答案必错</li><li>因为不能使用采样</li><li>因为工具永远比模型差</li><li>候选可能共享同一错误前提</li></ol>
+<p><strong>参考答案：D。</strong>候选错误通常不是独立的专家误差，投票不能保证真值。</p>
+<h3>4. 本课有限搜索预算耗尽意味着什么？</h3><ol type="A"><li>当前预算下未完成搜索</li><li>目标已被证明不存在</li><li>已经找到最优路径</li><li>应自动编造一个路径</li></ol>
+<p><strong>参考答案：A。</strong>停止原因必须准确，预算耗尽不等于搜索空间穷尽。</p>
+<h3>5. 完整系统成本应包含什么？</h3><ol type="A"><li>只含最终回答</li><li>只含最正确的候选</li><li>所有生成、选择、验证、工具和重试</li><li>不需要记录失败调用</li></ol>
+<p><strong>参考答案：C。</strong>未被选中的候选和失败尝试也消耗资源。</p>
+<h2>收尾思考</h2><ul><li>你的任务有没有独立于生成模型的可靠验证器？如果没有，如何避免把自评当作证明？</li><li>增加预算改善的是候选覆盖，还是最终选中能力？</li><li>哪类问题需要寻找新证据，而不是继续采样已有模型？</li></ul>
+<p><strong>下一步：</strong>进入 D33，学习持续预训练、能力遗忘与蒸馏，建立新旧任务共同评价的参数适配实验。</p>
+</article></section><section class="book-chapter" id="day-33"><article class="reader">
+<p class="eyebrow">UNIT 33 / 补全 · 语言与适配</p>
+<h1>持续学习与知识蒸馏：学新任务时怎样保留旧能力</h1><p class="subtitle">从领域适配和回放，到软目标梯度、学生训练、遗忘矩阵与模型合并边界</p>
+<p class="subtle">建议 240 分钟，可分次完成。</p>
+<h2>学习目标</h2><ul><li>区分领域持续预训练、任务适配、SFT、检索更新与蒸馏的目标。</li><li>设计新旧任务共同评价，量化性能退化而非只报告领域收益。</li><li>推导软目标KL、温度与T²缩放，核对教师冻结和损失分母。</li><li>运行真实小学生优化，区分模仿教师与对真值正确。</li><li>判断词表不一致、回放预算与模型合并的适用条件。</li></ul>
+<div class="notice mint"><strong>今日作品：</strong>一份领域适配合同，明确语料、许可、时间切分、更新参数与基线。；通过自动梯度核验的软目标损失，以及实际学生训练记录。；新任务单独更新与回放混合的冲突机制实验。；新旧能力矩阵、成本清单和保留/回滚的预定标准。</div>
+<h3>先修准备</h3><ul><li>完成 D8、D15、D18、D19 与 D20，理解KL、优化状态和参数高效适配。</li><li>先完成 D23 的固定评价集与 D27 的外测概念，避免把适配目标混进测试集。</li><li>脚本使用已安装的CPU PyTorch与标准库，无网络与外部模型下载。</li></ul>
+<h2>01｜先判断变化的是知识来源、行为还是表征</h2>
+<p>如果新增的是近期文献和可追溯事实，更新检索库通常比直接把文本继续训练进权重更容易核验；如果是稳定的输出任务与格式，提示或SFT是合适候选；如果是领域术语与文本分布的系统差异，持续预训练可以作为实验；如果是部署预算有限，可考虑蒸馏或压缩。选择依据是问题和评价，不是哪个名称更接近“大模型”。</p>
+<p>领域持续预训练保留原有自监督目标，在领域语料上继续优化；任务适配预训练使用与目标任务更接近的未标注文本。Gururangan 等人的工作系统比较了领域与任务适配，但其经验结果不保证任何语料、模型、疾病任务都能获益。对菌群丰度编码器，继续做掩码重建也属于表示适配，却不是文本LM的下一token训练。</p>
+<p>把目标分别写清：改善生物术语建模、提高抽取准确率、增强跨队列表征、或降低推理成本。单一领域loss下降只说明对应训练目标变化，不足以证明所有这些目标同时改善。原始底座、检索方案和小模型基线都应保留，避免只比较若干复杂适配版本。</p>
+<h2>02｜持续预训练仍然受语料与评价隔离约束</h2>
+<p>继续训练前固定底座哈希、词表、上下文、语料来源与切分。生物医学论文的预印本、正式版和数据库重述可能同源，去重应覆盖这些关系。以未来文献能力为目标时，可以预先按时间切分；把最终测试论文全文用于无监督训练再测试其问答，属于不同可见信息设定，不能称为完全未见来源外测。</p>
+<p>领域文本可以与允许使用的通用回放语料混合。混合比例必须说明按文档、批次还是有效token实现：长文档和不同分词长度会使这些比例不相等。若50%的文档来自领域，不能自动声称50%的训练token来自领域。每次训练报告记录实际有效token与采样重复，不只记录文件数量。</p>
+<p>已有模型底座的完整预训练语料往往不可得，不应虚构一个等价回放集。可以建立有限、授权、代表目标通用能力的代理数据，并说明覆盖边界。领域语料规模很小时，先测学习曲线和过拟合，再增加步数；对错误标签或低质量材料的高效学习并不是进步。</p>
+<h2>03｜用能力矩阵观察保留、退化和迁移</h2>
+<p>建立一个矩阵：行是适配阶段或检查点，列是固定任务集。至少包含领域任务、通用保留任务、格式/引用/拒答回归，以及与当前训练来源不同的外部任务。各列保持题目、评分规则和单位一致；AUROC、交叉熵与格式通过率不能直接混合成一个未经解释的平均数。</p>
+<p>对于越高越好的同类指标，可将某旧任务过去最佳值减去当前值定义为一种遗忘量；也可报告当前值减去学完该任务时的值，作为后向迁移的一种定义。不同文献定义可能不同，报告必须写公式。性能提高时后向差值为正，出现退化时为负；不要只展示新任务增益而隐藏旧列。</p>
+<p>比较预训练底座、领域单独适配、回放适配和不同更新范围时，应记录各自的总有效token、更新步数、学习率及选模依据。增加回放会改变数据量或新任务曝光量，预算不能同时假装完全相同。优先明确主比较控制的变量，再报告另一项作为成本。</p>
+<pre class="equation">旧任务 j 的阶段变化 Δ_j = score(current,j) − score(reference,j)；高分优指标下 Δ_j&lt;0 表示退化。</pre>
+<h2>04｜回放保留旧信号，却不会消除目标冲突</h2>
+<p>回放将旧任务数据重新加入优化，参数约束则惩罚偏离某些重要旧参数，适配器分离让不同任务使用不同更新模块。这些方案改变干扰方式和成本，但不能保证任务兼容。EWC通过对旧任务重要参数施加约束缓解遗忘；重要性估计、近似与超参数仍需验证，不能把冻结部分权重写成零遗忘证明。</p>
+<p>下面构造最小冲突：一个参数w，旧目标希望w=1，新目标希望w=−1。单独优化新目标会丢失旧最优；等权回放趋向w=0，使两边都产生损失。代码让你直接看到折中，不把回放包装成免费同时改善。真实高维模型可能有兼容解，但是否存在、能否找到，取决于数据、容量和优化。</p>
+<p>回放权重应由开发集的新旧任务权衡选择，最终测试不参与。若旧能力有明确最低要求，可以把它写成发布门槛；若旧任务本身已经过时，允许退化也需要明确原因。对科研助手，更换术语版本可能是有意更新，但丢失引用绑定和单位检查通常应触发回归检查。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>def adapt(start, replay_weight, steps=100, learning_rate=0.1):
+    if not 0 &lt;= replay_weight &lt;= 1:
+        raise ValueError(&#x27;replay weight must lie in [0,1]&#x27;)
+    value = start
+    for _ in range(steps):
+        # Old objective A=(w-1)^2; new objective B=(w+1)^2.
+        gradient = 2*((1-replay_weight)*(value+1) + replay_weight*(value-1))
+        value -= learning_rate*gradient
+    return value
+
+after_A = 1.0
+naive = adapt(after_A, replay_weight=0.0)
+replay = adapt(after_A, replay_weight=0.5)
+def losses(value): return {&#x27;old_loss&#x27;: (value-1)**2, &#x27;new_loss&#x27;: (value+1)**2}
+assert abs(naive+1) &lt; 1e-7
+assert abs(replay) &lt; 1e-7
+assert losses(replay)[&#x27;old_loss&#x27;] &lt; losses(naive)[&#x27;old_loss&#x27;]
+assert losses(replay)[&#x27;new_loss&#x27;] &gt; losses(naive)[&#x27;new_loss&#x27;]
+print({&#x27;after_A&#x27;: losses(after_A), &#x27;after_B_only&#x27;: losses(naive),
+       &#x27;after_B_with_replay&#x27;: losses(replay)})
+print(&#x27;A deliberately conflicting one-parameter example, not a language-model benchmark.&#x27;)</code></pre></div>
+<h2>05｜蒸馏的监督来自教师，但真值仍需独立评价</h2>
+<p>输出蒸馏让学生模仿教师的类别或token概率；序列蒸馏用教师生成的回答作为训练样本；表示蒸馏匹配某层特征，通常需要维度映射与合适的对齐目标。它们传递的信息不同，教师最高概率标签、完整分布与自然语言解释不能当作同一种监督。</p>
+<p>教师可以是大模型、集成模型，也可以是更慢但准确的流程。教师越大不一定越适合该任务，尤其在新领域、偏移输入和证据不足问题上。训练学生前，先用独立标签评价教师；保留教师错误、人工复核和学生纠正/继承情况。学生与教师一致只能证明模仿，不是生物事实正确或临床可用。</p>
+<p>如果使用教师生成的文本，需要记录生成配置、版本、来源、许可和筛选规则，防止把模型幻觉变成新语料。最终测试题不能先让教师生成答案再进入训练。若教师API只返回文字而不返回完整概率，不能声称执行了逐token全词表KL蒸馏，应按实际的序列监督命名。</p>
+<h2>06｜软目标、温度与T²要一起推导</h2>
+<p>设教师logits为z_t，学生为z_s，温度T&gt;0，软分布分别为softmax(z_t/T)与softmax(z_s/T)。一种常见目标将真实标签CE与T²·KL(p_t||p_s)加权组合。对固定教师，KL与软目标交叉熵只差教师熵，因此对学生的梯度相同。KL方向不能无说明地反写，反向KL是另一目标。</p>
+<p>对于N个有效样本，未缩放软目标梯度为(p_s−p_t)/(NT)；乘T²后变成T(p_s−p_t)/N。大温度下两分布差异也通常按1/T缩小，T²用于补偿梯度尺度变化，并不保证所有温度产生完全相同的梯度。下面同时验证解析式、缩放关系与教师分布相同时的零KL。</p>
+<p>在语言模型中，N通常应对应实际参与监督的token位置。先对词表维求和，再对合法位置求均值；padding、提示和截断范围要服从既定任务合同。PyTorch kl_div通常输入学生log概率和教师概率，batchmean的默认分母只适合你定义的批维，不能不检查形状就套到[B,T,V]上。经典软目标蒸馏见Hinton等原始论文。</p>
+<pre class="equation">L = α CE(y,p_s(T=1)) + (1−α) T² KL(p_t(T) || p_s(T))；∂[T²KL]/∂z_s = T(p_s−p_t)/N</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import torch
+import torch.nn.functional as F
+
+torch.set_num_threads(1)
+teacher_logits = torch.tensor([[2.,0.,-1.],[0.,1.,2.]], dtype=torch.float64)
+initial = torch.tensor([[0.1,-0.2,0.3],[0.4,0.2,-0.1]], dtype=torch.float64)
+temperature = 3.0
+
+def soft_loss(student_logits, scaled):
+    target = F.softmax(teacher_logits/temperature, dim=-1).detach()
+    value = F.kl_div(F.log_softmax(student_logits/temperature, dim=-1),
+                     target, reduction=&#x27;batchmean&#x27;)
+    return value * (temperature**2 if scaled else 1.0)
+
+unscaled = initial.clone().requires_grad_()
+scaled = initial.clone().requires_grad_()
+soft_loss(unscaled, False).backward()
+soft_loss(scaled, True).backward()
+assert torch.allclose(scaled.grad, temperature**2 * unscaled.grad)
+expected = (temperature/initial.shape[0]) * (
+    F.softmax(initial/temperature, dim=-1)-F.softmax(teacher_logits/temperature, dim=-1))
+assert torch.allclose(scaled.grad, expected, atol=1e-12)
+assert teacher_logits.grad is None
+assert soft_loss(teacher_logits.clone(), True).abs() &lt; 1e-12
+print(&#x27;scaled soft-target KL:&#x27;, float(soft_loss(initial, True)))
+print(&#x27;gradient norm:&#x27;, float(scaled.grad.norm()))
+print(&#x27;T^2 corrects objective scale; it does not make gradients equal for all T.&#x27;)</code></pre></div>
+<h2>07｜实际训练一个学生，并审计教师是否冻结</h2>
+<p>下面确实执行120次学生参数更新。教师是一个固定、随机初始化的合成函数，学生是较小的线性模型；两者没有生物学意义。训练集128个输入，另留64个输入只用于末次评价，教师不参与优化且状态前后逐项检查。这个实验验证蒸馏链条，不把随机教师包装成已训练专家。</p>
+<p>输出包括教师和学生参数量、初始与最终训练KL、留出KL与教师预测一致率。训练KL应下降，但留出一致率不是对真实标签的准确率。现实蒸馏还需要学生直接监督基线、教师原始质量、资源测量及真实任务外测，才能决定小模型是否值得替代教师。</p>
+<p>脚本使用固定步数，未根据留出集挑检查点。若要选择温度、学生宽度或训练步数，再划出验证集，留出测试只用于最终报告。这里学生比教师小，但参数少不自动等于在所有设备更快；实际延迟和峰值内存要按D24的相同负载测量。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import copy
+import torch
+from torch import nn
+from torch.nn import functional as F
+
+torch.manual_seed(33)
+torch.set_num_threads(1)
+x = torch.randn(192, 4)
+x_train, x_holdout = x[:128], x[128:]
+# Fixed synthetic teacher function: random initialization, not a trained biological model.
+teacher = nn.Sequential(nn.Linear(4, 24), nn.Tanh(), nn.Linear(24, 3)).eval()
+teacher.requires_grad_(False)
+student = nn.Linear(4, 3)
+teacher_before = copy.deepcopy(teacher.state_dict())
+temperature = 2.0
+with torch.no_grad():
+    target_train = F.softmax(teacher(x_train)/temperature, dim=-1)
+    target_holdout = F.softmax(teacher(x_holdout)/temperature, dim=-1)
+
+def objective(model, features, targets):
+    return temperature**2 * F.kl_div(
+        F.log_softmax(model(features)/temperature, dim=-1), targets, reduction=&#x27;batchmean&#x27;)
+
+initial = float(objective(student, x_train, target_train).detach())
+optimizer = torch.optim.Adam(student.parameters(), lr=0.03)
+for _ in range(120):
+    optimizer.zero_grad(set_to_none=True)
+    loss = objective(student, x_train, target_train)
+    loss.backward()
+    optimizer.step()
+with torch.no_grad():
+    final = float(objective(student, x_train, target_train))
+    heldout = float(objective(student, x_holdout, target_holdout))
+    agreement = float((student(x_holdout).argmax(1) == teacher(x_holdout).argmax(1)).float().mean())
+assert final &lt; initial
+assert all(torch.equal(value, teacher_before[key]) for key,value in teacher.state_dict().items())
+assert all(parameter.grad is None for parameter in teacher.parameters())
+print({&#x27;teacher_parameters&#x27;: sum(p.numel() for p in teacher.parameters()),
+       &#x27;student_parameters&#x27;: sum(p.numel() for p in student.parameters()),
+       &#x27;train_KL_initial&#x27;: initial, &#x27;train_KL_final&#x27;: final,
+       &#x27;heldout_KL&#x27;: heldout, &#x27;heldout_teacher_agreement&#x27;: agreement})
+print(&#x27;Teacher agreement is imitation quality, not truth or clinical accuracy.&#x27;)</code></pre></div>
+<h2>08｜词表不一致时，逐token KL可能根本没有定义</h2>
+<p>对同一词表同一位置做蒸馏时，第v个概率应代表同一个事件。教师和学生使用不同tokenizer时，即使logits维度碰巧相同，token ID也可能指向不同文本；不同切分还导致位置不一一对应。直接按数组下标做KL会优化错误对象。</p>
+<p>可选择共享词表、对明确事件进行概率映射，或改用教师生成序列再按学生词表训练。最后一种方法不需要逐token概率对齐，但丢失了教师在同一位置上的完整分布信息，并带入生成采样和筛选偏差。表示蒸馏还需要说明哪一层、哪些位置和怎样处理尺度，不能仅因为隐藏维度相同就直接相减。</p>
+<p>映射到微生物组时，教师与学生的taxon词表、MetaPhlAn版本或功能单元也必须对齐。若缺少关键物种、父子层级重复或不同功能定义被当成同一坐标，蒸馏loss下降可能只是在匹配技术产物。沿用D25的数据合同，并对每个输出坐标保存科学含义。</p>
+<h2>09｜模型合并与集成、蒸馏不是一回事</h2>
+<p>集成在推理时组合多个模型输出，蒸馏通过训练让学生模仿输出或表示，参数合并直接组合兼容权重或相对共同底座的任务增量。设任务增量ΔA=θA−θ0，最简单的合并为θ0+λAΔA+λBΔB；它并不自动保持两个任务性能，也不等于合并两本知识库。</p>
+<p>共同底座、相同结构、词表和参数坐标是直接任务增量合并的重要前提。独立训练网络可存在隐藏单元置换等对称性，相同形状并不保证语义对齐；连词表行含义不同的两个权重矩阵更不能盲目平均。LoRA的A与B因子还存在非唯一分解，直接平均因子通常不等于平均完整BA增量。</p>
+<p>TIES-Merging讨论小更新和符号冲突造成的干扰，并设计相应处理；它是需要按条件评价的方法，不是无训练成本地累积任意能力的保证。本课仅讲解合并合同，不提供完整TIES实现。真正尝试时保留底座、单任务模型、输出集成与合并结果，并在独立开发集选择系数。</p>
+<h2>10｜用新旧任务和成本共同决定是否发布</h2>
+<p>建立适配结果卡：新领域的主要指标、旧任务各列变化、教师与学生关系、独立真实标签表现、输入来源、更新预算、有效token、参数量与实测延迟。新任务收益很小而关键旧能力明显退化时，保留旧版本或采用任务路由可能更合适；不要因一次训练完成就默认升级。</p>
+<p>为CurateMicrobiota安排一个可执行研究顺序：先冻结原始底座与强基线，再比较领域单独适配和预算明确的回放适配；只有教师在目标任务上有可验证价值时，才尝试压缩成学生。丰度模型外测仍遵守研究和受试者分区，不能因为训练目标不使用标签就让测试队列默认进入预训练。若研究传导式适配，应单独命名和比较。</p>
+<p>本课完成的是软目标梯度、实际学生优化和冲突回放的机制验证。真实领域持续预训练、跨词表蒸馏和参数合并实验需要额外数据与模型，不属于已经取得的研究结果。带着清晰的目标、来源和回归矩阵进入后续工程单元，才能知道某次升级是在增加能力还是移动错误。</p>
+<h2>动手实验 · 核对蒸馏梯度，训练学生，观察新旧目标冲突</h2>
+<h3>1. 建立适配合同</h3><p>用一页说明当前问题应采用检索更新、领域预训练、SFT还是蒸馏。列出两项新任务指标与两项必须保留的旧任务指标。</p>
+<div class="expected">检查什么：目标和指标一一对应，底座与评价资料预先冻结。</div>
+<h3>2. 执行软目标梯度检查</h3><p>运行脚本，手算T=3时缩放与未缩放梯度相差9倍，再把解析式与自动梯度对应。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit33/soft_gradient.py</code></pre></div>
+<div class="expected">检查什么：KL方向、教师冻结、温度和分母全部通过断言。</div>
+<h3>3. 执行学生训练</h3><p>运行固定120步的学生优化，保存控制台记录；说明教师随机函数、参数量和留出一致率的含义。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit33/student_training.py</code></pre></div>
+<div class="expected">检查什么：训练KL下降，教师状态完全未变，留出指标没有被用于选模。</div>
+<h3>4. 执行回放冲突实验</h3><p>运行单参数例子，比较无回放与0.5回放权重下的新旧损失，解释为什么没有同时达到两个最优。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit33/replay.py</code></pre></div>
+<div class="expected">检查什么：观察到旧目标保留改善但新目标损失高于单独适配，报告折中。</div>
+<h3>5. 写能力保留与回滚规则</h3><p>给真实项目拟定一个包含领域、通用、引用、缺证和外部研究任务的矩阵；没有实际实验的格子标未执行。</p>
+<div class="expected">检查什么：不把教师一致率、训练loss或模拟结果当成真实临床性能。</div>
+<h3>实验验收</h3><ul><li>□ 能区分持续预训练、SFT、检索、蒸馏和参数合并。</li><li>□ 三个CPU机制实验实际运行，输出与断言可复查。</li><li>□ 说明温度T²只处理目标尺度，不承诺不同温度梯度完全相同。</li><li>□ 能解释词表不对齐时逐token KL为何不成立。</li><li>□ 新旧能力矩阵与资源口径明确，测试集未用于选择适配方案。</li></ul>
+<h2>论文导读</h2>
+<h3>Don’t Stop Pretraining: Adapt Language Models to Domains and Tasks (2020)</h3><p><a href="https://aclanthology.org/2020.acl-main.740/">https://aclanthology.org/2020.acl-main.740/</a></p>
+<p>建立领域适配与任务适配的受控比较思路。</p><ul><li>区分DAPT与TAPT所用未标注资料。</li><li>检查下游任务与选择规则，再写出本项目对应的基线和外测。</li></ul>
+<p><strong>阅读问题：</strong>看到领域预训练有效，是否可以把最终测试来源加入适配？</p><p><strong>参考思路：</strong>必须依据预先声明的信息可见性；加入测试来源会改变归纳式外测设定，应与严格留出方案分开报告。</p>
+<h3>Distilling the Knowledge in a Neural Network (2015)</h3><p><a href="https://arxiv.org/abs/1503.02531">https://arxiv.org/abs/1503.02531</a></p>
+<p>核对软目标、温度和硬标签组合的经典定义。</p><ul><li>阅读第2节温度与软目标梯度。</li><li>对照本课解析式，解释T²缩放与高温近似的区别。</li></ul>
+<p><strong>阅读问题：</strong>学生与教师预测完全一致是否说明学生真实任务准确率为100%？</p><p><strong>参考思路：</strong>不说明。学生可能完整继承教师错误，一致率需要与独立真值指标分别报告。</p>
+<h3>Overcoming catastrophic forgetting in neural networks (2017)</h3><p><a href="https://arxiv.org/abs/1612.00796">https://arxiv.org/abs/1612.00796</a></p>
+<p>理解按旧任务参数重要性约束更新的思路；论文发表于PNAS 2017，预印本首发于2016年。</p><ul><li>识别旧任务重要性估计与新任务优化的关系。</li><li>比较参数约束、回放和独立适配器各自需要保存什么。</li></ul>
+<p><strong>阅读问题：</strong>参数约束能否保证任意新旧任务同时达到各自最优？</p><p><strong>参考思路：</strong>不能。任务可能冲突，重要性估计和近似也有限；需检查新旧任务矩阵而不是只看约束存在。</p>
+<h3>TIES-Merging: Resolving Interference When Merging Models (2023)</h3><p><a href="https://arxiv.org/abs/2306.01708">https://arxiv.org/abs/2306.01708</a></p>
+<p>理解参数增量合并时的干扰，以及它与输出集成和蒸馏的区别。</p><ul><li>读修剪、符号选择和合并三个步骤的目的。</li><li>列出在本项目尝试参数合并前需要一致的底座、结构与词表。</li></ul>
+<p><strong>阅读问题：</strong>两个相同形状但独立训练的网络能否无条件逐元素平均？</p><p><strong>参考思路：</strong>不能。参数坐标可能不具可比语义，存在置换对称、词表差异与任务干扰，必须建立兼容条件并评价。</p>
+<h2>练习与完整参考解答</h2>
+<h3>1. 两个样本的软目标KL使用batchmean，T=4。乘T²前后对学生logits的梯度比例是多少？不同T的缩放梯度是否必然相等？</h3><p><strong>提示：</strong>固定同一个T比较缩放；改变T会同时改变两个分布。</p><p><strong>参考解答：</strong>在同一T=4下乘T²使梯度放大16倍。改变T时p_s与p_t也变化，因此缩放梯度不必相等；高温近似下T²用于补偿主要尺度变化。</p>
+<h3>2. 领域适配后新任务准确率从0.70到0.80，旧任务从0.90到0.75。如何写结果？</h3><p><strong>提示：</strong>两列分别给出差值，不只写最好的一列。</p><p><strong>参考解答：</strong>新任务提高0.10，旧任务下降0.15；如果按旧参考减当前定义遗忘量则为0.15。是否接受取决于预先规定的用途、门槛和不确定性，不能概括为整体提高10%。</p>
+<h3>3. 教师token ID 17代表“micro”，学生同一ID代表“tion”，直接对齐logits做KL有什么问题？</h3><p><strong>提示：</strong>概率的坐标必须表示同一个事件。</p><p><strong>参考解答：</strong>同一数组位置不是同一个文本事件，直接KL没有所声称的教师—学生语义对应。应共享或显式映射词表和位置，或者使用教师序列经学生tokenizer构造另一种监督目标。</p>
+<h3>4. 旧目标(w−1)²，新目标(w+1)²，等权混合最优w是多少？旧新损失各多少？</h3><p><strong>提示：</strong>展开后一次项抵消。</p><p><strong>参考解答：</strong>混合目标为w²+1，最优w=0，旧新损失均为1。单独优化新目标w=−1时新损失0、旧损失4；回放是折中，不是同时恢复两个不兼容最优。</p>
+<h2>验收自测与解析</h2>
+<h3>1. 领域持续预训练与SFT最核心的区别之一是什么？</h3><ol type="A"><li>永远使用不同GPU</li><li>前者只能更新LoRA</li><li>训练资料组织和监督目标不同</li><li>两者完全相同且无需评价</li></ol>
+<p><strong>参考答案：C。</strong>持续预训练通常保留自监督目标；SFT使用任务示例监督。更新参数范围是另一维度。</p>
+<h3>2. 软目标蒸馏时教师通常怎样参与梯度？</h3><ol type="A"><li>冻结并提供目标分布</li><li>与学生共享同一optimizer自动更新</li><li>每步必须随机重置</li><li>必须接收学生梯度</li></ol>
+<p><strong>参考答案：A。</strong>固定教师是本课定义，目标分布detach并检查教师状态不变。</p>
+<h3>3. 本课学生的教师一致率是什么？</h3><ol type="A"><li>临床正确率</li><li>对真实标签的准确率</li><li>所有未来队列的泛化率</li><li>对固定合成教师预测的模仿指标</li></ol>
+<p><strong>参考答案：D。</strong>无真实生物标签，不能将一致率转换为领域正确性。</p>
+<h3>4. 在[B,T,V]上直接使用batchmean可能忽略什么？</h3><ol type="A"><li>GPU型号</li><li>有效token数量与损失分母</li><li>文件扩展名</li><li>模型颜色</li></ol>
+<p><strong>参考答案：B。</strong>KL先沿词表归约后，仍应按任务定义对有效位置求均值。</p>
+<h3>5. 直接模型合并前最应核对什么？</h3><ol type="A"><li>文件名是否都含final</li><li>训练日志是否足够长</li><li>共同底座、结构、词表和参数坐标是否兼容</li><li>两个文件大小完全相同就足够</li></ol>
+<p><strong>参考答案：C。</strong>形状相同不保证参数语义对齐，合并后还需独立评价。</p>
+<h2>收尾思考</h2><ul><li>你的领域适配是否真的需要更新权重，还是可靠检索已经足够？</li><li>你愿意为新任务收益容忍哪些旧能力变化，哪些必须设为门槛？</li><li>如果教师在外部研究上失败，学生蒸馏成功究竟复制了什么？</li></ul>
+<p><strong>下一步：</strong>继续工程补全单元，将模型来源、装载、检索与运行接口落实为可复现配置；再用本课能力矩阵评价真实升级。</p>
+</article></section><section class="book-chapter" id="day-34"><article class="reader">
+<p class="eyebrow">UNIT 34 / 深化 · 工程与真实使用</p>
+<h1>接上真实预训练模型：从文件快照到可复现适配</h1><p class="subtitle">核对权重、词表、聊天模板和适配器；用离线验收连接从零模型与现成模型</p>
+<p class="subtle">建议 240 分钟，可分次完成。</p>
+<h2>学习目标</h2><ul><li>能按任务与资源选择基座、指令模型或嵌入模型，并说明它们的输入输出差异</li><li>能核对模型配置、权重、tokenizer与模板的共同版本，识别同词表大小但不同ID语义的错误</li><li>能执行无网络的快照一致性和LoRA合并机制实验</li><li>能使用可选脚本加载本地预训练快照，区分已执行流程与待下载权重实验</li><li>能将基座、适配器、量化方式、依赖与评价数据一并记录，避免只保存一个模型名字</li></ul>
+<div class="notice mint"><strong>今日作品：</strong>两个独立运行的快照与适配器实验及断言结果；一份明确任务、资源上限、许可证与评价条件的模型选择表；一份包含完整revision与文件哈希的本地模型接入清单；有权重环境下的可选推理报告；无权重时明确保留未执行状态</div>
+<h3>先修准备</h3><ul><li>完成第3、8、16、20与24单元，理解embedding、LoRA、模板和资源账本</li><li>已有项目Python环境；两个核心机制实验只需标准库和CPU PyTorch</li><li>可选外部快照实验需要另建环境、安装transformers/safetensors，并自行按许可获得选定快照；核心课程不要求下载</li></ul>
+<h2>先用任务合同筛选模型，而不是按参数量排队</h2>
+<p>把候选模型分为三类：基座语言模型接受文本续写，指令模型接受其训练约定的消息序列，嵌入模型输出用于比较的向量。名称相近或参数更多，不说明三者可以互换。一个文献证据检索任务首先需要合适的查询与文档编码器；把生成模型最后一层随意平均，并不能自动得到同等有效的检索器。</p>
+<p>为CurateMicrobiota先写两项独立验收：能否稳定遵循输出合同，能否在保留问题上引用正确证据。再列CPU或GPU内存、最长输入、可接受延迟、语言、领域术语和许可条件。候选先做少量固定问题的可复现实验，再决定是否值得继续预训练或微调。模型选择是约束下的比较，不是宣称某个当前型号永远最优。</p>
+<h2>一个模型快照是一组相互约束的文件</h2>
+<p>接入对象通常包含架构配置、一个或多个权重分片、分片索引、分词规则、特殊token约定、聊天模板以及生成配置。每项解决不同问题：配置决定怎样建立网络，权重填充参数，tokenizer决定整数ID的语义，模板决定消息怎样进入模型。下载到了最大的权重文件，不代表已经拥有完整可运行快照。</p>
+<p>词表大小相同只保证某些张量形状相容。若把ID0从microbe改成cohort，embedding的第0行仍是原先训练出的参数，模型不会知道词义被交换。下面故意制造这种形状完全兼容的错误，通过内容哈希检测文件变化。哈希能证明与已记录内容一致，不能单独证明来源可信、许可证适用或模型具备预期能力。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import hashlib, json, tempfile
+from pathlib import Path
+# 原创微型文件夹具，不是假装下载了外部预训练模型。
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+with tempfile.TemporaryDirectory() as folder:
+    root = Path(folder)
+    (root / &quot;config.json&quot;).write_text(json.dumps({&quot;vocab_size&quot;: 2}), encoding=&quot;utf-8&quot;)
+    (root / &quot;tokenizer.json&quot;).write_text(json.dumps({&quot;microbe&quot;: 0, &quot;cohort&quot;: 1}), encoding=&quot;utf-8&quot;)
+    manifest = {p.name: digest(p) for p in sorted(root.iterdir())}
+    def check():
+        if any(digest(root / name) != expected for name, expected in manifest.items()):
+            raise ValueError(&quot;snapshot files changed&quot;)
+    check()
+    # 两个词表大小相同，ID语义却已互换。
+    (root / &quot;tokenizer.json&quot;).write_text(json.dumps({&quot;microbe&quot;: 1, &quot;cohort&quot;: 0}), encoding=&quot;utf-8&quot;)
+    try:
+        check()
+    except ValueError:
+        rejected = True
+    else:
+        rejected = False
+    assert rejected
+    print({&quot;same_vocab_size&quot;: True, &quot;changed_tokenizer_rejected&quot;: rejected,
+           &quot;frozen_files&quot;: sorted(manifest)})
+</code></pre></div>
+<h2>锁定revision，再记录下载与环境</h2>
+<p>完整提交标识比可移动的main分支更适合复现实验。使用Hub下载工具时，明确仓库ID、完整revision、目标目录和需要的文件；对照官方文档的revision参数核验行为。记录模型卡、获取日期、文件清单与SHA-256，保留实际下载版本。不能在论文只写“使用某模型最新版”，半年后再用同名入口替代。</p>
+<p>依赖也要记录。PyTorch、Transformers、PEFT和底层kernel版本会影响支持的架构、参数名、数值或缓存接口。可选实验建议独立环境安装后保存pip freeze输出，不改动已经跑通的核心CPU环境。模型文件固定与软件环境固定相辅相成；只做其中一项仍可能无法重现。平台驱动与硬件属于额外条件，不能由requirements文件完全描述。</p>
+<h2>读取快照时限制执行范围，离线不等于无条件可信</h2>
+<p>本课可选脚本只接收用户已准备的本地目录，使用local_files_only=True、trust_remote_code=False和safetensors权重，不自动联网、不运行仓库里的自定义Python模块。部分架构若必须依赖自定义代码，会在此路径失败；应先核验代码和所需环境，再决定另开实验，不通过关闭检查来掩盖不兼容。</p>
+<p>序列化格式与模型可信度不是同一层判断。safetensors和受限权重加载减少某些反序列化风险，但不能验证科学事实、训练来源或模型行为，也不保证任意巨大文件都能装入内存。现有TinyGPT仍使用本项目自己生成的可信.pt检查点，并显式指定weights_only=True。文件来源、计算预算与输出评价应分别验收。</p>
+<h2>聊天模板要检查token边界，而不仅是肉眼文字</h2>
+<p>对话列表最终会变成一个token序列。不同指令模型对角色开头、消息结束和回答开始有不同约定，不能把另一个模型的模板原样套进来。应调用快照自己的apply_chat_template，并检查实际input_ids、特殊token和生成起点；只有user文字相同，不足以说明两种模板产生了相同输入。</p>
+<p>可选脚本先将消息按模板渲染为文本，再分词时设置add_special_tokens=False，避免重复添加已经由模板带入的特殊标记。没有聊天模板时，脚本标为raw_text_continuation，仅执行原始文本续写，不臆造system/user标记。缺少模板不能证明它是基座；若模型卡说明它是指令模型，应回查缺失文件或模板约定后再评估。做SFT还必须检查首个回答token是否受监督，推理阶段则检查是否已添加开始回答的前缀；两个阶段不能机械共用所有模板开关。</p>
+<h2>设备、精度与上下文预算各自验证</h2>
+<p>模型权重的磁盘大小只是资源下界，加载时可能有临时副本，推理还需要激活、logits和缓存。可选脚本为教学固定CPU和FP32，并设权重文件体积与上下文上限；这些上限不是生产环境的容量估计。若切换GPU、低精度或device_map，应重新测量峰值和数值结果，不能沿用CPU报告当作新环境证据。</p>
+<p>对输入先按真实tokenizer计数，再预留输出长度。项目TinyGPT的一个token是一个字节，外部模型通常不同，因此中文字符数不能直接共用作预算。超过上限应缩短资料、重新检索或明确采用分段策略，不静默裁掉问题或证据限定条件。批量推理还要检查padding方向、attention_mask与模型位置规则，不能只看单条请求恰好能运行。</p>
+<h2>适配器属于哪一个基座，是一项必须保存的关系</h2>
+<p>LoRA适配器通常只保存增量参数与适配配置，加载时还需要正确基座。至少记录基座revision、目标层名、rank、alpha、训练精度与tokenizer版本。若SFT扩充了特殊token或改变embedding，还要明确相关完整参数是否保存；仅拿adapter文件配另一个同尺寸模型，不能保证意义或输出正确。</p>
+<p>PEFT官方检查点说明把adapter权重与原模型明确分开。本工程完整LoRA模型.pt可以由自己的生成入口重建适配结构；单独adapter.pt不具有这个等价地位。外部PEFT文件也不能直接交给TinyGPT加载。格式转换应先写键名与张量shape映射，再比较固定输入的logits，不能靠改扩展名或忽略missing keys完成。</p>
+<h2>合并LoRA要证明等价，也要保留可回退的原件</h2>
+<p>对没有额外随机操作的普通线性层，前向中的W与低秩更新可以合成W加上alpha除以rank乘BA。下面用float64检验同一输入在分支形式与合并形式的输出一致，并故意替换基座权重，观察同一个适配器不再给出原结果。它验证线性代数关系，不是实际替任意模型执行了PEFT导出。</p>
+<p>量化基座、混合精度、某些适配变体或特殊层可能带来额外约束与舍入误差。正式导出前按对应版本文档检查是否支持合并，保存原始基座、adapter和导出目录，比较若干固定输入的最大logit误差与任务指标。合并后无法自由开关适配器的模型，与原来可切换适配器的运行对象也不同。</p>
+<pre class="equation">W_merged = W_base + (alpha / rank) B A
+x W_merged^T + b = x W_base^T + b + (alpha / rank) (x A^T) B^T</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import torch
+from torch.nn import functional as F
+torch.manual_seed(34)
+torch.set_num_threads(1)
+# 一个线性层的代数验收；不宣称任意量化模型都可以无损合并。
+x = torch.randn(5, 4, dtype=torch.float64)
+weight = torch.randn(6, 4, dtype=torch.float64)
+bias = torch.randn(6, dtype=torch.float64)
+a = torch.randn(2, 4, dtype=torch.float64)
+b = torch.randn(6, 2, dtype=torch.float64)
+scale = 4 / 2
+adapted = F.linear(x, weight, bias) + scale * F.linear(F.linear(x, a), b)
+merged_weight = weight + scale * (b @ a)
+merged = F.linear(x, merged_weight, bias)
+torch.testing.assert_close(merged, adapted, rtol=1e-12, atol=1e-12)
+wrong_base = F.linear(x, weight + 0.1 + scale * (b @ a), bias)
+assert not torch.allclose(wrong_base, adapted)
+print({&quot;merge_max_error&quot;: float((merged-adapted).abs().max()),
+       &quot;wrong_base_changes_output&quot;: True})
+</code></pre></div>
+<h2>可选实践：只从你核验过的本地目录加载</h2>
+<p>工程新增scripts/run_hf_snapshot.py，要求本地目录包含config.json和safetensors权重，并使用自己的tokenizer。脚本不会选择或下载模型。准备快照时可参考命令hf download REPOSITORY_ID --revision FULL_COMMIT_SHA --local-dir models/chosen；大写部分必须替换为你核验的真实仓库与版本，不能把占位符当作已经获得的数据。</p>
+<p>先在独立环境安装兼容的torch、transformers与safetensors，然后运行python scripts/run_hf_snapshot.py --snapshot models/chosen --prompt &quot;Explain why an external cohort matters.&quot; --max-new-tokens 24。输出记录软件版本、文件哈希、输入类型与实际生成长度。此项在课程交付中属于需自备权重的可选实验，没有外部模型运行结果；两个无网络机制实验则不受影响。</p>
+<h2>接入验收与科学能力验收分开设计</h2>
+<p>第一层验收是文件与接口：指定版本可加载、输入输出形状匹配、模板明确、停止条件可解释。第二层是数值回归：相同快照与确定性设置下，保存参考logits或给定容差的输出，不把随机采样字符串必须完全相同作为跨硬件的唯一标准。第三层才是任务能力：在固定保留问题上评价证据支持、实体归一和无答案处理。</p>
+<p>如果换了模型、量化方式、adapter或模板，沿用同一组接入检查和保留评价。报告每个组件的版本、错误类型和资源变化，不仅展示最好的一条回答。领域术语读起来更像专家，可能只意味着格式或语言适应；只有独立评价才能说明任务改善。训练集中的问答不能再次充当“外部科学能力测试”。</p>
+<h2>把模型接入合同带回你的微生物项目</h2>
+<p>为真实研究建立两份互相引用的清单：语言助手记录文本模型和证据库，菌群编码器记录taxonomy、丰度单位和预处理状态。两者都需要版本和输入合同，但不能共用同一个tokenizer或把生物物种ID当作文本词表ID。系统组合时明确是谁输出证据、是谁输出样本向量，以及哪项结论实际经过外部验证。</p>
+<p>本单元完成的标志，是你能解释一次加载需要哪些文件、哪些文件变化会让旧结果失效，并能给出两个实际执行的断言实验。可选快照任务若缺少许可确认、硬件或文件，按缺失条件记录即可；不要为了勾选完成而伪造生成结果。补齐条件后沿同一合同运行，才把“会看模型名字”转变为“能接入并审查模型”。</p>
+<h2>动手实验 · 建立并检验一个外部模型接入合同</h2>
+<h3>1. 验证快照文件一致性</h3><p>运行第2节独立脚本，保留tokenizer大小相同而内容改变仍会被发现的输出。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit34/d34-02.py</code></pre></div>
+<div class="expected">检查什么：changed_tokenizer_rejected为true；说明哈希不是许可证或事实正确性的证明。</div>
+<h3>2. 验证低秩合并关系</h3><p>运行第8节脚本，手算矩阵形状并检查wrong_base反例。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit34/d34-08.py</code></pre></div>
+<div class="expected">检查什么：合并前后满足1e-12容差，更换基座会改变结果。</div>
+<h3>3. 填写模型选择与快照清单</h3><p>选择一个任务，写出模型类型、资源上限、完整revision、文件清单、模板、许可证来源和保留评价题；没有选定真实模型时保留待选状态。</p>
+<div class="expected">检查什么：没有仅记录模型简称，也没有把不同tokenizer的token预算混在一起。</div>
+<h3>4. 按条件完成可选本地快照推理</h3><p>只有已核验快照和独立依赖环境时执行；缺少条件时记录未执行与缺失项。脚本本身不下载任何模型。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python scripts/run_hf_snapshot.py --snapshot models/chosen --prompt &quot;Explain why an external cohort matters.&quot; --max-new-tokens 24</code></pre></div>
+<div class="expected">检查什么：实际执行时得到文件哈希、软件版本与真实输出；不把输出流畅当作微生物知识验证。</div>
+<h3>实验验收</h3><ul><li>□ 两个核心脚本实际运行，篡改词表反例和错误基座反例均通过</li><li>□ 能够逐项解释配置、权重、tokenizer、模板、adapter和依赖的关系</li><li>□ 能说明离线加载、受限加载和任务可信度分别解决什么问题</li><li>□ 可选外部权重实验明确标记执行状态与实际环境</li><li>□ 模型接入验收与保留科学任务评价分别保存</li></ul>
+<h2>论文导读</h2>
+<h3>Hugging Face Hub — Download files from the Hub (2026)</h3><p><a href="https://huggingface.co/docs/huggingface_hub/guides/download">https://huggingface.co/docs/huggingface_hub/guides/download</a></p>
+<p>核对固定revision和本地快照的操作合同。</p><ul><li>只阅读版本选择与snapshot_download相关部分，记录你使用的客户端版本。</li><li>比较可移动分支名与完整提交哈希对复现的影响。</li></ul>
+<p><strong>阅读问题：</strong>完整revision解决了所有复现问题吗？</p><p><strong>参考思路：</strong>没有。还需记录实际文件、依赖、硬件、输入和推理设置。</p>
+<h3>Hugging Face Transformers — Chat templates (2026)</h3><p><a href="https://huggingface.co/docs/transformers/en/chat_templating">https://huggingface.co/docs/transformers/en/chat_templating</a></p>
+<p>把消息结构与真实token序列对应起来，检查重复特殊token。</p><ul><li>比较同一消息在两个模板中的控制标记。</li><li>解释tokenize=False后再次分词时为什么要检查add_special_tokens。</li></ul>
+<p><strong>阅读问题：</strong>指令模型能否直接使用任意角色标记？</p><p><strong>参考思路：</strong>不能默认可以，必须使用其训练约定并评价实际行为。</p>
+<h3>Hugging Face PEFT — Checkpoint format (2026)</h3><p><a href="https://huggingface.co/docs/peft/en/developer_guides/checkpoint">https://huggingface.co/docs/peft/en/developer_guides/checkpoint</a></p>
+<p>理解adapter文件、配置与原始基座的依赖关系。</p><ul><li>列出adapter_model与adapter_config分别保存什么。</li><li>辨认完整合并模型与适配器检查点的区别。</li></ul>
+<p><strong>阅读问题：</strong>只有adapter文件时能否恢复模型？</p><p><strong>参考思路：</strong>需要对应基座和配置；若另有训练过的embedding等模块也必须恢复。</p>
+<h3>Hugging Face Transformers — Security policy (2026)</h3><p><a href="https://github.com/huggingface/transformers/security/policy">https://github.com/huggingface/transformers/security/policy</a></p>
+<p>核对模型文件来源与自定义代码执行的不同风险。</p><ul><li>找出safetensors和trust_remote_code的适用边界。</li><li>把来源核验、文件格式和资源预算分别写入加载清单。</li></ul>
+<p><strong>阅读问题：</strong>safetensors是否保证模型回答真实？</p><p><strong>参考思路：</strong>不保证，序列化格式与科学事实评价属于不同层面。</p>
+<h2>练习与完整参考解答</h2>
+<h3>1. 两个模型的词表都为32000，能否互换tokenizer？</h3><p><strong>提示：</strong>分别检查维度和ID含义。</p><p><strong>参考解答：</strong>不能仅凭大小互换。词表ID映射、规范化、特殊标记与合并规则都可能不同。即使embedding shape完全兼容，输入语义也会错位。应匹配实际快照；确需扩展或迁移词表时，明确参数映射、初始化和重新训练方案，并重新评价。</p>
+<h3>2. 某adapter在基座A上有效，换成同尺寸基座B后输出异常。如何定位？</h3><p><strong>提示：</strong>从文件版本、目标层和参数更新的参照点逐层检查。</p><p><strong>参考解答：</strong>先核对原始基座revision/哈希、tokenizer和adapter配置，再确认层名与权重键严格匹配。LoRA学到的是相对于A的更新，形状相同不意味着与B相容。恢复原组合进行固定输入logit对照；不能仅通过strict=False忽略缺失键，让加载成功替代正确加载。</p>
+<h3>3. 模板已经包含BOS，渲染文本后再按默认分词添加BOS，会发生什么？</h3><p><strong>提示：</strong>检查实际input_ids而不是打印的消息列表。</p><p><strong>参考解答：</strong>可能出现重复特殊token，改变模型看到的前缀分布。采用模型官方模板并核对其输出；若先渲染文本，通常应避免再次自动添加已存在的特殊token。正确设置依模板而定，应保留token级样例与生成起点作为回归检查。</p>
+<h3>4. 低精度导出后首条回答很好，能否发布“无损合并”？</h3><p><strong>提示：</strong>对照数值、任务和资源三种证据。</p><p><strong>参考解答：</strong>不能由单条随机回答推出无损。先比较固定输入的logits及容差，再用同一保留任务集检查能力变化，并报告精度、量化方式与资源差异。普通线性层的精确代数等式不保证任意量化导出在浮点计算中逐位相同。保存原始可回退文件，并准确写出误差与测量范围。</p>
+<h2>验收自测与解析</h2>
+<h3>1. 固定完整模型revision主要用于什么？</h3><ol type="A"><li>固定所选仓库的具体内容版本</li><li>保证每条科学结论正确</li><li>自动补齐所有依赖</li><li>让任意adapter通用</li></ol>
+<p><strong>参考答案：A。</strong>revision定位版本，仍需依赖和输入合同。</p>
+<h3>2. 哪个情况说明tokenizer可能仍不匹配？</h3><ol type="A"><li>字典文件校验一致</li><li>同样的词表大小但ID含义改变</li><li>模板来自相同快照</li><li>加载时记录完整版本</li></ol>
+<p><strong>参考答案：B。</strong>维度相同不表示ID语义相同。</p>
+<h3>3. 本课可选快照脚本会自动做什么？</h3><ol type="A"><li>训练一个新基础模型</li><li>下载所有热门模型</li><li>只从指定本地目录加载并记录结果</li><li>绕过缺失依赖</li></ol>
+<p><strong>参考答案：C。</strong>脚本无自动下载，外部权重需自行准备并核验。</p>
+<h3>4. 普通线性层LoRA合并权重是什么？</h3><ol type="A"><li>W+AB且不用检查形状</li><li>只保留B</li><li>把W删除后保留A</li><li>W+(alpha/rank)BA</li></ol>
+<p><strong>参考答案：D。</strong>本课按PyTorch线性层的权重布局采用BA更新。</p>
+<h3>5. 哪一项可以证明外部模型具备领域任务能力？</h3><ol type="A"><li>文件很大</li><li>能成功加载</li><li>回答使用专业词汇</li><li>固定保留任务上的预先定义评价</li></ol>
+<p><strong>参考答案：D。</strong>接入成功与领域能力是不同验收层级。</p>
+<h2>收尾思考</h2><ul><li>如果我今天只保存模型名字，一年后会失去哪几项复现信息？</li><li>我能否从一条消息追踪到具体token ID，再追踪到对应参数行？</li><li>模型、adapter和模板分别变化时，我会先运行哪项最小回归检查？</li></ul>
+<p><strong>下一步：</strong>进入第35单元，训练一个微型双塔检索器，理解检索向量为什么需要自己的目标、负例与评价。</p>
+</article></section><section class="book-chapter" id="day-35"><article class="reader">
+<p class="eyebrow">UNIT 35 / 深化 · 工程与真实使用</p>
+<h1>把检索向量训练出来：双塔、负例与索引验收</h1><p class="subtitle">从手工相似度走向可训练检索，分别检查表征质量、候选召回和证据覆盖</p>
+<p class="subtle">建议 240 分钟，可分次完成。</p>
+<h2>学习目标</h2><ul><li>能从查询—文档匹配目标推导双塔对比损失并完成一次CPU训练</li><li>能识别批内假负例、同源重复和过难负例，设计多正例与人工复核</li><li>能区分相似度、相关性、证据支持与事实正确性</li><li>能将精确近邻、近似候选与重排的误差分别验收</li><li>能设计按问题来源隔离的检索评价并冻结模型、索引和语料版本</li></ul>
+<div class="notice mint"><strong>今日作品：</strong>一个真实优化了参数的微型双塔实验与训练前后损失；多正例梯度检查与假负例处理规则；一份精确检索、候选漏召回和任务标签的对照结果；一张查询—证据标注表及模型/索引/文档版本关系图</div>
+<h3>先修准备</h3><ul><li>完成第9和21单元，理解BM25、余弦、RRF与分块来源</li><li>完成第15和18单元，理解交叉熵、梯度和验证集用途</li><li>已有CPU PyTorch与numpy；核心实验无需下载语义模型、Faiss或论文全文</li></ul>
+<h2>第21课的相似度夹具，现在变成可学习对象</h2>
+<p>第21课通过手工向量说明排序与融合，本课回答另一个问题：哪些训练信号使查询与有关证据接近？双塔分别把查询q和文档d映射为向量，检索阶段通常先离线编码文档，再为新查询计算向量并寻找相似项。训练、文档编码和在线检索是三项不同工作，不能把下载一个嵌入模型视作全部完成。</p>
+<p>双塔可以共享或不共享参数，取决于任务与模型设计。简短问题与较长证据段的分布不同，某些模型约定专门的query/document前缀；这些前缀属于输入合同，应以所选模型文档为准。CurateMicrobiota需要检索的“有关”不是出现相同菌名就足够，还包括疾病、研究设计、样本类型、结论方向和限制条件。</p>
+<h2>从一对正例到一个可微的排序目标</h2>
+<p>设一批包含N个查询，每个查询有一个核验正例，其他文档暂作为候选负例。计算s_ij为归一化向量点积，按温度tau缩放后对整行做交叉熵，使正确文档索引获得更大概率。分母包含正例和全部负例，这个归一化概率是当前候选集合中的训练量，不是某条医学结论成立的概率。</p>
+<p>温度改变分数差异和梯度尺度。减小tau会让当前困难对更占主导，但不会自动改善相关性，也可能放大错误负例的损害。批次增加时负例来源也改变，不能只把它当作吞吐变化。双向目标可同时计算查询到文档和文档到查询，但当一个文档对应多个合法查询时，必须重新定义正例集合，而不能强迫所有关系一一对应。</p>
+<pre class="equation">q_i = normalize(f_query(text_i)); d_j = normalize(f_doc(passage_j))
+L = -(1/N) sum_i log {exp(q_i^T d_i / tau) / sum_j exp(q_i^T d_j / tau)}</pre>
+<h2>实际训练一个微型双塔，再主动限制结论</h2>
+<p>下面使用六组原创英文教学配对，分别学习查询和文档的词嵌入平均值，用CPU执行80次更新。代码的确优化了模型参数，并且在固定训练配对上检查损失下降和正确top1；它不是手工填写一个相似度矩阵。三个没有参与词表构造或优化的查询只作微型诊断，打印其结果而不预设一定成功。</p>
+<p>这些文本非常少，词袋平均模型也忽略词序，训练命中不能证明语义泛化。保留查询虽然没有直接参与训练，仍与六个主题高度相关；它们不能代替来源外、时间外或真实文献检索评价。实验的价值是把目标、编码、负例和梯度接通，之后再用同样审查方式评价更强的预训练编码器。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import json, re, torch
+from torch import nn
+from torch.nn import functional as F
+torch.manual_seed(35)
+torch.set_num_threads(1)
+# 原创六组教学匹配，目标是验证训练机制，不是外部检索基准。
+queries = [&quot;avoid person leakage&quot;, &quot;relative values&quot;, &quot;cite evidence&quot;, &quot;freeze evaluation&quot;, &quot;record checkpoint&quot;, &quot;mask species&quot;]
+docs = [&quot;split visits by subject&quot;, &quot;abundance ratios sum constraint&quot;, &quot;source identifier and passage&quot;, &quot;keep test cohort separate&quot;, &quot;save model optimizer state&quot;, &quot;hidden taxa reconstruction target&quot;]
+heldout = [&quot;subject leakage&quot;, &quot;abundance values&quot;, &quot;source evidence&quot;]
+tokens = lambda text: re.findall(r&quot;[a-z]+&quot;, text.lower())
+vocab = {&quot;&lt;unk&gt;&quot;: 0}
+for text in queries + docs:  # 保留问题不参与词表构造或优化。
+    for word in tokens(text):
+        if word not in vocab:
+            vocab[word] = len(vocab)
+def ids(text):
+    return torch.tensor([vocab.get(w, 0) for w in tokens(text)] or [0])
+class Tower(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.embedding = nn.Embedding(len(vocab), 12)
+    def forward(self, texts):
+        vectors = torch.stack([self.embedding(ids(text)).mean(0) for text in texts])
+        return F.normalize(vectors, p=2, dim=-1)
+query_tower, doc_tower = Tower(), Tower()
+parameters = list(query_tower.parameters()) + list(doc_tower.parameters())
+optimizer = torch.optim.Adam(parameters, lr=0.04)
+labels, temperature = torch.arange(len(docs)), 0.2
+def scores(texts):
+    return query_tower(texts) @ doc_tower(docs).T
+with torch.no_grad():
+    initial_loss = float(F.cross_entropy(scores(queries) / temperature, labels))
+for step in range(80):
+    loss = F.cross_entropy(scores(queries) / temperature, labels)
+    optimizer.zero_grad(set_to_none=True)
+    loss.backward()
+    optimizer.step()
+with torch.no_grad():
+    final_loss = float(F.cross_entropy(scores(queries) / temperature, labels))
+    train_top1 = scores(queries).argmax(1)
+    heldout_top1 = scores(heldout).argmax(1)
+assert final_loss &lt; initial_loss
+assert torch.equal(train_top1, labels)
+print(json.dumps({&quot;initial_train_loss&quot;: initial_loss, &quot;final_train_loss&quot;: final_loss,
+    &quot;training_top1&quot;: train_top1.tolist(), &quot;unoptimized_query_top1&quot;: heldout_top1.tolist(),
+    &quot;scope&quot;: &quot;six synthetic training pairs; heldout examples are a tiny diagnostic, not generalization evidence&quot;}))
+</code></pre></div>
+<h2>批内负例可能实际上是正确答案</h2>
+<p>假设同一队列的一篇原文和一篇更正都支持“受试者需分组划分”。如果它们分别作为批内两条配对，朴素一对一交叉熵会把另一篇正确材料推远。这是标签设计制造的假负例，不能靠更长训练解决。同义问题、同篇不同块和多个独立支持来源，都可能破坏“其他列全部错误”的假设。</p>
+<p>先记录source_id与语义相关性关系，再选择去重、避免同源样本同批、掩去已知假负例或采用多正例目标。以下目标最大化核验正例集合的总概率质量，与逐个正例交叉熵再平均不同；前者可能把更多质量放在容易正例上，因此若任务要求每个来源都可检索，还需来源覆盖指标或另一种目标。不要把没有标注的材料一概当作已确认负例。</p>
+<pre class="equation">L_i = log sum_j exp(s_ij) - log sum_{j in P_i} exp(s_ij)
+P_i是已核验正例集合；未标注不等于已证伪负例。</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import torch
+# 两个问题，每行两个文档是已核验的正例；其余才可作负例。
+scores = torch.tensor([[2.0, 1.0, -0.5, 0.0], [0.0, -0.5, 1.0, 2.0]], requires_grad=True)
+positive = torch.tensor([[True, True, False, False], [False, False, True, True]])
+assert positive.any(dim=1).all()
+log_denominator = torch.logsumexp(scores, dim=1)
+log_positive_mass = torch.logsumexp(scores.masked_fill(~positive, float(&quot;-inf&quot;)), dim=1)
+loss = (log_denominator - log_positive_mass).mean()
+loss.backward()
+# 此目标推动总正例概率质量上升；这里每个正例的梯度非正，负例非负。
+assert (scores.grad[positive] &lt;= 0).all()
+assert (scores.grad[~positive] &gt;= 0).all()
+with torch.no_grad():
+    naive = torch.nn.functional.cross_entropy(scores, torch.tensor([0, 3]))
+print({&quot;multi_positive_loss&quot;: float(loss.detach()), &quot;single_positive_loss&quot;: float(naive),
+       &quot;positive_gradient_nonpositive&quot;: True, &quot;negative_gradient_nonnegative&quot;: True})
+# 这是正例集合质量目标，区别于逐个正例CE再平均；不能把两者混称同一损失。
+</code></pre></div>
+<h2>难负例要难在任务相关处，也要确保真的不满足任务</h2>
+<p>随机负例可能很容易：DNA分词问题面对饮食新闻，一眼就能分开。难负例可以来自BM25或旧检索器的高排名材料，例如同一疾病但只做内部验证、同一菌属但不同物种、同一指标但不同测量层级。它们促使模型注意区分条件，前提是这些条件确实属于问题定义而不是随意扣分。</p>
+<p>检索器越强，排名靠前的未标注材料越可能也是合法正例。应抽样人工复核，记录假负例率，允许多正例或暂时不计分；不要利用测试问题及其答案挖训练负例。迭代挖掘要锁定轮次、候选生成模型和语料版本，否则训练后无法说明性能来自更好编码器还是改换了问题和标签。</p>
+<h2>精确检索提供参照，近似索引提供资源取舍</h2>
+<p>文档向量固定后，精确内积检索可作为候选排序参照。向量均已L2归一化时，内积与余弦排序一致，欧氏距离平方等于2减去2倍内积；如果没有归一化，这些排名关系不能默认成立。相似度方向也要检查：某些接口返回距离越小越好，另一些返回分数越大越好，弄反会让索引看似完全失效。</p>
+<p>Faiss提供精确与近似索引选择，实际方案取决于数据量、维数、内存、构建时间与查询负载。HNSW或IVF等方法的调参会改变召回与时延；应先以同一组向量和查询建立精确top-k，再测近似结果的近邻召回。下面人为删掉最优候选，只演示候选漏召回的后果，没有声称实现或运行了Faiss、HNSW。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import numpy as np
+rng = np.random.default_rng(35)
+vectors = rng.normal(size=(12, 5))
+vectors /= np.linalg.norm(vectors, axis=1, keepdims=True)
+query = vectors[0].copy()
+exact = np.argsort(-(vectors @ query), kind=&quot;stable&quot;)[:3]
+assert exact[0] == 0
+# 人为省略最优项，模拟候选阶段漏召回；不是实现HNSW或Faiss。
+candidates = np.array([i for i in range(12) if i != 0])
+reranked = candidates[np.argsort(-(vectors[candidates] @ query), kind=&quot;stable&quot;)[:3]]
+index_recall = len(set(exact) &amp; set(reranked)) / len(exact)
+assert np.isclose(index_recall, 2/3)
+# 人工相关性标签是另一个对象，不能以向量近邻当作真实证据标签。
+relevant = {int(exact[2]), int(exact[1])}
+task_recall = len(relevant &amp; set(reranked)) / len(relevant)
+assert task_recall == 1.0
+print({&quot;exact_top3&quot;: exact.tolist(), &quot;candidate_top3&quot;: reranked.tolist(),
+       &quot;index_recall_at_3&quot;: index_recall, &quot;task_recall_at_3&quot;: task_recall})
+</code></pre></div>
+<h2>索引召回率与任务证据召回率不是一个分母</h2>
+<p>索引recall@k比较近似结果与精确向量top-k，回答加速检索损失了多少向量近邻。任务recall@k则比较结果与人工相关证据，回答问题所需材料找到了多少。精确搜索可以做到索引意义上的满分，却因为编码器表示不合适而遗漏全部真实证据；反过来，漏掉一个无关的向量近邻不一定损坏任务指标。</p>
+<p>上面的夹具让候选阶段漏掉精确第一名，但人工标签把另外两项视作相关，因此索引召回为三分之二、任务召回为一。这个数字来自明确构造的教学标签，不是实际系统表现。评价表要同时保存查询ID、返回文档ID、人工标签、向量分数与候选来源，避免用一种指标替另一种失败开脱。</p>
+<h2>重排能纠正候选顺序，不能召回不存在的候选</h2>
+<p>交叉编码器把问题与候选段落放进同一次编码，可以直接建模词项间的交互；双塔把文档预先压成一个固定向量，在线成本较小。常见组合是双塔或BM25召回较多候选，再用交叉编码器重排少量候选。两者都需要相应任务的数据与评价，不能把生成式模型给出的任意分数自动称为校准相关性。</p>
+<p>重排之前先核对候选覆盖。如果真实证据从未被召回，后续排名再精确也不能恢复它。对科学任务还应保留冲突和限制材料，不能把“与问题假设一致”作为唯一相关性定义。请求要判断是否有外部验证时，一篇明确报告没有外测的论文同样可能是有价值的相关证据；相关并不等于支持肯定答案。</p>
+<h2>索引是一份由模型与语料共同生成的派生物</h2>
+<p>只要文档编码器权重、tokenizer、输入前缀、池化、归一化或分块内容改变，旧向量索引都可能失效。查询编码器与文档编码器来自配对训练时，只更新一侧也需要明确兼容性实验。为每个索引保存文档版本、编码器哈希、向量维数、距离定义、归一化状态、构建参数与文档ID顺序。</p>
+<p>更新文献时要处理新增、替换、更正和删除，不应一直追加却保留过期重复条目。文档ID不能依赖数组位置作为永久身份；重新排序向量后仍要找回正确来源。若索引和来源表版本不一致，应拒绝输出引用而不是随机拼上一个看似有效的DOI。回滚时应成套恢复编码器、索引与来源元数据。</p>
+<h2>用固定问题和来源划分检验真正的改善</h2>
+<p>开发集用于选模型、温度、负例、索引参数与候选数，保留集用于最终评价。按主题族、作品和来源关系隔离，避免相同问题的改写分布在两侧。可报告Recall@k、MRR、nDCG和来源覆盖，但每项都必须写清相关性分级、未标注材料处理以及没有相关文档的问题如何计分。</p>
+<p>公平比较保持语料版本、问题、标签和候选预算一致；同时记录索引大小、构建成本、查询与重排时延。若新模型只增加候选数便提升召回，应把预算变化说清楚。最后将检索结果交给独立证据审查：是否覆盖关键条件，是否错误地把相关材料解释为支持结论。检索训练完成不等于RAG答案已经可靠。</p>
+<h2>把课程检索器升级为研究证据系统的条件</h2>
+<p>当前课程工程的八张来源卡适合检验ID、引用与缺证处理，不足以评价语义检索能力。真实项目先整理一小批有许可的证据段，按问题目的建立人工标注，再比较BM25、冻结预训练嵌入与必要的轻量适配。只有基线显示明确错误模式、训练数据足够并且保留评价支持，才有理由训练专用编码器。</p>
+<p>交付时把实验分层记录：本课已运行微型双塔与梯度、候选机制；真实预训练嵌入、ANN索引和交叉编码器属于后续接入条件；全文证据问答还需要生成与逐句核验。这样读者可以直接复现已有结果，又能知道下一步具体补什么，不会把几条教学短句的训练命中率包装成微生物文献检索排行榜。</p>
+<h2>动手实验 · 训练、破坏并评价一个微型检索链</h2>
+<h3>1. 运行真正的参数优化</h3><p>保存训练前后损失、训练top1及未优化查询结果，逐项指出训练证据与泛化证据的区别。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit35/d35-03.py</code></pre></div>
+<div class="expected">检查什么：80步后训练loss下降、六个训练配对命中；保留查询只作诊断，不要求全对。</div>
+<h3>2. 检查多正例梯度</h3><p>运行第4节实验，核对正负例集合和梯度方向，再手工加入同源重复文档，解释为什么单正例标签会产生冲突。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit35/d35-04.py</code></pre></div>
+<div class="expected">检查什么：正例集合目标的正例梯度非正、负例非负；没有将它混称为逐正例CE平均。</div>
+<h3>3. 检查索引与任务两种召回</h3><p>运行第6节实验，核对被删掉的近邻、剩余候选和人工相关标签。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit35/d35-06.py</code></pre></div>
+<div class="expected">检查什么：索引recall@3为2/3，构造标签下的任务recall@3为1；没有声称运行真实ANN。</div>
+<h3>4. 写真实证据标注与升级合同</h3><p>整理至少12个固定问题，包含支持、反证、缺证和条件不匹配；记录来源簇并分开发/保留集。模型选择和索引调参仅使用开发集。</p>
+<div class="expected">检查什么：每个问题有来源定位、相关性标签和标注规则；写清实际运行组件与待接入组件。</div>
+<h3>实验验收</h3><ul><li>□ 双塔训练真实执行，未把训练top1当成外部检索能力</li><li>□ 能写出候选分母和温度作用，说明假负例的来源</li><li>□ 多正例目标、单正例目标与覆盖要求没有混称</li><li>□ 精确近邻召回与人工任务召回分别定义并复算</li><li>□ 索引清单记录模型、词表、分块、归一化、距离与来源版本</li><li>□ 真实证据任务保留独立评价，并单独检查冲突与无答案问题</li></ul>
+<h2>论文导读</h2>
+<h3>Dense Passage Retrieval for Open-Domain Question Answering (2020)</h3><p><a href="https://arxiv.org/abs/2004.04906">https://arxiv.org/abs/2004.04906</a></p>
+<p>阅读双塔编码、负例与检索评价的原始设计。</p><ul><li>找出查询和段落各自如何编码。</li><li>比较批内负例与难负例，记录论文评价语料及任务边界。</li></ul>
+<p><strong>阅读问题：</strong>论文在开放域QA上的成绩是否自动适用于微生物文献？</p><p><strong>参考思路：</strong>不适用，语料、问题、标签和领域差异需要重新评价。</p>
+<h3>Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks (2019)</h3><p><a href="https://arxiv.org/abs/1908.10084">https://arxiv.org/abs/1908.10084</a></p>
+<p>理解独立句向量与成对交互模型的效率取舍。</p><ul><li>画出独立编码与逐对交互的计算流程。</li><li>分清语义相似度训练与科研证据相关性评价。</li></ul>
+<p><strong>阅读问题：</strong>句子语义相近能否直接证明某科学主张？</p><p><strong>参考思路：</strong>不能，相似性不等于支持关系，还需核验条件与方向。</p>
+<h3>Sentence Transformers — Losses 官方文档 (2026)</h3><p><a href="https://sbert.net/docs/package_reference/losses.html">https://sbert.net/docs/package_reference/losses.html</a></p>
+<p>核对MultipleNegativesRankingLoss对配对和批内负例的假设。</p><ul><li>阅读输入样本形式和重复样本注意事项。</li><li>对照本课指出同义问题与多正例会破坏哪项假设。</li></ul>
+<p><strong>阅读问题：</strong>越多批内文档一定越好吗？</p><p><strong>参考思路：</strong>不一定，若包含假负例或重复来源，增加批次会扩大标签错误。</p>
+<h3>Faiss — Guidelines to choose an index (2026)</h3><p><a href="https://github.com/facebookresearch/faiss/wiki/Guidelines-to-choose-an-index">https://github.com/facebookresearch/faiss/wiki/Guidelines-to-choose-an-index</a></p>
+<p>从官方说明理解精确与近似检索的资源选择。</p><ul><li>先识别精确索引作为参照的用途。</li><li>把内存、构建时间、查询速度与召回列为分开的比较维度。</li></ul>
+<p><strong>阅读问题：</strong>ANN更快是否足够证明系统改进？</p><p><strong>参考思路：</strong>还需同向量下的近邻召回、实际任务证据召回与质量成本对照。</p>
+<h2>练习与完整参考解答</h2>
+<h3>1. 批内两篇文档都能回答同一个问题，单正例交叉熵会做什么？</h3><p><strong>提示：</strong>观察分母中另一篇合法正例被赋予的角色。</p><p><strong>参考解答：</strong>它把未指定的合法答案当作负例，试图降低其相对得分。应先核验相关性，再用去重、同源批次约束、负例mask或明确的多正例目标处理。多正例质量目标只保证总正例概率，不保证每篇都获得同等覆盖，还需任务指标检查。</p>
+<h3>2. 精确向量检索的recall@10为1，人工证据召回仍很低，主要应查什么？</h3><p><strong>提示：</strong>先明确“精确”针对哪个排序。</p><p><strong>参考解答：</strong>这里的满分只说明索引复现了该向量空间的精确top10，不说明这些近邻是正确证据。优先检查分块、标签、编码器任务匹配、输入前缀和相似度定义，再比较BM25或混合检索；只增加ANN搜索深度通常不能修复表示本身的问题。</p>
+<h3>3. 重排器把所有候选排序正确，为什么最终答案仍可能漏掉重要反证？</h3><p><strong>提示：</strong>查看候选集合是否包含该材料。</p><p><strong>参考解答：</strong>重排只能处理已经召回的候选；反证没有进入集合，就无法由排序恢复。还要检查标注是否把反对问题假设的材料错当无关，是否被来源去重或时间过滤删除。记录候选召回和最终引用支持两层失败，不能只报告重排准确率。</p>
+<h3>4. 替换文档编码器后沿用旧索引可以吗？</h3><p><strong>提示：</strong>考虑向量坐标系和输入处理是否改变。</p><p><strong>参考解答：</strong>通常需要重新编码并重建索引，除非有明确的兼容设计和验证。旧向量来自原权重、词表、池化和归一化，不能因维数相同就默认可比。升级时成套记录查询/文档编码器、索引与来源版本，并保留可回滚的旧组合。</p>
+<h2>验收自测与解析</h2>
+<h3>1. 本课微型双塔训练实际证明什么？</h3><ol type="A"><li>已达到真实文献检索最优</li><li>预先构造分数就是训练</li><li>参数按目标更新并拟合六组教学配对</li><li>无需保留评价</li></ol>
+<p><strong>参考答案：C。</strong>参数训练真实发生，但训练命中不等于真实泛化。</p>
+<h3>2. 批内其他文档何时不能直接当负例？</h3><ol type="A"><li>它也是该问题的合法证据</li><li>文档有ID</li><li>使用CPU</li><li>向量已经归一化</li></ol>
+<p><strong>参考答案：A。</strong>一对一标签并不自动适合多正例关系。</p>
+<h3>3. 归一化向量下，平方欧氏距离与内积是什么关系？</h3><ol type="A"><li>恒等于内积</li><li>2减去2倍内积</li><li>与内积完全无关</li><li>等于文档长度</li></ol>
+<p><strong>参考答案：B。</strong>单位向量满足||q-d||²=2−2q·d。</p>
+<h3>4. 重排无法修复哪类错误？</h3><ol type="A"><li>候选中相关项排得稍低</li><li>候选之间分数接近</li><li>候选顺序不理想</li><li>相关证据从未进入候选集</li></ol>
+<p><strong>参考答案：D。</strong>缺少候选需要回到召回、分块或语料层解决。</p>
+<h3>5. 论文撤回或更正后，索引更新应怎样做？</h3><ol type="A"><li>只不断追加</li><li>永久按旧数组下标引用</li><li>维护来源状态并同步索引与元数据版本</li><li>把变化藏在备注里</li></ol>
+<p><strong>参考答案：C。</strong>索引与证据来源必须一致更新和可追溯。</p>
+<h2>收尾思考</h2><ul><li>我究竟训练的是语义相似、任务相关性，还是证据支持关系？</li><li>哪些“负例”只是没有被标注，而不是已经确认无关？</li><li>索引近邻、人工相关证据和最终引用之间，各有哪一种独立失败？</li></ul>
+<p><strong>下一步：</strong>进入第36单元，把项目已经训练出的TinyGPT权重装进可实际调用的本地接口，检查请求、流式输出与停止条件。</p>
+</article></section><section class="book-chapter" id="day-36"><article class="reader">
+<p class="eyebrow">UNIT 36 / 深化 · 工程与真实使用</p>
+<h1>让模型真正可调用：本地接口、流式输出与运行验收</h1><p class="subtitle">加载已训练的TinyGPT，在两个终端完成HTTP调用；检查输入预算、随机状态和停止原因</p>
+<p class="subtle">建议 240 分钟，可分次完成。</p>
+<h2>学习目标</h2><ul><li>能启动只监听127.0.0.1的真实模型接口，并用独立客户端请求生成</li><li>能解释检查点加载、请求验证、推理、事件发送和终态的完整生命周期</li><li>能正确处理字节token、增量UTF-8解码、流式重组与截止条件</li><li>能区分引擎时间、网络到达时间、排队时间和生成质量</li><li>能用合同检查阻止错误请求、错误模型文件和不可复现的随机状态污染</li></ul>
+<div class="notice mint"><strong>今日作品：</strong>三个可运行的请求、流式和真实检查点引擎实验；一次本地JSON请求与一次NDJSON流式请求的实际记录；包含checkpoint哈希、请求参数、结束原因与时延口径的服务报告；正常、非法、截止和客户端断开四类场景的验收说明</div>
+<h3>先修准备</h3><ul><li>完成第6、7与24单元，能够训练并保存TinyGPT检查点</li><li>下载完整工程，在project目录操作；本课新增local_service模块</li><li>前两个机制实验无需网络或模型文件；第三个需真实quick pipeline产物；HTTP实践需本机允许loopback socket</li></ul>
+<h2>现在把服务合同接到真实权重，而不改变模型能力</h2>
+<p>第24课学习推理预算与服务设计，本课新增curatemicrobiota.local_service模块，让已经保存的TinyGPT成为本地HTTP服务。服务启动时加载指定检查点，客户端发送prompt和预算，返回模型逐字节采样的真实结果。它不会拿固定句子伪装生成，也不会因为检查点不存在而悄悄改用随机模型。</p>
+<p>课程网站仍是静态学习入口，这个服务运行在你自己的电脑，只监听127.0.0.1。它没有把TinyGPT变成科学问答模型，没有连接真实微生物丰度编码器，也没有给网站部署公网后端。本课的学习目标是把权重正确装入接口，并能定位输入、推理或传输哪一层失败；生成内容是否有科学依据仍需单独评价。</p>
+<h2>加载阶段只做一次，输入文件与输出版本可以核对</h2>
+<p>LocalEngine接收本地检查点路径，核对项目格式、固定256字节tokenizer、配置范围和权重键。受限加载采用CPU和weights_only=True，并拒绝非有限参数。随后切到eval模式、冻结梯度，计算文件SHA-256。健康检查返回这个哈希和上下文长度，客户端能确认自己实际访问的是哪一份权重，而不是仅看服务名字。</p>
+<p>本入口支持项目原始TinyGPT和完整LoRA检查点；adapter-only文件不是完整模型。配置与文件体积有教学预算上限，路径只在启动时给出，推理请求不允许传任意模型路径、下载URL或代码。加载格式限制不替代来源核验，因此只使用自己训练或已核验的本地文件。加载失败应修复文件关系，不用忽略权重键来假装成功。</p>
+<h2>请求字段构成一个可检验的外部接口</h2>
+<p>POST /generate接收JSON对象，prompt必须是非空字符串。max_new_tokens默认16，必须为1到256的整数；top_k默认40，范围1到256；temperature默认0.8，要求有限且大于0、不超过4；seed默认42，范围0到2的63次方减1；timeout_seconds默认10，范围大于0、不超过30；stream为布尔值。未知字段直接拒绝，避免拼写错误被悄悄忽略。</p>
+<p>字段上限还受实际模型上下文约束：提示的UTF-8字节数加预留输出数不得超过context。Python的bool是int子类，所以数值合同显式检查type；seed=true不能被误解释成种子1。HTTP层另检查JSON类型、请求体大小和Content-Length，返回明确的400、411、413或415等状态。具体错误码属于接口约定，使用者应检查它而不是只读取一段输出文本。</p>
+<div class="table-scroll"><table><thead><tr><th>入口</th><th>输入或输出</th><th>本课范围</th></tr></thead><tbody><tr><td>GET /health</td><td>权重哈希、context、CPU、ready</td><td>不返回模型文件路径或用户prompt</td></tr><tr><td>POST /generate，stream=false</td><td>一次done JSON</td><td>模型实际生成，保留结束原因</td></tr><tr><td>POST /generate，stream=true</td><td>逐行NDJSON事件</td><td>start、token、done；不是SSE协议</td></tr></tbody></table></div>
+<h2>先验证字节预算和错误输入，避免生成时才发现</h2>
+<p>“菌”这个汉字在UTF-8中占三个字节，本项目把每个字节作为一个token。因此八个“菌”占24个输入token，预留8个输出刚好满足32；九个“菌”加8个输出则超过上限。外部子词模型需要自己的tokenizer计数，不能照搬这个关系。边界检查要在发送成功响应或开始生成之前完成。</p>
+<p>下面直接调用服务的真实请求验证函数，核对中文预算、布尔种子、NaN温度和未知路径字段的反例。它不依赖socket，能在受限环境下完成。实验不是把一切异常都吞掉后打印成功：每个预期反例必须被拒绝，任何未触发拒绝的情况都会让最终断言失败。这个方式把前端输入框的友好提示和执行层合同联系起来。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>from curatemicrobiota.local_service import validate_request
+# 上下文是字节token预算，不是中文字符数；本例不需要模型权重或socket。
+accepted = validate_request({&quot;prompt&quot;: &quot;菌&quot; * 8, &quot;max_new_tokens&quot;: 8}, context=32)
+assert len(accepted[&quot;prompt_ids&quot;]) == 24
+bad = [{&quot;prompt&quot;: &quot;菌&quot; * 9, &quot;max_new_tokens&quot;: 8},
+       {&quot;prompt&quot;: &quot;a&quot;, &quot;seed&quot;: True},
+       {&quot;prompt&quot;: &quot;a&quot;, &quot;temperature&quot;: float(&quot;nan&quot;)},
+       {&quot;prompt&quot;: &quot;a&quot;, &quot;model_path&quot;: &quot;another.pt&quot;}]
+rejected = 0
+for request in bad:
+    try:
+        validate_request(request, context=32)
+    except ValueError:
+        rejected += 1
+assert rejected == 4
+print({&quot;prompt_bytes&quot;: len(accepted[&quot;prompt_ids&quot;]), &quot;reserved_output&quot;: 8,
+       &quot;invalid_requests_rejected&quot;: rejected})
+</code></pre></div>
+<h2>逐token执行与随机状态隔离决定可复现性</h2>
+<p>生成使用已经加载的模型，并为每个请求创建独立CPU随机生成器；相同权重、输入和采样参数在本机可得到相同token序列，不会因另一个请求消耗全局随机数而改变。eval模式关闭dropout，inference_mode避免建立训练图。top-k先取明确的k个候选，再在它们上按温度采样，这与把所有并列阈值项都保留的实现需要区分。</p>
+<p>为保持最容易核验的行为，本服务每步完整重算前缀，没有KV cache、连续批处理或动态位置窗口；输入与输出总长度预先限制在原上下文内，不静默滚动裁剪。固定字节词表没有单独EOS特殊token，因此完成原因是length或deadline，不把普通换行猜成统一终止标记。若以后增加缓存或EOS策略，必须改变合同并增加相应边界实验。</p>
+<h2>字节流与可见文字不是一对一关系</h2>
+<p>NDJSON的每行是独立JSON事件，token事件携带一个字节ID及text_delta。一个中文字符需要多个字节，前两个事件可能没有可见文字，第三个才产生字符；不能每收到一个字节就单独decode并打印替代符。模块使用增量UTF-8解码器保留未完成片段，在done事件中通过final_text_delta交付最后的冲洗内容。</p>
+<p>模型也可能生成非法字节组合，或者在字符尚未完整时达到截止。解码器采用replace并如实返回替代符，这描述小模型输出质量，不能隐藏或改写成通顺文本。下面用已知中文字符串验证正确重组，再用不完整字节验证只有终态才冲洗替代符。最终completion必须等于所有token的text_delta加final_text_delta。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import codecs
+text = &quot;微生物abc&quot;
+raw = text.encode(&quot;utf-8&quot;)
+decoder = codecs.getincrementaldecoder(&quot;utf-8&quot;)(errors=&quot;replace&quot;)
+deltas = [decoder.decode(bytes([byte]), final=False) for byte in raw]
+tail = decoder.decode(b&quot;&quot;, final=True)
+assert &quot;&quot;.join(deltas) + tail == text
+assert any(delta == &quot;&quot; for delta in deltas)
+# 截止时留下不完整编码，应在终态冲洗；不是每次收到单字节就错误解码。
+partial = codecs.getincrementaldecoder(&quot;utf-8&quot;)(errors=&quot;replace&quot;)
+assert partial.decode(b&quot;\xe5&quot;, final=False) == &quot;&quot;
+assert partial.decode(b&quot;&quot;, final=True) == &quot;\ufffd&quot;
+print({&quot;byte_tokens&quot;: len(raw), &quot;visible_characters&quot;: len(text),
+       &quot;reassembled_text&quot;: &quot;&quot;.join(deltas) + tail,
+       &quot;incomplete_tail_reported&quot;: True})
+</code></pre></div>
+<h2>截止是协作停止，时延要写清从哪里计时</h2>
+<p>服务在每步模型前向之前与之后检查截止时间。已经进入的CPU kernel不能靠这个Python检查立即中断，因此timeout_seconds是token边界的协作式生成预算，不是严格硬实时承诺。它也不包括客户端上传、HTTP排队与全部网络传输时间；socket读取另有超时。若请求超时而没有生成token，done仍应明确给出deadline和零输出，而不是当作成功回答。</p>
+<p>引擎报告engine_ttft_seconds、engine_tpot_seconds和engine_seconds。计时从迭代开始，包含事件消费者造成的等待，排除上传排队以及最终事件送达客户端的时间。只有一个输出token时TPOT为null，因为没有后续token间隔；客户端看到的首字符时间还受UTF-8重组影响，不能与首字节token时间混称。测真实端到端延迟时应在独立客户端记录请求和接收时间。</p>
+<h2>先在无socket环境验证真实检查点引擎</h2>
+<p>先运行项目quick pipeline，得到runs/demo/language/model.pt，再执行下面代码。它加载真实训练产物，连续调用两次，检查相同种子生成相同token、全局随机状态未改变、事件重组等于完整字节解码。既没有重新训练一个随机替身，也没有用报告中的示例字符串充当当前生成。</p>
+<p>本实验只测引擎，不打开HTTP端口，因此它可以与后面的传输测试分开定位问题。加载与事件检查成功但HTTP失败时，优先看本机socket权限、端口占用、请求格式或客户端超时；不能据此声称模型权重错误。反过来，HTTP能返回200也不意味着推理使用了正确检查点，必须同时核对哈希和终态。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>from pathlib import Path
+import torch
+from curatemicrobiota.language import ByteTokenizer
+from curatemicrobiota.local_service import LocalEngine
+torch.set_num_threads(1)
+checkpoint = Path(&quot;runs/demo/language/model.pt&quot;)
+if not checkpoint.is_file():
+    raise FileNotFoundError(&quot;Run: python -m curatemicrobiota pipeline --quick --out runs/demo&quot;)
+engine = LocalEngine(checkpoint)
+request = {&quot;prompt&quot;: &quot;Microbes &quot;, &quot;max_new_tokens&quot;: 8, &quot;seed&quot;: 36}
+rng_before = torch.get_rng_state().clone()
+events = list(engine.events(request))
+repeat = list(engine.events(request))[-1]
+final = events[-1]
+assert final[&quot;completion_token_ids&quot;] == repeat[&quot;completion_token_ids&quot;]
+assert torch.equal(rng_before, torch.get_rng_state())
+assert final[&quot;completion_tokens&quot;] == 8
+reassembled = &quot;&quot;.join(e[&quot;text_delta&quot;] for e in events if e[&quot;event&quot;] == &quot;token&quot;) + final[&quot;final_text_delta&quot;]
+assert reassembled == final[&quot;completion&quot;] == ByteTokenizer.decode(final[&quot;completion_token_ids&quot;])
+print({&quot;checkpoint_sha256&quot;: engine.checkpoint_sha256,
+       &quot;completion_tokens&quot;: final[&quot;completion_tokens&quot;], &quot;finish_reason&quot;: final[&quot;finish_reason&quot;],
+       &quot;request_rng_independent&quot;: True, &quot;stream_reassembly_matches&quot;: True,
+       &quot;scope&quot;: &quot;actual local checkpoint engine; no HTTP socket in this example&quot;})
+</code></pre></div>
+<h2>两个终端跑通一次真实HTTP调用</h2>
+<p>在第一个VS Code终端进入project目录，执行python -m curatemicrobiota.local_service serve --checkpoint runs/demo/language/model.pt --port 8765。看到ready和127.0.0.1地址后，保留该终端运行。在第二个同环境终端执行python -m curatemicrobiota.local_service client --prompt &quot;Microbes &quot; --max-new-tokens 16 --port 8765，得到一个实际done响应。</p>
+<p>再给client命令加--stream，可查看start、逐token和done事件。复制输出到自己的运行记录，确认checkpoint_sha256与启动时一致。停止服务时在第一个终端按Ctrl+C。端口已占用可换成其他本机端口，并让两端保持一致；不要通过改成公网监听来解决本地连接问题。该接口只供Python等本地客户端，本课未给静态网页添加跨域调用。</p>
+<h2>失败和取消也应有可解释的终态</h2>
+<p>非法输入在生成前被拒绝；有效请求达到token上限或截止时返回done；客户端断开后服务器关闭事件迭代器，避免继续生成后续token。断开检测仍依赖下一次读写或操作系统反馈，不是任意时刻的硬中断。本服务采用单进程串行HTTPServer，排队和高并发调度不在实现范围内，不能用一个短请求代表稳定并发能力。</p>
+<p>验证时分别保留成功、超长prompt、类型错误和极短deadline的输出，再尝试提前结束流式客户端。日志只需请求ID、模型版本、计数、时长、错误类型与结束原因，不默认保存完整prompt或科学数据。没有观察到终态的客户端必须把请求标为未完成，而不是把已经收到的一半文字当作完整回答。</p>
+<h2>合同测试把网页承诺与工程行为对齐</h2>
+<p>tests/test_local_service.py覆盖字节预算、非法字段、请求随机性、完整流式重组、截止、错误文件、完整LoRA加载及实际HTTP调用。HTTP测试只在创建socket受到PermissionError限制时明确跳过，其他错误继续失败；正常本机或CI环境应真实执行请求并核对JSON、NDJSON与400错误。跳过不是通过，报告必须保留这一差别。</p>
+<p>运行python -m unittest discover -s tests -p &quot;test_local_service.py&quot; -v，阅读每项结果。若受限沙箱只能验证引擎，应在允许loopback的本机或CI完成HTTP层，再声称整个传输链验收。所有结果仍是教学模型工程正确性的证据，不是科学问答准确率；性能与内容质量应按固定负载和保留问题另外评价。</p>
+<h2>从本地教学服务走向研究服务，需要新增哪些实测</h2>
+<p>Python官方明确说明http.server不用于生产部署。本课选它是为了让请求处理、权重加载和事件循环都可读。若需要长期多人使用，应采用合适的服务框架与推理运行时，补充身份与访问控制、并发和队列、资源隔离、健康恢复、版本切换与端到端监测，并在实际负载下验证。不能仅改监听地址就宣布完成部署。</p>
+<p>对CurateMicrobiota，未来语言证据服务与菌群表征服务还需要各自的数据合同和独立评价：前者核验引用和缺证，后者核验特征版本、样本对齐与外部泛化。本课交付的是可以从真实权重走到本地请求的一条具体路径。你应能指出它已经实现的步骤、没有实现的性能优化，以及下一次升级必须保留的回归证据。</p>
+<h2>动手实验 · 从真实检查点到本地JSON与流式调用</h2>
+<h3>1. 检查请求与字符边界</h3><p>先运行两个无需文件或端口的实验，确保类型、上下文和UTF-8边界符合合同。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit36/d36-04.py
+python lesson_examples/unit36/d36-06.py</code></pre></div>
+<div class="expected">检查什么：4类非法请求均拒绝；12字节正确重组成6个字符；不完整结尾明确冲洗。</div>
+<h3>2. 生成真实检查点并验证引擎</h3><p>若已有runs/demo产物无需重复训练；否则执行quick pipeline。随后运行引擎实验，核对权重哈希、token数和随机状态。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python -m curatemicrobiota pipeline --quick --out runs/demo
+python lesson_examples/unit36/d36-08.py</code></pre></div>
+<div class="expected">检查什么：加载真实model.pt，两次相同请求一致，全局RNG未被请求消耗。</div>
+<h3>3. 第一个终端启动服务</h3><p>保持该终端运行，记录ready、端口与checkpoint_sha256。服务只监听本机IPv4回环。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python -m curatemicrobiota.local_service serve --checkpoint runs/demo/language/model.pt --port 8765</code></pre></div>
+<div class="expected">检查什么：127.0.0.1:8765启动，模型哈希与文件对应；缺失或错误文件会失败。</div>
+<h3>4. 第二个终端调用两种响应</h3><p>使用同一Python环境，先JSON再NDJSON。把done保留下来，不只截取第一段可见文字。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python -m curatemicrobiota.local_service client --prompt &quot;Microbes &quot; --max-new-tokens 16 --port 8765
+python -m curatemicrobiota.local_service client --prompt &quot;Microbes &quot; --max-new-tokens 16 --port 8765 --stream</code></pre></div>
+<div class="expected">检查什么：得到真实生成及结束原因，流式事件包含start/token/done；小模型内容可能不流畅。</div>
+<h3>5. 完成合同与失败检查</h3><p>运行独立测试集，记录socket测试是否实际执行；检查截止和输入错误后，在服务终端按Ctrl+C结束。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python -m unittest discover -s tests -p &quot;test_local_service.py&quot; -v</code></pre></div>
+<div class="expected">检查什么：正常环境HTTP测试应执行并通过；受限环境的显式skip不能写成传输链通过。</div>
+<h3>实验验收</h3><ul><li>□ 请求、字符与真实检查点三个脚本均实际执行</li><li>□ JSON与NDJSON使用同一权重哈希并包含准确结束原因</li><li>□ 流式拼接包含final_text_delta，字节token不冒充字符计数</li><li>□ 截止是token边界协作式预算，TTFT与TPOT口径完整</li><li>□ 非法输入在推理前拒绝，adapter-only文件不冒充完整模型</li><li>□ HTTP实际执行与沙箱跳过分开报告</li><li>□ 本地教学服务没有被宣称为公网生产服务或科学事实保证</li></ul>
+<h2>论文导读</h2>
+<h3>Python — http.server 官方文档 (2026)</h3><p><a href="https://docs.python.org/3/library/http.server.html">https://docs.python.org/3/library/http.server.html</a></p>
+<p>核对HTTPServer生命周期及教学与生产部署的边界。</p><ul><li>阅读HTTPServer和BaseHTTPRequestHandler的职责。</li><li>解释为什么一个能响应的本地端口还不是生产推理服务。</li></ul>
+<p><strong>阅读问题：</strong>把地址改为0.0.0.0是否完成了生产部署？</p><p><strong>参考思路：</strong>没有，还需要访问控制、资源隔离、并发、监控和真实负载验收。</p>
+<h3>PyTorch — Serialization semantics 官方文档 (2026)</h3><p><a href="https://docs.pytorch.org/docs/stable/notes/serialization.html">https://docs.pytorch.org/docs/stable/notes/serialization.html</a></p>
+<p>核对state_dict与weights_only加载的实际含义。</p><ul><li>区分完整训练恢复状态与推理所需权重。</li><li>阅读weights_only的范围，说明为什么仍要核验文件来源。</li></ul>
+<p><strong>阅读问题：</strong>weights_only=True是否让任意陌生文件都绝对安全？</p><p><strong>参考思路：</strong>不是，它限制特定反序列化行为，不能替代来源、内存预算和模型行为检查。</p>
+<h3>Python — codecs：Incremental Encoding and Decoding (2026)</h3><p><a href="https://docs.python.org/3/library/codecs.html#incremental-encoding-and-decoding">https://docs.python.org/3/library/codecs.html#incremental-encoding-and-decoding</a></p>
+<p>理解跨事件保留未完整UTF-8片段与最终冲洗。</p><ul><li>用一个汉字逐字节调用decoder，观察何时产生可见文字。</li><li>比较final=False与最终final=True的行为。</li></ul>
+<p><strong>阅读问题：</strong>一个token事件没有text_delta是否表示生成失败？</p><p><strong>参考思路：</strong>不一定，字节尚未组成完整字符时为空是正常的；还需看token_id与终态。</p>
+<h2>练习与完整参考解答</h2>
+<h3>1. context=64，prompt含20个“菌”，还能预留16个字节token吗？</h3><p><strong>提示：</strong>先算UTF-8字节数。</p><p><strong>参考解答：</strong>不能。20个汉字占60字节，再加16超过64，必须在生成前拒绝。可以明确缩短prompt或输出预算，不能静默截断。这个结果只适用于本项目字节tokenizer；外部模型需要用实际分词器重新计数。</p>
+<h3>2. 流式返回8个token事件却只显示3个字符，应如何判断？</h3><p><strong>提示：</strong>分别看字节ID、增量解码状态和最终冲洗。</p><p><strong>参考解答：</strong>一个中文字符需要多个字节，token数不等于可见字符数。先按顺序拼接text_delta和done.final_text_delta，并与completion_token_ids整体UTF-8解码比较。若仍有替代符，检查是否模型生成非法编码或截止留下残片，不能直接断言网络丢包或把替代符删掉来美化。</p>
+<h3>3. timeout_seconds设为1，但响应在1.2秒才结束，是合同必然失效吗？</h3><p><strong>提示：</strong>区分正在执行的kernel和检查边界，再检查网络计时。</p><p><strong>参考解答：</strong>不一定。本实现是token边界协作检查，无法中断已经进入的CPU操作；上传、排队和最终传输也不全在生成预算中。报告应写清这一点，并分别测引擎和客户端时延。若需要硬期限，需要额外进程隔离与取消设计，并实际验证。</p>
+<h3>4. 同一模型不同请求共享全局随机种子，会产生什么问题？</h3><p><strong>提示：</strong>考虑两个请求之间插入一次随机采样。</p><p><strong>参考解答：</strong>请求会相互影响随机数消耗顺序，同一输入可能因为其他请求改变结果。应给每个请求建立独立生成器，并在测试中插入其他请求，验证原请求token结果不变且全局RNG未改变。还应固定eval模式、权重和采样参数，跨硬件结果仍需明确容差与适用范围。</p>
+<h2>验收自测与解析</h2>
+<h3>1. 本课实际HTTP服务在哪里运行？</h3><ol type="A"><li>公开GitHub Pages服务器</li><li>用户电脑的127.0.0.1</li><li>自动申请的云GPU</li><li>浏览器内训练进程</li></ol>
+<p><strong>参考答案：B。</strong>服务是下载工程后启动的本地进程，网站本身没有新增公网推理后端。</p>
+<h3>2. stream=true返回的协议是什么？</h3><ol type="A"><li>逐行NDJSON</li><li>SSE且无需事件解析</li><li>任意二进制权重</li><li>FTP文件流</li></ol>
+<p><strong>参考答案：A。</strong>每行是JSON事件，start/token/done需按合同解析。</p>
+<h3>3. 只有一个输出token时，TPOT应该怎样报告？</h3><ol type="A"><li>必定为零</li><li>等于TTFT</li><li>不适用，保留null和其他时间</li><li>填入平均网络延迟</li></ol>
+<p><strong>参考答案：C。</strong>没有后续token间隔，不能制造平均值。</p>
+<h3>4. 哪种文件能直接用于本课服务？</h3><ol type="A"><li>任意命名为model.pt的文本</li><li>外部PEFT adapter-only</li><li>任意pickle对象</li><li>格式与tokenizer匹配的完整项目检查点</li></ol>
+<p><strong>参考答案：D。</strong>服务核对格式、配置和权重，不通过改扩展名获得兼容。</p>
+<h3>5. 本地HTTP测试因socket权限而skip意味着什么？</h3><ol type="A"><li>所有层都已通过</li><li>该环境未验证实际HTTP层，需要在允许环境执行</li><li>模型从未执行过</li><li>应删除测试</li></ol>
+<p><strong>参考答案：B。</strong>引擎检查和HTTP传输检查是不同证据；跳过要明确记录。</p>
+<h2>收尾思考</h2><ul><li>我能否从一次响应追溯到实际权重文件，而不是只知道模型名字？</li><li>我报告的首token时间是否包括队列、网络和UTF-8等待？</li><li>如果未来加入KV cache或并发，哪几项现有检查必须重新执行？</li></ul>
+<p><strong>下一步：</strong>进入微生物科研深化专题，把数据治理、可迁移表示与真实任务验收接到同一条研究链。</p>
+</article></section><section class="book-chapter" id="day-37"><article class="reader">
+<p class="eyebrow">UNIT 37 / 能力补全 · 微生物测量与研究可靠性</p>
+<h1>从原始宏基因组到模型输入：把测量链补完整</h1><p class="subtitle">理解 reads、物种、功能、MAG 与菌株特征怎样产生，给每一步留下单位、版本和质量证据</p>
+<p class="subtle">建议 240 分钟，可分次完成。</p>
+<h2>学习目标</h2><ul><li>区分原始测序、参考谱分析和组装分析的输入、估计对象与误差来源</li><li>能够审查测序质控、宿主去除、成对 reads 与样本流失的计数合同</li><li>理解 MetaPhlAn 的物种级单位及 HUMAnN 基因家族、分层贡献、通路的区别</li><li>解释 MAG、SGB、菌株 SNV 与物种丰度不能互相替代的原因</li><li>把冻结的测量表接回训练内预处理和外部验证</li></ul>
+<div class="notice mint"><strong>今日作品：</strong>从样本清单到丰度/功能表的步骤、输入、输出与版本表；两段可运行的质控计数与功能双重计数检查；原始 reads 可用和仅有公开处理表两种接入路线；按 study、标签、时间点展示质量流失的审查模板</div>
+<h3>先修准备</h3><ul><li>完成 D10、D25 和 D28，理解样本、特征、单位与来源隔离</li><li>知道 FASTQ、参考数据库与相对丰度的基本含义；本课补上各环节之间的关系</li><li>CPU 实验只用人工计数与人工功能表；不下载原始数据，也未运行大型组装或真实测序流程</li></ul>
+<h2>先画测量链：模型只能看见测量过程留下的信号</h2>
+<p>CurateMicrobiota 的默认入口是样本×特征矩阵；它省去了测序处理，并没有消除这些处理对数值的影响。一个完整记录应能追溯到原始样本、建库、测序批次、文件清单、质量处理、参考数据库、定量方法和合并规则。模型学到的差异可能来自生态，也可能来自提取效率、测序深度、宿主比例或参考覆盖。只有先说明矩阵每列如何产生，后面的预训练目标才有科学含义。</p>
+<p>准备两条路线：有原始 reads 时，在合适权限内统一处理并记录计算资源；只有公开处理表时，保留原作者的软件、数据库和单位，明确哪些环节不能重做。不能为了让流程看起来统一而把未知版本写成当前版本，也不能将已处理丰度反推成真实 FASTQ。对本项目，先用 curatedMetagenomicData 的可追溯表完成建模闭环，再把原始数据路线作为独立的扩展实验。</p>
+<div class="table-scroll"><table><thead><tr><th>分支</th><th>直接得到</th><th>还不能推出</th></tr></thead><tbody><tr><td>参考谱分析</td><td>参考定义下的分类/功能估计</td><td>所有未入库物种都不存在</td></tr><tr><td>组装与分箱</td><td>样本支持的 contig、bin、MAG</td><td>每个 MAG 都是完整、单一菌株</td></tr><tr><td>菌株变异</td><td>满足覆盖与比对条件的变异信号</td><td>低覆盖未检出就代表参考等位基因</td></tr><tr><td>模型输入</td><td>冻结词表和单位的矩阵</td><td>测量偏差已经由深度模型消除</td></tr></tbody></table></div>
+<h2>样本清单与质控：先统一计数单位，再谈阈值</h2>
+<p>FASTQ 中一条 read 有序列与质量值，双端测序的一对 reads 通常来自同一片段。read、read pair、碱基数不能放进同一个留存率分母。Phred 质量值 Q=-10log10(p_error)，是测序错误概率的编码；对质量分数取平均后再换算概率，并不等于直接平均每个碱基的错误概率。实际质控还涉及接头、长度、低复杂度、配对保留与去重策略，应记录所选工具版本和显式参数。</p>
+<p>本课不规定适合所有项目的质量或深度阈值。先依据研究平台、质控目的与盲于测试结果的规则预设排除标准，再分别统计每个 study、病例组、时间点的流失。若病组原本宿主比例更高，过滤可能改变研究人群构成；若按测试表现反复调整深度阈值，评估已经受到选择影响。质量列可以用于技术诊断，但是否作为预测输入还要考虑真实使用时能否获得及其与中心的关系。</p>
+<h2>独立实验一：让过滤日志在数量上说得通</h2>
+<p>下面只演示一条明确的顺序过滤：先质量处理，再从剩余 reads 中去除宿主，最后得到分析 reads。这个顺序要求 raw≥qc_pass，且 analysis=qc_pass−host_removed。不同工具可能分别报告成对保留、单端保留、多个参考匹配或累计去除，必须先转换到统一合同；不能把本例等式不加判断地用于全部日志。</p>
+<p>除验证正常记录外，代码故意制造一个无法守恒的样本并要求程序拒绝。这种负例比仅打印一张质控图更有帮助。真实项目还应验证原始文件配对、校验和、重复 sample_id、缺失处理结果以及被排除样本的原因。当前打印的是人工日志的检查结果，并不是任何真实队列的留存率。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>from copy import deepcopy
+# 合成日志；所有数量都是单条 read，不是 read pair，也不是碱基数。
+records = [
+    {&quot;sample_id&quot;: &quot;S1&quot;, &quot;unit&quot;: &quot;reads&quot;, &quot;raw&quot;: 10000,
+     &quot;qc_pass&quot;: 9000, &quot;host_removed&quot;: 1000, &quot;analysis&quot;: 8000},
+    {&quot;sample_id&quot;: &quot;S2&quot;, &quot;unit&quot;: &quot;reads&quot;, &quot;raw&quot;: 12000,
+     &quot;qc_pass&quot;: 11000, &quot;host_removed&quot;: 3000, &quot;analysis&quot;: 8000},
+]
+def audit(records):
+    ids = [r[&quot;sample_id&quot;] for r in records]
+    if len(ids) != len(set(ids)):
+        raise ValueError(&quot;Duplicate sample_id&quot;)
+    rows = []
+    for r in records:
+        if r[&quot;unit&quot;] != &quot;reads&quot;:
+            raise ValueError(&quot;Do not mix reads and pairs&quot;)
+        vals = [r[k] for k in (&quot;raw&quot;, &quot;qc_pass&quot;, &quot;host_removed&quot;, &quot;analysis&quot;)]
+        if any(type(v) is not int or v &lt; 0 for v in vals):
+            raise ValueError(&quot;Counts must be nonnegative integers&quot;)
+        if not (r[&quot;raw&quot;] &gt; 0 and r[&quot;qc_pass&quot;] &lt;= r[&quot;raw&quot;]
+                and r[&quot;analysis&quot;] == r[&quot;qc_pass&quot;] - r[&quot;host_removed&quot;]):
+            raise ValueError(&quot;Sequential count contract violated&quot;)
+        rows.append({&quot;sample_id&quot;: r[&quot;sample_id&quot;],
+                     &quot;retained_fraction&quot;: r[&quot;analysis&quot;] / r[&quot;raw&quot;]})
+    return rows
+summary = audit(records)
+assert summary[0][&quot;retained_fraction&quot;] == 0.8
+bad = deepcopy(records); bad[1][&quot;analysis&quot;] += 1
+try:
+    audit(bad)
+except ValueError:
+    print(&quot;Expected rejection: inconsistent stage counts&quot;)
+else:
+    raise AssertionError(&quot;Invalid counts must be rejected&quot;)
+print(summary)
+# 此合同只适用于这里声明的顺序过滤日志；真实工具须先解析其计数定义。
+</code></pre></div>
+<h2>宿主去除与污染控制：参考覆盖决定可解释范围</h2>
+<p>宿主去除以给定宿主参考和比对规则识别相关 reads；过滤后仍需审查残留与异常样本，不能把“运行过程序”视作零残留的证明。双端处理应保留成对与失配单端的明确去向，后续工具需要何种输入就使用对应规则。KneadData 官方说明列出了双端质量处理可能产生的不同输出；实际执行时以固定版本的帮助信息和日志定义为准。</p>
+<p>技术污染与宿主序列是两类问题。阴性对照、提取批次、建库批次及样本生物量有助于发现技术来源；相对丰度较低也不等于污染，较高也不保证是真实定植。原始宿主相关资料可能含个人信息，课程公开演示只发布合成材料、汇总质控与授权的非识别结果。记录的数据来源和使用范围应与 D10 的数据说明一致，不能因为是分析副产物就省略这些信息。</p>
+<h2>物种谱与数据库：SGB 是分组单位，不是永久不变的名字</h2>
+<p>MetaPhlAn 4 原始研究采用物种级基因组分组 SGB，并通过相应标记序列估计群落组成。这与把全部 reads 按任意分类标签简单计数不是同一操作。参考覆盖、标记选择及估计规则会影响检出与丰度；输出的百分比要按具体资源说明转换，不能默认它就是测序 reads 的直接百分比。不同工具估计的对象也未必完全相同。</p>
+<p>跨数据库版本时，旧编号可能被合并、拆分或重新命名。建立带来源和版本的 crosswalk，并区分一对一映射、只能升到共同祖先的映射以及无法可靠映射。把一对多关系随意复制成多个非零特征会凭空增加质量；把无法映射全部补零会把“未知”改写为“不存在”。学习目标是说清可比较的分辨率，再决定统一重跑、限制共同特征或分层分析。</p>
+<h2>功能表有层级：基因家族、分层贡献与通路不是同一种量</h2>
+<p>HUMAnN 的参考路线通过核酸与翻译搜索等步骤得到基因家族信息，并进一步归并功能与估计通路。默认基因家族输出常用 RPK 表示长度归一化后的量，它本身没有消除样本测序深度差异。跨样本分析应明示后续归一化方式、保留的特征集合、未映射类别以及总量分母。不要把 RPK 直接交给假定原始计数的模型，再解释成严格的测序抽样似然。</p>
+<p>同一基因家族的未分层总量与按物种分层的贡献是两种视图；在贡献齐全且单位相同时，贡献可核对总量，不能把两种视图拼接后再作为互不重叠类别归一化。通路则是从反应/基因关系推断的高层结果，通路覆盖与通路丰度也各有含义。不同物种可能共同支持群落通路，因此不能将基因家族层面的简单守恒规则无条件移植到推断通路。</p>
+<h2>独立实验二：抓住功能总量与物种贡献的重复计数</h2>
+<p>人工表有 GF_A 和 GF_B 两个家族，每个家族的总量只出现一次，带竖线的行表示其分类贡献。先在家族内部核对分层量，再单独选择未分层层级计算相对值。代码保留 unclassified，避免只加已知物种却误报总量不一致。把全部行相加将得到三十，而真正的两个家族总量是十五。</p>
+<p>这个例子是在完整人工基因家族层级上的代数检查。真实表可能经筛选、重分组、单位转换、舍入或不完整导出；必须把这些步骤放进合同后再选择容差和比较范围。归一化得到的比例只针对本例保留的两个家族，并不代表所有微生物功能。若把比例送入模型，应同步保存特征集合和归一化分母，避免不同队列得到看似同名却语义不同的列。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import math
+# 人工基因家族表：同一单位、同一层级，所有物种贡献（含未分类）均保留。
+rows = {&quot;GF_A&quot;: 10.0, &quot;GF_A|taxon_1&quot;: 6.0, &quot;GF_A|taxon_2&quot;: 3.0,
+        &quot;GF_A|unclassified&quot;: 1.0, &quot;GF_B&quot;: 5.0,
+        &quot;GF_B|taxon_1&quot;: 2.0, &quot;GF_B|unclassified&quot;: 3.0}
+total = {k:v for k,v in rows.items() if &quot;|&quot; not in k}
+for family, amount in total.items():
+    parts = [v for k,v in rows.items() if k.startswith(family+&quot;|&quot;)]
+    assert math.isclose(sum(parts), amount, rel_tol=1e-9, abs_tol=1e-9)
+assert sum(total.values()) == 15.0
+assert sum(rows.values()) == 30.0
+fractions = {k: v/sum(total.values()) for k,v in total.items()}
+assert math.isclose(sum(fractions.values()), 1.0)
+print({&quot;unstratified_total&quot;: sum(total.values()),
+       &quot;incorrect_double_count&quot;: sum(rows.values()),
+       &quot;fractions_for_this_retained_feature_set&quot;: fractions})
+# 这是基因家族的守恒例子；推断出的通路总量不必等于物种通路量之和。
+</code></pre></div>
+<h2>组装、分箱与 MAG：缺少基因可能只是没有恢复出来</h2>
+<p>组装将 reads 支持的信息连接成 contig，分箱再按组成、覆盖及其他线索整理出候选基因组。MAG 是重建对象，不保证与单个完整菌株一一对应。高相似菌株、重复区、覆盖不均和不同样本组合策略都会影响恢复；评估应记录组装、分箱、去冗余和质量估计流程。MIMAG 给出了报告组装质量、完整度、污染等信息的标准框架，不能只报一个 N50 就宣称样本中所有功能已被恢复。</p>
+<p>若用 MAG 基因缺失做模型输入，需同时考虑完整度和覆盖。没有恢复到某基因不等于该生物真正缺失该基因；污染也可能制造不属于该基因组的功能。把完整度加入敏感性分析、核查比对支持，并与参考谱基线比较，比让网络自行“理解不完整”更可检验。SGB 聚类、物种注释和 MAG 质量是不同坐标，不要把分到一个熟悉物种名当作质量已合格。</p>
+<h2>菌株与变异：SNV 的观察范围必须随覆盖一起保存</h2>
+<p>物种丰度与菌株差异回答不同问题。一个物种可能在多个样本中丰度相近，却含不同的序列变异；同一样本也可能存在混合菌株。基于参考比对的变异调用受深度、比对唯一性、等位基因比例、可比位点与参考选择影响。没有足够覆盖的位置应标为未观测，不能编码为与参考一致，更不能直接将所有未调用位点填成零差异。</p>
+<p>做跨受试者距离或模型训练时，保存可比较位点的分母和筛选规则，并检查深度是否与疾病或中心关联。同一人的纵向菌株资料仍属于同一个分组单位，不能因为位点很多就把有效样本量扩大成位点数。组装、SNV、功能注释可以给生态模型增加信息，但在尚无配对数据时只能作为预先定义的扩展，不能从现有物种丰度表推断已经测到了菌株替换。</p>
+<h2>把测量证据接回训练：冻结特征之后再划定学习步骤</h2>
+<p>整理一张运行清单：sample_id、subject_id、study、采样时间、原始文件校验和、软件和数据库版本、质控计数、输出单位、映射版本、失败原因。模型使用的流行度筛选、缩放、缺失填补及学习得到的特征映射仍需在训练域内拟合；使用统一的固定测量参考不意味着允许把测试队列分布送进所有预处理。若研究有无标签测试域适配，应单独声明设定并另设最终外部测试。</p>
+<p>本课可以立即完成的是两项表格合同实验和测量链设计。真实 reads 处理需要相应数据、数据库、存储与计算时间，课程不把人工日志标成实际处理记录。毕业交付应能回答每个数字来自哪里、哪一步丢了多少样本、哪些特征不可比较，以及这些限制如何影响研究结论。下一课再讨论把系统发育、图结构和概率生成目标加入模型时，如何让先验与证据各自可检查。</p>
+<h2>动手实验 · 为 CurateMicrobiota 增加可审查的测量说明</h2>
+<h3>1. 选择实际可用的入口</h3><p>明确当前只有处理表还是确有原始 reads，写出可执行与待执行环节。为每一步记录输入、输出、计数单位和版本。</p>
+<div class="expected">检查什么：不会把公开丰度表伪装成重新统一处理过的原始数据。</div>
+<h3>2. 检查顺序过滤日志</h3><p>从 project 目录运行计数合同脚本；再把一条记录的 unit 改成 pairs，确认不能与 read 统计混用。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit37/d37-qc-contract.py</code></pre></div>
+<div class="expected">检查什么：正常记录通过；故意损坏的计数被拒绝；S1 留存率为0.8。</div>
+<h3>3. 核对功能层级</h3><p>运行功能实验，分别列出总量层与贡献层。再假设删去 unclassified，说明为何新的表不再是完整贡献分解。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit37/d37-functional-accounting.py</code></pre></div>
+<div class="expected">检查什么：未分层总量15，错误全行相加30；不把此恒等式套到所有推断通路。</div>
+<h3>4. 写数据库迁移与质量失衡检查</h3><p>用四种假想情况填写 crosswalk：一对一、合并、拆分、未知；列出按 study/标签/时间点的排除人数和缺失质量列。</p>
+<div class="expected">检查什么：不复制一对多丰度，不把未知映射默认设为零。</div>
+<h3>5. 接回外测合同</h3><p>标出固定参考处理、训练内拟合、验证选择与测试评估各自使用的资料；在数据说明中保留尚未运行的步骤。</p>
+<div class="expected">检查什么：能解释测量版本变化与训练泄漏是不同问题。</div>
+<h3>实验验收</h3><ul><li>□ 两段 Python 实验及其中负例全部通过</li><li>□ 处理链每一步有明确输入、输出、单位、版本和样本流失</li><li>□ 功能表不把总量层与物种贡献层重复归一化</li><li>□ MAG 完整度、菌株可观测位点和物种丰度的解释范围分开</li><li>□ 原始数据流程没有冒充已经在真实队列执行</li></ul>
+<h2>论文导读</h2>
+<h3>Extending and improving metagenomic taxonomic profiling with uncharacterized species using MetaPhlAn 4 (2023)</h3><p><a href="https://doi.org/10.1038/s41587-023-01688-w">https://doi.org/10.1038/s41587-023-01688-w</a></p>
+<p>核对 SGB、参考标记与数据库扩展改变的是哪一种测量。</p><ul><li>读方法中 SGB 与标记库的构建，区分单位定义和软件版本。</li><li>查看基准如何定义参考答案与未知物种，而不是只看一个平均分。</li><li>记录实际数据库版本；不将论文中的数据库当作已安装版本。</li></ul>
+<p><strong>阅读问题：</strong>SGB 编号相同是否足以证明两个版本完全可比？</p><p><strong>参考思路：</strong>不足。还需核对版本的分组、成员和标记定义及官方映射。</p>
+<h3>Integrating taxonomic, functional, and strain-level profiling of diverse microbial communities with bioBakery 3 (2021)</h3><p><a href="https://doi.org/10.7554/eLife.65088">https://doi.org/10.7554/eLife.65088</a></p>
+<p>把参考物种谱、功能谱、菌株与质量处理放回同一测量链。</p><ul><li>按输入输出把文中工具分成物种、功能、菌株和系统发育任务。</li><li>结合官方 KneadData 仓库 https://github.com/biobakery/kneaddata 核对所用版本的双端输出。</li><li>论文描述对应版本的方法，不是所有工具的最新运行规范。</li></ul>
+<p><strong>阅读问题：</strong>菌株结果与物种丰度为什么不能互换？</p><p><strong>参考思路：</strong>前者依赖序列差异和可观测范围，后者描述分类组成；分辨率、缺失机制和目标均不同。</p>
+<h3>HUMAnN 官方文档：基因家族、分层输出与归一化 (2026)</h3><p><a href="https://github.com/biobakery/humann">https://github.com/biobakery/humann</a></p>
+<p>在线文档阅读日期为2026年10月；使用时冻结实际软件与数据库版本。</p><ul><li>阅读 Gene families file、Pathway abundance 与 renorm_table 说明。</li><li>检查 RPK 与深度归一化后的单位，不把不同层级合成一个分母。</li><li>查找群落通路与物种通路不可简单相加的情形。</li></ul>
+<p><strong>阅读问题：</strong>为何 GF_A 总量不能与 GF_A|taxon 行一起作为互斥类别？</p><p><strong>参考思路：</strong>分层行是在分解同一个总量，直接相加会重复计数；应选择一个分析层级并保持单位一致。</p>
+<h3>Minimum information about a single amplified genome (MISAG) and a metagenome-assembled genome (MIMAG) of bacteria and archaea (2017)</h3><p><a href="https://doi.org/10.1038/nbt.3893">https://doi.org/10.1038/nbt.3893</a></p>
+<p>用原始报告框架理解基因组质量信息，而不是把 MAG 数量当作完整度。</p><ul><li>阅读组装、完整度、污染与其他质量指标。</li><li>说明缺失基因可以来自不完整恢复。</li><li>为 MAG 特征设计覆盖与质量敏感性分析，记录评估版本。</li></ul>
+<p><strong>阅读问题：</strong>高 N50 是否足以证明 MAG 高质量？</p><p><strong>参考思路：</strong>不能。连续性、完整度、污染及其他必要信息应分别评估，N50 只反映其中一方面。</p>
+<h2>练习与完整参考解答</h2>
+<h3>1. 日志写原始500万 pairs、过滤后800万 reads，能否直接说留存160%？</h3><p><strong>提示：</strong>先定义两边的计数对象，并检查孤立单端。</p><p><strong>参考解答：</strong>不能。成对片段数与单条 reads 不是同一单位。若确为每对两条且输入齐全，原始为1000万 reads；但后续是否含单端、重复或不同阶段累计仍需查日志，只有对齐口径后才能计算留存率。</p>
+<h3>2. GF_A 总量10，已知物种贡献6和3，未分类贡献1；怎样构建家族丰度特征？</h3><p><strong>提示：</strong>总量层与分层层表达同一份信息。</p><p><strong>参考解答：</strong>在总量分析中只使用10。物种贡献分析保留6、3和1并声明分层对象；不能把10、6、3、1当作互斥类别归一化。删除未分类后剩9也不能称完整贡献分解。</p>
+<h3>3. 两个版本把旧物种拆为两个 SGB，如何合并跨队列表？</h3><p><strong>提示：</strong>问有没有可靠的一对多丰度分配信息。</p><p><strong>参考解答：</strong>没有分配信息时，不能将旧丰度复制到两个新列。可统一重处理，或在已核实的共同上级单位聚合；否则保留不可比和未知状态，报告映射覆盖并做限制性分析。</p>
+<h3>4. 病例组 MAG 更不完整，某代谢基因检出率也更低，应怎样继续？</h3><p><strong>提示：</strong>测量缺失与真实缺失可能产生同样的表。</p><p><strong>参考解答：</strong>先比较覆盖、完整度、组装策略与中心分布，核对基因比对支持，在质量可比子集中做敏感性分析。未恢复基因应与真实缺失区分，不能直接据此断言病例功能缺失，更不能把网络拟合当作偏差已被修复。</p>
+<h2>验收自测与解析</h2>
+<h3>1. MetaPhlAn 物种丰度与原始 reads 的简单类别比例有什么关系？</h3><ol type="A"><li>永远完全相同</li><li>前者受标记和估计规则定义，不能无条件视为直接 read 比例</li><li>只要都写百分号就相同</li><li>与参考数据库无关</li></ol>
+<p><strong>参考答案：B。</strong>相同显示单位不代表相同估计对象。</p>
+<h3>2. HUMAnN 基因家族总量与同一家族分层行同时相加通常会怎样？</h3><ol type="A"><li>提高样本量</li><li>自动消除测序深度</li><li>把同一量重复计算</li><li>证明跨物种互作</li></ol>
+<p><strong>参考答案：C。</strong>分层量是总量的贡献分解，应选择明确层级。</p>
+<h3>3. 低覆盖位置没有检出 SNV，应默认编码成什么？</h3><ol type="A"><li>未观测状态，并保留可比位点范围</li><li>必为参考等位基因</li><li>必为突变等位基因</li><li>物种消失</li></ol>
+<p><strong>参考答案：A。</strong>无足够观察证据与观察到参考状态不同。</p>
+<h3>4. 仅有公开处理表时，最可靠的接入说明是哪项？</h3><ol type="A"><li>默认自己重新质控过</li><li>未知数据库年份补成当前年份</li><li>反推 FASTQ 后称统一处理</li><li>保留原版本与单位，说明不能重跑的环节</li></ol>
+<p><strong>参考答案：D。</strong>可追溯性包括诚实记录无法重新执行的环节。</p>
+<h3>5. 本课实际执行的是什么？</h3><ol type="A"><li>真实队列宿主过滤</li><li>全部样本 MAG 组装</li><li>人工日志与功能表的合同实验</li><li>临床菌株替换验证</li></ol>
+<p><strong>参考答案：C。</strong>代码只验证数据合同机制，不产生真实队列处理证据。</p>
+<h2>收尾思考</h2><ul><li>你当前最难核实的测量版本是哪一步，它影响哪些模型列？</li><li>如果所有病例来自质量更差的批次，增加模型深度能解决可识别性吗？</li><li>你会保留哪个未知标记，避免把未观测误写成零？</li></ul>
+<p><strong>下一步：</strong>D38学习系统发育与图先验、潜变量生成目标及其检查，再决定哪些结构值得加入真实菌群模型。</p>
+</article></section><section class="book-chapter" id="day-38"><article class="reader">
+<p class="eyebrow">UNIT 38 / 能力补全 · 微生物测量与研究可靠性</p>
+<h1>结构先验与生成目标：图模型、VAE 和扩散怎样进入菌群研究</h1><p class="subtitle">分清数据的关系、模型的概率假设与真实生态机制，执行三项能揭露错误的机制实验</p>
+<p class="subtle">建议 270 分钟，可分次完成。</p>
+<h2>学习目标</h2><ul><li>区分分类树、系统发育树、共现图与文献知识图谱的边含义</li><li>实现图消息传递并验证节点置换等变及样本池化不变</li><li>解释 VAE 的重构似然、KL、重参数化与潜变量识别限制</li><li>解释掩码重建、自回归、VAE、扩散各自学习的目标</li><li>为生态生成模型制定训练外检验、隐私检查和简单对照</li></ul>
+<div class="notice mint"><strong>今日作品：</strong>一份明确边来源、冻结范围和验证目标的图先验说明；图同步置换、VAE 损失梯度、ILR 加噪三项独立实验；按测量类型选择观测分布的目标设计表；包含无图、随机图、简单生成基线及外测的消融矩阵</div>
+<h3>先修准备</h3><ul><li>完成 D15、D25、D26 和 D28；理解矩阵、概率、KL、组合数据与表示学习</li><li>知道 D29 中的背景对比 cVAE 并不是所有条件 VAE 的通称</li><li>实验只使用人工图、人工坐标与已有 numpy/torch；不生成真实基因序列或临床合成数据</li></ul>
+<h2>先写清图边是什么：关系不能由箭头外观决定</h2>
+<p>分类树组织命名层级，系统发育树表达特定序列和推断方法支持的演化关系，共现图表达特定资料和统计方法下的关联，文献知识图谱则把实体与关系声明连接起来。它们都能写成节点与边，却不是同一种证据。两种微生物在样本中共同变化，不意味着存在直接互作；文献同时提及物种与疾病，也不等于作者证明了因果关系。</p>
+<p>选结构先验时先明确假说：相近演化位置是否帮助共享有限标签？已知功能关系是否减少稀疏特征的估计方差？若先验并不对应目标，图会把无关信号混在一起。对每条边保留类型、方向、权重、来源和版本；未注明证据级别的知识图谱不适合直接进入可信证据助手。学习者应能把一张图还原成可以审查的表，而不是用网络图的复杂程度代替科学理由。</p>
+<h2>先验图与数据估计图：哪一步有机会看到测试域</h2>
+<p>外部固定的分类关系可以作为预先定义的输入先验，但仍需记录版本和节点映射。由丰度相关性、偏相关或监督标签估计出来的图，是模型拟合的一部分，必须在每个训练折内重新估计，阈值和正则化由训练/验证资料选择。即使没有使用测试标签，用所有队列丰度估图也已经引入测试域分布；若这样做，应明确称作跨域适配或传导设定，并保留另一个独立评估范围。</p>
+<p>菌群组合性可能制造表观相关，测序中心和药物也可能产生共同变化，因此图估计方法需要与 D25 的测量假设一致。参考图遗漏边、错误边或低覆盖节点并不罕见；为这些情况安排随机删边、节点未见、不同图版本和无图基线。数据图与外部知识图还可能共享原研究来源，应检查是否把测试研究的结论提前作为标签相关知识输入。</p>
+<h2>独立实验一：消息传递应跟随节点身份一起重排</h2>
+<p>图卷积的一种常见形式是先添加自环，再用两侧的度归一化调整邻居贡献，随后进行线性变换与非线性映射。它把局部邻接关系加入了特征传播，不会自动赋予边以生态意义。下面四个匿名节点只用来说明计算；代码处理的是非负无向邻接，不应直接塞入带符号、定向或多关系图而不修改归一化定义。</p>
+<p>如果同时重排邻接矩阵的两轴和节点特征，节点输出也应按同样顺序重排，这叫置换等变；对节点做对称池化后，样本输出应保持不变。如果只重排丰度而没有重排节点身份或图，模型读到的对象已经变了。代码包含这个错误对照。真实图模型还要检查节点映射、缺少节点及批次样本的图布局；此处没有执行图训练或证明预测提升。</p>
+<pre class="equation">A_tilde=A+I；S=D_tilde^(-1/2) A_tilde D_tilde^(-1/2)；H_next=ReLU(SHW)</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import numpy as np
+# 四个匿名分类单元构成的人工无向图，不代表真实生态互作。
+A = np.array([[0.,1.,0.,0.],[1.,0.,1.,0.],
+              [0.,1.,0.,1.],[0.,0.,1.,0.]])
+H = np.array([[1.,0.],[0.,1.],[1.,1.],[0.2,0.7]])
+W = np.array([[0.5,-0.2],[0.3,0.8]])
+def layer(A, H):
+    if not np.allclose(A,A.T) or np.any(A &lt; 0):
+        raise ValueError(&quot;This lesson assumes nonnegative undirected adjacency&quot;)
+    At = A + np.eye(len(A))
+    inv = 1.0 / np.sqrt(At.sum(axis=1))
+    norm = inv[:,None]*At*inv[None,:]
+    return np.maximum(norm @ H @ W, 0.0)
+Z = layer(A,H)
+p = np.array([2,0,3,1])
+Zp = layer(A[np.ix_(p,p)], H[p])
+assert np.allclose(Zp,Z[p])
+assert np.allclose(Zp.mean(axis=0),Z.mean(axis=0))
+wrong = layer(A,H[p])  # 只重排特征，图没有同步重排。
+assert not np.allclose(wrong,Z[p])
+print({&quot;node_embeddings&quot;: Z.tolist(),
+       &quot;pooled_embedding&quot;: Z.mean(axis=0).tolist(),
+       &quot;permutation_equivariance&quot;: True})
+</code></pre></div>
+<h2>图越深不一定越好：平滑、瓶颈与解释</h2>
+<p>消息传递让多个邻域的信息混合。层数增多可能使表示越来越难区分，也可能在狭窄连接处把很多远处信息压到有限维度；这两类问题分别涉及过度平滑和信息压缩瓶颈，不能靠一个更大的嵌入维数自动消除。残差、跳连、层数、边权和图的稀疏程度都属于待比较的设计选择。先比较无图 MLP、集合式编码器和少层图模型，避免只报告最复杂网络。</p>
+<p>图注意力权重仍是模型用于计算的权重，不是因果效应。删掉一个节点再预测，可以测试在该模型与背景下的依赖，但在组合丰度中删除后重归一化会同时改变其他相对值。应写清扰动是在观测坐标、对数比坐标还是预先定义的平衡上进行，并评估不同背景的稳定性。模型图、统计关联图和真实生态作用网络可以相关，但只有额外的研究设计才能连接到机制主张。</p>
+<h2>先决定观测分布，再决定生成模型名字</h2>
+<p>有原始计数时，可讨论条件于测序总量的多项式或带额外变异的计数模型；有相对丰度时，需要尊重非负和闭合约束；在 ILR 坐标中建模则是在非冗余对数比空间描述连续分布。三者的目标、单位和对零值的处理不同。把归一化比例当整数计数会虚构精度，把未测量特征当结构零会改变生成分布。选择似然之前先给每个值写下测量含义。</p>
+<p>掩码模型学习给定可见部分如何预测隐藏部分，自回归模型按顺序分解联合概率，VAE 用潜变量与近似后验连接编码和生成，扩散通过有定义的噪声过程学习恢复方向。掩码重建误差低不自动给出一个一致的任意条件生成器，也不直接提供完整联合似然。群落是集合时，随意指定自回归排序会引入顺序假设；需要说明排序依据及其改变对结果的影响。</p>
+<h2>独立实验二：把 VAE 损失分成观测项与潜变量项</h2>
+<p>VAE 通过 q_phi(z|x) 近似潜变量后验，用 p_theta(x|z) 描述观测，并给 z 一个先验。标准 ELBO 包含期望对数似然减去后验与先验的 KL；训练常最小化它的相反数。重参数化将采样写成 mu+sigma×epsilon，让随机性由 epsilon 提供，梯度仍可传到 mu 和 sigma。下面用两个人工连续坐标与单位方差高斯观测核对目标和梯度，不把它当成计数模型。</p>
+<p>代码在特征维求和、样本维平均，并将闭式 KL 与 PyTorch 分布实现对照。省略维度分母或随意把两项分别平均，会改变它们的相对权重。加入 beta 权重是另一种训练选择，应报告其定义；beta 不等于一时不再是这里原模型的标准 ELBO。单次随机估计通过断言，只证明公式实现可检查；尚未训练编码器、验证生成质量或识别潜在生态机制。</p>
+<pre class="equation">ELBO(x)=E_q[log p_theta(x|z)]−KL(q_phi(z|x)||p(z))；KL(N(mu,diag(sigma²))||N(0,I))=0.5 Σ(mu²+sigma²−1−log sigma²)</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import math
+import torch
+from torch.distributions import Normal, kl_divergence
+torch.manual_seed(38)
+# 两个样本的人工连续坐标；不是原始计数或真实受试者。
+x = torch.tensor([[0.6,-0.4],[-0.2,0.8]], dtype=torch.float64)
+mu = torch.tensor([[0.2,-0.1],[0.4,0.3]],dtype=torch.float64,requires_grad=True)
+logvar = torch.tensor([[0.1,-0.2],[0.0,0.2]],dtype=torch.float64,requires_grad=True)
+std = (0.5*logvar).exp()
+z = mu + std * torch.randn_like(mu)
+W = torch.tensor([[0.7,0.2],[-0.1,0.6]],dtype=torch.float64)
+recon = z @ W
+# 单位方差的高斯观测模型；按特征求和，再按样本平均。
+nll = 0.5*((x-recon)**2).sum(-1) + 0.5*x.shape[1]*math.log(2*math.pi)
+kl = 0.5*(mu.square()+logvar.exp()-1-logvar).sum(-1)
+reference = kl_divergence(Normal(mu,std), Normal(torch.zeros_like(mu),torch.ones_like(std))).sum(-1)
+assert torch.allclose(kl,reference)
+loss = (nll+kl).mean()  # 一次重参数采样给出的负ELBO蒙特卡洛估计。
+loss.backward()
+assert torch.isfinite(mu.grad).all() and torch.isfinite(logvar.grad).all()
+print({&quot;mean_nll&quot;: float(nll.detach().mean()),&quot;mean_kl&quot;:float(kl.detach().mean()),
+       &quot;negative_elbo_estimate&quot;:float(loss.detach()),&quot;finite_gradients&quot;:True})
+# 运行一次损失与梯度核验不等于训练完成，更不等于验证了群落生成质量。
+</code></pre></div>
+<h2>潜变量的名字不是识别证明，条件模型也不是反事实模型</h2>
+<p>把一个潜变量命名为“疾病轴”、另一个命名为“共享轴”，不会让优化器自动恢复该生物学分解。潜空间可能存在旋转、缩放或其他等价表示；后验塌缩时，解码器还可能几乎不使用潜变量。应检查潜变量使用、重构与先验采样差异、跨种子稳定性及与技术变量的关系。不同模型能得到近似预测却给出不同潜变量解释时，需要降低解释强度。</p>
+<p>conditional VAE 中的条件变量是生成分布的输入，D29 的 contrastive VAE 则是利用背景对比的特定设计，二者缩写可能相同但含义不同。以疾病标签为条件生成一组丰度，描述的是模型学到的条件分布；把同一潜变量下条件改成健康，不足以解释成这个人的干预后反事实。因果反事实还需要结构假设、识别条件及适当资料，不能从生成器接口中的一个标签切换推出。</p>
+<h2>独立实验三：在合适坐标加噪，并诚实区分已知噪声与学会去噪</h2>
+<p>在连续扩散的一种常见参数化中，某时刻的噪声样本是原信号和标准高斯噪声的加权和。训练网络可以预测噪声或等价参数，再用相应的反向采样过程产生样本。对组合数据直接逐元素加高斯噪声会出现负数和不闭合；本例先在 ILR 坐标演示加噪，再经固定基与 softmax 回到正组成。这样保证的是数值约束，并未处理真实零值或保证生态合理。</p>
+<p>例子保留了实际加入的噪声，因此能代数恢复原坐标。这是“已知噪声的恒等式”，不是训练出来的去噪器；真实采样时并不知道该噪声，必须从训练数据学习并检验误差。ILR 基、零值策略和尺度需在训练方案中固定，使用组成输出也不提供绝对微生物负荷。DDPM 原始研究是图像生成方法来源，迁移到微生物组属于需要单独评价的研究设计。</p>
+<pre class="equation">z_t=sqrt(alpha_bar_t) z_0+sqrt(1−alpha_bar_t) epsilon；a=softmax(Vz)，其中 V 为固定 ILR 正交基</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import numpy as np
+rng = np.random.default_rng(38)
+# 三分类单元组成的二维ILR坐标；V的列正交且与全1向量正交。
+V = np.array([[1/np.sqrt(2),1/np.sqrt(6)],
+              [-1/np.sqrt(2),1/np.sqrt(6)], [0.,-2/np.sqrt(6)]])
+assert np.allclose(V.T@V,np.eye(2)) and np.allclose(V.sum(axis=0),0)
+z0 = np.array([0.5,-0.2]); noise = rng.normal(size=2); abar = 0.7
+zt = np.sqrt(abar)*z0+np.sqrt(1-abar)*noise
+oracle_recovery = (zt-np.sqrt(1-abar)*noise)/np.sqrt(abar)
+assert np.allclose(oracle_recovery,z0)
+def to_composition(z):
+    logits = z@V.T
+    exp = np.exp(logits-logits.max())
+    return exp/exp.sum()
+a = to_composition(z0); noisy = to_composition(zt)
+assert np.all(a&gt;0) and np.isclose(a.sum(),1)
+assert np.all(noisy&gt;0) and np.isclose(noisy.sum(),1)
+print({&quot;composition&quot;:a.tolist(),&quot;noisy_composition&quot;:noisy.tolist(),
+       &quot;oracle_coordinate_error&quot;:float(np.max(np.abs(oracle_recovery-z0)))})
+# noise在例子中已知；真实扩散模型必须学习预测噪声，不能把本恒等式叫作已学会去噪。
+</code></pre></div>
+<h2>怎样评价合成群落：边际像，不等于联合关系对</h2>
+<p>只比较每个物种的均值和方差，无法证明模型保留了物种之间、物种与功能之间以及与临床标签之间的关系。安排训练外真实资料的边际与联合诊断，比较多样性、对数比协方差、稀疏模式和条件分布；还要检查生成样本是否只是记住了训练样本。对新研究有效的下游任务、校准与跨队列稳定性是另外一层证据，不应被一张二维嵌入重叠图替代。</p>
+<p>用于数据增强时，生成器只能在允许的训练资料上拟合，分类器和生成器的选择都不能接触最终测试标签。与不增强、简单噪声、重采样及朴素分布生成基线比较，并保证标签预算一致。生成了更多行并不增加真实独立受试者数量，置信区间不能把合成行当新的观测。合成资料也不自动匿名；若原模型记忆训练样本，需要检查披露风险并遵守原资料的使用范围。</p>
+<h2>把复杂模型变成一组能被否定的设计选择</h2>
+<p>本项目的下一步不是同时加入图、VAE、扩散和多模态，而是写一个主假说。例如“固定演化关系可在标签稀缺时改善新队列预测”，相应对照应包含无图、随机图、真实先验图、同预算调参以及按训练内重建的估计图。若收益只有在某一图版本出现，要把稳定性和映射覆盖放进结论。每增加一个结构，都应该能指出它在哪个输入条件下预计有效、在哪个条件下可能失败。</p>
+<p>本课三项实验验证计算关系、概率目标和坐标约束，没有训练真实生态生成模型。完成学习的标志是能发现图与特征错位、解释 ELBO 两项的单位、指出已知噪声恢复的局限，并给真实数据实验写出最低限度对照。D39 将继续检查新队列中的患病率、缺失机制、预测集合与因果识别，确保再复杂的模型也有明确的适用范围。</p>
+<h2>动手实验 · 三项机制实验与一个可否定的结构假说</h2>
+<h3>1. 为图边写证据说明</h3><p>分别举例分类边、系统发育距离、共现边、文献声明边。明确外部固定还是训练内估计，写出不可直接推出的机制。</p>
+<div class="expected">检查什么：不把共现或模型注意力当作因果作用。</div>
+<h3>2. 执行同步置换检查</h3><p>运行图实验，再故意只重排节点特征，观察负例。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit38/d38-graph-equivariance.py</code></pre></div>
+<div class="expected">检查什么：正确同步排列的节点输出等变、池化不变；错误重排不能通过同一关系。</div>
+<h3>3. 核对概率目标</h3><p>运行 VAE 目标，手工检查对特征求和与对样本平均的位置。将 beta 设为其他值时重新说明训练目标。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit38/d38-vae-objective.py</code></pre></div>
+<div class="expected">检查什么：闭式 KL 与库实现一致，梯度有限；未宣称训练完成。</div>
+<h3>4. 核对坐标与扩散边界</h3><p>运行 ILR 加噪代码，指出 oracle_recovery 使用了哪一个真实采样时未知的变量。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit38/d38-diffusion-coordinates.py</code></pre></div>
+<div class="expected">检查什么：组成均为正且闭合，已知噪声恒等式误差接近浮点精度；不是实训去噪质量。</div>
+<h3>5. 填写消融矩阵</h3><p>只选择一种新增结构，列出无结构、简单结构、随机或错误先验以及真实先验的比较；划定训练、验证、外测使用边界。</p>
+<div class="expected">检查什么：结论可以在增益消失、图版本改变或分布迁移时被推翻。</div>
+<h3>实验验收</h3><ul><li>□ 三个独立 Python 脚本与负例检查通过</li><li>□ 边类型、节点身份、版本和训练可见资料清晰</li><li>□ 能分别解释重构似然、KL、重参数化及潜变量非唯一性</li><li>□ 知道概率生成与反事实推断不是同一主张</li><li>□ 合成样本不会被计为新的真实独立受试者</li></ul>
+<h2>论文导读</h2>
+<h3>Semi-Supervised Classification with Graph Convolutional Networks (2017)</h3><p><a href="https://arxiv.org/abs/1609.02907">https://arxiv.org/abs/1609.02907</a></p>
+<p>阅读 ICLR 2017 原始图卷积方法；其论文基准不构成菌群有效性证据。</p><ul><li>核对自环和归一化矩阵的定义。</li><li>从公式解释同步节点置换时输出为何随之重排。</li><li>区分原论文节点分类与本课样本级菌群汇聚。</li></ul>
+<p><strong>阅读问题：</strong>把论文图卷积放到菌群数据上后，原论文性能能否直接使用？</p><p><strong>参考思路：</strong>不能。节点含义、图来源、任务和划分均改变，必须另做对应的生物数据基准。</p>
+<h3>Auto-Encoding Variational Bayes (2014)</h3><p><a href="https://arxiv.org/abs/1312.6114">https://arxiv.org/abs/1312.6114</a></p>
+<p>原始预印本发表于2013年，本课按 ICLR 2014 工作阅读 ELBO 与重参数化。</p><ul><li>阅读变分下界和高斯近似后验。</li><li>对照本课代码，标明抽样维、特征维与批次维。</li><li>说明本课的连续高斯观测不适用于未说明的原始计数。</li></ul>
+<p><strong>阅读问题：</strong>重构误差小是否足以证明潜变量是疾病机制？</p><p><strong>参考思路：</strong>不能。潜变量识别、混杂和模型非唯一性需要额外假设与证据；优化目标并未自动赋予机制含义。</p>
+<h3>Denoising Diffusion Probabilistic Models (2020)</h3><p><a href="https://arxiv.org/abs/2006.11239">https://arxiv.org/abs/2006.11239</a></p>
+<p>理解加噪与学习反向过程的关系，避免把随机扰动直接叫作生成模型。</p><ul><li>定位前向噪声过程与噪声预测目标。</li><li>区分已知加入噪声的代数恢复和模型在未知噪声时的预测。</li><li>列出迁移到组成、零值与相对丰度时需要重新验证的假设。</li></ul>
+<p><strong>阅读问题：</strong>能从已知 epsilon 恢复 z0，是否证明网络会生成真实群落？</p><p><strong>参考思路：</strong>没有。恒等式未学习去噪函数、反向采样或生物分布，真实生成质量仍未验证。</p>
+<h2>练习与完整参考解答</h2>
+<h3>1. 先用全部队列估计共现图，再做留一队列外测是否属于严格未见域评价？</h3><p><strong>提示：</strong>无标签信息也可能进入训练过程。</p><p><strong>参考解答：</strong>不是严格的完全未见域设定，因为图使用了测试域分布。可在每个训练折内重估图，或明确声明传导/无标签适配，并保留另一个真正独立的外部测试。</p>
+<h3>2. 重排物种丰度后，图模型输出改变是否一定说明不满足置换等变？</h3><p><strong>提示：</strong>检查图、节点身份与特征是否同步排列。</p><p><strong>参考解答：</strong>不一定。必须同步重排图的行列、节点特征及身份索引；只重排丰度改变了变量的对应关系，输出理应可能变化。对称池化前的节点输出应等变，池化后的样本输出才应不变。</p>
+<h3>3. VAE 中重构项按所有维平均，KL 按潜变量求和，潜维增加后结果变化如何解释？</h3><p><strong>提示：</strong>两个项的尺度取决于 reduction 与维度。</p><p><strong>参考解答：</strong>可能改变了隐含正则化强度。先固定清楚每样本重构与 KL 的求和范围，再报告批次平均和 beta；不能把不同 reduction 下的损失数值直接比较为模型优劣。</p>
+<h3>4. 用病例条件生成器把同一个潜变量的标签改为健康，是否得到个体治疗后状态？</h3><p><strong>提示：</strong>条件分布和干预分布有不同识别要求。</p><p><strong>参考解答：</strong>不能。条件标签切换没有定义治疗、时间、混杂和结构因果关系，也未证明潜变量保持了该人的全部背景。只能解释为所拟合条件生成器的输出，反事实主张需要额外设计和验证。</p>
+<h2>验收自测与解析</h2>
+<h3>1. 哪种图最需要在每个训练折重新估计？</h3><ol type="A"><li>已冻结的外部分类表</li><li>训练资料拟合的丰度关联图</li><li>预先指定的匿名示例图</li><li>固定且无测试来源的参考树</li></ol>
+<p><strong>参考答案：B。</strong>数据估计图属于学习步骤，不能默许看到测试域。</p>
+<h3>2. 标准 VAE 的训练目标主要包含什么？</h3><ol type="A"><li>只有样本标签准确率</li><li>只有节点度</li><li>期望负对数似然和后验至先验的 KL</li><li>只需随机生成噪声</li></ol>
+<p><strong>参考答案：C。</strong>标准负 ELBO 包含观测项与潜变量分布项，具体分母必须清楚。</p>
+<h3>3. 本课 ILR 扩散实验可以证明哪项？</h3><ol type="A"><li>训练了真实扩散模型</li><li>所有零值已自然解决</li><li>生成者具备因果干预能力</li><li>指定坐标下加噪与已知噪声恢复的代数关系</li></ol>
+<p><strong>参考答案：D。</strong>实验是数值机制检查，未训练未知噪声预测器。</p>
+<h3>4. 向原始相对丰度直接加高斯噪声有哪些问题？</h3><ol type="A"><li>可能产生负数并破坏闭合，需要明确定义坐标与约束</li><li>自动得到绝对丰度</li><li>保证每个群落生态合理</li><li>不影响数值范围</li></ol>
+<p><strong>参考答案：A。</strong>数学约束与生物有效性都需要单独设计。</p>
+<h3>5. 生成一万行训练样本后，研究独立受试者数怎样变化？</h3><ol type="A"><li>自动增加一万</li><li>翻倍</li><li>真实独立受试者数不因此增加</li><li>由模型参数量决定</li></ol>
+<p><strong>参考答案：C。</strong>合成样本依赖训练资料，不是新增独立观察。</p>
+<h2>收尾思考</h2><ul><li>你最希望哪种外部结构解决数据不足，它的错误会怎样传入模型？</li><li>当前重构目标支持预测、表示还是生成中的哪一个主张？</li><li>如果复杂模型不超过随机图或简单生成基线，应收回哪项解释？</li></ul>
+<p><strong>下一步：</strong>D39把外推患病率、缺失机制、保形预测与因果识别放进同一份研究可信度审查。</p>
+</article></section><section class="book-chapter" id="day-39"><article class="reader">
+<p class="eyebrow">UNIT 39 / 能力补全 · 微生物测量与研究可靠性</p>
+<h1>外推与研究可信度：分布变化、缺失、预测集合与因果识别</h1><p class="subtitle">让模型结论随目标人群、可观测资料与识别假设一起接受检验</p>
+<p class="subtle">建议 270 分钟，可分次完成。</p>
+<h2>学习目标</h2><ul><li>区分病例对照评价、目标患病率和真实使用场景中的预测值</li><li>解释纯标签迁移的后验修正条件及其失败范围</li><li>区分 MCAR、MAR、MNAR，并在训练/验证框架内设计缺失处理</li><li>计算 split conformal 预测集合并说明交换性、边际覆盖与组别限制</li><li>借助合成 DAG 实验区分混杂、碰撞点、预测与因果主张</li></ul>
+<div class="notice mint"><strong>今日作品：</strong>患病率变化对 PPV 和后验 odds 的可复算计算；按可观测信息写出的缺失机制与敏感性分析表；同一合成总体的三种缺失机制、已知概率加权与 delta 敏感性实验；一个包含有限样本边界的保形分类集合实验；混杂调整与碰撞点调整的合成反例；将主要结论、负对照、亚组及隐私边界写入研究说明</div>
+<h3>先修准备</h3><ul><li>完成 D12、D23、D25、D27 和 D29，理解外测、校准、分组和时间窗口</li><li>知道概率、回归、区间与标签分布的基本含义</li><li>所有执行例子都是合成教学计算；不用于个体诊断，也未验证真实队列因果关系</li></ul>
+<h2>先定义目标人群：平衡病例对照不是自然患病率</h2>
+<p>一个病例与对照各半的研究适合研究特定比较，却不能把样本中的一半病例当成目标人群患病率。阈值下的阳性预测值取决于灵敏度、特异度与目标患病率。若类别条件分布保持不变，患病率改变仍会改变精确率和概率解释；AUROC 对纯先验变化的性质也不能推广到病例谱、测量或就诊流程同时改变的情况。D12 的排序指标与本课的人群推断要分开报告。</p>
+<p>类别加权、过采样和欠采样是训练设计，不是免费增加病例。它们可能帮助优化或改变决策边界，也会影响输出概率的解释。所有重采样只在训练折中进行，同一受试者及其重复测量必须一起移动；若在拆分前合成相似样本，可能让训练和测试共享来源。阈值由预设目标与验证资料确定，测试集保留原定义的分布，不能为了漂亮的准确率重新配平。</p>
+<h2>独立实验一：同样的阈值性能，可以得到不同的阳性预测值</h2>
+<p>在人工例子中固定灵敏度0.8、特异度0.9，将患病率从0.5改成0.05。通过贝叶斯公式，阈值以上群体的阳性预测值随之下降。这个计算只说明概率关系，并不代表任何疾病筛查性能。如果真实人群还改变了疾病严重程度、年龄或测量流程，灵敏度与特异度本身也可能变化，不能直接使用本例的固定数值。</p>
+<p>第二项计算对一个具体样本的后验 odds 做先验修正。它要求源域概率本身适当校准，且满足 p_target(x|y)=p_source(x|y) 的纯标签迁移，并需要可靠的源域与目标先验。修正后的样本后验不等于阈值群体的 PPV；两者的条件事件不同。真实目标患病率不清楚时，应报告敏感性范围，而不是把公开研究样本比例直接代入作最终答案。</p>
+<pre class="equation">PPV=Se·pi/[Se·pi+(1−Sp)(1−pi)]；odds_target(y=1|x)=odds_source(y=1|x)×[odds(pi_target)/odds(pi_source)]</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import math
+sensitivity, specificity = 0.8, 0.9  # 人工固定阈值性能，并非临床估计。
+def ppv(pi):
+    return sensitivity*pi/(sensitivity*pi+(1-specificity)*(1-pi))
+assert math.isclose(ppv(0.5),8/9)
+assert ppv(0.05) &lt; ppv(0.5)
+# 另一个计算：在纯标签迁移假设下，修正某个已校准样本的后验 odds。
+def change_prior(p, source_pi, target_pi):
+    if not all(0 &lt; v &lt; 1 for v in (p, source_pi, target_pi)):
+        raise ValueError(&quot;Probabilities must lie strictly between zero and one&quot;)
+    odds = p/(1-p)
+    ratio = (target_pi/(1-target_pi))/(source_pi/(1-source_pi))
+    return odds*ratio/(1+odds*ratio)
+updated = change_prior(0.8,0.5,0.05)
+assert math.isclose(updated,4/23)
+print({&quot;PPV_at_pi_0.5&quot;:ppv(0.5),&quot;PPV_at_pi_0.05&quot;:ppv(0.05),
+       &quot;individual_posterior_after_pure_label_shift&quot;:updated})
+# PPV描述阈值以上群体；updated描述单个给定特征的后验，不要把两者当同一指标。
+</code></pre></div>
+<h2>识别变化类型：无标签域适配也必须有边界</h2>
+<p>协变量迁移强调 p(x) 变化而 p(y|x) 不变，标签迁移强调 p(y) 变化而 p(x|y) 不变，概念变化则涉及条件关系改变。这些是用于推导方法的假设，不是看到一次分布检验显著就能确定的标签。中心差异可能同时改变人群、药物、取样、数据库和标签定义，实际资料未必满足任何纯形式。先分变量检查变化并追问来源，再决定是否适合重加权、重新校准或重新收集标签。</p>
+<p>用未标注目标样本估计缩放或图结构，属于明示的适配过程；它可以是合理研究问题，但不能继续称作完全未见目标域。用目标标签选择重校准或阈值则需要再留出独立评估样本。方法之间应使用同样的信息预算，对照一个不适配基线。重加权还需要足够重叠，若某类目标人群在源域完全没有支持，极大权重不会创造缺失的训练证据。</p>
+<h2>缺失机制由观察过程定义，不由缺失比例命名</h2>
+<p>设 R 表示某变量是否被观察。MCAR 要求缺失与相关资料独立；MAR 允许缺失依赖已观察变量，但在给定这些资料后不再依赖缺失值本身；MNAR 则仍与未观察信息有关。同样是百分之二十的脑影像缺失，随机设备故障、已知年龄导致不能完成检查、未记录的症状负担导致退出，可以对应不同机制。不能仅凭缺失率低或一个检验不显著就宣称 MAR。</p>
+<p>模型所需模态未采集、技术失败、低于检出限、真正为零和人为训练 mask 应分别编码。完整病例分析可能改变研究人群；加一个 missing 指示变量可以帮助预测，却可能让模型依赖医院流程。缺失机制通常不能仅从已观测资料完全识别，需要研究流程知识和敏感性分析。把所有缺失统一补零，会同时改变测量含义、分布与模型可用信息。</p>
+<h2>缺失机制实验：观察到的均值、加权与敏感性各说明什么</h2>
+<p>用于前瞻预测的填补器只能使用预测时点可获得的变量，拟合与超参数选择必须放在训练/验证内部。不能为了更准的填补将未来随访症状传入基线预测流程。多重插补在统计推断中通过多个填补结果表达额外不确定性，具体模型和合并规则要与目标分析一致；它不是生成多份相似表后把样本量翻倍。预测评价也需要每折重建整个填补与预测流程。</p>
+<p>纵向失访可能与先前症状、用药、依从性和未记录状态有关。在适当可忽略缺失与重叠假设下，可以研究失访权重或联合模型；权重接近无穷提示资料支持不足，应报告截断和敏感性方案。若怀疑 MNAR，应设定一组合理偏移或选择机制，观察结论在哪些条件下改变。敏感性分析不证明某机制为真，却能说明结论依赖哪些无法直接验证的条件。</p>
+<p>下面从同一人工总体产生三种观察过程：随机观察、依赖已观察 X 的观察，以及在给定 X 后仍依赖将要缺失的 Y 的观察。代码比较完整病例均值，并在模拟 MAR 机制中用已知观察概率做加权。真实研究通常不知道这个概率，也不能看见缺失 Y；演示用于理解偏差来源，不是根据均值形状识别 MCAR、MAR 或 MNAR 的算法。</p>
+<p>最后对 MNAR 的缺失部分设置条件均值偏移 delta：用同 X 组已观察均值作为起点，加上预设偏移，再比较总体均值。不同 delta 与同一份观测资料都可能相容，必须由外部知识选择合理范围，不能用模拟中的完整真值挑选最佳 delta。该例说明敏感性对象；并未实现适合任意资料的多重插补或真实队列失访模型。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import numpy as np
+rng = np.random.default_rng(394)
+n = 20000
+x = rng.integers(0,2,size=n)  # 始终观察到的背景变量。
+y = 2*x+rng.normal(size=n)   # 模拟完整总体；真实缺失时无法读取缺失部分。
+p_mcar = np.full(n,0.6)
+p_mar = np.where(x==0,0.9,0.3)
+p_mnar = 1/(1+np.exp(0.8*y))
+probs = {&quot;MCAR&quot;:p_mcar,&quot;MAR_given_X&quot;:p_mar,&quot;MNAR_given_X&quot;:p_mnar}
+masks = {name:rng.random(n)&lt;p for name,p in probs.items()}
+summary = {}
+for name,r in masks.items():
+    assert r.dtype == bool and r.any() and (~r).any()
+    summary[name] = {&quot;observed_fraction&quot;:float(r.mean()),
+                     &quot;complete_case_mean&quot;:float(y[r].mean())}
+r = masks[&quot;MAR_given_X&quot;]
+# 这里只因知道模拟机制才知道真实观察概率；真实项目需要估计并检验适用假设。
+w = 1/p_mar[r]
+mar_weighted = np.sum(w*y[r])/np.sum(w)
+r = masks[&quot;MNAR_given_X&quot;]
+observed_y = np.where(r,y,np.nan)
+conditional_observed_mean = np.array([np.nanmean(observed_y[x==g]) for g in [0,1]])
+sensitivity = {}
+for delta in [-0.5,0.0,0.5]:
+    # 假设缺失Y的条件均值 = 同X组已观察Y均值 + delta。
+    filled = np.where(r,observed_y,conditional_observed_mean[x]+delta)
+    assert np.isfinite(filled).all()
+    sensitivity[str(delta)] = float(filled.mean())
+assert sensitivity[&quot;-0.5&quot;] &lt; sensitivity[&quot;0.0&quot;] &lt; sensitivity[&quot;0.5&quot;]
+print({&quot;synthetic_full_mean&quot;:float(y.mean()),&quot;mechanisms&quot;:summary,
+       &quot;MAR_known_probability_weighted_mean&quot;:float(mar_weighted),
+       &quot;MNAR_delta_sensitivity&quot;:sensitivity})
+# 完整y仅用于模拟核验；实际分析不能借缺失真值挑选最接近答案的delta。
+</code></pre></div>
+<h2>独立实验二：按有限样本秩构造保形预测集合</h2>
+<p>split conformal 先固定已经训练的预测器，再用独立校准样本的非符合分数确定阈值。本例用 1−模型给真实标签的概率作为分数，取第 ceil((n+1)(1−alpha)) 个顺序统计量，并在预测时保留分数不超过该阈值的标签。集合可能只有一个标签、同时有两个标签，某些分数方案下也可能为空；集合大小与覆盖率要一起报告。</p>
+<p>校准与新样本满足交换性等条件时，可以得到边际覆盖的保证，它不要求基模型概率本身完美校准。这里的交换性仍是实质条件：重复随访不能当独立受试者，时间变化和跨中心分布变化可能破坏它。样本太少时所需秩可能是 n+1，此时用无穷阈值包含全部标签才保留相应保守规则；把秩直接截到 n 可能错误承诺覆盖。下面也报告人为翻转测试标签关系后的经验覆盖，展示条件改变必须重新审查。</p>
+<pre class="equation">s_i=1−p_hat(y_i|x_i)；k=ceil((n_cal+1)(1−alpha))；C(x)={y:1−p_hat(y|x)≤q_hat}</pre>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import math
+import numpy as np
+rng = np.random.default_rng(39)
+def sample(n):
+    x = rng.normal(size=n)
+    p = 1/(1+np.exp(-2*x))
+    y = (rng.random(n)&lt;p).astype(int)
+    return np.column_stack([1-p,p]), y
+# 视为一个训练阶段已经固定的预测器。校准与测试样本独立。
+pc, yc = sample(199); pt, yt = sample(4000)
+alpha = 0.1
+scores = 1-pc[np.arange(len(yc)),yc]
+k = math.ceil((len(scores)+1)*(1-alpha))
+qhat = np.inf if k &gt; len(scores) else np.sort(scores)[k-1]
+sets = (1-pt) &lt;= qhat  # 包含边界值，保留并列分数的保守性。
+coverage = sets[np.arange(len(yt)),yt].mean()
+# 人工改变标签生成关系，破坏与校准集的交换性。
+shifted_coverage = sets[np.arange(len(yt)),1-yt].mean()
+assert sets.shape == (4000,2) and 0 &lt;= coverage &lt;= 1
+assert 1 &lt;= k &lt;= len(scores)+1
+# n太小时允许阈值为无穷大，不能把k机械截到n后仍声称原有保证。
+small_n = 4
+assert math.ceil((small_n+1)*(1-alpha)) &gt; small_n
+print({&quot;k&quot;:k,&quot;qhat&quot;:float(qhat),&quot;empirical_coverage&quot;:float(coverage),
+       &quot;mean_set_size&quot;:float(sets.sum(axis=1).mean()),
+       &quot;coverage_after_label_flip&quot;:float(shifted_coverage)})
+# 一次经验覆盖率不是定理证明；理论保证是交换性条件下的边际覆盖。
+</code></pre></div>
+<h2>覆盖保证的对象：平均有效不等于每个人都有效</h2>
+<p>边际覆盖是在相应抽样分布上平均而言，并不保证每个中心、疾病、性别、年龄段或具体个体都有同样覆盖。按组校准可以考虑在组内条件和足够样本支持下获得相应保证，但小组样本少会使集合更大，分组方式也不能在看完测试结果后反复修改。对连续高维特征要求任意分布下精确个体条件覆盖通常有很强限制，不能将 distribution-free 翻译成“任何分布变化下都有效”。</p>
+<p>评价表应同时给经验覆盖、平均集合大小、空集合/全标签比例、亚组结果与校准样本数。覆盖很高但每次都返回所有标签，可能几乎没有实际区分价值；只报覆盖掩盖了这种情况。与校准概率、拒答或置信区间相比，保形集合是另一种输出工具，适用目标要先定义。若换了模型、预处理或目标队列，应重新评估校准资料是否仍匹配。</p>
+<h2>从预测走向因果：先画 DAG，再选调整变量</h2>
+<p>预测允许使用在规定时点可用且能泛化的关联信号；因果效应则需要明确暴露、结局、干预含义与目标人群。共同原因会造成混杂，暴露影响的中介位于作用路径上，共同结果形成碰撞点。为估计总效应而调整中介可能改变问题；调整碰撞点可能打开原来封闭的关联路径。“把所有协变量都控制进去”并不是普遍正确的策略。</p>
+<p>对微生物、代谢物和脑影像的中介链，时间顺序只是必要考虑之一。未测量混杂、测量误差、用药影响及暴露后产生的混杂会影响识别。一个回归中间变量显著、间接效应乘积显著，仍不能自动支持生物机制因果结论。先画出基于研究知识的候选 DAG，列出能够观察和不能观察的节点，再讨论交换性、正值性、一致性等假设，以及结论应使用的措辞。</p>
+<h2>独立实验三：正确调整可消除混杂，错误调整可制造关联</h2>
+<p>第一段合成机制中 U 同时影响 X 与 Y，但并没有 X→Y 的直接作用。单独回归 Y 对 X 会产生明显系数，加入真正的 U 后系数接近零。第二段让 A 与 B 独立，却共同影响 C；控制这个共同结果 C 后，A 与 B 会出现明显的条件关联。这两种情况说明，加入变量的效果取决于其在生成关系中的位置。</p>
+<p>代码可以做因果解释，是因为生成方程由我们预先写下。真实资料没有附带正确 DAG，不能反过来凭“调整后系数变小”证明混杂已经消除，也不能凭某种网络结构自动识别因果方向。将本例作为审稿式检查：每个协变量为何进入，是否在暴露之后，是否由两端共同影响，是否只反映入组选择？这些问题应在查看最终因果结论之前回答。</p>
+<div class="code-wrap"><div class="code-head">python</div><pre><code>import numpy as np
+rng = np.random.default_rng(390)
+n = 20000
+u = rng.normal(size=n)
+x = 2*u+rng.normal(size=n)
+y = 3*u+rng.normal(size=n)  # 构造中没有 x -&gt; y 的直接因果箭头。
+def coef(y,*xs):
+    design = np.column_stack([np.ones(len(y)),*xs])
+    return np.linalg.lstsq(design,y,rcond=None)[0]
+naive = coef(y,x)[1]
+adjusted = coef(y,x,u)[1]
+assert naive &gt; 1.0 and abs(adjusted) &lt; 0.05
+# 另一独立世界：a、b独立，但共同影响collider c。
+a = rng.normal(size=n); b = rng.normal(size=n)
+c = a+b+0.1*rng.normal(size=n)
+unadjusted_collider = coef(b,a)[1]
+adjusted_collider = coef(b,a,c)[1]
+assert abs(unadjusted_collider) &lt; 0.05 and adjusted_collider &lt; -0.9
+print({&quot;confounded_coefficient&quot;:float(naive),&quot;adjusted_for_true_U&quot;:float(adjusted),
+       &quot;independent_a_b&quot;:float(unadjusted_collider),
+       &quot;after_adjusting_collider&quot;:float(adjusted_collider)})
+# 生成机制已知才可解释本例；真实研究不能凭回归系数变化反推出正确DAG。
+</code></pre></div>
+<h2>负对照、多重比较与共享特异：让替代解释有机会出现</h2>
+<p>负对照要依据测量与生物知识选择，例如某种仅反映技术流程、但不应携带目标生物效应的变量；它不是随手挑一个不显著特征。负对照出现关联可提示残余偏差，但没有关联也不能证明不存在偏差。标签置换可以检查整体流程在零假设下是否失控，必须在允许交换的分组范围内置换，并重新执行所有监督选择步骤。</p>
+<p>同时比较许多模型、潜在轴、模态、时间点和疾病，需要预先区分主要比较与探索分析。控制 FDR 并不自动修复测试集重复使用或未公开的模型搜索。研究共享与疾病特异时，“在 MDD 显著、在 SZ 不显著”不等于两者显著不同，应直接检验差异或交互，并兼顾量表、药物与样本量不同的解释。将机制发现保留为可被独立资料推翻的假说，能让复杂模型结果更有累积价值。</p>
+<h2>形成研究可信度档案：结论、信息范围和实际执行状态一起交付</h2>
+<p>给每项主张建立四列：目标人群和时点、允许使用的信息、关键假设、对应证据。把同域、跨域、适配后以及外部测试分开命名；把预测收益、关联解释和因果识别分开表述。未执行的真实队列分析保持待执行状态，教学模拟不能替换临床验证。模型卡还应包含目标标签、缺失处理、概率与阈值、适用人群以及何时需要重新校准或拒绝使用。</p>
+<p>若未来跨机构训练，联邦计算可改变数据交换方式，却不会自动解决数据使用权、测量不一致、隐私泄露或中心混杂；梯度、模型与日志仍需按具体方案评估。合成资料和删去姓名也不自动构成匿名化证明。课程当前使用合成数据，真实合作需另定数据和发布范围。最终能力是能说明模型为何在给定条件下可信，以及哪个条件变化后需要重新取证，而不是承诺一次训练永久有效。</p>
+<h2>动手实验 · 给 CurateMicrobiota 写一份有假设和反例的外推说明</h2>
+<h3>1. 计算患病率敏感性</h3><p>运行先验变化脚本，区分阈值群体 PPV 与单个样本后验。列出纯标签迁移的两个关键前提。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit39/d39-prior-shift.py</code></pre></div>
+<div class="expected">检查什么：患病率下降时 PPV 下降；样本后验修正为4/23，不能当作同一个 PPV。</div>
+<h3>2. 画缺失流程</h3><p>为未采影像、测量失败、低于检出限、随访退出记录原因。运行合成 MCAR/MAR/MNAR 例子，比较完整病例均值、已知模拟观察概率的加权结果与 delta 敏感性；解释真实资料缺少哪些信息。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit39/d39-missing-mechanisms.py</code></pre></div>
+<div class="expected">检查什么：不凭缺失率或均值识别机制，不用缺失真值选择 delta，不使用未来结局做基线预测填补。</div>
+<h3>3. 运行保形集合</h3><p>执行校准与独立测试；记录经验覆盖、集合大小和人为标签关系改变后的结果。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit39/d39-conformal-sets.py</code></pre></div>
+<div class="expected">检查什么：第k顺序统计量与小样本边界正确；不把单次经验结果写成逐人覆盖保证。</div>
+<h3>4. 运行两个 DAG 反例</h3><p>解释真实混杂调整与碰撞点调整为何方向相反，再画一张拟议微生物—代谢—脑的 DAG。</p>
+<div class="code-wrap"><div class="code-head">terminal</div><pre><code>python lesson_examples/unit39/d39-dag-counterexamples.py</code></pre></div>
+<div class="expected">检查什么：混杂例中调整后系数接近零，碰撞点例调整后出现人为关联；真实 DAG 不能由这些结果自动识别。</div>
+<h3>5. 冻结最终说明</h3><p>分别写主要比较、探索比较、负对照、亚组、数据可见范围与未执行任务。将 D30 的毕业主张与本课假设表逐一对应。</p>
+<div class="expected">检查什么：每个结论有适用条件与可能推翻它的证据。</div>
+<h3>实验验收</h3><ul><li>□ 四段机制代码与断言通过</li><li>□ 能够区分 PPV、校准概率和纯标签迁移修正</li><li>□ 能说明 MAR 相对于哪些已观察资料，而不只报缺失比例</li><li>□ 保形集合报告经验覆盖、大小和交换性范围</li><li>□ 协变量选择按假说及时间顺序说明，不把条件关联当作已识别因果</li></ul>
+<h2>论文导读</h2>
+<h3>Detecting and Correcting for Label Shift with Black Box Predictors (2018)</h3><p><a href="https://proceedings.mlr.press/v80/lipton18a.html">https://proceedings.mlr.press/v80/lipton18a.html</a></p>
+<p>从原始标签迁移研究理解可以改变什么、必须保持什么。</p><ul><li>写出 p(y) 变化与 p(x|y) 不变的区别。</li><li>区分论文中的黑盒先验估计与本课已知先验的贝叶斯演示。</li><li>检查混淆矩阵与可识别条件，不能把任意中心差异都叫标签迁移。</li></ul>
+<p><strong>阅读问题：</strong>校正患病率是否足以消除所有跨中心偏差？</p><p><strong>参考思路：</strong>不能。测量、条件关系或病例谱变化可能违反标签迁移假设，需要另行检验和设计。</p>
+<h3>Inference and missing data (1976)</h3><p><a href="https://doi.org/10.1093/biomet/63.3.581">https://doi.org/10.1093/biomet/63.3.581</a></p>
+<p>回到缺失机制的原始定义，避免把缺失率和可忽略性混为一谈。</p><ul><li>指出缺失过程依赖已观察和未观察资料的不同情况。</li><li>给同一个缺失比例构造三种不同观察机制。</li><li>把统计推断中的可忽略条件与实际前瞻预测可用信息分别记录。</li></ul>
+<p><strong>阅读问题：</strong>观测资料是否足以普遍排除 MNAR？</p><p><strong>参考思路：</strong>通常不能；需要流程知识和针对未观测机制的敏感性分析，不能靠单一检验认定缺失随机。</p>
+<h3>A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification (2021)</h3><p><a href="https://arxiv.org/abs/2107.07511">https://arxiv.org/abs/2107.07511</a></p>
+<p>作者方法教程；按原文检查有限样本秩、交换性与覆盖范围。</p><ul><li>读 split conformal 的分数、校准分位数和集合构造。</li><li>核对 marginal 与 conditional coverage 的不同含义。</li><li>阅读分布变化、时间相关或分组资料下条件需要怎样改变。</li></ul>
+<p><strong>阅读问题：</strong>distribution-free 是否等于任意新队列都保证90%覆盖？</p><p><strong>参考思路：</strong>不是。保证仍依赖交换性或相应扩展方法的条件，分布变化不能自动忽略。</p>
+<h3>Causal Inference: What If (2020)</h3><p><a href="https://miguelhernan.org/whatifbook">https://miguelhernan.org/whatifbook</a></p>
+<p>作者公开教材，按官方推荐书目信息引用；实际阅读应记录下载版本。</p><ul><li>用基础章节区分关联、干预、混杂与选择。</li><li>把混杂变量、中介和碰撞点放在不同路径中解释。</li><li>为纵向和中介问题写出识别假设，不把复杂网络当作假设替代。</li></ul>
+<p><strong>阅读问题：</strong>控制变量越多是否通常意味着因果结论越可靠？</p><p><strong>参考思路：</strong>不必然。调整中介会改变目标，调整碰撞点可引入偏差，关键是目标效应与正确的因果结构假设。</p>
+<h2>练习与完整参考解答</h2>
+<h3>1. 模型在病例对照各半资料中 PPV 很高，能否直接推广到低患病率人群？</h3><p><strong>提示：</strong>PPV 的分母同时包含假阳性。</p><p><strong>参考解答：</strong>不能。在灵敏度和特异度固定的纯先验变化中，患病率下降会提高阳性群体里假阳性的相对比例。还需审查目标人群是否改变了条件分布，报告合理患病率范围及外部校准，不能只按训练比例解释。</p>
+<h3>2. 影像缺失20%，只分析完整病例是否一定更干净？</h3><p><strong>提示：</strong>完整性可能与研究对象的特征相关。</p><p><strong>参考解答：</strong>不一定。完整病例可能更年轻、症状更轻或来自特定中心，改变目标人群。应记录缺失原因、比较观察模式，在适当假设下设计填补、加权或其他策略，并对无法识别的机制做敏感性分析。</p>
+<h3>3. 有4个校准样本，希望 alpha=0.1，k=ceil(5×0.9)=5，能把 k 改成4吗？</h3><p><strong>提示：</strong>有限样本修正中的额外秩有实际含义。</p><p><strong>参考解答：</strong>不能在截断后仍宣称原规则的保证。按本课保守实现，k超过n时阈值为无穷大，分类集合包含全部标签；这说明校准样本不足以得到有用且同等保证的窄集合，需要更多资料或明确改变目标。</p>
+<h3>4. 微生物—代谢物—脑连接的间接效应显著，怎样写出合适结论？</h3><p><strong>提示：</strong>检查时间顺序、未测混杂、暴露后混杂与测量误差。</p><p><strong>参考解答：</strong>可描述在明确模型和调整集下观察到的中介关联，并列出识别假设。若没有充分因果设计，不宜写已证明微生物经该代谢物导致脑改变；需用纵向、负对照、敏感性和适当外部证据进一步检验。</p>
+<h2>验收自测与解析</h2>
+<h3>1. 纯标签迁移主要保持哪项不变？</h3><ol type="A"><li>p(y)</li><li>p(x)</li><li>p(x|y)</li><li>每个样本的 p(y|x)</li></ol>
+<p><strong>参考答案：C。</strong>纯标签迁移允许类别先验变化而类别条件特征分布不变。</p>
+<h3>2. MAR 的核心含义是什么？</h3><ol type="A"><li>缺失比例小于5%</li><li>给定已观察资料后，缺失不再依赖未观察值</li><li>任意填补都没有偏差</li><li>只要相关检验不显著就成立</li></ol>
+<p><strong>参考答案：B。</strong>MAR 是关于观察机制的条件假设，必须说明条件资料。</p>
+<h3>3. 标准 split conformal 的边际覆盖保证是否等于每个个体的固定覆盖率？</h3><ol type="A"><li>是，任何人群都相同</li><li>是，模型越大越严格</li><li>只与随机种子有关</li><li>不是，边际与个体条件覆盖不同</li></ol>
+<p><strong>参考答案：D。</strong>保证的概率对象和交换性范围要明确。</p>
+<h3>4. 调整 X 和 Y 的共同结果 C 可能出现什么？</h3><ol type="A"><li>引入碰撞点偏差</li><li>必然消除所有混杂</li><li>增加真实独立样本量</li><li>自动识别因果方向</li></ol>
+<p><strong>参考答案：A。</strong>条件化共同结果可能打开关联路径。</p>
+<h3>5. MDD 中显著、SZ 中不显著，能否直接称疾病特异？</h3><ol type="A"><li>能，比较p值文字即可</li><li>不能，需直接比较差异或交互并考虑样本与测量差异</li><li>能，只要模型是Transformer</li><li>只能增加模型规模后判断</li></ol>
+<p><strong>参考答案：B。</strong>显著与不显著之差不自动等于显著差异。</p>
+<h2>收尾思考</h2><ul><li>你的目标人群与公开病例对照数据在哪些分布上不同？</li><li>哪个未观测缺失原因最可能改变研究结论？</li><li>你希望模型支持的最强主张，需要什么现有资料尚未提供的识别条件？</li></ul>
+<p><strong>下一步：</strong>回到 D30 的科研级 Capstone，把本课的外推、缺失与识别条件加入最终数据卡、模型卡和实验计划；真实队列执行状态与机制实验分别记录。</p>
 </article></section></div></body></html>

@@ -1,6 +1,6 @@
 # CurateMicrobiota · 从小型 GPT 到微生物表征模型
 
-这是「成长学院 · 大模型全景实战」30 单元课程的完整本地工程（14 课核心＋16 课进阶）。你会亲手运行两个不同的模型：一个预测下一个 UTF-8 字节的小型 GPT，以及一个重建被遮蔽菌群丰度、学习样本表示的 Transformer。还可以从 GPT 检查点执行全参数 SFT、LoRA-SFT，以及独立的 LoRA 回归和 DPO 公式梯度实验。
+这是「成长学院 · 大模型全景实战」39 单元课程的完整本地工程（14 课核心＋16 课进阶＋9 课专题补全）。你会亲手运行两个不同的模型：一个预测下一个 UTF-8 字节的小型 GPT，以及一个重建被遮蔽菌群丰度、学习样本表示的 Transformer。还可以从 GPT 检查点执行全参数 SFT、LoRA-SFT，以及独立的 LoRA 回归和 DPO 公式梯度实验。
 
 **默认实验完全使用明确标注的合成菌群数据和原创教学文本。安装依赖之后，核心命令无需联网、API Key、云服务、预训练模型或显卡。** 将流程接到真实研究数据，需要完成数据溯源、标签定义、分类词表统一和研究级验证。这里的 CurateMicrobiota 是本课程项目名；官方数据资源名为 **curatedMetagenomicData**。
 
@@ -110,6 +110,35 @@ python -m unittest discover -s tests -v
 
 所有 Python 教学代码另外以脚本形式收录在 `lesson_examples/`，入口索引见 [lesson_examples/README.md](lesson_examples/README.md)。网页每个 Python 代码框提供对应脚本链接；如果浏览器取消单个 `.py` 下载，请使用已包含全部脚本的工程 ZIP，在原目录运行。不要把脚本移动到其他目录。有数据或检查点前置的例子在脚本头注明命令。
 
+## 2.2 调用自己的本地模型服务（第36课）
+
+先运行上面的 `train-lm`，确认 `runs/lm/model.pt` 已生成。第一个终端保持运行：
+
+```bash
+python -m curatemicrobiota.local_service serve --checkpoint runs/lm/model.pt --port 8765
+```
+
+另开一个终端，使用同一个 Python 环境发送请求：
+
+```bash
+python -m curatemicrobiota.local_service client --prompt "Microbes " --max-new-tokens 16 --port 8765
+python -m curatemicrobiota.local_service client --prompt "Microbes " --max-new-tokens 16 --port 8765 --stream
+```
+
+服务固定监听 `127.0.0.1`。`GET /health` 提供检查点摘要与上下文上限；`POST /generate` 返回 JSON，`stream=true` 时按 NDJSON 发送 `start`、`token`、`done`。流式文字需拼接各 `text_delta` 和最终 `final_text_delta`。实际输出来自已加载的 TinyGPT，不预置问答，不调用远端服务。
+
+默认64字节上下文；提示UTF-8字节数加预留输出额度不能超过模型上限。支持 `prompt,max_new_tokens,temperature,top_k,seed,timeout_seconds,stream`，其他字段拒绝。截止时间在token边界检查，不能硬中断正在运行的CPU算子；当前没有KV缓存、生产并发、认证或公网部署。请用Python客户端，浏览器Origin请求不受支持。完整LoRA检查点可加载，adapter-only文件不包含底座。
+
+Windows未激活环境时，把 `python` 换成 `.\.venv\Scripts\python.exe`。运行后以 Ctrl+C 结束本机服务。本地服务合同测试见 `tests/test_local_service.py`；HTTP测试需要环境允许本地socket。
+
+## 2.3 九个补全专题与独立验收
+
+新课31–39覆盖提示与上下文、推理时计算、持续学习/蒸馏、外部模型适配、学习型检索、本地服务、原始宏基因组测量、图/潜变量目标和外推可靠性。全部机制脚本仍由课程唯一源码生成，索引在 `lesson_examples/README.md`，每段注明前置。
+
+第34课还提供 `scripts/run_hf_snapshot.py`：只读用户已准备的本地模型快照，禁用远程代码并要求safetensors。它需要额外的兼容Transformers依赖和对应模型权重，属于可选实操；默认CPU教学检查不下载或声称已经跑过外部大权重。不要把模型配置、分词器或适配器的文件单独拷贝后当作完整模型。
+
+在线课程「查漏验收」提供12项独立任务、0–3分标准与证据要求，可以下载Markdown表或导出个人JSON模板。课程完成记录和独立能力自评分各有含义；选择题全部正确不能代替在新目录重现代码和解释失败。
+
 ## 3. 代码阅读顺序
 
 | 文件 | 建议先看哪些对象 | 你应该解释清楚的问题 |
@@ -120,6 +149,7 @@ python -m unittest discover -s tests -v
 | `curatemicrobiota/lora.py` | `LoRALinear`、`inject_lora` | 为什么初始低秩更新为零？哪些参数冻结，哪些参数接收梯度？ |
 | `curatemicrobiota/finetuning.py` | `pack_sft_batch`、`response_loss`、`train_sft` | 哪些字节接受监督？prompt、回答和 padding 的标签位置分别是什么？ |
 | 同上 | `response_log_probabilities`、`dpo_loss`、`alignment_demo` | 如何从回答 token 的条件概率得到偏好目标？参考模型为什么固定？ |
+| `curatemicrobiota/local_service.py` | `LocalEngine`、`validate_request`、`make_server` | 如何从真实检查点生成JSON/NDJSON，并明确停止原因？ |
 | `curatemicrobiota/data.py` | `validate_split`、`Preprocessor.fit` | 为什么先隔离研究/受试者，再学习词表、过滤阈值和标准化参数？ |
 | `curatemicrobiota/microbiome.py` | `MaskedMicrobiomeEncoder`、`make_mask` | 为什么菌群表不用因果遮罩或句子位置？缺失、零和人工掩码为何不同？ |
 | 同上 | `masked_mse`、`pretrain_microbiome` | 为何损失只作用在被掩码的位置？训练均值插补对照有什么作用？ |
@@ -207,3 +237,5 @@ python -m curatemicrobiota evaluate --data data/real --run runs/real
 - 官方 `returnSamples` 接口：https://waldronlab.io/curatedMetagenomicData/reference/returnSamples.html
 
 本项目的教学代码独立编写；没有复制教材整章或再分发付费书籍。
+
+本轮 39 单元补全、12 项独立验收与验证范围见 [COMPLETENESS_REVIEW.md](COMPLETENESS_REVIEW.md)。

@@ -3,10 +3,10 @@
   "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
   "units": [
     1,
-    30
+    39
   ],
-  "blocks": 77,
-  "passed": 77,
+  "blocks": 104,
+  "passed": 104,
   "records": [
     {
       "unit": 1,
@@ -15,7 +15,7 @@
       "returncode": 0,
       "stdout": "tensor([[ 4.5000,  4.5000],\n        [10.5000, 10.5000]])\n",
       "stderr": "",
-      "seconds": 1.385,
+      "seconds": 1.548,
       "declared_prerequisites": []
     },
     {
@@ -25,7 +25,7 @@
       "returncode": 0,
       "stdout": "7.2900004386901855\n",
       "stderr": "",
-      "seconds": 1.458,
+      "seconds": 1.435,
       "declared_prerequisites": []
     },
     {
@@ -45,7 +45,7 @@
       "returncode": 0,
       "stdout": "Counter({('a', 'b'): 3, ('b', 'a'): 3})\n",
       "stderr": "",
-      "seconds": 0.016,
+      "seconds": 0.018,
       "declared_prerequisites": []
     },
     {
@@ -55,7 +55,7 @@
       "returncode": 0,
       "stdout": "[(5, 8), (8, 2), (2, 9), (9, 4)]\n",
       "stderr": "",
-      "seconds": 1.372,
+      "seconds": 1.329,
       "declared_prerequisites": []
     },
     {
@@ -75,7 +75,7 @@
       "returncode": 0,
       "stdout": "tensor([[[ 6.,  7.,  8.],\n         [ 3.,  4.,  5.],\n         [ 6.,  7.,  8.]],\n\n        [[ 0.,  1.,  2.],\n         [15., 16., 17.],\n         [ 9., 10., 11.]]])\n",
       "stderr": "",
-      "seconds": 1.291,
+      "seconds": 1.411,
       "declared_prerequisites": []
     },
     {
@@ -85,7 +85,7 @@
       "returncode": 0,
       "stdout": "192\n",
       "stderr": "",
-      "seconds": 1.312,
+      "seconds": 1.23,
       "declared_prerequisites": []
     },
     {
@@ -95,7 +95,7 @@
       "returncode": 0,
       "stdout": "tensor([[0., 0.],\n        [2., 2.],\n        [0., 0.],\n        [1., 1.],\n        [0., 0.]])\n",
       "stderr": "",
-      "seconds": 1.353,
+      "seconds": 1.51,
       "declared_prerequisites": []
     },
     {
@@ -105,7 +105,7 @@
       "returncode": 0,
       "stdout": "tensor([[0.6698, 0.3302]]) tensor([[1.3395, 1.3210]])\n",
       "stderr": "",
-      "seconds": 1.33,
+      "seconds": 1.513,
       "declared_prerequisites": []
     },
     {
@@ -115,7 +115,7 @@
       "returncode": 0,
       "stdout": "",
       "stderr": "",
-      "seconds": 1.454,
+      "seconds": 1.453,
       "declared_prerequisites": []
     },
     {
@@ -125,7 +125,7 @@
       "returncode": 0,
       "stdout": "",
       "stderr": "",
-      "seconds": 1.294,
+      "seconds": 1.296,
       "declared_prerequisites": []
     },
     {
@@ -135,7 +135,7 @@
       "returncode": 0,
       "stdout": "future perturbation passed\n",
       "stderr": "",
-      "seconds": 1.348,
+      "seconds": 1.365,
       "declared_prerequisites": []
     },
     {
@@ -145,7 +145,7 @@
       "returncode": 0,
       "stdout": "",
       "stderr": "",
-      "seconds": 1.406,
+      "seconds": 1.485,
       "declared_prerequisites": []
     },
     {
@@ -153,9 +153,9 @@
       "section": "s7",
       "passed": true,
       "returncode": 0,
-      "stdout": "5.505338668823242\n",
+      "stdout": "5.578945636749268\n",
       "stderr": "",
-      "seconds": 1.281,
+      "seconds": 1.354,
       "declared_prerequisites": []
     },
     {
@@ -165,7 +165,7 @@
       "returncode": 0,
       "stdout": "0.636482834815979\n",
       "stderr": "",
-      "seconds": 1.333,
+      "seconds": 1.227,
       "declared_prerequisites": []
     },
     {
@@ -173,9 +173,9 @@
       "section": "s3",
       "passed": true,
       "returncode": 0,
-      "stdout": "5.532436847686768 3.572819948196411\n",
+      "stdout": "5.5804314613342285 3.76141619682312\n",
       "stderr": "",
-      "seconds": 2.501,
+      "seconds": 2.533,
       "declared_prerequisites": []
     },
     {
@@ -185,7 +185,7 @@
       "returncode": 0,
       "stdout": "[0.0001, 0.001, 0.001, 0.000579088715422152, 0.0]\n",
       "stderr": "",
-      "seconds": 0.012,
+      "seconds": 0.014,
       "declared_prerequisites": []
     },
     {
@@ -205,7 +205,7 @@
       "returncode": 0,
       "stdout": "0.5 [0.8668133020401001, 0.11731041967868805, 0.01587623916566372] 0.4410574734210968\n1.0 [0.6652409434318542, 0.2447284758090973, 0.09003057330846786] 0.8323955535888672\n2.0 [0.5064803957939148, 0.30719590187072754, 0.18632373213768005] 1.0201913118362427\n",
       "stderr": "",
-      "seconds": 1.405,
+      "seconds": 1.29,
       "declared_prerequisites": []
     },
     {
@@ -215,7 +215,7 @@
       "returncode": 0,
       "stdout": "tensor([0.5714, 0.4286, 0.0000, 0.0000])\ntop-p equality, full-distribution and range checks passed\n",
       "stderr": "",
-      "seconds": 1.287,
+      "seconds": 1.406,
       "declared_prerequisites": []
     },
     {
@@ -225,7 +225,7 @@
       "returncode": 0,
       "stdout": "shifted labels: [[-100, 4, 5]]\nscored answer tokens: 2\nloss: 2.2791223526000977\n",
       "stderr": "",
-      "seconds": 1.289,
+      "seconds": 1.359,
       "declared_prerequisites": []
     },
     {
@@ -235,7 +235,7 @@
       "returncode": 0,
       "stdout": "{'start': 0, 'end': 80, 'text': '研究仅纳入成年粪便样本。模型在同一研究内交叉验证；尚未在独立研究验证。研究仅纳入成年粪便样本。模型在同一研究内交叉验证；尚未在独立研究验证。研究仅纳入成年粪便样'}\n{'start': 60, 'end': 105, 'text': '尚未在独立研究验证。研究仅纳入成年粪便样本。模型在同一研究内交叉验证；尚未在独立研究验证。'}\n",
       "stderr": "",
-      "seconds": 0.014,
+      "seconds": 0.012,
       "declared_prerequisites": []
     },
     {
@@ -255,7 +255,7 @@
       "returncode": 0,
       "stdout": "{'train': 80, 'val': 20, 'test': 20}\n",
       "stderr": "",
-      "seconds": 0.029,
+      "seconds": 0.025,
       "declared_prerequisites": [
         "demo_data"
       ]
@@ -267,7 +267,7 @@
       "returncode": 0,
       "stdout": "masked-input and permutation checks passed\n",
       "stderr": "",
-      "seconds": 1.203,
+      "seconds": 1.415,
       "declared_prerequisites": []
     },
     {
@@ -277,7 +277,7 @@
       "returncode": 0,
       "stdout": "{'outer_fold': 1, 'train': ['STUDY_03', 'STUDY_04', 'STUDY_05', 'STUDY_06'], 'val': ['STUDY_02'], 'test': ['STUDY_01']}\n{'outer_fold': 2, 'train': ['STUDY_01', 'STUDY_04', 'STUDY_05', 'STUDY_06'], 'val': ['STUDY_03'], 'test': ['STUDY_02']}\n{'outer_fold': 3, 'train': ['STUDY_01', 'STUDY_02', 'STUDY_05', 'STUDY_06'], 'val': ['STUDY_04'], 'test': ['STUDY_03']}\n{'outer_fold': 4, 'train': ['STUDY_01', 'STUDY_02', 'STUDY_03', 'STUDY_06'], 'val': ['STUDY_05'], 'test': ['STUDY_04']}\n{'outer_fold': 5, 'train': ['STUDY_01', 'STUDY_02', 'STUDY_03', 'STUDY_04'], 'val': ['STUDY_06'], 'test': ['STUDY_05']}\n{'outer_fold': 6, 'train': ['STUDY_02', 'STUDY_03', 'STUDY_04', 'STUDY_05'], 'val': ['STUDY_01'], 'test': ['STUDY_06']}\n",
       "stderr": "",
-      "seconds": 0.017,
+      "seconds": 0.012,
       "declared_prerequisites": []
     },
     {
@@ -287,7 +287,7 @@
       "returncode": 0,
       "stdout": "{'teaching_threshold': 1.2599686305239666, 'alignment': {'missing_trained_taxa': [], 'excluded_input_taxa': [], 'retained_abundance_mass_mean': 1.000000000001947, 'retained_fraction_of_input_mass_mean': 1.0, 'missing_assumed_zero': False}}\ntrain {'n': 160, 'mean_distance': 0.9869454778781641, 'flag_fraction': 0.05}\nval {'n': 40, 'mean_distance': 1.0070905026135306, 'flag_fraction': 0.05}\n",
       "stderr": "",
-      "seconds": 0.091,
+      "seconds": 0.114,
       "declared_prerequisites": [
         "microbiome_preprocessor"
       ]
@@ -299,7 +299,7 @@
       "returncode": 0,
       "stdout": "{'original': [0.2, 0.3, 0.5, 0.0], 'augmented': [0.21893834178986266, 0.2569806603320264, 0.5240809978781109, 0.0]}\n",
       "stderr": "",
-      "seconds": 0.073,
+      "seconds": 0.077,
       "declared_prerequisites": []
     },
     {
@@ -309,7 +309,7 @@
       "returncode": 0,
       "stdout": "Input identity checks passed\nlanguage/model.pt c3f010fc7759ce25fc856dc51e9250783fd29b0d468d8fa607ff6b8241dce7b9\nmicrobiome/encoder.pt 4b01a11e06ab1f4ad5d7024af8a0421b39541c2482e6dadf7948c73b05fd2f4c\n{'python': '3.12.14', 'executable': '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', 'platform': 'Linux-6.18.55-x86_64-with-glibc2.39', 'packages': {'torch': '2.14.1+cpu', 'numpy': '2.3.5', 'scikit-learn': '1.8.0'}}\n",
       "stderr": "",
-      "seconds": 0.079,
+      "seconds": 0.076,
       "declared_prerequisites": [
         "quick_pipeline"
       ]
@@ -321,7 +321,7 @@
       "returncode": 0,
       "stdout": "1 4.01\n2 0.010000000000000002\n3 0.0\n",
       "stderr": "",
-      "seconds": 1.203,
+      "seconds": 1.289,
       "declared_prerequisites": []
     },
     {
@@ -331,7 +331,7 @@
       "returncode": 0,
       "stdout": "0.8979457248567797 0.9856054499301495 0.08765972507336968 0.0915162218494358\n",
       "stderr": "",
-      "seconds": 1.221,
+      "seconds": 1.272,
       "declared_prerequisites": []
     },
     {
@@ -341,7 +341,7 @@
       "returncode": 0,
       "stdout": "tensor([0.3927, 0.0116, 0.7956], dtype=torch.float64) tensor([0.3927, 0.0116, 0.7956], dtype=torch.float64)\n",
       "stderr": "",
-      "seconds": 1.27,
+      "seconds": 1.445,
       "declared_prerequisites": []
     },
     {
@@ -351,7 +351,7 @@
       "returncode": 0,
       "stdout": "Jaccard candidate score: 0.5555555555555556\n",
       "stderr": "",
-      "seconds": 0.02,
+      "seconds": 0.026,
       "declared_prerequisites": []
     },
     {
@@ -361,7 +361,7 @@
       "returncode": 0,
       "stdout": "learned merges: 20 vocabulary: 276\n",
       "stderr": "",
-      "seconds": 0.015,
+      "seconds": 0.016,
       "declared_prerequisites": []
     },
     {
@@ -371,7 +371,7 @@
       "returncode": 0,
       "stdout": "microbe microbiome 18 18 7\n菌群与宿主 5 15 15\nFaecalibacterium prausnitzii 28 28 28\nGCF_000166035.1 15 15 15\n",
       "stderr": "",
-      "seconds": 0.013,
+      "seconds": 0.014,
       "declared_prerequisites": []
     },
     {
@@ -381,7 +381,7 @@
       "returncode": 0,
       "stdout": "-0.7791161101841747 -0.7791161101841748\n",
       "stderr": "",
-      "seconds": 1.241,
+      "seconds": 1.388,
       "declared_prerequisites": []
     },
     {
@@ -391,7 +391,7 @@
       "returncode": 0,
       "stdout": "tensor([0.3780, 0.7559, 1.5119], dtype=torch.float64) tensor([-1.0690, -0.2673,  1.3363], dtype=torch.float64)\n",
       "stderr": "",
-      "seconds": 1.259,
+      "seconds": 1.391,
       "declared_prerequisites": []
     },
     {
@@ -401,7 +401,7 @@
       "returncode": 0,
       "stdout": "torch.Size([2, 3, 12]) matched weights: 1152\n",
       "stderr": "",
-      "seconds": 1.382,
+      "seconds": 1.295,
       "declared_prerequisites": []
     },
     {
@@ -411,7 +411,7 @@
       "returncode": 0,
       "stdout": "[0, 0, 1, 2] [2, 1, 1]\n",
       "stderr": "",
-      "seconds": 1.276,
+      "seconds": 1.387,
       "declared_prerequisites": []
     },
     {
@@ -421,7 +421,7 @@
       "returncode": 0,
       "stdout": "[1.0, 0.8, 2.64, 2.112] final: 2.112\n",
       "stderr": "",
-      "seconds": 1.316,
+      "seconds": 1.31,
       "declared_prerequisites": []
     },
     {
@@ -431,7 +431,7 @@
       "returncode": 0,
       "stdout": "sample order: [5, 6, 4, 2, 0, 9, 10, 7, 1, 3, 8]\n",
       "stderr": "",
-      "seconds": 1.299,
+      "seconds": 1.354,
       "declared_prerequisites": []
     },
     {
@@ -441,7 +441,7 @@
       "returncode": 0,
       "stdout": "full / accumulated gradients: 0.5999999999999999 0.5999999999999998\n",
       "stderr": "",
-      "seconds": 1.31,
+      "seconds": 1.309,
       "declared_prerequisites": []
     },
     {
@@ -451,7 +451,7 @@
       "returncode": 0,
       "stdout": "restored stream equal: True\n",
       "stderr": "",
-      "seconds": 1.322,
+      "seconds": 1.53,
       "declared_prerequisites": []
     },
     {
@@ -461,7 +461,7 @@
       "returncode": 0,
       "stdout": "{'bf16_weight_gib': 13.0385160446167, 'example_adam_state_gib': 104.3081283569336, 'kv_gib': 1.0, 'double_batch_double_context_kv_gib': 4.0}\n",
       "stderr": "",
-      "seconds": 0.013,
+      "seconds": 0.015,
       "declared_prerequisites": []
     },
     {
@@ -471,7 +471,7 @@
       "returncode": 0,
       "stdout": "online softmax max error: 1.1102230246251565e-16\n",
       "stderr": "",
-      "seconds": 1.362,
+      "seconds": 1.308,
       "declared_prerequisites": []
     },
     {
@@ -481,7 +481,7 @@
       "returncode": 0,
       "stdout": "parameter/token choices: [(100000000, 10000000000), (300000000, 3333333333), (1000000000, 1000000000)]\nillustrative hours: 41.666666666666664\n",
       "stderr": "",
-      "seconds": 0.014,
+      "seconds": 0.012,
       "declared_prerequisites": []
     },
     {
@@ -491,7 +491,7 @@
       "returncode": 0,
       "stdout": "supervised target positions: [19, 20]\n",
       "stderr": "",
-      "seconds": 1.154,
+      "seconds": 1.373,
       "declared_prerequisites": []
     },
     {
@@ -501,7 +501,7 @@
       "returncode": 0,
       "stdout": "tensor([[1, 0, 0, 0, 0, 0],\n        [1, 1, 0, 0, 0, 0],\n        [1, 1, 1, 0, 0, 0],\n        [0, 0, 0, 1, 0, 0],\n        [0, 0, 0, 1, 1, 0],\n        [0, 0, 0, 1, 1, 1]], dtype=torch.int32)\n",
       "stderr": "",
-      "seconds": 1.185,
+      "seconds": 1.246,
       "declared_prerequisites": []
     },
     {
@@ -511,7 +511,7 @@
       "returncode": 0,
       "stdout": "DPO loss: 0.6443966600735709 grad: [-0.09500416250421201, 0.09500416250421201]\n",
       "stderr": "",
-      "seconds": 1.153,
+      "seconds": 1.219,
       "declared_prerequisites": []
     },
     {
@@ -521,7 +521,7 @@
       "returncode": 0,
       "stdout": "surrogate: [1.2, 0.6, -1.4, -0.8] loss gradient: [0.0, -0.25, 0.25, 0.0]\n",
       "stderr": "",
-      "seconds": 1.24,
+      "seconds": 1.12,
       "declared_prerequisites": []
     },
     {
@@ -531,7 +531,7 @@
       "returncode": 0,
       "stdout": "group advantage: [-0.9999999800000003, 0.9999999800000003, 0.9999999800000003, -0.9999999800000003] equal reward group: [0.0, 0.0, 0.0, 0.0]\n",
       "stderr": "",
-      "seconds": 1.307,
+      "seconds": 1.258,
       "declared_prerequisites": []
     },
     {
@@ -541,7 +541,7 @@
       "returncode": 0,
       "stdout": "[('B', 2.6903204035960946), ('D', 1.2471495739442882), ('A', 0.0), ('C', 0.0)]\n",
       "stderr": "",
-      "seconds": 0.02,
+      "seconds": 0.017,
       "declared_prerequisites": []
     },
     {
@@ -551,7 +551,7 @@
       "returncode": 0,
       "stdout": "{'cosine': {'A': np.float64(0.2425), 'B': np.float64(0.9879), 'C': np.float64(0.1104), 'D': np.float64(0.9583)}, 'dense': ['B', 'D', 'A'], 'rrf': [('B', 0.03278688524590164), ('A', 0.03200204813108039), ('D', 0.03200204813108039)]}\n",
       "stderr": "",
-      "seconds": 0.063,
+      "seconds": 0.064,
       "declared_prerequisites": []
     },
     {
@@ -561,7 +561,7 @@
       "returncode": 0,
       "stdout": "{\"status\": \"supported\", \"claims\": [{\"text\": \"教学片段B涉及按研究和受试者划分。\", \"evidence_ids\": [\"B\"], \"review\": \"human_supported\"}]}\nrejected: unknown or repeated evidence ID\n",
       "stderr": "",
-      "seconds": 0.018,
+      "seconds": 0.024,
       "declared_prerequisites": []
     },
     {
@@ -571,7 +571,7 @@
       "returncode": 0,
       "stdout": "{'mean': 0.19999999999999998, 'n': 3}\nungranted tool rejected\n",
       "stderr": "",
-      "seconds": 0.011,
+      "seconds": 0.012,
       "declared_prerequisites": []
     },
     {
@@ -581,7 +581,7 @@
       "returncode": 0,
       "stdout": "{\n  \"complete\": {\n    \"status\": \"done\",\n    \"evidence_ids\": [\n      \"fixture-A\"\n    ],\n    \"events\": [\n      {\n        \"step\": 1,\n        \"before\": \"retrieve\",\n        \"after\": \"validate\",\n        \"event\": \"retrieved fixture-A\",\n        \"previous_sha256\": \"0000000000000000000000000000000000000000000000000000000000000000\",\n        \"sha256\": \"9aa541cb26c952ac4d57d5355a8a8c47901fca4eb728e4ac0d089baea485a21c\"\n      },\n      {\n        \"step\": 2,\n        \"before\": \"validate\",\n        \"after\": \"finish\",\n        \"event\": \"structure only; factual review still required\",\n        \"previous_sha256\": \"9aa541cb26c952ac4d57d5355a8a8c47901fca4eb728e4ac0d089baea485a21c\",\n        \"sha256\": \"8f94a09befe815bab7b7e103d17f54682bdb7e9784aec34c72ef4d90fc473295\"\n      },\n      {\n        \"step\": 3,\n        \"before\": \"finish\",\n        \"after\": \"done\",\n        \"event\": \"returned evidence, no generated scientific conclusion\",\n        \"previous_sha256\": \"8f94a09befe815bab7b7e103d17f54682bdb7e9784aec34c72ef4d90fc473295\",\n        \"sha256\": \"420751720b2ca3276914f2eeb2821664e479af230a170a77cc2f51798d1ad226\"\n      }\n    ]\n  },\n  \"stopped\": {\n    \"status\": \"budget_exhausted\",\n    \"pending_state\": \"finish\",\n    \"events\": [\n      {\n        \"step\": 1,\n        \"before\": \"retrieve\",\n        \"after\": \"validate\",\n        \"event\": \"retrieved fixture-A\",\n        \"previous_sha256\": \"0000000000000000000000000000000000000000000000000000000000000000\",\n        \"sha256\": \"9aa541cb26c952ac4d57d5355a8a8c47901fca4eb728e4ac0d089baea485a21c\"\n      },\n      {\n        \"step\": 2,\n        \"before\": \"validate\",\n        \"after\": \"finish\",\n        \"event\": \"structure only; factual review still required\",\n        \"previous_sha256\": \"9aa541cb26c952ac4d57d5355a8a8c47901fca4eb728e4ac0d089baea485a21c\",\n        \"sha256\": \"8f94a09befe815bab7b7e103d17f54682bdb7e9784aec34c72ef4d90fc473295\"\n      }\n    ]\n  }\n}\n",
       "stderr": "",
-      "seconds": 0.018,
+      "seconds": 0.022,
       "declared_prerequisites": []
     },
     {
@@ -591,7 +591,7 @@
       "returncode": 0,
       "stdout": "{'same_version_hit': True, 'new_corpus_hit': False, 'other_scope_hit': False}\n",
       "stderr": "",
-      "seconds": 0.02,
+      "seconds": 0.019,
       "declared_prerequisites": []
     },
     {
@@ -601,7 +601,7 @@
       "returncode": 0,
       "stdout": "{'difference_B_minus_A': 0.16666666666666666, 'percentile_interval_95': [-0.16666666666666666, 0.4166666666666667], 'independent_source_groups': 6}\nmisaligned IDs rejected\nID / score length mismatch rejected\n",
       "stderr": "",
-      "seconds": 0.076,
+      "seconds": 0.091,
       "declared_prerequisites": []
     },
     {
@@ -611,7 +611,7 @@
       "returncode": 0,
       "stdout": "{'observed_agreement': 0.75, 'chance_agreement': 0.5, 'kappa': 0.5}\n",
       "stderr": "",
-      "seconds": 1.774,
+      "seconds": 1.857,
       "declared_prerequisites": []
     },
     {
@@ -621,7 +621,7 @@
       "returncode": 0,
       "stdout": "{'coverage': 0.5, 'selective_risk': 0.33333333333333337, 'brier': 0.24791666666666667, 'ece_3_bins': 0.14166666666666672}\n",
       "stderr": "",
-      "seconds": 0.064,
+      "seconds": 0.072,
       "declared_prerequisites": []
     },
     {
@@ -631,7 +631,7 @@
       "returncode": 0,
       "stdout": "{'max_absolute_error': 0.0, 'kv_bytes': 384, 'all_tokens_match': True}\n",
       "stderr": "",
-      "seconds": 1.834,
+      "seconds": 1.897,
       "declared_prerequisites": []
     },
     {
@@ -641,7 +641,7 @@
       "returncode": 0,
       "stdout": "{'weight_fp32_bytes': 128, 'int8_plus_scale_bytes': 48, 'max_weight_error': 0.0064622461795806885, 'max_output_error': 0.016253843903541565}\n",
       "stderr": "",
-      "seconds": 0.08,
+      "seconds": 0.091,
       "declared_prerequisites": []
     },
     {
@@ -651,7 +651,17 @@
       "returncode": 0,
       "stdout": "{'kv_GiB': 1.0, 'TTFT_seconds': 0.12, 'TPOT_seconds': 0.023333333333333334, 'end_to_end_output_tokens_per_second': 21.05263157894737, 'decode_tokens_per_second': 42.857142857142854}\n{'remaining_context_tokens': 324}\n",
       "stderr": "",
-      "seconds": 0.072,
+      "seconds": 0.067,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 24,
+      "section": "speculative_sampling",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'accepted_probability': 0.4, 'corrected_distribution': [0.1, 0.3, 0.6]}\n",
+      "stderr": "",
+      "seconds": 0.065,
       "declared_prerequisites": []
     },
     {
@@ -661,7 +671,7 @@
       "returncode": 0,
       "stdout": "[[0.  0.2 nan]\n [0.4 0.  nan]]\n{'missing': ['taxon_C'], 'unused': ['taxon_new'], 'retained_input_fraction': [0.6666666666666666, 0.6666666666666666]}\n",
       "stderr": "",
-      "seconds": 0.064,
+      "seconds": 0.108,
       "declared_prerequisites": []
     },
     {
@@ -671,7 +681,7 @@
       "returncode": 0,
       "stdout": "{'CLR': [-0.44058527999410635, -0.035120171885942186, 0.47570545188004865], 'ILR': [-0.28670712747781946, -0.582617812483108]}\nepsilon 1e-06 CLR [-8.652, 3.777, 4.875]\nepsilon 0.001 CLR [-4.049, 1.477, 2.572]\n",
       "stderr": "",
-      "seconds": 0.104,
+      "seconds": 0.062,
       "declared_prerequisites": []
     },
     {
@@ -681,7 +691,7 @@
       "returncode": 0,
       "stdout": "{'x_tokens': ['A', 'B', 'C'], 'y_tokens': ['A', 'B', 'C'], 'x_A_over_C': 16.0, 'y_A_over_C': 1.2}\n",
       "stderr": "",
-      "seconds": 0.067,
+      "seconds": 0.064,
       "declared_prerequisites": []
     },
     {
@@ -691,7 +701,7 @@
       "returncode": 0,
       "stdout": "{'correct_pairs': 0.012856305576860905, 'shuffled_pairs': 5.067987442016602, 'one_pair_without_negatives': 0.0}\n",
       "stderr": "",
-      "seconds": 1.258,
+      "seconds": 1.272,
       "declared_prerequisites": []
     },
     {
@@ -701,7 +711,7 @@
       "returncode": 0,
       "stdout": "[{'study': 0, 'C': 0.1, 'test_auc': 0.7222222222222223}, {'study': 1, 'C': 0.1, 'test_auc': 0.6944444444444445}, {'study': 2, 'C': 0.1, 'test_auc': 0.7777777777777779}, {'study': 3, 'C': 0.1, 'test_auc': 0.8055555555555556}, {'study': 4, 'C': 0.1, 'test_auc': 0.6111111111111112}, {'study': 5, 'C': 0.1, 'test_auc': 0.8333333333333334}]\nmacro study AUROC 0.7407407407407408\n",
       "stderr": "",
-      "seconds": 2.164,
+      "seconds": 2.363,
       "declared_prerequisites": []
     },
     {
@@ -711,7 +721,7 @@
       "returncode": 0,
       "stdout": "{'macro_auc_difference_B_minus_A': 0.013888888888888867, 'illustrative_interval': [-0.03472222222222224, 0.06249999999999999], 'scope': 'fixed synthetic predictions; studies then class-stratified subjects; no retraining'}\n",
       "stderr": "",
-      "seconds": 4.688,
+      "seconds": 4.505,
       "declared_prerequisites": []
     },
     {
@@ -721,7 +731,7 @@
       "returncode": 0,
       "stdout": "{'forward': 'ACGTTNCAACGT', 'reverse_complement': 'ACGTTGNAACGT', 'valid_windows': 7, 'canonical_counts': {'AAC': 2, 'ACG': 4, 'CAA': 1}}\n",
       "stderr": "",
-      "seconds": 0.014,
+      "seconds": 0.015,
       "declared_prerequisites": []
     },
     {
@@ -731,7 +741,17 @@
       "returncode": 0,
       "stdout": "{'sample_embeddings': [[1.0, 0.3333333333333333], [0.25, 1.0]], 'covered_mass_fraction': [0.75, 1.0]}\n",
       "stderr": "",
-      "seconds": 0.06,
+      "seconds": 0.059,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 28,
+      "section": "vision_language_alignment",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'correct_pair_loss': 0.0001361905149382713, 'mispaired_loss': 5.000136190514938}\n",
+      "stderr": "",
+      "seconds": 1.29,
       "declared_prerequisites": []
     },
     {
@@ -751,7 +771,7 @@
       "returncode": 0,
       "stdout": "{'heldout_paired_correlation': 0.9176809190808624, 'one_shuffled_control': -0.07731301033750897}\n",
       "stderr": "",
-      "seconds": 1.824,
+      "seconds": 1.715,
       "declared_prerequisites": []
     },
     {
@@ -761,7 +781,7 @@
       "returncode": 0,
       "stdout": "{'standardized_predictive_residuals': [-0.042326952540646855, 2.0240889680654104, -1.5244430705927428], 'outside_training_age': [False, False, True]}\n",
       "stderr": "",
-      "seconds": 0.073,
+      "seconds": 0.09,
       "declared_prerequisites": []
     },
     {
@@ -771,7 +791,7 @@
       "returncode": 0,
       "stdout": "{\n  \"data_sha256\": \"a08b567abafe1b6d8dee78fa4fb64c6db11104b21fc2334bcb547982e0337c6b\",\n  \"split_sha256\": \"c48c970a9b3d53ec3e26f12bc227e4315897df81094868dc49e2f15c943a5f93\",\n  \"config_sha256\": \"f8b2312cfae5102f538c707628916debf4d8b01b3633e82d045e0aa4425c3274\",\n  \"code_version\": \"example_only_replace_with_actual_commit\"\n}\nDetected data and configuration changes; provenance is not scientific validity.\n",
       "stderr": "",
-      "seconds": 0.019,
+      "seconds": 0.021,
       "declared_prerequisites": []
     },
     {
@@ -781,7 +801,259 @@
       "returncode": 0,
       "stdout": "logistic: macro study AUROC = 0.828333\nrandom_frozen: macro study AUROC = 0.745833\npretrained_frozen: macro study AUROC = 0.727500\nsupervised_scratch: macro study AUROC = 0.554167\npretrained_finetuned: macro study AUROC = 0.566667\npaired study differences: [-0.015, 0.08, 0.055, -0.055, 0.0, 0.01]\nmean difference: 0.0125\nwins / losses / ties: 3 2 1\nDescriptive synthetic result; no significance or biological benefit established.\n",
       "stderr": "",
-      "seconds": 0.06,
+      "seconds": 0.076,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 30,
+      "section": "federated_privacy",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'one_step_equal': True, 'two_local_steps_average': 2.051, 'two_central_steps': 2.1375, 'privacy_guarantee': 'none'}\n",
+      "stderr": "",
+      "seconds": 0.064,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 31,
+      "section": "context_budget",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{\n  \"template\": \"evidence-v1\",\n  \"tokenizer\": \"utf8-byte-v1\",\n  \"context_limit\": 360,\n  \"output_reserve\": 40,\n  \"input_tokens\": 199,\n  \"kept\": [\n    \"A\",\n    \"C\"\n  ],\n  \"dropped\": [\n    \"B\"\n  ],\n  \"sha256\": \"fac12e33c9a45a25ac575c0b85df79ebf8c205882f10fefb3fe6393399afd11e\"\n}\nAssembly only: no model was loaded; 360 is not TinyGPT default capacity.\n",
+      "stderr": "",
+      "seconds": 1.316,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 31,
+      "section": "constraints",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "enum: supported | schema: valid | citation ID: valid | causal support: absent\nA randomized label would still require detailed scientific review.\n",
+      "stderr": "",
+      "seconds": 1.383,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 32,
+      "section": "pass_at_k",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'operands': (2, 3), 'pass@2_estimate': 0.5, 'any_correct_in_4': True, 'majority_correct': False, 'verified_selection_correct': True, 'verified_selection_status': 'accepted'}\n{'operands': (4, 7), 'pass@2_estimate': 0.8333333333333334, 'any_correct_in_4': True, 'majority_correct': True, 'verified_selection_correct': True, 'verified_selection_status': 'accepted'}\n{'operands': (6, 6), 'pass@2_estimate': 0.0, 'any_correct_in_4': False, 'majority_correct': False, 'verified_selection_correct': False, 'verified_selection_status': 'no_valid_candidate'}\nCoverage of candidates, majority success, and selected-answer success differ.\n",
+      "stderr": "",
+      "seconds": 0.013,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 32,
+      "section": "bounded_search",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'status': 'budget_exhausted', 'expanded': 2, 'path': None}\n{'status': 'verified', 'expanded': 7, 'path': [1, 2, 3, 6, 7]}\n{'status': 'search_exhausted', 'expanded': 12, 'path': None}\nFinite arithmetic graph only: no LLM proposal or learned verifier is used.\n",
+      "stderr": "",
+      "seconds": 0.014,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 33,
+      "section": "replay",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'after_A': {'old_loss': 0.0, 'new_loss': 4.0}, 'after_B_only': {'old_loss': 3.999999998370371, 'new_loss': 1.6598064215185228e-19}, 'after_B_with_replay': {'old_loss': 0.9999999995925928, 'new_loss': 1.000000000407407}}\nA deliberately conflicting one-parameter example, not a language-model benchmark.\n",
+      "stderr": "",
+      "seconds": 0.016,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 33,
+      "section": "soft_gradient",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "scaled soft-target KL: 0.6812689194300634\ngradient norm: 0.4830094800811942\nT^2 corrects objective scale; it does not make gradients equal for all T.\n",
+      "stderr": "",
+      "seconds": 1.293,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 33,
+      "section": "student_training",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'teacher_parameters': 195, 'student_parameters': 15, 'train_KL_initial': 0.13866828382015228, 'train_KL_final': 0.0007391860708594322, 'heldout_KL': 0.000852508470416069, 'heldout_teacher_agreement': 0.96875}\nTeacher agreement is imitation quality, not truth or clinical accuracy.\n",
+      "stderr": "",
+      "seconds": 2.662,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 34,
+      "section": "d34-02",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'same_vocab_size': True, 'changed_tokenizer_rejected': True, 'frozen_files': ['config.json', 'tokenizer.json']}\n",
+      "stderr": "",
+      "seconds": 0.03,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 34,
+      "section": "d34-08",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'merge_max_error': 3.552713678800501e-15, 'wrong_base_changes_output': True}\n",
+      "stderr": "",
+      "seconds": 1.929,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 35,
+      "section": "d35-03",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{\"initial_train_loss\": 2.449819564819336, \"final_train_loss\": 0.019706087186932564, \"training_top1\": [0, 1, 2, 3, 4, 5], \"unoptimized_query_top1\": [0, 1, 2], \"scope\": \"six synthetic training pairs; heldout examples are a tiny diagnostic, not generalization evidence\"}\n",
+      "stderr": "",
+      "seconds": 2.823,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 35,
+      "section": "d35-04",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'multi_positive_loss': 0.14751172065734863, 'single_positive_loss': 0.4607734978199005, 'positive_gradient_nonpositive': True, 'negative_gradient_nonnegative': True}\n",
+      "stderr": "",
+      "seconds": 1.629,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 35,
+      "section": "d35-06",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'exact_top3': [0, 5, 2], 'candidate_top3': [5, 2, 8], 'index_recall_at_3': 0.6666666666666666, 'task_recall_at_3': 1.0}\n",
+      "stderr": "",
+      "seconds": 0.106,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 36,
+      "section": "d36-04",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'prompt_bytes': 24, 'reserved_output': 8, 'invalid_requests_rejected': 4}\n",
+      "stderr": "",
+      "seconds": 1.76,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 36,
+      "section": "d36-06",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'byte_tokens': 12, 'visible_characters': 6, 'reassembled_text': '微生物abc', 'incomplete_tail_reported': True}\n",
+      "stderr": "",
+      "seconds": 0.016,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 36,
+      "section": "d36-08",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'checkpoint_sha256': 'c3f010fc7759ce25fc856dc51e9250783fd29b0d468d8fa607ff6b8241dce7b9', 'completion_tokens': 8, 'finish_reason': 'length', 'request_rng_independent': True, 'stream_reassembly_matches': True, 'scope': 'actual local checkpoint engine; no HTTP socket in this example'}\n",
+      "stderr": "",
+      "seconds": 1.689,
+      "declared_prerequisites": [
+        "quick_pipeline"
+      ]
+    },
+    {
+      "unit": 37,
+      "section": "d37-qc-contract",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "Expected rejection: inconsistent stage counts\n[{'sample_id': 'S1', 'retained_fraction': 0.8}, {'sample_id': 'S2', 'retained_fraction': 0.6666666666666666}]\n",
+      "stderr": "",
+      "seconds": 0.015,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 37,
+      "section": "d37-functional-accounting",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'unstratified_total': 15.0, 'incorrect_double_count': 30.0, 'fractions_for_this_retained_feature_set': {'GF_A': 0.6666666666666666, 'GF_B': 0.3333333333333333}}\n",
+      "stderr": "",
+      "seconds": 0.017,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 38,
+      "section": "d38-graph-equivariance",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'node_embeddings': [[0.37247448713915887, 0.22659863237109046], [0.5707908118985983, 0.3850170085738942], [0.4932236367104643, 0.6789557777078756], [0.48159863237109035, 0.5049489742783178]], 'pooled_embedding': [0.4795218920298279, 0.4488800982327945], 'permutation_equivariance': True}\n",
+      "stderr": "",
+      "seconds": 0.068,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 38,
+      "section": "d38-vae-objective",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'mean_nll': 2.510513859457898, 'mean_kl': 0.08632610732844992, 'negative_elbo_estimate': 2.5968399667863484, 'finite_gradients': True}\n",
+      "stderr": "",
+      "seconds": 1.603,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 38,
+      "section": "d38-diffusion-coordinates",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'composition': [0.4183830988466681, 0.20629160705021193, 0.37532529410311993], 'noisy_composition': [0.6038025821637143, 0.10904604085336826, 0.2871513769829175], 'oracle_coordinate_error': 1.1102230246251565e-16}\n",
+      "stderr": "",
+      "seconds": 0.093,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 39,
+      "section": "d39-prior-shift",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'PPV_at_pi_0.5': 0.888888888888889, 'PPV_at_pi_0.05': 0.2962962962962964, 'individual_posterior_after_pure_label_shift': 0.17391304347826092}\n",
+      "stderr": "",
+      "seconds": 0.013,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 39,
+      "section": "d39-missing-mechanisms",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'synthetic_full_mean': 1.0009850430441805, 'mechanisms': {'MCAR': {'observed_fraction': 0.6031, 'complete_case_mean': 1.0026191358237906}, 'MAR_given_X': {'observed_fraction': 0.59425, 'complete_case_mean': 0.4973846423818901}, 'MNAR_given_X': {'observed_fraction': 0.3509, 'complete_case_mean': 0.15531882637058742}}, 'MAR_known_probability_weighted_mean': 1.0078831886986384, 'MNAR_delta_sensitivity': {'-0.5': 0.21626522618186927, '0.0': 0.5408152261818694, '0.5': 0.8653652261818694}}\n",
+      "stderr": "",
+      "seconds": 0.101,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 39,
+      "section": "d39-conformal-sets",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'k': 180, 'qhat': 0.6909130487437338, 'empirical_coverage': 0.90025, 'mean_set_size': 1.305, 'coverage_after_label_flip': 0.40475}\n",
+      "stderr": "",
+      "seconds": 0.084,
+      "declared_prerequisites": []
+    },
+    {
+      "unit": 39,
+      "section": "d39-dag-counterexamples",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{'confounded_coefficient': 1.2072657287260813, 'adjusted_for_true_U': 0.010464220250167244, 'independent_a_b': -0.005904926323047547, 'after_adjusting_collider': -0.9914320540217143}\n",
+      "stderr": "",
+      "seconds": 0.081,
       "declared_prerequisites": []
     }
   ],

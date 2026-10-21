@@ -1,14 +1,17 @@
 {
-  "version": "2026.10.21.3",
-  "lessons": 30,
+  "version": "2026.10.21.4",
+  "lessons": 39,
   "core_lessons": 14,
   "advanced_lessons": 16,
-  "coverage_topics": 43,
-  "planned_minutes": 6420,
-  "sections": 318,
-  "exercises": 119,
-  "quiz_questions": 150,
-  "paper_readings": 77,
-  "unique_sources": 64,
-  "chinese_characters": 157926
+  "supplemental_lessons": 9,
+  "coverage_topics": 71,
+  "independent_checkpoints": 12,
+  "planned_minutes": 8760,
+  "sections": 417,
+  "exercises": 159,
+  "quiz_questions": 195,
+  "python_examples": 104,
+  "paper_readings": 117,
+  "unique_sources": 103,
+  "chinese_characters": 208556
 }

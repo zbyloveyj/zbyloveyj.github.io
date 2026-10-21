@@ -1,0 +1,337 @@
+{
+  "day": 39,
+  "title": "外推与研究可信度：分布变化、缺失、预测集合与因果识别",
+  "subtitle": "让模型结论随目标人群、可观测资料与识别假设一起接受检验",
+  "phase": "能力补全 · 微生物测量与研究可靠性",
+  "minutes": 270,
+  "objectives": [
+    "区分病例对照评价、目标患病率和真实使用场景中的预测值",
+    "解释纯标签迁移的后验修正条件及其失败范围",
+    "区分 MCAR、MAR、MNAR，并在训练/验证框架内设计缺失处理",
+    "计算 split conformal 预测集合并说明交换性、边际覆盖与组别限制",
+    "借助合成 DAG 实验区分混杂、碰撞点、预测与因果主张"
+  ],
+  "deliverables": [
+    "患病率变化对 PPV 和后验 odds 的可复算计算",
+    "按可观测信息写出的缺失机制与敏感性分析表",
+    "同一合成总体的三种缺失机制、已知概率加权与 delta 敏感性实验",
+    "一个包含有限样本边界的保形分类集合实验",
+    "混杂调整与碰撞点调整的合成反例",
+    "将主要结论、负对照、亚组及隐私边界写入研究说明"
+  ],
+  "prerequisites": [
+    "完成 D12、D23、D25、D27 和 D29，理解外测、校准、分组和时间窗口",
+    "知道概率、回归、区间与标签分布的基本含义",
+    "所有执行例子都是合成教学计算；不用于个体诊断，也未验证真实队列因果关系"
+  ],
+  "sections": [
+    {
+      "id": "d39-01",
+      "title": "先定义目标人群：平衡病例对照不是自然患病率",
+      "paragraphs": [
+        "一个病例与对照各半的研究适合研究特定比较，却不能把样本中的一半病例当成目标人群患病率。阈值下的阳性预测值取决于灵敏度、特异度与目标患病率。若类别条件分布保持不变，患病率改变仍会改变精确率和概率解释；AUROC 对纯先验变化的性质也不能推广到病例谱、测量或就诊流程同时改变的情况。D12 的排序指标与本课的人群推断要分开报告。",
+        "类别加权、过采样和欠采样是训练设计，不是免费增加病例。它们可能帮助优化或改变决策边界，也会影响输出概率的解释。所有重采样只在训练折中进行，同一受试者及其重复测量必须一起移动；若在拆分前合成相似样本，可能让训练和测试共享来源。阈值由预设目标与验证资料确定，测试集保留原定义的分布，不能为了漂亮的准确率重新配平。"
+      ]
+    },
+    {
+      "id": "d39-prior-shift",
+      "title": "独立实验一：同样的阈值性能，可以得到不同的阳性预测值",
+      "paragraphs": [
+        "在人工例子中固定灵敏度0.8、特异度0.9，将患病率从0.5改成0.05。通过贝叶斯公式，阈值以上群体的阳性预测值随之下降。这个计算只说明概率关系，并不代表任何疾病筛查性能。如果真实人群还改变了疾病严重程度、年龄或测量流程，灵敏度与特异度本身也可能变化，不能直接使用本例的固定数值。",
+        "第二项计算对一个具体样本的后验 odds 做先验修正。它要求源域概率本身适当校准，且满足 p_target(x|y)=p_source(x|y) 的纯标签迁移，并需要可靠的源域与目标先验。修正后的样本后验不等于阈值群体的 PPV；两者的条件事件不同。真实目标患病率不清楚时，应报告敏感性范围，而不是把公开研究样本比例直接代入作最终答案。"
+      ],
+      "equation": "PPV=Se·pi/[Se·pi+(1−Sp)(1−pi)]；odds_target(y=1|x)=odds_source(y=1|x)×[odds(pi_target)/odds(pi_source)]",
+      "code": {
+        "language": "python",
+        "text": "import math\nsensitivity, specificity = 0.8, 0.9  # 人工固定阈值性能，并非临床估计。\ndef ppv(pi):\n    return sensitivity*pi/(sensitivity*pi+(1-specificity)*(1-pi))\nassert math.isclose(ppv(0.5),8/9)\nassert ppv(0.05) < ppv(0.5)\n# 另一个计算：在纯标签迁移假设下，修正某个已校准样本的后验 odds。\ndef change_prior(p, source_pi, target_pi):\n    if not all(0 < v < 1 for v in (p, source_pi, target_pi)):\n        raise ValueError(\"Probabilities must lie strictly between zero and one\")\n    odds = p/(1-p)\n    ratio = (target_pi/(1-target_pi))/(source_pi/(1-source_pi))\n    return odds*ratio/(1+odds*ratio)\nupdated = change_prior(0.8,0.5,0.05)\nassert math.isclose(updated,4/23)\nprint({\"PPV_at_pi_0.5\":ppv(0.5),\"PPV_at_pi_0.05\":ppv(0.05),\n       \"individual_posterior_after_pure_label_shift\":updated})\n# PPV描述阈值以上群体；updated描述单个给定特征的后验，不要把两者当同一指标。\n"
+      }
+    },
+    {
+      "id": "d39-03",
+      "title": "识别变化类型：无标签域适配也必须有边界",
+      "paragraphs": [
+        "协变量迁移强调 p(x) 变化而 p(y|x) 不变，标签迁移强调 p(y) 变化而 p(x|y) 不变，概念变化则涉及条件关系改变。这些是用于推导方法的假设，不是看到一次分布检验显著就能确定的标签。中心差异可能同时改变人群、药物、取样、数据库和标签定义，实际资料未必满足任何纯形式。先分变量检查变化并追问来源，再决定是否适合重加权、重新校准或重新收集标签。",
+        "用未标注目标样本估计缩放或图结构，属于明示的适配过程；它可以是合理研究问题，但不能继续称作完全未见目标域。用目标标签选择重校准或阈值则需要再留出独立评估样本。方法之间应使用同样的信息预算，对照一个不适配基线。重加权还需要足够重叠，若某类目标人群在源域完全没有支持，极大权重不会创造缺失的训练证据。"
+      ]
+    },
+    {
+      "id": "d39-04",
+      "title": "缺失机制由观察过程定义，不由缺失比例命名",
+      "paragraphs": [
+        "设 R 表示某变量是否被观察。MCAR 要求缺失与相关资料独立；MAR 允许缺失依赖已观察变量，但在给定这些资料后不再依赖缺失值本身；MNAR 则仍与未观察信息有关。同样是百分之二十的脑影像缺失，随机设备故障、已知年龄导致不能完成检查、未记录的症状负担导致退出，可以对应不同机制。不能仅凭缺失率低或一个检验不显著就宣称 MAR。",
+        "模型所需模态未采集、技术失败、低于检出限、真正为零和人为训练 mask 应分别编码。完整病例分析可能改变研究人群；加一个 missing 指示变量可以帮助预测，却可能让模型依赖医院流程。缺失机制通常不能仅从已观测资料完全识别，需要研究流程知识和敏感性分析。把所有缺失统一补零，会同时改变测量含义、分布与模型可用信息。"
+      ]
+    },
+    {
+      "id": "d39-missing-mechanisms",
+      "title": "缺失机制实验：观察到的均值、加权与敏感性各说明什么",
+      "paragraphs": [
+        "用于前瞻预测的填补器只能使用预测时点可获得的变量，拟合与超参数选择必须放在训练/验证内部。不能为了更准的填补将未来随访症状传入基线预测流程。多重插补在统计推断中通过多个填补结果表达额外不确定性，具体模型和合并规则要与目标分析一致；它不是生成多份相似表后把样本量翻倍。预测评价也需要每折重建整个填补与预测流程。",
+        "纵向失访可能与先前症状、用药、依从性和未记录状态有关。在适当可忽略缺失与重叠假设下，可以研究失访权重或联合模型；权重接近无穷提示资料支持不足，应报告截断和敏感性方案。若怀疑 MNAR，应设定一组合理偏移或选择机制，观察结论在哪些条件下改变。敏感性分析不证明某机制为真，却能说明结论依赖哪些无法直接验证的条件。",
+        "下面从同一人工总体产生三种观察过程：随机观察、依赖已观察 X 的观察，以及在给定 X 后仍依赖将要缺失的 Y 的观察。代码比较完整病例均值，并在模拟 MAR 机制中用已知观察概率做加权。真实研究通常不知道这个概率，也不能看见缺失 Y；演示用于理解偏差来源，不是根据均值形状识别 MCAR、MAR 或 MNAR 的算法。",
+        "最后对 MNAR 的缺失部分设置条件均值偏移 delta：用同 X 组已观察均值作为起点，加上预设偏移，再比较总体均值。不同 delta 与同一份观测资料都可能相容，必须由外部知识选择合理范围，不能用模拟中的完整真值挑选最佳 delta。该例说明敏感性对象；并未实现适合任意资料的多重插补或真实队列失访模型。"
+      ],
+      "code": {
+        "language": "python",
+        "text": "import numpy as np\nrng = np.random.default_rng(394)\nn = 20000\nx = rng.integers(0,2,size=n)  # 始终观察到的背景变量。\ny = 2*x+rng.normal(size=n)   # 模拟完整总体；真实缺失时无法读取缺失部分。\np_mcar = np.full(n,0.6)\np_mar = np.where(x==0,0.9,0.3)\np_mnar = 1/(1+np.exp(0.8*y))\nprobs = {\"MCAR\":p_mcar,\"MAR_given_X\":p_mar,\"MNAR_given_X\":p_mnar}\nmasks = {name:rng.random(n)<p for name,p in probs.items()}\nsummary = {}\nfor name,r in masks.items():\n    assert r.dtype == bool and r.any() and (~r).any()\n    summary[name] = {\"observed_fraction\":float(r.mean()),\n                     \"complete_case_mean\":float(y[r].mean())}\nr = masks[\"MAR_given_X\"]\n# 这里只因知道模拟机制才知道真实观察概率；真实项目需要估计并检验适用假设。\nw = 1/p_mar[r]\nmar_weighted = np.sum(w*y[r])/np.sum(w)\nr = masks[\"MNAR_given_X\"]\nobserved_y = np.where(r,y,np.nan)\nconditional_observed_mean = np.array([np.nanmean(observed_y[x==g]) for g in [0,1]])\nsensitivity = {}\nfor delta in [-0.5,0.0,0.5]:\n    # 假设缺失Y的条件均值 = 同X组已观察Y均值 + delta。\n    filled = np.where(r,observed_y,conditional_observed_mean[x]+delta)\n    assert np.isfinite(filled).all()\n    sensitivity[str(delta)] = float(filled.mean())\nassert sensitivity[\"-0.5\"] < sensitivity[\"0.0\"] < sensitivity[\"0.5\"]\nprint({\"synthetic_full_mean\":float(y.mean()),\"mechanisms\":summary,\n       \"MAR_known_probability_weighted_mean\":float(mar_weighted),\n       \"MNAR_delta_sensitivity\":sensitivity})\n# 完整y仅用于模拟核验；实际分析不能借缺失真值挑选最接近答案的delta。\n"
+      }
+    },
+    {
+      "id": "d39-conformal-sets",
+      "title": "独立实验二：按有限样本秩构造保形预测集合",
+      "paragraphs": [
+        "split conformal 先固定已经训练的预测器，再用独立校准样本的非符合分数确定阈值。本例用 1−模型给真实标签的概率作为分数，取第 ceil((n+1)(1−alpha)) 个顺序统计量，并在预测时保留分数不超过该阈值的标签。集合可能只有一个标签、同时有两个标签，某些分数方案下也可能为空；集合大小与覆盖率要一起报告。",
+        "校准与新样本满足交换性等条件时，可以得到边际覆盖的保证，它不要求基模型概率本身完美校准。这里的交换性仍是实质条件：重复随访不能当独立受试者，时间变化和跨中心分布变化可能破坏它。样本太少时所需秩可能是 n+1，此时用无穷阈值包含全部标签才保留相应保守规则；把秩直接截到 n 可能错误承诺覆盖。下面也报告人为翻转测试标签关系后的经验覆盖，展示条件改变必须重新审查。"
+      ],
+      "equation": "s_i=1−p_hat(y_i|x_i)；k=ceil((n_cal+1)(1−alpha))；C(x)={y:1−p_hat(y|x)≤q_hat}",
+      "code": {
+        "language": "python",
+        "text": "import math\nimport numpy as np\nrng = np.random.default_rng(39)\ndef sample(n):\n    x = rng.normal(size=n)\n    p = 1/(1+np.exp(-2*x))\n    y = (rng.random(n)<p).astype(int)\n    return np.column_stack([1-p,p]), y\n# 视为一个训练阶段已经固定的预测器。校准与测试样本独立。\npc, yc = sample(199); pt, yt = sample(4000)\nalpha = 0.1\nscores = 1-pc[np.arange(len(yc)),yc]\nk = math.ceil((len(scores)+1)*(1-alpha))\nqhat = np.inf if k > len(scores) else np.sort(scores)[k-1]\nsets = (1-pt) <= qhat  # 包含边界值，保留并列分数的保守性。\ncoverage = sets[np.arange(len(yt)),yt].mean()\n# 人工改变标签生成关系，破坏与校准集的交换性。\nshifted_coverage = sets[np.arange(len(yt)),1-yt].mean()\nassert sets.shape == (4000,2) and 0 <= coverage <= 1\nassert 1 <= k <= len(scores)+1\n# n太小时允许阈值为无穷大，不能把k机械截到n后仍声称原有保证。\nsmall_n = 4\nassert math.ceil((small_n+1)*(1-alpha)) > small_n\nprint({\"k\":k,\"qhat\":float(qhat),\"empirical_coverage\":float(coverage),\n       \"mean_set_size\":float(sets.sum(axis=1).mean()),\n       \"coverage_after_label_flip\":float(shifted_coverage)})\n# 一次经验覆盖率不是定理证明；理论保证是交换性条件下的边际覆盖。\n"
+      }
+    },
+    {
+      "id": "d39-07",
+      "title": "覆盖保证的对象：平均有效不等于每个人都有效",
+      "paragraphs": [
+        "边际覆盖是在相应抽样分布上平均而言，并不保证每个中心、疾病、性别、年龄段或具体个体都有同样覆盖。按组校准可以考虑在组内条件和足够样本支持下获得相应保证，但小组样本少会使集合更大，分组方式也不能在看完测试结果后反复修改。对连续高维特征要求任意分布下精确个体条件覆盖通常有很强限制，不能将 distribution-free 翻译成“任何分布变化下都有效”。",
+        "评价表应同时给经验覆盖、平均集合大小、空集合/全标签比例、亚组结果与校准样本数。覆盖很高但每次都返回所有标签，可能几乎没有实际区分价值；只报覆盖掩盖了这种情况。与校准概率、拒答或置信区间相比，保形集合是另一种输出工具，适用目标要先定义。若换了模型、预处理或目标队列，应重新评估校准资料是否仍匹配。"
+      ]
+    },
+    {
+      "id": "d39-08",
+      "title": "从预测走向因果：先画 DAG，再选调整变量",
+      "paragraphs": [
+        "预测允许使用在规定时点可用且能泛化的关联信号；因果效应则需要明确暴露、结局、干预含义与目标人群。共同原因会造成混杂，暴露影响的中介位于作用路径上，共同结果形成碰撞点。为估计总效应而调整中介可能改变问题；调整碰撞点可能打开原来封闭的关联路径。“把所有协变量都控制进去”并不是普遍正确的策略。",
+        "对微生物、代谢物和脑影像的中介链，时间顺序只是必要考虑之一。未测量混杂、测量误差、用药影响及暴露后产生的混杂会影响识别。一个回归中间变量显著、间接效应乘积显著，仍不能自动支持生物机制因果结论。先画出基于研究知识的候选 DAG，列出能够观察和不能观察的节点，再讨论交换性、正值性、一致性等假设，以及结论应使用的措辞。"
+      ]
+    },
+    {
+      "id": "d39-dag-counterexamples",
+      "title": "独立实验三：正确调整可消除混杂，错误调整可制造关联",
+      "paragraphs": [
+        "第一段合成机制中 U 同时影响 X 与 Y，但并没有 X→Y 的直接作用。单独回归 Y 对 X 会产生明显系数，加入真正的 U 后系数接近零。第二段让 A 与 B 独立，却共同影响 C；控制这个共同结果 C 后，A 与 B 会出现明显的条件关联。这两种情况说明，加入变量的效果取决于其在生成关系中的位置。",
+        "代码可以做因果解释，是因为生成方程由我们预先写下。真实资料没有附带正确 DAG，不能反过来凭“调整后系数变小”证明混杂已经消除，也不能凭某种网络结构自动识别因果方向。将本例作为审稿式检查：每个协变量为何进入，是否在暴露之后，是否由两端共同影响，是否只反映入组选择？这些问题应在查看最终因果结论之前回答。"
+      ],
+      "code": {
+        "language": "python",
+        "text": "import numpy as np\nrng = np.random.default_rng(390)\nn = 20000\nu = rng.normal(size=n)\nx = 2*u+rng.normal(size=n)\ny = 3*u+rng.normal(size=n)  # 构造中没有 x -> y 的直接因果箭头。\ndef coef(y,*xs):\n    design = np.column_stack([np.ones(len(y)),*xs])\n    return np.linalg.lstsq(design,y,rcond=None)[0]\nnaive = coef(y,x)[1]\nadjusted = coef(y,x,u)[1]\nassert naive > 1.0 and abs(adjusted) < 0.05\n# 另一独立世界：a、b独立，但共同影响collider c。\na = rng.normal(size=n); b = rng.normal(size=n)\nc = a+b+0.1*rng.normal(size=n)\nunadjusted_collider = coef(b,a)[1]\nadjusted_collider = coef(b,a,c)[1]\nassert abs(unadjusted_collider) < 0.05 and adjusted_collider < -0.9\nprint({\"confounded_coefficient\":float(naive),\"adjusted_for_true_U\":float(adjusted),\n       \"independent_a_b\":float(unadjusted_collider),\n       \"after_adjusting_collider\":float(adjusted_collider)})\n# 生成机制已知才可解释本例；真实研究不能凭回归系数变化反推出正确DAG。\n"
+      }
+    },
+    {
+      "id": "d39-10",
+      "title": "负对照、多重比较与共享特异：让替代解释有机会出现",
+      "paragraphs": [
+        "负对照要依据测量与生物知识选择，例如某种仅反映技术流程、但不应携带目标生物效应的变量；它不是随手挑一个不显著特征。负对照出现关联可提示残余偏差，但没有关联也不能证明不存在偏差。标签置换可以检查整体流程在零假设下是否失控，必须在允许交换的分组范围内置换，并重新执行所有监督选择步骤。",
+        "同时比较许多模型、潜在轴、模态、时间点和疾病，需要预先区分主要比较与探索分析。控制 FDR 并不自动修复测试集重复使用或未公开的模型搜索。研究共享与疾病特异时，“在 MDD 显著、在 SZ 不显著”不等于两者显著不同，应直接检验差异或交互，并兼顾量表、药物与样本量不同的解释。将机制发现保留为可被独立资料推翻的假说，能让复杂模型结果更有累积价值。"
+      ]
+    },
+    {
+      "id": "d39-11",
+      "title": "形成研究可信度档案：结论、信息范围和实际执行状态一起交付",
+      "paragraphs": [
+        "给每项主张建立四列：目标人群和时点、允许使用的信息、关键假设、对应证据。把同域、跨域、适配后以及外部测试分开命名；把预测收益、关联解释和因果识别分开表述。未执行的真实队列分析保持待执行状态，教学模拟不能替换临床验证。模型卡还应包含目标标签、缺失处理、概率与阈值、适用人群以及何时需要重新校准或拒绝使用。",
+        "若未来跨机构训练，联邦计算可改变数据交换方式，却不会自动解决数据使用权、测量不一致、隐私泄露或中心混杂；梯度、模型与日志仍需按具体方案评估。合成资料和删去姓名也不自动构成匿名化证明。课程当前使用合成数据，真实合作需另定数据和发布范围。最终能力是能说明模型为何在给定条件下可信，以及哪个条件变化后需要重新取证，而不是承诺一次训练永久有效。"
+      ]
+    }
+  ],
+  "lab": {
+    "title": "给 CurateMicrobiota 写一份有假设和反例的外推说明",
+    "steps": [
+      {
+        "title": "计算患病率敏感性",
+        "detail": "运行先验变化脚本，区分阈值群体 PPV 与单个样本后验。列出纯标签迁移的两个关键前提。",
+        "command": "python lesson_examples/unit39/d39-prior-shift.py",
+        "expected": "患病率下降时 PPV 下降；样本后验修正为4/23，不能当作同一个 PPV。"
+      },
+      {
+        "title": "画缺失流程",
+        "detail": "为未采影像、测量失败、低于检出限、随访退出记录原因。运行合成 MCAR/MAR/MNAR 例子，比较完整病例均值、已知模拟观察概率的加权结果与 delta 敏感性；解释真实资料缺少哪些信息。",
+        "expected": "不凭缺失率或均值识别机制，不用缺失真值选择 delta，不使用未来结局做基线预测填补。",
+        "command": "python lesson_examples/unit39/d39-missing-mechanisms.py"
+      },
+      {
+        "title": "运行保形集合",
+        "detail": "执行校准与独立测试；记录经验覆盖、集合大小和人为标签关系改变后的结果。",
+        "command": "python lesson_examples/unit39/d39-conformal-sets.py",
+        "expected": "第k顺序统计量与小样本边界正确；不把单次经验结果写成逐人覆盖保证。"
+      },
+      {
+        "title": "运行两个 DAG 反例",
+        "detail": "解释真实混杂调整与碰撞点调整为何方向相反，再画一张拟议微生物—代谢—脑的 DAG。",
+        "command": "python lesson_examples/unit39/d39-dag-counterexamples.py",
+        "expected": "混杂例中调整后系数接近零，碰撞点例调整后出现人为关联；真实 DAG 不能由这些结果自动识别。"
+      },
+      {
+        "title": "冻结最终说明",
+        "detail": "分别写主要比较、探索比较、负对照、亚组、数据可见范围与未执行任务。将 D30 的毕业主张与本课假设表逐一对应。",
+        "expected": "每个结论有适用条件与可能推翻它的证据。"
+      }
+    ],
+    "acceptance": [
+      "四段机制代码与断言通过",
+      "能够区分 PPV、校准概率和纯标签迁移修正",
+      "能说明 MAR 相对于哪些已观察资料，而不只报缺失比例",
+      "保形集合报告经验覆盖、大小和交换性范围",
+      "协变量选择按假说及时间顺序说明，不把条件关联当作已识别因果"
+    ]
+  },
+  "papers": [
+    {
+      "id": "label-shift-2018-reliability",
+      "title": "Detecting and Correcting for Label Shift with Black Box Predictors",
+      "year": 2018,
+      "url": "https://proceedings.mlr.press/v80/lipton18a.html",
+      "why": "从原始标签迁移研究理解可以改变什么、必须保持什么。",
+      "read": [
+        "写出 p(y) 变化与 p(x|y) 不变的区别。",
+        "区分论文中的黑盒先验估计与本课已知先验的贝叶斯演示。",
+        "检查混淆矩阵与可识别条件，不能把任意中心差异都叫标签迁移。"
+      ],
+      "questions": [
+        {
+          "question": "校正患病率是否足以消除所有跨中心偏差？",
+          "answer": "不能。测量、条件关系或病例谱变化可能违反标签迁移假设，需要另行检验和设计。"
+        }
+      ]
+    },
+    {
+      "id": "rubin-1976-missing",
+      "title": "Inference and missing data",
+      "year": 1976,
+      "url": "https://doi.org/10.1093/biomet/63.3.581",
+      "why": "回到缺失机制的原始定义，避免把缺失率和可忽略性混为一谈。",
+      "read": [
+        "指出缺失过程依赖已观察和未观察资料的不同情况。",
+        "给同一个缺失比例构造三种不同观察机制。",
+        "把统计推断中的可忽略条件与实际前瞻预测可用信息分别记录。"
+      ],
+      "questions": [
+        {
+          "question": "观测资料是否足以普遍排除 MNAR？",
+          "answer": "通常不能；需要流程知识和针对未观测机制的敏感性分析，不能靠单一检验认定缺失随机。"
+        }
+      ]
+    },
+    {
+      "id": "conformal-2021-reliability",
+      "title": "A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification",
+      "year": 2021,
+      "url": "https://arxiv.org/abs/2107.07511",
+      "why": "作者方法教程；按原文检查有限样本秩、交换性与覆盖范围。",
+      "read": [
+        "读 split conformal 的分数、校准分位数和集合构造。",
+        "核对 marginal 与 conditional coverage 的不同含义。",
+        "阅读分布变化、时间相关或分组资料下条件需要怎样改变。"
+      ],
+      "questions": [
+        {
+          "question": "distribution-free 是否等于任意新队列都保证90%覆盖？",
+          "answer": "不是。保证仍依赖交换性或相应扩展方法的条件，分布变化不能自动忽略。"
+        }
+      ]
+    },
+    {
+      "id": "whatif-2020-reliability",
+      "title": "Causal Inference: What If",
+      "year": 2020,
+      "url": "https://miguelhernan.org/whatifbook",
+      "why": "作者公开教材，按官方推荐书目信息引用；实际阅读应记录下载版本。",
+      "read": [
+        "用基础章节区分关联、干预、混杂与选择。",
+        "把混杂变量、中介和碰撞点放在不同路径中解释。",
+        "为纵向和中介问题写出识别假设，不把复杂网络当作假设替代。"
+      ],
+      "questions": [
+        {
+          "question": "控制变量越多是否通常意味着因果结论越可靠？",
+          "answer": "不必然。调整中介会改变目标，调整碰撞点可引入偏差，关键是目标效应与正确的因果结构假设。"
+        }
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "question": "模型在病例对照各半资料中 PPV 很高，能否直接推广到低患病率人群？",
+      "hint": "PPV 的分母同时包含假阳性。",
+      "answer": "不能。在灵敏度和特异度固定的纯先验变化中，患病率下降会提高阳性群体里假阳性的相对比例。还需审查目标人群是否改变了条件分布，报告合理患病率范围及外部校准，不能只按训练比例解释。"
+    },
+    {
+      "question": "影像缺失20%，只分析完整病例是否一定更干净？",
+      "hint": "完整性可能与研究对象的特征相关。",
+      "answer": "不一定。完整病例可能更年轻、症状更轻或来自特定中心，改变目标人群。应记录缺失原因、比较观察模式，在适当假设下设计填补、加权或其他策略，并对无法识别的机制做敏感性分析。"
+    },
+    {
+      "question": "有4个校准样本，希望 alpha=0.1，k=ceil(5×0.9)=5，能把 k 改成4吗？",
+      "hint": "有限样本修正中的额外秩有实际含义。",
+      "answer": "不能在截断后仍宣称原规则的保证。按本课保守实现，k超过n时阈值为无穷大，分类集合包含全部标签；这说明校准样本不足以得到有用且同等保证的窄集合，需要更多资料或明确改变目标。"
+    },
+    {
+      "question": "微生物—代谢物—脑连接的间接效应显著，怎样写出合适结论？",
+      "hint": "检查时间顺序、未测混杂、暴露后混杂与测量误差。",
+      "answer": "可描述在明确模型和调整集下观察到的中介关联，并列出识别假设。若没有充分因果设计，不宜写已证明微生物经该代谢物导致脑改变；需用纵向、负对照、敏感性和适当外部证据进一步检验。"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "纯标签迁移主要保持哪项不变？",
+      "options": [
+        "p(y)",
+        "p(x)",
+        "p(x|y)",
+        "每个样本的 p(y|x)"
+      ],
+      "correct": 2,
+      "explanation": "纯标签迁移允许类别先验变化而类别条件特征分布不变。"
+    },
+    {
+      "question": "MAR 的核心含义是什么？",
+      "options": [
+        "缺失比例小于5%",
+        "给定已观察资料后，缺失不再依赖未观察值",
+        "任意填补都没有偏差",
+        "只要相关检验不显著就成立"
+      ],
+      "correct": 1,
+      "explanation": "MAR 是关于观察机制的条件假设，必须说明条件资料。"
+    },
+    {
+      "question": "标准 split conformal 的边际覆盖保证是否等于每个个体的固定覆盖率？",
+      "options": [
+        "是，任何人群都相同",
+        "是，模型越大越严格",
+        "只与随机种子有关",
+        "不是，边际与个体条件覆盖不同"
+      ],
+      "correct": 3,
+      "explanation": "保证的概率对象和交换性范围要明确。"
+    },
+    {
+      "question": "调整 X 和 Y 的共同结果 C 可能出现什么？",
+      "options": [
+        "引入碰撞点偏差",
+        "必然消除所有混杂",
+        "增加真实独立样本量",
+        "自动识别因果方向"
+      ],
+      "correct": 0,
+      "explanation": "条件化共同结果可能打开关联路径。"
+    },
+    {
+      "question": "MDD 中显著、SZ 中不显著，能否直接称疾病特异？",
+      "options": [
+        "能，比较p值文字即可",
+        "不能，需直接比较差异或交互并考虑样本与测量差异",
+        "能，只要模型是Transformer",
+        "只能增加模型规模后判断"
+      ],
+      "correct": 1,
+      "explanation": "显著与不显著之差不自动等于显著差异。"
+    }
+  ],
+  "reflection": [
+    "你的目标人群与公开病例对照数据在哪些分布上不同？",
+    "哪个未观测缺失原因最可能改变研究结论？",
+    "你希望模型支持的最强主张，需要什么现有资料尚未提供的识别条件？"
+  ],
+  "next": "回到 D30 的科研级 Capstone，把本课的外推、缺失与识别条件加入最终数据卡、模型卡和实验计划；真实队列执行状态与机制实验分别记录。"
+}

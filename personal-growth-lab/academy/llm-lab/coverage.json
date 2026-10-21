@@ -1,6 +1,6 @@
 {
-  "version": "2026.10.21.3",
-  "scope": "30个单元：14个核心实战单元＋16个进阶单元；按能力与证据分层。",
+  "version": "2026.10.21.4",
+  "scope": "39个单元：14个核心实战＋16个进阶＋9个专题补全；另附12项独立能力验收。阅读覆盖、机制实验和真实科研验证分别说明。",
   "levels": {
     "implemented": {
       "label": "工程可运行",
@@ -166,6 +166,16 @@
           "level": "extension",
           "outcome": "理解状态递推、并行训练、历史压缩与检索能力边界。",
           "artifact": "第17课递推对照与Mamba论文"
+        },
+        {
+          "title": "离散扩散语言模型",
+          "lessons": [
+            17,
+            38
+          ],
+          "level": "extension",
+          "outcome": "区分自回归、固定掩码、时间加权去噪与反向生成；不把丰度重建直接命名为扩散语言模型。",
+          "artifact": "第17课目标比较；第38课连续生成机制"
         }
       ]
     },
@@ -250,11 +260,12 @@
           "lessons": [
             19,
             20,
-            24
+            24,
+            33
           ],
-          "level": "extension",
-          "outcome": "设计通用能力回归集与压缩前后比较，防止只看域内损失。",
-          "artifact": "第19/20/24课设计与机制"
+          "level": "mechanism",
+          "outcome": "推导蒸馏软目标，实际训练小型学生模型并计算跨任务遗忘；大型持续预训练另需环境。",
+          "artifact": "第33课蒸馏与遗忘机制实验；第19/24课压缩账本"
         }
       ]
     },
@@ -334,11 +345,22 @@
           "title": "批处理、流式服务与监控",
           "lessons": [
             22,
-            24
+            24,
+            36
           ],
-          "level": "extension",
-          "outcome": "明确队列、超时、版本、日志、资源限制和服务验收。",
-          "artifact": "第24课部署合同；未提供生产服务"
+          "level": "implemented",
+          "outcome": "运行本地TinyGPT服务并检查请求、流式事件和错误；批处理、生产监控与扩容仍为设计拓展。",
+          "artifact": "curatemicrobiota.local_service；第24课系统预算"
+        },
+        {
+          "title": "推测解码与分布校正",
+          "lessons": [
+            24,
+            32
+          ],
+          "level": "mechanism",
+          "outcome": "核验草稿接受与残余分布保持目标概率，区分计算加速与答案选择。",
+          "artifact": "第24课speculative_sampling.py；未集成多token加速器"
         }
       ]
     },
@@ -355,7 +377,7 @@
           ],
           "level": "extension",
           "outcome": "核对curatedMetagenomicData版本、单位、标签与队列来源。",
-          "artifact": "scripts/export_cmd.R；R导出需本地环境验证"
+          "artifact": "scripts/export_cmd.R / cmd_contract.R；基础样本合同在R CI验证，真实队列下载与完整导出仍需相应环境"
         },
         {
           "title": "零、缺失、组合性与变换",
@@ -498,6 +520,302 @@
           "level": "implemented",
           "outcome": "形成可复现清单、实验矩阵、负结果与可证伪研究问题。",
           "artifact": "MODEL_CARD.md / REAL_DATA.md / 第30课验收"
+        },
+        {
+          "title": "视觉语言对齐与指令学习",
+          "lessons": [
+            28,
+            29,
+            34
+          ],
+          "level": "mechanism",
+          "outcome": "区分双塔对比与视觉连接器，运行配对标签实验并设计受试者级对照。",
+          "artifact": "第28课vision_language_alignment.py；真实影像模型为扩展"
+        },
+        {
+          "title": "联邦学习与差分隐私边界",
+          "lessons": [
+            30,
+            39
+          ],
+          "level": "mechanism",
+          "outcome": "核对加权一步梯度等价，解释中心异质性、保护单位、噪声与隐私记账。",
+          "artifact": "第30课federated_privacy.py；未实现私有训练系统"
+        }
+      ]
+    },
+    {
+      "id": "adaptation-reasoning",
+      "title": "提示、推理与持续学习",
+      "description": "把模型使用与模型更新写成可比较的实验，补齐过去只提到但缺少完整练习的部分。",
+      "topics": [
+        {
+          "title": "零/少样本、ICL与提示消融",
+          "lessons": [
+            23,
+            31
+          ],
+          "level": "mechanism",
+          "outcome": "固定题集与模板，区分示例选择、顺序、模型权重更新和上下文条件化。",
+          "artifact": "第31课提示版本与实验合同"
+        },
+        {
+          "title": "上下文预算与结构化生成",
+          "lessons": [
+            21,
+            31,
+            34
+          ],
+          "level": "mechanism",
+          "outcome": "使用对应tokenizer核算上下文，区分JSON语法、schema、语义及引用有效性。",
+          "artifact": "第31课预算/结构化输出实验；外部tokenizer为可选路径"
+        },
+        {
+          "title": "推理时计算、候选搜索与选择",
+          "lessons": [
+            7,
+            32
+          ],
+          "level": "mechanism",
+          "outcome": "区分pass@k、验证器选中率与部署成功率，比较相同题集下的成本。",
+          "artifact": "第32课候选选择与有限预算实验"
+        },
+        {
+          "title": "验证器可靠性与奖励利用",
+          "lessons": [
+            20,
+            23,
+            32
+          ],
+          "level": "mechanism",
+          "outcome": "构造格式正确但答案错误的反例，检查验证器是否泄漏测试真值。",
+          "artifact": "第32课验证器误差与成本分析"
+        },
+        {
+          "title": "领域继续预训练与遗忘回归",
+          "lessons": [
+            18,
+            20,
+            33
+          ],
+          "level": "mechanism",
+          "outcome": "区分DAPT/TAPT/SFT目标，计算旧任务退化并比较回放的代价。",
+          "artifact": "第33课任务矩阵；真实大型继续预训练为扩展"
+        },
+        {
+          "title": "软目标蒸馏与学生训练",
+          "lessons": [
+            15,
+            33
+          ],
+          "level": "mechanism",
+          "outcome": "推导KL方向与温度补偿，运行小型学生并解释词表一致性条件。",
+          "artifact": "第33课蒸馏目标与梯度实验"
+        },
+        {
+          "title": "模型合并与可兼容的参数空间",
+          "lessons": [
+            8,
+            33,
+            34
+          ],
+          "level": "extension",
+          "outcome": "解释同架构、共同底座与任务向量假设，保留合并后能力回归。",
+          "artifact": "第33/34课设计；未宣称真实大型模型合并实验"
+        }
+      ]
+    },
+    {
+      "id": "model-integration",
+      "title": "外部模型、检索训练与本地服务",
+      "description": "补齐从下载产物到可调用模型的工程链，所有需要额外权重或环境的步骤独立标记。",
+      "topics": [
+        {
+          "title": "模型选择、许可与不可变快照",
+          "lessons": [
+            16,
+            34
+          ],
+          "level": "mechanism",
+          "outcome": "核对模型许可、revision、配置、权重分片与哈希，区分可用权重和可再分发权重。",
+          "artifact": "第34课快照清单与文件验证"
+        },
+        {
+          "title": "分词器、聊天模板与权重兼容",
+          "lessons": [
+            20,
+            31,
+            34
+          ],
+          "level": "mechanism",
+          "outcome": "核对词表、特殊token、模板与输入输出接口，识别静默错配。",
+          "artifact": "第34课离线契约实验；真实权重为可选实操"
+        },
+        {
+          "title": "适配器加载与底座依赖",
+          "lessons": [
+            8,
+            34
+          ],
+          "level": "extension",
+          "outcome": "记录底座revision与适配器配置，验证合并/未合并输出和量化限制。",
+          "artifact": "第34课PEFT适配路径；大型权重未在课程环境运行"
+        },
+        {
+          "title": "双塔检索表示与对比目标",
+          "lessons": [
+            21,
+            26,
+            35
+          ],
+          "level": "mechanism",
+          "outcome": "实际训练小型检索器，检查归一化、温度和正负配对的梯度。",
+          "artifact": "第35课可训练双塔实验"
+        },
+        {
+          "title": "假负例、硬负例与检索泄漏",
+          "lessons": [
+            16,
+            23,
+            35
+          ],
+          "level": "mechanism",
+          "outcome": "识别一个问题的多条正确证据，隔离训练配对、验证问题与测试问题。",
+          "artifact": "第35课负例与召回验收"
+        },
+        {
+          "title": "精确向量搜索与ANN索引评价",
+          "lessons": [
+            21,
+            35
+          ],
+          "level": "mechanism",
+          "outcome": "以exact search作参照，区分ANN召回、语义相关性与重排效果。",
+          "artifact": "第35课索引机制；大型向量服务为扩展"
+        },
+        {
+          "title": "真实检查点的本地HTTP调用",
+          "lessons": [
+            24,
+            36
+          ],
+          "level": "implemented",
+          "outcome": "读取TinyGPT训练产物并生成真实响应，限制监听地址、上下文与输出预算。",
+          "artifact": "curatemicrobiota/local_service.py"
+        },
+        {
+          "title": "流式事件、失败返回与请求预算",
+          "lessons": [
+            22,
+            24,
+            36
+          ],
+          "level": "implemented",
+          "outcome": "核验终止事件、无效请求与可检查错误；区分客户端等待和服务端计算预算。",
+          "artifact": "第36课本地服务合同与客户端示例"
+        }
+      ]
+    },
+    {
+      "id": "measurement-transport",
+      "title": "测量来源、生成目标与研究外推",
+      "description": "把丰度表之前的测量过程，以及跨人群迁移之后的识别问题接回建模主线。",
+      "topics": [
+        {
+          "title": "原始reads到物种与功能表",
+          "lessons": [
+            10,
+            25,
+            37
+          ],
+          "level": "extension",
+          "outcome": "解释质控、宿主去除、物种与功能分析的产物及版本合同。",
+          "artifact": "第37课测量链；真实原始reads处理需本地数据"
+        },
+        {
+          "title": "MAG、SGB、菌株与序列层次",
+          "lessons": [
+            28,
+            37
+          ],
+          "level": "extension",
+          "outcome": "区分样本丰度、重建基因组、物种簇和菌株变异，设计同源/来源隔离。",
+          "artifact": "第37课数据字典与层次比较"
+        },
+        {
+          "title": "层级重复计数与丰度单位",
+          "lessons": [
+            25,
+            37
+          ],
+          "level": "mechanism",
+          "outcome": "检测功能分层表的总量/贡献重复计数，并核对单位与样本可比性。",
+          "artifact": "第37课独立数值验收"
+        },
+        {
+          "title": "系统发育与图归纳偏置",
+          "lessons": [
+            26,
+            38
+          ],
+          "level": "mechanism",
+          "outcome": "说明图边的来源、归一化与信息传播，比较随机图/去先验/无图对照。",
+          "artifact": "第38课图先验机制实验"
+        },
+        {
+          "title": "潜变量生成、重建与ELBO",
+          "lessons": [
+            15,
+            29,
+            38
+          ],
+          "level": "mechanism",
+          "outcome": "区分掩码目标、VAE潜变量与群落生成，核对KL项及输入分布假设。",
+          "artifact": "第38课潜变量目标实验；真实生成有效性需外测"
+        },
+        {
+          "title": "患病率变化与概率迁移",
+          "lessons": [
+            12,
+            27,
+            39
+          ],
+          "level": "mechanism",
+          "outcome": "区分类不均衡、先验变化与条件分布变化，说明校准修正的假设。",
+          "artifact": "第39课迁移机制与失败情形"
+        },
+        {
+          "title": "缺失机制与敏感性分析",
+          "lessons": [
+            25,
+            29,
+            39
+          ],
+          "level": "mechanism",
+          "outcome": "比较MCAR/MAR/MNAR假设，避免把缺失指示器或插补视作无条件修复。",
+          "artifact": "第39课合成缺失与敏感性实验"
+        },
+        {
+          "title": "保形预测与交换性边界",
+          "lessons": [
+            23,
+            27,
+            39
+          ],
+          "level": "mechanism",
+          "outcome": "解释校准分数、有限样本分位数及边际覆盖，指出跨队列失效情形。",
+          "artifact": "第39课覆盖实验；不保证每个亚组覆盖"
+        },
+        {
+          "title": "因果DAG、中介与负对照",
+          "lessons": [
+            13,
+            29,
+            39
+          ],
+          "level": "mechanism",
+          "outcome": "识别混杂、碰撞与时间顺序，区分关联预测与可识别的因果估计。",
+          "artifact": "第39课DAG分析与实验设计；不提供真实因果结论"
         }
       ]
     }
@@ -507,19 +825,25 @@
       "title": "核心闭环",
       "duration": "14个核心单元，约44小时",
       "units": "01–14",
-      "goal": "先完成从零GPT、SFT、微生物掩码预训练、证据检索和一次留出合成研究的完整评价流程。"
+      "goal": "先完成从零GPT、SFT、菌群掩码预训练、证据检索和一次留出合成研究的评价流程。"
     },
     {
-      "title": "完整主线",
-      "duration": "30个单元，约100–110小时",
-      "units": "01–30，可按先修插读15–20",
-      "goal": "建议8–10周，每周10–14小时；时间包含讲解和机制练习，真实科研实验另计。"
+      "title": "基础与进阶主线",
+      "duration": "30个基础与进阶单元，含前沿插读约110小时",
+      "units": "01–30，可提前插读15–20",
+      "goal": "建立原理、代码、系统与研究验证的连续理解；再用独立能力验收定位尚未掌握之处。"
     },
     {
-      "title": "科研深化",
-      "duration": "完成核心后，按课题持续推进",
-      "units": "25–30＋16/18/23",
-      "goal": "先建立数据合同与强基线，再评估多队列、标签效率、序列或多模态方向。"
+      "title": "九项专题补全",
+      "duration": "9个专题，可按先修插读",
+      "units": "31–39",
+      "goal": "补齐提示、推理、蒸馏、外部模型、学习型检索、本地服务、原始测量、图/潜变量与外推可靠性。"
+    },
+    {
+      "title": "完整学习与科研深化",
+      "duration": "39个单元；建议12–15周，每周10–12小时",
+      "units": "01–39；科研重点25–30、37–39",
+      "goal": "12项独立能力均提交证据；真实队列、外部权重、多卡及临床实验按实际环境另行完成。"
     }
   ]
 }

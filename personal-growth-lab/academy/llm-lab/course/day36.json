@@ -1,0 +1,344 @@
+{
+  "day": 36,
+  "title": "让模型真正可调用：本地接口、流式输出与运行验收",
+  "subtitle": "加载已训练的TinyGPT，在两个终端完成HTTP调用；检查输入预算、随机状态和停止原因",
+  "phase": "深化 · 工程与真实使用",
+  "minutes": 240,
+  "objectives": [
+    "能启动只监听127.0.0.1的真实模型接口，并用独立客户端请求生成",
+    "能解释检查点加载、请求验证、推理、事件发送和终态的完整生命周期",
+    "能正确处理字节token、增量UTF-8解码、流式重组与截止条件",
+    "能区分引擎时间、网络到达时间、排队时间和生成质量",
+    "能用合同检查阻止错误请求、错误模型文件和不可复现的随机状态污染"
+  ],
+  "deliverables": [
+    "三个可运行的请求、流式和真实检查点引擎实验",
+    "一次本地JSON请求与一次NDJSON流式请求的实际记录",
+    "包含checkpoint哈希、请求参数、结束原因与时延口径的服务报告",
+    "正常、非法、截止和客户端断开四类场景的验收说明"
+  ],
+  "prerequisites": [
+    "完成第6、7与24单元，能够训练并保存TinyGPT检查点",
+    "下载完整工程，在project目录操作；本课新增local_service模块",
+    "前两个机制实验无需网络或模型文件；第三个需真实quick pipeline产物；HTTP实践需本机允许loopback socket"
+  ],
+  "sections": [
+    {
+      "id": "d36-01",
+      "title": "现在把服务合同接到真实权重，而不改变模型能力",
+      "paragraphs": [
+        "第24课学习推理预算与服务设计，本课新增curatemicrobiota.local_service模块，让已经保存的TinyGPT成为本地HTTP服务。服务启动时加载指定检查点，客户端发送prompt和预算，返回模型逐字节采样的真实结果。它不会拿固定句子伪装生成，也不会因为检查点不存在而悄悄改用随机模型。",
+        "课程网站仍是静态学习入口，这个服务运行在你自己的电脑，只监听127.0.0.1。它没有把TinyGPT变成科学问答模型，没有连接真实微生物丰度编码器，也没有给网站部署公网后端。本课的学习目标是把权重正确装入接口，并能定位输入、推理或传输哪一层失败；生成内容是否有科学依据仍需单独评价。"
+      ]
+    },
+    {
+      "id": "d36-02",
+      "title": "加载阶段只做一次，输入文件与输出版本可以核对",
+      "paragraphs": [
+        "LocalEngine接收本地检查点路径，核对项目格式、固定256字节tokenizer、配置范围和权重键。受限加载采用CPU和weights_only=True，并拒绝非有限参数。随后切到eval模式、冻结梯度，计算文件SHA-256。健康检查返回这个哈希和上下文长度，客户端能确认自己实际访问的是哪一份权重，而不是仅看服务名字。",
+        "本入口支持项目原始TinyGPT和完整LoRA检查点；adapter-only文件不是完整模型。配置与文件体积有教学预算上限，路径只在启动时给出，推理请求不允许传任意模型路径、下载URL或代码。加载格式限制不替代来源核验，因此只使用自己训练或已核验的本地文件。加载失败应修复文件关系，不用忽略权重键来假装成功。"
+      ]
+    },
+    {
+      "id": "d36-03",
+      "title": "请求字段构成一个可检验的外部接口",
+      "paragraphs": [
+        "POST /generate接收JSON对象，prompt必须是非空字符串。max_new_tokens默认16，必须为1到256的整数；top_k默认40，范围1到256；temperature默认0.8，要求有限且大于0、不超过4；seed默认42，范围0到2的63次方减1；timeout_seconds默认10，范围大于0、不超过30；stream为布尔值。未知字段直接拒绝，避免拼写错误被悄悄忽略。",
+        "字段上限还受实际模型上下文约束：提示的UTF-8字节数加预留输出数不得超过context。Python的bool是int子类，所以数值合同显式检查type；seed=true不能被误解释成种子1。HTTP层另检查JSON类型、请求体大小和Content-Length，返回明确的400、411、413或415等状态。具体错误码属于接口约定，使用者应检查它而不是只读取一段输出文本。"
+      ],
+      "table": {
+        "headers": [
+          "入口",
+          "输入或输出",
+          "本课范围"
+        ],
+        "rows": [
+          [
+            "GET /health",
+            "权重哈希、context、CPU、ready",
+            "不返回模型文件路径或用户prompt"
+          ],
+          [
+            "POST /generate，stream=false",
+            "一次done JSON",
+            "模型实际生成，保留结束原因"
+          ],
+          [
+            "POST /generate，stream=true",
+            "逐行NDJSON事件",
+            "start、token、done；不是SSE协议"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "d36-04",
+      "title": "先验证字节预算和错误输入，避免生成时才发现",
+      "paragraphs": [
+        "“菌”这个汉字在UTF-8中占三个字节，本项目把每个字节作为一个token。因此八个“菌”占24个输入token，预留8个输出刚好满足32；九个“菌”加8个输出则超过上限。外部子词模型需要自己的tokenizer计数，不能照搬这个关系。边界检查要在发送成功响应或开始生成之前完成。",
+        "下面直接调用服务的真实请求验证函数，核对中文预算、布尔种子、NaN温度和未知路径字段的反例。它不依赖socket，能在受限环境下完成。实验不是把一切异常都吞掉后打印成功：每个预期反例必须被拒绝，任何未触发拒绝的情况都会让最终断言失败。这个方式把前端输入框的友好提示和执行层合同联系起来。"
+      ],
+      "code": {
+        "language": "python",
+        "text": "from curatemicrobiota.local_service import validate_request\n# 上下文是字节token预算，不是中文字符数；本例不需要模型权重或socket。\naccepted = validate_request({\"prompt\": \"菌\" * 8, \"max_new_tokens\": 8}, context=32)\nassert len(accepted[\"prompt_ids\"]) == 24\nbad = [{\"prompt\": \"菌\" * 9, \"max_new_tokens\": 8},\n       {\"prompt\": \"a\", \"seed\": True},\n       {\"prompt\": \"a\", \"temperature\": float(\"nan\")},\n       {\"prompt\": \"a\", \"model_path\": \"another.pt\"}]\nrejected = 0\nfor request in bad:\n    try:\n        validate_request(request, context=32)\n    except ValueError:\n        rejected += 1\nassert rejected == 4\nprint({\"prompt_bytes\": len(accepted[\"prompt_ids\"]), \"reserved_output\": 8,\n       \"invalid_requests_rejected\": rejected})\n"
+      }
+    },
+    {
+      "id": "d36-05",
+      "title": "逐token执行与随机状态隔离决定可复现性",
+      "paragraphs": [
+        "生成使用已经加载的模型，并为每个请求创建独立CPU随机生成器；相同权重、输入和采样参数在本机可得到相同token序列，不会因另一个请求消耗全局随机数而改变。eval模式关闭dropout，inference_mode避免建立训练图。top-k先取明确的k个候选，再在它们上按温度采样，这与把所有并列阈值项都保留的实现需要区分。",
+        "为保持最容易核验的行为，本服务每步完整重算前缀，没有KV cache、连续批处理或动态位置窗口；输入与输出总长度预先限制在原上下文内，不静默滚动裁剪。固定字节词表没有单独EOS特殊token，因此完成原因是length或deadline，不把普通换行猜成统一终止标记。若以后增加缓存或EOS策略，必须改变合同并增加相应边界实验。"
+      ]
+    },
+    {
+      "id": "d36-06",
+      "title": "字节流与可见文字不是一对一关系",
+      "paragraphs": [
+        "NDJSON的每行是独立JSON事件，token事件携带一个字节ID及text_delta。一个中文字符需要多个字节，前两个事件可能没有可见文字，第三个才产生字符；不能每收到一个字节就单独decode并打印替代符。模块使用增量UTF-8解码器保留未完成片段，在done事件中通过final_text_delta交付最后的冲洗内容。",
+        "模型也可能生成非法字节组合，或者在字符尚未完整时达到截止。解码器采用replace并如实返回替代符，这描述小模型输出质量，不能隐藏或改写成通顺文本。下面用已知中文字符串验证正确重组，再用不完整字节验证只有终态才冲洗替代符。最终completion必须等于所有token的text_delta加final_text_delta。"
+      ],
+      "code": {
+        "language": "python",
+        "text": "import codecs\ntext = \"微生物abc\"\nraw = text.encode(\"utf-8\")\ndecoder = codecs.getincrementaldecoder(\"utf-8\")(errors=\"replace\")\ndeltas = [decoder.decode(bytes([byte]), final=False) for byte in raw]\ntail = decoder.decode(b\"\", final=True)\nassert \"\".join(deltas) + tail == text\nassert any(delta == \"\" for delta in deltas)\n# 截止时留下不完整编码，应在终态冲洗；不是每次收到单字节就错误解码。\npartial = codecs.getincrementaldecoder(\"utf-8\")(errors=\"replace\")\nassert partial.decode(b\"\\xe5\", final=False) == \"\"\nassert partial.decode(b\"\", final=True) == \"\\ufffd\"\nprint({\"byte_tokens\": len(raw), \"visible_characters\": len(text),\n       \"reassembled_text\": \"\".join(deltas) + tail,\n       \"incomplete_tail_reported\": True})\n"
+      }
+    },
+    {
+      "id": "d36-07",
+      "title": "截止是协作停止，时延要写清从哪里计时",
+      "paragraphs": [
+        "服务在每步模型前向之前与之后检查截止时间。已经进入的CPU kernel不能靠这个Python检查立即中断，因此timeout_seconds是token边界的协作式生成预算，不是严格硬实时承诺。它也不包括客户端上传、HTTP排队与全部网络传输时间；socket读取另有超时。若请求超时而没有生成token，done仍应明确给出deadline和零输出，而不是当作成功回答。",
+        "引擎报告engine_ttft_seconds、engine_tpot_seconds和engine_seconds。计时从迭代开始，包含事件消费者造成的等待，排除上传排队以及最终事件送达客户端的时间。只有一个输出token时TPOT为null，因为没有后续token间隔；客户端看到的首字符时间还受UTF-8重组影响，不能与首字节token时间混称。测真实端到端延迟时应在独立客户端记录请求和接收时间。"
+      ]
+    },
+    {
+      "id": "d36-08",
+      "title": "先在无socket环境验证真实检查点引擎",
+      "paragraphs": [
+        "先运行项目quick pipeline，得到runs/demo/language/model.pt，再执行下面代码。它加载真实训练产物，连续调用两次，检查相同种子生成相同token、全局随机状态未改变、事件重组等于完整字节解码。既没有重新训练一个随机替身，也没有用报告中的示例字符串充当当前生成。",
+        "本实验只测引擎，不打开HTTP端口，因此它可以与后面的传输测试分开定位问题。加载与事件检查成功但HTTP失败时，优先看本机socket权限、端口占用、请求格式或客户端超时；不能据此声称模型权重错误。反过来，HTTP能返回200也不意味着推理使用了正确检查点，必须同时核对哈希和终态。"
+      ],
+      "code": {
+        "language": "python",
+        "text": "from pathlib import Path\nimport torch\nfrom curatemicrobiota.language import ByteTokenizer\nfrom curatemicrobiota.local_service import LocalEngine\ntorch.set_num_threads(1)\ncheckpoint = Path(\"runs/demo/language/model.pt\")\nif not checkpoint.is_file():\n    raise FileNotFoundError(\"Run: python -m curatemicrobiota pipeline --quick --out runs/demo\")\nengine = LocalEngine(checkpoint)\nrequest = {\"prompt\": \"Microbes \", \"max_new_tokens\": 8, \"seed\": 36}\nrng_before = torch.get_rng_state().clone()\nevents = list(engine.events(request))\nrepeat = list(engine.events(request))[-1]\nfinal = events[-1]\nassert final[\"completion_token_ids\"] == repeat[\"completion_token_ids\"]\nassert torch.equal(rng_before, torch.get_rng_state())\nassert final[\"completion_tokens\"] == 8\nreassembled = \"\".join(e[\"text_delta\"] for e in events if e[\"event\"] == \"token\") + final[\"final_text_delta\"]\nassert reassembled == final[\"completion\"] == ByteTokenizer.decode(final[\"completion_token_ids\"])\nprint({\"checkpoint_sha256\": engine.checkpoint_sha256,\n       \"completion_tokens\": final[\"completion_tokens\"], \"finish_reason\": final[\"finish_reason\"],\n       \"request_rng_independent\": True, \"stream_reassembly_matches\": True,\n       \"scope\": \"actual local checkpoint engine; no HTTP socket in this example\"})\n",
+        "requires": [
+          "quick_pipeline"
+        ]
+      }
+    },
+    {
+      "id": "d36-09",
+      "title": "两个终端跑通一次真实HTTP调用",
+      "paragraphs": [
+        "在第一个VS Code终端进入project目录，执行python -m curatemicrobiota.local_service serve --checkpoint runs/demo/language/model.pt --port 8765。看到ready和127.0.0.1地址后，保留该终端运行。在第二个同环境终端执行python -m curatemicrobiota.local_service client --prompt \"Microbes \" --max-new-tokens 16 --port 8765，得到一个实际done响应。",
+        "再给client命令加--stream，可查看start、逐token和done事件。复制输出到自己的运行记录，确认checkpoint_sha256与启动时一致。停止服务时在第一个终端按Ctrl+C。端口已占用可换成其他本机端口，并让两端保持一致；不要通过改成公网监听来解决本地连接问题。该接口只供Python等本地客户端，本课未给静态网页添加跨域调用。"
+      ]
+    },
+    {
+      "id": "d36-10",
+      "title": "失败和取消也应有可解释的终态",
+      "paragraphs": [
+        "非法输入在生成前被拒绝；有效请求达到token上限或截止时返回done；客户端断开后服务器关闭事件迭代器，避免继续生成后续token。断开检测仍依赖下一次读写或操作系统反馈，不是任意时刻的硬中断。本服务采用单进程串行HTTPServer，排队和高并发调度不在实现范围内，不能用一个短请求代表稳定并发能力。",
+        "验证时分别保留成功、超长prompt、类型错误和极短deadline的输出，再尝试提前结束流式客户端。日志只需请求ID、模型版本、计数、时长、错误类型与结束原因，不默认保存完整prompt或科学数据。没有观察到终态的客户端必须把请求标为未完成，而不是把已经收到的一半文字当作完整回答。"
+      ]
+    },
+    {
+      "id": "d36-11",
+      "title": "合同测试把网页承诺与工程行为对齐",
+      "paragraphs": [
+        "tests/test_local_service.py覆盖字节预算、非法字段、请求随机性、完整流式重组、截止、错误文件、完整LoRA加载及实际HTTP调用。HTTP测试只在创建socket受到PermissionError限制时明确跳过，其他错误继续失败；正常本机或CI环境应真实执行请求并核对JSON、NDJSON与400错误。跳过不是通过，报告必须保留这一差别。",
+        "运行python -m unittest discover -s tests -p \"test_local_service.py\" -v，阅读每项结果。若受限沙箱只能验证引擎，应在允许loopback的本机或CI完成HTTP层，再声称整个传输链验收。所有结果仍是教学模型工程正确性的证据，不是科学问答准确率；性能与内容质量应按固定负载和保留问题另外评价。"
+      ]
+    },
+    {
+      "id": "d36-12",
+      "title": "从本地教学服务走向研究服务，需要新增哪些实测",
+      "paragraphs": [
+        "Python官方明确说明http.server不用于生产部署。本课选它是为了让请求处理、权重加载和事件循环都可读。若需要长期多人使用，应采用合适的服务框架与推理运行时，补充身份与访问控制、并发和队列、资源隔离、健康恢复、版本切换与端到端监测，并在实际负载下验证。不能仅改监听地址就宣布完成部署。",
+        "对CurateMicrobiota，未来语言证据服务与菌群表征服务还需要各自的数据合同和独立评价：前者核验引用和缺证，后者核验特征版本、样本对齐与外部泛化。本课交付的是可以从真实权重走到本地请求的一条具体路径。你应能指出它已经实现的步骤、没有实现的性能优化，以及下一次升级必须保留的回归证据。"
+      ]
+    }
+  ],
+  "lab": {
+    "title": "从真实检查点到本地JSON与流式调用",
+    "steps": [
+      {
+        "title": "检查请求与字符边界",
+        "detail": "先运行两个无需文件或端口的实验，确保类型、上下文和UTF-8边界符合合同。",
+        "command": "python lesson_examples/unit36/d36-04.py\npython lesson_examples/unit36/d36-06.py",
+        "expected": "4类非法请求均拒绝；12字节正确重组成6个字符；不完整结尾明确冲洗。"
+      },
+      {
+        "title": "生成真实检查点并验证引擎",
+        "detail": "若已有runs/demo产物无需重复训练；否则执行quick pipeline。随后运行引擎实验，核对权重哈希、token数和随机状态。",
+        "command": "python -m curatemicrobiota pipeline --quick --out runs/demo\npython lesson_examples/unit36/d36-08.py",
+        "expected": "加载真实model.pt，两次相同请求一致，全局RNG未被请求消耗。"
+      },
+      {
+        "title": "第一个终端启动服务",
+        "detail": "保持该终端运行，记录ready、端口与checkpoint_sha256。服务只监听本机IPv4回环。",
+        "command": "python -m curatemicrobiota.local_service serve --checkpoint runs/demo/language/model.pt --port 8765",
+        "expected": "127.0.0.1:8765启动，模型哈希与文件对应；缺失或错误文件会失败。"
+      },
+      {
+        "title": "第二个终端调用两种响应",
+        "detail": "使用同一Python环境，先JSON再NDJSON。把done保留下来，不只截取第一段可见文字。",
+        "command": "python -m curatemicrobiota.local_service client --prompt \"Microbes \" --max-new-tokens 16 --port 8765\npython -m curatemicrobiota.local_service client --prompt \"Microbes \" --max-new-tokens 16 --port 8765 --stream",
+        "expected": "得到真实生成及结束原因，流式事件包含start/token/done；小模型内容可能不流畅。"
+      },
+      {
+        "title": "完成合同与失败检查",
+        "detail": "运行独立测试集，记录socket测试是否实际执行；检查截止和输入错误后，在服务终端按Ctrl+C结束。",
+        "command": "python -m unittest discover -s tests -p \"test_local_service.py\" -v",
+        "expected": "正常环境HTTP测试应执行并通过；受限环境的显式skip不能写成传输链通过。"
+      }
+    ],
+    "acceptance": [
+      "请求、字符与真实检查点三个脚本均实际执行",
+      "JSON与NDJSON使用同一权重哈希并包含准确结束原因",
+      "流式拼接包含final_text_delta，字节token不冒充字符计数",
+      "截止是token边界协作式预算，TTFT与TPOT口径完整",
+      "非法输入在推理前拒绝，adapter-only文件不冒充完整模型",
+      "HTTP实际执行与沙箱跳过分开报告",
+      "本地教学服务没有被宣称为公网生产服务或科学事实保证"
+    ]
+  },
+  "papers": [
+    {
+      "id": "python-local-http",
+      "title": "Python — http.server 官方文档",
+      "year": 2026,
+      "url": "https://docs.python.org/3/library/http.server.html",
+      "why": "核对HTTPServer生命周期及教学与生产部署的边界。",
+      "read": [
+        "阅读HTTPServer和BaseHTTPRequestHandler的职责。",
+        "解释为什么一个能响应的本地端口还不是生产推理服务。"
+      ],
+      "questions": [
+        {
+          "question": "把地址改为0.0.0.0是否完成了生产部署？",
+          "answer": "没有，还需要访问控制、资源隔离、并发、监控和真实负载验收。"
+        }
+      ]
+    },
+    {
+      "id": "pytorch-weight-loading",
+      "title": "PyTorch — Serialization semantics 官方文档",
+      "year": 2026,
+      "url": "https://docs.pytorch.org/docs/stable/notes/serialization.html",
+      "why": "核对state_dict与weights_only加载的实际含义。",
+      "read": [
+        "区分完整训练恢复状态与推理所需权重。",
+        "阅读weights_only的范围，说明为什么仍要核验文件来源。"
+      ],
+      "questions": [
+        {
+          "question": "weights_only=True是否让任意陌生文件都绝对安全？",
+          "answer": "不是，它限制特定反序列化行为，不能替代来源、内存预算和模型行为检查。"
+        }
+      ]
+    },
+    {
+      "id": "python-incremental-codecs",
+      "title": "Python — codecs：Incremental Encoding and Decoding",
+      "year": 2026,
+      "url": "https://docs.python.org/3/library/codecs.html#incremental-encoding-and-decoding",
+      "why": "理解跨事件保留未完整UTF-8片段与最终冲洗。",
+      "read": [
+        "用一个汉字逐字节调用decoder，观察何时产生可见文字。",
+        "比较final=False与最终final=True的行为。"
+      ],
+      "questions": [
+        {
+          "question": "一个token事件没有text_delta是否表示生成失败？",
+          "answer": "不一定，字节尚未组成完整字符时为空是正常的；还需看token_id与终态。"
+        }
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "question": "context=64，prompt含20个“菌”，还能预留16个字节token吗？",
+      "hint": "先算UTF-8字节数。",
+      "answer": "不能。20个汉字占60字节，再加16超过64，必须在生成前拒绝。可以明确缩短prompt或输出预算，不能静默截断。这个结果只适用于本项目字节tokenizer；外部模型需要用实际分词器重新计数。"
+    },
+    {
+      "question": "流式返回8个token事件却只显示3个字符，应如何判断？",
+      "hint": "分别看字节ID、增量解码状态和最终冲洗。",
+      "answer": "一个中文字符需要多个字节，token数不等于可见字符数。先按顺序拼接text_delta和done.final_text_delta，并与completion_token_ids整体UTF-8解码比较。若仍有替代符，检查是否模型生成非法编码或截止留下残片，不能直接断言网络丢包或把替代符删掉来美化。"
+    },
+    {
+      "question": "timeout_seconds设为1，但响应在1.2秒才结束，是合同必然失效吗？",
+      "hint": "区分正在执行的kernel和检查边界，再检查网络计时。",
+      "answer": "不一定。本实现是token边界协作检查，无法中断已经进入的CPU操作；上传、排队和最终传输也不全在生成预算中。报告应写清这一点，并分别测引擎和客户端时延。若需要硬期限，需要额外进程隔离与取消设计，并实际验证。"
+    },
+    {
+      "question": "同一模型不同请求共享全局随机种子，会产生什么问题？",
+      "hint": "考虑两个请求之间插入一次随机采样。",
+      "answer": "请求会相互影响随机数消耗顺序，同一输入可能因为其他请求改变结果。应给每个请求建立独立生成器，并在测试中插入其他请求，验证原请求token结果不变且全局RNG未改变。还应固定eval模式、权重和采样参数，跨硬件结果仍需明确容差与适用范围。"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "本课实际HTTP服务在哪里运行？",
+      "options": [
+        "公开GitHub Pages服务器",
+        "用户电脑的127.0.0.1",
+        "自动申请的云GPU",
+        "浏览器内训练进程"
+      ],
+      "correct": 1,
+      "explanation": "服务是下载工程后启动的本地进程，网站本身没有新增公网推理后端。"
+    },
+    {
+      "question": "stream=true返回的协议是什么？",
+      "options": [
+        "逐行NDJSON",
+        "SSE且无需事件解析",
+        "任意二进制权重",
+        "FTP文件流"
+      ],
+      "correct": 0,
+      "explanation": "每行是JSON事件，start/token/done需按合同解析。"
+    },
+    {
+      "question": "只有一个输出token时，TPOT应该怎样报告？",
+      "options": [
+        "必定为零",
+        "等于TTFT",
+        "不适用，保留null和其他时间",
+        "填入平均网络延迟"
+      ],
+      "correct": 2,
+      "explanation": "没有后续token间隔，不能制造平均值。"
+    },
+    {
+      "question": "哪种文件能直接用于本课服务？",
+      "options": [
+        "任意命名为model.pt的文本",
+        "外部PEFT adapter-only",
+        "任意pickle对象",
+        "格式与tokenizer匹配的完整项目检查点"
+      ],
+      "correct": 3,
+      "explanation": "服务核对格式、配置和权重，不通过改扩展名获得兼容。"
+    },
+    {
+      "question": "本地HTTP测试因socket权限而skip意味着什么？",
+      "options": [
+        "所有层都已通过",
+        "该环境未验证实际HTTP层，需要在允许环境执行",
+        "模型从未执行过",
+        "应删除测试"
+      ],
+      "correct": 1,
+      "explanation": "引擎检查和HTTP传输检查是不同证据；跳过要明确记录。"
+    }
+  ],
+  "reflection": [
+    "我能否从一次响应追溯到实际权重文件，而不是只知道模型名字？",
+    "我报告的首token时间是否包括队列、网络和UTF-8等待？",
+    "如果未来加入KV cache或并发，哪几项现有检查必须重新执行？"
+  ],
+  "next": "进入微生物科研深化专题，把数据治理、可迁移表示与真实任务验收接到同一条研究链。"
+}
