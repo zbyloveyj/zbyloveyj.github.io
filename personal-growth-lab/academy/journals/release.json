@@ -14,7 +14,7 @@
   "checkedAt": "2026-10-21",
   "dataCommit": "7309177c5337f4204e161bdf37d4ec8485ceefd9",
   "dataValidation": "passed",
-  "interfaceVersion": "2026.10.21.2",
+  "interfaceVersion": "2026.10.21.3",
   "interfaceUpdatedAt": "2026-10-21",
   "matchingEngineVersion": "2.0.0",
   "matchingMode": "browser-local-topic-retrieval",
