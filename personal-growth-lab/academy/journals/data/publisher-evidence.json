@@ -1,0 +1,5382 @@
+{
+  "checkedAt": "2026-10-21",
+  "sources": [
+    {
+      "url": "https://link.springer.com/journal/40168",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/40168/aims-and-scope",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/40168/how-to-publish-with-us",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/13059",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/12866",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/12859",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/12864",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/12888",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/12916",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/12915",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/13073",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/12974",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/40035",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/13195",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/13148",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/13024",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/12021",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/40708",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/429",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/10462",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/10994",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/13040",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/12934",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/40793",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/42523",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/248",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://link.springer.com/journal/253",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://academic.oup.com/brain/pages/About",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://academic.oup.com/bioinformatics/pages/About",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://academic.oup.com/bib/pages/About",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://academic.oup.com/ismej/pages/about",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://academic.oup.com/schizophreniabulletin/pages/About",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://academic.oup.com/ismecommun/pages/about",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://academic.oup.com/gigascience/pages/About",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://academic.oup.com/nar/pages/About",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://advanced.onlinelibrary.wiley.com/journal/21983844",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://advanced.onlinelibrary.wiley.com/journal/21983844/journal-metrics",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://gut.bmj.com/pages/about/",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://bmjopen.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://mentalhealth.bmj.com/pages/about/",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://jnnp.bmj.com/pages/about/",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://jnis.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://bmjopenquality.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://qualitysafety.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://informatics.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://openheart.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://emj.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://www.nature.com/ncomms/",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://www.nature.com/ncomms/journal-impact",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://www.nature.com/nmicrobiol/",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://www.nature.com/nmicrobiol/journal-impact",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher_editorial"
+    },
+    {
+      "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher_editorial"
+    },
+    {
+      "url": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher_editorial"
+    },
+    {
+      "url": "https://doaj.org/toc/d4b13378848d44b09860225e08964134",
+      "checkedAt": "2026-10-21",
+      "kind": "official_directory"
+    },
+    {
+      "url": "https://doaj.org/toc/ef13b44b43f840a688b3efc17d44c265",
+      "checkedAt": "2026-10-21",
+      "kind": "official_directory"
+    },
+    {
+      "url": "https://doaj.org/toc/f662f1870e884a2ab92eac37660f4663",
+      "checkedAt": "2026-10-21",
+      "kind": "official_directory"
+    },
+    {
+      "url": "https://www.nature.com/nmicrobiol/journal-information",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://jamanetwork.com/pages/new-issns",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/nlmcatalog/101589550",
+      "checkedAt": "2026-10-21",
+      "kind": "official_database"
+    },
+    {
+      "url": "https://jamanetwork.com/journals/jamapsychiatry/pages/for-authors",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
+      "checkedAt": "2026-10-21",
+      "kind": "institutional_compilation"
+    },
+    {
+      "url": "https://clarivate.com/news/clarivate-releases-journal-citation-reports-2026/",
+      "checkedAt": "2026-10-21",
+      "kind": "metric_provider"
+    },
+    {
+      "url": "https://jamanetwork.com/journals/jamanetworkopen/pages/for-authors",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://jamanetwork.com/journals/jamaneurology/pages/for-authors",
+      "checkedAt": "2026-10-21",
+      "kind": "publisher"
+    }
+  ],
+  "journals": [
+    {
+      "name": "Microbiome",
+      "pageTitle": "Home | Microbiome | Springer Nature Link",
+      "issns": [
+        "2049-2618"
+      ],
+      "homepage": "https://link.springer.com/journal/40168",
+      "scope": "人类、动物、植物和环境微生物组，强调结构与功能及机制。",
+      "scopeSource": "https://link.springer.com/journal/40168/aims-and-scope",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 14.9,
+          "source": "https://link.springer.com/journal/40168",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 18.5,
+          "source": "https://link.springer.com/journal/40168",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 24,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/40168",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40168",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40168",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40168",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40168",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40168",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40168",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [
+        {
+          "currency": "GBP",
+          "value": 3590,
+          "priceDate": "2026-10-21",
+          "taxIncluded": false,
+          "year": null,
+          "source": "https://link.springer.com/journal/40168/how-to-publish-with-us",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "currency": "USD",
+          "value": 5190,
+          "priceDate": "2026-10-21",
+          "taxIncluded": false,
+          "year": null,
+          "source": "https://link.springer.com/journal/40168/how-to-publish-with-us",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "currency": "EUR",
+          "value": 4290,
+          "priceDate": "2026-10-21",
+          "taxIncluded": false,
+          "year": null,
+          "source": "https://link.springer.com/journal/40168/how-to-publish-with-us",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "APC按接收日期定价，税费另计；机构协议与减免可能改变实付金额。",
+        "官网注明不考虑未经邀请的综述；投稿前先核对文章类型。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/40168",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Genome Biology",
+      "pageTitle": "Home | Genome Biology | Springer Nature Link",
+      "issns": [
+        "1474-760X"
+      ],
+      "homepage": "https://link.springer.com/journal/13059",
+      "scope": "从基因组与后基因组视角研究生物学和生物医学。",
+      "scopeSource": "https://link.springer.com/journal/13059",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 9.2,
+          "source": "https://link.springer.com/journal/13059",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 13.7,
+          "source": "https://link.springer.com/journal/13059",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 13,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/13059",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13059",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13059",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13059",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13059",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13059",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13059",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/13059",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "BMC Microbiology",
+      "pageTitle": "Home | BMC Microbiology | Springer Nature Link",
+      "issns": [
+        "1471-2180"
+      ],
+      "homepage": "https://link.springer.com/journal/12866",
+      "scope": "细菌、古菌、真菌、病毒等微生物学及其机制。",
+      "scopeSource": "https://link.springer.com/journal/12866",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 5.4,
+          "source": "https://link.springer.com/journal/12866",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 5.6,
+          "source": "https://link.springer.com/journal/12866",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 11,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12866",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12866",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12866",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12866",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12866",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12866",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12866",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/12866",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "BMC Bioinformatics",
+      "pageTitle": "Home | BMC Bioinformatics | Springer Nature Link",
+      "issns": [
+        "1471-2105"
+      ],
+      "homepage": "https://link.springer.com/journal/12859",
+      "scope": "面向生物数据的新计算算法、软件、统计、机器学习与系统生物学。",
+      "scopeSource": "https://link.springer.com/journal/12859",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 4.4,
+          "source": "https://link.springer.com/journal/12859",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 4.0,
+          "source": "https://link.springer.com/journal/12859",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 5,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12859",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12859",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12859",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12859",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12859",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12859",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EI Compendex",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12859",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/12859",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "BMC Genomics",
+      "pageTitle": "Home | BMC Genomics | Springer Nature Link",
+      "issns": [
+        "1471-2164"
+      ],
+      "homepage": "https://link.springer.com/journal/12864",
+      "scope": "结构、功能及比较基因组学、转录组学与蛋白质组学。",
+      "scopeSource": "https://link.springer.com/journal/12864",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 3.9,
+          "source": "https://link.springer.com/journal/12864",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 4.4,
+          "source": "https://link.springer.com/journal/12864",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 4,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12864",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12864",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12864",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12864",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12864",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12864",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12864",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/12864",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "BMC Psychiatry",
+      "pageTitle": "Home | BMC Psychiatry | Springer Nature Link",
+      "issns": [
+        "1471-244X"
+      ],
+      "homepage": "https://link.springer.com/journal/12888",
+      "scope": "精神疾病的基础、临床、流行病学与干预研究。",
+      "scopeSource": "https://link.springer.com/journal/12888",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 4.6,
+          "source": "https://link.springer.com/journal/12888",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 5.1,
+          "source": "https://link.springer.com/journal/12888",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 7,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12888",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12888",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12888",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12888",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12888",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12888",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12888",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/12888",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "BMC Medicine",
+      "pageTitle": "Home | BMC Medicine | Springer Nature Link",
+      "issns": [
+        "1741-7015"
+      ],
+      "homepage": "https://link.springer.com/journal/12916",
+      "scope": "临床实践、转化医学、公共卫生及医学跨学科研究。",
+      "scopeSource": "https://link.springer.com/journal/12916",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 8.7,
+          "source": "https://link.springer.com/journal/12916",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 9.1,
+          "source": "https://link.springer.com/journal/12916",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 3,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12916",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12916",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12916",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12916",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12916",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12916",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12916",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/12916",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "BMC Biology",
+      "pageTitle": "Home | BMC Biology | Springer Nature Link",
+      "issns": [
+        "1741-7007"
+      ],
+      "homepage": "https://link.springer.com/journal/12915",
+      "scope": "生物学各领域具有广泛意义的基础研究。",
+      "scopeSource": "https://link.springer.com/journal/12915",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 5.4,
+          "source": "https://link.springer.com/journal/12915",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 5.7,
+          "source": "https://link.springer.com/journal/12915",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 6,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12915",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12915",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12915",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12915",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12915",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12915",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/12915",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Genome Medicine",
+      "pageTitle": "Home | Genome Medicine | Springer Nature Link",
+      "issns": [
+        "1756-994X"
+      ],
+      "homepage": "https://link.springer.com/journal/13073",
+      "scope": "基因组学及多组学推动疾病机制、诊断和治疗。",
+      "scopeSource": "https://link.springer.com/journal/13073",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 10.8,
+          "source": "https://link.springer.com/journal/13073",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 13.2,
+          "source": "https://link.springer.com/journal/13073",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 11,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/13073",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13073",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13073",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13073",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13073",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13073",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13073",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/13073",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Journal of Neuroinflammation",
+      "pageTitle": "Home | Journal of Neuroinflammation | Springer Nature Link",
+      "issns": [
+        "1742-2094"
+      ],
+      "homepage": "https://link.springer.com/journal/12974",
+      "scope": "神经系统炎症与免疫过程及疾病机制。",
+      "scopeSource": "https://link.springer.com/journal/12974",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 11.5,
+          "source": "https://link.springer.com/journal/12974",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 12.9,
+          "source": "https://link.springer.com/journal/12974",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 5,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12974",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12974",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12974",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12974",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12974",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12974",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12974",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/12974",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Translational Neurodegeneration",
+      "pageTitle": "Home | Translational Neurodegeneration | Springer Nature Link",
+      "issns": [
+        "2047-9158"
+      ],
+      "homepage": "https://link.springer.com/journal/40035",
+      "scope": "神经退行性疾病的基础到临床转化研究。",
+      "scopeSource": "https://link.springer.com/journal/40035",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 19.1,
+          "source": "https://link.springer.com/journal/40035",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 19.7,
+          "source": "https://link.springer.com/journal/40035",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 11,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/40035",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40035",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40035",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40035",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40035",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40035",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40035",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/40035",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Alzheimer’s Research & Therapy",
+      "pageTitle": "Home | Alzheimer's Research & Therapy | Springer Nature Link",
+      "issns": [
+        "1758-9193"
+      ],
+      "homepage": "https://link.springer.com/journal/13195",
+      "scope": "阿尔茨海默病等痴呆的基础、临床与转化研究。",
+      "scopeSource": "https://link.springer.com/journal/13195",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 8.9,
+          "source": "https://link.springer.com/journal/13195",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 9.8,
+          "source": "https://link.springer.com/journal/13195",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 6,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/13195",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13195",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13195",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13195",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13195",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13195",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13195",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/13195",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Clinical Epigenetics",
+      "pageTitle": "Home | Clinical Epigenetics | Springer Nature Link",
+      "issns": [
+        "1868-7083"
+      ],
+      "homepage": "https://link.springer.com/journal/13148",
+      "scope": "表观遗传学在疾病机制、诊断及干预中的作用。",
+      "scopeSource": "https://link.springer.com/journal/13148",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 5.7,
+          "source": "https://link.springer.com/journal/13148",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 6.0,
+          "source": "https://link.springer.com/journal/13148",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 7,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/13148",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13148",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13148",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13148",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13148",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13148",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13148",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/13148",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Molecular Neurodegeneration",
+      "pageTitle": "Home | Molecular Neurodegeneration | Springer Nature Link",
+      "issns": [
+        "1750-1326"
+      ],
+      "homepage": "https://link.springer.com/journal/13024",
+      "scope": "神经退行性疾病的分子和细胞机制。",
+      "scopeSource": "https://link.springer.com/journal/13024",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 19.6,
+          "source": "https://link.springer.com/journal/13024",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 21.1,
+          "source": "https://link.springer.com/journal/13024",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 20,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/13024",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13024",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13024",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13024",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13024",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13024",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13024",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/13024",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Neuroinformatics",
+      "pageTitle": "Home | Neuroinformatics | Springer Nature Link",
+      "issns": [
+        "1559-0089"
+      ],
+      "homepage": "https://link.springer.com/journal/12021",
+      "scope": "神经科学数据、计算方法和信息系统。",
+      "scopeSource": "https://link.springer.com/journal/12021",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 2.9,
+          "source": "https://link.springer.com/journal/12021",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 3.0,
+          "source": "https://link.springer.com/journal/12021",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 4,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12021",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12021",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12021",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12021",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Hybrid",
+        "source": "https://link.springer.com/journal/12021",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Brain Informatics",
+      "pageTitle": "Home | Brain Informatics | Springer Nature Link",
+      "issns": [
+        "2198-4026",
+        "2198-4018"
+      ],
+      "homepage": "https://link.springer.com/journal/40708",
+      "scope": "脑信息处理与计算、人工智能和神经科学交叉研究。",
+      "scopeSource": "https://link.springer.com/journal/40708",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 8.3,
+          "source": "https://link.springer.com/journal/40708",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 3,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/40708",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "ESCI",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40708",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40708",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40708",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40708",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EI Compendex",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40708",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40708",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/40708",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Brain Structure and Function",
+      "pageTitle": "Home | Brain Structure and Function | Springer Nature Link",
+      "issns": [
+        "1863-2661",
+        "1863-2653"
+      ],
+      "homepage": "https://link.springer.com/journal/429",
+      "scope": "脑结构、脑功能及其关系。",
+      "scopeSource": "https://link.springer.com/journal/429",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 3.0,
+          "source": "https://link.springer.com/journal/429",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 3.4,
+          "source": "https://link.springer.com/journal/429",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 4,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/429",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/429",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/429",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/429",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/429",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Hybrid",
+        "source": "https://link.springer.com/journal/429",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Artificial Intelligence Review",
+      "pageTitle": "Home | Artificial Intelligence Review | Springer Nature Link",
+      "issns": [
+        "1573-7462",
+        "0269-2821"
+      ],
+      "homepage": "https://link.springer.com/journal/10462",
+      "scope": "人工智能及认知科学的方法、综述和应用。",
+      "scopeSource": "https://link.springer.com/journal/10462",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 18.8,
+          "source": "https://link.springer.com/journal/10462",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 19.1,
+          "source": "https://link.springer.com/journal/10462",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 12,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/10462",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/10462",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/10462",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EI Compendex",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/10462",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/10462",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Machine Learning",
+      "pageTitle": "Home | Machine Learning | Springer Nature Link",
+      "issns": [
+        "1573-0565",
+        "0885-6125"
+      ],
+      "homepage": "https://link.springer.com/journal/10994",
+      "scope": "机器学习方法、理论与应用研究。",
+      "scopeSource": "https://link.springer.com/journal/10994",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 4.9,
+          "source": "https://link.springer.com/journal/10994",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 8.0,
+          "source": "https://link.springer.com/journal/10994",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 5,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/10994",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/10994",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/10994",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EI Compendex",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/10994",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Hybrid",
+        "source": "https://link.springer.com/journal/10994",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "BioData Mining",
+      "pageTitle": "Home | BioData Mining | Springer Nature Link",
+      "issns": [
+        "1756-0381"
+      ],
+      "homepage": "https://link.springer.com/journal/13040",
+      "scope": "高维生物医学数据的数据挖掘、机器学习与方法。",
+      "scopeSource": "https://link.springer.com/journal/13040",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 7.9,
+          "source": "https://link.springer.com/journal/13040",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 6.5,
+          "source": "https://link.springer.com/journal/13040",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 8,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/13040",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13040",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13040",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13040",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13040",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/13040",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/13040",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Microbial Cell Factories",
+      "pageTitle": "Home | Microbial Cell Factories | Springer Nature Link",
+      "issns": [
+        "1475-2859"
+      ],
+      "homepage": "https://link.springer.com/journal/12934",
+      "scope": "微生物细胞工厂、代谢工程及生物制造。",
+      "scopeSource": "https://link.springer.com/journal/12934",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 5.8,
+          "source": "https://link.springer.com/journal/12934",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 6.7,
+          "source": "https://link.springer.com/journal/12934",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 5,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12934",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12934",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12934",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12934",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12934",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12934",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/12934",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/12934",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Environmental Microbiome",
+      "pageTitle": "Home | Environmental Microbiome | Springer Nature Link",
+      "issns": [
+        "2524-6372"
+      ],
+      "homepage": "https://link.springer.com/journal/40793",
+      "scope": "自然与人工环境中的微生物群落和功能。",
+      "scopeSource": "https://link.springer.com/journal/40793",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 6.2,
+          "source": "https://link.springer.com/journal/40793",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 7.3,
+          "source": "https://link.springer.com/journal/40793",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 25,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/40793",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40793",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40793",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40793",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40793",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/40793",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/40793",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Animal Microbiome",
+      "pageTitle": "Home | Animal Microbiome | Springer Nature Link",
+      "issns": [
+        "2524-4671"
+      ],
+      "homepage": "https://link.springer.com/journal/42523",
+      "scope": "动物相关微生物组、宿主互作和健康。",
+      "scopeSource": "https://link.springer.com/journal/42523",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 4.5,
+          "source": "https://link.springer.com/journal/42523",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 5.4,
+          "source": "https://link.springer.com/journal/42523",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 27,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/42523",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "ESCI",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/42523",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/42523",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/42523",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/42523",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/42523",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Microbial Ecology",
+      "pageTitle": "Home | Microbial Ecology | Springer Nature Link",
+      "issns": [
+        "1432-184X",
+        "0095-3628"
+      ],
+      "homepage": "https://link.springer.com/journal/248",
+      "scope": "微生物生态学及其与环境、其他生物的关系。",
+      "scopeSource": "https://link.springer.com/journal/248",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 4.3,
+          "source": "https://link.springer.com/journal/248",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 4.4,
+          "source": "https://link.springer.com/journal/248",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 2,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/248",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/248",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/248",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/248",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/248",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/248",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Applied Microbiology and Biotechnology",
+      "pageTitle": "Home | Applied Microbiology and Biotechnology | Springer Nature Link",
+      "issns": [
+        "1432-0614",
+        "0175-7598"
+      ],
+      "homepage": "https://link.springer.com/journal/253",
+      "scope": "应用微生物学、酶学、代谢工程与生物技术。",
+      "scopeSource": "https://link.springer.com/journal/253",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 4.7,
+          "source": "https://link.springer.com/journal/253",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 5.2,
+          "source": "https://link.springer.com/journal/253",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 11,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/253",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/253",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/253",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/253",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/253",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/253",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EI Compendex",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/253",
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "sourceYear": null,
+          "source": "https://link.springer.com/journal/253",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "首个决定可能包含编辑初筛；不等于外审结束或接收。",
+        "统计窗口未标注的审稿指标仅代表核验时页面值。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "publishingModel": {
+        "value": "Open access",
+        "source": "https://link.springer.com/journal/253",
+        "checkedAt": "2026-10-21",
+        "sourceYear": null
+      },
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Brain",
+      "issns": [
+        "1460-2156",
+        "0006-8950"
+      ],
+      "homepage": "https://academic.oup.com/brain/pages/About",
+      "scope": "临床神经病学与转化神经科学，涵盖疾病机制及脑疾病临床试验。",
+      "scopeSource": "https://academic.oup.com/brain/pages/About",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 12.7,
+          "source": "https://academic.oup.com/brain/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21",
+          "releaseYear": 2026,
+          "rawYearLabel": 2025,
+          "yearBasis": "explicit_publisher_metric_year",
+          "hasSourceConflict": true
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 14.0,
+          "source": "https://academic.oup.com/brain/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 6,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/brain/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "submission_to_final_decision",
+          "days": 6,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/brain/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "决定时间包含拒稿；最终决定不等于录用，不能作为接收周期。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。",
+        "2025 JIF：OUP官网明确为12.7；NIIC机构汇编为12.6，存在来源差异，本记录采用出版社值并保留冲突证据。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Clinical Neurology",
+          "rank": 6,
+          "total": 296,
+          "source": "https://academic.oup.com/brain/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "year": 2025,
+          "category": "Neurosciences",
+          "rank": 12,
+          "total": 330,
+          "source": "https://academic.oup.com/brain/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified",
+      "jifConflicts": [
+        {
+          "year": 2025,
+          "selectedValue": 12.7,
+          "selectedSource": "https://academic.oup.com/brain/pages/About",
+          "alternativeValue": 12.6,
+          "alternativeSource": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
+          "status": "unresolved_source_discrepancy",
+          "resolution": "优先采用出版社明确标注的2025 Impact Factor 12.7；NIIC机构汇编2026发布列为12.6，保留差异，不声称已经解释差值原因。",
+          "checkedAt": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "name": "Bioinformatics",
+      "issns": [
+        "1367-4811"
+      ],
+      "homepage": "https://academic.oup.com/bioinformatics/pages/About",
+      "scope": "基因组生物信息学与计算生物学的新方法、软件及应用；含 Application Notes。",
+      "scopeSource": "https://academic.oup.com/bioinformatics/pages/About",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 5.5,
+          "source": "https://academic.oup.com/bioinformatics/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 7.5,
+          "source": "https://academic.oup.com/bioinformatics/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 23,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/bioinformatics/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "submission_to_final_decision",
+          "days": 23,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/bioinformatics/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/bioinformatics/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/bioinformatics/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "决定时间包含拒稿；最终决定不等于录用，不能作为接收周期。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Mathematical & Computational Biology",
+          "rank": 7,
+          "total": 67,
+          "source": "https://academic.oup.com/bioinformatics/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "year": 2025,
+          "category": "Biochemical Research Methods",
+          "rank": 11,
+          "total": 85,
+          "source": "https://academic.oup.com/bioinformatics/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "year": 2025,
+          "category": "Biotechnology & Applied Microbiology",
+          "rank": 40,
+          "total": 180,
+          "source": "https://academic.oup.com/bioinformatics/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Briefings in Bioinformatics",
+      "issns": [
+        "1477-4054"
+      ],
+      "homepage": "https://academic.oup.com/bib/pages/About",
+      "scope": "生物数据库与分析工具、组学、统计和人工智能方法，接受综述、新方法、案例与观点。",
+      "scopeSource": "https://academic.oup.com/bib/pages/About",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 7.3,
+          "source": "https://academic.oup.com/bib/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 8.1,
+          "source": "https://academic.oup.com/bib/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 8,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/bib/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "submission_to_final_decision",
+          "days": 8,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/bib/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/bib/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/bib/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/bib/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "决定时间包含拒稿；最终决定不等于录用，不能作为接收周期。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Biochemical Research Methods",
+          "rank": 4,
+          "total": 85,
+          "source": "https://academic.oup.com/bib/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "year": 2025,
+          "category": "Mathematical & Computational Biology",
+          "rank": 6,
+          "total": 67,
+          "source": "https://academic.oup.com/bib/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "The ISME Journal",
+      "issns": [
+        "1751-7370",
+        "1751-7362"
+      ],
+      "homepage": "https://academic.oup.com/ismej/pages/about",
+      "scope": "微生物生态系统、群落、宿主互作、环境过程与机制，强调对领域有广泛意义的发现。",
+      "scopeSource": "https://academic.oup.com/ismej/pages/about",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 10.2,
+          "source": "https://academic.oup.com/ismej/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 13.2,
+          "source": "https://academic.oup.com/ismej/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 2,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/ismej/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "submission_to_final_decision",
+          "days": 2,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/ismej/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "决定时间包含拒稿；最终决定不等于录用，不能作为接收周期。",
+        "官网明确纯描述性扩增子、MAG或元分析研究不属于其适合范围；计算方法需显著推进领域。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Ecology",
+          "rank": 7,
+          "total": 205,
+          "source": "https://academic.oup.com/ismej/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "year": 2025,
+          "category": "Microbiology",
+          "rank": 15,
+          "total": 167,
+          "source": "https://academic.oup.com/ismej/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Schizophrenia Bulletin",
+      "issns": [
+        "1745-1701"
+      ],
+      "homepage": "https://academic.oup.com/schizophreniabulletin/pages/About",
+      "scope": "精神分裂症及相关疾病的病因、病理生理和治疗，覆盖分子到社会因素及转化研究。",
+      "scopeSource": "https://academic.oup.com/schizophreniabulletin/pages/About",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 5.7,
+          "source": "https://academic.oup.com/schizophreniabulletin/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 6.4,
+          "source": "https://academic.oup.com/schizophreniabulletin/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/schizophreniabulletin/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "SSCI",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/schizophreniabulletin/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PubMed",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/schizophreniabulletin/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/schizophreniabulletin/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Psychiatry",
+          "rank": 32,
+          "total": 293,
+          "source": "https://academic.oup.com/schizophreniabulletin/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "ISME Communications",
+      "issns": [
+        "2730-6151"
+      ],
+      "homepage": "https://academic.oup.com/ismecommun/pages/about",
+      "scope": "微生物生态学、方法与计算研究、宿主互作及环境群落；要求明确问题与验证。",
+      "scopeSource": "https://academic.oup.com/ismecommun/pages/about",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 6.4,
+          "source": "https://academic.oup.com/ismecommun/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 7.3,
+          "source": "https://academic.oup.com/ismecommun/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 26,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/ismecommun/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "submission_to_final_decision",
+          "days": 34,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/ismecommun/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "决定时间包含拒稿；最终决定不等于录用，不能作为接收周期。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Ecology",
+          "rank": 19,
+          "total": 205,
+          "source": "https://academic.oup.com/ismecommun/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "year": 2025,
+          "category": "Microbiology",
+          "rank": 27,
+          "total": 167,
+          "source": "https://academic.oup.com/ismecommun/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "GigaScience",
+      "issns": [
+        "2047-217X"
+      ],
+      "homepage": "https://academic.oup.com/gigascience/pages/About",
+      "scope": "生命科学和生物医学大数据、开放数据、代码及可复现流程；强调可复现性、可用性与实用性。",
+      "scopeSource": "https://academic.oup.com/gigascience/pages/About",
+      "checkedAt": "2026-10-21",
+      "jif": [],
+      "fiveYearJif": [],
+      "review": [],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/gigascience/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/gigascience/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PubMed",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/gigascience/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/gigascience/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/gigascience/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "source": "https://academic.oup.com/gigascience/pages/About",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "官网不以影响因子作为宣传指标；本条不据此填0或认定无JIF。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Nucleic Acids Research",
+      "issns": [
+        "1362-4962"
+      ],
+      "homepage": "https://academic.oup.com/nar/pages/About",
+      "scope": "核酸及相关蛋白的机制、组学、计算生物学、数据资源与方法；设数据库和 Web Server 专刊。",
+      "scopeSource": "https://academic.oup.com/nar/pages/About",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 15.0,
+          "source": "https://academic.oup.com/nar/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 17.6,
+          "source": "https://academic.oup.com/nar/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 18,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/nar/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "submission_to_final_decision",
+          "days": 23,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://academic.oup.com/nar/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "决定时间包含拒稿；最终决定不等于录用，不能作为接收周期。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Biochemistry & Molecular Biology",
+          "rank": 14,
+          "total": 328,
+          "source": "https://academic.oup.com/nar/pages/About",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Advanced Science",
+      "issns": [
+        "2198-3844"
+      ],
+      "homepage": "https://advanced.onlinelibrary.wiley.com/journal/21983844",
+      "scope": "材料、物理、化学、工程、医学与生命科学的综合开放获取期刊。",
+      "scopeSource": "https://advanced.onlinelibrary.wiley.com/journal/21983844",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 14.1,
+          "source": "https://advanced.onlinelibrary.wiley.com/journal/21983844/journal-metrics",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [],
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 9,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://advanced.onlinelibrary.wiley.com/journal/21983844/journal-metrics",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "submission_to_acceptance",
+          "days": 89,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://advanced.onlinelibrary.wiley.com/journal/21983844/journal-metrics",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 15,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://advanced.onlinelibrary.wiley.com/journal/21983844/journal-metrics",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 20,
+          "unit": "percent",
+          "definition": "publisher_reported_acceptance_rate",
+          "source": "https://advanced.onlinelibrary.wiley.com/journal/21983844/journal-metrics",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "年度发文量与录用率的统计队列不同，不能用4934/20%反推投稿稿件数。",
+        "录用率是期刊总体历史统计，不是个人稿件录用概率。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [],
+      "publicationCounts": [
+        {
+          "year": 2025,
+          "count": 4934,
+          "definition": "publisher_total_articles",
+          "source": "https://advanced.onlinelibrary.wiley.com/journal/21983844/journal-metrics",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Gut",
+      "issns": [
+        "0017-5749",
+        "1468-3288"
+      ],
+      "homepage": "https://gut.bmj.com/pages/about/",
+      "scope": "胃肠病学与肝病学的临床研究、疾病机制及诊疗策略。",
+      "scopeSource": "https://gut.bmj.com/pages/about/",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 24.6,
+          "source": "https://gut.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 26.7,
+          "source": "https://gut.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "first_decision_without_review",
+          "days": 3,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://gut.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "first_decision_with_review",
+          "days": 23,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://gut.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 17,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://gut.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 12,
+          "unit": "percent",
+          "definition": "publisher_reported_acceptance_rate",
+          "source": "https://gut.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "录用率和审稿时间来自出版社2025年度统计；不应直接当作个人稿件录用概率。",
+        "外审后首个决定与无外审首个决定为不同统计对象。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Gastroenterology & Hepatology",
+          "rank": 5,
+          "total": 153,
+          "source": "https://gut.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified",
+      "issnSources": [
+        {
+          "source": "https://gut.bmj.com/pages/about/",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null,
+          "sourceStatus": "publisher_search_index_verified"
+        }
+      ]
+    },
+    {
+      "name": "BMJ Open",
+      "issns": [
+        "2044-6055"
+      ],
+      "homepage": "https://bmjopen.bmj.com/pages/about",
+      "scope": "与患者结局、临床实践和卫生服务直接相关的医学、公共卫生与流行病学研究。",
+      "scopeSource": "https://bmjopen.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 2.5,
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 2.8,
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "first_decision_without_review",
+          "days": 6,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "first_decision_with_review",
+          "days": 134,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 23,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 27,
+          "unit": "percent",
+          "definition": "publisher_reported_acceptance_rate",
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "录用率和审稿时间来自出版社2025年度统计；不应直接当作个人稿件录用概率。",
+        "外审后首个决定与无外审首个决定为不同统计对象。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Medicine, General & Internal",
+          "rank": 92,
+          "total": 336,
+          "source": "https://bmjopen.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "BMJ Mental Health",
+      "issns": [
+        "2755-9734"
+      ],
+      "homepage": "https://mentalhealth.bmj.com/pages/about/",
+      "scope": "精神卫生相关临床研究与循证实践。",
+      "scopeSource": "https://mentalhealth.bmj.com/pages/about/",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 6.6,
+          "source": "https://mentalhealth.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [],
+      "review": [
+        {
+          "stage": "first_decision_with_review",
+          "days": 35,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://mentalhealth.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 23,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://mentalhealth.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 15,
+          "unit": "percent",
+          "definition": "publisher_reported_acceptance_rate",
+          "source": "https://mentalhealth.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "录用率和审稿时间来自出版社2025年度统计；不应直接当作个人稿件录用概率。",
+        "外审后首个决定与无外审首个决定为不同统计对象。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified",
+      "issnSources": [
+        {
+          "source": "https://doaj.org/toc/d4b13378848d44b09860225e08964134",
+          "checkedAt": "2026-10-21",
+          "metadataUpdatedAt": "2026-04-27T14:11:34Z",
+          "sourceYear": 2026,
+          "provider": "DOAJ"
+        }
+      ]
+    },
+    {
+      "name": "Journal of Neurology, Neurosurgery & Psychiatry",
+      "issns": [
+        "0022-3050",
+        "1468-330X"
+      ],
+      "homepage": "https://jnnp.bmj.com/pages/about/",
+      "scope": "神经病学、神经外科及神经精神病学，覆盖常见与复杂神经疾病。",
+      "scopeSource": "https://jnnp.bmj.com/pages/about/",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 7.7,
+          "source": "https://jnnp.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 9.5,
+          "source": "https://jnnp.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "first_decision_without_review",
+          "days": 3,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jnnp.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "first_decision_with_review",
+          "days": 49,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jnnp.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 25,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jnnp.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 6,
+          "unit": "percent",
+          "definition": "publisher_reported_acceptance_rate",
+          "source": "https://jnnp.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "录用率和审稿时间来自出版社2025年度统计；不应直接当作个人稿件录用概率。",
+        "外审后首个决定与无外审首个决定为不同统计对象。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Clinical Neurology",
+          "rank": 18,
+          "total": 296,
+          "source": "https://jnnp.bmj.com/pages/about/",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Journal of NeuroInterventional Surgery",
+      "issns": [
+        "1759-8478",
+        "1759-8486"
+      ],
+      "homepage": "https://jnis.bmj.com/pages/about",
+      "scope": "脑卒中、动脉瘤、脑肿瘤与脊柱疾病等的神经介入方法和技术。",
+      "scopeSource": "https://jnis.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 4.4,
+          "source": "https://jnis.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 4.8,
+          "source": "https://jnis.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "first_decision_with_review",
+          "days": 24,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jnis.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 21,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jnis.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "source": "https://jnis.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "source": "https://jnis.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "source": "https://jnis.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "source": "https://jnis.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 18,
+          "unit": "percent",
+          "definition": "publisher_reported_acceptance_rate",
+          "source": "https://jnis.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "录用率和审稿时间来自出版社2025年度统计；不应直接当作个人稿件录用概率。",
+        "外审后首个决定与无外审首个决定为不同统计对象。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Neuroimaging",
+          "rank": 3,
+          "total": 18,
+          "source": "https://jnis.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "BMJ Open Quality",
+      "issns": [
+        "2399-6641"
+      ],
+      "homepage": "https://bmjopenquality.bmj.com/pages/about",
+      "scope": "医疗质量改进与卫生服务改进研究。",
+      "scopeSource": "https://bmjopenquality.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 2.1,
+          "source": "https://bmjopenquality.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [],
+      "review": [
+        {
+          "stage": "first_decision_without_review",
+          "days": 12,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://bmjopenquality.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "first_decision_with_review",
+          "days": 80,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://bmjopenquality.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 20,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://bmjopenquality.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [
+        {
+          "name": "ESCI",
+          "status": "publisher_reported",
+          "source": "https://bmjopenquality.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "source": "https://bmjopenquality.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "PMC",
+          "status": "publisher_reported",
+          "source": "https://bmjopenquality.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "source": "https://bmjopenquality.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "source": "https://bmjopenquality.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "DOAJ",
+          "status": "publisher_reported",
+          "source": "https://bmjopenquality.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 49,
+          "unit": "percent",
+          "definition": "publisher_reported_acceptance_rate",
+          "source": "https://bmjopenquality.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "录用率和审稿时间来自出版社2025年度统计；不应直接当作个人稿件录用概率。",
+        "外审后首个决定与无外审首个决定为不同统计对象。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "BMJ Quality & Safety",
+      "issns": [
+        "2044-5415",
+        "2044-5423"
+      ],
+      "homepage": "https://qualitysafety.bmj.com/pages/about",
+      "scope": "医疗质量、安全、卫生服务与相关政策研究。",
+      "scopeSource": "https://qualitysafety.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 6.8,
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 6.9,
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "first_decision_without_review",
+          "days": 3,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "first_decision_with_review",
+          "days": 74,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 19,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "SSCI",
+          "status": "publisher_reported",
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 7,
+          "unit": "percent",
+          "definition": "publisher_reported_acceptance_rate",
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "录用率和审稿时间来自出版社2025年度统计；不应直接当作个人稿件录用概率。",
+        "外审后首个决定与无外审首个决定为不同统计对象。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Health Care Sciences & Services",
+          "rank": 11,
+          "total": 194,
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "year": 2025,
+          "category": "Health Policy & Services",
+          "rank": 3,
+          "total": 125,
+          "source": "https://qualitysafety.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "BMJ Health & Care Informatics",
+      "issns": [
+        "2632-1009"
+      ],
+      "homepage": "https://informatics.bmj.com/pages/about",
+      "scope": "健康与医疗服务中的信息学研究。",
+      "scopeSource": "https://informatics.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 6.2,
+          "source": "https://informatics.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [],
+      "review": [
+        {
+          "stage": "first_decision_without_review",
+          "days": 10,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://informatics.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "first_decision_with_review",
+          "days": 90,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://informatics.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 18,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://informatics.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 24,
+          "unit": "percent",
+          "definition": "publisher_reported_acceptance_rate",
+          "source": "https://informatics.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "录用率和审稿时间来自出版社2025年度统计；不应直接当作个人稿件录用概率。",
+        "外审后首个决定与无外审首个决定为不同统计对象。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Open Heart",
+      "issns": [
+        "2053-3624"
+      ],
+      "homepage": "https://openheart.bmj.com/pages/about",
+      "scope": "心血管医学各专科及治疗领域的临床研究。",
+      "scopeSource": "https://openheart.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 3.1,
+          "source": "https://openheart.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 2.9,
+          "source": "https://openheart.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "first_decision_without_review",
+          "days": 3,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://openheart.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "first_decision_with_review",
+          "days": 45,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://openheart.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 22,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://openheart.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 32,
+          "unit": "percent",
+          "definition": "publisher_reported_acceptance_rate",
+          "source": "https://openheart.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "录用率和审稿时间来自出版社2025年度统计；不应直接当作个人稿件录用概率。",
+        "外审后首个决定与无外审首个决定为不同统计对象。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Emergency Medicine Journal",
+      "issns": [
+        "1472-0205",
+        "1472-0213"
+      ],
+      "homepage": "https://emj.bmj.com/pages/about",
+      "scope": "急诊医学、急救系统和相关临床实践研究。",
+      "scopeSource": "https://emj.bmj.com/pages/about",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 2.8,
+          "source": "https://emj.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [
+        {
+          "year": 2025,
+          "value": 3.6,
+          "source": "https://emj.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "review": [
+        {
+          "stage": "first_decision_without_review",
+          "days": 4,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://emj.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "first_decision_with_review",
+          "days": 79,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://emj.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 22,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://emj.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "indexing": [
+        {
+          "name": "SCIE",
+          "status": "publisher_reported",
+          "source": "https://emj.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "MEDLINE",
+          "status": "publisher_reported",
+          "source": "https://emj.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "Scopus",
+          "status": "publisher_reported",
+          "source": "https://emj.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        },
+        {
+          "name": "EMBASE",
+          "status": "publisher_reported",
+          "source": "https://emj.bmj.com/pages/about",
+          "sourceYear": null,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 26,
+          "unit": "percent",
+          "definition": "publisher_reported_acceptance_rate",
+          "source": "https://emj.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "录用率和审稿时间来自出版社2025年度统计；不应直接当作个人稿件录用概率。",
+        "外审后首个决定与无外审首个决定为不同统计对象。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [
+        {
+          "year": 2025,
+          "category": "Emergency Medicine",
+          "rank": 17,
+          "total": 55,
+          "source": "https://emj.bmj.com/pages/about",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified"
+    },
+    {
+      "name": "Nature Communications",
+      "issns": [
+        "2041-1723"
+      ],
+      "homepage": "https://www.nature.com/ncomms/",
+      "scope": "自然科学与医学的多学科原创研究。",
+      "scopeSource": "https://www.nature.com/ncomms/",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 18.1,
+          "source": "https://www.nature.com/ncomms/journal-impact",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [],
+      "review": [],
+      "indexing": [],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "JIF来自出版社官方页面的搜索索引；指标年为2025。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_search_index_verified",
+      "issnSources": [
+        {
+          "source": "https://doaj.org/toc/ef13b44b43f840a688b3efc17d44c265",
+          "checkedAt": "2026-10-21",
+          "metadataUpdatedAt": "2026-03-17T11:25:06Z",
+          "sourceYear": 2026,
+          "provider": "DOAJ"
+        }
+      ]
+    },
+    {
+      "name": "Nature Microbiology",
+      "issns": [
+        "2058-5276"
+      ],
+      "homepage": "https://www.nature.com/nmicrobiol/",
+      "scope": "微生物的生态、进化、功能、宿主互作及相关方法。",
+      "scopeSource": "https://www.nature.com/nmicrobiol/",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2025,
+          "value": 18.7,
+          "source": "https://www.nature.com/nmicrobiol/journal-impact",
+          "sourceYear": 2025,
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "fiveYearJif": [],
+      "review": [],
+      "indexing": [],
+      "acceptance": [],
+      "apc": [],
+      "articleTypes": [],
+      "notes": [
+        "JIF来自出版社官方页面的搜索索引；指标年为2025。",
+        "未公开或未核验的字段保持空值；未填写不代表不存在或为0。"
+      ],
+      "jcrRanks": [],
+      "publicationCounts": [],
+      "cas": [],
+      "submissionCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_search_index_verified",
+      "issnSources": [
+        {
+          "source": "https://www.nature.com/nmicrobiol/journal-information",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null,
+          "sourceStatus": "publisher_search_index_verified"
+        }
+      ]
+    },
+    {
+      "name": "JAMA Psychiatry",
+      "issns": [
+        "2168-622X",
+        "2168-6238"
+      ],
+      "homepage": "https://jamanetwork.com/journals/jamapsychiatry",
+      "scope": "精神医学研究。",
+      "scopeSource": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2024,
+          "value": 17.1,
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2026,
+          "publishedAt": "2026-03-18",
+          "releaseYear": 2025,
+          "rawYearLabel": 2025,
+          "yearBasis": "annual_report_release_year_reconciled_to_metric_year",
+          "yearSource": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
+          "yearIsInferred": true,
+          "yearNote": "年报2026年3月发布，原行名为2025 Journal Impact Factor；2026版JCR于2026-06-17才发布。该旧值与NIIC的2025发布列一致，故按2025发布版、2024统计年度规范化。不是将年报2025标题直接当作JIF统计年度。",
+          "reconciliationSources": [
+            "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
+            "https://clarivate.com/news/clarivate-releases-journal-citation-reports-2026/"
+          ]
+        },
+        {
+          "year": 2025,
+          "value": 18.0,
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/pages/for-authors",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null,
+          "releaseYear": 2026,
+          "rawYearLabel": null,
+          "yearBasis": "current_publisher_value_corroborated_by_institutional_2026_release",
+          "yearSource": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
+          "yearIsInferred": true,
+          "yearNote": "当前出版社作者页面确认该JIF数值但没有在该句给出统计年份；NIIC机构2026发布列给出相同值，按2026发布版、2025统计年度对应。"
+        }
+      ],
+      "fiveYearJif": [],
+      "indexing": [
+        {
+          "name": "MEDLINE",
+          "status": "official_database_verified",
+          "source": "https://www.ncbi.nlm.nih.gov/nlmcatalog/101589550",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        },
+        {
+          "name": "PubMed",
+          "status": "official_database_verified",
+          "source": "https://www.ncbi.nlm.nih.gov/nlmcatalog/101589550",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "apc": [],
+      "articleTypes": [],
+      "jcrRanks": [],
+      "cas": [],
+      "publicationCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified",
+      "review": [
+        {
+          "stage": "first_decision_without_review",
+          "days": 2,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "first_decision_with_review",
+          "days": 31,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "reviewer_turnaround",
+          "days": 13,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 76,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "submission_to_publication",
+          "days": 152,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "submissionCounts": [
+        {
+          "year": 2025,
+          "count": 2725,
+          "definition": "all_manuscripts_received",
+          "unit": "manuscripts",
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "year": 2025,
+          "count": 2026,
+          "definition": "research_manuscripts_received",
+          "unit": "manuscripts",
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 8,
+          "unit": "percent",
+          "definition": "overall_acceptance_rate",
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "year": 2025,
+          "value": 5,
+          "unit": "percent",
+          "definition": "research_acceptance_rate",
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "notes": [
+        "投稿稿件数来自2025年报；不等于独立投稿人数。",
+        "研究稿件录用率与总体录用率的分母不同。",
+        "审稿人周转时间指审稿人处理阶段，不等于投稿到外审后决定。",
+        "年报中“2025 Journal Impact Factor”指当时可用的2025发布版：该值按2024统计年度整理，并用NIIC对应发布列交叉核对；2025统计年最新值采用当前出版社作者页面。"
+      ],
+      "issnSources": [
+        {
+          "source": "https://jamanetwork.com/pages/new-issns",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null,
+          "sourceStatus": "publisher_verified"
+        }
+      ],
+      "jifSourceStatements": [
+        {
+          "rawLabel": "2025 Journal Impact Factor",
+          "value": 17.1,
+          "source": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2846481",
+          "publishedAt": "2026-03-18",
+          "checkedAt": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "name": "JAMA Network Open",
+      "issns": [
+        "2574-3805"
+      ],
+      "homepage": "https://jamanetwork.com/journals/jamanetworkopen",
+      "scope": "医学与健康各领域研究。",
+      "scopeSource": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2024,
+          "value": 9.7,
+          "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2026,
+          "publishedAt": "2026-03-24",
+          "releaseYear": 2025,
+          "rawYearLabel": 2025,
+          "yearBasis": "annual_report_release_year_reconciled_to_metric_year",
+          "yearSource": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
+          "yearIsInferred": true,
+          "yearNote": "年报2026年3月发布，原行名为2025 Journal Impact Factor；2026版JCR于2026-06-17才发布。该旧值与NIIC的2025发布列一致，故按2025发布版、2024统计年度规范化。不是将年报2025标题直接当作JIF统计年度。",
+          "reconciliationSources": [
+            "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
+            "https://clarivate.com/news/clarivate-releases-journal-citation-reports-2026/"
+          ]
+        },
+        {
+          "year": 2025,
+          "value": 11.7,
+          "source": "https://jamanetwork.com/journals/jamanetworkopen/pages/for-authors",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null,
+          "releaseYear": 2026,
+          "rawYearLabel": null,
+          "yearBasis": "current_publisher_value_corroborated_by_institutional_2026_release",
+          "yearSource": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
+          "yearIsInferred": true,
+          "yearNote": "当前出版社作者页面确认该JIF数值但没有在该句给出统计年份；NIIC机构2026发布列给出相同值，按2026发布版、2025统计年度对应。"
+        }
+      ],
+      "fiveYearJif": [],
+      "indexing": [],
+      "apc": [],
+      "articleTypes": [],
+      "jcrRanks": [],
+      "cas": [],
+      "publicationCounts": [
+        {
+          "year": 2025,
+          "count": 2006,
+          "definition": "research_manuscripts_published",
+          "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified",
+      "review": [
+        {
+          "stage": "first_decision_without_review",
+          "days": 2,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "first_decision_with_review",
+          "days": 49,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "reviewer_turnaround",
+          "days": 13,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 63,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "submission_to_publication",
+          "days": 168,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "submissionCounts": [
+        {
+          "year": 2025,
+          "count": 20233,
+          "definition": "all_manuscripts_received",
+          "unit": "manuscripts",
+          "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 9.9,
+          "unit": "percent",
+          "definition": "overall_acceptance_rate",
+          "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "notes": [
+        "投稿稿件数来自2025年报；不等于独立投稿人数。",
+        "研究稿件录用率与总体录用率的分母不同。",
+        "审稿人周转时间指审稿人处理阶段，不等于投稿到外审后决定。",
+        "年报中“2025 Journal Impact Factor”指当时可用的2025发布版：该值按2024统计年度整理，并用NIIC对应发布列交叉核对；2025统计年最新值采用当前出版社作者页面。"
+      ],
+      "issnSources": [
+        {
+          "source": "https://doaj.org/toc/f662f1870e884a2ab92eac37660f4663",
+          "checkedAt": "2026-10-21",
+          "metadataUpdatedAt": "2021-10-18T13:36:16Z",
+          "sourceYear": 2021,
+          "provider": "DOAJ"
+        },
+        {
+          "source": "https://jamanetwork.com/pages/new-issns",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null,
+          "sourceStatus": "publisher_verified"
+        }
+      ],
+      "jifSourceStatements": [
+        {
+          "rawLabel": "2025 Journal Impact Factor",
+          "value": 9.7,
+          "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2846931",
+          "publishedAt": "2026-03-24",
+          "checkedAt": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "name": "JAMA Neurology",
+      "issns": [
+        "2168-6149",
+        "2168-6157"
+      ],
+      "homepage": "https://jamanetwork.com/journals/jamaneurology",
+      "scope": "临床神经科学研究。",
+      "scopeSource": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+      "checkedAt": "2026-10-21",
+      "jif": [
+        {
+          "year": 2024,
+          "value": 21.4,
+          "source": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2026,
+          "publishedAt": "2026-03-16",
+          "releaseYear": 2025,
+          "rawYearLabel": 2024,
+          "yearBasis": "explicit_publisher_metric_year",
+          "hasSourceConflict": true
+        },
+        {
+          "year": 2025,
+          "value": 23.6,
+          "source": "https://jamanetwork.com/journals/jamaneurology/pages/for-authors",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null,
+          "releaseYear": 2026,
+          "rawYearLabel": null,
+          "yearBasis": "current_publisher_value_corroborated_by_institutional_2026_release",
+          "yearSource": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
+          "yearIsInferred": true,
+          "yearNote": "当前出版社作者页面确认该JIF数值但没有在该句给出统计年份；NIIC机构2026发布列给出相同值，按2026发布版、2025统计年度对应。"
+        }
+      ],
+      "fiveYearJif": [],
+      "indexing": [],
+      "apc": [],
+      "articleTypes": [],
+      "jcrRanks": [],
+      "cas": [],
+      "publicationCounts": [],
+      "uniqueSubmittingAuthors": [],
+      "sourceStatus": "publisher_verified",
+      "review": [
+        {
+          "stage": "first_decision_without_review",
+          "days": 4,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "first_decision_with_review",
+          "days": 35,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "reviewer_turnaround",
+          "days": 14,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "acceptance_to_publication",
+          "days": 73,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "stage": "submission_to_publication",
+          "days": 150,
+          "statistic": "median",
+          "period": 2025,
+          "source": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "submissionCounts": [
+        {
+          "year": 2025,
+          "count": 3221,
+          "definition": "all_manuscripts_received",
+          "unit": "manuscripts",
+          "source": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "year": 2025,
+          "count": 2214,
+          "definition": "research_manuscripts_received",
+          "unit": "manuscripts",
+          "source": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "acceptance": [
+        {
+          "year": 2025,
+          "value": 6,
+          "unit": "percent",
+          "definition": "overall_acceptance_rate",
+          "source": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        },
+        {
+          "year": 2025,
+          "value": 5,
+          "unit": "percent",
+          "definition": "research_acceptance_rate",
+          "source": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "checkedAt": "2026-10-21",
+          "sourceYear": 2025
+        }
+      ],
+      "notes": [
+        "投稿稿件数来自2025年报；不等于独立投稿人数。",
+        "研究稿件录用率与总体录用率的分母不同。",
+        "审稿人周转时间指审稿人处理阶段，不等于投稿到外审后决定。",
+        "2024 JIF：出版社年报明确为21.4，官方2026春季招稿资料相同；NIIC机构汇编为21.3。保留两方证据，采用出版社值。",
+        "2025统计年JIF23.6由当前出版社作者页面确认数值，并以NIIC的2026发布列确定年度对应。"
+      ],
+      "issnSources": [
+        {
+          "source": "https://jamanetwork.com/pages/new-issns",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null,
+          "sourceStatus": "publisher_verified"
+        }
+      ],
+      "jifSourceStatements": [
+        {
+          "rawLabel": "2024 Journal Impact Factor",
+          "value": 21.4,
+          "source": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "publishedAt": "2026-03-16",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "jifConflicts": [
+        {
+          "year": 2024,
+          "selectedValue": 21.4,
+          "selectedSource": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2846475",
+          "alternativeValue": 21.3,
+          "alternativeSource": "https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf",
+          "status": "unresolved_source_discrepancy",
+          "resolution": "年报明确写2024 Journal Impact Factor 21.4；官方spring-2026招稿资料也为21.4。优先保留出版社值，NIIC上一发布列21.3作为冲突值，不任意修正为21.3。",
+          "corroboratingSource": "https://jamanetwork.com/DocumentLibrary/for-authors/jamaneurology-brochure-spring-2026.pdf",
+          "checkedAt": "2026-10-21"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "name": "Neural Computing and Applications",
+      "url": "https://link.springer.com/journal/521",
+      "error": "No usable journal metrics",
+      "title": "Home | Neural Computing and Applications | Springer Nature Link"
+    },
+    {
+      "name": "npj Biofilms and Microbiomes",
+      "url": "https://www.nature.com/npjbiofilms/?error=cookies_not_supported&code=988eac49-7e68-4d3b-8163-88422f787488",
+      "error": "No usable journal metrics",
+      "title": "npj Biofilms and Microbiomes"
+    },
+    {
+      "name": "npj Digital Medicine",
+      "url": "https://www.nature.com/npjdigitalmed/?error=cookies_not_supported&code=19c8b1b6-ed66-4bda-a40c-dbab298dc119",
+      "error": "No usable journal metrics",
+      "title": "npj Digital Medicine"
+    },
+    {
+      "name": "Translational Psychiatry",
+      "url": "https://www.nature.com/tp/?error=cookies_not_supported&code=b86c65d3-fa45-4632-a81d-770ec63f24bc",
+      "error": "No usable journal metrics",
+      "title": "Translational Psychiatry"
+    },
+    {
+      "name": "Molecular Psychiatry",
+      "url": "https://www.nature.com/mp/?error=cookies_not_supported&code=e99224b7-cc79-446f-a75f-f0e27e63f788",
+      "error": "No usable journal metrics",
+      "title": "Molecular Psychiatry"
+    },
+    {
+      "name": "Nature Communications",
+      "url": "https://www.nature.com/ncomms/?error=cookies_not_supported&code=4e1368d4-afb2-461a-9ca7-ae803d6e8625",
+      "error": "No usable journal metrics",
+      "title": "Nature Communications"
+    },
+    {
+      "name": "Scientific Reports",
+      "url": "https://link.springer.com/journal/41598",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "name": "Nature Microbiology",
+      "url": "https://link.springer.com/journal/41564",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "name": "Nature Neuroscience",
+      "url": "https://link.springer.com/journal/41593",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "name": "Nature Methods",
+      "url": "https://link.springer.com/journal/41592",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "name": "Nature Biotechnology",
+      "url": "https://link.springer.com/journal/41587",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "name": "Nature Biomedical Engineering",
+      "url": "https://link.springer.com/journal/41551",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "name": "Nature Medicine",
+      "url": "https://link.springer.com/journal/41591",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "name": "Communications Biology",
+      "url": "https://link.springer.com/journal/42003",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "name": "Communications Medicine",
+      "url": "https://link.springer.com/journal/43856",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "dataNotes": [
+    "JIF与五年JIF分开，JCR排名不等于中科院分区，也不能用SJR分区替代JCR。",
+    "投稿稿件数与独立投稿人数分开；录用率不能通过年度发文量反推。",
+    "Springer审稿时长未披露统计窗口，period为null；OUP/Wiley/BMJ带明确2025年。",
+    "期刊收录标为publisher_reported，未冒充直接在各数据库核验。",
+    "中科院分区原平台与API于2026-09-30停止服务，保留历史版本；新锐分区是独立来源。"
+  ],
+  "policySources": [
+    {
+      "url": "https://library.xmu.edu.cn/info/5191/15999575.htm",
+      "checkedAt": "2026-10-21",
+      "title": "中科院期刊分区表停止运行的通知",
+      "publishedAt": "2026-09-28"
+    },
+    {
+      "url": "https://www.xr-scholar.com/",
+      "checkedAt": "2026-10-21",
+      "title": "新锐期刊分区表"
+    }
+  ],
+  "jifReconciliation": {
+    "checkedAt": "2026-10-21",
+    "reason": "Reopened publisher sources after conflicts with institutional JCR release-year compilation.",
+    "changes": [
+      "JAMA Psychiatry: normalized 17.1 from ambiguous annual-report 2025 label to metricYear2024 with explicit inference provenance; added current publisher value18.0 at metricYear2025, corroborated by2026release table.",
+      "JAMA Network Open: normalized9.7 to metricYear2024 with same provenance; added current publisher11.7 at metricYear2025.",
+      "JAMA Neurology: retained explicit publisher2024=21.4 with unresolved institutional21.3 conflict; added current publisher23.6 at metricYear2025.",
+      "Brain: retained explicit OUP2025=12.7, recorded unresolved institutional12.6 conflict."
+    ],
+    "jcr2026ReleaseDate": "2026-06-17",
+    "releaseDateSource": "https://clarivate.com/news/clarivate-releases-journal-citation-reports-2026/",
+    "policy": "Keep metric year, JCR release year, annual-report year, and source publication date separate. Source discrepancies are retained, not silently reconciled."
+  }
+}
