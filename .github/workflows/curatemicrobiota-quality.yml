@@ -1,0 +1,63 @@
+name: CurateMicrobiota course and CPU model checks
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'personal-growth-lab/academy/llm-lab/**'
+      - 'personal-growth-lab/academy/assets/curatemicrobiota-bridge.js'
+      - '.github/workflows/curatemicrobiota-quality.yml'
+  pull_request:
+    paths:
+      - 'personal-growth-lab/academy/llm-lab/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: curatemicrobiota-quality-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  course-and-cpu-models:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: personal-growth-lab/academy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate complete course source and JavaScript
+        run: |
+          python personal-growth-lab/academy/llm-lab/tools/validate_course.py
+          node --check personal-growth-lab/academy/llm-lab/assets/lab.js
+          node --check personal-growth-lab/academy/llm-lab/assets/course-data.js
+          node --check personal-growth-lab/academy/assets/curatemicrobiota-bridge.js
+      - name: Install CPU teaching dependencies
+        working-directory: personal-growth-lab/academy/llm-lab/project
+        run: |
+          python -m pip install --disable-pip-version-check torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check -e .
+      - name: Check scientific invariants and run the offline CPU pipeline
+        working-directory: personal-growth-lab/academy/llm-lab/project
+        run: |
+          python -m unittest discover -s tests -v
+          python -m curatemicrobiota pipeline --quick --out /tmp/curatemicrobiota-ci
+          python -m curatemicrobiota finetune --checkpoint /tmp/curatemicrobiota-ci/language/model.pt --out /tmp/curatemicrobiota-sft --steps 8 --lora
+          python -m curatemicrobiota alignment-demo --out /tmp/curatemicrobiota-alignment
+      - name: Upload genuine execution reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: curatemicrobiota-cpu-reports
+          path: |
+            /tmp/curatemicrobiota-ci/report.json
+            /tmp/curatemicrobiota-sft/report.json
+            /tmp/curatemicrobiota-alignment/report.json
+          if-no-files-found: warn
+          retention-days: 14

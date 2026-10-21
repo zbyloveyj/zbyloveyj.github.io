@@ -1,13 +1,24 @@
 {
-  "version": "2026.10.20.1",
+  "version": "2026.10.21.1",
   "site": "https://zbyloveyj.github.io/personal-growth-lab/academy/",
-  "projects": 10,
-  "units": 839,
-  "priority": ["english", "coding", "writing"],
+  "projects": 11,
+  "units": 853,
+  "priority": [
+    "english",
+    "coding",
+    "writing"
+  ],
   "bibliography_items": 100,
-  "quality_workflow_run": "https://github.com/zbyloveyj/zbyloveyj.github.io/actions/runs/39396920530",
-  "quality_status": "success",
+  "quality_status": "see llm-lab/validation.json for this release",
   "storage": "browser-local; manual JSON backup; no cloud synchronization",
   "existing_plans": "preserved",
-  "pdf": "browser print-to-PDF; not pre-generated textbooks"
+  "pdf": "full printable handbook and per-lesson browser print-to-PDF; downloadable Markdown provided",
+  "llm_project": {
+    "name": "CurateMicrobiota",
+    "lessons": 14,
+    "path": "llm-lab/",
+    "data_source": "curatedMetagenomicData adapter; synthetic offline default",
+    "status": "complete course and locally executed teaching code"
+  },
+  "legacy_quality_workflow_run": "https://github.com/zbyloveyj/zbyloveyj.github.io/actions/runs/39396920530"
 }

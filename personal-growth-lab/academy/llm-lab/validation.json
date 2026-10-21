@@ -1,0 +1,117 @@
+{
+  "project": "CurateMicrobiota",
+  "version": "2026.10.21.1",
+  "verified_at_utc": "2026-10-21T00:58:51.646908+00:00",
+  "status": "local_validation_passed",
+  "curriculum": {
+    "version": "2026.10.21.1",
+    "lessons": 14,
+    "sections": 145,
+    "exercises": 55,
+    "quiz_questions": 70,
+    "paper_readings": 28,
+    "unique_sources": 28,
+    "chinese_characters": 68527
+  },
+  "checks": {
+    "python_unit_tests": {
+      "passed": 23,
+      "failed": 0,
+      "command": "python -m unittest discover -s tests -v"
+    },
+    "curriculum_schema": {
+      "lessons_passed": 14,
+      "downloaded_content_matches_source": true
+    },
+    "teaching_python_examples": {
+      "executed_and_passed": 30,
+      "additional_day12_prediction_recalculation_passed": true,
+      "note": "Examples run in lesson order; relative demonstration data paths mapped to the corresponding local executed pipeline output."
+    },
+    "javascript_syntax": {
+      "passed": [
+        "llm-lab/assets/lab.js",
+        "llm-lab/assets/course-data.js",
+        "academy/assets/app.js",
+        "academy/assets/curatemicrobiota-bridge.js"
+      ]
+    },
+    "browser": {
+      "environment": "Chrome desktop, managed static preview",
+      "passed": [
+        "Home and all fourteen course entries rendered",
+        "Day 1 and Day 14 readers rendered",
+        "Full-text course search",
+        "Causal mask and attention temperature update; row sums equal one",
+        "UTF-8 round trip: 菌🧬 is two code points and seven bytes",
+        "Abundance masking control and distinct zero/mask display",
+        "Evidence retrieval and no-match state",
+        "Five-question grading and explanations",
+        "Completion requires all correct quiz answers and checked acceptance items",
+        "Notes and completion persist across reload",
+        "Academy eleven-project integration and course routing",
+        "Course completion mirrors into academy progress"
+      ],
+      "limitations": [
+        "No physical mobile device test",
+        "Import/print dialogs not manually exercised in this verification session"
+      ]
+    }
+  },
+  "executed_models": {
+    "environment": {
+      "python": "3.12.14",
+      "torch": "2.14.1+cpu",
+      "numpy": "2.3.5",
+      "scikit_learn": "1.8.0",
+      "device": "cpu"
+    },
+    "data_kind": "synthetic_teaching_fixture",
+    "core_report": "project/example-results/quick_report.json",
+    "finetuning_report": "project/example-results/finetuning_report.json",
+    "tiny_gpt": {
+      "parameters": 136960,
+      "quick_steps": 40,
+      "validation_cross_entropy_initial": 5.580423,
+      "validation_cross_entropy_final": 3.05333,
+      "unit": "nats per byte"
+    },
+    "microbiome_encoder": {
+      "parameters": 40513,
+      "quick_steps": 60,
+      "validation_masked_mse_initial": 1.442191,
+      "validation_masked_mse_final": 0.971761,
+      "mean_imputation_mse": 0.973311
+    },
+    "synthetic_test_subject_auroc": {
+      "log_abundance_logistic_regression": 0.88,
+      "random_frozen_encoder": 0.51,
+      "pretrained_frozen_encoder": 0.48,
+      "test_subjects": 20,
+      "test_samples": 40,
+      "test_studies": 1
+    },
+    "full_sft": {
+      "steps": 30,
+      "trainable_parameters": 136960,
+      "validation_response_ce_initial": 3.31626,
+      "validation_response_ce_final": 2.74298
+    },
+    "lora_sft": {
+      "steps": 30,
+      "trainable_parameters": 1024,
+      "validation_response_ce_initial": 3.31626,
+      "validation_response_ce_final": 3.24998,
+      "base_weights_unchanged": true
+    },
+    "dpo": "Executed fixed synthetic sequence log-probability objective and gradient demonstration; not a preference-trained language model."
+  },
+  "scientific_limits": [
+    "Quick-run results validate a teaching pipeline, not real disease prediction or clinical utility.",
+    "The pretrained frozen encoder did not outperform the simple baseline in this synthetic held-out study.",
+    "The R curatedMetagenomicData exporter was checked against official API documentation and static data contracts; R/Bioconductor was unavailable here, so real-cohort export and training were not executed.",
+    "The evidence module retrieves eight original source summaries and exports a grounded prompt; an external text generator is an extension.",
+    "Large-scale QLoRA, full RLHF, multi-fold real-study evaluation, DNA modeling and multimodal pretraining remain documented extensions."
+  ],
+  "release_checks": "Repository CI and GitHub Pages deployment status are recorded by their live workflow runs."
+}

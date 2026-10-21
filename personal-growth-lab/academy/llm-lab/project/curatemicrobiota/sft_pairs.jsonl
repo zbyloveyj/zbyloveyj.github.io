@@ -1,0 +1,14 @@
+{"id":"train-01","split":"train","source_kind":"synthetic_teaching_pair","prompt":"Q: Rows of a microbiome table?\nA:","response":" Samples."}
+{"id":"train-02","split":"train","source_kind":"synthetic_teaching_pair","prompt":"Q: Columns of the example table?\nA:","response":" Taxa."}
+{"id":"train-03","split":"train","source_kind":"synthetic_teaching_pair","prompt":"Q: Training data kind?\nA:","response":" Synthetic."}
+{"id":"train-04","split":"train","source_kind":"synthetic_teaching_pair","prompt":"Q: Keep a person's visits together?\nA:","response":" Yes."}
+{"id":"train-05","split":"train","source_kind":"synthetic_teaching_pair","prompt":"Q: Tune on the test study?\nA:","response":" No."}
+{"id":"train-06","split":"train","source_kind":"synthetic_teaching_pair","prompt":"Q: Fit scaling on which split?\nA:","response":" Train."}
+{"id":"train-07","split":"train","source_kind":"synthetic_teaching_pair","prompt":"Q: Predict the next byte?\nA:","response":" TinyGPT."}
+{"id":"train-08","split":"train","source_kind":"synthetic_teaching_pair","prompt":"Q: Is missing always zero?\nA:","response":" No."}
+{"id":"train-09","split":"train","source_kind":"synthetic_teaching_pair","prompt":"Q: What is frozen in LoRA?\nA:","response":" Base weights."}
+{"id":"train-10","split":"train","source_kind":"synthetic_teaching_pair","prompt":"Q: Does a lower loss prove a cause?\nA:","response":" No."}
+{"id":"val-01","split":"validation","source_kind":"synthetic_teaching_pair","prompt":"Q: Are demo cohorts real patients?\nA:","response":" No."}
+{"id":"val-02","split":"validation","source_kind":"synthetic_teaching_pair","prompt":"Q: Which split selects a model?\nA:","response":" Validation."}
+{"id":"val-03","split":"validation","source_kind":"synthetic_teaching_pair","prompt":"Q: Need a simple baseline?\nA:","response":" Yes."}
+{"id":"val-04","split":"validation","source_kind":"synthetic_teaching_pair","prompt":"Q: What follows a prompt in SFT?\nA:","response":" A response."}

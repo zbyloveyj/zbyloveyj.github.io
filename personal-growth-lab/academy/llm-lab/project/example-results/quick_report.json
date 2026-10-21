@@ -1,0 +1,903 @@
+{
+  "project": "CurateMicrobiota",
+  "version": "1.0.0",
+  "status": "completed",
+  "quick": true,
+  "source_kind": "synthetic_teaching_fixture",
+  "seed": 42,
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "packages": {
+      "torch": "2.14.1+cpu",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0"
+    }
+  },
+  "data": {
+    "directory": "runs/demo/data",
+    "samples": 240,
+    "subjects": 120,
+    "studies": 6,
+    "taxa": 48,
+    "source_kind": "synthetic_teaching_fixture"
+  },
+  "language": {
+    "kind": "small_language_model_teaching_run",
+    "config": {
+      "vocabulary": 256,
+      "context": 64,
+      "width": 64,
+      "heads": 4,
+      "layers": 2,
+      "dropout": 0.05
+    },
+    "parameters": {
+      "total": 136960,
+      "trainable": 136960
+    },
+    "corpus_source": "original_teaching_text; distinct train/validation paragraphs",
+    "train_bytes": 1943,
+    "validation_bytes": 517,
+    "initial_validation_loss_nats_per_byte": 5.580423355102539,
+    "selected_validation_loss_nats_per_byte": 3.053329646587372,
+    "selected_validation_perplexity_per_byte": 21.185768235178955,
+    "selected_step": 40,
+    "steps": 40,
+    "elapsed_seconds": 0.5580651569998736,
+    "log": [
+      {
+        "step": 1,
+        "train_batch_loss": 5.568432807922363,
+        "validation_loss": 5.401668429374695
+      },
+      {
+        "step": 8,
+        "train_batch_loss": 4.775547981262207,
+        "validation_loss": 4.723434686660767
+      },
+      {
+        "step": 16,
+        "train_batch_loss": 4.055721759796143,
+        "validation_loss": 4.032624125480652
+      },
+      {
+        "step": 24,
+        "train_batch_loss": 3.5376129150390625,
+        "validation_loss": 3.52045077085495
+      },
+      {
+        "step": 32,
+        "train_batch_loss": 3.1356210708618164,
+        "validation_loss": 3.210859775543213
+      },
+      {
+        "step": 40,
+        "train_batch_loss": 2.940211534500122,
+        "validation_loss": 3.053329646587372
+      }
+    ],
+    "example_generation": "Microbes nid ctsufeieasleny h o uetotoilor etiosy shrsan smloe naea le tasetinenpi.\npita\n",
+    "limitations": "Byte-level perplexity is not comparable with another tokenizer. Tiny teaching text does not train scientific expertise; generated text can be incoherent."
+  },
+  "microbiome": {
+    "kind": "masked_microbiome_encoder_pretraining",
+    "source_kind": "synthetic_teaching_fixture",
+    "parameters": {
+      "total": 40513,
+      "trainable": 40513
+    },
+    "config": {
+      "taxa": 48,
+      "width": 48,
+      "heads": 4,
+      "layers": 2,
+      "dropout": 0.05
+    },
+    "steps": 60,
+    "selected_step": 60,
+    "elapsed_seconds": 0.6096195400000397,
+    "samples_per_split": {
+      "train": 160,
+      "val": 40,
+      "test": 40
+    },
+    "studies_per_split": {
+      "train": [
+        "STUDY_01",
+        "STUDY_02",
+        "STUDY_03",
+        "STUDY_04"
+      ],
+      "val": [
+        "STUDY_05"
+      ],
+      "test": [
+        "STUDY_06"
+      ]
+    },
+    "initial_validation": {
+      "masked_mse_standardized_log_abundance": 1.442191481590271,
+      "training_mean_imputation_mse": 0.9733105897903442,
+      "relative_mse_reduction_vs_mean": -0.48173820023978764,
+      "masked_values": 480,
+      "mask_count_per_sample": 12
+    },
+    "selected_validation": {
+      "masked_mse_standardized_log_abundance": 0.9717607498168945,
+      "training_mean_imputation_mse": 0.9733105897903442,
+      "relative_mse_reduction_vs_mean": 0.001592338550208905,
+      "masked_values": 480,
+      "mask_count_per_sample": 12
+    },
+    "log": [
+      {
+        "step": 1,
+        "train_batch_masked_mse": 1.518044352531433,
+        "masked_mse_standardized_log_abundance": 1.686099886894226,
+        "training_mean_imputation_mse": 0.9733105897903442,
+        "relative_mse_reduction_vs_mean": -0.7323348832127883,
+        "masked_values": 480,
+        "mask_count_per_sample": 12
+      },
+      {
+        "step": 12,
+        "train_batch_masked_mse": 1.1977568864822388,
+        "masked_mse_standardized_log_abundance": 1.1251384019851685,
+        "training_mean_imputation_mse": 0.9733105897903442,
+        "relative_mse_reduction_vs_mean": -0.15599112327292008,
+        "masked_values": 480,
+        "mask_count_per_sample": 12
+      },
+      {
+        "step": 24,
+        "train_batch_masked_mse": 0.9036243557929993,
+        "masked_mse_standardized_log_abundance": 1.0017759799957275,
+        "training_mean_imputation_mse": 0.9733105897903442,
+        "relative_mse_reduction_vs_mean": -0.029245947289564533,
+        "masked_values": 480,
+        "mask_count_per_sample": 12
+      },
+      {
+        "step": 36,
+        "train_batch_masked_mse": 1.086888074874878,
+        "masked_mse_standardized_log_abundance": 0.9720578789710999,
+        "training_mean_imputation_mse": 0.9733105897903442,
+        "relative_mse_reduction_vs_mean": 0.0012870617379332483,
+        "masked_values": 480,
+        "mask_count_per_sample": 12
+      },
+      {
+        "step": 48,
+        "train_batch_masked_mse": 0.7611484527587891,
+        "masked_mse_standardized_log_abundance": 0.9717949032783508,
+        "training_mean_imputation_mse": 0.9733105897903442,
+        "relative_mse_reduction_vs_mean": 0.001557248557544133,
+        "masked_values": 480,
+        "mask_count_per_sample": 12
+      },
+      {
+        "step": 60,
+        "train_batch_masked_mse": 1.2315962314605713,
+        "masked_mse_standardized_log_abundance": 0.9717607498168945,
+        "training_mean_imputation_mse": 0.9733105897903442,
+        "relative_mse_reduction_vs_mean": 0.001592338550208905,
+        "masked_values": 480,
+        "mask_count_per_sample": 12
+      }
+    ],
+    "alignment": {
+      "missing_trained_taxa": [],
+      "excluded_input_taxa": [],
+      "retained_abundance_mass_mean": 1.000000000001947,
+      "retained_fraction_of_input_mass_mean": 1.0,
+      "missing_assumed_zero": false
+    },
+    "test_used_during_pretraining": false,
+    "limitations": "Loss concerns randomly hidden standardized log proportions. It is not an absolute-abundance error or clinical metric. Compositional dependence, zeros and study shifts remain; compare mean imputation and independent-cohort downstream baselines."
+  },
+  "evaluation": {
+    "kind": "frozen_study_holdout_evaluation",
+    "source_kind": "synthetic_teaching_fixture",
+    "primary_unit": "subject; repeated visit probabilities averaged",
+    "split": {
+      "train": [
+        "STUDY_01",
+        "STUDY_02",
+        "STUDY_03",
+        "STUDY_04"
+      ],
+      "val": [
+        "STUDY_05"
+      ],
+      "test": [
+        "STUDY_06"
+      ]
+    },
+    "selection": "encoder checkpoint by validation masked MSE; each probe C by validation subject AUROC; fixed probability threshold 0.5",
+    "test_used_for_selection": false,
+    "models": {
+      "log_abundance_logistic_baseline": {
+        "selected_C": 0.1,
+        "C_candidates": [
+          {
+            "C": 0.1,
+            "validation_subject_roc_auc": 0.84
+          },
+          {
+            "C": 1.0,
+            "validation_subject_roc_auc": 0.8300000000000001
+          },
+          {
+            "C": 10.0,
+            "validation_subject_roc_auc": 0.84
+          }
+        ],
+        "validation_subject_metrics": {
+          "n": 20,
+          "positive_n": 10,
+          "prevalence": 0.5,
+          "roc_auc": 0.84,
+          "average_precision": 0.8915508021390374,
+          "macro_f1_at_0_5": 0.7493734335839599,
+          "balanced_accuracy_at_0_5": 0.75,
+          "brier_score": 0.154623939375293,
+          "log_loss": 0.4672043703540904,
+          "ece_5_equal_width_bins": 0.10140652861472045,
+          "calibration_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 1,
+              "mean_probability": 0.05737028105749719,
+              "positive_fraction": 0.0
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 7,
+              "mean_probability": 0.32991061111741127,
+              "positive_fraction": 0.2857142857142857
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 4,
+              "mean_probability": 0.5164078375741541,
+              "positive_fraction": 0.25
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 4,
+              "mean_probability": 0.6957912224411271,
+              "positive_fraction": 0.75
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 4,
+              "mean_probability": 0.9052701117792687,
+              "positive_fraction": 1.0
+            }
+          ],
+          "confusion_matrix_labels_0_1": [
+            [
+              7,
+              3
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "threshold": 0.5,
+          "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+        },
+        "test_subject_metrics": {
+          "n": 20,
+          "positive_n": 10,
+          "prevalence": 0.5,
+          "roc_auc": 0.8800000000000001,
+          "average_precision": 0.9318181818181818,
+          "macro_f1_at_0_5": 0.7916666666666667,
+          "balanced_accuracy_at_0_5": 0.8,
+          "brier_score": 0.173979195796258,
+          "log_loss": 0.543809007906073,
+          "ece_5_equal_width_bins": 0.21834847161422052,
+          "calibration_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 2,
+              "mean_probability": 0.14527274354552472,
+              "positive_fraction": 0.5
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 8,
+              "mean_probability": 0.32367218325124547,
+              "positive_fraction": 0.125
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 6,
+              "mean_probability": 0.485156521569818,
+              "positive_fraction": 0.6666666666666666
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 3,
+              "mean_probability": 0.7378448300184154,
+              "positive_fraction": 1.0
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 1,
+              "mean_probability": 0.8073889271603495,
+              "positive_fraction": 1.0
+            }
+          ],
+          "confusion_matrix_labels_0_1": [
+            [
+              10,
+              0
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "threshold": 0.5,
+          "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area",
+          "roc_auc_ci95_subject_bootstrap": [
+            0.6664141414141413,
+            1.0
+          ],
+          "bootstrap_valid_replicates": 400,
+          "bootstrap_note": "Illustrative 400-replicate subject bootstrap within one held-out study; it does not quantify between-study uncertainty."
+        },
+        "test_sample_metrics_secondary": {
+          "n": 40,
+          "positive_n": 20,
+          "prevalence": 0.5,
+          "roc_auc": 0.68,
+          "average_precision": 0.7830273389977338,
+          "macro_f1_at_0_5": 0.7714285714285715,
+          "balanced_accuracy_at_0_5": 0.775,
+          "brier_score": 0.22283045670750318,
+          "log_loss": 0.6809107705033235,
+          "ece_5_equal_width_bins": 0.2573471195308913,
+          "calibration_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 11,
+              "mean_probability": 0.11291922022503244,
+              "positive_fraction": 0.5454545454545454
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 10,
+              "mean_probability": 0.2952314235947221,
+              "positive_fraction": 0.1
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 4,
+              "mean_probability": 0.43892739290666477,
+              "positive_fraction": 0.0
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 8,
+              "mean_probability": 0.6778414608302917,
+              "positive_fraction": 0.875
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 7,
+              "mean_probability": 0.8929577261113516,
+              "positive_fraction": 0.8571428571428571
+            }
+          ],
+          "confusion_matrix_labels_0_1": [
+            [
+              18,
+              2
+            ],
+            [
+              7,
+              13
+            ]
+          ],
+          "threshold": 0.5,
+          "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+        },
+        "labelled_samples_per_split": {
+          "train": 160,
+          "val": 40,
+          "test": 40
+        },
+        "supervised_fit": "train only; each subject has equal total sample weight; no validation refit"
+      },
+      "random_encoder_linear_probe": {
+        "selected_C": 10.0,
+        "C_candidates": [
+          {
+            "C": 0.1,
+            "validation_subject_roc_auc": 0.62
+          },
+          {
+            "C": 1.0,
+            "validation_subject_roc_auc": 0.6100000000000001
+          },
+          {
+            "C": 10.0,
+            "validation_subject_roc_auc": 0.63
+          }
+        ],
+        "validation_subject_metrics": {
+          "n": 20,
+          "positive_n": 10,
+          "prevalence": 0.5,
+          "roc_auc": 0.63,
+          "average_precision": 0.609678507766743,
+          "macro_f1_at_0_5": 0.595959595959596,
+          "balanced_accuracy_at_0_5": 0.6,
+          "brier_score": 0.2347487329224376,
+          "log_loss": 0.6631862178453763,
+          "ece_5_equal_width_bins": 0.1373901988959866,
+          "calibration_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 1,
+              "mean_probability": 0.18544792091485507,
+              "positive_fraction": 0.0
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 2,
+              "mean_probability": 0.33179854787403606,
+              "positive_fraction": 0.0
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 10,
+              "mean_probability": 0.4921834017179467,
+              "positive_fraction": 0.6
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 6,
+              "mean_probability": 0.664568535152774,
+              "positive_fraction": 0.6666666666666666
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 1,
+              "mean_probability": 0.8080041893529168,
+              "positive_fraction": 0.0
+            }
+          ],
+          "confusion_matrix_labels_0_1": [
+            [
+              5,
+              5
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "threshold": 0.5,
+          "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+        },
+        "test_subject_metrics": {
+          "n": 20,
+          "positive_n": 10,
+          "prevalence": 0.5,
+          "roc_auc": 0.51,
+          "average_precision": 0.5763220551378446,
+          "macro_f1_at_0_5": 0.3939393939393939,
+          "balanced_accuracy_at_0_5": 0.4,
+          "brier_score": 0.27155480760057327,
+          "log_loss": 0.7461661536758559,
+          "ece_5_equal_width_bins": 0.21717070258817625,
+          "calibration_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 0,
+              "mean_probability": null,
+              "positive_fraction": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 5,
+              "mean_probability": 0.33524668558605086,
+              "positive_fraction": 0.6
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 9,
+              "mean_probability": 0.5207680858851274,
+              "positive_fraction": 0.3333333333333333
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 5,
+              "mean_probability": 0.7034020932275684,
+              "positive_fraction": 0.8
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 1,
+              "mean_probability": 0.8497451728654748,
+              "positive_fraction": 0.0
+            }
+          ],
+          "confusion_matrix_labels_0_1": [
+            [
+              3,
+              7
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "threshold": 0.5,
+          "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area",
+          "roc_auc_ci95_subject_bootstrap": [
+            0.2746753246753247,
+            0.8182629870129869
+          ],
+          "bootstrap_valid_replicates": 400,
+          "bootstrap_note": "Illustrative 400-replicate subject bootstrap within one held-out study; it does not quantify between-study uncertainty."
+        },
+        "test_sample_metrics_secondary": {
+          "n": 40,
+          "positive_n": 20,
+          "prevalence": 0.5,
+          "roc_auc": 0.5075000000000001,
+          "average_precision": 0.5079731358514668,
+          "macro_f1_at_0_5": 0.474671669793621,
+          "balanced_accuracy_at_0_5": 0.475,
+          "brier_score": 0.28235295683796247,
+          "log_loss": 0.7795253552637476,
+          "ece_5_equal_width_bins": 0.21265792830488753,
+          "calibration_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 0,
+              "mean_probability": null,
+              "positive_fraction": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 9,
+              "mean_probability": 0.28840962310016505,
+              "positive_fraction": 0.5555555555555556
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 17,
+              "mean_probability": 0.4961270143550452,
+              "positive_fraction": 0.35294117647058826
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 11,
+              "mean_probability": 0.7164596969000439,
+              "positive_fraction": 0.8181818181818182
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 3,
+              "mean_probability": 0.8496337206539,
+              "positive_fraction": 0.0
+            }
+          ],
+          "confusion_matrix_labels_0_1": [
+            [
+              9,
+              11
+            ],
+            [
+              10,
+              10
+            ]
+          ],
+          "threshold": 0.5,
+          "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+        },
+        "labelled_samples_per_split": {
+          "train": 160,
+          "val": 40,
+          "test": 40
+        },
+        "supervised_fit": "train only; each subject has equal total sample weight; no validation refit"
+      },
+      "pretrained_encoder_linear_probe": {
+        "selected_C": 10.0,
+        "C_candidates": [
+          {
+            "C": 0.1,
+            "validation_subject_roc_auc": 0.5800000000000001
+          },
+          {
+            "C": 1.0,
+            "validation_subject_roc_auc": 0.63
+          },
+          {
+            "C": 10.0,
+            "validation_subject_roc_auc": 0.66
+          }
+        ],
+        "validation_subject_metrics": {
+          "n": 20,
+          "positive_n": 10,
+          "prevalence": 0.5,
+          "roc_auc": 0.66,
+          "average_precision": 0.64031162464986,
+          "macro_f1_at_0_5": 0.5833333333333333,
+          "balanced_accuracy_at_0_5": 0.6000000000000001,
+          "brier_score": 0.22192413433433691,
+          "log_loss": 0.6364919719414105,
+          "ece_5_equal_width_bins": 0.07818689149432215,
+          "calibration_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 1,
+              "mean_probability": 0.17956936359002035,
+              "positive_fraction": 0.0
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 1,
+              "mean_probability": 0.29779881105956485,
+              "positive_fraction": 0.0
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 12,
+              "mean_probability": 0.5141692985508002,
+              "positive_fraction": 0.5
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 4,
+              "mean_probability": 0.6784597988634599,
+              "positive_fraction": 0.75
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 2,
+              "mean_probability": 0.8150886340405474,
+              "positive_fraction": 0.5
+            }
+          ],
+          "confusion_matrix_labels_0_1": [
+            [
+              4,
+              6
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "threshold": 0.5,
+          "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+        },
+        "test_subject_metrics": {
+          "n": 20,
+          "positive_n": 10,
+          "prevalence": 0.5,
+          "roc_auc": 0.48000000000000004,
+          "average_precision": 0.5511562998405104,
+          "macro_f1_at_0_5": 0.4373401534526854,
+          "balanced_accuracy_at_0_5": 0.44999999999999996,
+          "brier_score": 0.2754216127562101,
+          "log_loss": 0.7505147684891257,
+          "ece_5_equal_width_bins": 0.18186158702235106,
+          "calibration_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 0,
+              "mean_probability": null,
+              "positive_fraction": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 5,
+              "mean_probability": 0.3391197689205645,
+              "positive_fraction": 0.6
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 10,
+              "mean_probability": 0.5337884547262178,
+              "positive_fraction": 0.4
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 4,
+              "mean_probability": 0.7026615081016646,
+              "positive_fraction": 0.75
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 1,
+              "mean_probability": 0.8055920701943244,
+              "positive_fraction": 0.0
+            }
+          ],
+          "confusion_matrix_labels_0_1": [
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "threshold": 0.5,
+          "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area",
+          "roc_auc_ci95_subject_bootstrap": [
+            0.2527417027417027,
+            0.8023437499999998
+          ],
+          "bootstrap_valid_replicates": 400,
+          "bootstrap_note": "Illustrative 400-replicate subject bootstrap within one held-out study; it does not quantify between-study uncertainty."
+        },
+        "test_sample_metrics_secondary": {
+          "n": 40,
+          "positive_n": 20,
+          "prevalence": 0.5,
+          "roc_auc": 0.495,
+          "average_precision": 0.5113467585046532,
+          "macro_f1_at_0_5": 0.5488721804511278,
+          "balanced_accuracy_at_0_5": 0.55,
+          "brier_score": 0.2873120932618446,
+          "log_loss": 0.7851994952972826,
+          "ece_5_equal_width_bins": 0.154421344057283,
+          "calibration_bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.2,
+              "n": 1,
+              "mean_probability": 0.16540022147319072,
+              "positive_fraction": 1.0
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 8,
+              "mean_probability": 0.2994867989808915,
+              "positive_fraction": 0.5
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 15,
+              "mean_probability": 0.48398524057865006,
+              "positive_fraction": 0.4666666666666667
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 14,
+              "mean_probability": 0.7012128943738514,
+              "positive_fraction": 0.5
+            },
+            {
+              "lower": 0.8,
+              "upper": 1.0,
+              "n": 2,
+              "mean_probability": 0.8306946228489867,
+              "positive_fraction": 0.5
+            }
+          ],
+          "confusion_matrix_labels_0_1": [
+            [
+              10,
+              10
+            ],
+            [
+              8,
+              12
+            ]
+          ],
+          "threshold": 0.5,
+          "auprc_definition": "average_precision (AP), not trapezoidal PR-curve area"
+        },
+        "labelled_samples_per_split": {
+          "train": 160,
+          "val": 40,
+          "test": 40
+        },
+        "supervised_fit": "train only; each subject has equal total sample weight; no validation refit"
+      }
+    },
+    "alignment": {
+      "missing_trained_taxa": [],
+      "excluded_input_taxa": [],
+      "retained_abundance_mass_mean": 1.000000000001947,
+      "retained_fraction_of_input_mass_mean": 1.0,
+      "missing_assumed_zero": false
+    },
+    "test_reconstruction": {
+      "masked_mse_standardized_log_abundance": 1.146352767944336,
+      "training_mean_imputation_mse": 1.1473175287246704,
+      "relative_mse_reduction_vs_mean": 0.0008408838496583027,
+      "masked_values": 480,
+      "mask_count_per_sample": 12
+    },
+    "interpretation": [
+      "Synthetic results validate the pipeline, not real disease prediction.",
+      "A frozen encoder probe tests whether the learned representation adds value to a simple baseline.",
+      "The random encoder control separates the contribution of pretraining from the architecture.",
+      "No model is assumed to outperform another; negative transfer is a valid outcome.",
+      "One held-out study is a demonstration. Research claims need multiple held-out cohorts, seeds, covariate checks and uncertainty across studies.",
+      "Do not change decisions after viewing test metrics; reserve a new test cohort for subsequent tuning."
+    ]
+  },
+  "lora": {
+    "kind": "lora_linear_regression_teaching_demo",
+    "rank": 2,
+    "alpha": 2.0,
+    "steps": 100,
+    "parameters": {
+      "total": 144,
+      "trainable": 40
+    },
+    "frozen_base_unchanged": true,
+    "initial_heldout_mse": 0.17849236726760864,
+    "final_heldout_mse": 6.5488939071656205e-06,
+    "limitations": "The target update is deliberately rank 2. This demonstrates adapter gradients and frozen weights, not instruction tuning, preference alignment or LLM task performance."
+  },
+  "report_file": "runs/demo/report.json",
+  "verification": {
+    "command": "python -m curatemicrobiota pipeline --quick --out runs/demo",
+    "unit_test_command": "python -m unittest discover -s tests -v",
+    "unit_tests_passed": 14,
+    "data_kind": "synthetic_teaching_fixture",
+    "test_date": "2026-10-21",
+    "note": "Observed example from the delivery verification run. CPU timing is machine-dependent; these results do not measure a real clinical task."
+  }
+}

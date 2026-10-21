@@ -1,0 +1,430 @@
+{
+  "source_kind": "synthetic_teaching_pairs_and_fixed_dpo_log_probabilities",
+  "verification_date": "2026-10-21",
+  "added_unit_tests_passed": 4,
+  "core_unit_tests_previously_passed": 14,
+  "full_sft": {
+    "kind": "tinygpt_response_only_sft",
+    "source_kind": "synthetic_teaching_pairs",
+    "adaptation": "full_parameter_sft",
+    "parameters": {
+      "total": 136960,
+      "trainable": 136960
+    },
+    "base_checkpoint_sha256": "c3f010fc7759ce25fc856dc51e9250783fd29b0d468d8fa607ff6b8241dce7b9",
+    "sft_pairs_sha256": "216b185e036bceef57b5971108cc1d1dead3962305b3006be220d33b6f1763aa",
+    "train_pair_ids": [
+      "train-01",
+      "train-02",
+      "train-03",
+      "train-04",
+      "train-05",
+      "train-06",
+      "train-07",
+      "train-08",
+      "train-09",
+      "train-10"
+    ],
+    "validation_pair_ids": [
+      "val-01",
+      "val-02",
+      "val-03",
+      "val-04"
+    ],
+    "supervision": "response UTF-8 bytes plus newline terminator; prompt and padding ignore_index=-100",
+    "train_batch_masks": [
+      {
+        "id": "train-01",
+        "prompt_bytes": 33,
+        "response_bytes_including_terminator": 10,
+        "input_length": 42,
+        "first_supervised_position": 32,
+        "padding_positions": 22
+      },
+      {
+        "id": "train-02",
+        "prompt_bytes": 35,
+        "response_bytes_including_terminator": 7,
+        "input_length": 41,
+        "first_supervised_position": 34,
+        "padding_positions": 23
+      },
+      {
+        "id": "train-03",
+        "prompt_bytes": 25,
+        "response_bytes_including_terminator": 12,
+        "input_length": 36,
+        "first_supervised_position": 24,
+        "padding_positions": 28
+      },
+      {
+        "id": "train-04",
+        "prompt_bytes": 38,
+        "response_bytes_including_terminator": 6,
+        "input_length": 43,
+        "first_supervised_position": 37,
+        "padding_positions": 21
+      },
+      {
+        "id": "train-05",
+        "prompt_bytes": 29,
+        "response_bytes_including_terminator": 5,
+        "input_length": 33,
+        "first_supervised_position": 28,
+        "padding_positions": 31
+      },
+      {
+        "id": "train-06",
+        "prompt_bytes": 33,
+        "response_bytes_including_terminator": 8,
+        "input_length": 40,
+        "first_supervised_position": 32,
+        "padding_positions": 24
+      },
+      {
+        "id": "train-07",
+        "prompt_bytes": 28,
+        "response_bytes_including_terminator": 10,
+        "input_length": 37,
+        "first_supervised_position": 27,
+        "padding_positions": 27
+      },
+      {
+        "id": "train-08",
+        "prompt_bytes": 29,
+        "response_bytes_including_terminator": 5,
+        "input_length": 33,
+        "first_supervised_position": 28,
+        "padding_positions": 31
+      },
+      {
+        "id": "train-09",
+        "prompt_bytes": 29,
+        "response_bytes_including_terminator": 15,
+        "input_length": 43,
+        "first_supervised_position": 28,
+        "padding_positions": 21
+      },
+      {
+        "id": "train-10",
+        "prompt_bytes": 38,
+        "response_bytes_including_terminator": 5,
+        "input_length": 42,
+        "first_supervised_position": 37,
+        "padding_positions": 22
+      }
+    ],
+    "validation_batch_masks": [
+      {
+        "id": "val-01",
+        "prompt_bytes": 37,
+        "response_bytes_including_terminator": 5,
+        "input_length": 41,
+        "first_supervised_position": 36,
+        "padding_positions": 23
+      },
+      {
+        "id": "val-02",
+        "prompt_bytes": 34,
+        "response_bytes_including_terminator": 13,
+        "input_length": 46,
+        "first_supervised_position": 33,
+        "padding_positions": 18
+      },
+      {
+        "id": "val-03",
+        "prompt_bytes": 29,
+        "response_bytes_including_terminator": 6,
+        "input_length": 34,
+        "first_supervised_position": 28,
+        "padding_positions": 30
+      },
+      {
+        "id": "val-04",
+        "prompt_bytes": 35,
+        "response_bytes_including_terminator": 13,
+        "input_length": 47,
+        "first_supervised_position": 34,
+        "padding_positions": 17
+      }
+    ],
+    "initial_validation_response_loss": 3.3162648677825928,
+    "selected_validation_response_loss": 2.742976188659668,
+    "selected_validation_response_perplexity_per_byte": 15.53314594337761,
+    "selected_step": 30,
+    "steps": 30,
+    "seed": 42,
+    "log": [
+      {
+        "step": 1,
+        "train_batch_response_loss": 3.8573648929595947,
+        "validation_response_loss": 3.231983184814453
+      },
+      {
+        "step": 6,
+        "train_batch_response_loss": 3.287916660308838,
+        "validation_response_loss": 3.0154504776000977
+      },
+      {
+        "step": 12,
+        "train_batch_response_loss": 3.094151735305786,
+        "validation_response_loss": 2.9382646083831787
+      },
+      {
+        "step": 18,
+        "train_batch_response_loss": 2.9649221897125244,
+        "validation_response_loss": 2.8873724937438965
+      },
+      {
+        "step": 24,
+        "train_batch_response_loss": 2.7188119888305664,
+        "validation_response_loss": 2.797304630279541
+      },
+      {
+        "step": 30,
+        "train_batch_response_loss": 2.912324905395508,
+        "validation_response_loss": 2.742976188659668
+      }
+    ],
+    "elapsed_seconds": 0.4208668500004933,
+    "wrapped_lora_modules": [],
+    "frozen_base_unchanged": null,
+    "full_sft_base_tensors_changed": 29,
+    "example_generation": "Q: Are demo cohorts real patients?\nA:yi ne useespt.Aeas u.sti",
+    "limitations": "Four tiny validation pairs cannot measure general instruction-following. This is an actual SFT optimization demonstration, not verified microbiological knowledge or clinical evidence."
+  },
+  "lora_sft": {
+    "kind": "tinygpt_response_only_sft",
+    "source_kind": "synthetic_teaching_pairs",
+    "adaptation": "lora_qkv",
+    "parameters": {
+      "total": 137984,
+      "trainable": 1024
+    },
+    "base_checkpoint_sha256": "c3f010fc7759ce25fc856dc51e9250783fd29b0d468d8fa607ff6b8241dce7b9",
+    "sft_pairs_sha256": "216b185e036bceef57b5971108cc1d1dead3962305b3006be220d33b6f1763aa",
+    "train_pair_ids": [
+      "train-01",
+      "train-02",
+      "train-03",
+      "train-04",
+      "train-05",
+      "train-06",
+      "train-07",
+      "train-08",
+      "train-09",
+      "train-10"
+    ],
+    "validation_pair_ids": [
+      "val-01",
+      "val-02",
+      "val-03",
+      "val-04"
+    ],
+    "supervision": "response UTF-8 bytes plus newline terminator; prompt and padding ignore_index=-100",
+    "train_batch_masks": [
+      {
+        "id": "train-01",
+        "prompt_bytes": 33,
+        "response_bytes_including_terminator": 10,
+        "input_length": 42,
+        "first_supervised_position": 32,
+        "padding_positions": 22
+      },
+      {
+        "id": "train-02",
+        "prompt_bytes": 35,
+        "response_bytes_including_terminator": 7,
+        "input_length": 41,
+        "first_supervised_position": 34,
+        "padding_positions": 23
+      },
+      {
+        "id": "train-03",
+        "prompt_bytes": 25,
+        "response_bytes_including_terminator": 12,
+        "input_length": 36,
+        "first_supervised_position": 24,
+        "padding_positions": 28
+      },
+      {
+        "id": "train-04",
+        "prompt_bytes": 38,
+        "response_bytes_including_terminator": 6,
+        "input_length": 43,
+        "first_supervised_position": 37,
+        "padding_positions": 21
+      },
+      {
+        "id": "train-05",
+        "prompt_bytes": 29,
+        "response_bytes_including_terminator": 5,
+        "input_length": 33,
+        "first_supervised_position": 28,
+        "padding_positions": 31
+      },
+      {
+        "id": "train-06",
+        "prompt_bytes": 33,
+        "response_bytes_including_terminator": 8,
+        "input_length": 40,
+        "first_supervised_position": 32,
+        "padding_positions": 24
+      },
+      {
+        "id": "train-07",
+        "prompt_bytes": 28,
+        "response_bytes_including_terminator": 10,
+        "input_length": 37,
+        "first_supervised_position": 27,
+        "padding_positions": 27
+      },
+      {
+        "id": "train-08",
+        "prompt_bytes": 29,
+        "response_bytes_including_terminator": 5,
+        "input_length": 33,
+        "first_supervised_position": 28,
+        "padding_positions": 31
+      },
+      {
+        "id": "train-09",
+        "prompt_bytes": 29,
+        "response_bytes_including_terminator": 15,
+        "input_length": 43,
+        "first_supervised_position": 28,
+        "padding_positions": 21
+      },
+      {
+        "id": "train-10",
+        "prompt_bytes": 38,
+        "response_bytes_including_terminator": 5,
+        "input_length": 42,
+        "first_supervised_position": 37,
+        "padding_positions": 22
+      }
+    ],
+    "validation_batch_masks": [
+      {
+        "id": "val-01",
+        "prompt_bytes": 37,
+        "response_bytes_including_terminator": 5,
+        "input_length": 41,
+        "first_supervised_position": 36,
+        "padding_positions": 23
+      },
+      {
+        "id": "val-02",
+        "prompt_bytes": 34,
+        "response_bytes_including_terminator": 13,
+        "input_length": 46,
+        "first_supervised_position": 33,
+        "padding_positions": 18
+      },
+      {
+        "id": "val-03",
+        "prompt_bytes": 29,
+        "response_bytes_including_terminator": 6,
+        "input_length": 34,
+        "first_supervised_position": 28,
+        "padding_positions": 30
+      },
+      {
+        "id": "val-04",
+        "prompt_bytes": 35,
+        "response_bytes_including_terminator": 13,
+        "input_length": 47,
+        "first_supervised_position": 34,
+        "padding_positions": 17
+      }
+    ],
+    "initial_validation_response_loss": 3.3162648677825928,
+    "selected_validation_response_loss": 3.2499840259552,
+    "selected_validation_response_perplexity_per_byte": 25.78992794443827,
+    "selected_step": 30,
+    "steps": 30,
+    "seed": 42,
+    "log": [
+      {
+        "step": 1,
+        "train_batch_response_loss": 4.155150413513184,
+        "validation_response_loss": 3.3122189044952393
+      },
+      {
+        "step": 6,
+        "train_batch_response_loss": 3.685466766357422,
+        "validation_response_loss": 3.2736685276031494
+      },
+      {
+        "step": 12,
+        "train_batch_response_loss": 3.6360371112823486,
+        "validation_response_loss": 3.268022298812866
+      },
+      {
+        "step": 18,
+        "train_batch_response_loss": 3.651578664779663,
+        "validation_response_loss": 3.264920234680176
+      },
+      {
+        "step": 24,
+        "train_batch_response_loss": 3.6326143741607666,
+        "validation_response_loss": 3.2787270545959473
+      },
+      {
+        "step": 30,
+        "train_batch_response_loss": 3.6880195140838623,
+        "validation_response_loss": 3.2499840259552
+      }
+    ],
+    "elapsed_seconds": 0.26226293400031864,
+    "wrapped_lora_modules": [
+      "blocks.0.attention.qkv",
+      "blocks.1.attention.qkv"
+    ],
+    "frozen_base_unchanged": true,
+    "full_sft_base_tensors_changed": null,
+    "example_generation": "Q: Are demo cohorts real patients?\nA:a tipasm eslm mitsiere  ",
+    "limitations": "Four tiny validation pairs cannot measure general instruction-following. This is an actual SFT optimization demonstration, not verified microbiological knowledge or clinical evidence."
+  },
+  "dpo_mechanics": {
+    "kind": "dpo_formula_and_gradient_mechanics",
+    "source_kind": "fixed_synthetic_sequence_log_probabilities",
+    "beta": 0.1,
+    "policy_chosen_logp": [
+      -6.0,
+      -7.199999809265137
+    ],
+    "policy_rejected_logp": [
+      -8.0,
+      -6.900000095367432
+    ],
+    "reference_chosen_logp": [
+      -6.5,
+      -7.099999904632568
+    ],
+    "reference_rejected_logp": [
+      -7.400000095367432,
+      -6.800000190734863
+    ],
+    "preference_advantage": [
+      1.0999999046325684,
+      0.0
+    ],
+    "dpo_loss": 0.66640305519104,
+    "chosen_logp_gradient": [
+      -0.023626385256648064,
+      -0.02500000037252903
+    ],
+    "rejected_logp_gradient": [
+      0.023626385256648064,
+      0.02500000037252903
+    ],
+    "chosen_gradient_is_negative": true,
+    "rejected_gradient_is_positive": true,
+    "loss_after_higher_chosen_advantage": 0.6471521258354187,
+    "higher_advantage_lowers_loss": true,
+    "meaning": "Gradient descent increases chosen relative log probability and decreases rejected relative log probability compared with a fixed reference.",
+    "limitations": "This differentiates a DPO equation on fixed scalar examples; it does not train a preference-aligned language model, fit a reward model, or perform RLHF.",
+    "source": "https://arxiv.org/abs/2305.18290"
+  }
+}
