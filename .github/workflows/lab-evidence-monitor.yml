@@ -10,6 +10,9 @@ on:
       - 'personal-growth-lab/academy/data/labs.json'
       - 'personal-growth-lab/academy/tools/monitor_labs.py'
       - 'personal-growth-lab/academy/tools/test_labs.py'
+      - 'personal-growth-lab/academy/tools/test_labs_browser.cjs'
+      - 'personal-growth-lab/academy/assets/labs.*'
+      - 'personal-growth-lab/academy/labs.html'
 permissions:
   contents: write
 concurrency:

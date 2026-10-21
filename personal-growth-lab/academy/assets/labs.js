@@ -60,7 +60,7 @@
   }catch(e){$('freshness').textContent='证据库读取失败，请稍后刷新。'+(data?'当前保留已加载内容。':'可使用页尾结构化数据入口。');if(!data)$('cards').innerHTML='<p class="empty">暂时无法载入数据。请刷新或稍后重试。</p>';}
   finally{loading=false;$('refresh').disabled=false;}
  }
- $('filters').addEventListener('submit',e=>e.preventDefault());$('filters').addEventListener('input',render);$('filters').addEventListener('change',render);$('filters').addEventListener('reset',()=>setTimeout(render,0));
+ $('filters').addEventListener('submit',e=>e.preventDefault());$('filters').addEventListener('input',render);$('filters').addEventListener('reset',()=>setTimeout(render,0));
  $('cards').addEventListener('change',e=>{const id=e.target.dataset.compare;if(!id)return;if(e.target.checked&&selected.size>=4){e.target.checked=false;$('announce').textContent='最多比较4组，请先取消一组。';return;}e.target.checked?selected.add(id):selected.delete(id);renderComparison();});
  $('cards').addEventListener('click',e=>{const a=e.target.closest('[data-open]');if(a)document.getElementById('lab-'+a.dataset.open)?.querySelector('details').setAttribute('open','');});
  document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{ids.forEach(id=>$(id).value=id==='sort'?'tier':'');$('direction').value=b.dataset.preset;render();$('catalog').scrollIntoView();}));
