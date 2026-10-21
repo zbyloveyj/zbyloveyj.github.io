@@ -53,7 +53,10 @@
     submission_to_publication:'投稿至发表', review_time:'来源标注的审稿时间', decision_after_review:'外审后决定'
   };
   const DEFAULT_FILTERS = { q:'', field:'', database:'', system:'JCR', quartile:'', category:'', year:'', min:'', max:'', oa:'', country:'', publisher:'', review:'', reviewStage:'first', curated:false, saved:false, sort:'recommended' };
-  const state = { journals:[], byId:new Map(), meta:{}, filtered:[], filters:{...DEFAULT_FILTERS}, page:1, mode:'cards', view:'catalog', ready:false, compare:[], detailId:null, detailToken:0, local:null, importMap:new Map(), sourceLists:[], issnSet:new Set() };
+  const state = { journals:[], byId:new Map(), meta:{}, filtered:[], filters:{...DEFAULT_FILTERS}, page:1, mode:'cards', view:'catalog', ready:false, compare:[], detailId:null, detailToken:0, local:null, importMap:new Map(), sourceLists:[], issnSet:new Set(), candidateScope:null };
+  // Manuscript matching is deliberately session-only: text and inferred terms never
+  // enter URL filters, localStorage, shared links, or journal-result exports.
+  const matchState = { index:null, indexPromise:null, indexRows:null, analysis:null, excluded:new Set(), ranked:[], filtered:[], shown:12, token:0, busy:false, hasRun:false, pending:false, inputKey:'', preferences:null };
   const detailCache = new Map();
   const shardPromises = new Map();
   let toastTimer;
@@ -172,7 +175,7 @@
     if(!state.ready)return;
     const f=state.filters, groups=keywordGroups(state.filters.q);
     if(f.min!==''&&f.max!==''&&Number(f.min)>Number(f.max)){state.filtered=[];$('result-subtitle').textContent='最低 JIF 大于最高 JIF，请调整范围。';}
-    else {state.filtered=sortResults(state.journals.filter((j)=>filterMatches(j,f,groups)));$('result-subtitle').textContent=f.q?'关键词匹配刊名、学科与主题；不是稿件录用预测':'每项指标保留年份；未披露信息不推算';}
+    else {state.filtered=sortResults(state.journals.filter((j)=>(!state.candidateScope||state.candidateScope.ids.has(j.id))&&filterMatches(j,f,groups)));$('result-subtitle').textContent=state.candidateScope?`在生成时选定的 ${fmt(state.candidateScope.ids.size)} 本稿件候选中继续筛选；范围仅限本次会话。`:f.q?'关键词匹配刊名、学科与主题；不是稿件录用预测':'每项指标保留年份；未披露信息不推算';}
     state.page=Math.max(1,Math.min(state.page,Math.ceil(state.filtered.length/PAGE_SIZE)||1));
     renderResults();renderActiveFilters();syncURL();
   }
@@ -202,7 +205,10 @@
   }
   function renderActiveFilters() {
     const f=state.filters, labels={q:`关键词：${f.q}`,field:fieldName(f.field),database:f.database,quartile:`${f.system} ${f.quartile}`,category:f.category,year:`JIF ${f.year}`,min:`JIF ≥ ${f.min}`,max:`JIF ≤ ${f.max}`,oa:f.oa==='yes'?'全开放获取':'未标记全 OA',country:countryName(f.country),publisher:`出版方：${f.publisher}`,review:`${reviewLabel(f.reviewStage)} ≤ ${f.review} 天`,curated:'出版方详情核验',saved:'我的收藏'};
-    $('active-filters').innerHTML=Object.entries(labels).filter(([k])=>f[k]!==''&&f[k]!==false).map(([key,label])=>`<button class="filter-chip" type="button" data-clear-filter="${key}" title="清除${esc(label)}"><span>${esc(label)}</span><span aria-hidden="true">×</span></button>`).join('');
+    $('active-filters').innerHTML=(state.candidateScope?`<button class="filter-chip candidate-scope-chip" type="button" data-clear-scope title="清除本次稿件候选范围，返回全目录筛选"><span>稿件候选 ${fmt(state.candidateScope.ids.size)} 本 · 本次会话</span><span aria-hidden="true">×</span></button>`:'')+Object.entries(labels).filter(([k])=>f[k]!==''&&f[k]!==false).map(([key,label])=>`<button class="filter-chip" type="button" data-clear-filter="${key}" title="清除${esc(label)}"><span>${esc(label)}</span><span aria-hidden="true">×</span></button>`).join('');
+    $('share-search').disabled=Boolean(state.candidateScope);
+    $('share-search').textContent=state.candidateScope?'稿件候选仅限本次会话':'复制检索链接';
+    $('share-search').title=state.candidateScope?'可导出当前候选；分享链接不包含稿件内容或候选范围。':'';
   }
   function fillSelect(id, entries, current) {const select=$(id),first=select.options[0]?.outerHTML||'<option value="">全部</option>';select.innerHTML=first+entries.map(([value,label])=>`<option value="${esc(value)}">${esc(label)}</option>`).join('');select.value=current||'';}
   function populateFilters() {
@@ -217,7 +223,7 @@
     $('filter-system').innerHTML='<option value="JCR">JCR 分区</option>'+(hasCAS?'<option value="CAS">中科院2025参考分区</option>':'')+(hasSJR?'<option value="SJR">SJR（个人导入）</option>':'');
     if(![...$('filter-system').options].some((o)=>o.value===state.filters.system))state.filters.system='JCR';
     $('filter-system').value=state.filters.system;
-    populateCategories();syncFilterControls();
+    populateCategories();syncFilterControls();populateMatchControls();
   }
   function populateCategories() {
     const system=state.filters.system, categories=new Set();
@@ -229,15 +235,170 @@
   }
   const FILTER_IDS={field:'filter-field',database:'filter-database',system:'filter-system',quartile:'filter-quartile',category:'filter-category',year:'filter-year',min:'filter-min',max:'filter-max',oa:'filter-oa',country:'filter-country',publisher:'filter-publisher',review:'filter-review',reviewStage:'filter-review-stage',curated:'filter-curated',saved:'filter-saved',sort:'sort-by'};
   function syncFilterControls() {$('search-input').value=state.filters.q;Object.entries(FILTER_IDS).forEach(([key,id])=>{const element=$(id);if(!element)return;if(element.type==='checkbox')element.checked=state.filters[key];else element.value=state.filters[key];});}
-  function resetFilters() {state.filters={...DEFAULT_FILTERS};state.page=1;populateCategories();syncFilterControls();computeResults();}
+  function resetFilters() {state.candidateScope=null;state.filters={...DEFAULT_FILTERS};state.page=1;populateCategories();syncFilterControls();computeResults();}
   function updateFilter(key,value) {state.filters[key]=value;state.page=1;if(key==='system'){state.filters.category='';state.filters.quartile='';populateCategories();}computeResults();}
   function savedCount() {return Object.entries(state.local.records).filter(([id,r])=>r.saved&&state.byId.has(id)).length;}
   function renderSavedCount() {$('saved-count').textContent=fmt(savedCount());}
   function setView(view, updateHash=true) {
-    if(!['catalog','shortlist','methods'].includes(view))view='catalog';state.view=view;
-    ['catalog','shortlist','methods'].forEach((name)=>{$('view-'+name).hidden=name!==view;$('tab-'+name).setAttribute('aria-selected',String(name===view));$('tab-'+name).tabIndex=name===view?0:-1;});
+    if(!['catalog','matcher','shortlist','methods'].includes(view))view='catalog';state.view=view;
+    ['catalog','matcher','shortlist','methods'].forEach((name)=>{$('view-'+name).hidden=name!==view;$('tab-'+name).setAttribute('aria-selected',String(name===view));$('tab-'+name).tabIndex=name===view?0:-1;});
     if(view==='shortlist')renderShortlist();
     if(updateHash)history.replaceState(null,'',location.pathname+location.search+(view==='catalog'?'#catalog':'#'+view));
+  }
+  const MATCH_FILTER_IDS={field:'match-field',database:'match-database',system:'match-system',quartile:'match-quartile',oa:'match-oa',min:'match-min',max:'match-max',reviewStage:'match-review-stage',review:'match-review'};
+  const MATCH_EXAMPLES={
+    microbiome:{title:'肠道微生物组与抑郁症脑功能网络的关联',abstract:'结合宏基因组测序与静息态功能磁共振，研究肠道微生物群落及代谢功能与抑郁症、认知表现和脑网络之间的关系，并在独立人群中检验结果。',keywords:'gut microbiome, depression, functional brain networks'},
+    ai:{title:'Interpretable machine learning for clinical risk prediction',abstract:'We develop interpretable machine learning methods for early disease risk prediction using longitudinal electronic health records. External validation and uncertainty estimation assess model generalization across hospitals.',keywords:'machine learning, medical informatics, clinical prediction'},
+    materials:{title:'可降解导电水凝胶用于神经组织修复',abstract:'设计具有导电性与可降解性的水凝胶生物材料，研究其力学性能、电学性质和细胞相容性，并评价材料在组织工程与神经再生中的应用。',keywords:'hydrogel, biomaterials, tissue engineering, nerve regeneration'},
+    social:{title:'Housing affordability and social inequality in urban communities',abstract:'This study examines how housing costs and neighborhood change affect social inequality and residential mobility. Longitudinal survey data and urban policy analysis are used to compare communities.',keywords:'housing, urban sociology, social inequality'}
+  };
+  function populateMatchControls() {
+    if(!$('match-field'))return;
+    const field=$('match-field').value;
+    const fields=unique(state.journals.flatMap((j)=>j.fields)).sort((a,b)=>fieldName(a).localeCompare(fieldName(b),'zh-CN'));
+    fillSelect('match-field',fields.map((f)=>[f,fieldName(f)]),field);
+    updateMatchQuartileLabels();
+  }
+  function updateMatchQuartileLabels() {
+    if(!$('match-system'))return;
+    const value=$('match-quartile').value,system=$('match-system').value;
+    $('match-quartile').innerHTML='<option value="">不限分区</option>'+[1,2,3,4].map((n)=>`<option value="Q${n}">${system==='CAS'?n+'区':'Q'+n}</option>`).join('');
+    $('match-quartile').value=value;
+  }
+  function matchInputs() {return {title:$('match-title').value.trim().slice(0,500),abstract:$('match-abstract').value.trim().slice(0,12000),keywords:$('match-keywords').value.trim().slice(0,500)};}
+  function matchInputKey(input) {return JSON.stringify([input.title,input.abstract,input.keywords]);}
+  function matchPreferences() {
+    const f={...DEFAULT_FILTERS};Object.entries(MATCH_FILTER_IDS).forEach(([key,id])=>{f[key]=$(id)?.value||DEFAULT_FILTERS[key];});
+    return {filters:sanitizeFilters(f),fee:$('match-fee')?.value||'',sort:$('match-sort')?.value||'relevance'};
+  }
+  function matchPreferenceError(p) {
+    const f=p.filters;
+    if([f.min,f.max].some((v)=>v!==''&&(!validNumber(v)||Number(v)<0)))return '影响因子范围请填写大于或等于 0 的数值。';
+    if(f.min!==''&&f.max!==''&&Number(f.min)>Number(f.max))return '最低影响因子大于最高影响因子，请调整范围。';
+    return '';
+  }
+  function matchStatus(message,kind='idle') {$('match-status').textContent=message;$('match-status').dataset.state=kind;}
+  function setMatchBusy(busy) {
+    matchState.busy=busy;$('match-submit').disabled=busy;$('match-submit').textContent=busy?'正在匹配…':'匹配候选期刊';
+    $('match-results').setAttribute('aria-busy',String(busy));
+    $('match-actions').hidden=busy||!matchState.filtered.length;$('match-more').disabled=busy;
+  }
+  function updateMatchCounts() {
+    if($('match-title-count'))$('match-title-count').textContent=`${$('match-title').value.length} / 500`;
+    if($('match-abstract-count'))$('match-abstract-count').textContent=`${$('match-abstract').value.length} / 12,000`;
+  }
+  function matchEmpty(title,copy,action='') {return `<div class="match-empty"><span class="match-empty-mark" aria-hidden="true">⌕</span><h3>${esc(title)}</h3><p>${esc(copy)}</p>${action}</div>`;}
+  function invalidateMatch(message='稿件内容已更新，点击“匹配候选期刊”重新计算。') {
+    matchState.token++;matchState.pending=false;matchState.analysis=null;matchState.excluded.clear();matchState.ranked=[];matchState.filtered=[];matchState.hasRun=false;matchState.inputKey='';setMatchBusy(false);
+    $('match-analysis').innerHTML='';$('match-summary').innerHTML='';$('match-actions').hidden=true;$('match-more').hidden=true;
+    $('match-results').innerHTML=matchEmpty('为这份研究找到候选期刊','标题、摘要或关键词任选其一；补充研究对象与方法，可以提供更具体的主题线索。');
+    matchStatus(message);updateMatchCounts();
+  }
+  function renderMatchAnalysis() {
+    const analysis=matchState.analysis;if(!analysis){$('match-analysis').innerHTML='';return;}
+    const terms=asArray(analysis.terms),active=terms.filter((t)=>!matchState.excluded.has(t.id));
+    $('match-analysis').innerHTML=`<div class="match-analysis-head"><div><h3>识别到的主题线索</h3><p>点击主题可保留或排除；当前启用 ${active.length} / ${terms.length} 项。</p></div><button class="text-button" type="button" data-match-enable-all>全部启用</button></div><div class="match-topic-list">${terms.map((term)=>`<button class="match-topic-chip" type="button" data-match-term="${esc(term.id)}" aria-pressed="${!matchState.excluded.has(term.id)}" title="${matchState.excluded.has(term.id)?'启用':'排除'}主题：${esc(term.label)}"><span>${esc(term.label)}</span><span aria-hidden="true">${matchState.excluded.has(term.id)?'+':'✓'}</span></button>`).join('')}</div>${asArray(analysis.warnings).length?`<p class="match-analysis-note">${analysis.warnings.map(esc).join(' ')}</p>`:''}`;
+  }
+  async function ensureMatchIndex() {
+    if(matchState.index&&matchState.indexRows===state.journals)return matchState.index;
+    if(matchState.indexPromise&&matchState.indexRows===state.journals)return matchState.indexPromise;
+    const engine=globalThis.JournalMatcher;if(!engine)throw new Error('匹配组件未载入，请刷新页面后重试');
+    const rows=state.journals;matchState.indexRows=rows;
+    matchState.indexPromise=engine.createIndex(rows,{onProgress:({processed,total})=>{if(matchState.busy)matchStatus(`正在准备本地主题索引：${fmt(processed)} / ${fmt(total)}。稿件内容留在当前页面。`,'loading');}}).then((index)=>{if(matchState.indexRows===rows)matchState.index=index;return index;}).catch((error)=>{if(matchState.indexRows===rows){matchState.indexPromise=null;matchState.index=null;}throw error;});
+    return matchState.indexPromise;
+  }
+  async function runMatcher(reanalyze=true) {
+    const input=matchInputs();
+    if(!input.title&&!input.abstract&&!input.keywords){invalidateMatch('请先填写论文标题、一段摘要或研究关键词。');$('match-title').focus();return;}
+    const preference=matchPreferences(),error=matchPreferenceError(preference);
+    if(error){matchState.filtered=[];$('match-actions').hidden=true;$('match-more').hidden=true;$('match-summary').innerHTML='';$('match-results').innerHTML=matchEmpty('请调整筛选范围',error);matchStatus(error,'error');return;}
+    if(!state.ready){matchState.pending=true;matchStatus('完整期刊目录正在载入，载入后会自动开始匹配。','loading');return;}
+    if(!globalThis.JournalMatcher){matchStatus('匹配组件未载入，请刷新页面后重试。','error');return;}
+    const token=++matchState.token;matchState.pending=false;const key=matchInputKey(input);
+    if(reanalyze||!matchState.analysis||key!==matchState.inputKey){matchState.analysis=globalThis.JournalMatcher.analyze(input);matchState.excluded.clear();matchState.inputKey=key;}
+    renderMatchAnalysis();
+    if(!asArray(matchState.analysis.terms).length){matchState.ranked=[];matchState.filtered=[];matchState.hasRun=true;setMatchBusy(false);renderMatchResults();matchStatus('暂未识别到具体研究主题，请补充研究对象、领域或方法名称。','empty');return;}
+    setMatchBusy(true);matchStatus('正在根据刊名、期刊主题与分区学科查找候选…','loading');
+    try {
+      const index=await ensureMatchIndex();if(token!==matchState.token)return;
+      await new Promise((resolve)=>setTimeout(resolve,0));if(token!==matchState.token)return;
+      const ranked=globalThis.JournalMatcher.rank(index,matchState.analysis,{excludedTermIds:[...matchState.excluded],limit:0});
+      if(token!==matchState.token)return;
+      matchState.ranked=ranked;matchState.hasRun=true;matchState.shown=12;applyMatchPreferences();
+    }catch(error){if(token===matchState.token){matchState.hasRun=false;matchState.ranked=[];matchState.filtered=[];$('match-actions').hidden=true;$('match-more').hidden=true;$('match-results').innerHTML=matchEmpty('匹配暂时未完成','你填写的内容仍在当前页面，可以再次尝试。');matchStatus(error.message||'匹配暂时未完成，请重试。','error');}}
+    finally{if(token===matchState.token)setMatchBusy(false);}
+  }
+  function applyMatchPreferences() {
+    if(!matchState.hasRun)return;
+    const p=matchPreferences(),error=matchPreferenceError(p);matchState.preferences=p;
+    if(error){matchState.filtered=[];$('match-actions').hidden=true;$('match-more').hidden=true;$('match-summary').innerHTML='';$('match-results').innerHTML=matchEmpty('请调整筛选范围',error);matchStatus(error,'error');return;}
+    matchState.filtered=matchState.ranked.filter((row)=>{const j=state.byId.get(row.id);if(!j||!filterMatches(j,p.filters,[]))return false;if(p.fee==='free'&&!(j.hasDOAJProfile===true&&j.apcCharged===false))return false;if(p.fee==='paid'&&!(j.hasDOAJProfile===true&&j.apcCharged===true))return false;return true;});
+    // Preserve the engine's full-precision ranking and exact-name tie-breaks;
+    // the displayed score is rounded and must not become a new sort key.
+    const rankOrder=new Map(matchState.ranked.map((row,i)=>[row.id,i]));
+    const tie=(a,b)=>rankOrder.get(a.id)-rankOrder.get(b.id);
+    if(p.sort==='jif-desc')matchState.filtered.sort((a,b)=>(jifInfo(state.byId.get(b.id),'')?.value??-1)-(jifInfo(state.byId.get(a.id),'')?.value??-1)||tie(a,b));
+    else if(p.sort==='review-asc')matchState.filtered.sort((a,b)=>(reviewInfo(state.byId.get(a.id),p.filters.reviewStage)?.days??Infinity)-(reviewInfo(state.byId.get(b.id),p.filters.reviewStage)?.days??Infinity)||tie(a,b));
+    else matchState.filtered.sort(tie);
+    matchState.shown=12;renderMatchResults();
+    matchStatus(matchState.filtered.length?`找到 ${fmt(matchState.filtered.length)} 本符合主题与所选条件的候选期刊。相关分用于检索排序，不能表示录用概率。`:matchState.ranked.length?'有主题相关期刊，但没有记录同时满足当前筛选条件。可主动调整条件；缺失指标未被当作满足条件。':'当前主题未找到有足够文字证据的候选。可以调整主题，或补充更具体的研究对象与方法。',matchState.filtered.length?'success':'empty');
+  }
+  function matchPreferenceLabels(p) {
+    const f=p.filters;return [f.field?fieldName(f.field):'',f.database,f.quartile?`${f.system==='CAS'?'中科院2025参考':f.system} ${f.system==='CAS'?f.quartile.slice(1)+'区':f.quartile}`:'',f.min!==''?'JIF ≥ '+f.min:'',f.max!==''?'JIF ≤ '+f.max:'',f.oa==='yes'?'标记全 OA':f.oa==='no'?'未标记全 OA':'',f.review?reviewLabel(f.reviewStage)+' ≤ '+f.review+' 天':'',p.fee==='free'?'DOAJ 标明不收 APC':p.fee==='paid'?'DOAJ 标明收取 APC':''].filter(Boolean);
+  }
+  function matchingFee(journal) {return journal.hasDOAJProfile&&journal.apcCharged===false?'DOAJ 标明不收 APC':journal.hasDOAJProfile&&journal.apcCharged===true?'DOAJ 标明收取 APC':'APC 状态未披露';}
+  function matchCardHTML(row,position) {
+    const j=state.byId.get(row.id),p=matchState.preferences||matchPreferences(),f=p.filters,metric=jifInfo(j,''),review=reviewInfo(j,f.reviewStage),volume=volumeInfo(j);
+    const qs=unique(quartileEntries(j,f.system).map((q)=>q.quartile)).sort();const qTitle=f.system==='CAS'?'中科院2025参考':f.system==='SJR'?'SJR / 个人导入':'JCR 已收录分区';
+    const qText=qs.length?qs.map((q)=>f.system==='CAS'?q.slice(1)+'区':q).join(' / '):'未收录';
+    const terms=unique(asArray(row.matchedTerms).map((t)=>typeof t==='string'?t:t.label)).slice(0,7),topics=unique(asArray(row.matchedTopics)).slice(0,3),score=Math.max(0,Math.min(100,Number(row.score)||0));
+    const metricText=metric?fmt(metric.value):j.jifText||'未收录',metricYear=metric?metric.year:j.jifText?j.jifYear:'';
+    return `<article class="match-card"><div class="match-card-head"><span class="match-rank" aria-label="第 ${position} 项">${String(position).padStart(2,'0')}</span><div class="match-card-title"><p class="match-publisher">${esc(j.publisher||'出版方未标明')} · ${esc(countryName(j.country))}</p><h3><button class="journal-title-button" type="button" data-action="detail" data-id="${esc(j.id)}">${esc(j.name)}</button></h3><p class="issn-line">ISSN ${esc(j.issnL||'未标明')} · ${esc(j.fields.slice(0,2).map(fieldName).join(' / '))}</p></div><div class="match-score"><strong>${score.toFixed(1)}<small> / 100</small></strong><span>主题相关分</span><div class="match-score-track" aria-hidden="true"><span style="width:${score}%"></span></div></div>${favoriteButton(j)}</div><div class="match-reasons"><span class="match-reasons-label">匹配线索</span>${terms.map((t)=>tag(t,'teal')).join('')}${shortIndexTags(j)}</div><p class="match-evidence">${topics.length?'期刊主题：'+esc(topics.join('；')):'文字证据来自已收录刊名或 JCR 学科，详细研究范围请核对期刊官网。'}</p><div class="match-card-metrics">${metricHTML('影响因子 JIF',metricText,metricYear,!metric&&!j.jifText)}${metricHTML(qTitle,qText,'',!qs.length,true)}${metricHTML(reviewLabel(f.reviewStage),review?fmt(review.days)+' 天':'未披露','',!review,true)}${metricHTML('费用资料',matchingFee(j),'',!j.hasDOAJProfile,true)}</div><details class="match-explanation"><summary>查看匹配依据与待核对项</summary><ul>${asArray(row.reasons).slice(0,6).map((reason)=>`<li>${esc(reason)}</li>`).join('')}<li>匹配依据为目录中的刊名、期刊主题和分区学科，主题资料可能存在覆盖不足；请以官网 Aims &amp; Scope 与近期文章为准。</li>${qs.length?`<li>${esc(qTitle)}按不同学科分别记录；详情可查看对应年份和学科，当前分区条件满足其中任一已收录学科即可。</li>`:''}${metric?.personal?'<li>当前 JIF 来自个人导入，详情中保留来源标识。</li>':''}${j.hasDOAJProfile?`<li>APC 状态来自 DOAJ 记录${j.doajUpdatedAt?'，资料最后更新 '+esc(dateOnly(j.doajUpdatedAt)):''}；不收 APC 仍可能存在其他费用。</li>`:''}${volume?`<li>${volume.year} 年 OpenAlex 收录 ${fmt(volume.count)} 条文献，不等于期刊收到的投稿量。</li>`:''}${asArray(j.warnings).length?'<li>来源记录包含待核对事项，请查看完整档案。</li>':''}</ul></details><div class="match-card-actions">${compareCheck(j)}<button type="button" class="text-button" data-action="detail" data-id="${esc(j.id)}">查看期刊档案与投稿入口 ↗</button></div></article>`;
+  }
+  function renderMatchResults() {
+    const rows=matchState.filtered,p=matchState.preferences||matchPreferences(),labels=matchPreferenceLabels(p),terms=asArray(matchState.analysis?.terms).filter((t)=>!matchState.excluded.has(t.id));
+    $('match-summary').innerHTML=matchState.hasRun?`<div class="match-summary-card"><div><span class="eyebrow">MATCH RESULTS</span><h3>${fmt(rows.length)} 本候选期刊</h3><p>全目录 ${fmt(state.journals.length)} 本 · 主题相关 ${fmt(matchState.ranked.length)} 本 · 启用主题 ${terms.length} 项</p></div><div class="match-filter-summary">${labels.length?labels.map((label)=>tag(label)).join(''):'<span>当前未限定分区、影响因子或收录</span>'}</div></div>`:'';
+    $('match-actions').hidden=!rows.length;$('match-more').hidden=rows.length<=matchState.shown;
+    if(!rows.length){const excludedAll=matchState.analysis?.terms?.length&&!terms.length,missingSJR=p.filters.system==='SJR'&&p.filters.quartile&&!state.local.metrics.some((m)=>m.system==='SJR');$('match-results').innerHTML=matchEmpty(excludedAll?'请至少启用一个主题':missingSJR?'尚未导入可用的 SJR 分区':matchState.ranked.length?'当前条件下没有候选':'暂未找到有足够主题证据的候选',excludedAll?'点击上方主题标签重新启用，或点击“全部启用”。':missingSJR?'SJR 使用你在当前浏览器导入的个人记录。可以先导入有权使用的指标，或主动选择其他分区条件。':matchState.ranked.length?'收录、分区、影响因子、费用与时间条件同时生效。没有对应数据的期刊不能通过该项筛选。':'尝试填写具体的研究对象、学科或方法。仅有“研究”“结果”等通用表述无法形成可靠的匹配。',missingSJR?'<button class="secondary-button" type="button" data-view="methods">查看个人指标导入说明</button>':matchState.ranked.length?'<button class="secondary-button" type="button" data-match-reset-prefs>清除匹配筛选条件</button>':'');return;}
+    $('match-results').innerHTML=`<div class="match-result-list">${rows.slice(0,matchState.shown).map((row,i)=>matchCardHTML(row,i+1)).join('')}</div><p class="match-result-footnote">当前显示 ${Math.min(rows.length,matchState.shown)} / ${fmt(rows.length)} 本。相关分衡量已收录文字资料的主题契合程度；费用、用时与收录状态以详情中的来源日期为准。</p>`;
+    $('match-more').textContent=`再显示 ${Math.min(12,Math.max(0,rows.length-matchState.shown))} 本候选`;
+  }
+  function resetMatchPreferences() {Object.entries(MATCH_FILTER_IDS).forEach(([key,id])=>{if($(id))$(id).value=DEFAULT_FILTERS[key];});$('match-fee').value='';if($('match-sort'))$('match-sort').value='relevance';updateMatchQuartileLabels();applyMatchPreferences();}
+  function useManuscriptForMatch() {
+    const title=$('manuscript-title').value.trim(),keywords=$('manuscript-keywords').value.trim();
+    if(!title&&!keywords){setView('matcher');toast('投稿清单尚未填写稿件名称或关键词，可以直接在这里输入。');$('match-title').focus();return;}
+    $('match-title').value=title;$('match-keywords').value=keywords;$('match-abstract').value='';invalidateMatch('已带入投稿清单中的稿件名称和关键词，可以补充摘要后匹配。');setView('matcher');$('match-title').focus();
+  }
+  function matchToCatalog() {
+    if(matchState.busy||!matchState.hasRun){toast('请等待当前匹配完成。');return;}
+    if(!matchState.filtered.length){toast('当前没有可继续筛选的候选。');return;}
+    state.candidateScope={ids:new Set(matchState.filtered.map((row)=>row.id)),createdAt:new Date().toISOString()};state.filters={...DEFAULT_FILTERS,...matchPreferences().filters,q:'',sort:'recommended'};state.page=1;populateCategories();syncFilterControls();computeResults();setView('catalog');
+    toast(`已限定为当前 ${fmt(state.candidateScope.ids.size)} 本候选，可继续筛选；候选范围只保留在本次会话。`);
+    document.querySelector('.workspace-tabs').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function exportMatchResults() {
+    if(matchState.busy||!matchState.hasRun){toast('请等待当前匹配完成。');return;}
+    if(!matchState.filtered.length){toast('暂无匹配结果可以导出。');return;}
+    const p=matchState.preferences||matchPreferences(),headers=['候选顺序','期刊编号','期刊名称','ISSN','主题相关分_非录用概率','期刊已收录主题','已收录JCR学科','JIF','JIF年份','WoS收录','所选处理阶段','阶段天数','DOAJ_APC状态','筛选条件','期刊档案链接'];
+    // Do not export manuscript text, extracted terms, or free-form explanations,
+    // because an English extracted term can reproduce a distinctive title phrase.
+    const rows=matchState.filtered.map((row,i)=>{const j=state.byId.get(row.id),metric=jifInfo(j,''),review=reviewInfo(j,p.filters.reviewStage),url=new URL(location.href);url.search='';url.hash='journal='+encodeURIComponent(j.id);return [i+1,j.id,j.name,j.issnL,row.score,asArray(j.topics).join('; '),asArray(j.jcrCategories).join('; '),metric?.value??j.jifText??'',metric?.year??j.jifYear??'',asArray(j.wosIndexes).join('; '),reviewLabel(p.filters.reviewStage),review?.days??'',matchingFee(j),matchPreferenceLabels(p).join('; '),url.href].map(csvCell).join(',');});
+    download('\uFEFF'+[headers.map(csvCell).join(','),...rows].join('\r\n'),'journal-manuscript-candidates.csv','text/csv;charset=utf-8');toast(`已导出 ${fmt(rows.length)} 本候选，不含你的标题、摘要或提取词。`);
+  }
+  function bindMatchEvents() {
+    $('matcher-form').addEventListener('submit',(event)=>{event.preventDefault();runMatcher();});
+    ['match-title','match-abstract','match-keywords'].forEach((id)=>{$(id).addEventListener('input',()=>invalidateMatch());$(id).addEventListener('keydown',(event)=>{if(event.key==='Enter'&&(event.ctrlKey||event.metaKey)){event.preventDefault();runMatcher();}});});
+    Object.values(MATCH_FILTER_IDS).concat('match-fee','match-sort').forEach((id)=>{const el=$(id);if(el)el.addEventListener(el.tagName==='INPUT'?'input':'change',()=>{if(id==='match-system')updateMatchQuartileLabels();if(matchState.hasRun)applyMatchPreferences();});});
+    $('match-clear').addEventListener('click',()=>{['match-title','match-abstract','match-keywords'].forEach((id)=>$(id).value='');invalidateMatch('已清空本次稿件文本，筛选偏好仍保留。');$('match-title').focus();});
+    $('match-use-manuscript').addEventListener('click',useManuscriptForMatch);$('match-export').addEventListener('click',exportMatchResults);$('match-to-catalog').addEventListener('click',matchToCatalog);
+    $('match-more').addEventListener('click',()=>{const previous=matchState.shown;matchState.shown+=12;renderMatchResults();const next=$('match-results').querySelectorAll('.match-card .journal-title-button')[previous];if(next)next.focus();});
+    document.addEventListener('click',(event)=>{
+      const example=event.target.closest('[data-match-example]');if(example){const data=MATCH_EXAMPLES[example.dataset.matchExample];if(data){$('match-title').value=data.title;$('match-abstract').value=data.abstract;$('match-keywords').value=data.keywords;invalidateMatch('已填入公开演示用例，可根据你的研究修改。');runMatcher();}return;}
+      const term=event.target.closest('[data-match-term]');if(term&&matchState.analysis){const id=term.dataset.matchTerm;if(matchState.excluded.has(id))matchState.excluded.delete(id);else matchState.excluded.add(id);runMatcher(false);return;}
+      if(event.target.closest('[data-match-enable-all]')){matchState.excluded.clear();runMatcher(false);return;}
+      if(event.target.closest('[data-match-reset-prefs]')){resetMatchPreferences();return;}
+      if(event.target.closest('[data-clear-scope]')){state.candidateScope=null;state.page=1;computeResults();toast('已清除稿件候选范围，当前筛选条件应用于全目录。');}
+    });updateMatchCounts();
   }
   function renderStats() {
     const totals={total:state.journals.length,jif:state.journals.filter((j)=>validNumber(j.jifValue)||Object.keys(j.jifByYear||{}).length).length,quartile:state.journals.filter((j)=>asArray(j.jcrQuartiles).length||Object.keys(j.jcrByCategory||{}).length).length,curated:state.journals.filter((j)=>j.curated).length};
@@ -251,7 +412,7 @@
   function toggleCompare(id, checked) {if(!state.byId.has(id))return;const has=state.compare.includes(id);if(checked&&!has){if(state.compare.length>=4){toast('最多同时比较 4 本期刊，请先移除一本。');document.querySelectorAll(`[data-compare="${id}"]`).forEach((input)=>input.checked=false);return;}state.compare.push(id);}else if(!checked&&has)state.compare=state.compare.filter((x)=>x!==id);renderCompareTray();document.querySelectorAll(`[data-compare="${id}"]`).forEach((input)=>input.checked=state.compare.includes(id));}
   function renderCompareTray() {$('compare-tray').hidden=state.compare.length===0;document.body.classList.toggle('has-compare',state.compare.length>0);$('compare-count').textContent=`${state.compare.length} / 4`;$('compare-names').textContent=state.compare.map((id)=>state.byId.get(id)?.name||id).join(' · ');$('open-compare').disabled=state.compare.length<2;}
   function renderSavedSearches() {$('saved-searches').innerHTML=state.local.searches.map((s,i)=>`<div class="saved-search-row"><button type="button" data-load-search="${i}" title="${esc(s.name)}">${esc(s.name)}</button><button type="button" data-delete-search="${i}" aria-label="删除筛选方案 ${esc(s.name)}">×</button></div>`).join('');}
-  function saveSearch() {const f=state.filters;const name=[f.q,fieldName(f.field),f.database,f.quartile?f.system+' '+f.quartile:'',f.min?'JIF ≥ '+f.min:'',f.saved?'收藏':''].filter(Boolean).join(' · ')||'全部期刊';if(state.local.searches.some((s)=>JSON.stringify(s.filters)===JSON.stringify(f))){toast('这组筛选已经保存。');return;}state.local.searches.unshift({name:name.slice(0,100),filters:{...f}});state.local.searches=state.local.searches.slice(0,12);persist();renderSavedSearches();toast('已保存筛选条件，可在左侧再次打开。');}
+  function saveSearch() {const f=state.filters;const name=[f.q,fieldName(f.field),f.database,f.quartile?f.system+' '+f.quartile:'',f.min?'JIF ≥ '+f.min:'',f.saved?'收藏':''].filter(Boolean).join(' · ')||'全部期刊';if(state.local.searches.some((s)=>JSON.stringify(s.filters)===JSON.stringify(f))){toast('这组筛选已经保存。');return;}state.local.searches.unshift({name:name.slice(0,100),filters:{...f}});state.local.searches=state.local.searches.slice(0,12);persist();renderSavedSearches();toast(state.candidateScope?'已保存常规筛选条件；不包含仅本次会话有效的稿件候选范围。':'已保存筛选条件，可在左侧再次打开。');}
   function stageOptions(value) {return Object.entries(STAGES).map(([id,label])=>`<option value="${id}" ${id===value?'selected':''}>${label}</option>`).join('');}
   function renderShortlist() {
     if(!state.ready){$('shortlist-content').innerHTML='<div class="loading-panel"><h3>正在读取期刊目录</h3><p>目录就绪后会自动匹配本地收藏。</p></div>';return;}
@@ -421,7 +582,7 @@
   function validImportedMetric(m) {if(!m||typeof m!=='object'||!validISSN(m.issn||m.ISSN))return false;const system=String(m.system||'').toUpperCase(),year=Number(m.year);return ['JCR','CAS','SJR'].includes(system)&&Number.isInteger(year)&&year>=1900&&year<=TODAY_YEAR+1&&(m.impact_factor==null||m.impact_factor===''||(validNumber(m.impact_factor)&&Number(m.impact_factor)>=0&&Number(m.impact_factor)<2000));}
   function normalizeImportedMetric(m) {const system=String(m.system).toUpperCase();return {issn:String(m.issn||m.ISSN).toUpperCase().replace(/\s/g,''),year:Number(m.year),system,category:String(m.category||'').slice(0,250),quartile:qNormalize(m.quartile),impact_factor:system==='JCR'?numValue(m.impact_factor):null,source:safeURL(m.source),importedAt:String(m.importedAt||new Date().toISOString()).slice(0,30)};}
   const metricKey=(m)=>[m.issn,m.year,m.system,m.category].join('|');
-  function mergeMetrics(metrics) {const map=new Map(state.local.metrics.map((m)=>[metricKey(m),m]));metrics.forEach((m)=>map.set(metricKey(m),m));state.local.metrics=[...map.values()].slice(-60000);buildImportMap();persist();populateFilters();computeResults();renderImportSummary();if(state.detailId)openDetail(state.detailId,false);}
+  function mergeMetrics(metrics) {const map=new Map(state.local.metrics.map((m)=>[metricKey(m),m]));metrics.forEach((m)=>map.set(metricKey(m),m));state.local.metrics=[...map.values()].slice(-60000);buildImportMap();persist();populateFilters();computeResults();if(matchState.hasRun)applyMatchPreferences();renderImportSummary();if(state.detailId)openDetail(state.detailId,false);}
   function parseCSV(text) {const rows=[];let row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(quoted){if(c==='"'){if(text[i+1]==='"'){cell+='"';i++;}else quoted=false;}else cell+=c;}else if(c==='"'){if(cell!=='')throw new Error('CSV 引号格式不正确');quoted=true;}else if(c===','){row.push(cell);cell='';}else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some((v)=>v.trim()!==''))rows.push(row);row=[];cell='';}else cell+=c;}if(quoted)throw new Error('CSV 存在未闭合的引号');if(cell||row.length){row.push(cell);if(row.some((v)=>v.trim()!==''))rows.push(row);}return rows;}
   async function importMetrics(file) {
     if(!file)return;if(file.size>8*1024*1024){$('metric-import-result').textContent='文件超过 8 MB，请拆分后导入。';return;}
@@ -436,6 +597,7 @@
   }
   async function copyText(text) {try{await navigator.clipboard.writeText(text);toast('链接已复制。');}catch(_){toast('浏览器未允许自动复制，可直接复制地址栏中的链接。');}}
   function bindEvents() {
+    bindMatchEvents();
     let searchTimer;const triggerSearch=()=>{state.filters.q=$('search-input').value.trim();state.page=1;computeResults();};
     $('search-form').addEventListener('submit',(event)=>{event.preventDefault();clearTimeout(searchTimer);triggerSearch();});
     $('search-input').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(triggerSearch,240);});
@@ -445,7 +607,7 @@
     $('view-cards').addEventListener('click',()=>{state.mode='cards';$('view-cards').setAttribute('aria-pressed','true');$('view-table').setAttribute('aria-pressed','false');renderResults();});
     $('view-table').addEventListener('click',()=>{state.mode='table';$('view-cards').setAttribute('aria-pressed','false');$('view-table').setAttribute('aria-pressed','true');renderResults();});
     $('save-search').addEventListener('click',saveSearch);
-    $('share-search').addEventListener('click',()=>{syncURL();const url=new URL(location.href);url.hash='catalog';copyText(url.href);});
+    $('share-search').addEventListener('click',()=>{if(state.candidateScope){toast('稿件候选范围仅限本次会话，可以导出当前结果。');return;}syncURL();const url=new URL(location.href);url.hash='catalog';copyText(url.href);});
     $('export-results').addEventListener('click',()=>exportCSV(state.filtered));
     $('export-shortlist').addEventListener('click',()=>exportCSV(state.journals.filter((j)=>isSaved(j.id)),true));
     $('backup-personal').addEventListener('click',backupPersonal);$('backup-methods').addEventListener('click',backupPersonal);
@@ -455,7 +617,7 @@
     $('download-template').addEventListener('click',()=>download('\uFEFFISSN,year,system,category,quartile,impact_factor,source\r\n','journal-personal-metrics-template.csv','text/csv;charset=utf-8'));
     $('shortlist-stage').addEventListener('change',renderShortlist);
     ['manuscript-title','manuscript-keywords'].forEach((id)=>$(id).addEventListener('input',()=>{state.local.manuscript={title:$('manuscript-title').value,keywords:$('manuscript-keywords').value};persist();}));
-    $('manuscript-search').addEventListener('click',()=>{const query=$('manuscript-keywords').value.trim();if(!query){toast('先填写 1–3 个研究关键词。');return;}state.filters={...DEFAULT_FILTERS,q:query};syncFilterControls();computeResults();setView('catalog');$('search-input').focus();});
+    $('manuscript-search').addEventListener('click',useManuscriptForMatch);
     $('clear-compare').addEventListener('click',()=>{state.compare=[];renderCompareTray();document.querySelectorAll('[data-compare]').forEach((input)=>input.checked=false);});$('open-compare').addEventListener('click',openCompare);
     document.addEventListener('click',(event)=>{
       const view=event.target.closest('[data-view]');if(view){event.preventDefault();setView(view.dataset.view);return;}
@@ -463,19 +625,20 @@
       const query=event.target.closest('[data-query]');if(query){state.filters.q=query.dataset.query;state.page=1;$('search-input').value=state.filters.q;computeResults();return;}
       const page=event.target.closest('[data-page]');if(page){state.page=Number(page.dataset.page);renderResults();document.querySelector('.results-toolbar').scrollIntoView({behavior:'smooth',block:'start'});return;}
       const clear=event.target.closest('[data-clear-filter]');if(clear){state.filters[clear.dataset.clearFilter]=DEFAULT_FILTERS[clear.dataset.clearFilter];state.page=1;syncFilterControls();computeResults();return;}
-      const search=event.target.closest('[data-load-search]');if(search){state.filters=sanitizeFilters(state.local.searches[Number(search.dataset.loadSearch)].filters);state.page=1;populateCategories();syncFilterControls();computeResults();toast('已恢复保存的筛选条件。');return;}
+      const search=event.target.closest('[data-load-search]');if(search){state.candidateScope=null;state.filters=sanitizeFilters(state.local.searches[Number(search.dataset.loadSearch)].filters);state.page=1;populateCategories();syncFilterControls();computeResults();toast('已恢复保存的筛选条件。');return;}
       const del=event.target.closest('[data-delete-search]');if(del){state.local.searches.splice(Number(del.dataset.deleteSearch),1);persist();renderSavedSearches();return;}
       const anchor=event.target.closest('[data-detail-anchor]');if(anchor){event.preventDefault();$(anchor.dataset.detailAnchor)?.scrollIntoView({behavior:'smooth',block:'start'});return;}
       const action=event.target.closest('[data-action]');if(action){const id=action.dataset.id;switch(action.dataset.action){case'detail':openDetail(id);break;case'favorite':toggleFavorite(id);break;case'compare-toggle':toggleCompare(id,!state.compare.includes(id));action.textContent=state.compare.includes(id)?'移出比较':'加入比较';break;case'reset':resetFilters();break;case'copy-detail':{const url=new URL(location.href);url.hash='journal='+encodeURIComponent(id);copyText(url.href);break;}case'retry-load':loadCatalog();break;}return;}
-      if(event.target.closest('#clear-personal-metrics')){if(confirm('清除当前浏览器里的个人指标？收藏和笔记会保留。建议先导出个人备份。')){state.local.metrics=[];buildImportMap();persist();populateFilters();computeResults();renderImportSummary();toast('个人指标已清除，公共来源未改变。');}}
+      if(event.target.closest('#clear-personal-metrics')){if(confirm('清除当前浏览器里的个人指标？收藏和笔记会保留。建议先导出个人备份。')){state.local.metrics=[];buildImportMap();persist();populateFilters();computeResults();if(matchState.hasRun)applyMatchPreferences();renderImportSummary();toast('个人指标已清除，公共来源未改变。');}}
     });
     document.addEventListener('change',(event)=>{if(event.target.dataset.compare)toggleCompare(event.target.dataset.compare,event.target.checked);if(event.target.dataset.stage){const id=event.target.dataset.stage,r=recordFor(id);r.stage=event.target.value;r.updatedAt=new Date().toISOString();persist();if($('shortlist-stage').value)renderShortlist();}});
     document.addEventListener('input',(event)=>{if(event.target.dataset.note){const id=event.target.dataset.note,r=recordFor(id);r.notes=event.target.value.slice(0,12000);r.updatedAt=new Date().toISOString();persist();const status=document.querySelector(`[data-note-status="${id}"]`);if(status)status.textContent=storageFailed?'未能保存，请导出备份':'已保存在本浏览器';}});
     ['journal-dialog','compare-dialog','import-dialog'].forEach((id)=>{$(id).addEventListener('click',(event)=>{if(event.target===$(id)){const rect=$(id).getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)closeDialog(id);}});$(id).addEventListener('cancel',(event)=>{event.preventDefault();closeDialog(id);});});
-    document.querySelector('.workspace-tabs').addEventListener('keydown',(event)=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(event.key))return;const tabs=['catalog','shortlist','methods'],current=tabs.indexOf(state.view);let next=event.key==='Home'?0:event.key==='End'?2:event.key==='ArrowRight'?(current+1)%3:(current+2)%3;event.preventDefault();setView(tabs[next]);$('tab-'+tabs[next]).focus();});
+    document.querySelector('.workspace-tabs').addEventListener('keydown',(event)=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(event.key))return;const tabs=['catalog','matcher','shortlist','methods'],current=tabs.indexOf(state.view);let next=event.key==='Home'?0:event.key==='End'?tabs.length-1:event.key==='ArrowRight'?(current+1)%tabs.length:(current+tabs.length-1)%tabs.length;event.preventDefault();setView(tabs[next]);$('tab-'+tabs[next]).focus();});
+    document.addEventListener('keydown',(event)=>{if(event.key==='/'&&!event.ctrlKey&&!event.metaKey&&!event.altKey&&!event.target.closest('input,textarea,select,[contenteditable="true"]')&&!document.querySelector('dialog[open]')){event.preventDefault();setView('catalog');$('search-input').focus();}});
     window.addEventListener('hashchange',route);window.addEventListener('popstate',route);
   }
-  function route() {const hash=location.hash;if(hash.startsWith('#journal=')){if(state.ready)openDetail(decodeURIComponent(hash.slice(9)),false);}else {if($('journal-dialog').open)closeDialog('journal-dialog');setView(hash==='#shortlist'?'shortlist':hash==='#methods'?'methods':'catalog',false);}}
+  function route() {const hash=location.hash;if(hash.startsWith('#journal=')){if(state.ready)openDetail(decodeURIComponent(hash.slice(9)),false);}else {if($('journal-dialog').open)closeDialog('journal-dialog');setView(hash==='#shortlist'?'shortlist':hash==='#matcher'?'matcher':hash==='#methods'?'methods':'catalog',false);}}
   async function loadCatalog() {
     $('catalog-message').hidden=false;$('catalog-message').innerHTML='<span class="loading-ring" aria-hidden="true"></span><h3>正在准备期刊目录</h3><p>首次读取全学科目录需要一点时间；详细数据按需加载。</p>';
     const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),120000);
@@ -484,9 +647,9 @@
       const raw=Array.isArray(data)?data:asArray(data.journals);if(!raw.length)throw new Error('目录文件为空，数据尚未准备完成');
       state.meta=data.meta||{};state.sourceLists=asArray(data.sourceLists||state.meta.sourceLists);
       state.journals=raw.filter((j)=>j&&typeof j.id==='string'&&typeof j.name==='string').map((j)=>{j.fields=asArray(j.fields).map(asText).filter(Boolean);j.issns=asArray(j.issns).map((x)=>String(x).toUpperCase());j.issnL=String(j.issnL||'').toUpperCase();j.country=j.country||'';j._search=normalize([j.name,j.issnL,...j.issns,j.publisher,...j.fields,...j.fields.map(fieldName),...asArray(j.subfields).map(asText),...asArray(j.topics).map(asText),...asArray(j.aliases).map(asText)].join(' '));return j;});
-      state.byId=new Map(state.journals.map((j)=>[j.id,j]));state.issnSet=new Set(state.journals.flatMap((j)=>[j.issnL,...j.issns]).filter(Boolean));state.ready=true;populateFilters();renderStats();renderSavedCount();renderSavedSearches();computeResults();renderShortlist();route();
+      state.byId=new Map(state.journals.map((j)=>[j.id,j]));state.issnSet=new Set(state.journals.flatMap((j)=>[j.issnL,...j.issns]).filter(Boolean));state.ready=true;populateFilters();renderStats();renderSavedCount();renderSavedSearches();computeResults();renderShortlist();route();if(matchState.pending)runMatcher();
       if(!state.sourceLists.length)fetch('data/catalog-meta.json').then((r)=>r.ok?r.json():null).then((data)=>{if(!data)return;state.sourceLists=asArray(data.sourceLists||data.source_lists||data.meta?.sourceLists);}).catch(()=>{});
-    }catch(error){state.ready=false;$('catalog-message').innerHTML=`<h3>期刊目录暂时无法载入</h3><p>${esc(error.name==='AbortError'?'读取超过两分钟，请检查网络后重试':error.message)}。你的本地收藏和笔记不会因此删除。</p><button type="button" class="primary-button" data-action="retry-load">重新载入</button>`;$('result-count').textContent='目录读取未完成';}
+    }catch(error){state.ready=false;$('catalog-message').innerHTML=`<h3>期刊目录暂时无法载入</h3><p>${esc(error.name==='AbortError'?'读取超过两分钟，请检查网络后重试':error.message)}。你的本地收藏和笔记不会因此删除。</p><button type="button" class="primary-button" data-action="retry-load">重新载入</button>`;$('result-count').textContent='目录读取未完成';if(matchState.pending){matchState.pending=false;matchStatus('目录读取未完成，请回到期刊检索点击“重新载入”，再运行匹配。','error');}}
     finally{clearTimeout(timeout);}
   }
   state.local=readLocal();buildImportMap();readURLFilters();$('manuscript-title').value=state.local.manuscript.title;$('manuscript-keywords').value=state.local.manuscript.keywords;bindEvents();syncFilterControls();renderSavedSearches();route();loadCatalog();

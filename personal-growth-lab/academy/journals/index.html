@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#173f69">
-  <meta name="description" content="一心问道·投稿期刊导航。跨学科检索期刊，比较历年影响因子、学科分区、数据库收录、年度文献量与审稿时间，建立自己的投稿清单。每项数据保留年份、口径和来源。">
+  <meta name="theme-color" content="#173967">
+  <meta name="description" content="一心问道·投稿期刊导航。输入论文标题或摘要匹配候选期刊，跨学科检索并比较影响因子、学科分区、数据库收录、年度文献量与审稿时间，建立自己的投稿清单。每项数据保留年份、口径和来源。">
   <title>投稿期刊导航 · Journal Atlas｜成长学院</title>
   <link rel="canonical" href="https://zbyloveyj.github.io/personal-growth-lab/academy/journals/">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261021">
-  <script defer src="app.js?v=20261021"></script>
+  <link rel="stylesheet" href="styles.css?v=20261021-ui2">
+  <script defer src="matcher.js?v=20261021-ui2"></script>
+  <script defer src="app.js?v=20261021-ui2"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -22,17 +23,34 @@
 
   <main id="main">
     <section class="hero shell" aria-labelledby="hero-title">
-      <div class="hero-copy"><p class="eyebrow"><span></span> RESEARCH · DISCOVER · SUBMIT</p><h1 id="hero-title">让选刊，<em>有据可依。</em></h1><p class="hero-intro">学科是否契合，影响力如何变化，审稿需要多久。<br class="desktop-break">把分散的信息放在一起，为下一篇论文找到合适的去处。</p><div class="hero-links"><a href="#catalog" class="text-link" data-view="catalog">开始探索 <span>↓</span></a><button class="text-button" type="button" id="open-import">导入个人分区数据</button></div></div>
-      <div class="hero-note"><div class="note-kicker">为投稿决策准备</div><p><strong>看领域。看趋势。<br>也看现实条件。</strong></p><div class="note-rule"></div><div class="note-foot"><span>每项指标<br><b>有年份 · 有口径 · 有来源</b></span><span class="orbit-mark" aria-hidden="true">↗</span></div></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> JOURNAL ATLAS · RESEARCH WORKSPACE</p>
+        <h1 id="hero-title">让选刊，<em>有据可依。</em></h1>
+        <p class="hero-intro">从一个标题、一段摘要，找到值得进一步了解的期刊。<br class="desktop-break">把研究方向、分区、影响因子与投稿条件，放在一起比较。</p>
+        <div class="hero-links"><a href="#matcher" class="primary-button hero-primary" data-view="matcher"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.1 6.9L21 12l-6.9 2.1L12 21l-2.1-6.9L3 12l6.9-2.1Z"/></svg>用标题 / 摘要匹配<span aria-hidden="true">↗</span></a><a href="#catalog" class="secondary-button" data-view="catalog">浏览期刊目录 <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-utility"><span><i aria-hidden="true"></i> 中英文研究描述均可</span><button class="text-button" type="button" id="open-import">导入个人分区数据</button></div>
+      </div>
+      <aside class="hero-note" aria-label="选刊工作流程">
+        <div class="note-kicker"><span>从研究，到候选</span><span class="note-private">本地匹配</span></div>
+        <h2>先看契合，再做选择。</h2>
+        <ol class="hero-workflow"><li><span>01</span><div><strong>描述你的研究</strong><small>标题、摘要或几个关键词</small></div></li><li><span>02</span><div><strong>设定投稿条件</strong><small>学科、收录、分区与时间</small></div></li><li><span>03</span><div><strong>比较并建立清单</strong><small>每项指标保留年份与来源</small></div></li></ol>
+        <a class="note-foot" href="#matcher" data-view="matcher">开始为这篇稿件选刊 <span aria-hidden="true">↗</span></a>
+      </aside>
     </section>
 
     <section class="shell stats" aria-label="数据库覆盖情况" id="stats"><div><span class="stat-value" data-stat="total">—</span><span class="stat-label">跨学科期刊候选</span></div><div><span class="stat-value" data-stat="jif">—</span><span class="stat-label">收录 JIF 数据</span></div><div><span class="stat-value" data-stat="quartile">—</span><span class="stat-label">收录 JCR 分区</span></div><div><span class="stat-value" data-stat="curated">—</span><span class="stat-label">出版方详情核验</span></div><div class="stat-update"><span class="live-dot"></span><span>数据核验日期<br><b id="snapshot-date">正在读取</b></span></div></section>
 
     <div class="shell workspace">
-      <div class="workspace-tabs" role="tablist" aria-label="期刊工作台"><button id="tab-catalog" role="tab" aria-selected="true" aria-controls="view-catalog" data-view="catalog">探索期刊 <span class="tab-number">01</span></button><button id="tab-shortlist" role="tab" aria-selected="false" aria-controls="view-shortlist" data-view="shortlist">我的投稿清单 <span id="saved-count" class="tab-count">0</span></button><button id="tab-methods" role="tab" aria-selected="false" aria-controls="view-methods" data-view="methods">数据与方法 <span class="tab-number">03</span></button></div>
+      <div class="workspace-tabs" role="tablist" aria-label="期刊工作台">
+        <button id="tab-catalog" role="tab" aria-selected="true" aria-controls="view-catalog" data-view="catalog">探索期刊 <span class="tab-number">01</span></button>
+        <button id="tab-matcher" role="tab" aria-selected="false" aria-controls="view-matcher" data-view="matcher">稿件匹配 <span class="tab-new">NEW</span></button>
+        <button id="tab-shortlist" role="tab" aria-selected="false" aria-controls="view-shortlist" data-view="shortlist">我的投稿清单 <span id="saved-count" class="tab-count">0</span></button>
+        <button id="tab-methods" role="tab" aria-selected="false" aria-controls="view-methods" data-view="methods">数据与方法 <span class="tab-number">04</span></button>
+      </div>
 
       <section id="view-catalog" role="tabpanel" aria-labelledby="tab-catalog">
         <div class="search-panel"><form id="search-form" class="search-form" role="search"><label class="sr-only" for="search-input">检索刊名、ISSN、研究方向</label><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search-input" type="search" placeholder="搜索刊名、ISSN 或研究方向，如：微生物、脑科学、人工智能" autocomplete="off"><button type="submit" class="primary-button">检索期刊 <span aria-hidden="true">↗</span></button></form><div class="quick-topics"><span>从研究方向开始</span><button data-query="微生物">微生物与生态</button><button data-query="生物信息">生物信息学</button><button data-query="精神病">精神与心理</button><button data-query="脑科学">脑科学</button><button data-query="人工智能">人工智能</button><button data-query="材料">材料与工程</button><button data-query="社会科学">社会科学</button></div></div>
+        <div class="catalog-match-prompt"><span><strong>还没有目标期刊？</strong> 给出标题或一段研究描述，先生成候选清单。</span><button type="button" class="text-button" data-view="matcher">试试稿件匹配 <span aria-hidden="true">↗</span></button></div>
         <div class="catalog-layout">
           <aside class="filters" id="filter-panel" aria-label="期刊筛选条件">
             <div class="filter-heading"><h2>筛选期刊</h2><button class="text-button" id="reset-filters" type="button">重置</button></div>
@@ -59,9 +77,53 @@
         </div>
       </section>
 
+      <section id="view-matcher" role="tabpanel" aria-labelledby="tab-matcher" hidden>
+        <div class="section-header matcher-heading">
+          <div><p class="eyebrow">FIND A JOURNAL FOR YOUR RESEARCH</p><h2>这篇研究，适合哪些期刊？</h2><p>填写标题或一段研究描述，结合投稿条件，生成带有匹配依据的候选清单。</p></div>
+          <div class="local-processing"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="9" width="16" height="12" rx="3"/><path d="M8 9V6a4 4 0 0 1 8 0v3m-4 5v3"/></svg><span>在当前浏览器中处理<small>输入内容无需上传</small></span></div>
+        </div>
+        <form id="matcher-form" class="matcher-form" autocomplete="off">
+          <div class="match-input-card">
+            <div class="match-panel-heading"><span class="step-number">01</span><div><h3>告诉我们，你在研究什么</h3><p>标题、摘要、关键词，任选一项即可开始。</p></div></div>
+            <div class="match-field"><label for="match-title">论文标题 <span>中文或英文</span></label><textarea id="match-title" rows="2" maxlength="500" placeholder="如：Gut microbiota and host metabolism in depression"></textarea><div class="match-field-footer"><span></span><span id="match-title-count" class="input-count">0 / 500</span></div></div>
+            <div class="match-field"><label for="match-abstract">摘要 / 研究描述 <span>可只写一段话</span></label><textarea id="match-abstract" rows="7" maxlength="12000" placeholder="粘贴摘要，或简述研究对象、主要问题、方法和发现。
+例如：研究肠道微生物与抑郁症的关系，结合宏基因组、代谢组和脑影像，分析潜在的跨尺度机制。"></textarea><div class="match-field-footer"><p class="match-input-help">更具体的研究主题有助于缩小候选范围。</p><span id="match-abstract-count" class="input-count">0 / 12,000</span></div></div>
+            <div class="match-field"><label for="match-keywords">补充关键词 <span>选填</span></label><input id="match-keywords" maxlength="500" placeholder="如 microbiome；depression；neuroimaging"></div>
+            <div class="match-examples"><span>试试示例</span><button type="button" data-match-example="microbiome">微生物与脑科学</button><button type="button" data-match-example="ai">人工智能医学</button><button type="button" data-match-example="materials">生物材料与组织工程</button><button type="button" data-match-example="social">城市与社会科学</button></div>
+            <button class="text-button match-use-manuscript" type="button" id="match-use-manuscript">使用投稿清单中的稿件信息 <span aria-hidden="true">↗</span></button>
+          </div>
+          <aside class="match-preferences-card" aria-label="稿件匹配条件">
+            <div class="match-panel-heading"><span class="step-number">02</span><div><h3>设定你在意的条件</h3><p>全部选填；设置后只保留满足条件的记录。</p></div></div>
+            <div class="match-preferences-grid">
+              <div class="match-field match-span"><label for="match-field">学科范围</label><select id="match-field"><option value="">不限学科 · 保留交叉方向</option></select></div>
+              <div class="match-field match-span"><label for="match-database">数据库 / 目录收录</label><select id="match-database"><option value="">不限收录</option><option value="SCIE">SCI / SCIE</option><option value="SSCI">SSCI</option><option value="ESCI">ESCI</option><option value="AHCI">AHCI</option><option value="DOAJ">DOAJ</option></select></div>
+              <div class="match-field"><label for="match-system">分区体系</label><select id="match-system"><option value="JCR">JCR 分区</option><option value="CAS">中科院 2025 参考</option><option value="SJR">SJR · 个人导入</option></select></div>
+              <div class="match-field"><label for="match-quartile">分区要求</label><select id="match-quartile"><option value="">全部分区</option><option value="Q1">Q1 / 1 区</option><option value="Q2">Q2 / 2 区</option><option value="Q3">Q3 / 3 区</option><option value="Q4">Q4 / 4 区</option></select></div>
+              <div class="match-field"><label for="match-min">最低 JIF</label><input type="number" id="match-min" min="0" max="1000" step="0.1" placeholder="不限"></div>
+              <div class="match-field"><label for="match-max">最高 JIF</label><input type="number" id="match-max" min="0" max="1000" step="0.1" placeholder="不限"></div>
+              <div class="match-field match-span"><label for="match-oa">开放获取模式</label><select id="match-oa"><option value="">全部模式</option><option value="yes">标记为全开放获取</option><option value="no">未标记为全开放获取</option></select></div>
+            </div>
+            <details class="match-advanced"><summary><span>时间与费用条件</span><span aria-hidden="true">＋</span></summary><div class="match-advanced-fields">
+              <div class="match-field"><label for="match-review-stage">处理阶段</label><select id="match-review-stage"><option value="first">投稿至首次决定（整体）</option><option value="peer">外审后首次决定</option><option value="publication">投稿至发表</option></select></div>
+              <div class="match-field"><label for="match-review">所选阶段的时间上限</label><select id="match-review"><option value="">不限 / 含未披露</option><option value="14">14 天内</option><option value="30">30 天内</option><option value="60">60 天内</option><option value="90">90 天内</option><option value="180">180 天内</option><option value="365">365 天内</option></select></div>
+              <div class="match-field"><label for="match-fee">APC 收取情况</label><select id="match-fee"><option value="">不限 / 含未知</option><option value="free">DOAJ 记录为不收 APC</option><option value="paid">DOAJ 记录为收取 APC</option></select></div>
+              <p class="match-input-help">时间按各刊已披露阶段筛选。不收 APC 不代表没有其他费用；费用及分区详情请查看来源。</p>
+            </div></details>
+            <div class="match-condition-note"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></svg><p>指定分区、JIF、时间或费用时，相应信息缺失的期刊不会进入结果。JIF 使用各刊最新已收录年份。</p></div>
+          </aside>
+          <div class="match-submit-row"><div><strong>先找主题契合，再比较现实条件。</strong><p>匹配以刊名、主题与学科元数据为依据；结果用于初筛。</p></div><div class="inline-actions"><button id="match-clear" class="secondary-button" type="button">清空输入</button><button id="match-submit" class="primary-button" type="submit">匹配候选期刊 <span aria-hidden="true">↗</span></button></div></div>
+        </form>
+        <div id="match-status" class="match-status" role="status" aria-live="polite"></div>
+        <div id="match-analysis" class="match-analysis"></div>
+        <div class="match-results-heading"><div id="match-summary" class="match-summary"></div><div id="match-actions" class="inline-actions" hidden><label class="sr-only" for="match-sort">匹配结果排序</label><select id="match-sort"><option value="relevance">主题相关优先</option><option value="jif-desc">JIF 从高到低</option><option value="review-asc">所选阶段用时从短到长</option></select><button type="button" class="secondary-button" id="match-export">导出匹配结果 ↓</button><button type="button" class="text-button" id="match-to-catalog">在目录中进一步筛选 ↗</button></div></div>
+        <div id="match-results" class="match-result-list"><div class="match-empty"><div class="match-empty-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="13" y="9" width="30" height="43" rx="5"/><path d="M21 20h14M21 27h10M21 34h7"/><circle cx="43" cy="42" r="10"/><path d="m50 50 8 8"/></svg></div><h3>让候选期刊，从你的研究出发。</h3><p>输入标题或摘要，生成候选并查看匹配依据。<br>也可以选择一个示例，先熟悉匹配方式。</p><div class="match-empty-steps"><span>识别研究主题</span><i aria-hidden="true">→</i><span>筛选投稿条件</span><i aria-hidden="true">→</i><span>解释匹配依据</span></div></div></div>
+        <div class="match-more-wrap"><button id="match-more" class="secondary-button" type="button" hidden>查看更多候选</button></div>
+        <details class="match-method-note"><summary>如何理解匹配结果？</summary><p>系统在当前浏览器中，把研究描述与期刊名称、已收录主题和学科资料进行主题匹配。相关分表示本次检索的主题关联程度，不代表录用概率或期刊质量。跨学科期刊、资料稀疏的期刊可能需要进一步人工判断。</p><p>期刊主题资料与最新征稿范围可能存在差异。确定候选后，请打开期刊详情和官方网站，核对 Aims &amp; Scope、文章类型、费用与最新收录状态。</p></details>
+      </section>
+
       <section id="view-shortlist" role="tabpanel" aria-labelledby="tab-shortlist" hidden>
         <div class="section-header"><div><p class="eyebrow">YOUR SUBMISSION DESK</p><h2>把候选，整理成下一步。</h2><p>收藏期刊、记录适配理由与投稿进度。所有个人内容仅保存在当前浏览器。</p></div><div class="inline-actions"><button class="secondary-button" id="backup-personal" type="button">备份个人数据 ↓</button><button class="secondary-button" id="restore-personal" type="button">恢复备份</button></div></div>
-        <div class="manuscript-panel"><div><h3>当前稿件</h3><p>给这份清单一个明确的研究目标。</p></div><div class="manuscript-fields"><label>稿件名称<input id="manuscript-title" placeholder="为正在准备的稿件起个名字" maxlength="300"></label><label>研究关键词<input id="manuscript-keywords" placeholder="如 microbiome depression 或 微生物 精神病" maxlength="500"></label><div class="inline-actions"><button type="button" id="manuscript-search" class="primary-button">用这些关键词检索</button><span class="fine-print">本地关键词匹配，不预测录用概率。</span></div></div></div>
+        <div class="manuscript-panel"><div><h3>当前稿件</h3><p>给这份清单一个明确的研究目标。</p></div><div class="manuscript-fields"><label>稿件名称<input id="manuscript-title" placeholder="为正在准备的稿件起个名字" maxlength="300"></label><label>研究关键词<input id="manuscript-keywords" placeholder="如 microbiome depression 或 微生物 精神病" maxlength="500"></label><div class="inline-actions"><button type="button" id="manuscript-search" class="primary-button">用这份稿件匹配期刊</button><button type="button" class="secondary-button" data-view="matcher">打开稿件匹配 ↗</button><span class="fine-print">本地关键词匹配，不预测录用概率。</span></div></div></div>
         <div class="shortlist-toolbar"><label for="shortlist-stage">投稿状态 <select id="shortlist-stage"><option value="">全部状态</option><option value="considering">待评估</option><option value="primary">优先目标</option><option value="backup">备选目标</option><option value="preparing">准备投稿</option><option value="submitted">已投稿</option><option value="revision">修回中</option><option value="accepted">已接收</option><option value="closed">已结束</option></select></label><button class="text-button" id="export-shortlist" type="button">导出投稿清单 CSV ↓</button></div>
         <div id="shortlist-content"></div>
       </section>
