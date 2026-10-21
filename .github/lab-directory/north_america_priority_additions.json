@@ -1,0 +1,147 @@
+[
+  {
+    "name": "Bonnie Berger",
+    "institution": "Massachusetts Institute of Technology",
+    "country": "美国",
+    "city": "Cambridge",
+    "url": "https://www.csail.mit.edu/person/bonnie-berger",
+    "sourceUrl": "https://www.csail.mit.edu/person/bonnie-berger",
+    "sourceTitle": "MIT CSAIL — Bonnie Berger",
+    "fields": [
+      "计算生物学",
+      "基因组学与基因编辑"
+    ],
+    "role": "Professor; PI, Computation and Biology group",
+    "summary": "计算生物学算法；功能基因组学与基因型—表型建模。",
+    "sourceExcerpt": "head of the Computation and Biology group",
+    "evidenceLevel": "official_directory",
+    "verifiedAt": "2026-10-21",
+    "directoryVerifiedAt": "2026-10-21",
+    "reviewMethod": "manual_official_profile_web_read",
+    "evidenceScope": "官网个人页核验身份与研究方向；未核验岗位、经费或排名。"
+  },
+  {
+    "name": "Manolis Kellis",
+    "institution": "Massachusetts Institute of Technology",
+    "country": "美国",
+    "city": "Cambridge",
+    "url": "https://www.csail.mit.edu/person/manolis-kellis",
+    "sourceUrl": "https://www.csail.mit.edu/person/manolis-kellis",
+    "sourceTitle": "MIT CSAIL — Manolis Kellis",
+    "fields": [
+      "计算生物学",
+      "基因组学与基因编辑"
+    ],
+    "role": "Professor; PI, Computational Biology Group",
+    "summary": "计算生物学、基因组学、表观基因组学、基因调控及基因组演化。",
+    "sourceExcerpt": "computational biology, genomics, epigenomics, gene regulation, and genome evolution",
+    "evidenceLevel": "official_directory",
+    "verifiedAt": "2026-10-21",
+    "directoryVerifiedAt": "2026-10-21",
+    "reviewMethod": "manual_official_profile_web_read",
+    "evidenceScope": "官网个人页核验身份与研究方向；未核验岗位、经费或排名。"
+  },
+  {
+    "name": "David Gifford",
+    "institution": "Massachusetts Institute of Technology",
+    "country": "美国",
+    "city": "Cambridge",
+    "url": "https://www.eecs.mit.edu/people/david-gifford/",
+    "sourceUrl": "https://www.eecs.mit.edu/people/david-gifford/",
+    "sourceTitle": "MIT EECS — David Gifford",
+    "fields": [
+      "AI与生物医学"
+    ],
+    "role": "Professor of CS and Engineering (Post-Tenure)",
+    "summary": "医疗与生命科学中的人工智能、机器学习。官网标为 Post-Tenure 教授。",
+    "sourceExcerpt": "AI for Healthcare and Life Sciences",
+    "evidenceLevel": "official_directory",
+    "verifiedAt": "2026-10-21",
+    "directoryVerifiedAt": "2026-10-21",
+    "reviewMethod": "manual_official_profile_web_read",
+    "evidenceScope": "官网个人页核验身份与研究方向；未核验岗位、经费或排名。",
+    "opportunityNote": "MIT CSB 项目页面标注 Professor Post Tenure — Not taking students；这里只记录研究身份，不据此推断未来招生。",
+    "opportunitySourceUrl": "https://csbphd.mit.edu/faculty/david-k-gifford/"
+  },
+  {
+    "name": "Barbara Engelhardt",
+    "institution": "Stanford University",
+    "country": "美国",
+    "city": "Stanford",
+    "url": "https://dbds.stanford.edu/people/barbara-engelhardt/",
+    "sourceUrl": "https://dbds.stanford.edu/people/barbara-engelhardt/",
+    "sourceTitle": "Stanford Biomedical Data Science — Barbara Engelhardt",
+    "fields": [
+      "计算生物学",
+      "基因组学与基因编辑"
+    ],
+    "role": "Professor of Biomedical Data Science",
+    "summary": "生物医学数据建模；人群遗传学、基因组技术和演化生物学。",
+    "sourceExcerpt": "Human Population Genetics",
+    "evidenceLevel": "official_directory",
+    "verifiedAt": "2026-10-21",
+    "directoryVerifiedAt": "2026-10-21",
+    "reviewMethod": "manual_official_profile_web_read",
+    "evidenceScope": "官网个人页核验身份与研究方向；未核验岗位、经费或排名。",
+    "additionalResearchSources": [
+      {
+        "url": "https://statistics.stanford.edu/people/barbara-engelhardt",
+        "fields": [
+          "计算生物学"
+        ],
+        "basis": "Official profile describes models for structured biomedical data."
+      }
+    ]
+  },
+  {
+    "name": "Jure Leskovec",
+    "institution": "Stanford University",
+    "country": "美国",
+    "city": "Stanford",
+    "url": "https://profiles.stanford.edu/jure-leskovec?tab=bio",
+    "sourceUrl": "https://profiles.stanford.edu/jure-leskovec?tab=bio",
+    "sourceTitle": "Stanford Profiles — Jure Leskovec",
+    "fields": [
+      "AI与生物医学",
+      "计算生物学"
+    ],
+    "role": "Professor of Computer Science",
+    "summary": "图神经网络、机器学习及计算生物医学，研究涉及药物发现。",
+    "sourceExcerpt": "computational biomedicine with the focus on drug discovery",
+    "evidenceLevel": "official_directory",
+    "verifiedAt": "2026-10-21",
+    "directoryVerifiedAt": "2026-10-21",
+    "reviewMethod": "manual_official_profile_web_read",
+    "evidenceScope": "官网个人页核验身份与研究方向；未核验岗位、经费或排名。"
+  },
+  {
+    "name": "Stephen Quake",
+    "institution": "ETH Zürich / D-BSSE / BRCCH",
+    "country": "瑞士",
+    "city": "Basel",
+    "url": "https://quakelab.stanford.edu/",
+    "sourceUrl": "https://bsse.ethz.ch/news-and-events/d-bsse-news/2026/05/stephen-quake-becoming-faculty-member.html",
+    "sourceTitle": "ETH D-BSSE — Stephen Quake becoming faculty member",
+    "fields": [
+      "单细胞与空间组学",
+      "基因组学与基因编辑"
+    ],
+    "role": "Full Professor of Biophysics and Biomedical Engineering",
+    "summary": "微流控、分子诊断与单细胞组学；ETH 公告明确 2026 年 8 月 1 日加入 D-BSSE。",
+    "sourceExcerpt": "Stephen will start on 1 August 2026.",
+    "evidenceLevel": "official_directory",
+    "verifiedAt": "2026-10-21",
+    "directoryVerifiedAt": "2026-10-21",
+    "reviewMethod": "manual_official_profile_web_read",
+    "evidenceScope": "官网个人页核验身份与研究方向；未核验岗位、经费或排名。",
+    "affiliationNote": "ETH D-BSSE 官方 2026-05-27 公告：2026-08-01 加入 ETH；实验室网址由该公告直接链接到 Stanford 域名。",
+    "additionalOfficialSources": [
+      {
+        "url": "https://profiles.stanford.edu/stephen-quake",
+        "sourceUrl": "https://profiles.stanford.edu/stephen-quake",
+        "institution": "Stanford University (previous / continuing listed affiliation)"
+      }
+    ],
+    "identityMergeEvidence": "https://bsse.ethz.ch/news-and-events/d-bsse-news/2026/05/stephen-quake-becoming-faculty-member.html"
+  }
+]

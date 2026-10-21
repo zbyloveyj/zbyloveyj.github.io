@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/lab-evidence-monitor.yml'
       - 'personal-growth-lab/academy/data/labs.json'
+      - 'personal-growth-lab/academy/data/lab-sources.json'
       - 'personal-growth-lab/academy/tools/monitor_labs.py'
       - 'personal-growth-lab/academy/tools/test_labs.py'
       - 'personal-growth-lab/academy/tools/test_labs_browser.cjs'
@@ -21,7 +22,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -30,7 +31,7 @@ jobs:
       - name: Validate editorial data and monitor rules
         run: python personal-growth-lab/academy/tools/test_labs.py
       - name: Check official sources
-        run: python personal-growth-lab/academy/tools/monitor_labs.py
+        run: python personal-growth-lab/academy/tools/monitor_labs.py --max-profiles 96
       - name: Persist only public monitor state
         shell: bash
         run: |
@@ -65,3 +66,4 @@ jobs:
         env:
           NODE_PATH: /tmp/lab-browser-deps/node_modules
         run: node personal-growth-lab/academy/tools/test_labs_browser.cjs
+

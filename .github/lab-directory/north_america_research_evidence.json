@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Hani Goodarzi",
+    "institution": "Arc Institute / partner universities",
+    "sourceUrl": "https://arcinstitute.org/news/hani-goodarzi-virtual-cell-quest",
+    "sourceTitle": "Arc — Hani Goodarzi on his quest to build a virtual cell",
+    "fields": [
+      "AI虚拟细胞",
+      "单细胞与空间组学"
+    ],
+    "sourceExcerpt": "Our virtual cell model, State, is all about perturbations.",
+    "summary": "计算生物学与 AI；利用单细胞数据建模细胞对药物及基因扰动的响应。",
+    "verifiedAt": "2026-10-21",
+    "reviewedAt": "2026-10-21",
+    "reviewMethod": "manual_official_profile_web_read"
+  },
+  {
+    "name": "Patrick Hsu",
+    "institution": "Arc Institute / partner universities",
+    "sourceUrl": "https://arcinstitute.org/labs/hsulab",
+    "sourceTitle": "Arc — Hsu Lab research focus",
+    "fields": [
+      "AI虚拟细胞",
+      "AI与生物医学",
+      "合成生物学",
+      "基因组学与基因编辑"
+    ],
+    "sourceExcerpt": "first steps towards simulating a virtual cell",
+    "summary": "基因组基础模型与虚拟细胞方向；CRISPR、基因组设计及合成生物学。",
+    "verifiedAt": "2026-10-21",
+    "reviewedAt": "2026-10-21",
+    "reviewMethod": "manual_official_profile_web_read"
+  },
+  {
+    "name": "Rahul Satija",
+    "institution": "New York Genome Center / affiliated universities",
+    "sourceUrl": "https://www.nygenome.org/science-technology/faculty-labs/satija-lab/",
+    "sourceTitle": "NYGC — Satija Lab",
+    "fields": [
+      "AI与生物医学",
+      "单细胞与空间组学"
+    ],
+    "sourceExcerpt": "novel statistical and machine learning-based methods",
+    "summary": "单细胞基因组学及细胞异质性；结合统计、机器学习和实验研究。",
+    "verifiedAt": "2026-10-21",
+    "reviewedAt": "2026-10-21",
+    "reviewMethod": "manual_official_profile_web_read"
+  },
+  {
+    "name": "Anshul Kundaje",
+    "institution": "Stanford University",
+    "sourceUrl": "https://profiles.stanford.edu/anshul-kundaje",
+    "sourceTitle": "Stanford Profiles — Anshul Kundaje",
+    "fields": [
+      "AI与生物医学",
+      "计算生物学",
+      "基因组学与基因编辑"
+    ],
+    "sourceExcerpt": "develops machine learning models of gene regulation",
+    "summary": "基因调控的机器学习与深度学习；解码 DNA、RNA 序列及遗传变异。",
+    "verifiedAt": "2026-10-21",
+    "reviewedAt": "2026-10-21",
+    "reviewMethod": "manual_official_profile_web_read"
+  }
+]

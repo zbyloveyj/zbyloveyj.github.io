@@ -1,0 +1,16 @@
+# Generated candidates, source manifests, fetch metadata and profile logs.
+*.json
+!north_america_priority_additions.json
+!north_america_research_evidence.json
+
+# Public page snapshots and runtime-only files are deliberately not committed.
+*.html
+*.htm
+*.log
+*.tmp
+*.py[cod]
+__pycache__/
+.venv/
+europe-cache/
+asia-sources/
+asia-profiles/
