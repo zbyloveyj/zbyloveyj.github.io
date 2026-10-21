@@ -14,14 +14,21 @@
   "checkedAt": "2026-10-21",
   "dataCommit": "7309177c5337f4204e161bdf37d4ec8485ceefd9",
   "dataValidation": "passed",
-  "interfaceVersion": "2026.10.21.3",
+  "interfaceVersion": "2026.10.21.4",
   "interfaceUpdatedAt": "2026-10-21",
-  "matchingEngineVersion": "2.0.0",
-  "matchingMode": "browser-local-topic-retrieval",
+  "matchingEngineVersion": "3.0.0",
+  "matchingMode": "browser-local-evidence-screening",
   "manuscriptUpload": false,
   "matchingInputs": [
     "title",
     "abstract",
     "keywords"
-  ]
+  ],
+  "defaultShortlistSize": 5,
+  "maxShortlistSize": 10,
+  "firstDecisionJournals": 43,
+  "editorialSupplementJournals": 11,
+  "homepageRecordJournals": 51560,
+  "firstDecisionPublicExcerptJournals": 1,
+  "editorialSupplementRecords": 12
 }

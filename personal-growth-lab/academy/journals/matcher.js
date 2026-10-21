@@ -1,5 +1,5 @@
 /*
- * Journal Matcher 2.0 — deterministic, browser-local topic retrieval.
+ * Journal Matcher 3.0 — browser-local retrieval followed by evidence screening.
  * Inputs never leave this module. No network, storage, tracking, or URL writes.
  * Evidence comes from journal names, OpenAlex topic labels, and JCR categories.
  * These metadata labels are not a journal's complete aims and scope. The score
@@ -13,7 +13,7 @@
   const STOP = new Set(('a an and are as at be been being but by can could did do does doing each for from had has have having how i if in into is it its may might more most must no nor not of on once only or other our out over own same shall she should so some such than that the their theirs them themselves then there these they this those through to too under until up upon us using use used uses very via was we were what when where whether which while who whom why will with within without would you your ' +
     'study studies studied studying research researches researcher researchers result results conclusion conclusions introduction background objective objectives aim aims purpose purposes method methods methodology novel novelty new paper papers article articles journal journals review reviews overview systematic literature evidence findings finding report reports reported reporting based approach approaches application applications analysis analyses analyzing analysing evaluation evaluate evaluated evaluation association associations associated relationship relationships related effect effects impact impacts influence influences investigation investigate investigated explore exploring exploration development developed developments advances advance advancement advancements recent current future comprehensive potential important significant significance towards toward across among between role roles insights insight perspective perspectives framework frameworks demonstrated demonstrate demonstrates revealed reveal reveals showed show shows suggest suggests suggesting indicate indicates indicating observed observation observations compared compare comparing comparison including include includes included different differences difference better improved improve improvement large small high low two three four five first second third one several many various general specific possible promising effective efficient robust data dataset datasets collection collected samples sample subjects subject participant participants patient patients control controls healthy disease diseases disorder disorders treatment treatments therapy therapies therapeutic model models modeling modelling prediction predictive predicted predicts predict classification classified classification performance accuracy outcome outcomes feature features characteristic characteristics').split(/\s+/));
   const ZH_STOP = new Set('研究 方法 结果 结论 背景 目的 目标 分析 探索 探讨 揭示 发现 提出 构建 建立 一种 新型 新的 全新 基于 通过 使用 采用 利用 进行 针对 关于 相关 关系 关联 作用 影响 机制 变化 不同 特征 特性 表现 表明 显示 提示 证实 证明 验证 评估 评价 比较 应用 发展 创新 提升 优化 综合 系统 综述 患者 人群 人员 对照 健康 疾病 障碍 治疗 干预 研究者 数据 数据集 样本 模型 预测 分类 效果 性能 准确率 标题 摘要 论文 文章 投稿 期刊 以及 及其 其中 进一步 的 与 和 及 在 对 中 为 是 了 有 将 并 从 到 被 我们'.split(' '));
-  'present presents presented presenting introduce introduces introduced describe describes described describing propose proposes proposed proposing provide provides provided providing assess assesses assessed assessing examine examines examined examining investigate investigates investigating integrate integrated integration integrate integrating underlying title abstract objective baseline participant observation'.split(' ').forEach((word) => STOP.add(word));
+    'present presents presented presenting introduce introduces introduced describe describes described describing propose proposes proposed proposing provide provides provided providing assess assesses assessed assessing examine examines examined examining investigate investigates investigating integrate integrated integration integrate integrating underlying title abstract objective baseline participant observation about'.split(' ').forEach((word) => STOP.add(word));
   '整合 改善 差异 连接 结合 中的 中有 发现了 及相关 一定 具有 能够 需要 关键 基础 水平 能力 主要 未来 目前 现在 总体 具体 方式 过程 情况 内容 范围 时间 方向 的研究'.split(' ').forEach((word) => ZH_STOP.add(word));
   const nameCollator = new Intl.Collator('en', { sensitivity: 'base' });
   const LITERAL_TRANSLATIONS = Object.freeze({
@@ -83,7 +83,7 @@
     ['schizophrenia','精神分裂症','精神分裂|schizophrenia|schizophrenic','schizophrenia|schizophrenic|psychosis|psychotic'],
     ['bipolar','双相障碍','双相|躁郁|bipolar|mania','bipolar|mania|mood disorders'],
     ['autism','自闭症 / ASD','自闭症|孤独症|autism|autistic|asd','autism|autistic|neurodevelopmental'],
-    ['neuroscience','脑与神经科学','脑科学|神经科学|脑网络|脑功能|大脑|脑区|神经网络连接|neuroscience|neural|brain|neurological|neurology|neuronal','neuroscience|neural|brain|neurology|neuronal'],
+    ['neuroscience','脑与神经科学','脑科学|神经科学|脑网络|脑功能|大脑|脑区|神经网络连接|神经组织|神经修复|神经再生|neuroscience|neural|brain|neurological|neurology|neuronal|nerve|nervous system','neuroscience|neural|brain|neurology|neuronal|nerve|nervous system'],
     ['neuroimaging','脑影像 / Neuroimaging','脑影像|脑功能影像|神经影像|功能磁共振|磁共振成像|脑磁共振|neuroimaging|fmri|functional magnetic resonance|functional connectivity','neuroimaging|brain imaging|functional connectivity|magnetic resonance'],
     ['bci','脑机接口','脑机接口|脑电|脑电图|brain computer interface|brain machine interface|electroencephalography|eeg','brain computer|brain machine|neural engineering|electroencephalography|eeg'],
     ['cognition','认知科学','认知|cognition|cognitive','cognition|cognitive|neuropsychology'],
@@ -97,6 +97,7 @@
     ['transcriptomics','转录组','转录组|单细胞|空间转录|transcriptomics|transcriptomic|single cell|rna sequencing','transcriptomics|transcriptomic|single cell|rna sequencing|gene expression'],
     ['proteomics','蛋白质组','蛋白质组|蛋白组|蛋白质|proteomics|proteomic|protein|proteins','proteomics|protein|proteomic'],
     ['bioinformatics','生物信息与计算生物学','生物信息|计算生物|bioinformatics|bioinformatic|computational biology','bioinformatics|computational biology|genomic analysis'],
+    ['medical-informatics','医学信息学','医学信息|医疗信息|电子病历|medical informatics|clinical informatics|electronic health record|electronic health records','medical informatics|clinical informatics|electronic health records|health information|healthcare'],
     ['ai','人工智能','人工智能|artificial intelligence|ai','artificial intelligence|intelligent systems'],
     ['machine-learning','机器学习','机器学习|深度学习|人工神经网络|卷积神经网络|图神经网络|machine learning|deep learning|neural network|neural networks','machine learning|deep learning|neural network|artificial intelligence'],
     ['llm','大语言模型与自然语言处理','大语言模型|大模型|语言模型|自然语言处理|large language model|large language models|language modeling|natural language processing|llm|llms','language model|natural language|computational linguistics|text mining'],
@@ -119,6 +120,7 @@
     ['chemistry','化学','化学|chemistry|chemical','chemistry|chemical'],
     ['physics','物理学','物理|physics|physical','physics|physical'],
     ['quantum','量子科学','量子|quantum','quantum'],
+    ['quantum-computing','量子计算','量子计算|量子纠错|量子比特|quantum computing|quantum computation|quantum error correction|qubit|qubits','quantum computing|quantum computation|quantum information|quantum algorithm|qubit'],
     ['astronomy','天文与空间科学','天文|天体|宇宙|astronomy|astrophysics|cosmology|astronomical','astronomy|astrophysics|cosmology|space science'],
     ['engineering','工程学','工程学|机械工程|结构工程|土木工程|engineering|mechanical|civil engineering','engineering|mechanical|civil engineering'],
     ['energy','能源','能源|可再生能源|风能|energy|renewable|wind energy','energy|renewable|wind'],
@@ -148,6 +150,7 @@
     ['pediatrics','儿科学','儿科|儿童|pediatric|paediatric|pediatrics|child|children','pediatric|child|children'],
     ['sociology','社会学','社会学|社会科学|社会关系|社会结构|sociology|sociological|social science','sociology|sociological|social science'],
     ['inequality','社会不平等','不平等|社会分层|阶层|代际|inequality|inequalities|social stratification|intergenerational','inequality|inequalities|stratification|intergenerational'],
+    ['housing','住房与居住','住房|住宅|居住|housing|residential','housing|residential'],
     ['education','教育学','教育|教学|学习成效|education|educational|teaching|pedagogy|school|schools','education|educational|teaching|pedagogy|school'],
     ['migration','人口与迁移','人口|移民|迁移|migration|immigration|demography|demographic','migration|immigration|demography|demographic|population'],
     ['gender','性别研究','性别|女性|gender|feminism|feminist','gender|feminism|feminist|women'],
@@ -177,6 +180,8 @@
     'concept:llm': ['text mining'],
     'concept:depression': ['affective', 'mood disorders']
   };
+  RELATED_ALIASES['concept:battery'] = ['lithium', 'sodium ion', 'electrochemical'];
+  RELATED_ALIASES['concept:medical-informatics'] = ['healthcare'];
   const relatedAliasMap = new Map(Object.entries(RELATED_ALIASES).map(([id, aliases]) => [id, new Set(aliases.map(tokenText))]));
   const escapeRE = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const CONCEPTS = DEFINITIONS.map(([id, label, triggers, aliases]) => ({
@@ -188,19 +193,19 @@
   function analyze(input = {}) {
     const values = { title: String(input.title || '').slice(0, 500), keywords: String(input.keywords || '').slice(0, 500), abstract: String(input.abstract || '').slice(0, 12000) };
     const found = new Map(), warnings = [], inputLength = Object.values(values).reduce((sum, value) => sum + value.trim().length, 0);
-    function add(key, term, origin, count = 1) {
+    function add(key, term, origin, count = 1, position = 0) {
       const rawChinese = term.kind === 'keyword' && !term.translated && /[\u3400-\u9fff]/.test(term.label);
       const weight = ORIGIN[origin].weight * (term.broad ? 0.58 : 1) * (rawChinese ? 0.45 : 1) * (origin === 'abstract' ? Math.min(1.3, 1 + Math.log2(Math.max(1, count)) * 0.09) : 1);
       const old = found.get(key);
-      if (old) { old.weight = Math.max(old.weight, weight); if (!old.origins.includes(origin)) old.origins.push(origin); }
-      else found.set(key, { ...term, id: key, weight, origin: ORIGIN[origin].label, origins: [origin] });
+      if (old) { old.weight = Math.max(old.weight, weight); if (!old.origins.includes(origin)) old.origins.push(origin); old.positions[origin] = Math.min(old.positions[origin] ?? Infinity, position); }
+      else found.set(key, { ...term, id: key, weight, origin: ORIGIN[origin].label, origins: [origin], positions: { [origin]: position } });
     }
     for (const origin of ['title', 'keywords', 'abstract']) {
       const value = normalize(values[origin]).replace(/\b(?:systematic )?literature review\b/g, ' ');
       if (!value) continue;
       const covered = new Uint8Array(value.length);
       for (const concept of CONCEPTS) {
-        let count = 0;
+        let count = 0, firstPosition = Infinity;
         const preferredAliases = new Set();
         for (const trigger of concept.triggers) {
           trigger.regex.lastIndex = 0;
@@ -209,7 +214,9 @@
             // compounds have no spaces, so guard this ambiguous substring.
             if (concept.id === 'concept:battery' && trigger.value === '电池' && /(?:太阳能|光伏)$/.test(value.slice(Math.max(0, match.index - 5), match.index))) { covered.fill(1, match.index, match.index + match[0].length); continue; }
             if (concept.id === 'concept:genomics' && /^基因/.test(trigger.value) && value[match.index - 1] === '宏') continue;
+            if (concept.id === 'concept:machine-learning' && /neural network/.test(trigger.value) && /(?:brain|biological|neuronal)\s*$/.test(value.slice(Math.max(0, match.index - 25), match.index))) continue;
             count++;
+            firstPosition = Math.min(firstPosition, match.index);
             if (/[a-z]/.test(match[0])) preferredAliases.add(tokenText(match[0]));
             else for (const alias of concept.aliases) if (!relatedAliasMap.get(concept.id)?.has(alias)) preferredAliases.add(alias);
             covered.fill(1, match.index, match.index + match[0].length);
@@ -218,7 +225,7 @@
         if (count) {
           const old = found.get(concept.id);
           if (old) for (const alias of old.preferredAliases || []) preferredAliases.add(alias);
-          add(concept.id, { label: concept.label, kind: concept.kind, aliases: [...new Set([...preferredAliases, ...concept.aliases])], preferredAliases: [...preferredAliases], canonicalAlias: concept.aliases[0], broad: concept.broad }, origin, count);
+          add(concept.id, { label: concept.label, kind: concept.kind, aliases: [...new Set([...preferredAliases, ...concept.aliases])], preferredAliases: [...preferredAliases], canonicalAlias: concept.aliases[0], broad: concept.broad }, origin, count, firstPosition);
           const term = found.get(concept.id);
           term.preferredAliases = [...preferredAliases];
           term.aliases = [...new Set([...preferredAliases, ...concept.aliases])];
@@ -233,7 +240,7 @@
       for (const [token, count] of counts) {
         const translated = LITERAL_TRANSLATIONS[token];
         const aliases = [...new Set([token, ...(translated || [])].map(tokenText))];
-        add('term:' + token, { label: token, kind: 'keyword', aliases, preferredAliases: aliases, translated: Boolean(translated), broad: false }, origin, count);
+        add('term:' + token, { label: token, kind: 'keyword', aliases, preferredAliases: aliases, translated: Boolean(translated), broad: false }, origin, count, Math.max(0, value.indexOf(token)));
       }
     }
     const terms = [...found.values()].map((term) => ({ ...term, weight: Number((term.weight * (1 + Math.min(2, term.origins.length - 1) * 0.08)).toFixed(3)), origin: term.origins.map((key) => ORIGIN[key].label).join(' / ') }))
@@ -242,7 +249,13 @@
     if (found.size > 40) warnings.push('已保留权重最高的 40 个主题词。可以取消宽泛词，突出论文的主要研究对象。');
     if (inputLength && !values.abstract.trim()) warnings.push('当前主要依据标题或关键词。补充一段研究摘要，通常能提供更多主题线索。');
     if (/[\u3400-\u9fff]/.test(Object.values(values).join(' ')) && terms.some((term) => term.kind === 'keyword' && /[\u3400-\u9fff]/.test(term.label))) warnings.push('部分中文术语采用原词匹配；补充对应英文关键词有助于检索英文期刊资料。');
-    return { terms, warnings, inputLength, literalTitle: tokenText(values.title), version: '2.0.0' };
+    const manuscriptText = Object.values(values).join(' ');
+    return { terms, warnings, inputLength, literalTitle: tokenText(values.title),
+      reviewManuscript: /\b(?:systematic review|scoping review|critical review|meta[ -]analysis|literature review|review article|review of)\b|综述|荟萃分析|元分析/i.test(manuscriptText),
+      caseManuscript: /\bcase (?:report|series)\b|病例报告|病例系列/i.test(manuscriptText),
+      titleOnly: Boolean(values.title.trim()) && !values.abstract.trim() && !values.keywords.trim(),
+      humanStudy: /\b(?:human|patient|clinical|hospital)\b|人群|患者|临床|受试者/i.test(manuscriptText) && !/\b(?:animal|mice|mouse|rat|rodent|veterinary)\b|动物|小鼠|大鼠/i.test(manuscriptText),
+      version: '3.0.0' };
   }
 
   async function createIndex(journals, { onProgress } = {}) {
@@ -264,7 +277,7 @@
       if ((position + 1) % 1200 === 0) { report(position + 1); await new Promise((resolve) => setTimeout(resolve, 0)); }
     }
     report(rows.length);
-    return { documents, postings, count: documents.length, version: '2.0.0' };
+    return { documents, postings, count: documents.length, version: '3.0.0' };
   }
 
   function rank(index, analysis, { excludedTermIds = [], limit = 1000 } = {}) {
@@ -285,9 +298,19 @@
           const doc = index.documents[docIndex];
           for (const segment of doc.segments) {
             if (!segment.normalized.includes(alias)) continue;
+            // Computational neural networks do not provide brain/neuroscience
+            // evidence. Likewise, related aliases may retrieve a record but
+            // cannot later satisfy a mandatory or core topic.
+            if (term.id === 'concept:neuroscience' && alias.trim() === 'neural' && /\bneural network\b/.test(segment.normalized) && !/\b(?:brain|neuronal|cortical|nervous|neuroscience|biological)\b/.test(segment.normalized)) continue;
+            const related = Boolean(relatedAliasMap.get(term.id)?.has(alias));
             const old = matches.get(docIndex), quality = SOURCE[segment.source].quality * aliasWeight;
-            if (!old) matches.set(docIndex, { source: segment.source, quality, topics: new Set(segment.source === 'topic' ? [segment.text] : []), evidence: segment.text });
-            else { if (segment.source === 'topic') old.topics.add(segment.text); if (quality > old.quality) { old.source = segment.source; old.quality = quality; old.evidence = segment.text; } }
+            const support = !related && segment.source !== 'category' ? { source: segment.source, evidence: segment.text, alias: alias.trim() } : null;
+            if (!old) matches.set(docIndex, { source: segment.source, quality, related, alias: alias.trim(), topics: new Set(segment.source === 'topic' ? [segment.text] : []), evidence: segment.text, support: support ? [support] : [] });
+            else {
+              if (segment.source === 'topic') old.topics.add(segment.text);
+              if (support && !old.support.some((item) => item.source === support.source && item.evidence === support.evidence)) old.support.push(support);
+              if (quality > old.quality) { old.source = segment.source; old.quality = quality; old.evidence = segment.text; old.related = related; old.alias = alias.trim(); }
+            }
           }
         }
       }
@@ -302,7 +325,7 @@
         const record = scored.get(docIndex);
         record.sum += weight * match.quality;
         record.matchedWeight += weight;
-        record.terms.push({ id: term.id, label: term.label, source: SOURCE[match.source].label, evidence: match.evidence });
+        record.terms.push({ id: term.id, label: term.label, source: SOURCE[match.source].label, sourceType: match.source, evidence: match.evidence, alias: match.alias, relation: match.related ? 'related' : 'direct', support: match.support });
         for (const topic of match.topics) record.topics.add(topic);
         if (match.source === 'category') record.categories.add(match.evidence);
         if (match.source === 'name') record.nameMatched = true;
@@ -321,6 +344,7 @@
       result.push({ id: doc.id, score: Math.round(Math.min(100, unrounded) * 10) / 10, matchedTerms: record.terms, matchedTopics,
         matchedCategories, reasons, evidenceLevel: matchedTopics.length && record.nameMatched ? 'name-and-topic' : matchedTopics.length ? 'topic' : record.nameMatched ? 'name' : 'category',
         coverage: Math.round(1000 * record.matchedWeight / denominator) / 1000, matchedTermCount: record.terms.length, activeTermCount: active.length,
+        exactNameMatch: analysis.literalTitle === doc.segments[0].normalized,
         _rank: unrounded, _name: doc.name, _exact: analysis.literalTitle === doc.segments[0].normalized });
     }
     result.sort((a, b) => b._rank - a._rank || Number(b._exact) - Number(a._exact) || b.matchedTermCount - a.matchedTermCount || nameCollator.compare(a._name, b._name) || a.id.localeCompare(b.id));
@@ -329,5 +353,117 @@
     return selected;
   }
 
-  globalThis.JournalMatcher = Object.freeze({ version: '2.0.0', createIndex, analyze, rank });
+  // Screening deliberately uses direct name/topic evidence, rather than the
+  // numeric retrieval score alone. Broad categories and related aliases remain
+  // useful for retrieval, but cannot satisfy a required research topic.
+  const METHOD_IDS = new Set(['machine-learning','ai','optimization','statistics','transcriptomics','proteomics','metagenomics','genomics','bioinformatics','neuroimaging','medical-imaging','vision','llm'].map((id) => 'concept:' + id));
+  const CONTEXT_IDS = new Set(['gut','cognition','aging','neuroscience'].map((id) => 'concept:' + id));
+  const GENERIC_SINGLE = new Set(['ai','machine-learning','neuroscience','psychology','ecology','economics','philosophy','education','history','public-health','immunology','genomics'].map((id) => 'concept:' + id));
+  const CORE_NOISE = new Set(('functional network system community social health risk clinical medical develop developed development external internal validation estimation uncertainty generalization longitudinal early independent comparative survey identify identified signature cell cellular analysis application feature information content association approach performance mechanism function regeneration repair biological electronic experimental archive archival change ' +
+    '功能 网络 之间 人群中 检验 修复 再生 导电性 降解 生物 相容性 力学 电学 组织 用于 具有 设计 促进 兼具 临床').split(/\s+/));
+  const CORE_PARENTS = Object.freeze({
+    'concept:microbiology': ['concept:microbiome','concept:metagenomics'],
+    'concept:ecology': ['concept:microbiome'],
+    'concept:psychiatry': ['concept:depression','concept:schizophrenia','concept:bipolar','concept:autism'],
+    'concept:neuroscience': ['concept:neuroimaging','concept:bci','concept:alzheimer'],
+    'concept:genomics': ['concept:transcriptomics','concept:metagenomics'],
+    'concept:polymers': ['concept:hydrogels'],
+    'concept:ai': ['concept:machine-learning','concept:llm','concept:vision'],
+    'concept:quantum': ['concept:quantum-computing']
+  });
+  const topicRole = (term) => METHOD_IDS.has(term.id) ? 'method' : CONTEXT_IDS.has(term.id) ? 'context' : term.kind === 'concept' ? 'object' : 'keyword';
+  const coreLabel = (term) => ({ id: term.id, label: term.label, role: topicRole(term) });
+  const originPriority = (term) => term.origins?.includes('title') ? 0 : term.origins?.includes('keywords') ? 1 : 2;
+  const positionPriority = (term) => term.positions?.title ?? term.positions?.keywords ?? term.positions?.abstract ?? Infinity;
+
+  function screen(index, analysis, { excludedTermIds = [], requiredTermIds = [], ranked } = {}) {
+    const counts = { broadOnly: 0, insufficientEvidence: 0, missingCore: 0, missingRequired: 0, scopeMismatch: 0, publicationType: 0, belowThreshold: 0 };
+    const warnings = [], excluded = new Set(excludedTermIds), required = new Set(requiredTermIds);
+    const active = (analysis?.terms || []).filter((term) => !excluded.has(term.id));
+    const activeIds = new Set(active.map((term) => term.id));
+    const retrieved = Array.isArray(ranked) ? ranked : rank(index, analysis, { excludedTermIds, limit: 0 });
+    const documents = new Map((index?.documents || []).map((doc) => [doc.id, doc]));
+    const directAvailability = new Set(retrieved.flatMap((entry) => entry.matchedTerms.filter((term) => term.support?.length).map((term) => term.id)));
+    const distinctive = active.filter((term) => !term.broad && !CORE_NOISE.has(term.label) &&
+      !(CORE_PARENTS[term.id] || []).some((child) => active.some((candidate) => candidate.id === child && originPriority(candidate) <= originPriority(term))) &&
+      (term.kind === 'concept' || term.translated || !/[\u3400-\u9fff]/.test(term.label)));
+    // Unrecognized refinements are retained in the analysis and retrieval
+    // denominator; they cannot become invented metadata evidence or force a
+    // broad category to masquerade as a precise match.
+    const anchored = distinctive.filter((term) => originPriority(term) < 2);
+    const sourceTerms = anchored.length ? anchored : distinctive;
+    const core = sourceTerms.filter((term) => directAvailability.has(term.id) || term.kind === 'concept')
+      .sort((a, b) => originPriority(a) - originPriority(b) || positionPriority(a) - positionPriority(b) || b.weight - a.weight || a.id.localeCompare(b.id)).slice(0, 8);
+    const coreTerms = core.map(coreLabel), coreIds = new Set(core.map((term) => term.id));
+    const objectTerms = core.filter((term) => topicRole(term) === 'object');
+    const primary = objectTerms[0] || core.find((term) => topicRole(term) === 'keyword') || core[0];
+    const mainMethod = core.find((term) => topicRole(term) === 'method' && originPriority(term) < 2 && term.id !== primary?.id);
+    // Literal refinements ("solid", "interface", "stability", etc.) must not
+    // outvote an explicitly named material/disease and method merely because a
+    // title contains several descriptive words.
+    const coreWeight = (term) => term.weight * (term.kind === 'concept' ? 1 : 0.5);
+    const totalWeight = core.reduce((sum, term) => sum + coreWeight(term), 0);
+    const exactRows = analysis?.titleOnly ? retrieved.filter((entry) => entry.exactNameMatch) : [];
+    const tooBroad = !core.length || (core.length === 1 && (GENERIC_SINGLE.has(core[0].id) || topicRole(core[0]) === 'keyword'));
+    if (tooBroad && !exactRows.length) warnings.push('当前内容只有宽泛方向，缺少足够的研究对象或方法。请补充具体标题、研究对象和一段摘要后再筛选。');
+    const missingVocabulary = sourceTerms.filter((term) => !directAvailability.has(term.id)).map((term) => term.label);
+    if (missingVocabulary.length) warnings.push('部分细节在现有期刊资料中没有直接证据：' + missingVocabulary.slice(0, 4).join('、') + '。入选期刊仍需核对这些细节。');
+    const candidates = [];
+    for (const entry of retrieved) {
+      const doc = documents.get(entry.id);
+      if (!doc) { counts.insufficientEvidence++; continue; }
+      const directTerms = entry.matchedTerms.filter((term) => term.support?.length && activeIds.has(term.id));
+      const directIds = new Set(directTerms.map((term) => term.id));
+      if ([...required].some((id) => !activeIds.has(id) || !directIds.has(id))) { counts.missingRequired++; continue; }
+      if (exactRows.length && !entry.exactNameMatch) { counts.missingCore++; continue; }
+      const exact = Boolean(exactRows.length && entry.exactNameMatch);
+      if (tooBroad && !exact) { counts.broadOnly++; continue; }
+      const normalizedName = normalize(doc.name);
+      if (!exact && (/\b(?:working papers?|discussion papers?|conference proceedings|proceedings of (?:the )?(?:international |annual )?conference|preprint(?:s)?|dissertation(?:s)?)\b/.test(normalizedName) ||
+          (!analysis?.reviewManuscript && /^(?:annual review of|nature reviews|current opinion in)\b|\b(?:energy|chemical|physics|biological|earth science) reviews\b/.test(normalizedName)) ||
+          (!analysis?.caseManuscript && /\bcase reports?\b/.test(normalizedName)))) { counts.publicationType++; continue; }
+      const conflict = [
+        [/\b(?:cancer|oncology|oncological)\b/, ['concept:oncology']],
+        [/\b(?:dentistry|dental|oral|periodontal)\b/, ['concept:dentistry']],
+        [/\b(?:law|legal|jurisprudence)\b/, ['concept:law']],
+        [/\b(?:arts?|music)\b/, ['concept:arts']],
+        [/\b(?:food|nutrition|nutritional)\b/, ['concept:food']],
+        [/\b(?:pediatric|paediatric|pediatrics|paediatrics)\b/, ['concept:pediatrics']],
+        [/\b(?:radiology|radiological|imaging)\b/, ['concept:medical-imaging','concept:neuroimaging','term:image','term:mri','term:radiomic','term:tomography']]
+      ].some(([pattern, ids]) => pattern.test(normalizedName) && !ids.some((id) => activeIds.has(id)));
+      const nonHuman = analysis?.humanStudy && /\b(?:animal|veterinary|aquaculture|poultry|fish|fisheries|plant)\b/.test(normalizedName);
+      if (!exact && (conflict || nonHuman)) { counts.scopeMismatch++; continue; }
+      if (!exact && primary && !directIds.has(primary.id)) { counts.missingCore++; continue; }
+      if (!exact && mainMethod && objectTerms.length && !directIds.has(mainMethod.id)) { counts.missingCore++; continue; }
+      const matchedCore = core.filter((term) => directIds.has(term.id));
+      const supports = directTerms.filter((term) => coreIds.has(term.id)).flatMap((term) => term.support);
+      const groups = [...new Set(supports.map((item) => SOURCE[item.source].label + '：' + item.evidence))];
+      const weightedCoverage = totalWeight ? matchedCore.reduce((sum, term) => sum + coreWeight(term), 0) / totalWeight : 0;
+      // Two distinct core concepts (parents and related aliases already removed)
+      // are required. A single specific subject needs both name and topic
+      // corroboration. A category-only record never meets either route.
+      const corroborated = supports.some((item) => item.source === 'name') && supports.some((item) => item.source === 'topic');
+      const genericAnchor = primary && GENERIC_SINGLE.has(primary.id) && core.length > 2;
+      const enoughEvidence = core.length > 1 ? matchedCore.length >= (genericAnchor ? 3 : 2) && weightedCoverage >= 0.4 : matchedCore.length === 1 && corroborated;
+      if (!exact && (!enoughEvidence || groups.length < 2)) { counts.insufficientEvidence++; continue; }
+      const missing = core.filter((term) => !directIds.has(term.id)).map(coreLabel);
+      const reason = exact ? '与输入刊名完全一致；请在期刊详情核对接收稿件类型与投稿要求' :
+        '核心主题「' + (primary?.label || matchedCore[0]?.label || '') + '」有直接证据；' +
+        (matchedCore.length > 1 ? '另有 ' + (matchedCore.length - 1) + ' 个核心主题得到支持' : '刊名与主题资料相互印证');
+      candidates.push({ ...entry, screening: { reason, coreMatched: matchedCore.length, coreTotal: core.length,
+        missingCoreTerms: missing, matchedCoreTerms: matchedCore.map(coreLabel), directTermIds: [...directIds], evidenceGroups: groups } });
+    }
+    // A relative cut is applied only AFTER substantive evidence gates. It is
+    // neither an acceptance probability nor an arbitrary top-N recommendation.
+    const best = candidates.reduce((value, entry) => Math.max(value, entry.score), 0);
+    const qualified = candidates.filter((entry) => {
+      if (entry.exactNameMatch || entry.score >= best * 0.65) return true;
+      counts.belowThreshold++; return false;
+    });
+    if (!qualified.length && retrieved.length && !tooBroad) warnings.push(required.size ? '没有期刊同时满足必选主题与严格主题筛选；系统不会自动取消必选条件。' : '现有期刊资料不足以形成可靠候选。请明确最主要的研究对象、补充英文关键词，或删去并非核心的主题后重试。');
+    if (qualified.some((entry) => entry.screening.missingCoreTerms.length)) warnings.push('候选仅保留有明确主题证据的期刊；卡片列出的未覆盖核心词仍需到期刊官网核对，不代表完整投稿范围已确认。');
+    return { candidates: qualified, coreTerms, diagnostics: { retrieved: retrieved.length, qualified: qualified.length, rejected: retrieved.length - qualified.length, counts }, warnings };
+  }
+
+  globalThis.JournalMatcher = Object.freeze({ version: '3.0.0', createIndex, analyze, rank, screen });
 })();

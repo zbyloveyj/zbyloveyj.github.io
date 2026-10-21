@@ -1,0 +1,301 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-21",
+  "description": "审稿指标与官网入口补充。统计期未注明时保留空值；核验日期不是统计期。以 ID 与 ISSN 双重匹配，不修改 JIF、数据库收录或完整资料核验状态。Gut Microbes 的用时来自出版方公开检索摘录，来源方式与索引标注日期单独展示。",
+  "records": [
+    {
+      "id": "S766161",
+      "name": "Cognitive Neurodynamics",
+      "issns": [
+        "1871-4099",
+        "1871-4080"
+      ],
+      "homepage": "https://link.springer.com/journal/11571",
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 6,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/11571",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "checkedAt": "2026-10-21",
+      "verification": "仅核验期刊身份、官网与首次决定指标；未核验全部征稿范围。"
+    },
+    {
+      "id": "S142026636",
+      "name": "Journal of Translational Medicine",
+      "issns": [
+        "1479-5876"
+      ],
+      "homepage": "https://link.springer.com/journal/12967",
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 11,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12967",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "checkedAt": "2026-10-21",
+      "verification": "仅核验期刊身份、官网与首次决定指标；未核验全部征稿范围。"
+    },
+    {
+      "id": "S166781098",
+      "name": "Journal of Materials Science: Materials in Medicine",
+      "issns": [
+        "1573-4838"
+      ],
+      "homepage": "https://link.springer.com/journal/10856",
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 50,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/10856",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "checkedAt": "2026-10-21",
+      "verification": "仅核验期刊身份、官网与首次决定指标；未核验全部征稿范围。"
+    },
+    {
+      "id": "S111277402",
+      "name": "Polymer Bulletin",
+      "issns": [
+        "1436-2449",
+        "0170-0839"
+      ],
+      "homepage": "https://link.springer.com/journal/289",
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 36,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/289",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "checkedAt": "2026-10-21",
+      "verification": "仅核验期刊身份、官网与首次决定指标；未核验全部征稿范围。"
+    },
+    {
+      "id": "S51590970",
+      "name": "Brain Imaging and Behavior",
+      "issns": [
+        "1931-7565",
+        "1931-7557"
+      ],
+      "homepage": "https://link.springer.com/journal/11682",
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 16,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/11682",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "checkedAt": "2026-10-21",
+      "verification": "仅核验期刊身份、官网与首次决定指标；未核验全部征稿范围。"
+    },
+    {
+      "id": "S133078663",
+      "name": "Cognitive Computation",
+      "issns": [
+        "1866-9964",
+        "1866-9956"
+      ],
+      "homepage": "https://link.springer.com/journal/12559",
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 22,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12559",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "checkedAt": "2026-10-21",
+      "verification": "仅核验期刊身份、官网与首次决定指标；未核验全部征稿范围。"
+    },
+    {
+      "id": "S147897268",
+      "name": "Neural Computing and Applications",
+      "issns": [
+        "1433-3058",
+        "0941-0643"
+      ],
+      "homepage": "https://link.springer.com/journal/521",
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 14,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/521",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "checkedAt": "2026-10-21",
+      "verification": "仅核验期刊身份、官网与首次决定指标；未核验全部征稿范围。"
+    },
+    {
+      "id": "S24809831",
+      "name": "Journal of Housing and the Built Environment",
+      "issns": [
+        "1573-7772",
+        "1566-4910"
+      ],
+      "homepage": "https://link.springer.com/journal/10901",
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 23,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/10901",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "checkedAt": "2026-10-21",
+      "verification": "仅核验期刊身份、官网与首次决定指标；未核验全部征稿范围。",
+      "publisherNotes": [
+        {
+          "text": "官网说明2027-01-01转为完全开放获取，2026-06-16及以后收到稿件若被录用发表原则上适用APC，减免另计。",
+          "source": "https://link.springer.com/journal/10901",
+          "checkedAt": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "S112952035",
+      "name": "Social Indicators Research",
+      "issns": [
+        "1573-0921",
+        "0303-8300"
+      ],
+      "homepage": "https://link.springer.com/journal/11205",
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 7,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/11205",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null
+        }
+      ],
+      "checkedAt": "2026-10-21",
+      "verification": "仅核验期刊身份、官网与首次决定指标；未核验全部征稿范围。"
+    },
+    {
+      "id": "S107516304",
+      "name": "BMC Medical Informatics and Decision Making",
+      "issns": [
+        "1472-6947"
+      ],
+      "homepage": "https://link.springer.com/journal/12911",
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 7,
+          "statistic": "median",
+          "period": null,
+          "source": "https://link.springer.com/journal/12911",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null,
+          "evidenceMethod": "publisher_page_read"
+        }
+      ],
+      "checkedAt": "2026-10-21",
+      "verification": "核验期刊身份、官网及首次决定指标；统计期未注明。"
+    },
+    {
+      "id": "S2764770702",
+      "name": "Gut Microbes",
+      "issns": [
+        "1949-0976",
+        "1949-0984"
+      ],
+      "homepage": "https://www.tandfonline.com/journals/kgmi20",
+      "publisher": "Taylor & Francis Group",
+      "publisherSource": "https://doaj.org/toc/945ed5b5108d424da33ce6131d4cca37",
+      "publisherSourceRecordUpdatedAt": "2024-08-08T20:21:19Z",
+      "review": [
+        {
+          "stage": "submission_to_first_decision",
+          "days": 6,
+          "statistic": "mean",
+          "period": null,
+          "source": "https://www.tandfonline.com/journals/kgmi20/about-this-journal",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null,
+          "evidenceMethod": "publisher_page_public_search_excerpt",
+          "sourceIndexedAt": "2026-07-14"
+        },
+        {
+          "stage": "submission_to_first_post_review_decision",
+          "days": 43,
+          "statistic": "mean",
+          "period": null,
+          "source": "https://www.tandfonline.com/journals/kgmi20/about-this-journal",
+          "checkedAt": "2026-10-21",
+          "sourceYear": null,
+          "evidenceMethod": "publisher_page_public_search_excerpt",
+          "sourceIndexedAt": "2026-07-14"
+        }
+      ],
+      "checkedAt": "2026-10-21",
+      "verification": "首次决定与首次外审后决定取自出版方页面公开索引摘录；页面直读403，未声称读到全文。搜索结果标注2026-07-14，非指标统计期。出版方同时由已收录DOAJ记录明确给出，旧OpenAlex的Landes Bioscience保留为历史目录来源。",
+      "publisherMetricNotes": [
+        {
+          "text": "整体首次决定平均6天、首次外审后决定平均43天；核验自出版方页面公开索引摘录，统计期未注明。",
+          "source": "https://www.tandfonline.com/journals/kgmi20/about-this-journal",
+          "checkedAt": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "S2737714521",
+      "name": "Biomaterials Research",
+      "issns": [
+        "2055-7124",
+        "1226-4601"
+      ],
+      "homepage": "https://spj.science.org/journal/bmr",
+      "publisher": "American Association for the Advancement of Science (AAAS)",
+      "publisherSource": "https://doaj.org/toc/7ae2b717b6e74437bf72263ac434dd61",
+      "publisherSourceRecordUpdatedAt": "2024-02-19T16:24:41Z",
+      "authorGuidelines": "https://spj.science.org/page/bmr/for-authors/",
+      "review": [],
+      "checkedAt": "2026-10-21",
+      "verification": "当前主页与eISSN由SPJ官方About公开索引确认；出版方由既有DOAJ记录明确给出，DOAJ同时给出SPJ主页与作者指南。官网直接读取403，首次决定统计未核实，不填数值。",
+      "publisherMetricNotes": [
+        {
+          "text": "当前期刊入口为Science Partner Journals。OpenAlex仍留有BioMed Central历史出版方与旧主页；本页按DOAJ记录及SPJ官方期刊介绍更正入口。首次决定时间尚未核实。",
+          "source": "https://spj.science.org/page/bmr/about",
+          "checkedAt": "2026-10-21"
+        }
+      ],
+      "submissionURL": "https://www.editorialmanager.com/bmr"
+    }
+  ]
+}

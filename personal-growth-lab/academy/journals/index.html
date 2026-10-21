@@ -8,9 +8,9 @@
   <title>投稿期刊导航 · Journal Atlas｜成长学院</title>
   <link rel="canonical" href="https://zbyloveyj.github.io/personal-growth-lab/academy/journals/">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261021-ui3">
-  <script defer src="matcher.js?v=20261021-ui3"></script>
-  <script defer src="app.js?v=20261021-ui3"></script>
+  <link rel="stylesheet" href="styles.css?v=20261021-ui4">
+  <script defer src="matcher.js?v=20261021-ui4"></script>
+  <script defer src="app.js?v=20261021-ui4"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -61,7 +61,7 @@
             <div class="filter-group"><label for="filter-oa">开放获取模式</label><select id="filter-oa"><option value="">全部模式</option><option value="yes">OpenAlex 标记全开放获取</option><option value="no">未标记全开放获取</option></select></div>
             <div class="filter-group"><label for="filter-country">出版国家 / 地区</label><select id="filter-country"><option value="">全部国家 / 地区</option></select></div>
             <div class="filter-group"><label for="filter-publisher">出版方</label><input id="filter-publisher" type="search" placeholder="如 Springer、Elsevier、Wiley"></div>
-            <div class="filter-group filter-review-group"><label for="filter-review-stage">处理阶段与时间上限</label><select id="filter-review-stage"><option value="first">投稿至首次决定（整体）</option><option value="peer">外审后首次决定</option><option value="publication">投稿至发表（DOAJ 等）</option></select><label class="sr-only" for="filter-review">所选阶段的时间上限</label><select id="filter-review" style="margin-top:7px"><option value="">不限 / 含未披露</option><option value="7">7 天内</option><option value="14">14 天内</option><option value="30">30 天内</option><option value="60">60 天内</option><option value="90">90 天内</option><option value="180">180 天内</option><option value="365">365 天内</option></select><p class="filter-help">整体首次决定可能含编辑初筛；外审后决定单独筛选。未披露的阶段保持未知，不互相代替。</p></div>
+            <div class="filter-group filter-review-group"><label for="filter-review-stage">处理阶段与时间上限</label><select id="filter-review-stage"><option value="first">投稿至首次决定（整体）</option><option value="peer">外审后首次决定</option><option value="publication">投稿至发表（DOAJ 等）</option></select><label class="sr-only" for="filter-review">所选阶段的时间上限</label><select id="filter-review" style="margin-top:7px"><option value="">不限 / 含本站未收录</option><option value="7">7 天内</option><option value="14">14 天内</option><option value="30">30 天内</option><option value="60">60 天内</option><option value="90">90 天内</option><option value="180">180 天内</option><option value="365">365 天内</option></select><p class="filter-help">整体首次决定可能含编辑初筛；外审后决定单独筛选。未披露的阶段保持未知，不互相代替。</p></div>
             <label class="checkbox-row"><input type="checkbox" id="filter-curated">仅看出版方详情核验期刊</label>
             <label class="checkbox-row"><input type="checkbox" id="filter-saved">仅看我的收藏</label>
             <div class="filter-save"><button id="save-search" class="secondary-button full" type="button">＋ 保存这组筛选</button><div id="saved-searches"></div></div>
@@ -79,7 +79,7 @@
 
       <section id="view-matcher" role="tabpanel" tabindex="-1" aria-labelledby="tab-matcher" hidden>
         <div class="section-header matcher-heading">
-          <div><p class="eyebrow">FIND A JOURNAL FOR YOUR RESEARCH</p><h2>这篇研究，适合哪些期刊？</h2><p>填写标题或一段研究描述，结合投稿条件，生成带有匹配依据的候选清单。</p></div>
+          <div><p class="eyebrow">FIND A JOURNAL FOR YOUR RESEARCH</p><h2>这篇研究，适合哪些期刊？</h2><p>默认精选 5 本，最多 10 本。先检查核心主题，再执行投稿条件；证据不足时不凑数。</p></div>
           <div class="local-processing"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="9" width="16" height="12" rx="3"/><path d="M8 9V6a4 4 0 0 1 8 0v3m-4 5v3"/></svg><span>在当前浏览器中处理<small>输入内容无需上传</small></span></div>
         </div>
         <form id="matcher-form" class="matcher-form" autocomplete="off" aria-describedby="match-input-guidance">
@@ -93,7 +93,12 @@
             <button class="text-button match-use-manuscript" type="button" id="match-use-manuscript">使用投稿清单中的稿件信息 <span aria-hidden="true">↗</span></button>
           </div>
           <aside class="match-preferences-card" aria-label="稿件匹配条件">
-            <div class="match-panel-heading"><span class="step-number">02</span><div><h3>设定你在意的条件</h3><p>全部选填；设置后只保留满足条件的记录。</p></div></div>
+            <div class="match-panel-heading"><span class="step-number">02</span><div><h3>设定你在意的条件</h3><p>条件同时生效，先淘汰不符合项，再形成少量候选。</p></div></div>
+            <div class="match-selection-controls">
+              <div class="match-field"><label for="match-limit">本次最多推荐</label><select id="match-limit"><option value="3">3 本 · 更精简</option><option value="5" selected>5 本 · 默认精选</option><option value="10">10 本 · 扩展清单</option></select></div>
+              <label class="match-identity-control"><input type="checkbox" id="match-identity" checked aria-describedby="match-identity-help"><span>有出版方、ISSN 与官网记录</span></label>
+              <p id="match-identity-help" class="match-input-help">默认排除入口资料缺失的条目。官网记录不代表已经逐刊确认当前接受投稿。</p>
+            </div>
             <div class="match-preferences-grid">
               <div class="match-field match-span"><label for="match-field">学科范围</label><select id="match-field"><option value="">不限学科 · 保留交叉方向</option></select></div>
               <div class="match-field match-span"><label for="match-database">数据库 / 目录收录</label><select id="match-database"><option value="">不限收录</option><option value="SCIE">SCI / SCIE</option><option value="SSCI">SSCI</option><option value="ESCI">ESCI</option><option value="AHCI">AHCI</option><option value="DOAJ">DOAJ</option></select></div>
@@ -103,22 +108,22 @@
               <div class="match-field"><label for="match-max">最高 JIF</label><input type="number" id="match-max" min="0" max="1000" step="0.1" placeholder="不限"></div>
               <div class="match-field match-span"><label for="match-oa">开放获取模式</label><select id="match-oa"><option value="">全部模式</option><option value="yes">标记为全开放获取</option><option value="no">未标记为全开放获取</option></select></div>
             </div>
-            <details class="match-advanced"><summary><span>时间与费用条件</span><span aria-hidden="true">＋</span></summary><div class="match-advanced-fields">
+            <details class="match-advanced" open><summary><span>时间与费用条件</span><span aria-hidden="true">＋</span></summary><div class="match-advanced-fields">
               <div class="match-field"><label for="match-review-stage">处理阶段</label><select id="match-review-stage"><option value="first">投稿至首次决定（整体）</option><option value="peer">外审后首次决定</option><option value="publication">投稿至发表</option></select></div>
-              <div class="match-field"><label for="match-review">所选阶段的时间上限</label><select id="match-review"><option value="">不限 / 含未披露</option><option value="14">14 天内</option><option value="30">30 天内</option><option value="60">60 天内</option><option value="90">90 天内</option><option value="180">180 天内</option><option value="365">365 天内</option></select></div>
+              <div class="match-field"><label for="match-review">所选阶段的时间上限</label><select id="match-review"><option value="">不限 / 含本站未收录</option><option value="14">14 天内</option><option value="30">30 天内</option><option value="60">60 天内</option><option value="90">90 天内</option><option value="180">180 天内</option><option value="365">365 天内</option></select></div>
               <div class="match-field"><label for="match-fee">APC 收取情况</label><select id="match-fee"><option value="">不限 / 含未知</option><option value="free">DOAJ 记录为不收 APC</option><option value="paid">DOAJ 记录为收取 APC</option></select></div>
-              <p class="match-input-help">时间按各刊已披露阶段筛选。不收 APC 不代表没有其他费用；费用及分区详情请查看来源。</p>
+              <p class="match-input-help">整体首次决定、外审后首次决定、投稿至发表分别筛选。时间不明的期刊不能通过时间上限；不收 APC 不代表没有其他费用。</p>
             </div></details>
             <div class="match-condition-note"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></svg><p>指定分区、JIF、时间或费用时，相应信息缺失的期刊不会进入结果。JIF 使用各刊最新已收录年份。</p></div>
           </aside>
-          <div class="match-submit-row"><div><strong>先找主题契合，再比较现实条件。</strong><p>匹配以刊名、主题与学科元数据为依据；结果用于初筛。</p></div><div class="inline-actions"><button id="match-clear" class="secondary-button" type="button">清空输入</button><button id="match-submit" class="primary-button" type="submit">匹配候选期刊 <span aria-hidden="true">↗</span></button></div></div>
+          <div class="match-submit-row"><div><strong>不够符合，就少推荐。</strong><p>只保留通过主题证据门槛与全部所选条件的候选。</p></div><div class="inline-actions"><button id="match-clear" class="secondary-button" type="button">清空输入</button><button id="match-submit" class="primary-button" type="submit">筛选推荐期刊 <span aria-hidden="true">↗</span></button></div></div>
         </form>
         <div id="match-status" class="match-status" role="status" aria-live="polite"></div>
         <div id="match-analysis" class="match-analysis"></div>
-        <div class="match-results-heading"><div id="match-summary" class="match-summary"></div><div id="match-actions" class="inline-actions" hidden><label class="sr-only" for="match-sort">匹配结果排序</label><select id="match-sort"><option value="relevance">主题相关优先</option><option value="jif-desc">JIF 从高到低</option><option value="review-asc">所选阶段用时从短到长</option></select><button type="button" class="secondary-button" id="match-export">导出匹配结果 ↓</button><button type="button" class="text-button" id="match-to-catalog">在目录中进一步筛选 ↗</button></div></div>
-        <div id="match-results" class="match-result-list"><div class="match-empty"><div class="match-empty-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="13" y="9" width="30" height="43" rx="5"/><path d="M21 20h14M21 27h10M21 34h7"/><circle cx="43" cy="42" r="10"/><path d="m50 50 8 8"/></svg></div><h3>让候选期刊，从你的研究出发。</h3><p>输入标题或摘要，生成候选并查看匹配依据。<br>也可以选择一个示例，先熟悉匹配方式。</p><div class="match-empty-steps"><span>识别研究主题</span><i aria-hidden="true">→</i><span>筛选投稿条件</span><i aria-hidden="true">→</i><span>解释匹配依据</span></div></div></div>
-        <div class="match-more-wrap"><button id="match-more" class="secondary-button" type="button" hidden>查看更多候选</button></div>
-        <details class="match-method-note"><summary>如何理解匹配结果？</summary><p>系统在当前浏览器中，把研究描述与期刊名称、已收录主题和学科资料进行主题匹配。相关分表示本次检索的主题关联程度，不代表录用概率或期刊质量。跨学科期刊、资料稀疏的期刊可能需要进一步人工判断。</p><p>期刊主题资料与最新征稿范围可能存在差异。确定候选后，请打开期刊详情和官方网站，核对 Aims &amp; Scope、文章类型、费用与最新收录状态。</p></details>
+        <div class="match-results-heading"><div id="match-summary" class="match-summary"></div><div id="match-actions" class="inline-actions" hidden><label class="sr-only" for="match-sort">当前清单内排序</label><select id="match-sort"><option value="relevance">清单内：主题相关优先</option><option value="jif-desc">清单内：JIF 从高到低</option><option value="review-asc">清单内：所选阶段用时从短到长</option></select><button type="button" class="secondary-button" id="match-export">导出这份清单 ↓</button><button type="button" class="text-button" id="match-to-catalog">继续筛选这几本 ↗</button></div></div>
+        <div id="match-results" class="match-result-list"><div class="match-empty"><div class="match-empty-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="13" y="9" width="30" height="43" rx="5"/><path d="M21 20h14M21 27h10M21 34h7"/><circle cx="43" cy="42" r="10"/><path d="m50 50 8 8"/></svg></div><h3>从你的研究出发，筛出少量候选。</h3><p>输入标题或摘要，默认最多推荐 5 本。<br>每本都会说明保留理由、缺少的证据与官网入口。</p><div class="match-empty-steps"><span>识别研究主题</span><i aria-hidden="true">→</i><span>筛选投稿条件</span><i aria-hidden="true">→</i><span>解释匹配依据</span></div></div></div>
+
+        <details class="match-method-note"><summary>如何理解匹配结果？</summary><p>系统在当前浏览器中，把研究描述与刊名、主题和学科资料进行文字检索，再检查关键研究方向、直接证据及语境。仅命中宽泛学科、相关词或不一致语境的记录会被淘汰；你还可以把主题设为必须匹配。主题门槛和投稿条件全部通过后，才选取前 3、5 或 10 本。排序仅改变当前清单的排列，不放宽筛选。</p><p>每本候选会显示保留理由和未覆盖的核心主题。元数据主题可能不完整，当前结果属于投稿前初筛，不代表已核实全文适配，也不预测录用概率。请通过卡片上的官网、作者指南和时间来源，继续核对 Aims &amp; Scope、文章类型、费用与最新收录状态。</p></details>
       </section>
 
       <section id="view-shortlist" role="tabpanel" tabindex="-1" aria-labelledby="tab-shortlist" hidden>
