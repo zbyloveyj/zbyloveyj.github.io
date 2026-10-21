@@ -17,7 +17,10 @@ with sync_playwright() as p:
  page.on('pageerror',lambda e:errors.append(str(e)))
  page.goto(base,wait_until='networkidle')
  expect(page.locator('.priority-card')).to_have_count(3)
- expect(page.locator('.project-card')).to_have_count(7)
+ expect(page.locator('.project-card')).to_have_count(8)
+ expect(page.locator('.project-card a.card-title[href="#/llm"]')).to_have_count(1)
+ expect(page.locator('.project-card a.card-title[href="#/llm"]')).to_have_text('14天大模型实战 · CurateMicrobiota')
+ expect(page.locator('.cm-launch a[href="llm-lab/"]')).to_be_visible()
  assert page.locator('.storage-alert').count()==0
  page.screenshot(path=str(OUT/'desktop.png'),full_page=True)
  counts=page.evaluate('ACADEMY.courses.map(c=>[c.id,c.lessons.length])')
