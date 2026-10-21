@@ -1,0 +1,17 @@
+{
+  "version": "2026.10.21",
+  "catalogCount": 70419,
+  "fields": 26,
+  "jifJournals": 20590,
+  "jifTrendJournals": 17806,
+  "jcrJournals": 21101,
+  "jcrCategories": 254,
+  "casHistoricalReferenceJournals": 15988,
+  "doajProfiles": 17075,
+  "publisherProfiles": 49,
+  "sourceSnapshot": "2026-10-14",
+  "doajSnapshot": "2026-09-20",
+  "checkedAt": "2026-10-21",
+  "dataCommit": "7309177c5337f4204e161bdf37d4ec8485ceefd9",
+  "dataValidation": "passed"
+}
