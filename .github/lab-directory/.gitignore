@@ -2,6 +2,10 @@
 *.json
 !north_america_priority_additions.json
 !north_america_research_evidence.json
+!reviewed-additions-20261021.json
+!reviewed-provenance-20261021.json
+!reviewed-expansion-report-20261021.json
+!institution-aliases.json
 
 # Public page snapshots and runtime-only files are deliberately not committed.
 *.html

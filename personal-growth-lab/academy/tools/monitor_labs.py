@@ -79,10 +79,12 @@ def select_sources(data, previous, max_profiles=96):
                 continue
             target = priority if reviewed or source.get('kind') == 'directory' else profiles
             target[url] = max(source['verifiedAt'], target.get(url, ''))
-        if reviewed:
+        if reviewed and lab['opportunity'].get('verifiedAt'):
             opportunity = lab['opportunity']
-            priority[opportunity['url']] = opportunity['verifiedAt']
-        else:
+            url = opportunity['url'].split('#')[0]
+            if urlsplit(url).scheme == 'https':
+                priority[url] = max(opportunity['verifiedAt'], priority.get(url, ''))
+        elif not reviewed:
             url = (lab.get('profileUrl') or '').split('#')[0]
             if urlsplit(url).scheme == 'https':
                 profiles[url] = lab['verifiedAt']
