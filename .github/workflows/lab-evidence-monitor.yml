@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/lab-evidence-monitor.yml'
       - 'personal-growth-lab/academy/data/labs.json'
+      - 'personal-growth-lab/academy/data/labs.json.gz'
       - 'personal-growth-lab/academy/data/lab-sources.json'
       - 'personal-growth-lab/academy/tools/monitor_labs.py'
       - 'personal-growth-lab/academy/tools/test_labs.py'
@@ -16,6 +17,8 @@ on:
       - 'personal-growth-lab/academy/assets/labs.*'
       - 'personal-growth-lab/academy/assets/lab-model.js'
       - 'personal-growth-lab/academy/labs.html'
+      - '.github/lab-directory/enrich_candidates.py'
+      - '.github/lab-directory/test_enrich_candidates.py'
 permissions:
   contents: write
 concurrency:
@@ -31,7 +34,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Validate editorial data and monitor rules
-        run: python personal-growth-lab/academy/tools/test_labs.py
+        run: |
+          python personal-growth-lab/academy/tools/test_labs.py
+          python .github/lab-directory/test_enrich_candidates.py
       - name: Check official sources
         run: python personal-growth-lab/academy/tools/monitor_labs.py --max-profiles 96
       - name: Persist only public monitor state

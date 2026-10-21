@@ -6,9 +6,9 @@
   <title>全球科研团队导航 · 成长学院</title>
   <meta name="description" content="全球导师与研究团队长期候选库。覆盖微生物组、计算精神病学、医学人工智能、脑科学、计算生物学和多组学；按问题、方法、疾病、数据和研究设计交叉筛选，比较七项来源证据并建立个人关注名单。">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/labs.css?v=20261021-multidimensional">
-  <script defer src="assets/lab-model.js?v=20261021-multidimensional"></script>
-  <script defer src="assets/labs.js?v=20261021-multidimensional"></script>
+  <link rel="stylesheet" href="assets/labs.css?v=20261021-global-v4">
+  <script defer src="assets/lab-model.js?v=20261021-global-v4"></script>
+  <script defer src="assets/labs.js?v=20261021-global-v4"></script>
 </head>
 <body>
 <a class="skip" href="#catalog">跳到课题组名单</a>
@@ -22,6 +22,12 @@
 <section id="catalog" class="section">
   <div class="section-heading"><p class="eyebrow">01 / FIND YOUR RESEARCH COMMUNITY</p><h2>导师与研究团队</h2><p>搜索姓名、机构或关键词，也可以组合国家、研究方向和证据深度筛选。无论目前是否招生或招聘，相关团队都可作为长期候选。</p></div>
   <div id="evidence-summary" class="evidence-summary"></div>
+  <p id="expansion-summary" class="expansion-summary"></p>
+  <details id="coverage-panel" class="coverage-panel">
+    <summary>查看各研究方向的覆盖深度 <span>收录范围 · 研究说明 · 方法标签</span></summary>
+    <p class="small">研究依据包括官方目录中的个人简介或明确专题分组，深度须结合证据等级判断；有方法标签也不代表已审阅全部论文。方向相互交叉，数量不能相加；缺少标签表示尚未整理。机构数按本库机构 / 研究单元归类计算。</p>
+    <div id="topic-coverage" class="table-scroll" tabindex="0" aria-label="方向覆盖表，可横向滚动"></div>
+  </details>
   <div id="quick-filters" class="quick-filters" aria-label="常用研究方向"></div>
   <form id="filters" class="filters" role="search">
     <label class="search">搜索导师、机构、方法或研究问题<input type="search" id="query" placeholder="例如：微生物组、Huttenhower、计算精神病、临床预测" autocomplete="off"></label>
@@ -29,6 +35,7 @@
     <label>机构<select id="institution"><option value="">全部机构</option></select></label>
     <label>研究方向<select id="direction"><option value="">全部方向</option></select></label>
     <label>证据深度<select id="evidence"><option value="">全部证据</option><option value="reviewed">代表作 + 适配分析</option><option value="research_profile">个人研究资料已整理</option><option value="official_directory">官方团队名录</option></select></label>
+    <label>本轮更新<select id="update-filter"><option value="">全部版本记录</option><option value="new">本轮新增候选</option><option value="enriched">本轮补充的已有条目</option></select></label>
     <label>关注范围<select id="collection"><option value="">全部团队</option><option value="saved">我的收藏</option><option value="notes">我有笔记的团队</option></select></label>
     <label>排序<select id="sort"><option value="evidence">详细证据优先</option><option value="match">按我的标签匹配</option><option value="dimensions">已整理维度较多优先</option><option value="name">按姓名 A–Z</option><option value="country">按国家 / 地区</option><option value="institution">按机构</option><option value="date">最近内容核验</option></select></label>
     <label>每页显示<select id="page-size"><option value="24">24组</option><option value="48">48组</option><option value="96">96组</option></select></label>
@@ -76,7 +83,7 @@
 <section id="sources" class="section">
   <div class="section-heading"><p class="eyebrow">05 / TRACEABLE INSTITUTIONAL SOURCES</p><h2>从机构目录继续探索</h2><p>下方是实际用于收录的官方目录。数量按本库当前收录计算，同一PI的跨机构任职合并显示；个人研究来源在各自卡片中。</p></div>
   <div id="country-overview" class="country-overview"></div>
-  <details class="source-directory"><summary>展开官方来源与覆盖数量</summary><div id="source-list" class="source-list"></div></details>
+  <details class="source-directory"><summary>展开官方来源与覆盖数量</summary><label class="source-search-label">查找官方目录<input id="source-search" type="search" placeholder="输入机构、国家或网址关键词" autocomplete="off"></label><p id="source-count" class="small" role="status"></p><div id="source-list" class="source-list"></div><button id="source-more" type="button" hidden>再显示32个来源</button></details>
 </section>
 <section id="paths" class="section">
   <div class="section-heading"><p class="eyebrow">06 / BUILD A BRIDGE</p><h2>从已有能力走向下一阶段</h2><p>A 直接衔接 · B 方法进阶 · C 跨域训练。过渡层级只在完成适配分析后提供。</p></div>

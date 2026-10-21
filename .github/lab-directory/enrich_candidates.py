@@ -5,7 +5,7 @@ This is an editorial build step, not a crawler. Every input claim must have been
 checked against the cited source. Ambiguous identities stop automatic merging.
 Pass an immutable base snapshot when rebuilding the same reviewed batch.
 """
-import argparse, copy, hashlib, json, re, unicodedata
+import argparse, copy, gzip, hashlib, json, re, unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
@@ -81,7 +81,7 @@ def tags(axis,items):return unique(ALIASES.get(axis,{}).get(str(x).strip(),str(x
 def source_ok(url):return urlsplit(url).scheme=='https'
 def source_proof(provenance,url):return provenance.get(canon(url),provenance.get(canon(url.split('#')[0]),{}))
 def read(path):return json.loads(Path(path).read_text())
-def write(path,obj):Path(path).parent.mkdir(parents=True,exist_ok=True);Path(path).write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')
+def write(path,obj,compact=False):Path(path).parent.mkdir(parents=True,exist_ok=True);Path(path).write_text(json.dumps(obj,ensure_ascii=False,indent=None if compact else 2,separators=(',',':') if compact else None)+'\n')
 def unknown_opportunity(url,summary=None):
     return {'status':'unknown','summary':summary or '长期方向候选；当前招生、招聘与接收名额尚未核验。没有当前岗位不影响收录。','url':url,'deadline':None,'verifiedAt':None,'visit':'普通博士、访问/联合培养与博士后资格须按机构和项目分别核实；不推断未来一定有名额。'}
 def append_evidence(l,rows):
@@ -99,7 +99,9 @@ def main():
     ap.add_argument('--provenance',nargs='*',default=[])
     ap.add_argument('--institution-aliases',default=str(Path(__file__).with_name('institution-aliases.json')))
     ap.add_argument('--edition',required=True);ap.add_argument('--date',required=True)
-    args=ap.parse_args();data=read(args.base);manifest=read(args.sources);labs=data['labs'];before={l['id'] for l in labs};byid={l['id']:l for l in labs}
+    ap.add_argument('--compact-output',action='store_true',help='Reduce public dataset download size; review inputs and manifest remain readable.')
+    ap.add_argument('--compressed-output',help='Also write a deterministic gzip copy for browsers supporting DecompressionStream.')
+    args=ap.parse_args();data=read(args.base);previous_edition=data.get('edition');manifest=read(args.sources);labs=data['labs'];before={l['id'] for l in labs};byid={l['id']:l for l in labs}
     institution_aliases=read(args.institution_aliases) if Path(args.institution_aliases).exists() else {}
     provenance={}
     for path in args.provenance:
@@ -107,6 +109,9 @@ def main():
             if not source_ok(source.get('url','')) or not source.get('readMethod'):raise ValueError(('invalid provenance',source))
             provenance[canon(source['url'])]=source
     old_fields=Counter(t for l in labs for t in l['directions']);new_ids=[];enriched=[];resolutions=[];batch_counts={};role_changes=[]
+    identity_index=defaultdict(set)
+    for lab in labs:
+        for name in [lab['name']]+lab.get('aliases',[]):identity_index[(namekey(name),canon(lab['profileUrl']))].add(lab['id'])
     for l in labs:
         l['directions']=tags('domains',l['directions']);l.setdefault('facets',{a:[] for a in AXES});l['facets']['domains']=l['directions'][:]
         l.setdefault('assessmentEvidence',[]);l.setdefault('roleStatus','unknown')
@@ -123,7 +128,7 @@ def main():
             for axis,values in zip(AXES[1:],LEGACY_FACETS.get(l['id'],([],[],[],[],[]))):l['facets'][axis]=tags(axis,values)
             l['facetBasis']='细分标签由原有已核验代表作与技术平台整理；保留原内容核验日期。'
     for batch in args.batches:
-        rows=read(batch);rows=rows.get('records',rows.get('labs',[])) if isinstance(rows,dict) else rows;batch_counts[Path(batch).name]=len(rows)
+        rows=read(batch);rows=rows.get('records',rows.get('labs',[])) if isinstance(rows,dict) else rows;batch_counts[str(Path(batch).parent.name+'/'+Path(batch).name)]=len(rows)
         for r in rows:
             if not r.get('name') or not r.get('institution') or not r.get('sourceUrl') or not r.get('verifiedAt'):raise ValueError(('missing required input',r))
             if not source_ok(r['sourceUrl']):raise ValueError(('source must be HTTPS',r['name'],r['sourceUrl']))
@@ -132,9 +137,12 @@ def main():
                 if existing not in byid:raise ValueError(('unknown stable id',existing,r['name']))
                 l=byid[existing];resolutions.append({'name':r['name'],'id':existing,'basis':'explicit reviewed identity'})
             if l is None:
-                candidates=[x for x in labs if namekey(x['name'])==namekey(r['name']) and canon(x['profileUrl'])==canon(r['url'])]
+                candidates=[byid[i] for i in identity_index.get((namekey(r['name']),canon(r['url'])),set())]
                 if len(candidates)==1:l=candidates[0];resolutions.append({'name':r['name'],'id':l['id'],'basis':'same normalized name and exact personal URL'})
                 elif len(candidates)>1:raise ValueError(('ambiguous matching profiles',r['name']))
+            created=l is None
+            previous_level=l.get('evidenceLevel') if l else None
+            previous_role=l.get('roleStatus') if l else None
             directory=r.get('evidenceLevel')=='official_directory' or r.get('deepResearchVerified') is False
             new_level='official_directory' if directory else 'research_profile'
             if l is None:
@@ -143,6 +151,7 @@ def main():
                 if stable in byid:raise ValueError(('unexpected id collision',stable))
                 l=dict(id=stable,name=r['name'],country=r['country'],city=r.get('city',''),institution=r['institution'],institutionKey=r['institution'],role=r.get('title',r.get('role','')),directions=[],tier='D',evidenceLevel=new_level,candidateStatus='long_term',profileUrl=r['url'],question=r.get('summary',''),groupName='',verifiedAt=r['verifiedAt'],opportunity=unknown_opportunity(r['url']),papers=[],sources=[],platforms=[],gaps=[],facets={a:[] for a in AXES},assessmentEvidence=[])
                 labs.append(l);byid[stable]=l;new_ids.append(stable)
+                l['firstIncludedEdition']=args.edition
                 change=r.get('affiliationChange')
                 if change:
                     if not source_ok(change.get('url','')):raise ValueError(('affiliation change needs source',r['name']))
@@ -152,49 +161,77 @@ def main():
                     l.setdefault('formerAffiliations' if status=='former' else 'affiliations',[]).append(related)
                     role_changes.append({'id':l['id'],'name':r['name'],'from':related['institution'],'to':r['institution'],'relatedStatus':status,'source':change['url']})
             else:
-                if l['id'] in before:enriched.append(l['id'])
+                if l['id'] in before:enriched.append(l['id']);l['lastEnrichedEdition']=args.edition
                 if r['name']!=l['name']:l['aliases']=unique(l.get('aliases',[])+[l['name'],r['name']])
                 if l['evidenceLevel']!='reviewed' and not directory:l['evidenceLevel']='research_profile'
                 change=r.get('affiliationChange')
                 if change:
                     if not change.get('url') or not source_ok(change['url']):raise ValueError(('affiliation change needs source',r['name']))
-                    old=l['institution'];l.setdefault('formerAffiliations',[]).append({'institution':old,'country':l['country'],'status':'former','note':change.get('summary',''),'url':change['url'],'verifiedAt':r['verifiedAt']})
-                    l['affiliations']=[a for a in l.get('affiliations',[]) if a['institution']!=old]
-                    for s in l['sources']:
-                        if 'upenn.edu' in s['url'] or 'complexsystemsupenn.com' in s['url']:s['claim']='历史任职阶段的资料；当前单位已变更。'+s['claim'];s['kind']='historical';s['label']='历史资料 · '+s['label']
+                    old=l['institution'];status=change.get('previousStatus','former')
+                    related={'institution':change.get('previousInstitution',old),'country':change.get('previousCountry',l['country']),'status':status,'note':change.get('summary',''),'url':change.get('relatedUrl',change['url']),'verifiedAt':r['verifiedAt']}
+                    l.setdefault('formerAffiliations' if status=='former' else 'affiliations',[]).append(related)
+                    if status=='former':
+                        l['affiliations']=[a for a in l.get('affiliations',[]) if a['institution']!=old]
+                        for s in l['sources']:
+                            if s.get('institution')==old and s.get('kind')!='historical':s['claim']='历史任职阶段的资料；当前单位已变更。'+s['claim'];s['kind']='historical';s['label']='历史资料 · '+s['label']
                     l['institution']=r['institution'];l['institutionKey']=r['institution'];l['country']=r['country'];l['city']=r.get('city','');l['profileUrl']=r['url']
                     l['opportunity']=unknown_opportunity(r['url'],'任职单位已变更，原机构接收说明不沿用；当前单位的博士后、访问与联合培养资格须重新核验。')
                     l['affiliationNote']=change.get('summary','')
                     role_changes.append({'id':l['id'],'name':r['name'],'from':old,'to':r['institution'],'source':change['url']})
-                elif l['evidenceLevel']!='reviewed':
+                elif l['evidenceLevel']!='reviewed' and not directory:
                     # A detailed primary profile may refine a broad institutional directory.
                     # Do not call an unverified former institution a current affiliation.
                     if l['institution']!=r['institution']:l['affiliationNote']='主机构采用本次个人研究资料；原目录关联保留在来源区，网络或院系名称不能自动解释为独立任职。'
                     l['institution']=r['institution'];l['institutionKey']=r['institution'];l['country']=r['country'];l['city']=r.get('city','');l['profileUrl']=r['url']
-                if r.get('summary') and l['evidenceLevel']!='reviewed':l['question']=r['summary']
+                if r.get('summary') and l['evidenceLevel']!='reviewed' and (not directory or not l.get('question')):l['question']=r['summary']
             l['verifiedAt']=r['verifiedAt'];l['profileVerifiedAt']=r['verifiedAt'] if not directory else l.get('profileVerifiedAt')
             if directory:l['directoryVerifiedAt']=r['verifiedAt']
-            if r.get('title') or r.get('role'):l['role']=r.get('title') or r['role']
-            if r.get('roleStatus'):l['roleStatus']={'active':'current','emeritus_active':'emeritus'}.get(r['roleStatus'],r['roleStatus'])
+            prefer_input=created or not directory or previous_level=='official_directory'
+            if (r.get('title') or r.get('role')) and (created or not directory or not l.get('role')):l['role']=r.get('title') or r['role']
+            if r.get('roleStatus') and (created or not directory or not previous_role or previous_role=='unknown' or r.get('roleCorrection')):l['roleStatus']={'active':'current','emeritus_active':'emeritus'}.get(r['roleStatus'],r['roleStatus'])
             else:l.setdefault('roleStatus','unknown')
             if l['roleStatus'] not in ('current','emeritus','retired','visiting','industry','historical','deceased','unknown'):raise ValueError(('unrecognized role',r['name'],l['roleStatus']))
             if l['roleStatus'] in ('historical','deceased'):l['candidateStatus']='historical';l['opportunity']=unknown_opportunity(r['url'],'历史研究贡献条目，不作为当前接收或未来招生候选。')
             l['aliases']=unique(l.get('aliases',[])+r.get('aliases',[]))
-            l['directions']=tags('domains',l['directions']+r.get('fields',[])+r.get('facets',{}).get('domains',[]))
+            if r.get('canonicalName'):
+                if not r.get('identitySources'):raise ValueError(('canonical name correction needs identity sources',r['name']))
+                l['aliases']=unique(l.get('aliases',[])+[l['name'],r['name']])
+                l['name']=r['canonicalName']
+            if r.get('profileUrlCorrection'):
+                corrected=r['profileUrlCorrection']
+                if not source_ok(corrected) or not source_proof(provenance,corrected):raise ValueError(('profile correction needs read source',r['name'],corrected))
+                l['profileUrl']=corrected
+                if l['opportunity']['status']=='unknown':l['opportunity']['url']=corrected
+            # A program, network or secondary appointment is distinct from a move.
+            for a in r.get('affiliations',[])+r.get('supplementalAffiliations',[]):
+                if not a.get('institution') or not a.get('country') or not source_ok(a.get('url','')) or not a.get('status'):raise ValueError(('invalid sourced affiliation',r['name'],a))
+                if a['institution']==l['institution']:continue
+                row=copy.deepcopy(a);row.setdefault('verifiedAt',r['verifiedAt'])
+                if not any(x.get('institution')==row['institution'] and x.get('url')==row['url'] for x in l.get('affiliations',[])):l.setdefault('affiliations',[]).append(row)
+            l['directions']=tags('domains',l['directions']+r.get('fields',[])+r.get('directions',[])+r.get('facets',{}).get('domains',[]))
             for a in AXES:l['facets'][a]=tags(a,l['facets'].get(a,[])+r.get('facets',{}).get(a,[]))
             l['facets']['domains']=l['directions'][:]
             raw_scope=r.get('evidenceScope','已读取官方研究资料；缺少的信息继续留待核验。')
-            l['evidenceScope']=SCOPE_TEXT.get(raw_scope,raw_scope)
-            l['fieldBasis']=l['evidenceScope'];l['facetBasis']='结构化标签依据本条'+('官方个人研究页的搜索索引内容，未读取该页完整正文。' if raw_scope=='official_individual_research_search_index' else '官方专题目录中明确归属于个人的研究简介。' if directory else '个人 / 研究组官方研究介绍。')+'没有记录的维度不代表该能力不存在。'
+            input_scope=SCOPE_TEXT.get(raw_scope,raw_scope)
+            if prefer_input or not l.get('evidenceScope'):
+                l['evidenceScope']=input_scope
+                l['fieldBasis']=input_scope;l['facetBasis']=r.get('facetBasis') or ('结构化标签依据本条'+('官方个人研究页的搜索索引内容，未读取该页完整正文。' if raw_scope=='official_individual_research_search_index' else '官方专题目录中明确归属于个人的研究简介。' if directory else '个人 / 研究组官方研究介绍。')+'没有记录的维度不代表该能力不存在。')
             for k in ('roleNote','scopeNote','profileLinkStatus','sharedGroup','profileScope','linkedProfileUrl','profileFetchVerifiedAt','recordType'):
-                if r.get(k):l[k]=r[k]
+                if r.get(k) and (prefer_input or (k=='roleNote' and r.get('roleCorrection'))):l[k]=r[k]
             ev=copy.deepcopy(r.get('assessmentEvidence',[]))
             if not any(e['dimension'] in ('research','研究问题') for e in ev) and r.get('summary') and not directory:ev.append(dict(dimension='research',summary=r['summary'],url=r['sourceUrl'],verifiedAt=r['verifiedAt']))
             if r.get('facets',{}).get('methods') and not any(e['dimension'] in ('methods','方法','方法与技术') for e in ev):ev.append(dict(dimension='methods',summary='官方条目明确的方法标签：'+'、'.join(tags('methods',r['facets']['methods']))+'。',url=r['sourceUrl'],verifiedAt=r['verifiedAt'],basis='逐人研究介绍' if not directory else '专题目录中该人研究简介'))
             append_evidence(l,ev)
-            needed={r['sourceUrl']:{'label':r.get('sourceTitle',r['name']+' — 官方研究介绍'),'claim':l['evidenceScope'],'kind':'directory' if directory else 'research_profile'}}
-            if r.get('roleSourceUrl') and source_ok(r['roleSourceUrl']):needed[r['roleSourceUrl']]={'label':r['name']+' — 官方任职资料','claim':'具体职务与机构归属的核验来源。','kind':'profile'}
-            if r['url']!=r['sourceUrl'] and source_ok(r['url']) and source_proof(provenance,r['url']) and r.get('profileLinkStatus') not in ('unavailable','404','directory_fallback'):needed[r['url']]={'label':r['name']+' — 官方身份 / 资料入口','claim':'个人身份及资料入口；研究结论以具体证据来源为准。','kind':'profile'}
+            needed={r['sourceUrl']:{'label':r.get('sourceTitle') or r.get('sourceLabel') or r['name']+' — 官方研究介绍','claim':input_scope,'kind':'directory' if directory else 'research_profile'}}
+            for identity in r.get('identitySources',[]):
+                if not source_ok(identity.get('url','')) or not source_proof(provenance,identity['url']):raise ValueError(('identity correction needs read source',r['name'],identity))
+                claim=identity.get('claim','官方资料中的姓名、履历或跨语言身份对应依据。')
+                if identity['url'] in needed:needed[identity['url']]['claim']+=' '+claim
+                else:needed[identity['url']]={'label':identity.get('label',r['name']+' — 姓名与身份核验'),'claim':claim,'kind':'identity'}
+            if r.get('roleSourceUrl') and source_ok(r['roleSourceUrl']):needed.setdefault(r['roleSourceUrl'],{'label':r['name']+' — 官方任职资料','claim':'具体职务与机构归属的核验来源。','kind':'profile'})
+            for a in r.get('affiliations',[])+r.get('supplementalAffiliations',[]):
+                needed.setdefault(a['url'],{'label':r['name']+' — '+a['institution']+' 关联依据','claim':a.get('note','官方项目、网络或第二任职关联；不自动视为主聘机构。'),'kind':'affiliation','country':a['country'],'institution':a['institution']})
+            if r['url']!=r['sourceUrl'] and source_ok(r['url']) and source_proof(provenance,r['url']) and r.get('profileLinkStatus') not in ('unavailable','404','directory_fallback'):needed.setdefault(r['url'],{'label':r['name']+' — 官方身份 / 资料入口','claim':'个人身份及资料入口；研究结论以具体证据来源为准。','kind':'profile'})
             if r.get('affiliationChange'):
                 for key in ('url','announcementUrl','relatedUrl'):
                     url=r['affiliationChange'].get(key)
@@ -204,12 +241,19 @@ def main():
             for e in ev:
                 if e['url'] not in needed:needed[e['url']]={'label':r['name']+' — '+dict(research='研究问题',methods='方法',outputs='代表成果',resources='资源',translation='转化',collaboration='合作',training='培养').get(LABELS.get(e['dimension'],e['dimension']),'研究证据'),'claim':e['summary'],'kind':'research_evidence'}
             for url,v in needed.items():
-                if any(s['url']==url for s in l['sources']):continue
+                prior=next((s for s in l['sources'] if s['url']==url),None)
+                if prior:
+                    if v['kind']=='research_profile' and prior.get('kind') in ('directory','profile','identity'):
+                        prior.update(v,verifiedAt=r['verifiedAt'])
+                    continue
                 method=source_proof(provenance,url).get('readMethod')
                 access='已核对官方域名的搜索索引内容；未完整读取该页正文。' if method=='official_domain_search_index' else '已读取官方'+('专题目录' if directory else '个人/研究组资料或原始研究说明')
                 l['sources'].append(dict(url=url,verifiedAt=r['verifiedAt'],access=access,**{'country':r.get('sourceCountry',r['country']),'institution':r['institution'],**v}))
             for s in l['sources']:
                 if source_proof(provenance,s['url']).get('readMethod')=='official_domain_search_index':s['access']='已核对官方域名的搜索索引内容；未完整读取该页正文。'
+            for name in [l['name'],r['name']]+l.get('aliases',[]):
+                identity_index[(namekey(name),canon(r['url']))].add(l['id'])
+                identity_index[(namekey(name),canon(l['profileUrl']))].add(l['id'])
     for l in labs:
         parents=[p for d in l['directions'] for p in DOMAIN_PARENTS.get(d,[])]
         if '代谢组学' in l['facets']['methods'] or any(v in l['facets']['modalities'] for v in ('代谢组','脂质组')):parents.append('代谢组学')
@@ -226,13 +270,15 @@ def main():
     duplicates=[{'name':g[0]['name'],'records':[{'id':l['id'],'institution':l['institution'],'url':l['profileUrl']} for l in g]} for g in groups.values() if len(g)>1 and any(l['id'] in new_ids for l in g)]
     detailed=sum(l['evidenceLevel']=='reviewed' for l in labs);profiles=sum(l['evidenceLevel']=='research_profile' for l in labs);dirs=len(labs)-detailed-profiles
     data.update(edition=args.edition,verifiedAt=args.date,title='全球科研导师与研究团队长期候选库',scope=f'{len(labs)}条导师 / 团队候选记录；{profiles}份个人研究资料、{detailed}张代表作与适配卡及{dirs}条官方名录。共同带组的导师分别保留，不代表独立实验室数量。当前招聘不作为收录条件。')
+    data['latestExpansion']={'edition':args.edition,'previousEdition':previous_edition,'date':args.date,'baselineCount':len(before),'newCount':len(new_ids),'enrichedCount':len(set(enriched))}
     data['evaluationDimensions']={k:v for k,v in zip(DIMS,['研究问题','方法与技术','代表成果','开放资源','实验 / 临床转化','跨学科合作','培养与申请路径'])}
     data['facetAxes']={k:v for k,v in zip(AXES,['研究方向','研究方法','疾病 / 健康问题','数据 / 实验模态','研究尺度','研究设计'])}
     data['methodology'][1]=f'三层证据：{dirs}条官方名录核验、{profiles}份个人研究资料、{detailed}张代表作与适配证据卡。资料覆盖不等于科研实力；任职核验不代表当前有名额。'
     data['methodology'].insert(4,'七项评价分别提供来源：研究问题、方法、代表成果、资源、转化、合作、培养；来源时效另列。缺项代表尚未整理，不凭声誉填满，也不合成导师实力总分。')
     data['methodology'].insert(5,'交叉筛选使用已记录标签。自选权重的匹配率为已匹配权重占全部所选权重的比例，仅反映已知标签覆盖，不表示录取概率或指导质量。')
     data['methodology'].append('收藏、准备阶段与笔记只保存在当前浏览器的独立名单空间；可导出和导入备份，不进入公开数据、CSV或分享链接。')
-    summary=f'由{len(before)}条扩充至{len(labs)}条；新增{len(new_ids)}位/组，补充{len(set(enriched))}条已有资料。新增计算精神病学、医学人工智能、神经免疫、代谢组等精细标签，加入六轴交叉筛选、七项证据比较及个人关注笔记。'
+    data['methodology']=unique(data['methodology'])
+    summary=f'由{len(before)}条扩充至{len(labs)}条；新增{len(new_ids)}条导师/团队候选，补充{len(set(enriched))}条已有资料。按相关学科官方目录和个人研究证据扩展覆盖；保留稳定ID，研究方向与招生机会分别核验。'
     data['history'].append({'date':args.date,'type':'research-depth-expansion','summary':summary})
     # Manifest records only traceable public source metadata, never full scraped pages.
     source_map={s['url']:s for s in manifest['sources']};url_ids=defaultdict(set)
@@ -259,6 +305,9 @@ def main():
     report['institutionFilterCount']=len({a['institutionKey'] for l in labs for a in [l]+l.get('affiliations',[])})
     report['sourceCount']=len(source_map)
     report['sourceReadMethods']=dict(Counter(s.get('readMethod','previous review metadata') for s in source_map.values()))
-    write(args.output,data);write(args.manifest,manifest);write(args.report,report)
+    write(args.output,data,compact=args.compact_output);write(args.manifest,manifest);write(args.report,report)
+    if args.compressed_output:
+        compressed=Path(args.compressed_output);compressed.parent.mkdir(parents=True,exist_ok=True)
+        compressed.write_bytes(gzip.compress(Path(args.output).read_bytes(),compresslevel=9,mtime=0))
     print(json.dumps({k:report[k] for k in ('total','newCount','enrichedCount','evidenceLevels','dimensions','facetValues','potentialDuplicateNames')},ensure_ascii=False,indent=2))
 if __name__=='__main__':main()

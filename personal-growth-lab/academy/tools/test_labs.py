@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Check evidence boundaries, identity, long-term inclusion and rotating monitor."""
+import gzip
 import json
 import unittest
 from pathlib import Path
@@ -17,7 +18,7 @@ class EvidenceTests(unittest.TestCase):
         data=self.data;labs=data['labs'];ids=[l['id'] for l in labs]
         self.assertEqual(len(ids),len(set(ids)))
         self.assertTrue(CORE.issubset(ids))
-        self.assertGreaterEqual(len(labs),1000)
+        self.assertGreaterEqual(len(labs),10000)
         self.assertGreaterEqual(len(set(l['country'] for l in labs)),15)
         for l in labs:
             self.assertTrue(l['name']);self.assertTrue(l['institution']);self.assertTrue(l['directions'])
@@ -67,6 +68,28 @@ class EvidenceTests(unittest.TestCase):
             self.assertNotIn('score',l)
             self.assertNotIn('privateNotes',l)
 
+    def test_expansion_statistics_and_compressed_copy_are_consistent(self):
+        data=self.data;update=data['latestExpansion'];labs=data['labs']
+        self.assertEqual(update['baselineCount']+update['newCount'],len(labs))
+        self.assertEqual(sum(l.get('firstIncludedEdition')==data['edition'] for l in labs),update['newCount'])
+        self.assertEqual(sum(l.get('lastEnrichedEdition')==data['edition'] for l in labs),update['enrichedCount'])
+        self.assertEqual(gzip.decompress((ROOT/'data/labs.json.gz').read_bytes()),(ROOT/'data/labs.json').read_bytes())
+        self.assertLess((ROOT/'data/labs.json.gz').stat().st_size,(ROOT/'data/labs.json').stat().st_size/2)
+
+    def test_chinese_coverage_aliases_and_homonyms(self):
+        labs=self.data['labs'];china=[l for l in labs if l['country']=='中国']
+        self.assertGreaterEqual(len(china),2000)
+        names={n for l in labs for n in [l['name']]+l.get('aliases',[])}
+        for name in ['颜宁','王晓东','邵峰','蒲慕明','韩家淮','冯建峰','崔再续','陈玲玲','李劲松','赵方庆','刘星吟']:
+            self.assertIn(name,names)
+        for l in labs:
+            for alias in l.get('aliases',[]):
+                self.assertNotIn('<',alias);self.assertNotIn('>',alias);self.assertLess(len(alias),160)
+        for name,unit in [('李岩','生物物理研究所'),('周兵','上海药物研究所'),('杨帆','深圳先进技术研究院')]:
+            rows=[l for l in labs if l['name']==name and unit in l['institution']]
+            self.assertEqual(len(rows),2,(name,[(r['id'],r['profileUrl']) for r in rows]))
+            self.assertNotEqual(rows[0]['id'],rows[1]['id'])
+
     def test_targeted_coverage_and_affiliation_corrections(self):
         labs=self.data['labs']
         for domain,minimum in [('微生物组',80),('计算精神病学',35),('医学人工智能',60),('代谢组学',10)]:
@@ -74,6 +97,14 @@ class EvidenceTests(unittest.TestCase):
         names=' '.join(l['name']+' '+' '.join(l.get('aliases',[])) for l in labs)
         for name in ['Rob Knight','Curtis Huttenhower','Jeffrey Gordon','Nicola Segata','Quentin Huys','Regina Barzilay','Marzyeh Ghassemi']:
             self.assertIn(name,names)
+        # Awards and journal names are not individual research-field evidence;
+        # Chinese "spatial organization" is not spatial omics.
+        liu=next(l for l in labs if l['id']=='pi-xingyin-liu-d4776ef5')
+        self.assertNotIn('生物物理学',liu['directions'])
+        self.assertTrue({'肿瘤生物学','合成生物学'}.issubset(liu['directions']))
+        cui=next(l for l in labs if l['name']=='崔再续')
+        self.assertNotIn('单细胞与空间组学',cui['directions'])
+        self.assertNotIn('空间组学',cui['facets']['modalities'])
         bassett=next(l for l in labs if l['id']=='bassett')
         self.assertIn('Yale',bassett['institution'])
         self.assertEqual(bassett['opportunity']['status'],'unknown')

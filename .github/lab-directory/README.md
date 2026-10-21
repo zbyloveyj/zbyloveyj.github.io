@@ -6,14 +6,16 @@
 
 ## 当前版本与人工输入
 
-`2026.10.21-global-v3` 有 **2,663 条候选记录**：保留 **2,371 个基线 ID**，新增 **292 条**，给 **16 条已有记录**补证。308 条人工输入已经包含这 16 条更新，补证不能再加一次总数。三层证据为 `reviewed` 18 条、`research_profile` 250 条、`official_directory` 2,395 条；记录数不等于独立实验室数，也不代表科研实力排名。
+`2026.10.21-global-v4` 有 **12,441 条候选记录**：保留 **2,663 个基线 ID**，新增 **9,778 条**，补充 **197 条已有记录**。三层证据为 `reviewed` 18 条、`research_profile` 727 条、`official_directory` 11,696 条。主机构在中国大陆的有 **3,078 条**；数量不等于独立实验室数量或排名。
 
 | 文件／程序 | 职责 |
 | --- | --- |
 | `enrich_candidates.py` | 将已人工复核的研究输入合并进不可变基线，保留稳定 ID、标签、证据范围和来源元数据；这是编辑构建步骤，不是抓取器。 |
-| `reviewed-additions-20261021.json` | 微生物相关、计算精神病学、医学 AI 及相邻领域共 308 条人工输入，包含新增与已有记录补证。 |
-| `reviewed-provenance-20261021.json` | 经整理的公共来源元数据，包括实际日期、读取方法、可用 hash 和读取限制；不含网页全文或本地缓存路径。 |
-| `reviewed-expansion-report-20261021.json` | 本次构建的数量、证据层级、身份合并及机构变更报告。 |
+| `reviewed-additions-20261021-v4.json` | 本轮 9,995 条审阅输入；包含官方目录、个人研究简介、双语身份和已有记录补证，顺序保持身份依赖。 |
+| `reviewed-provenance-20261021-v4.json` | 经整理的公共来源元数据，包括实际日期、读取方法、可用 hash 和读取限制；不含网页全文或本地缓存路径。 |
+| `reviewed-expansion-report-20261021-v4.json` | 本次构建的数量、证据层级、身份合并、机构变更、国内覆盖与文件哈希报告。 |
+
+`reviewed-identity-audit-20261021-v4.json` 保存已确认同人、已确认不同人及尚未获得同人证据的姓名碰撞；不按名字直接合并。上一版不带 `-v4` 的审阅文件继续保留为历史快照。
 
 人工输入不会由抓取状态自动产生。资料未支持的维度留空，不凭机构声誉、共同作者关系或目录成员身份填满方法、疾病、资源和培养信息。`roleStatus`、`roleNote`、`profileScope`、`sharedGroup` 等边界说明须随条目保留。
 
@@ -69,10 +71,10 @@ python3 -m venv .github/lab-directory/.venv
 
 **`enrich_candidates.py` 必须使用本轮不可变基线。绝不能反复拿已经合并的新 `labs.json` 重建同一批输入。** 否则新增／补证统计与历史可能偏移，机构变更也可能重复应用。未来新增批次应先固定新的基线版本，再记录各自输入和报告。
 
-本轮基线 commit 为 **`31863b0fce7b15b6e7ae107bfa984e1835ad4229`**。以下命令在能读取该 commit 的 Git checkout 根目录运行，把两份基线 JSON 提取到 `/tmp`，不会修改工作区正式数据。若本地缺少这段历史，先取得对应 commit，不能用当前线上库代替。
+本轮基线 commit 为 **`11ce143583be8f9c3765c163817405e7d3f3096d`**。以下命令在能读取该 commit 的 Git checkout 根目录运行，把两份基线 JSON 提取到 `/tmp`，不会修改工作区正式数据。若本地缺少这段历史，先取得对应 commit，不能用当前线上库代替。
 
 ```bash
-reviewed_base_commit=31863b0fce7b15b6e7ae107bfa984e1835ad4229
+reviewed_base_commit=11ce143583be8f9c3765c163817405e7d3f3096d
 reviewed_workdir="$(mktemp -d /tmp/lab-reviewed-20261021.XXXXXX)"
 git show "${reviewed_base_commit}:personal-growth-lab/academy/data/labs.json" > "${reviewed_workdir}/base-labs.json"
 git show "${reviewed_base_commit}:personal-growth-lab/academy/data/lab-sources.json" > "${reviewed_workdir}/base-sources.json"
@@ -80,16 +82,18 @@ git show "${reviewed_base_commit}:personal-growth-lab/academy/data/lab-sources.j
 .github/lab-directory/.venv/bin/python .github/lab-directory/enrich_candidates.py \
   --base "${reviewed_workdir}/base-labs.json" \
   --sources "${reviewed_workdir}/base-sources.json" \
-  --batches .github/lab-directory/reviewed-additions-20261021.json \
-  --provenance .github/lab-directory/reviewed-provenance-20261021.json \
+  --batches .github/lab-directory/reviewed-additions-20261021-v4.json \
+  --provenance .github/lab-directory/reviewed-provenance-20261021-v4.json \
   --output "${reviewed_workdir}/labs.json" \
   --manifest "${reviewed_workdir}/lab-sources.json" \
-  --report "${reviewed_workdir}/reviewed-expansion-report-20261021.json" \
-  --edition 2026.10.21-global-v3 \
-  --date 2026-10-21
+  --report "${reviewed_workdir}/reviewed-expansion-report-20261021-v4.json" \
+  --edition 2026.10.21-global-v4 \
+  --date 2026-10-21 \
+  --compact-output \
+  --compressed-output "${reviewed_workdir}/labs.json.gz"
 ```
 
-生成报告应为 baseline 2,371、total 2,663、new 292、enriched 16。审查生成结果与正式数据的差异，确认所有基线 ID 保留，再纳入预期变更。`existingId` 或人工身份修正只用于已核实的同一人，不能凭相似姓名合并。`--date` 是版本日期，不能把旧来源或未复核内容改成新的事实核验日期。
+生成报告应为 baseline 2,663、total 12,441、new 9,778、enriched 197。审查生成结果与正式数据的差异，确认所有基线 ID 保留，再纳入预期变更。`existingId` 或人工身份修正只用于已核实的同一人，不能凭相似姓名合并。`--date` 是版本日期，不能把旧来源或未复核内容改成新的事实核验日期。
 
 生成器保留六轴 `facets`：研究方向、研究方法、疾病／健康问题、数据与实验模态、研究尺度、研究设计；以及七类 `assessmentEvidence`：研究问题、方法、代表成果、资源、转化、合作、培养。每项证据保留 URL 与核验日期。缺项继续为空；权重匹配只计算所选已知标签的覆盖，不是质量评分或录取预测。
 
@@ -136,3 +140,5 @@ node personal-growth-lab/academy/tools/check_workbook.cjs
 ```
 
 `test_lab_model.cjs` 验证跨轴交集、缺失标签、权重覆盖、证据维度、备份格式及较新记录合并。浏览器测试验证真实筛选、比较、公开导出、私人笔记隔离、URL 状态与多尺寸布局。验证结果结合本次 diff 判断；没有重新读取来源时，不能把通过测试写成来源已重新核验。
+
+本轮新增的 `test_enrich_candidates.py` 验证同名不同人、稳定ID校正、个人研究证据不被目录降级、同一URL同时用于研究和身份的分类、未来任职未知状态以及转任后机会重置。运行：`python .github/lab-directory/test_enrich_candidates.py`。
