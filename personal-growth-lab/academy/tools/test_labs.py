@@ -6,13 +6,14 @@ import unittest
 from pathlib import Path
 from urllib.parse import urlsplit
 from monitor_labs import normalize, update_record, select_sources
+from lab_data import load_catalog
 ROOT=Path(__file__).resolve().parents[1]
 CORE={'chang','nptl','bassett','woolrich','behrens','friston','vandeville','micera','lacour','eickhoff','ritter','bethge','marquand','vangerven','ramsey','theis','stegle','teichmann'}
 
 class EvidenceTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.data=json.loads((ROOT/'data/labs.json').read_text())
+        cls.data=load_catalog(ROOT/'data/labs.json')
 
     def test_identity_and_evidence_boundaries(self):
         data=self.data;labs=data['labs'];ids=[l['id'] for l in labs]
@@ -38,16 +39,22 @@ class EvidenceTests(unittest.TestCase):
                 self.assertGreaterEqual(len(l['papers']),2)
                 self.assertIn(l['opportunity']['url'],[s['url'] for s in l['sources']])
             else:
-                self.assertIn(l['evidenceLevel'],('official_directory','research_profile'))
+                self.assertIn(l['evidenceLevel'],('official_directory','research_profile','project_record'))
                 self.assertEqual(l['tier'],'D')
                 self.assertEqual(l['opportunity']['status'],'unknown')
                 self.assertIsNone(l['opportunity']['verifiedAt'])
                 self.assertEqual(l['papers'],[])
                 if l['evidenceLevel']=='official_directory':
                     self.assertTrue(any(s['kind']=='directory' for s in l['sources']))
-                else:
+                elif l['evidenceLevel']=='research_profile':
                     self.assertTrue(l.get('evidenceScope'))
                     self.assertTrue(any(s['kind']=='research_profile' for s in l['sources']))
+                else:
+                    self.assertEqual(l['recordType'],'research_project_pi')
+                    self.assertTrue(l.get('nihProfileId'))
+                    self.assertTrue(l.get('projectEvidence'))
+                    self.assertIsNone(l.get('profileVerifiedAt'))
+                    self.assertTrue(any(s['kind']=='project_record' for s in l['sources']))
 
     def test_structured_dimensions_are_sourced_and_unknowns_stay_empty(self):
         dimensions={'research','methods','outputs','resources','translation','collaboration','training'}
@@ -114,8 +121,8 @@ class EvidenceTests(unittest.TestCase):
 
     def test_source_inventory_and_long_term_policy(self):
         manifest=json.loads((ROOT/'data/lab-sources.json').read_text())
-        urls=[s['url'] for s in manifest['sources']]
-        self.assertEqual(len(urls),len(set(urls)))
+        urls={s['url'] for s in manifest['sources']}
+        self.assertEqual(len(urls),len(manifest['sources']))
         for l in self.data['labs']:
             for s in l['sources']+l['papers']+l['assessmentEvidence']:
                 self.assertIn(s['url'],urls)

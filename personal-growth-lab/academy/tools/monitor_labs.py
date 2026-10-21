@@ -6,15 +6,20 @@ import collections
 import hashlib
 import json
 import re
+import threading
+import time
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import HTTPError
 from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
+from lab_data import load_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 LIMIT = 3_000_000
+NIH_LOCK = threading.Lock()
+NIH_LAST_REQUEST = 0.0
 
 class Text(HTMLParser):
     def __init__(self):
@@ -51,6 +56,31 @@ def inspect(item, previous, checked):
     try:
         parsed=urlsplit(url)
         if parsed.scheme!='https' or not parsed.hostname: raise ValueError('invalid HTTPS source')
+        project = re.fullmatch(r'/project-details/(\d+)/?', parsed.path) if parsed.hostname == 'reporter.nih.gov' else None
+        if project:
+            # RePORTER pages are a JS shell. Inspect the official project API,
+            # not the shell, and respect its <= 1 request/second recommendation.
+            global NIH_LAST_REQUEST
+            with NIH_LOCK:
+                pause = max(0, 1.1 - (time.monotonic() - NIH_LAST_REQUEST))
+                if pause:
+                    time.sleep(pause)
+                NIH_LAST_REQUEST = time.monotonic()
+            payload={'criteria':{'appl_ids':[int(project.group(1))]},'limit':1,
+                'include_fields':['ApplId','ProjectTitle','PrincipalInvestigators','Organization','IsActive','ProjectEndDate','AbstractText']}
+            req=Request('https://api.reporter.nih.gov/v2/projects/search',data=json.dumps(payload).encode(),
+                headers={'Content-Type':'application/json','User-Agent':'GrowthAcademyEvidenceMonitor/2.0'})
+            with urlopen(req,timeout=30) as response:
+                raw=response.read(LIMIT+1)
+            if len(raw)>LIMIT:
+                raise ValueError('project response too large')
+            records=json.loads(raw).get('results',[])
+            if len(records)!=1 or int(records[0].get('appl_id',0))!=int(project.group(1)):
+                raise ValueError('official project not returned')
+            digest=hashlib.sha256(json.dumps(records[0],ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+            row=update_record(old,stamp,checked,digest=digest)
+            row['readMethod']='official_project_api'
+            return url,row
         req=Request(url,headers={'User-Agent':'GrowthAcademyEvidenceMonitor/1.0 (+https://zbyloveyj.github.io/personal-growth-lab/academy/labs.html)','Accept':'text/html,application/xhtml+xml'})
         with urlopen(req,timeout=15) as response:
             if urlsplit(response.url).scheme!='https': raise ValueError('non-HTTPS redirect')
@@ -109,7 +139,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--max-profiles', type=int, default=96)
     args = parser.parse_args()
-    data=json.loads((ROOT/'data/labs.json').read_text())
+    data=load_catalog(ROOT/'data/labs.json')
     dest=ROOT/'data/lab-monitor.json'
     previous=json.loads(dest.read_text()).get('sources',{}) if dest.exists() else {}
     items, all_urls, priority_count, profile_count = select_sources(data, previous, args.max_profiles)

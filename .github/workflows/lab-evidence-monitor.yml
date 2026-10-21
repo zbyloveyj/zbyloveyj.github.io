@@ -9,8 +9,12 @@ on:
       - '.github/workflows/lab-evidence-monitor.yml'
       - 'personal-growth-lab/academy/data/labs.json'
       - 'personal-growth-lab/academy/data/labs.json.gz'
+      - 'personal-growth-lab/academy/data/lab-records-*.json'
+      - 'personal-growth-lab/academy/data/lab-records-*.json.gz'
       - 'personal-growth-lab/academy/data/lab-sources.json'
       - 'personal-growth-lab/academy/tools/monitor_labs.py'
+      - 'personal-growth-lab/academy/tools/lab_data.py'
+      - 'personal-growth-lab/academy/tools/load_lab_data.cjs'
       - 'personal-growth-lab/academy/tools/test_labs.py'
       - 'personal-growth-lab/academy/tools/test_labs_browser.cjs'
       - 'personal-growth-lab/academy/tools/test_lab_model.cjs'
@@ -18,6 +22,7 @@ on:
       - 'personal-growth-lab/academy/tools/test_labs_workspace.cjs'
       - 'personal-growth-lab/academy/assets/labs.*'
       - 'personal-growth-lab/academy/assets/lab-model.js'
+      - 'personal-growth-lab/academy/assets/lab-taxonomy.js'
       - 'personal-growth-lab/academy/assets/lab-discovery.js'
       - 'personal-growth-lab/academy/labs.html'
       - '.github/lab-directory/enrich_candidates.py'
@@ -68,6 +73,7 @@ jobs:
         run: |
           node --check personal-growth-lab/academy/assets/labs.js
           node --check personal-growth-lab/academy/assets/lab-model.js
+          node --check personal-growth-lab/academy/assets/lab-taxonomy.js
           node --check personal-growth-lab/academy/assets/lab-discovery.js
           node personal-growth-lab/academy/tools/test_lab_model.cjs
           node personal-growth-lab/academy/tools/test_lab_discovery.cjs

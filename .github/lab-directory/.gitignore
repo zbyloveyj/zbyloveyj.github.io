@@ -22,3 +22,11 @@ __pycache__/
 europe-cache/
 asia-sources/
 asia-profiles/
+
+# Reviewed v7 inputs and public audit snapshots.
+!reviewed-profiles-20261021-v7.json
+!reviewed-ucas-20261021-v7.json
+!reviewed-project-provenance-20261021-v7.json
+!reviewed-data-audit-20261021-v7.json
+!reviewed-expansion-report-20261021-v7.json
+!reviewed-validation-20261021-v7.json

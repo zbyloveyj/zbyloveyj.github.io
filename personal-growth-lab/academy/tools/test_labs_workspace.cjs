@@ -1,11 +1,12 @@
 'use strict';
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
-const root=path.resolve(__dirname,'..'),data=JSON.parse(fs.readFileSync(path.join(root,'data/labs.json')));
-const M=require('../assets/lab-model.js'),D=require('../assets/lab-discovery.js');
+const root=path.resolve(__dirname,'..'),data=require('./load_lab_data.cjs')();
+const M=require('../assets/lab-model.js'),D=require('../assets/lab-discovery.js'),T=require('../assets/lab-taxonomy.js');
 const source=data.labs.find(l=>l.id==='chang')||data.labs.find(l=>D.similar(l,data.labs).length);
 assert(source,'Workspace QA needs a sourced record with related-tag candidates.');
 const hasCountry=(l,c)=>l.country===c||(l.affiliations||[]).some(a=>a.country===c);
-const country='中国',direction='微生物组',countryTopic=data.labs.filter(l=>hasCountry(l,country)&&l.directions.includes(direction));
+const country='中国',field='microbes',direction='微生物组',researchInfo='summary';
+const countryTopic=data.labs.filter(l=>hasCountry(l,country)&&T.classify(l).fields.includes(field)&&T.matchesDirection(l,direction)&&T.matchesResearch(l,researchInfo));
 assert(countryTopic.length,'The Chinese microbiome discovery view must have candidates.');
 (async()=>{
   const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(!file.startsWith(root+path.sep)){res.writeHead(403);return res.end();}try{const type={'.js':'text/javascript','.css':'text/css','.json':'application/json','.html':'text/html','.gz':'application/gzip'}[path.extname(file)]||'text/plain';res.setHeader('Content-Type',type);res.end(fs.readFileSync(file));}catch{res.writeHead(404);res.end();}});
@@ -16,6 +17,7 @@ assert(countryTopic.length,'The Chinese microbiome discovery view must have cand
     await context.route('https://raw.githubusercontent.com/**',r=>r.abort());
     const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
     const ready=async p=>{await p.waitForSelector('.lab-card');await p.waitForFunction(()=>!document.querySelector('#refresh').disabled);};
+    const search=async (p,value)=>{await p.locator('#query').fill(value);await p.waitForFunction(v=>new URL(location.href).searchParams.get('query')===v,value);};
     const reset=async p=>{await p.getByRole('button',{name:'重置筛选',exact:true}).click();};
     const editor=async p=>{await p.locator('#lab-'+source.id+' > details').evaluate(el=>el.open=true);};
     const entry=async p=>p.evaluate(({key,id})=>JSON.parse(localStorage.getItem(key)).entries.find(e=>e.id===id),{key:M.storageKey,id:source.id});
@@ -23,7 +25,8 @@ assert(countryTopic.length,'The Chinese microbiome discovery view must have cand
     await page.goto(base+'/labs.html');await ready(page);
 
     // Named views include matching weights, survive reload and remain literal text.
-    await page.locator('#country').selectOption(country);await page.locator('#direction').selectOption(direction);
+    await page.locator('#country').selectOption(country);await page.locator('#field').selectOption(field);
+    await page.locator('#direction').selectOption(direction);await page.locator('#research-info').selectOption(researchInfo);
     await page.locator('#match-panel').evaluate(el=>el.open=true);
     await page.locator('#pref-domains').selectOption(direction);await page.locator('#weight-domains').selectOption('3');
     await page.locator('#saved-views-panel').evaluate(el=>el.open=true);
@@ -37,6 +40,7 @@ assert(countryTopic.length,'The Chinese microbiome discovery view must have cand
     await reset(page);await page.locator('#clear-match').click();await page.locator('#country').selectOption('日本');
     await page.locator('[data-apply-view="'+viewId+'"]').click();
     assert.equal(await page.locator('#country').inputValue(),country);assert.equal(await page.locator('#direction').inputValue(),direction);
+    assert.equal(await page.locator('#field').inputValue(),field);assert.equal(await page.locator('#research-info').inputValue(),researchInfo);
     assert.equal(await page.locator('#weight-domains').inputValue(),'3');assert.equal(await page.locator('#pref-domains').inputValue(),direction);
     assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+countryTopic.length.toLocaleString('zh-CN')+' 个'));
     await page.reload();await ready(page);await page.locator('#saved-views-panel').evaluate(el=>el.open=true);
@@ -44,7 +48,7 @@ assert(countryTopic.length,'The Chinese microbiome discovery view must have cand
 
     // Task text and review dates are local private fields, not public search metadata.
     await reset(page);await page.locator('#match-panel').evaluate(el=>el.open=true);await page.locator('#clear-match').click();
-    await page.locator('#query').fill(source.name);await editor(page);
+    await search(page,source.name);await editor(page);
     await page.locator('[data-save="'+source.id+'"]').click();
     await page.locator('[data-stage="'+source.id+'"]').selectOption('reading');
     const action='PRIVATE-ACTION-QA <script>window.actionInjected=1</script>',note='PRIVATE-NOTE-WORKSPACE-QA';
@@ -110,12 +114,13 @@ assert(countryTopic.length,'The Chinese microbiome discovery view must have cand
     await page.waitForSelector('#lab-'+relatedId+' details[open]');assert.equal(new URL(page.url()).hash,'#lab-'+relatedId);
 
     // Coverage counts follow the current filters, and empty-view recovery removes one condition.
-    await reset(page);await page.locator('#country').selectOption(country);await page.locator('#direction').selectOption(direction);
+    await reset(page);await page.locator('#country').selectOption(country);await page.locator('#field').selectOption(field);
+    await page.locator('#direction').selectOption(direction);await page.locator('#research-info').selectOption(researchInfo);
     await page.locator('#coverage-panel').evaluate(el=>el.open=true);await page.locator('#coverage-scope').selectOption('filtered');
     const coverage=D.coverage(countryTopic),text=await page.locator('#coverage-context').innerText();
     assert(text.includes(countryTopic.length.toLocaleString('zh-CN')+' 条'));assert(text.includes(coverage.documentedProfiles.toLocaleString('zh-CN')+' 条已整理个人研究资料'));
     const coverageText=await page.locator('#filtered-coverage').innerText();assert(coverageText.includes(coverage.withMethods.toLocaleString('zh-CN')+' / '+coverage.total.toLocaleString('zh-CN')));
-    await page.locator('#query').fill('qa-impossible-query-v6');
+    await search(page,'qa-impossible-query-v7');
     const relaxation=page.locator('.empty [data-clear-filter="query"]');
     assert((await relaxation.innerText()).includes(countryTopic.length.toLocaleString('zh-CN')+' 条'));
     await relaxation.click();assert.equal(await page.locator('#query').inputValue(),'');assert.equal(await page.locator('#country').inputValue(),country);assert.equal(await page.locator('#direction').inputValue(),direction);

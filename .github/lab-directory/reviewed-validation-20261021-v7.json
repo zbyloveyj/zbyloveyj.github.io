@@ -1,0 +1,537 @@
+{
+  "edition": "2026.10.21-mentor-v7",
+  "checkedAt": "2026-10-21T11:28:46.760189+00:00",
+  "dataAndTaxonomy": {
+    "createdAt": "2026-10-21T10:14:28.510Z",
+    "edition": "2026.10.21-mentor-v7",
+    "manifestSha256": "c053ab4c28668ef2b22c2e7ea0ecf1ee94a6f24b9e488567f61e3a9b57ae6b51",
+    "records": 41446,
+    "mainRecords": 18,
+    "parts": 21,
+    "partCompressedBytes": 8083852,
+    "totalCompressedBytes": 8110972,
+    "latestExpansion": {
+      "edition": "2026.10.21-mentor-v7",
+      "previousEdition": "2026.10.21-research-v6",
+      "date": "2026-10-21",
+      "baselineCount": 12491,
+      "newCount": 28955,
+      "enrichedCount": 1160,
+      "personalProfilesEnriched": 154,
+      "ucasNew": 220,
+      "ucasEnriched": 190,
+      "projectNew": 28735,
+      "projectEnriched": 834
+    },
+    "fields": [
+      {
+        "id": "microbes",
+        "name": "微生物与微生态",
+        "count": 3368
+      },
+      {
+        "id": "omics",
+        "name": "组学与计算生物",
+        "count": 10652
+      },
+      {
+        "id": "brain",
+        "name": "脑科学与精神健康",
+        "count": 16193
+      },
+      {
+        "id": "engineering",
+        "name": "脑机接口与生物医学工程",
+        "count": 3932
+      },
+      {
+        "id": "ai",
+        "name": "人工智能与数字医学",
+        "count": 2039
+      },
+      {
+        "id": "life",
+        "name": "基础与转化生命科学",
+        "count": 26825
+      }
+    ],
+    "topicGroupCount": 42,
+    "topics": [
+      {
+        "id": "微生物组",
+        "name": "微生物组",
+        "fields": [
+          "microbes"
+        ],
+        "count": 1442
+      },
+      {
+        "id": "肠脑轴",
+        "name": "肠脑轴",
+        "fields": [
+          "microbes",
+          "brain"
+        ],
+        "count": 146
+      },
+      {
+        "id": "宿主-微生物互作",
+        "name": "宿主-微生物互作",
+        "fields": [
+          "microbes"
+        ],
+        "count": 221
+      },
+      {
+        "id": "微生物学与感染",
+        "name": "微生物学与感染",
+        "fields": [
+          "microbes"
+        ],
+        "count": 2188
+      },
+      {
+        "id": "微生物生态与进化",
+        "name": "微生物生态与进化",
+        "fields": [
+          "microbes"
+        ],
+        "count": 180
+      },
+      {
+        "id": "基因组与遗传学",
+        "name": "基因组与遗传学",
+        "fields": [
+          "omics"
+        ],
+        "count": 7900
+      },
+      {
+        "id": "生物信息与计算生物学",
+        "name": "生物信息与计算生物学",
+        "fields": [
+          "omics"
+        ],
+        "count": 2438
+      },
+      {
+        "id": "多组学与系统生物学",
+        "name": "多组学与系统生物学",
+        "fields": [
+          "omics"
+        ],
+        "count": 1126
+      },
+      {
+        "id": "单细胞与空间组学",
+        "name": "单细胞与空间组学",
+        "fields": [
+          "omics"
+        ],
+        "count": 2072
+      },
+      {
+        "id": "AI虚拟细胞（AIVC）",
+        "name": "AI虚拟细胞（AIVC）",
+        "fields": [
+          "omics",
+          "ai"
+        ],
+        "count": 9
+      },
+      {
+        "id": "蛋白质、结构与生物物理",
+        "name": "蛋白质、结构与生物物理",
+        "fields": [
+          "life"
+        ],
+        "count": 599
+      },
+      {
+        "id": "神经科学综合",
+        "name": "神经科学综合",
+        "fields": [
+          "brain"
+        ],
+        "count": 14346
+      },
+      {
+        "id": "计算与理论神经科学",
+        "name": "计算与理论神经科学",
+        "fields": [
+          "brain"
+        ],
+        "count": 472
+      },
+      {
+        "id": "认知、行为与决策",
+        "name": "认知、行为与决策",
+        "fields": [
+          "brain"
+        ],
+        "count": 1136
+      },
+      {
+        "id": "精神疾病与心理健康",
+        "name": "精神疾病与心理健康",
+        "fields": [
+          "brain"
+        ],
+        "count": 2142
+      },
+      {
+        "id": "计算与精准精神病学",
+        "name": "计算与精准精神病学",
+        "fields": [
+          "brain"
+        ],
+        "count": 79
+      },
+      {
+        "id": "神经影像与连接组",
+        "name": "神经影像与连接组",
+        "fields": [
+          "brain",
+          "engineering"
+        ],
+        "count": 1701
+      },
+      {
+        "id": "神经发育与可塑性",
+        "name": "神经发育与可塑性",
+        "fields": [
+          "brain"
+        ],
+        "count": 416
+      },
+      {
+        "id": "神经退行与损伤修复",
+        "name": "神经退行与损伤修复",
+        "fields": [
+          "brain"
+        ],
+        "count": 990
+      },
+      {
+        "id": "神经免疫与脑体互作",
+        "name": "神经免疫与脑体互作",
+        "fields": [
+          "brain",
+          "life"
+        ],
+        "count": 1488
+      },
+      {
+        "id": "睡眠与昼夜节律",
+        "name": "睡眠与昼夜节律",
+        "fields": [
+          "brain"
+        ],
+        "count": 97
+      },
+      {
+        "id": "神经回路与突触",
+        "name": "神经回路与突触",
+        "fields": [
+          "brain"
+        ],
+        "count": 716
+      },
+      {
+        "id": "脑机接口与神经假体",
+        "name": "脑机接口与神经假体",
+        "fields": [
+          "engineering"
+        ],
+        "count": 257
+      },
+      {
+        "id": "神经调控与康复",
+        "name": "神经调控与康复",
+        "fields": [
+          "engineering",
+          "brain"
+        ],
+        "count": 32
+      },
+      {
+        "id": "生物医学工程",
+        "name": "生物医学工程",
+        "fields": [
+          "engineering"
+        ],
+        "count": 1328
+      },
+      {
+        "id": "医学成像与分析",
+        "name": "医学成像与分析",
+        "fields": [
+          "engineering"
+        ],
+        "count": 332
+      },
+      {
+        "id": "合成生物学与生物制造",
+        "name": "合成生物学与生物制造",
+        "fields": [
+          "engineering",
+          "life"
+        ],
+        "count": 499
+      },
+      {
+        "id": "生物材料与组织工程",
+        "name": "生物材料与组织工程",
+        "fields": [
+          "engineering"
+        ],
+        "count": 22
+      },
+      {
+        "id": "医学人工智能",
+        "name": "医学人工智能",
+        "fields": [
+          "ai"
+        ],
+        "count": 1078
+      },
+      {
+        "id": "AI for Biology",
+        "name": "AI for Biology",
+        "fields": [
+          "ai",
+          "omics"
+        ],
+        "count": 982
+      },
+      {
+        "id": "AI药物发现",
+        "name": "AI药物发现",
+        "fields": [
+          "ai",
+          "life"
+        ],
+        "count": 16
+      },
+      {
+        "id": "数字医学与健康系统",
+        "name": "数字医学与健康系统",
+        "fields": [
+          "ai"
+        ],
+        "count": 34
+      },
+      {
+        "id": "人工智能与机器学习",
+        "name": "人工智能与机器学习",
+        "fields": [
+          "ai"
+        ],
+        "count": 184
+      },
+      {
+        "id": "分子与细胞生物学",
+        "name": "分子与细胞生物学",
+        "fields": [
+          "life"
+        ],
+        "count": 11593
+      },
+      {
+        "id": "免疫与炎症",
+        "name": "免疫与炎症",
+        "fields": [
+          "life"
+        ],
+        "count": 10504
+      },
+      {
+        "id": "肿瘤与精准治疗",
+        "name": "肿瘤与精准治疗",
+        "fields": [
+          "life"
+        ],
+        "count": 1058
+      },
+      {
+        "id": "干细胞、发育与再生",
+        "name": "干细胞、发育与再生",
+        "fields": [
+          "life"
+        ],
+        "count": 803
+      },
+      {
+        "id": "代谢、营养与生理",
+        "name": "代谢、营养与生理",
+        "fields": [
+          "life"
+        ],
+        "count": 6297
+      },
+      {
+        "id": "药物发现与转化医学",
+        "name": "药物发现与转化医学",
+        "fields": [
+          "life"
+        ],
+        "count": 899
+      },
+      {
+        "id": "流行病学与人群健康",
+        "name": "流行病学与人群健康",
+        "fields": [
+          "life"
+        ],
+        "count": 1735
+      },
+      {
+        "id": "生态、进化与植物科学",
+        "name": "生态、进化与植物科学",
+        "fields": [
+          "life"
+        ],
+        "count": 111
+      },
+      {
+        "id": "基础与转化生命科学",
+        "name": "基础与转化生命科学",
+        "fields": [
+          "life"
+        ],
+        "count": 1977
+      }
+    ],
+    "smallGroups": [],
+    "unclassified": 0,
+    "evidence": {
+      "reviewed": 18,
+      "research_profile": 932,
+      "project_record": 28735,
+      "official_directory": 11761
+    },
+    "research": {
+      "specific": 31643,
+      "withMethods": 8594
+    },
+    "baseline": {
+      "records": 12491,
+      "retained": 12491,
+      "missingBaselineIds": []
+    },
+    "personalTagAudit": {
+      "records": 154,
+      "priorTagsExcludedFromTaxonomyAndSearch": true,
+      "junLi": [
+        {
+          "id": "pi-jun-li-27fa9c09",
+          "name": "Jun Li",
+          "directions": [
+            "肿瘤生物学",
+            "基因组学",
+            "免疫学"
+          ],
+          "fields": [
+            "life",
+            "omics"
+          ],
+          "priorDirectoryDirections": [
+            "微生物学与感染",
+            "免疫学"
+          ]
+        },
+        {
+          "id": "nih-8351589",
+          "name": "Xue-Jun Li",
+          "directions": [
+            "脑科学",
+            "代谢与营养"
+          ],
+          "fields": [
+            "brain",
+            "life"
+          ]
+        },
+        {
+          "id": "nih-14979488",
+          "name": "Jun Li",
+          "directions": [
+            "脑科学",
+            "代谢与营养",
+            "代谢组学",
+            "基因组学",
+            "衰老与疾病机制",
+            "细胞与分子生物学"
+          ],
+          "fields": [
+            "brain",
+            "life",
+            "omics"
+          ]
+        },
+        {
+          "id": "nih-10200870",
+          "name": "Jun Li",
+          "directions": [
+            "脑科学",
+            "衰老与疾病机制"
+          ],
+          "fields": [
+            "brain"
+          ]
+        },
+        {
+          "id": "nih-9284221",
+          "name": "Jun Li",
+          "directions": [
+            "脑科学",
+            "基因组学",
+            "计算生物学",
+            "细胞与分子生物学"
+          ],
+          "fields": [
+            "brain",
+            "omics",
+            "life"
+          ]
+        },
+        {
+          "id": "nih-12587946",
+          "name": "Jun Li",
+          "directions": [
+            "计算生物学",
+            "细胞与分子生物学"
+          ],
+          "fields": [
+            "omics",
+            "life"
+          ]
+        }
+      ]
+    },
+    "checks": [
+      "all part SHA256, edition, count, gzip equality, unique IDs and total validated by loader",
+      "all baseline IDs retained",
+      "42 canonical topics",
+      "audit-only old directory tags excluded from taxonomy and search",
+      "JS syntax checked; no browser or full benchmark rerun"
+    ]
+  },
+  "checks": {
+    "fullDataAndSourceTests": "13 passed",
+    "existingEditorialIdentityTests": "7 passed",
+    "modelAndDiscoveryTests": "passed",
+    "javascriptSyntax": "passed",
+    "actualFrontendLoader": "all parts verified; gzip fallback and bounded concurrency simulated",
+    "baselineStableIdsRetained": 12491,
+    "originalV1SyntheticNotesRestored": 12491,
+    "publicExportPrivateDataIsolation": "static checks passed; private backup remains separate",
+    "publicProjectMonitorAPI": "one real official project read succeeded"
+  },
+  "browserQA": {
+    "completedOnEarlierDataset": "Desktop loading, main-field/direction/filter intersections, saved view restoration, zero-result recovery and desktop overflow checks",
+    "notCompleted": "Final expanded dataset and mobile visual review",
+    "reason": "CUA browser policy denied later reload; no bypass used"
+  },
+  "performanceNote": "Local Node application functions on the same 41,446-record release candidate: initial index about 1.12s and typical filters about 28–54ms. Excludes browser layout, painting and network. Later personal-label correction and 42-topic consolidation were checked for integrity/counts without repeating the performance benchmark."
+}

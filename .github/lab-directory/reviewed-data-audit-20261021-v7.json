@@ -1,0 +1,2249 @@
+{
+  "reviewVersion": 3,
+  "reviewedAt": "2026-10-21",
+  "reviewer": "independent_research_profiles_agent",
+  "baseDataFile": "mentor-expansion-v3.json",
+  "baseDataSha256": "2d6ecb861ade243ce47624c5cde7a47043cb114a8beef90b5c355eda4550ccf3",
+  "purpose": "独立项目资料与身份质量审查；不把项目摘要评审等同于逐个人现任/招生核验。",
+  "methodology": {
+    "stratifiedSampling": "固定随机种子20261021；六主领域每类5个具体项目，共30项目，阅读完整官方摘要和PI元数据。",
+    "highRiskSampling": "额外25个不同项目，围绕多义关键词、AI虚拟细胞边界、跨ID同人、现任角色及误排除。",
+    "sourceRestriction": "原始NIH API缓存及机构/大学/实验室官方个人页；未用排名聚合站作为核验依据。",
+    "limits": [
+      "抽样有意偏向高风险，不能当总体误差率。",
+      "只读审查未直接修改主数据。",
+      "当前招生、博士指导资格、项目可用于资助新生均未确认。",
+      "自动目标句规则偏保守，可能漏掉真实方向/方法；未把无标签解释为该导师不从事相关方向。",
+      "官方个人页复核9位现任角色，最终候选输入中仅7位，另2位不强行加入扩充人群。"
+    ]
+  },
+  "summary": {
+    "baselineRecords": 34380,
+    "stratifiedProjects": 30,
+    "projectsPerMainField": {
+      "microbes": 5,
+      "omics": 5,
+      "brain": 5,
+      "engineering": 5,
+      "ai": 5,
+      "life": 5
+    },
+    "additionalHighRiskProjects": 25,
+    "totalDistinctReviewedProjects": 55,
+    "confirmedIdentityMergeGroups": 8,
+    "officialCurrentRoleChecks": 9,
+    "structuralErrors": 0,
+    "officialCurrentRolePatchesEligibleForFinalInput": 7
+  },
+  "globalIntegrityChecks": {
+    "version": "v3",
+    "records": 34380,
+    "displayedProjectLinks": 46998,
+    "rawProjects": 51741,
+    "errors": [],
+    "organizationWhitespaceNormalizations": 85
+  },
+  "issues": [
+    {
+      "id": "R01",
+      "severity": "high",
+      "problem": "bipolar词义歧义",
+      "recommendedRule": "删除bipolar裸词触发的精神医学/双相障碍，要求disorder/illness/spectrum/affective或明确精神病语境。",
+      "exampleProjectIds": [
+        11302673,
+        11224338,
+        11322052,
+        11287881,
+        11252271,
+        11381071,
+        11482310
+      ],
+      "status": "corrective_rule_applied_and_targeted_regression_passed"
+    },
+    {
+      "id": "R02",
+      "severity": "high",
+      "problem": "背景语句污染研究方向/研究设计",
+      "recommendedRule": "研究目标抽取不应因develop/test/we任意词而包含背景；优先this project/we will/aim/hypothesis，并排除仅描述既往/他人结果的句子。",
+      "exampleProjectIds": [
+        10359882,
+        11329480,
+        11438733
+      ],
+      "status": "corrective_rule_applied_and_targeted_regression_passed"
+    },
+    {
+      "id": "R03",
+      "severity": "high",
+      "problem": "医学AI与生物AI混淆",
+      "recommendedRule": "医学AI须有临床/患者/诊断/医疗数据的实际目标；不能仅因disease等一般词。",
+      "exampleProjectIds": [
+        11342891,
+        11330591
+      ],
+      "status": "corrective_rule_applied_and_targeted_regression_passed",
+      "caveat": "False clinical-AI labels removed; conservative focus extraction also loses two genuine AI-for-biology tags pending narrowly reviewed manual overrides."
+    },
+    {
+      "id": "R04",
+      "severity": "medium",
+      "problem": "电生理方法被加神经前缀",
+      "recommendedRule": "改通用电生理，或仅当研究对象为神经组织时使用神经电生理。",
+      "exampleProjectIds": [
+        10986993
+      ],
+      "status": "corrective_rule_applied_and_targeted_regression_passed"
+    },
+    {
+      "id": "R05",
+      "severity": "medium",
+      "problem": "研究语境不等于研究设计",
+      "recommendedRule": "临床试验、动物实验、纵向等要核对本人项目实际实施设计；伦理/访谈研究引用临床试验不等于开展临床试验。",
+      "exampleProjectIds": [
+        11221707,
+        10359882,
+        11313243
+      ],
+      "status": "corrective_rule_applied_and_targeted_regression_passed",
+      "caveat": "Trial-context false positive fixed; organoid animal-design uncertainty remains in classifier but that project is not displayed in final input."
+    },
+    {
+      "id": "R06",
+      "severity": "medium",
+      "problem": "泛工程细胞不等于合成生物学",
+      "recommendedRule": "删除泛engineered cells触发；疾病模型基因编辑不自动转为合成生物学。",
+      "exampleProjectIds": [
+        11438733
+      ],
+      "status": "corrective_rule_applied_and_targeted_regression_passed"
+    },
+    {
+      "id": "R07",
+      "severity": "medium",
+      "problem": "单细胞基础模型与AIVC边界",
+      "recommendedRule": "单细胞基础模型、嵌入、下游分析平台与细胞状态/扰动仿真分开显示；只凭foundation model不能声称已构建虚拟细胞。",
+      "exampleProjectIds": [
+        11258269,
+        11439112,
+        11267279
+      ],
+      "status": "corrective_rule_applied_and_targeted_regression_passed"
+    },
+    {
+      "id": "R08",
+      "severity": "high",
+      "problem": "多NIH ID重复身份",
+      "recommendedRule": "按证据合并本报告确认的8组NIH IDs，保留来源与别名；不做同姓同名自动全合并。",
+      "exampleProjectIds": [
+        11358410,
+        11403940,
+        11245758,
+        11347164
+      ],
+      "status": "corrective_rule_applied_and_targeted_regression_passed"
+    },
+    {
+      "id": "R09",
+      "severity": "high",
+      "problem": "角色排除过宽导致导师漏收",
+      "recommendedRule": "明确教授、独立PI/荣誉fellow、博士后项目主任应优先保留；历史NIHtitle不能代替当前官网角色。",
+      "exampleProjectIds": [
+        11173850,
+        11392206,
+        11319601,
+        10910639
+      ],
+      "status": "corrective_rule_applied_and_targeted_regression_passed"
+    },
+    {
+      "id": "R10",
+      "severity": "medium",
+      "problem": "现任/导师资格与项目PI身份需区分",
+      "recommendedRule": "保持project_record及未知任职/指导资格，不从当前项目、contact PI或项目单位推断教授与招生。",
+      "exampleProjectIds": [
+        11381849,
+        11399836,
+        11372979,
+        11502751
+      ],
+      "status": "evidence_boundary_caution_retained"
+    },
+    {
+      "id": "R11",
+      "severity": "low",
+      "problem": "肠脑轴词形遗漏",
+      "recommendedRule": "补充gut-microbiota-brain及相近连字符词形。",
+      "exampleProjectIds": [
+        11372156
+      ],
+      "status": "corrective_rule_applied_and_targeted_regression_passed"
+    },
+    {
+      "id": "R12",
+      "severity": "medium",
+      "problem": "RNA代谢/微生物次生代谢不等于人类营养",
+      "recommendedRule": "细化代谢标签，避免用户把RNA代谢专家当营养/代谢疾病导师。",
+      "exampleProjectIds": [
+        11328787,
+        11331168,
+        11221535
+      ],
+      "status": "evidence_boundary_caution_retained"
+    }
+  ],
+  "stratifiedReview": [
+    {
+      "sampleNumber": 1,
+      "stratum": "microbes",
+      "selectionLabel": "微生物组",
+      "nihProfileId": "14386285",
+      "name": "Amol Sharma",
+      "projectId": 11372156,
+      "title": "The Bidirectional Gut-Microbiota-Brain Axis in Parkinson’s disease: integrating mechanistic biomarkers of disease severity and progression",
+      "url": "https://reporter.nih.gov/project-details/11372156",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "needs_tag_addition",
+      "findings": "项目直接研究帕金森病的肠-微生物群-脑轴，结合横断面与36个月纵向队列；原分类缺少肠脑轴，需补gut-microbiota-brain词形。",
+      "originalDomains": [
+        "微生物组",
+        "脑科学",
+        "免疫学",
+        "衰老与疾病机制"
+      ]
+    },
+    {
+      "sampleNumber": 2,
+      "stratum": "microbes",
+      "selectionLabel": "微生物组",
+      "nihProfileId": "10170593",
+      "name": "John J. Bellizzi",
+      "projectId": 11221535,
+      "title": "Discovery and Characterization of Novel Halogenases from the Human Microbiome and from Archaea",
+      "url": "https://reporter.nih.gov/project-details/11221535",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "从人体微生物组、土壤菌和古菌挖掘卤化酶，研究底物选择性和晶体结构；宏基因组方法有明确目标。代谢属于微生物次生代谢而非人群营养。",
+      "originalDomains": [
+        "微生物组",
+        "微生物学",
+        "代谢与营养"
+      ]
+    },
+    {
+      "sampleNumber": 3,
+      "stratum": "microbes",
+      "selectionLabel": "微生物生态",
+      "nihProfileId": "10159321",
+      "name": "Ashlee Miriam Earl",
+      "projectId": 11401804,
+      "title": "Epidemiologic and molecular basis of the gut-urinary tract axis in urinary tract infection",
+      "url": "https://reporter.nih.gov/project-details/11401804",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "研究复发性尿路感染中肠道、阴道与尿路储库的微生物群、转录状态、炎症及菌群迁移。分类主要有项目依据；不能从项目参与推断每位共同PI均长期专攻所有方向。",
+      "originalDomains": [
+        "微生物组",
+        "微生物生态",
+        "微生物学",
+        "免疫学",
+        "基因组学",
+        "生物统计与流行病学"
+      ]
+    },
+    {
+      "sampleNumber": 4,
+      "stratum": "microbes",
+      "selectionLabel": "宿主-微生物互作",
+      "nihProfileId": "10098191",
+      "name": "Jonathan N Pruneda",
+      "projectId": 11398250,
+      "title": "Bacterial manipulation of atypical ubiquitin signaling",
+      "url": "https://reporter.nih.gov/project-details/11398250",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "细菌效应蛋白调控非典型Lys6泛素信号，分析宿主蛋白降解和感染。宿主-微生物互作、微生物学与免疫学有直接依据。",
+      "originalDomains": [
+        "宿主-微生物互作",
+        "微生物学",
+        "免疫学"
+      ]
+    },
+    {
+      "sampleNumber": 5,
+      "stratum": "microbes",
+      "selectionLabel": "微生物学",
+      "nihProfileId": "6406075",
+      "name": "David P Bartel",
+      "projectId": 11329480,
+      "title": "Post-transcriptional gene regulation",
+      "url": "https://reporter.nih.gov/project-details/11329480",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "incorrect_domain",
+      "findings": "主问题为miRNA靶标识别、转录后调控与miRNA降解；viral infections仅为背景应用示例。应删除微生物学，并补RNA/基因调控的主领域；研究目标中神经元过程足以保留脑科学相关性。",
+      "originalDomains": [
+        "微生物学",
+        "脑科学"
+      ]
+    },
+    {
+      "sampleNumber": 6,
+      "stratum": "omics",
+      "selectionLabel": "计算生物学",
+      "nihProfileId": "1951049",
+      "name": "Melissa B Davis",
+      "projectId": 11398720,
+      "title": "The DARC side of Breast Cancer Disparities - African Ancestry and Cancer- Related Immune Response",
+      "url": "https://reporter.nih.gov/project-details/11398720",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "以非洲祖源三阴性乳腺癌病例队列做多组学与免疫表型分析；免疫、遗传/组学、计算整合和队列标签有项目依据。",
+      "originalDomains": [
+        "免疫学",
+        "基因组学",
+        "计算生物学"
+      ]
+    },
+    {
+      "sampleNumber": 7,
+      "stratum": "omics",
+      "selectionLabel": "基因组学",
+      "nihProfileId": "11081085",
+      "name": "Ralph Elliot Kleiner",
+      "projectId": 11331168,
+      "title": "Chemical approaches to investigate post-transcriptional RNA regulation",
+      "url": "https://reporter.nih.gov/project-details/11331168",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "broad_label_caution",
+      "findings": "研究RNA修饰、RNA结合蛋白、化学生物学、质谱和转录/蛋白组。代谢与营养来自内源代谢物-RNA结合，属于分子代谢物机制，不应显示成临床营养专长。",
+      "originalDomains": [
+        "代谢与营养",
+        "基因组学",
+        "细胞与分子生物学"
+      ]
+    },
+    {
+      "sampleNumber": 8,
+      "stratum": "omics",
+      "selectionLabel": "单细胞与空间组学",
+      "nihProfileId": "1864115",
+      "name": "Nina Bhardwaj",
+      "projectId": 11457459,
+      "title": "Immune determinants modulating cancer development in Lynch Syndrome",
+      "url": "https://reporter.nih.gov/project-details/11457459",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "Lynch综合征癌前息肉新抗原与T细胞识别，明确单细胞RNA/TCR测序、空间转录组和验证队列。主要标签有直接支持。",
+      "originalDomains": [
+        "免疫学",
+        "基因组学",
+        "单细胞与空间组学"
+      ]
+    },
+    {
+      "sampleNumber": 9,
+      "stratum": "omics",
+      "selectionLabel": "代谢组学",
+      "nihProfileId": "11081324",
+      "name": "Carolyn N Elya",
+      "projectId": 11271314,
+      "title": "Mechanisms of parasitic behavior manipulation in a model host",
+      "url": "https://reporter.nih.gov/project-details/11271314",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "果蝇与寄生真菌互作，明确真菌行为操控、神经靶点、单细胞mRNA测序与代谢组。脑科学和微生物学为真实交叉，不是算法神经网络误标。",
+      "originalDomains": [
+        "微生物学",
+        "脑科学",
+        "代谢组学"
+      ]
+    },
+    {
+      "sampleNumber": 10,
+      "stratum": "omics",
+      "selectionLabel": "计算生物学",
+      "nihProfileId": "78313969",
+      "name": "Berna Sozen",
+      "projectId": 11295680,
+      "title": "Metabolic signaling mechanisms controlling mammalian embryonic patterning",
+      "url": "https://reporter.nih.gov/project-details/11295680",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "小鼠胚胎、胚胎外植体和干细胞胚胎模型中研究葡萄糖代谢调控ERK及原肠胚形成，包含多组学、同位素追踪、活体成像、基因扰动。分类可保留。",
+      "originalDomains": [
+        "代谢与营养",
+        "基因组学",
+        "计算生物学",
+        "细胞与分子生物学"
+      ]
+    },
+    {
+      "sampleNumber": 11,
+      "stratum": "brain",
+      "selectionLabel": "计算精神病学",
+      "nihProfileId": "12670338",
+      "name": "Marcelo Gomes Mattar",
+      "projectId": 11288358,
+      "title": "Using neural network-based cognitive models to quantify individual differences and predict psychiatric symptoms",
+      "url": "https://reporter.nih.gov/project-details/11288358",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "以815人决策任务与症状数据、个体小型循环神经网络和动力系统解释计算精神病学；虽然标题含neural network，但此项确为认知/精神健康目标。",
+      "originalDomains": [
+        "精神医学",
+        "计算精神病学"
+      ]
+    },
+    {
+      "sampleNumber": 12,
+      "stratum": "brain",
+      "selectionLabel": "精神医学",
+      "nihProfileId": "8616259",
+      "name": "Denise Kathryn Houston",
+      "projectId": 11446617,
+      "title": "Look AHEAD Aging Extension",
+      "url": "https://reporter.nih.gov/project-details/11446617",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "broad_label_caution",
+      "findings": "20年糖尿病/肥胖队列分析健康老龄化，心理健康和认知为多种结局之一。精神医学应理解为项目相关结局，不能据此宣称个人临床精神病专长。",
+      "originalDomains": [
+        "脑科学",
+        "精神医学",
+        "生物统计与流行病学",
+        "衰老与疾病机制"
+      ]
+    },
+    {
+      "sampleNumber": 13,
+      "stratum": "brain",
+      "selectionLabel": "计算神经科学",
+      "nihProfileId": "10587783",
+      "name": "Emily Barkley-Levenson",
+      "projectId": 10580198,
+      "title": "Characterizing Decision-Making in Anorexia Nervosa Under Conditions of Risk and Ambiguity using Computational Neuroimaging",
+      "url": "https://reporter.nih.gov/project-details/10580198",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "16-22岁女性神经性厌食症与对照的风险/模糊决策任务、神经数据和6个月随访。计算神经科学/影像有依据，未擅自补具体fMRI模态。",
+      "originalDomains": [
+        "脑科学",
+        "计算神经科学",
+        "神经影像"
+      ]
+    },
+    {
+      "sampleNumber": 14,
+      "stratum": "brain",
+      "selectionLabel": "脑科学",
+      "nihProfileId": "6802203",
+      "name": "Fen-Biao Gao",
+      "projectId": 11296109,
+      "title": "Investigating Common Molecular Pathogenic Pathways in Frontotemporal Dementia Patients iPSC-Derived Neurons",
+      "url": "https://reporter.nih.gov/project-details/11296109",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "患者iPSC来源皮层神经元与果蝇模型研究FTD/ALS共同机制，使用CRISPR编辑和转录组。标签有据，CRISPR编辑不自动等于大规模扰动筛选。",
+      "originalDomains": [
+        "脑科学",
+        "基因组学",
+        "细胞与分子生物学"
+      ]
+    },
+    {
+      "sampleNumber": 15,
+      "stratum": "brain",
+      "selectionLabel": "神经免疫",
+      "nihProfileId": "8614994",
+      "name": "Shibani Sharon Mukerji",
+      "projectId": 11083151,
+      "title": "Characterizing HIV-1 reservoirs in the central nervous system",
+      "url": "https://reporter.nih.gov/project-details/11083151",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "分选人CNS小胶质、血管周围巨噬细胞和星形胶质细胞分析HIV潜伏与整合位置，并做ATAC/ChIP/甲基化测序和再激活试验。神经免疫有直接依据。",
+      "originalDomains": [
+        "神经免疫",
+        "免疫学"
+      ]
+    },
+    {
+      "sampleNumber": 16,
+      "stratum": "engineering",
+      "selectionLabel": "脑机接口",
+      "nihProfileId": "15552016",
+      "name": "Ashley L Feinsinger",
+      "projectId": 11221707,
+      "title": "From concepts to tools: improving participant engagement in brain computer interface early feasibility studies",
+      "url": "https://reporter.nih.gov/project-details/11221707",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "incorrect_study_design",
+      "findings": "BCI参与者参与框架：实际方法为四组利益相关者定性访谈、人本设计和框架试用。临床试验是情境，不能直接把本项目研究设计标成临床试验。",
+      "originalDomains": [
+        "脑科学",
+        "脑机接口"
+      ]
+    },
+    {
+      "sampleNumber": 17,
+      "stratum": "engineering",
+      "selectionLabel": "脑机接口",
+      "nihProfileId": "10814616",
+      "name": "Nathaniel Steven Makowski",
+      "projectId": 11370331,
+      "title": "Customizable cooperative multi-joint control to enhance walking mobility after stroke",
+      "url": "https://reporter.nih.gov/project-details/11370331",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "needs_label_precision",
+      "findings": "卒中后步行神经假体，记录肌电/动作并刺激外周神经；应称神经假体或神经工程，与脑信号控制的严格脑机接口区分。大类脑机接口与生物医学工程适合。",
+      "originalDomains": [
+        "脑机接口"
+      ]
+    },
+    {
+      "sampleNumber": 18,
+      "stratum": "engineering",
+      "selectionLabel": "生物医学工程",
+      "nihProfileId": "12511313",
+      "name": "Maarten Hulsmans",
+      "projectId": 10986993,
+      "title": "Cardiac resident macrophages in AV node conduction",
+      "url": "https://reporter.nih.gov/project-details/10986993",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "incorrect_method",
+      "findings": "房室结巨噬细胞、起搏器、ECG及心脏电生理研究，当前神经电生理为误标，应改通用电生理。",
+      "originalDomains": [
+        "免疫学",
+        "单细胞与空间组学",
+        "生物医学工程"
+      ]
+    },
+    {
+      "sampleNumber": 19,
+      "stratum": "engineering",
+      "selectionLabel": "生物医学工程",
+      "nihProfileId": "11596152",
+      "name": "Yesim Gokmen Polar",
+      "projectId": 11313243,
+      "title": "In Vitro Human INtraDuctal (HIND) Model of Early Stage Breast Cancer Progression Heterogeneity",
+      "url": "https://reporter.nih.gov/project-details/11313243",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "study_design_uncertain",
+      "findings": "目标是全人源乳腺导管类器官体外模型；小鼠MIND为既有参照，Aim1 benchmark是否新做动物实验不明确。不宜直接确认为动物实验。",
+      "originalDomains": [
+        "生物医学工程"
+      ]
+    },
+    {
+      "sampleNumber": 20,
+      "stratum": "engineering",
+      "selectionLabel": "生物医学工程",
+      "nihProfileId": "11275805",
+      "name": "Jayakar V Nayak",
+      "projectId": 11010390,
+      "title": "Optimizing Surgical Transplant of CFTR Gene-Corrected Human Basal Stem Cells to the Upper Airway",
+      "url": "https://reporter.nih.gov/project-details/11010390",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "囊性纤维化基因校正气道基底干细胞移植，研究生物材料与活体移植。当前保守的生医工程/细胞标签可保留，未据背景CRISPR工作夸大本项目编辑技术。",
+      "originalDomains": [
+        "生物医学工程",
+        "细胞与分子生物学"
+      ]
+    },
+    {
+      "sampleNumber": 21,
+      "stratum": "ai",
+      "selectionLabel": "医学人工智能",
+      "nihProfileId": "1866890",
+      "name": "Baba C Vemuri",
+      "projectId": 11023149,
+      "title": "Higher Order Convolutional Neural Network for Classification of Lewy-body Diseases and Alzheimers Disease",
+      "url": "https://reporter.nih.gov/project-details/11023149",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "CNN/几何深度学习整合结构与扩散MRI区分DLB、PD、AD及对照。脑疾病、医学AI与队列标签有直接研究目标支持。",
+      "originalDomains": [
+        "脑科学",
+        "医学人工智能",
+        "衰老与疾病机制"
+      ]
+    },
+    {
+      "sampleNumber": 22,
+      "stratum": "ai",
+      "selectionLabel": "医学人工智能",
+      "nihProfileId": "14866500",
+      "name": "Kara Ann Johnson",
+      "projectId": 11502751,
+      "title": "Basal Ganglia Network Neurophysiology of Depression in Parkinson’s Disease",
+      "url": "https://reporter.nih.gov/project-details/11502751",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "role_source_caution",
+      "findings": "PD抑郁的DBS神经活动、影像和机器学习研究有据。R00摘要仍含K99培训计划，不代表当前仍是博士后；Utah当前官网已确认助理教授。",
+      "originalDomains": [
+        "脑科学",
+        "神经影像",
+        "精神医学",
+        "医学人工智能",
+        "衰老与疾病机制"
+      ]
+    },
+    {
+      "sampleNumber": 23,
+      "stratum": "ai",
+      "selectionLabel": "AI for Biology",
+      "nihProfileId": "11891826",
+      "name": "Gabriel Jacob Rocklin",
+      "projectId": 11398109,
+      "title": "High-throughput discovery and modeling of protein stability and dynamics",
+      "url": "https://reporter.nih.gov/project-details/11398109",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "高通量测量蛋白稳定性/折叠能量景观并训练机器学习预测模型，AIforBio明确；基因组学仅涉及变异效应，蛋白/结构生物学才是更具体主方向。",
+      "originalDomains": [
+        "基因组学",
+        "AI for Biology"
+      ]
+    },
+    {
+      "sampleNumber": 24,
+      "stratum": "ai",
+      "selectionLabel": "AI for Biology",
+      "nihProfileId": "12082161",
+      "name": "Emma J Chory",
+      "projectId": 11342891,
+      "title": "Autonomous Evolution of Ultra-Specific Affinity Reagents for Epigenetic and Post-Translational Modifications",
+      "url": "https://reporter.nih.gov/project-details/11342891",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "incorrect_domain",
+      "findings": "TurboPRANCE定向演化蛋白结合特异性与机器学习蛋白设计；诊断、癌症、衰老为通用背景应用，不能据此加医学AI或衰老疾病机制。应保留AIforBio/蛋白工程。",
+      "originalDomains": [
+        "AI for Biology",
+        "医学人工智能",
+        "衰老与疾病机制"
+      ]
+    },
+    {
+      "sampleNumber": 25,
+      "stratum": "ai",
+      "selectionLabel": "医学人工智能",
+      "nihProfileId": "11083249",
+      "name": "William James Greenleaf",
+      "projectId": 11330591,
+      "title": "Defining and perturbing gene regulatory dynamics in the developing human brain",
+      "url": "https://reporter.nih.gov/project-details/11330591",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "incorrect_domain",
+      "findings": "iPSC来源脑/脊髓类器官、多组学、CRISPR和深度学习预测基因调控；疾病变异机制不等于临床医学AI，应保留AIforBio并移除医学AI。",
+      "originalDomains": [
+        "脑科学",
+        "基因组学",
+        "计算生物学",
+        "AI for Biology",
+        "医学人工智能"
+      ]
+    },
+    {
+      "sampleNumber": 26,
+      "stratum": "life",
+      "selectionLabel": "细胞与分子生物学",
+      "nihProfileId": "7748175",
+      "name": "Paola Sebastiani",
+      "projectId": 11556855,
+      "title": "The Long Life Family Study",
+      "url": "https://reporter.nih.gov/project-details/11556855",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "长寿家系的纵向遗传、微生物组与组学扩展有明确目标。本人参与大型项目不代表其独立掌握全部湿实验方法。",
+      "originalDomains": [
+        "微生物组",
+        "基因组学",
+        "细胞与分子生物学",
+        "衰老与疾病机制"
+      ]
+    },
+    {
+      "sampleNumber": 27,
+      "stratum": "life",
+      "selectionLabel": "免疫学",
+      "nihProfileId": "10555520",
+      "name": "Ana-Maria Dragoi",
+      "projectId": 11323000,
+      "title": "Mechanism of macrophages colonization in gonorrhea",
+      "url": "https://reporter.nih.gov/project-details/11323000",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "研究淋球菌在巨噬细胞内定植、受体/黏附素与人黏膜样本免疫，微生物与免疫标签有依据。",
+      "originalDomains": [
+        "微生物学",
+        "免疫学"
+      ]
+    },
+    {
+      "sampleNumber": 28,
+      "stratum": "life",
+      "selectionLabel": "代谢与营养",
+      "nihProfileId": "14240876",
+      "name": "Sei Higuchi",
+      "projectId": 11125611,
+      "title": "Bile acid-mediated OEA-PPARa signaling in food intake regulation",
+      "url": "https://reporter.nih.gov/project-details/11125611",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "在小鼠中研究16α羟化胆汁酸、NAPE-PLD/OEA与食量调节；代谢和动物实验有直接支持。",
+      "originalDomains": [
+        "代谢与营养"
+      ]
+    },
+    {
+      "sampleNumber": 29,
+      "stratum": "life",
+      "selectionLabel": "生物统计与流行病学",
+      "nihProfileId": "10381499",
+      "name": "Kali St. Marie Thomas",
+      "projectId": 11400758,
+      "title": "Alzheimer's Disease and Related Disorders Treatment and Outcomes in America: Changing Policies and Systems.",
+      "url": "https://reporter.nih.gov/project-details/11400758",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "acceptable_project_scope",
+      "findings": "AD/相关痴呆患者的医疗支付与制度变动研究，使用因果推断和多支付方数据。宜归流行病学/健康服务研究，不应因AD自动当实验神经科学导师。",
+      "originalDomains": [
+        "生物统计与流行病学",
+        "衰老与疾病机制"
+      ]
+    },
+    {
+      "sampleNumber": 30,
+      "stratum": "life",
+      "selectionLabel": "衰老与疾病机制",
+      "nihProfileId": "1892822",
+      "name": "Stefan M. PULST",
+      "projectId": 11328787,
+      "title": "Ataxin-2 complex proteins in neurodegeneration.",
+      "url": "https://reporter.nih.gov/project-details/11328787",
+      "reviewedMaterial": "官方NIH API完整项目摘要及PI记录",
+      "status": "broad_label_caution",
+      "findings": "ATXN2/STAU1的RNA代谢、应激、相分离与神经退行机制，转录/蛋白组有据。RNA代谢不等于营养或能量代谢，应避免粗标签造成误解。",
+      "originalDomains": [
+        "脑科学",
+        "代谢与营养",
+        "基因组学",
+        "细胞与分子生物学",
+        "衰老与疾病机制"
+      ]
+    }
+  ],
+  "highRiskReview": [
+    {
+      "projectId": 10359882,
+      "title": "Cerebellum and autism: Regional specialization for social and executive functions",
+      "url": "https://reporter.nih.gov/project-details/10359882",
+      "riskType": "background_method",
+      "findings": "动物实验仅为合作方既往小鼠研究；本次是神经典型成人/ASD成人的神经调控与成像。移除动物实验标签。",
+      "piIds": [
+        "9978980"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11438733,
+      "title": "F1 inhibition of OXPHOS to ameliorate hyperproliferative erythropoiesis",
+      "url": "https://reporter.nih.gov/project-details/11438733",
+      "riskType": "source_not_research_domain",
+      "findings": "使用细菌来源化合物研究红系细胞与PV，不等于微生物研究；CRISPR工程化疾病模型细胞不自动等于合成生物学。",
+      "piIds": [
+        "14823031"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11258269,
+      "title": "Single Cell Foundation Model enabled drug discovery for clonal hematopoiesis",
+      "url": "https://reporter.nih.gov/project-details/11258269",
+      "riskType": "aivc_scope",
+      "findings": "单细胞基础模型进行CHIP虚拟筛药并计划体内外验证，可称AI细胞模型/药物发现相关；证据是项目，不可声称已完成通用虚拟细胞。",
+      "piIds": [
+        "10657121",
+        "10371273",
+        "14823031"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11439112,
+      "title": "Machine learning models for systems-level tracking of single-cell aging",
+      "url": "https://reporter.nih.gov/project-details/11439112",
+      "riskType": "aivc_scope",
+      "findings": "项目主要建立跨器官/物种单细胞衰老时钟并使用基础模型嵌入。项目本身并未直接承诺通用虚拟细胞；现任PI身份及更广的细胞/组织干预模拟方向另有MIT/Ragon个人官网支持。",
+      "piIds": [
+        "15011165"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11267279,
+      "title": "Computational systems for single-cell and spatial transcriptomics experiments",
+      "url": "https://reporter.nih.gov/project-details/11267279",
+      "riskType": "aivc_scope",
+      "findings": "研究单细胞/空间转录组计算分析、基础模型软件与基准。应与严格虚拟细胞仿真区分，单细胞基础模型更精准。",
+      "piIds": [
+        "6204165"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11302673,
+      "title": "Multi-Cellular Analysis of the Retinal Network",
+      "url": "https://reporter.nih.gov/project-details/11302673",
+      "riskType": "bipolar_polysemy",
+      "findings": "bipolar cells是视网膜双极细胞；删除双相障碍/精神医学。",
+      "piIds": [
+        "10455132",
+        "7354218"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11224338,
+      "title": "The Human Foveal Connectome",
+      "url": "https://reporter.nih.gov/project-details/11224338",
+      "riskType": "bipolar_polysemy",
+      "findings": "人类中央凹连接组中的bipolar cell不是双相情感障碍；删除错误精神疾病标签。",
+      "piIds": [
+        "1859399"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11322052,
+      "title": "Regulation of microtubule organizing centers during mammalian gametogenesis",
+      "url": "https://reporter.nih.gov/project-details/11322052",
+      "riskType": "bipolar_polysemy",
+      "findings": "bipolar spindles/MTOCs指减数分裂双极纺锤体；删除双相障碍/精神医学。",
+      "piIds": [
+        "10656463"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11287881,
+      "title": "A New Robot to Replace Hysterectomies with Minimally Invasive Uterine-Sparing Interventions",
+      "url": "https://reporter.nih.gov/project-details/11287881",
+      "riskType": "bipolar_polysemy",
+      "findings": "子宫保留手术机器人中的bipolar electrosurgery是双极电外科；不是双相障碍。",
+      "piIds": [
+        "9047697"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11252271,
+      "title": "Optimized Electrical Block of Peripheral Nerves",
+      "url": "https://reporter.nih.gov/project-details/11252271",
+      "riskType": "bipolar_polysemy",
+      "findings": "外周神经阻滞的bipolar/tripolar electrode geometries是电极几何结构；不是精神疾病。",
+      "piIds": [
+        "1908267"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11381071,
+      "title": "Temporal-spatial control of mitotic regulators by polySUMOylation",
+      "url": "https://reporter.nih.gov/project-details/11381071",
+      "riskType": "bipolar_polysemy",
+      "findings": "chromosome bipolar attachment指有丝分裂染色体双极附着；不是双相障碍。",
+      "piIds": [
+        "6833322"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11482310,
+      "title": "Molecular Mechanisms of Cytoskeletal Mechanosensory Systems",
+      "url": "https://reporter.nih.gov/project-details/11482310",
+      "riskType": "bipolar_polysemy",
+      "findings": "nonmuscle myosin II bipolar thick filament是肌球蛋白粗丝；不是精神疾病。",
+      "piIds": [
+        "7018864",
+        "1876031"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11358410,
+      "title": "SCH: AI-empowered Wearable Multimodal Sensors (AI-MEDALLION) for Noninvasive Monitoring",
+      "url": "https://reporter.nih.gov/project-details/11358410",
+      "riskType": "confirmed_duplicate",
+      "findings": "Wenzhuo Wu的NIH ID79122051与同AI-MEDALLION核心项目中的79683563应合并；项目依托OHSU不等于个人主聘单位。",
+      "piIds": [
+        "79122051",
+        "11169578",
+        "14866046"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11403940,
+      "title": "SCH: AI-empowered wearable multimodal sensors (AI-MEDALLION) for noninvasive monitoring",
+      "url": "https://reporter.nih.gov/project-details/11403940",
+      "riskType": "confirmed_duplicate",
+      "findings": "与11358410同R01LM014720项目及同一Chi Zhang/Sarah Zauber团队，Wenzhuo Wu跨NIH ID重复。",
+      "piIds": [
+        "79683563",
+        "11169578",
+        "14866046"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11245758,
+      "title": "Deciphering the Role of Epstein-Barr Virus Molecular Mimicry and B cell Transformation in Multiple Sclerosis",
+      "url": "https://reporter.nih.gov/project-details/11245758",
+      "riskType": "confirmed_duplicate",
+      "findings": "Tobias Volker Lanz的NIH ID78539683与14610263为同一Stanford PI；完整名、MS/EBV/B细胞主题和William Robinson共同PI一致，当前官网确认。",
+      "piIds": [
+        "78539683",
+        "1945525"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11347164,
+      "title": "Characterizing EBV-Infected B Cells in Multiple Sclerosis",
+      "url": "https://reporter.nih.gov/project-details/11347164",
+      "riskType": "confirmed_duplicate",
+      "findings": "与11245758同一Tobias Volker Lanz团队、官方完整名吻合；合并NIH IDs保留各项目出处。",
+      "piIds": [
+        "14610263",
+        "1945525"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11393169,
+      "title": "PRE3BAD: Preclinical Research on Emerging Environmental Exposures, Brain Aging, and Dementia",
+      "url": "https://reporter.nih.gov/project-details/11393169",
+      "riskType": "confirmed_duplicate",
+      "findings": "Kiran Bhaskar的NIH ID16208050与10063277为同一UNM神经炎症/AD教授，官网与其他项目一致。",
+      "piIds": [
+        "16208050",
+        "6771164",
+        "11362946",
+        "10804390"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11285233,
+      "title": "Immunological and Physiological Responses to Measles Vaccine",
+      "url": "https://reporter.nih.gov/project-details/11285233",
+      "riskType": "confirmed_duplicate",
+      "findings": "Nicole Baumgarth的NIH ID78801320与6867934为同一JHU B细胞感染免疫研究者，官网与项目一致。",
+      "piIds": [
+        "78801320",
+        "1923815",
+        "15737663"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11381849,
+      "title": "Unlocking microglia targeting for neurotherapeutics",
+      "url": "https://reporter.nih.gov/project-details/11381849",
+      "riskType": "historical_role_resolved",
+      "findings": "NIH报CHILD NEUROLOGY RESIDENT，但UPenn当前正式faculty页确认Mariko Bennett为Assistant Professor和研究生组成员，应保留并附官网，不按历史title误删。",
+      "piIds": [
+        "10723012"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11399836,
+      "title": "Response and resistance to chimeric antigen receptor T cell therapy in human solid tumors using spatial multi-omics",
+      "url": "https://reporter.nih.gov/project-details/11399836",
+      "riskType": "role_not_fully_resolved",
+      "findings": "NIH报MEDICAL RESIDENT，DP5摘要明确独立项目计划。未从项目 alone确认现时博士指导资格；保留project_record及角色待核，不夸大为已核实博士导师。",
+      "piIds": [
+        "12628888"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11372979,
+      "title": "Using person-specific networks to uncover sex differences in vulnerability to internalizing disorders",
+      "url": "https://reporter.nih.gov/project-details/11372979",
+      "riskType": "historical_role_resolved",
+      "findings": "NIH报RESEARCH TRACK PSYCHIATRY RESIDENT；UPenn官网及2024任命记录确认Sheila Shanmugan现任Assistant Professor，应使用当前官网证据。",
+      "piIds": [
+        "14414410"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11173850,
+      "title": "Role and mechanisms of excretion in manganese neurotoxicity",
+      "url": "https://reporter.nih.gov/project-details/11173850",
+      "riskType": "honorific_false_exclusion",
+      "findings": "PROFESSOR & BAUERLE CENTENNIAL FELLOW被裸词fellow排除错误，官方为教授；恢复Somshuvra Mukhopadhyay。",
+      "piIds": [
+        "10213001"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11392206,
+      "title": "Testing Dementia Caregiver TeleCoaching to Reduce Episodes of Abuse and Neglect by Recognizing and Managing Care-Resistant Behaviors",
+      "url": "https://reporter.nih.gov/project-details/11392206",
+      "riskType": "program_director_false_exclusion",
+      "findings": "PROFESSOR, DIR OF POST-DOCTORAL PROGRAM是博士后项目主任而非博士后；官方为教授，恢复Rita Jablonski。",
+      "piIds": [
+        "6437566"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 11319601,
+      "title": "Impact of Metals on DNA and Chromatin Structures and Gene Expression",
+      "url": "https://reporter.nih.gov/project-details/11319601",
+      "riskType": "honorific_false_exclusion",
+      "findings": "COULTER R. SUBLETT FELLOW为冠名职位，不是学员；当前UT Austin官方为教授，恢复Karen Vasquez。",
+      "piIds": [
+        "2089073"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    },
+    {
+      "projectId": 10910639,
+      "title": "Developing a CRISPR-free mammalian recombineering system",
+      "url": "https://reporter.nih.gov/project-details/10910639",
+      "riskType": "independent_fellow_false_exclusion",
+      "findings": "Scripps Fellow属于独立实验室PI项目；Shannon Miller当前官方2026页面为助理教授，不能按fellow一词排除。",
+      "piIds": [
+        "14962622"
+      ],
+      "reviewedMaterial": "NIH官方项目摘要/PI记录；涉及现任角色另查官方个人页"
+    }
+  ],
+  "confirmedIdentityMerges": [
+    {
+      "displayName": "Kiran Bhaskar",
+      "nihProfileIds": [
+        "10063277",
+        "16208050"
+      ],
+      "primaryEvidenceUrl": "https://hsc.unm.edu/directory/bhaskar-kiran.html",
+      "basis": "同姓名、UNM项目单位、AD/神经炎症研究及官方个人页身份一致。",
+      "verifiedAt": "2026-10-21",
+      "recommendedAction": "merge preserving multiple NIH IDs, aliases and project sources"
+    },
+    {
+      "displayName": "Nicole Baumgarth",
+      "nihProfileIds": [
+        "6867934",
+        "78801320"
+      ],
+      "primaryEvidenceUrl": "https://publichealth.jhu.edu/faculty/4363/nicole-baumgarth",
+      "basis": "同姓名、JHU项目单位、B细胞感染免疫主题及官方个人页一致。",
+      "verifiedAt": "2026-10-21",
+      "recommendedAction": "merge preserving multiple NIH IDs, aliases and project sources"
+    },
+    {
+      "displayName": "Tobias Volker Lanz",
+      "nihProfileIds": [
+        "14610263",
+        "78539683"
+      ],
+      "primaryEvidenceUrl": "https://profiles.stanford.edu/tobias-lanz",
+      "basis": "官方CV完整姓名一致；两组项目均Stanford MS/EBV/B细胞并同William Robinson联合PI。",
+      "verifiedAt": "2026-10-21",
+      "recommendedAction": "merge preserving multiple NIH IDs, aliases and project sources"
+    },
+    {
+      "displayName": "Wenzhuo Wu",
+      "nihProfileIds": [
+        "79683563",
+        "79122051"
+      ],
+      "primaryEvidenceUrl": "https://reporter.nih.gov/project-details/11403940",
+      "basis": "相同R01LM014720核心项目、相同团队、项目续年度/补充记录。主聘单位须另核，不能从OHSU项目推断。",
+      "verifiedAt": "2026-10-21",
+      "recommendedAction": "merge preserving multiple NIH IDs, aliases and project sources"
+    },
+    {
+      "displayName": "Jamil R Azzi",
+      "nihProfileIds": [
+        "10533030",
+        "10953634"
+      ],
+      "primaryEvidenceUrl": "https://learn.hms.harvard.edu/about/leadership-faculty/faculty/jamil-r-azzi",
+      "basis": "官网完整名、BWH、移植免疫研究对应；缩略中间名差异。",
+      "verifiedAt": "2026-10-21",
+      "recommendedAction": "merge preserving multiple NIH IDs, aliases and project sources"
+    },
+    {
+      "displayName": "Lance R. Thurlow",
+      "nihProfileIds": [
+        "10590765",
+        "78779475"
+      ],
+      "primaryEvidenceUrl": "https://www.med.unc.edu/microimm/people/lance-thurlow-phd/",
+      "basis": "同UNC金葡菌代谢/感染研究，官网单一PI对应；大小写和中间名差异。",
+      "verifiedAt": "2026-10-21",
+      "recommendedAction": "merge preserving multiple NIH IDs, aliases and project sources"
+    },
+    {
+      "displayName": "Sean Adam Wasserman",
+      "nihProfileIds": [
+        "15185839",
+        "80311364"
+      ],
+      "primaryEvidenceUrl": "https://reporter.nih.gov/project-details/11563787",
+      "basis": "同U01AI170426/PRESCIENT核心编号及同团队续年度补充项目；缺中间名。",
+      "verifiedAt": "2026-10-21",
+      "recommendedAction": "merge preserving multiple NIH IDs, aliases and project sources"
+    },
+    {
+      "displayName": "Steven C. Schachter",
+      "nihProfileIds": [
+        "8659693",
+        "10286550"
+      ],
+      "primaryEvidenceUrl": "https://connects.catalyst.harvard.edu/Profiles/profile/1252814",
+      "basis": "同U54EB033650/CINTA核心项目，官方完整名Steven Craig Schachter一致。",
+      "verifiedAt": "2026-10-21",
+      "recommendedAction": "merge preserving multiple NIH IDs, aliases and project sources"
+    }
+  ],
+  "doNotAutomaticallyMerge": [
+    {
+      "names": [
+        "Jun J. Yang",
+        "Jun Yang"
+      ],
+      "nihProfileIds": [
+        "10340341",
+        "12526204"
+      ],
+      "reason": "St Jude药物基因组与肿瘤表观遗传/肉瘤研究为不同课题组；中间名不能自动忽略。"
+    },
+    {
+      "names": [
+        "Hao Zhang",
+        "Hao F Zhang"
+      ],
+      "nihProfileIds": [
+        "79674175",
+        "9489807"
+      ],
+      "reason": "前者Stanford放射治疗影像、后者Northwestern眼科成像联合PI；相同项目单位不等于同人。"
+    },
+    {
+      "names": [
+        "Katharine Rachel Smith",
+        "Katharine Hamlington Smith"
+      ],
+      "nihProfileIds": [
+        "11340194",
+        "14513876"
+      ],
+      "reason": "不同完整中间名，不可只按first+last归并。"
+    },
+    {
+      "names": [
+        "Alexander S. Young",
+        "Alexander Thomas Ian Strudwick Young"
+      ],
+      "nihProfileIds": [
+        "1910752",
+        "78567995"
+      ],
+      "reason": "UCLA同first+last但完整名与课题不同，需独立身份复核。"
+    },
+    {
+      "names": [
+        "Hyun Kyoung Lee",
+        "Hyun-Sung Lee"
+      ],
+      "nihProfileIds": [
+        "10929946",
+        "16007918"
+      ],
+      "reason": "连字符清洗损失韩国复合名语义，应保留不同姓名。"
+    }
+  ],
+  "officialRoleUpdates": [
+    {
+      "nihProfileId": "10723012",
+      "name": "Mariko L. Bennett",
+      "profileUrl": "https://www.med.upenn.edu/apps/faculty/index.php/g275/p9141639",
+      "role": "Assistant Professor of Neurology",
+      "institution": "University of Pennsylvania / CHOP",
+      "note": "官方faculty与研究生组关联页面；NIH住院医师title过时。",
+      "verifiedAt": "2026-10-21",
+      "recruitingStatus": "unknown",
+      "includedInFinalCandidateInput": true,
+      "applicationStatus": "eligible_for_integration_patch"
+    },
+    {
+      "nihProfileId": "14414410",
+      "name": "Sheila Shanmugan",
+      "profileUrl": "https://www.med.upenn.edu/apps/faculty/index.php/g332/p8364165",
+      "role": "Assistant Professor of Psychiatry",
+      "institution": "University of Pennsylvania",
+      "note": "官方faculty明确任职，列出2018-2022住院医师培训，NIHtitle过时。",
+      "verifiedAt": "2026-10-21",
+      "recruitingStatus": "unknown",
+      "includedInFinalCandidateInput": false,
+      "applicationStatus": "not_applied_not_selected_in_final_candidate_input"
+    },
+    {
+      "nihProfileId": "8828049",
+      "name": "Arun P. Wiita",
+      "profileUrl": "https://cancer.ucsf.edu/people/wiita.arun",
+      "role": "Professor",
+      "institution": "University of California, San Francisco",
+      "note": "官方当前癌症中心页；NIH临床病理住院医师title不能作为现任角色。",
+      "verifiedAt": "2026-10-21",
+      "recruitingStatus": "unknown",
+      "includedInFinalCandidateInput": true,
+      "applicationStatus": "eligible_for_integration_patch"
+    },
+    {
+      "nihProfileId": "15011165",
+      "name": "Eric David Sun",
+      "profileUrl": "https://sunlab.mit.edu/members/eric-sun.html",
+      "role": "Assistant Professor of Biological Engineering",
+      "institution": "MIT / Ragon Institute",
+      "note": "2026加入MIT/Ragon并领导独立实验室；NIH MGH是项目依托信息。",
+      "verifiedAt": "2026-10-21",
+      "recruitingStatus": "unknown",
+      "includedInFinalCandidateInput": true,
+      "applicationStatus": "eligible_for_integration_patch"
+    },
+    {
+      "nihProfileId": "14866500",
+      "name": "Kara Ann Johnson",
+      "profileUrl": "https://www.bme.utah.edu/profile/?unid=u0409733",
+      "role": "Assistant Professor",
+      "institution": "University of Utah",
+      "note": "当前官方页面确认BME/Neurosurgery助理教授；R00复用K99摘要培训计划不代表现仍博士后。",
+      "verifiedAt": "2026-10-21",
+      "recruitingStatus": "unknown",
+      "includedInFinalCandidateInput": true,
+      "applicationStatus": "eligible_for_integration_patch"
+    },
+    {
+      "nihProfileId": "10213001",
+      "name": "Somshuvra Mukhopadhyay",
+      "profileUrl": "https://pharmacy.utexas.edu/research-practice/college-divisions/pharmacology-toxicology/faculty-staff",
+      "role": "Professor",
+      "institution": "University of Texas at Austin",
+      "note": "需恢复被fellow荣誉词误排除的已确认faculty。",
+      "verifiedAt": "2026-10-21",
+      "recruitingStatus": "unknown",
+      "includedInFinalCandidateInput": true,
+      "applicationStatus": "eligible_for_integration_patch"
+    },
+    {
+      "nihProfileId": "6437566",
+      "name": "Rita A Jablonski",
+      "profileUrl": "https://www.uab.edu/nursing/home/directory/faculty/jablonski-rita",
+      "role": "Professor",
+      "institution": "University of Alabama at Birmingham",
+      "note": "本人是博士后项目负责人，不能因post-doctoral program被当学员排除。",
+      "verifiedAt": "2026-10-21",
+      "recruitingStatus": "unknown",
+      "includedInFinalCandidateInput": false,
+      "applicationStatus": "not_applied_not_selected_in_final_candidate_input"
+    },
+    {
+      "nihProfileId": "2089073",
+      "name": "Karen M Vasquez",
+      "profileUrl": "https://pharmacy.utexas.edu/directory/karen-vasquez",
+      "role": "Professor",
+      "institution": "University of Texas at Austin",
+      "note": "冠名fellow非受训角色，当前官方教授页确认。",
+      "verifiedAt": "2026-10-21",
+      "recruitingStatus": "unknown",
+      "includedInFinalCandidateInput": true,
+      "applicationStatus": "eligible_for_integration_patch"
+    },
+    {
+      "nihProfileId": "14962622",
+      "name": "Shannon Marie Miller",
+      "profileUrl": "https://www.scripps.edu/faculty/smiller/",
+      "role": "Independent PI / Assistant Professor",
+      "institution": "Scripps Research",
+      "note": "官方2026 https://techsummit.scripps.edu/speakers/ 列助理教授；2022独立实验室公告亦可核对。",
+      "verifiedAt": "2026-10-21",
+      "recruitingStatus": "unknown",
+      "includedInFinalCandidateInput": true,
+      "applicationStatus": "eligible_for_integration_patch"
+    }
+  ],
+  "personalProfileTaxonomyReview": {
+    "file": "mentor-profiles.json",
+    "count": 154,
+    "identitySafety": [
+      "保留原name和稳定id，中文名只补aliases。",
+      "Yue Zhang同名不同研究者未错配；生物材料Jian Yang的404未替换为统计遗传Jian Yang。"
+    ],
+    "taxonomyFindings": [
+      {
+        "label": "演化生物学",
+        "count": 4,
+        "issue": "原taxonomy生态进化正则未匹配演化生物，已发UI负责人补别名。"
+      },
+      {
+        "label": "机器学习/深度学习",
+        "issue": "认知规则裸学习可能误判AI域标签，建议排除算法学习并补AI映射。当前154档案中的机器学习在methods，不受domain-only映射影响。"
+      }
+    ],
+    "sourceAffiliationCaution": "Westlake官方跨院或兼职身份写入affiliationNote，未把目录归属当主聘确认。",
+    "finalStatus": "Reviewed taxonomy maps 演化生物学 to life science; algorithm learning terms to AI rather than brain; 单细胞基础模型 to omics and AI. These are topic maps, not identity evidence."
+  },
+  "crossSourceReview": {
+    "reviewedAt": "2026-10-21",
+    "inputFile": "mentor-cross-source-review.json",
+    "candidatePairCount": 953,
+    "programmaticallyFlagged": 267,
+    "flagCounts": {
+      "display_names_differ_alias_evidence_needed": 6,
+      "short_full_name": 189,
+      "no_shared_main_field": 87,
+      "same_full_name_multiple_nih_people": 25
+    },
+    "humanOfficialSourceCheckedPairs": 14,
+    "allow": [
+      {
+        "nihProfileId": "1892295",
+        "existingId": "pi-wei-li-3729168b",
+        "name": "Wei Li",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://www.bcm.edu/people-search/wei-li-41326",
+        "basis": "Baylor个人页明确ligandomics、眼科/神经血管研究，与此PI项目吻合。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "10455071",
+        "existingId": "pi-zheng-sun-d59d1e92",
+        "name": "Zheng Sun",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://www.bcm.edu/departments/medicine/sections/endocrinology-diabetes-and-metabolism/research/research-faculty",
+        "basis": "Zheng Sun研究表观组、代谢与神经认知，原brain目录与代谢项目为真实交叉，不能因标签不交集判不同人。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "78468519",
+        "existingId": "pi-jian-zhou-8dc3037d",
+        "name": "Jian Zhou",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://biomed.emory.edu/PROGRAM_SITES/GMB/about-us/faculty-detail/jian-zhou-phd",
+        "basis": "Emory Jian Zhou个人研究明确TCF20/PHF14与神经发育；不是UTSW同名计算基因组学PI。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "11689925",
+        "existingId": "pi-hao-wu-dafd5c49",
+        "name": "Hao Wu",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://www.med.upenn.edu/apps/faculty/index.php/g275/p8878781",
+        "basis": "UPenn Hao Wu遗传学/表观遗传/单细胞，官方身份与本项目一致；不是其他机构同名PI。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "77928198",
+        "existingId": "pi-yu-zhang-20e2d995",
+        "name": "Yu Zhang",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://profiles.stanford.edu/176276",
+        "basis": "官方资料研究AI、转化神经科学与精神疾病治疗反应，和两NIH目标一致。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "12199336",
+        "existingId": "pi-hong-chen-844bdaa1",
+        "name": "Hong Chen",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://chenultrasoundlab.wustl.edu/people/hong-chen/",
+        "basis": "官方实验室明确超声诱导冬眠及NIH Pioneer项目，和本PI项目一致。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "9498086",
+        "existingId": "pi-jun-liu-6b87ef5d",
+        "name": "Jun Liu",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://medicine.yale.edu/profile/jliu/",
+        "basis": "Yale Jun Liu为微生物致病/冷冻电镜与细菌鞭毛研究，当前官网列幽门螺杆菌鞭毛工作，与项目一致。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "16456431",
+        "existingId": "pi-yang-liu-7e002e03",
+        "name": "Yang Liu",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://medicine.yale.edu/bbs/profile/yang-liu-yl2224/",
+        "basis": "Yale Pathology Yang Liu个人bio明确空间多组学、微生物组与心血管应用，匹配项目。只用本人bio，不用可能同名污染的自动论文列表。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "8264863",
+        "existingId": "pi-diego-pizzagalli-6bb4c578",
+        "name": "Diego A Pizzagalli",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://faculty.uci.edu/profile/?facultyId=7304",
+        "basis": "UCI完整名Diego A Pizzagalli、抑郁/快感缺失研究对应，缺中间名display是别名。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "7892660",
+        "existingId": "pi-matthew-smith-54df3d71",
+        "name": "Matthew A Smith",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://www.cmu.edu/bme/People/Faculty/profile/msmith.html",
+        "basis": "CMU官方为Matthew A Smith；Pitt原页为其adjunct关联，明确主聘CMU，允许同人合并。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "8926441",
+        "existingId": "chang",
+        "name": "Edward Chang",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://neurosurgery.ucsf.edu/news/ucsf-neurosurgeon-edward-chang-awarded-2025-gruber-neuroscience-prize-for-landmark-discoveries-in",
+        "basis": "UCSF Edward F Chang语言神经机制和神经假体与NIH项目对应；无F的NIH名为同人。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "1929315",
+        "existingId": "pi-alison-barth-f3283702",
+        "name": "Alison L Barth",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://www.cnup.pitt.edu/people/alison-l-barth-phd",
+        "basis": "官方完整名Alison L Barth、CMU教授/Pitt兼职、新皮层可塑性，与NIH项目对应。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "1876509",
+        "existingId": "pi-mark-a-kay-f3afddaf",
+        "name": "Mark A Kay",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://med.stanford.edu/profiles/mark-kay",
+        "basis": "原display含MD/PhD学位后缀，实际姓名Mark A Kay，官方人类基因治疗和小RNA研究对应。",
+        "verifiedAt": "2026-10-21"
+      },
+      {
+        "nihProfileId": "1867193",
+        "existingId": "pi-jane-rebecca-taylor-b04b9087",
+        "name": "Jane R Taylor",
+        "decision": "allow_identity_merge",
+        "evidenceUrl": "https://medicine.yale.edu/profile/jane-taylor/",
+        "basis": "官方Jane Rebecca Taylor、Yale精神病/心理/神经科学，R为Rebecca缩写；成瘾与行为研究匹配。",
+        "verifiedAt": "2026-10-21"
+      }
+    ],
+    "deferAutomaticMerge": [
+      {
+        "nihProfileId": "12187237",
+        "existingId": "pi-bing-yao-58730cda",
+        "name": "Bing Yao",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "12187237",
+          "16470832"
+        ]
+      },
+      {
+        "nihProfileId": "14753288",
+        "existingId": "pi-xiao-wang-067c53e1",
+        "name": "Xiao Wang",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "14753288",
+          "10188765",
+          "10240005"
+        ]
+      },
+      {
+        "nihProfileId": "14084489",
+        "existingId": "pi-rui-chang-1db0239f",
+        "name": "Rui Chang",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "14084489",
+          "10494150"
+        ]
+      },
+      {
+        "nihProfileId": "14283288",
+        "existingId": "pi-fei-wang-944a57cb",
+        "name": "Fei Wang",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "14283288",
+          "11737147"
+        ]
+      },
+      {
+        "nihProfileId": "8266789",
+        "existingId": "pi-rajesh-kumar-bb1b2d20",
+        "name": "Rajesh Kumar",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "8266789",
+          "8141018"
+        ]
+      },
+      {
+        "nihProfileId": "10729234",
+        "existingId": "pi-bo-liang-60e8f16a",
+        "name": "Bo Liang",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "16527879",
+          "10729234"
+        ]
+      },
+      {
+        "nihProfileId": "1879035",
+        "existingId": "pi-ling-li-f2ba0d57",
+        "name": "Ling Li",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "1879035",
+          "11807514"
+        ]
+      },
+      {
+        "nihProfileId": "8062113",
+        "existingId": "pi-hua-tang-cd0ce7e8",
+        "name": "Hua Tang",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "6181896",
+          "8062113"
+        ]
+      },
+      {
+        "nihProfileId": "11527700",
+        "existingId": "pi-min-xu-4970dbb6",
+        "name": "Min Xu",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "11527700",
+          "16148721",
+          "9342208"
+        ]
+      },
+      {
+        "nihProfileId": "16525238",
+        "existingId": "pi-jian-hu-aea07945",
+        "name": "Jian Hu",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "11269818",
+          "12102483",
+          "16525238"
+        ]
+      },
+      {
+        "nihProfileId": "15022392",
+        "existingId": "pi-wei-zhou-c6cbe31d",
+        "name": "Wei Zhou",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "15022392",
+          "8343656"
+        ]
+      },
+      {
+        "nihProfileId": "10581539",
+        "existingId": "pi-yong-wang-64c9b121",
+        "name": "Yong Wang",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "9649692",
+          "10581539"
+        ]
+      },
+      {
+        "nihProfileId": "77977699",
+        "existingId": "pi-hao-li-6cf239d2",
+        "name": "Hao Li",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "7726849",
+          "77977699"
+        ]
+      },
+      {
+        "nihProfileId": "8343656",
+        "existingId": "pi-wei-zhou-23222f07",
+        "name": "Wei Zhou",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "15022392",
+          "8343656"
+        ]
+      },
+      {
+        "nihProfileId": "16066208",
+        "existingId": "pi-jie-xu-902df739",
+        "name": "Jie Xu",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "8191086",
+          "16066208"
+        ]
+      },
+      {
+        "nihProfileId": "10255034",
+        "existingId": "pi-ari-rosenberg-29552acc",
+        "name": "Ari Rosenberg",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "10255034",
+          "78222222"
+        ]
+      },
+      {
+        "nihProfileId": "8195370",
+        "existingId": "pi-yue-yang-dd5c5597",
+        "name": "Yue Yang",
+        "decision": "defer_automatic_merge",
+        "reason": "NIH中有多个相同完整名个人ID；项目host并非个人任职证明。未逐人再核官网，保留候选关联直到主题/个人页/合作者足以区分。",
+        "globalSameNameIds": [
+          "12670574",
+          "8195370"
+        ]
+      }
+    ],
+    "confirmedIncorrectPairs": [],
+    "scopeNotes": [
+      "953条仅程序筛查；14条有此次人工官方资料核对。",
+      "267条标记中“短姓名”“领域不交集”是风险信号，不是判定不同人。",
+      "多个共同PI可来自其他机构；合并身份不应让NIH项目host覆盖已核个人任职。",
+      "全名匹配需保留中间名；只有本次已确认或现有别名来源允许缩写/省略。",
+      "剩余未触发风险的唯一全名+单位匹配可作为机器置信关联，但不能标为逐人官网复核。",
+      "暂缓合并不是删除记录：保留候选关系和原证据，等候后续身份复核。"
+    ]
+  },
+  "blockedCrossSourceIds": [
+    "12187237",
+    "14753288",
+    "14084489",
+    "14283288",
+    "8266789",
+    "10729234",
+    "1879035",
+    "8062113",
+    "11527700",
+    "16525238",
+    "15022392",
+    "10581539",
+    "77977699",
+    "8343656",
+    "16066208",
+    "10255034",
+    "8195370"
+  ],
+  "blockedCrossSourceReason": "暂缓自动同人合并；这些全名对应多个NIH个人ID，尚无充分个人官网鉴别。保留记录及候选关联，不表示已证实不同人。",
+  "allowedCrossSourceMatches": [
+    {
+      "nihProfileId": "1892295",
+      "existingId": "pi-wei-li-3729168b",
+      "name": "Wei Li",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://www.bcm.edu/people-search/wei-li-41326",
+      "basis": "Baylor个人页明确ligandomics、眼科/神经血管研究，与此PI项目吻合。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "10455071",
+      "existingId": "pi-zheng-sun-d59d1e92",
+      "name": "Zheng Sun",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://www.bcm.edu/departments/medicine/sections/endocrinology-diabetes-and-metabolism/research/research-faculty",
+      "basis": "Zheng Sun研究表观组、代谢与神经认知，原brain目录与代谢项目为真实交叉，不能因标签不交集判不同人。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "78468519",
+      "existingId": "pi-jian-zhou-8dc3037d",
+      "name": "Jian Zhou",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://biomed.emory.edu/PROGRAM_SITES/GMB/about-us/faculty-detail/jian-zhou-phd",
+      "basis": "Emory Jian Zhou个人研究明确TCF20/PHF14与神经发育；不是UTSW同名计算基因组学PI。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "11689925",
+      "existingId": "pi-hao-wu-dafd5c49",
+      "name": "Hao Wu",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://www.med.upenn.edu/apps/faculty/index.php/g275/p8878781",
+      "basis": "UPenn Hao Wu遗传学/表观遗传/单细胞，官方身份与本项目一致；不是其他机构同名PI。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "77928198",
+      "existingId": "pi-yu-zhang-20e2d995",
+      "name": "Yu Zhang",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://profiles.stanford.edu/176276",
+      "basis": "官方资料研究AI、转化神经科学与精神疾病治疗反应，和两NIH目标一致。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "12199336",
+      "existingId": "pi-hong-chen-844bdaa1",
+      "name": "Hong Chen",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://chenultrasoundlab.wustl.edu/people/hong-chen/",
+      "basis": "官方实验室明确超声诱导冬眠及NIH Pioneer项目，和本PI项目一致。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "9498086",
+      "existingId": "pi-jun-liu-6b87ef5d",
+      "name": "Jun Liu",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://medicine.yale.edu/profile/jliu/",
+      "basis": "Yale Jun Liu为微生物致病/冷冻电镜与细菌鞭毛研究，当前官网列幽门螺杆菌鞭毛工作，与项目一致。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "16456431",
+      "existingId": "pi-yang-liu-7e002e03",
+      "name": "Yang Liu",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://medicine.yale.edu/bbs/profile/yang-liu-yl2224/",
+      "basis": "Yale Pathology Yang Liu个人bio明确空间多组学、微生物组与心血管应用，匹配项目。只用本人bio，不用可能同名污染的自动论文列表。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "8264863",
+      "existingId": "pi-diego-pizzagalli-6bb4c578",
+      "name": "Diego A Pizzagalli",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://faculty.uci.edu/profile/?facultyId=7304",
+      "basis": "UCI完整名Diego A Pizzagalli、抑郁/快感缺失研究对应，缺中间名display是别名。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "7892660",
+      "existingId": "pi-matthew-smith-54df3d71",
+      "name": "Matthew A Smith",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://www.cmu.edu/bme/People/Faculty/profile/msmith.html",
+      "basis": "CMU官方为Matthew A Smith；Pitt原页为其adjunct关联，明确主聘CMU，允许同人合并。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "8926441",
+      "existingId": "chang",
+      "name": "Edward Chang",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://neurosurgery.ucsf.edu/news/ucsf-neurosurgeon-edward-chang-awarded-2025-gruber-neuroscience-prize-for-landmark-discoveries-in",
+      "basis": "UCSF Edward F Chang语言神经机制和神经假体与NIH项目对应；无F的NIH名为同人。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "1929315",
+      "existingId": "pi-alison-barth-f3283702",
+      "name": "Alison L Barth",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://www.cnup.pitt.edu/people/alison-l-barth-phd",
+      "basis": "官方完整名Alison L Barth、CMU教授/Pitt兼职、新皮层可塑性，与NIH项目对应。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "1876509",
+      "existingId": "pi-mark-a-kay-f3afddaf",
+      "name": "Mark A Kay",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://med.stanford.edu/profiles/mark-kay",
+      "basis": "原display含MD/PhD学位后缀，实际姓名Mark A Kay，官方人类基因治疗和小RNA研究对应。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "nihProfileId": "1867193",
+      "existingId": "pi-jane-rebecca-taylor-b04b9087",
+      "name": "Jane R Taylor",
+      "decision": "allow_identity_merge",
+      "evidenceUrl": "https://medicine.yale.edu/profile/jane-taylor/",
+      "basis": "官方Jane Rebecca Taylor、Yale精神病/心理/神经科学，R为Rebecca缩写；成瘾与行为研究匹配。",
+      "verifiedAt": "2026-10-21"
+    }
+  ],
+  "finalRegression": {
+    "reviewedAt": "2026-10-21",
+    "file": "mentor-expansion-final.json",
+    "sha256": "0cd3e6be489926cddb387f9e9c3381b3a42ece7b01745f85018cfb8b4e6c8ecb",
+    "records": 29569,
+    "reviewedProjectsRecomputed": 55,
+    "reviewedProjectsDisplayedInFinal": 47,
+    "classificationMatchesFinalFile": true,
+    "targetedAssertions": [
+      {
+        "projectId": 11302673,
+        "rule": "bipolar biological/anatomical/electrode terms are not a psychiatric diagnosis",
+        "expectedAbsent": [
+          "双相障碍"
+        ],
+        "axis": "diseases",
+        "passed": true
+      },
+      {
+        "projectId": 11302673,
+        "rule": "bipolar polysemy must not introduce psychiatric specialty",
+        "expectedAbsent": [
+          "精神医学"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11224338,
+        "rule": "bipolar biological/anatomical/electrode terms are not a psychiatric diagnosis",
+        "expectedAbsent": [
+          "双相障碍"
+        ],
+        "axis": "diseases",
+        "passed": true
+      },
+      {
+        "projectId": 11224338,
+        "rule": "bipolar polysemy must not introduce psychiatric specialty",
+        "expectedAbsent": [
+          "精神医学"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11322052,
+        "rule": "bipolar biological/anatomical/electrode terms are not a psychiatric diagnosis",
+        "expectedAbsent": [
+          "双相障碍"
+        ],
+        "axis": "diseases",
+        "passed": true
+      },
+      {
+        "projectId": 11322052,
+        "rule": "bipolar polysemy must not introduce psychiatric specialty",
+        "expectedAbsent": [
+          "精神医学"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11287881,
+        "rule": "bipolar biological/anatomical/electrode terms are not a psychiatric diagnosis",
+        "expectedAbsent": [
+          "双相障碍"
+        ],
+        "axis": "diseases",
+        "passed": true
+      },
+      {
+        "projectId": 11287881,
+        "rule": "bipolar polysemy must not introduce psychiatric specialty",
+        "expectedAbsent": [
+          "精神医学"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11252271,
+        "rule": "bipolar biological/anatomical/electrode terms are not a psychiatric diagnosis",
+        "expectedAbsent": [
+          "双相障碍"
+        ],
+        "axis": "diseases",
+        "passed": true
+      },
+      {
+        "projectId": 11252271,
+        "rule": "bipolar polysemy must not introduce psychiatric specialty",
+        "expectedAbsent": [
+          "精神医学"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11381071,
+        "rule": "bipolar biological/anatomical/electrode terms are not a psychiatric diagnosis",
+        "expectedAbsent": [
+          "双相障碍"
+        ],
+        "axis": "diseases",
+        "passed": true
+      },
+      {
+        "projectId": 11381071,
+        "rule": "bipolar polysemy must not introduce psychiatric specialty",
+        "expectedAbsent": [
+          "精神医学"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11482310,
+        "rule": "bipolar biological/anatomical/electrode terms are not a psychiatric diagnosis",
+        "expectedAbsent": [
+          "双相障碍"
+        ],
+        "axis": "diseases",
+        "passed": true
+      },
+      {
+        "projectId": 11482310,
+        "rule": "bipolar polysemy must not introduce psychiatric specialty",
+        "expectedAbsent": [
+          "精神医学"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 10359882,
+        "rule": "collaborator prior mouse work is not this project design",
+        "expectedAbsent": [
+          "动物实验"
+        ],
+        "axis": "studyDesigns",
+        "passed": true
+      },
+      {
+        "projectId": 11438733,
+        "rule": "bacterial-derived reagent and engineered model cells do not establish these specialties",
+        "expectedAbsent": [
+          "微生物学",
+          "合成生物学"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11329480,
+        "rule": "background viral infections do not establish microbiology specialty",
+        "expectedAbsent": [
+          "微生物学"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11342891,
+        "rule": "protein engineering background applications do not establish clinical AI or aging focus",
+        "expectedAbsent": [
+          "医学人工智能",
+          "衰老与疾病机制"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11330591,
+        "rule": "molecular neural-network models do not establish clinical AI",
+        "expectedAbsent": [
+          "医学人工智能"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 10986993,
+        "rule": "cardiac electrophysiology is not neural electrophysiology",
+        "expectedAbsent": [
+          "神经电生理"
+        ],
+        "axis": "methods",
+        "passed": true
+      },
+      {
+        "projectId": 11221707,
+        "rule": "qualitative research in trial setting is not itself a clinical trial",
+        "expectedAbsent": [
+          "临床试验"
+        ],
+        "axis": "studyDesigns",
+        "passed": true
+      },
+      {
+        "projectId": 11258269,
+        "rule": "single-cell embedding and analysis projects are distinguished from explicit virtual-cell simulations",
+        "expectedAbsent": [
+          "AI虚拟细胞（AIVC）"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11439112,
+        "rule": "single-cell embedding and analysis projects are distinguished from explicit virtual-cell simulations",
+        "expectedAbsent": [
+          "AI虚拟细胞（AIVC）"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11267279,
+        "rule": "single-cell embedding and analysis projects are distinguished from explicit virtual-cell simulations",
+        "expectedAbsent": [
+          "AI虚拟细胞（AIVC）"
+        ],
+        "axis": "domains",
+        "passed": true
+      },
+      {
+        "projectId": 11372156,
+        "rule": "gut-microbiota-brain spelling is recognized",
+        "expectedPresent": [
+          "肠脑轴"
+        ],
+        "axis": "domains",
+        "passed": true
+      }
+    ],
+    "allTargetedFalsePositiveRegressionsPass": true,
+    "identityMergeChecks": [
+      {
+        "name": "Kiran Bhaskar",
+        "nihProfileIds": [
+          "10063277",
+          "16208050"
+        ],
+        "passed": true
+      },
+      {
+        "name": "Nicole Baumgarth",
+        "nihProfileIds": [
+          "6867934",
+          "78801320"
+        ],
+        "passed": true
+      },
+      {
+        "name": "Tobias Volker Lanz",
+        "nihProfileIds": [
+          "14610263",
+          "78539683"
+        ],
+        "passed": true
+      },
+      {
+        "name": "Wenzhuo Wu",
+        "nihProfileIds": [
+          "79683563",
+          "79122051"
+        ],
+        "passed": true
+      },
+      {
+        "name": "Jamil R Azzi",
+        "nihProfileIds": [
+          "10533030",
+          "10953634"
+        ],
+        "passed": true
+      },
+      {
+        "name": "Lance R. Thurlow",
+        "nihProfileIds": [
+          "10590765",
+          "78779475"
+        ],
+        "passed": true
+      },
+      {
+        "name": "Sean Adam Wasserman",
+        "nihProfileIds": [
+          "15185839",
+          "80311364"
+        ],
+        "passed": true
+      },
+      {
+        "name": "Steven C. Schachter",
+        "nihProfileIds": [
+          "8659693",
+          "10286550"
+        ],
+        "passed": true
+      }
+    ],
+    "allIdentityMergeChecksPass": true,
+    "roleRuleChecks": [
+      {
+        "projectId": 11173850,
+        "nihProfileId": "10213001",
+        "reportedRole": "PROFESSOR & BAUERLE CENTENNIAL FELLOW",
+        "excludedByFinalRoleRule": false,
+        "candidatePresentInFinal": true
+      },
+      {
+        "projectId": 11392206,
+        "nihProfileId": "6437566",
+        "reportedRole": "PROFESSOR, DIR OF POST-DOCTORAL PROGRAM",
+        "excludedByFinalRoleRule": false,
+        "candidatePresentInFinal": false
+      },
+      {
+        "projectId": 11319601,
+        "nihProfileId": "2089073",
+        "reportedRole": "COULTER R. SUBLETT FELLOW",
+        "excludedByFinalRoleRule": false,
+        "candidatePresentInFinal": true
+      },
+      {
+        "projectId": 10910639,
+        "nihProfileId": "14962622",
+        "reportedRole": "SCRIPPS FELLOW",
+        "excludedByFinalRoleRule": false,
+        "candidatePresentInFinal": true
+      }
+    ],
+    "officialRolePatchCoverage": [
+      {
+        "nihProfileId": "10723012",
+        "name": "Mariko L. Bennett",
+        "includedInFinalCandidateInput": true
+      },
+      {
+        "nihProfileId": "14414410",
+        "name": "Sheila Shanmugan",
+        "includedInFinalCandidateInput": false
+      },
+      {
+        "nihProfileId": "8828049",
+        "name": "Arun P. Wiita",
+        "includedInFinalCandidateInput": true
+      },
+      {
+        "nihProfileId": "15011165",
+        "name": "Eric David Sun",
+        "includedInFinalCandidateInput": true
+      },
+      {
+        "nihProfileId": "14866500",
+        "name": "Kara Ann Johnson",
+        "includedInFinalCandidateInput": true
+      },
+      {
+        "nihProfileId": "10213001",
+        "name": "Somshuvra Mukhopadhyay",
+        "includedInFinalCandidateInput": true
+      },
+      {
+        "nihProfileId": "6437566",
+        "name": "Rita A Jablonski",
+        "includedInFinalCandidateInput": false
+      },
+      {
+        "nihProfileId": "2089073",
+        "name": "Karen M Vasquez",
+        "includedInFinalCandidateInput": true
+      },
+      {
+        "nihProfileId": "14962622",
+        "name": "Shannon Marie Miller",
+        "includedInFinalCandidateInput": true
+      }
+    ],
+    "structuralChecks": {
+      "displayedPersonProjectPairs": 38720,
+      "uniqueDisplayedProjectIds": 29587,
+      "errors": [],
+      "scope": "原始NIH缓存核对项目存在性、PI成员关系（含已核实多ID）、活跃/截止日期、依托单位；不核实个人当前任职或招生。"
+    },
+    "projectResultsFile": "mentor-final-regression-projects.json",
+    "remainingLimitations": [
+      {
+        "type": "automatic_tag_recall",
+        "projectIds": [
+          11342891,
+          11330591
+        ],
+        "note": "严格目标句提取已消除错误医学AI，但漏了官摘要中真实的AI for Biology；已通知数据负责人采用限定人工覆盖，未继续放宽全局规则。",
+        "resolution": "两项有限人工方向覆盖已写入顶层projectTagOverrides供integration应用；自动提取原始快照保持原貌。"
+      },
+      {
+        "type": "method_recall",
+        "projectIds": [
+          11288358
+        ],
+        "note": "项目实质为计算精神病学且包含RNN方法，自动法只留精神医学；完整项目标题/链接仍供查看，不宣称自动标签齐全。"
+      },
+      {
+        "type": "broad_label",
+        "projectIds": [
+          11221535,
+          11331168,
+          11328787
+        ],
+        "note": "代谢与营养标签包含微生物次生代谢、RNA代谢或代谢物机制，不能单凭该标签推断临床营养研究。"
+      },
+      {
+        "type": "study_design_uncertain",
+        "projectIds": [
+          11313243
+        ],
+        "note": "人源乳腺导管类器官项目仅以既有小鼠模型为比较基准，新动物实验并不明确；严格领域过滤使该项目不出现在最终展示项目。"
+      },
+      {
+        "type": "candidate_vs_faculty",
+        "note": "NIH项目负责人是扩展研究线索，不等于博士导师、现任教授、当前有招生或能提供新生资助；来源层级必须持续显式显示。"
+      }
+    ]
+  },
+  "projectTagOverrides": [
+    {
+      "projectId": 11342891,
+      "domains": [
+        "AI for Biology"
+      ],
+      "url": "https://reporter.nih.gov/project-details/11342891",
+      "basis": "官摘要第3项具体任务用TurboPRANCE生成结合特异性和交叉反应数据，以支持机器学习驱动的蛋白设计；属于AI生物研究的数据基础，仅补方向，不声称本人已训练模型。",
+      "verifiedAt": "2026-10-21"
+    },
+    {
+      "projectId": 11330591,
+      "domains": [
+        "AI for Biology"
+      ],
+      "methods": [
+        "机器学习",
+        "深度学习"
+      ],
+      "url": "https://reporter.nih.gov/project-details/11330591",
+      "basis": "官摘要Modeling任务明确开发多输入、核苷酸分辨率神经网络，利用单细胞多组学和扰动数据学习动态基因调控网络，并预测遗传扰动对染色质和表达的影响；团队方法说明明确deep learning for genomic data sets。",
+      "verifiedAt": "2026-10-21"
+    }
+  ],
+  "auditStatus": "frozen_for_final_integration",
+  "auditFrozenAt": "2026-10-21T10:08:54.009419+00:00"
+}

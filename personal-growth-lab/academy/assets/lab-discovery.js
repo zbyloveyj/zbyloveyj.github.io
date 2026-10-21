@@ -90,7 +90,7 @@
   }
   function coverage(labs) {
     const rows=Array.isArray(labs) ? labs.filter(l=>l && typeof l==='object') : [];
-    const summary={total:rows.length,researchProfiles:0,reviewed:0,directories:0,unknownEvidence:0,documentedProfiles:0,withMethods:0,withDiseases:0,withModalities:0,unknownRoles:0,withResearchEvidence:0,withRepresentativePapers:0,countryCount:0,institutionCount:0,dimensions:Object.fromEntries(dimensions.map(d=>[d,0]))};
+    const summary={total:rows.length,researchProfiles:0,reviewed:0,projects:0,directories:0,unknownEvidence:0,documentedProfiles:0,withMethods:0,withDiseases:0,withModalities:0,unknownRoles:0,withResearchEvidence:0,withRepresentativePapers:0,countryCount:0,institutionCount:0,dimensions:Object.fromEntries(dimensions.map(d=>[d,0]))};
     const countries=new Set(),institutions=new Set();
     for (const lab of rows) {
       // Older detailed cards use the original reviewed schema without a level.
@@ -98,6 +98,7 @@
       if (level==='reviewed') summary.reviewed++;
       else if (level==='research_profile') summary.researchProfiles++;
       else if (level==='official_directory') summary.directories++;
+      else if (level==='project_record') summary.projects++;
       else summary.unknownEvidence++;
       if (values(lab,'methods').length) summary.withMethods++;
       if (values(lab,'diseases').length) summary.withDiseases++;

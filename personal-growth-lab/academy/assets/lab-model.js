@@ -46,7 +46,7 @@
   const notebookType = 'growthlab-research-notebook';
   const storageKey = 'growthlab.research-directory.notebook.v1';
   const viewsStorageKey = 'growthlab.research-directory.views.v1';
-  const viewKeys = new Set(['query','country','institution','direction','evidence','update-filter','collection','sort','page-size','method-filter','disease-filter','modality-filter','scale-filter','design-filter','role-filter','dimension-filter','min-evidence','stage-filter','review-filter','tier','status',...['domains','methods','diseases','modalities'].flatMap(a=>['pref-'+a,'weight-'+a])]);
+  const viewKeys = new Set(['query','country','institution','field','direction','research-info','evidence','update-filter','collection','sort','page-size','method-filter','disease-filter','modality-filter','scale-filter','design-filter','role-filter','dimension-filter','min-evidence','stage-filter','review-filter','tier','status',...['domains','methods','diseases','modalities'].flatMap(a=>['pref-'+a,'weight-'+a])]);
   const validId = id => typeof id === 'string' && /^[a-zA-Z0-9_-]{1,160}$/.test(id) && !['__proto__','prototype','constructor'].includes(id);
   const validReviewDate = value => value === '' || typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value+'T00:00:00Z').toISOString().slice(0,10) === value;
   function validateViews(raw) {
@@ -65,7 +65,7 @@
     return validateViews([...out.values()]);
   }
   function validateNotebook(raw) {
-    if(!raw || raw.type !== notebookType || raw.schemaVersion !== 1 || !Array.isArray(raw.entries) || raw.entries.length > 20000) throw Error('这不是可识别的研究名单备份（版本1，最多20000条）。');
+    if(!raw || raw.type !== notebookType || raw.schemaVersion !== 1 || !Array.isArray(raw.entries) || raw.entries.length > 100000) throw Error('这不是可识别的研究名单备份（版本1，最多100000条）。');
     const seen = new Set();
     const entries = raw.entries.map(e => {
       if(!e || !validId(e.id) || seen.has(e.id)) throw Error('备份含无效或重复的记录标识。');
@@ -80,7 +80,7 @@
   function mergeNotebooks(current, incoming) {
     const out = new Map(validateNotebook(current).entries.map(e=>[e.id,e]));
     for(const e of validateNotebook(incoming).entries){const previous=out.get(e.id);out.set(e.id,!previous||Date.parse(e.updatedAt)>=Date.parse(previous.updatedAt)?{...previous,...e}:{...e,...previous});}
-    if(out.size>20000)throw Error('合并后超过20000条，请先精简备份。');
+    if(out.size>100000)throw Error('合并后超过100000条，请先精简备份。');
     return {type:notebookType,schemaVersion:1,entries:[...out.values()],...((current.savedViews!==undefined||incoming.savedViews!==undefined)?{savedViews:mergeViews(current.savedViews||[],incoming.savedViews||[])}:{})};
   }
   return {axes,dimensions,roles,stages,norm,values,evidence,evidenceCount,matchesFacets,match,searchText,storageKey,notebookType,validateNotebook,mergeNotebooks,viewsStorageKey,validateViews,mergeViews,validReviewDate};

@@ -1,7 +1,8 @@
 'use strict';
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
-const root=path.resolve(__dirname,'..'),data=JSON.parse(fs.readFileSync(path.join(root,'data/labs.json')));
-const M=require('../assets/lab-model.js');
+const root=path.resolve(__dirname,'..'),data=require('./load_lab_data.cjs')();
+const M=require('../assets/lab-model.js'),T=require('../assets/lab-taxonomy.js');
+const csvRowCount=text=>{const value=text.trimEnd();let rows=1,quoted=false;for(let i=0;i<value.length;i++){if(value[i]==='"'){if(quoted&&value[i+1]==='"')i++;else quoted=!quoted;}else if(value[i]==='\n'&&!quoted)rows++;}return rows;};
 (async()=>{
  const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(!file.startsWith(root+path.sep)){res.writeHead(403);return res.end();}try{const type={'.js':'text/javascript','.css':'text/css','.json':'application/json','.html':'text/html'}[path.extname(file)]||'text/plain';res.setHeader('Content-Type',type);res.end(fs.readFileSync(file));}catch{res.writeHead(404);res.end();}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=`http://127.0.0.1:${server.address().port}`;
@@ -10,12 +11,16 @@ const M=require('../assets/lab-model.js');
   const context=await browser.newContext({viewport:{width:1440,height:1000}}),page=await context.newPage();const errors=[],requests=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push(r.url()));
   await page.route('https://raw.githubusercontent.com/**',r=>r.abort());
   const ready=async()=>{await page.waitForSelector('.lab-card');await page.waitForFunction(()=>!document.querySelector('#refresh').disabled);};
+  // Search renders after a short debounce; URL state is written after the cards.
+  const search=async value=>{await page.locator('#query').fill(value);await page.waitForFunction(v=>new URL(location.href).searchParams.get('query')===v,value);};
   await page.goto(base+'/labs.html');await ready();
   assert(requests.some(u=>u.endsWith('/data/labs.json.gz')),'Use the compressed directory');
   assert(!requests.some(u=>u.endsWith('/data/labs.json')),'Do not download the larger fallback after successful decompression');
   assert.equal(await page.locator('.lab-card').count(),24);
   assert.match(await page.locator('#stats').innerText(),new RegExp(data.labs.length.toLocaleString('zh-CN')));
   assert.equal(await page.locator('#status').inputValue(),'');
+  assert.equal(await page.locator('#field-navigation [data-field]').count(),T.fields.length);
+  assert((await page.locator('#direction option').count())<=T.topics.length+1,'The main direction filter exposes merged groups.');
   // Source browsing stays bounded with a large directory, and search is exhaustive.
   await page.locator('.source-directory').evaluate(el=>el.open=true);
   assert.equal(await page.locator('#source-list article').count(),32);
@@ -33,9 +38,11 @@ const M=require('../assets/lab-model.js');
   await page.locator('[data-compare="bassett"]').click();assert.equal(await page.locator('[data-compare="bassett"]').isChecked(),false);
   await page.locator('#compare-open').click();assert.equal(await page.locator('#comparison').isVisible(),true);assert.equal(await page.locator('#comparison thead th').count(),5);
   await page.locator('#compare-clear').click();
-  await page.getByRole('button',{name:'查看计算生物学 ↗'}).click();
-  const compbio=data.labs.filter(l=>l.directions.includes('计算生物学')).length;
+  const compbioDirection='生物信息与计算生物学';
+  await page.locator('#quick-filters [data-direction="'+compbioDirection+'"]').click();
+  const compbio=data.labs.filter(l=>T.matchesDirection(l,compbioDirection)).length;
   assert.equal(await page.locator('.lab-card').count(),Math.min(24,compbio));
+  assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+compbio.toLocaleString('zh-CN')+' 个'));
   await page.getByRole('button',{name:'重置筛选',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('.lab-card').length===24);
   // Expansion counts must refer to unique records, with shareable filters.
   if(data.latestExpansion){
@@ -52,18 +59,19 @@ const M=require('../assets/lab-model.js');
     await page.getByRole('button',{name:'重置筛选',exact:true}).click();
   }
   await page.locator('#coverage-panel').evaluate(el=>el.open=true);
-  const microbiomeRow=page.locator('#topic-coverage tr').filter({has:page.getByRole('button',{name:'微生物组 ↗',exact:true})});
-  assert.equal(Number(await microbiomeRow.locator('td').first().innerText()),data.labs.filter(l=>l.directions.includes('微生物组')).length);
-  await page.getByRole('button',{name:'微生物组 ↗',exact:true}).click();assert.equal(await page.locator('#direction').inputValue(),'微生物组');
+  const microbiomeRow=page.locator('#topic-coverage tr').filter({has:page.locator('[data-direction="微生物组"]')});
+  assert.equal(Number(await microbiomeRow.locator('td').first().innerText()),data.labs.filter(l=>T.matchesDirection(l,'微生物组')).length);
+  await microbiomeRow.locator('[data-direction="微生物组"]').click();assert.equal(await page.locator('#direction').inputValue(),'微生物组');
   await page.getByRole('button',{name:'重置筛选',exact:true}).click();
   await page.locator('#country').selectOption('日本');
   const jp=data.labs.filter(l=>l.country==='日本'||(l.affiliations||[]).some(a=>a.country==='日本')).length;
   assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+jp.toLocaleString('zh-CN')+' 个'));
-  const downloadPromise=page.waitForEvent('download');await page.locator('#export-results').click();const download=await downloadPromise;const out=await download.path();const csv=fs.readFileSync(out,'utf8');assert.equal(csv.trim().split('\r\n').length,jp+1);assert.match(csv,/长期候选/);
+  const downloadPromise=page.waitForEvent('download');await page.locator('#export-results').click();const download=await downloadPromise;const out=await download.path();const csv=fs.readFileSync(out,'utf8');assert.equal(csvRowCount(csv),jp+1);assert.match(csv,/长期候选/);
+  const csvHeader=csv.split('\r\n')[0];for(const title of ['稳定记录ID','主领域','合并研究方向','证据类型代码','研究摘要 / 题目','NIH Profile ID','代表项目题目','代表项目年份','代表项目URL'])assert(csvHeader.includes('"'+title+'"'),'Public CSV includes '+title);
   await page.reload();await ready();assert.equal(await page.locator('#country').inputValue(),'日本');
   await page.getByRole('button',{name:'重置筛选',exact:true}).click();
-  await page.locator('#query').fill('no-match-zzzz');assert.equal(await page.locator('.lab-card').count(),0);
-  await page.locator('#query').fill('Edward F. Chang');assert.equal(await page.locator('.lab-card').count(),1);
+  await search('no-match-zzzz');assert.equal(await page.locator('.lab-card').count(),0);
+  await search('Edward F. Chang');assert.equal(await page.locator('.lab-card').count(),1);
   await page.locator('#lab-chang summary').click();assert.equal(await page.locator('#lab-chang details').getAttribute('open'),'');
   // A deep link to a record outside the first page must restore the correct page.
   await page.goto(base+'/labs.html#'+lastId);await ready();assert.equal(await page.locator('#'+lastId+' details').getAttribute('open'),'');
@@ -79,22 +87,23 @@ const M=require('../assets/lab-model.js');
   // Cross-field filtering uses AND across axes, with persistent URL state.
   const cross=data.labs.find(l=>l.evidenceLevel==='research_profile'&&l.facets.methods.length&&l.facets.diseases.length&&l.facets.modalities.length);
   assert(cross,'Need one fully sourced cross-field profile for integration QA.');
+  const crossDirection=T.classify(cross).topics[0];
   await page.locator('#advanced-filters summary').click();
-  await page.locator('#direction').selectOption(cross.directions[0]);
+  await page.locator('#direction').selectOption(crossDirection);
   await page.locator('#method-filter').selectOption(cross.facets.methods[0]);
   await page.locator('#disease-filter').selectOption(cross.facets.diseases[0]);
   await page.locator('#modality-filter').selectOption(cross.facets.modalities[0]);
-  const crossCount=data.labs.filter(l=>l.directions.includes(cross.directions[0])&&M.matchesFacets(l,{methods:cross.facets.methods[0],diseases:cross.facets.diseases[0],modalities:cross.facets.modalities[0]})).length;
+  const crossCount=data.labs.filter(l=>T.matchesDirection(l,crossDirection)&&M.matchesFacets(l,{methods:cross.facets.methods[0],diseases:cross.facets.diseases[0],modalities:cross.facets.modalities[0]})).length;
   assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+crossCount.toLocaleString('zh-CN')+' 个'));
   await page.reload();await ready();assert.equal(await page.locator('#method-filter').inputValue(),cross.facets.methods[0]);
   await page.getByRole('button',{name:'重置筛选',exact:true}).click();
-  await page.locator('#query').fill(cross.name);assert(await page.locator('#lab-'+cross.id).count());
+  await search(cross.name);assert(await page.locator('#lab-'+cross.id).count());
   await page.locator('#lab-'+cross.id+' summary').click();
   assert.equal(await page.locator('#lab-'+cross.id+' .assessment-item').count(),7);
   assert(await page.locator('#lab-'+cross.id+' .assessment-item a').count()>0);
   // Explicit weights rank recorded tag coverage, with absent tags shown separately.
   await page.locator('#match-panel summary').click();
-  await page.locator('#pref-domains').selectOption(cross.directions[0]);await page.locator('#weight-domains').selectOption('3');
+  await page.locator('#pref-domains').selectOption(crossDirection);await page.locator('#weight-domains').selectOption('3');
   await page.locator('#pref-methods').selectOption(cross.facets.methods[0]);await page.locator('#weight-methods').selectOption('1');
   await page.locator('#apply-match').click();
   assert.match(await page.locator('#lab-'+cross.id+' .card-top .match-result').innerText(),/100%/);
@@ -109,10 +118,22 @@ const M=require('../assets/lab-model.js');
   await page.locator('#evidence').selectOption('research_profile');
   const researchCount=data.labs.filter(l=>l.evidenceLevel==='research_profile').length;
   assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+researchCount.toLocaleString('zh-CN')+' 个'));
+  const projectCount=data.labs.filter(l=>l.evidenceLevel==='project_record').length;
+  if(projectCount){
+    await page.locator('#evidence').selectOption('project_record');
+    assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+projectCount.toLocaleString('zh-CN')+' 个'));
+    assert.equal(await page.locator('.lab-card .evidence-badge').first().innerText(),'科研项目证据');
+    assert.match(await page.locator('.lab-card .institution').first().innerText(),/^项目依托单位：/);
+  }
   await page.getByRole('button',{name:'重置筛选',exact:true}).click();
   await page.locator('#direction').selectOption('医学人工智能');
-  const medicalCount=data.labs.filter(l=>l.directions.includes('医学人工智能')).length;
+  const medicalCount=data.labs.filter(l=>T.matchesDirection(l,'医学人工智能')).length;
   assert(medicalCount>=60);assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+medicalCount.toLocaleString('zh-CN')+' 个'));
+  // Previously shared raw-label URLs remain valid even when that label was merged.
+  const legacyDirection='计算生物学',legacyCount=data.labs.filter(l=>T.matchesDirection(l,legacyDirection)).length;
+  await page.goto(base+'/labs.html?direction='+encodeURIComponent(legacyDirection));await ready();
+  assert.equal(await page.locator('#direction').inputValue(),legacyDirection);
+  assert.match(await page.locator('#result-count').innerText(),new RegExp('筛选 '+legacyCount.toLocaleString('zh-CN')+' 个'));
   await page.getByRole('button',{name:'重置筛选',exact:true}).click();
   await page.locator('#advanced-filters').evaluate(el=>el.open=true);await page.locator('#match-panel').evaluate(el=>el.open=true);
   await page.locator('#coverage-panel').evaluate(el=>el.open=true);
@@ -131,7 +152,7 @@ const M=require('../assets/lab-model.js');
   await page.unroute('**/data/lab-monitor.json');await page.unroute('**/data/labs.json');await page.unroute('**/data/labs.json.gz');await page.goto(base+'/labs.html');await ready();
   // Private long-term notes use their own storage key and never enter public exports.
   await page.evaluate(()=>localStorage.setItem('academy.compatibility.fixture','keep-this-course-state'));
-  await page.locator('#query').fill('Edward F. Chang');
+  await search('Edward F. Chang');
   await page.locator('[data-save="chang"]').click();assert.equal(await page.locator('[data-save="chang"]').getAttribute('aria-pressed'),'true');
   await page.locator('#lab-chang summary').click();
   await page.locator('[data-stage="chang"]').selectOption('reading');
@@ -215,11 +236,11 @@ const M=require('../assets/lab-model.js');
   await page.locator('#collection').selectOption('saved');
   await page.locator('#stage-filter').selectOption('preparing');
   await page.locator('#match-panel').evaluate(el=>el.open=true);
-  await page.locator('#pref-domains').selectOption(cross.directions[0]);await page.locator('#weight-domains').selectOption('3');
+  await page.locator('#pref-domains').selectOption(crossDirection);await page.locator('#weight-domains').selectOption('3');
   await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async value=>{window.sharedNotebookView=value;}}}));
   await page.locator('#share-view').click();
   const shared=new URL(await page.evaluate(()=>window.sharedNotebookView));
-  assert.equal(shared.searchParams.get('query'),'Edward F. Chang');assert.equal(shared.searchParams.get('pref-domains'),cross.directions[0]);assert.equal(shared.searchParams.get('weight-domains'),'3');
+  assert.equal(shared.searchParams.get('query'),'Edward F. Chang');assert.equal(shared.searchParams.get('pref-domains'),crossDirection);assert.equal(shared.searchParams.get('weight-domains'),'3');
   assert.equal(shared.searchParams.has('collection'),false);assert.equal(shared.searchParams.has('stage-filter'),false);assert(!shared.href.includes('PRIVATE-NOTE-QA'));
   await page.locator('#clear-match').click();
   await page.locator('#show-saved').click();assert.equal(await page.locator('.lab-card').count(),1);
