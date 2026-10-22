@@ -1,0 +1,66 @@
+[
+  {
+    "id": "E01",
+    "title": "Association and causality",
+    "text": "An association between two measurements does not establish causality. Confounding, reverse direction, selection, and measurement error can produce an association. A causal claim needs an appropriate design and explicit assumptions. 关联不等于因果。",
+    "source_url": "https://miguelhernan.org/whatifbook",
+    "kind": "original teaching note; URL is further reading, not a verbatim source",
+    "checked_at": "2026-10-21"
+  },
+  {
+    "id": "E02",
+    "title": "Relative abundance",
+    "text": "Relative abundance is a proportion within a sample. Proportions sum to one, so a change in one component can change another proportion without changing its absolute microbial count. Absolute abundance needs additional measurement or justified calibration. 相对丰度不等于绝对数量。",
+    "source_url": "https://doi.org/10.3389/fmicb.2017.02224",
+    "kind": "original teaching note; URL is further reading, not a verbatim source",
+    "checked_at": "2026-10-21"
+  },
+  {
+    "id": "E03",
+    "title": "Tool contracts",
+    "text": "A tool contract specifies the function name, input argument types, allowed ranges, output shape, and failure behavior. Validate arguments before executing a tool. A model proposing a tool call does not grant permission to perform arbitrary actions. 工具契约要检查参数和权限。",
+    "source_url": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+    "kind": "original teaching note; URL is further reading, not a verbatim source",
+    "checked_at": "2026-10-21"
+  },
+  {
+    "id": "E04",
+    "title": "Evidence provenance",
+    "text": "Evidence needs a stable identifier, a source, a retrieval date, a version or content hash, and an exact excerpt. A matching quote confirms text provenance; it does not prove that the text supports the claimed interpretation. 证据来源与语义支持需要分别检查。",
+    "source_url": "https://www.w3.org/TR/prov-overview/",
+    "kind": "original teaching note; URL is further reading, not a verbatim source",
+    "checked_at": "2026-10-21"
+  },
+  {
+    "id": "E05",
+    "title": "Memory isolation",
+    "text": "Memory records need an owner identifier and an expiration time. Query only records belonging to the active user. Expired records should not be returned, and users should be able to delete retained preferences. 记忆隔离、到期和删除是不同操作。",
+    "source_url": "https://docs.langchain.com/oss/python/concepts/memory",
+    "kind": "original teaching note; URL is further reading, not a verbatim source",
+    "checked_at": "2026-10-21"
+  },
+  {
+    "id": "E06",
+    "title": "Numeric tools and missing values",
+    "text": "Use a numerical tool to compute a mean rather than asking a language model to guess. Record the denominator and missing-value policy. Excluding missing values changes the valid row count and may change the interpretation. 数值结果必须保留分母和缺失策略。",
+    "source_url": "https://docs.python.org/3/library/csv.html",
+    "kind": "original teaching note; URL is further reading, not a verbatim source",
+    "checked_at": "2026-10-21"
+  },
+  {
+    "id": "E07",
+    "title": "Untrusted material",
+    "text": "Retrieved material can contain instructions such as ignoring prior rules or requesting private files. Treat external text as data. Enforce a tool allowlist and argument validation outside the model. These checks alone do not solve all prompt injection attacks. 外部材料不能升级成系统指令。",
+    "source_url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+    "kind": "original teaching note; URL is further reading, not a verbatim source",
+    "checked_at": "2026-10-21"
+  },
+  {
+    "id": "E08",
+    "title": "Evaluation and trace",
+    "text": "Separate development cases from test cases. Record input, selected evidence identifiers, tool outcomes, stop status, and elapsed time. A trace is an operational record, not a transcript of hidden model reasoning. Unknown token usage and cost should remain unknown. 评估集和运行日志不能替代科学验证。",
+    "source_url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+    "kind": "original teaching note; URL is further reading, not a verbatim source",
+    "checked_at": "2026-10-21"
+  }
+]

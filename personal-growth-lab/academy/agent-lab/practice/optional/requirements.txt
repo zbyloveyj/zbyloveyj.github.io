@@ -1,0 +1,4 @@
+# Versioned teaching examples. MCP v2 has a different public API.
+# These pins reproduce the v1 FastMCP/ClientSession and LangGraph examples.
+mcp==1.30.0
+langgraph==1.2.16

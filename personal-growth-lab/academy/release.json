@@ -1,21 +1,21 @@
 {
-  "version": "2026.10.21.2",
+  "version": "2026.10.22.1",
   "site": "https://zbyloveyj.github.io/personal-growth-lab/academy/",
-  "projects": 11,
-  "units": 869,
+  "projects": 12,
+  "units": 908,
   "priority": [
     "english",
     "coding",
     "writing"
   ],
   "bibliography_items": 100,
-  "quality_status": "see llm-lab/validation.json for this release",
+  "quality_status": "Agent course: agent-lab/validation.json; prior course status retained in its own validation files",
   "storage": "browser-local; manual JSON backup; no cloud synchronization",
   "existing_plans": "preserved",
   "pdf": "full printable handbook and per-lesson browser print-to-PDF; downloadable Markdown provided",
   "llm_project": {
     "name": "CurateMicrobiota",
-    "lessons": 30,
+    "lessons": 39,
     "path": "llm-lab/",
     "data_source": "curatedMetagenomicData adapter; synthetic offline default",
     "status": "expanded 30-unit course with executed CPU mechanisms and five-arm synthetic LOSO benchmark",
@@ -23,5 +23,14 @@
     "advanced_lessons": 16,
     "coverage_topics": 43
   },
-  "legacy_quality_workflow_run": "https://github.com/zbyloveyj/zbyloveyj.github.io/actions/runs/39396920530"
+  "legacy_quality_workflow_run": "https://github.com/zbyloveyj/zbyloveyj.github.io/actions/runs/39396920530",
+  "agent_project": {
+    "name": "30天 AI Agent 实战",
+    "lessons": 30,
+    "path": "agent-lab/",
+    "daily_minutes": 60,
+    "lite_minutes": 20,
+    "materials": "daily PDF/Markdown + complete textbook + runnable Python practice",
+    "storage": "browser-local with JSON export/import"
+  }
 }

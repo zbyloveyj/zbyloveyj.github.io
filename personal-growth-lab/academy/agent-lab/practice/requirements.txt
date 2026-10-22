@@ -1,0 +1,2 @@
+# Main practice requires Python 3.10+ and only the standard library.
+# Optional framework examples have a separate optional/requirements.txt.

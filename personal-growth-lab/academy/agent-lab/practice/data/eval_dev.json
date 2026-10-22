@@ -1,0 +1,55 @@
+[
+  {
+    "id": "D1",
+    "question": "What is a tool contract?",
+    "evidence_ids": [
+      "E03"
+    ]
+  },
+  {
+    "id": "D2",
+    "question": "What does relative abundance measure?",
+    "evidence_ids": [
+      "E02"
+    ]
+  },
+  {
+    "id": "D3",
+    "question": "How should source evidence provenance be recorded?",
+    "evidence_ids": [
+      "E04"
+    ]
+  },
+  {
+    "id": "D4",
+    "question": "Does an association establish causality?",
+    "evidence_ids": [
+      "E01"
+    ]
+  },
+  {
+    "id": "D5",
+    "question": "Why record numeric missing values and the denominator?",
+    "evidence_ids": [
+      "E06"
+    ]
+  },
+  {
+    "id": "D6",
+    "question": "Why combine tool validation with untrusted material checks?",
+    "evidence_ids": [
+      "E03",
+      "E07"
+    ]
+  },
+  {
+    "id": "D7",
+    "question": "zephyrquartz gondola 92851",
+    "evidence_ids": []
+  },
+  {
+    "id": "D8",
+    "question": "unobtainium nebula 73652",
+    "evidence_ids": []
+  }
+]

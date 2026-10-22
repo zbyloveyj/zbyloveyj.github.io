@@ -1,0 +1,214 @@
+{
+  "day": 14,
+  "title": "第二周作品：一个有边界的证据问答助手",
+  "subtitle": "交付可重复的案例、引用与失败说明，检验两周学习成果。",
+  "phase": 2,
+  "minutes": 60,
+  "prerequisites": [
+    "完成第13课，或能在practice目录运行日课命令。",
+    "只使用教学材料；修改配置前保留原值，实验结束后恢复或记下修改。"
+  ],
+  "outcomes": [
+    "用统一命令运行证据问答小项目。",
+    "核对答案、引用、预算和人工复核标记。",
+    "用一个正常问题和一个失败条件验收作品。"
+  ],
+  "agenda": [
+    {
+      "label": "理解概念",
+      "minutes": 15,
+      "task": "阅读四节讲解，记下今天最关键的一个区别；外部资料按指定小节选读。"
+    },
+    {
+      "label": "操作与修改",
+      "minutes": 30,
+      "task": "先完成四步带练，再改变一个参数，保留修改前后的结果。"
+    },
+    {
+      "label": "验收与自测",
+      "minutes": 10,
+      "task": "对照三项验收，完成两道自测并阅读解析。"
+    },
+    {
+      "label": "记录与收尾",
+      "minutes": 5,
+      "task": "写下结果、未解决的问题和下次打开项目后的第一步。"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "作品围绕一个有限科研概念展开",
+      "paragraphs": [
+        "本次问题是What does relative abundance measure?，教学资料说明相对丰度是样本内的比例。你需要交付可以追溯到教学记录的解释，以及材料没有支持的部分；不需要在这一小时内训练模型或安装整套微生物分析流程。",
+        "相对比例变化不能直接当作绝对数量变化；实际研究还需要合适测量与方法前提。这与已有CLEAR-Microbiome和SCUT_Minilab_MEF资料中的方法阅读方向相关，但课程没有执行这些仓库，也不声称复现任何真实研究结果。"
+      ]
+    },
+    {
+      "title": "把已有模块连起来，再检查每个边界",
+      "paragraphs": [
+        "本课复用问题输入、检索工具、有限步骤、引用结构与答案检查。result.answer记录状态、答案、引用和轨迹；project_checks汇总结构检查、预算检查与人工复核要求。集成的意义在于让这些模块围绕同一任务合作。",
+        "project_checks.answer_contract本身是一个带valid和errors的对象，不应只检查它存在就说通过。bounded反映本实现的轨迹上限检查；human_review_required提醒继续核对材料。结构通过、执行结束和科学解释成立仍是三种不同判断。"
+      ]
+    },
+    {
+      "title": "清楚标注教学材料与外部来源",
+      "paragraphs": [
+        "offline答案由给定教学记录片段组装，citations中的quote来自这些原创教学说明。source_url提供进一步阅读的真实外部资料入口，source_kind会说明它不是外部论文逐字引文。查看链接时，应实际阅读再判断它支持哪些内容。",
+        "交付中可以写“这次运行检索到E02并引用了教学说明”；不能写“系统自动阅读全文并验证了论文”。准确说明证据来源，比包装成更强的自动化能力更有助于后续改进。"
+      ]
+    },
+    {
+      "title": "给作品设置正常路径和失败路径",
+      "paragraphs": [
+        "正常路径使用默认问题与足够预算；失败路径可以只把max_steps设为1，观察系统是否清楚说明预算耗尽。还可以在后续练习中加入没有材料支持的问题，核对拒答。",
+        "周作品完成的标志是你能解释这些结果并知道还缺什么，而不是每一次都得到一大段答案。疲惫时先完成正常案例与一项复核，把失败实验留在下一次；记录精简进度，不把未做事项勾成完成。"
+      ]
+    }
+  ],
+  "walkthrough": [
+    {
+      "title": "运行第二周项目",
+      "why": "获得集成后的完整结果。",
+      "action": "保持day14默认问题、top_k=3、max_steps=6，执行本课。",
+      "command": "python run.py day 14",
+      "expected": "得到answer与project_checks；默认教学问题返回E02相关说明。"
+    },
+    {
+      "title": "沿着引用回到材料",
+      "why": "检查来源性质与支持范围。",
+      "action": "查看citation的evidence_id、quote、source_url和source_kind，再对照data/evidence.json中E02。",
+      "command": "python -m json.tool outputs/day14.json",
+      "expected": "能解释quote来自教学记录，外部URL是进一步阅读入口。"
+    },
+    {
+      "title": "主动缩小运行预算",
+      "why": "让失败行为也成为交付的一部分。",
+      "action": "只把day14.max_steps改为1，再次运行；记录status与trace，随后恢复为6。",
+      "command": "python run.py day 14",
+      "expected": "低预算运行出现budget_exhausted等明确停止结果，不应冒充完整答案。"
+    },
+    {
+      "title": "完成一页作品说明",
+      "why": "让另一位学习者能复跑并检查。",
+      "action": "写下运行命令、材料范围、一个正确解释、一次失败条件、剩余人工复核事项；恢复默认配置后运行一次作为交付。",
+      "command": "python run.py day 14",
+      "expected": "留下正常结果和失败记录，说明没有完成真实论文分析或专业流程复现。"
+    }
+  ],
+  "experiment": {
+    "title": "固定问题，只改变最大步数",
+    "instructions": [
+      "使用相同question与top_k，以max_steps=6运行并保存状态、引用数量和轨迹。",
+      "仅将max_steps设为1重跑，比较状态与实际执行步骤。",
+      "恢复6；在作品说明写清完整运行与预算停止各自可以交付什么。"
+    ],
+    "expected": "预算足够时可以组装教学引用答案；预算过小时必须显式停止，不能把部分结果当作完成。",
+    "explanation": "集成项目不仅验收成功结果，也检验约束在整条路径中是否真实生效。"
+  },
+  "deliverable": {
+    "file": "outputs/day14.json",
+    "description": "第14课运行结果、一次参数对照，以及自己能解释的学习笔记。",
+    "checks": [
+      "能用一条命令复跑正常问题并找到E02来源记录。",
+      "逐项检查answer_contract.valid、bounded和human_review_required的含义。",
+      "交付包含正常案例、预算失败案例和明确材料范围。"
+    ]
+  },
+  "troubleshooting": [
+    {
+      "symptom": "answer_contract对象存在就判定通过",
+      "cause": "把对象存在与对象内valid=true混淆。",
+      "fix": "打开valid与errors字段逐项检查，并额外核对语义支持。"
+    },
+    {
+      "symptom": "把教学摘录当作论文逐字引用",
+      "cause": "忽略了source_kind对材料性质的说明。",
+      "fix": "将引用标为教学记录；需要引用论文时自己打开原文核对准确措辞与上下文。"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "相对丰度比例上升，能否直接断定绝对数量增加？",
+      "options": [
+        "能，比例与数量相同",
+        "不能，需要额外测量或有根据的换算",
+        "能，只要答案带引用",
+        "能，只要Agent运行成功"
+      ],
+      "answer": 1,
+      "explanation": "相对丰度由组成中的比例决定，单看比例不能直接推出绝对数量变化。"
+    },
+    {
+      "question": "本课哪种交付说明最准确？",
+      "options": [
+        "自动复现了CLEAR和MEF全部研究",
+        "已证明所有微生物学结论正确",
+        "基于给定教学材料完成有限问答，保留引用与待复核事项",
+        "无需原文复核"
+      ],
+      "answer": 2,
+      "explanation": "交付应与实际材料、程序行为和已完成验证一致。"
+    }
+  ],
+  "reflection": [
+    "哪一个看似顺畅的输出最容易让我过度相信？",
+    "如果明天把新资料加入语料，哪几项验证需要重做？"
+  ],
+  "lite": {
+    "minutes": 20,
+    "steps": [
+      "用3分钟读“作品围绕一个有限科研概念展开”，写下一个关键区别。",
+      "用12分钟运行 python run.py day 14，打开 outputs/day14.json 并核对第一项预期结果。",
+      "用5分钟完成第一道自测并写一句解释；完整参数实验和其余验收留待下次。"
+    ],
+    "done": "留下本课运行结果与一句自己的解释；精简完成单独记录，不等于完整课程已经验收。"
+  },
+  "stretch": {
+    "minutes": 20,
+    "title": "制作两分钟作品演示",
+    "steps": [
+      "第一分钟展示问题、命令与引用记录。",
+      "第二分钟展示预算失败以及为什么需要人工复核。",
+      "请一位同学指出一处说明可能被误解的地方，再修正措辞。"
+    ]
+  },
+  "references": [
+    {
+      "id": "bioagentlab",
+      "title": "BioAgentLab：Agentic RAG 与证据",
+      "url": "https://github.com/zbyloveyj/BioAgentLab/blob/main/book/zh/10_agentic_rag_and_evidence.md",
+      "scope": "关注证据台账、来源与回答之间的对应关系。"
+    },
+    {
+      "id": "bioagentlab",
+      "title": "BioAgentLab：评价与校准",
+      "url": "https://github.com/zbyloveyj/BioAgentLab/blob/main/book/zh/18_evaluation_and_calibration.md",
+      "scope": "关注评价单位、失败分类、拒答和人工复核。"
+    },
+    {
+      "id": "bioagentlab",
+      "title": "BioAgentLab：工具契约",
+      "url": "https://github.com/zbyloveyj/BioAgentLab/blob/main/book/zh/06_tool_contracts.md",
+      "scope": "对照输入、输出、失败与权限四种契约，不必通读全书。"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "集成验收",
+      "meaning": "围绕同一任务检查多个模块之间的输入、输出与边界。"
+    },
+    {
+      "term": "相对丰度",
+      "meaning": "在一个样本组成中某部分所占的比例。"
+    },
+    {
+      "term": "失败路径",
+      "meaning": "条件不足或运行出错时程序采取的明确行为。"
+    }
+  ],
+  "reviewDays": [
+    7,
+    13
+  ],
+  "next": "第三周开始处理多步骤规划、恢复和人工批准，让任务协作更可靠。"
+}

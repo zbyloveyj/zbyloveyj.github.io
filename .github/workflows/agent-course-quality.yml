@@ -1,0 +1,38 @@
+name: Validate AI Agent course
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'personal-growth-lab/academy/agent-lab/**'
+      - 'personal-growth-lab/academy/assets/agent-bridge.js'
+      - '.github/workflows/agent-course-quality.yml'
+  pull_request:
+    paths:
+      - 'personal-growth-lab/academy/agent-lab/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  course:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate lessons, downloads and progress behavior
+        run: |
+          python personal-growth-lab/academy/agent-lab/tools/validate_course.py
+          node personal-growth-lab/academy/agent-lab/tools/test_progress.cjs
+          node --check personal-growth-lab/academy/agent-lab/assets/app.js
+          node --check personal-growth-lab/academy/assets/agent-bridge.js
+          node personal-growth-lab/academy/tools/validate.js
+      - name: Execute practice behavior tests and all thirty lessons
+        working-directory: personal-growth-lab/academy/agent-lab/practice
+        run: |
+          python -m unittest discover -s tests -v
+          for day in $(seq 1 30); do python run.py day "$day" > /dev/null; done
+          python run.py evaluate --split test --top-k 3

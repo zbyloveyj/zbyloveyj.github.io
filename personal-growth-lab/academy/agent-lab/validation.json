@@ -1,0 +1,2050 @@
+{
+  "schema": "agent-course-validation-v1",
+  "started_at_utc": "2026-10-22T00:21:56.390615+00:00",
+  "completed_at_utc": "2026-10-22T00:22:04.161667+00:00",
+  "status": "technical_checks_passed_with_documented_limitations",
+  "environment": {
+    "os": "Linux",
+    "python": "3.12.14",
+    "node": "v24.19.0",
+    "scope": "Final copied academy/agent-lab directory; loopback permission enabled for HTTP and MCP SDK validation"
+  },
+  "summary": {
+    "lessons_passed": 30,
+    "lessons_total": 30,
+    "practice_tests_passed": 24,
+    "practice_tests_run": 24,
+    "course_structure_passed": true,
+    "progress_checks_passed": true,
+    "optional_examples_executed": 2,
+    "live_model_inference_executed": false
+  },
+  "course_structure": {
+    "exit_code": 0,
+    "elapsed_seconds": 0.073,
+    "stdout": "{\n  \"lessons\": 30,\n  \"minutes\": 1800,\n  \"concepts\": 120,\n  \"walkthrough_steps\": 120,\n  \"checks\": 90,\n  \"quizzes\": 60,\n  \"command_blocks\": 95,\n  \"sources\": 27,\n  \"pdfs\": 31,\n  \"status\": \"passed\"\n}\n",
+    "stderr": "",
+    "command": "python tools/validate_course.py",
+    "statistics": {
+      "lessons": 30,
+      "minutes": 1800,
+      "concepts": 120,
+      "walkthrough_steps": 120,
+      "checks": 90,
+      "quizzes": 60,
+      "command_blocks": 95,
+      "sources": 27,
+      "pdfs": 31,
+      "status": "passed"
+    }
+  },
+  "progress_tests": {
+    "exit_code": 0,
+    "elapsed_seconds": 0.059,
+    "stdout": "Progress checks passed: merge, stale imports, isolation, roundtrip, completion prerequisites, hostile data, idempotency.\n",
+    "stderr": "",
+    "command": "node tools/test_progress.cjs",
+    "scope": [
+      "merge",
+      "stale imports",
+      "record isolation",
+      "JSON roundtrip",
+      "completion prerequisites",
+      "hostile input normalization",
+      "idempotency"
+    ]
+  },
+  "practice_tests": {
+    "exit_code": 0,
+    "elapsed_seconds": 0.994,
+    "stdout": "",
+    "stderr": "test_actual_mcp_subprocess_handshake_list_and_call (test_practice.CourseTests.test_actual_mcp_subprocess_handshake_list_and_call) ... ok\ntest_all_thirty_lessons_have_distinct_dispatch_and_contract (test_practice.CourseTests.test_all_thirty_lessons_have_distinct_dispatch_and_contract) ... ok\ntest_approval_hash_prevents_stale_approval_and_repeated_write (test_practice.CourseTests.test_approval_hash_prevents_stale_approval_and_repeated_write) ... ok\ntest_cache_deduplicates_and_budget_blocks_new_work (test_practice.CourseTests.test_cache_deduplicates_and_budget_blocks_new_work) ... ok\ntest_checkpoint_reuses_only_matching_question_and_corpus (test_practice.CourseTests.test_checkpoint_reuses_only_matching_question_and_corpus) ... ok\ntest_chunk_overlap_and_bounds_are_real (test_practice.CourseTests.test_chunk_overlap_and_bounds_are_real) ... ok\ntest_csv_missing_policy_and_denominator (test_practice.CourseTests.test_csv_missing_policy_and_denominator) ... ok\ntest_dag_rejects_cycle (test_practice.CourseTests.test_dag_rejects_cycle) ... ok\ntest_evaluation_uses_same_top_k_and_separate_public_splits (test_practice.CourseTests.test_evaluation_uses_same_top_k_and_separate_public_splits) ... ok\ntest_import_hash_binds_title_and_text_without_mutating_corpus (test_practice.CourseTests.test_import_hash_binds_title_and_text_without_mutating_corpus) ... ok\ntest_manifest_excludes_generated_and_secret_files (test_practice.CourseTests.test_manifest_excludes_generated_and_secret_files) ... ok\ntest_mcp_requires_handshake_and_malformed_json_does_not_reuse_id (test_practice.CourseTests.test_mcp_requires_handshake_and_malformed_json_does_not_reuse_id) ... ok\ntest_memory_isolation_expiration_boundary_and_delete (test_practice.CourseTests.test_memory_isolation_expiration_boundary_and_delete) ... ok\ntest_quality_gate_and_allowlist_reject_unsafe_actions (test_practice.CourseTests.test_quality_gate_and_allowlist_reject_unsafe_actions) ... ok\ntest_retry_budget_and_timeout_are_effective (test_practice.CourseTests.test_retry_budget_and_timeout_are_effective) ... ok\ntest_structured_output_missing_field_and_fabricated_quote_fail (test_practice.CourseTests.test_structured_output_missing_field_and_fabricated_quote_fail) ... ok\ntest_tool_boundary_rejects_bool_string_extra_and_missing (test_practice.CourseTests.test_tool_boundary_rejects_bool_string_extra_and_missing) ... ok\ntest_unknown_question_abstains_and_step_budget_stops (test_practice.CourseTests.test_unknown_question_abstains_and_step_budget_stops) ... ok\ntest_live_access_requires_explicit_network_and_model (test_practice.ProviderProtocolTests.test_live_access_requires_explicit_network_and_model) ... ok\ntest_model_loop_budget_and_endpoint_failure_do_not_fallback (test_practice.ProviderProtocolTests.test_model_loop_budget_and_endpoint_failure_do_not_fallback) ... ok\ntest_ollama_tool_response_round_trip (test_practice.ProviderProtocolTests.test_ollama_tool_response_round_trip) ... ok\ntest_responses_preserves_reasoning_and_call_id_across_turns (test_practice.ProviderProtocolTests.test_responses_preserves_reasoning_and_call_id_across_turns) ... ok\ntest_cross_origin_bad_host_and_invalid_input_rejected (test_practice.WebIntegrationTests.test_cross_origin_bad_host_and_invalid_input_rejected) ... ok\ntest_loopback_health_and_actual_question (test_practice.WebIntegrationTests.test_loopback_health_and_actual_question) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.767s\n\nOK\n",
+    "command": "python -m unittest discover -s tests -v",
+    "working_directory": "practice",
+    "tests_run": 24,
+    "includes_actual_loopback_http": true,
+    "live_model_responses": "mocked; no live inference"
+  },
+  "daily_cli": [
+    {
+      "day": 1,
+      "command": "python run.py day 1",
+      "exit_code": 0,
+      "elapsed_seconds": 0.166,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "task_card"
+      ],
+      "output_sha256": "853faf104c0d91a3a5d3198b1cb785f10212ff196ff2b35b0f5d440a5892cc74",
+      "passed": true
+    },
+    {
+      "day": 2,
+      "command": "python run.py day 2",
+      "exit_code": 0,
+      "elapsed_seconds": 0.084,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "accepted",
+        "invalid_examples",
+        "validation"
+      ],
+      "output_sha256": "01a386520f8b72fa0a2e269c48c52f8b2b92c2ef697ccd3e9da308db4f3fc72d",
+      "passed": true
+    },
+    {
+      "day": 3,
+      "command": "python run.py day 3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.102,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "answer",
+        "provider"
+      ],
+      "output_sha256": "20cdbe385e191493de460d9bf285dd9935089f217e5b6f7c27cdb19cfd12bf51",
+      "passed": true
+    },
+    {
+      "day": 4,
+      "command": "python run.py day 4",
+      "exit_code": 0,
+      "elapsed_seconds": 0.112,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "candidate",
+        "check"
+      ],
+      "output_sha256": "0ff92fdfe8891a2f023df6f494cc8737cb457cd5956d4b0075c7121529c51ae7",
+      "passed": true
+    },
+    {
+      "day": 5,
+      "command": "python run.py day 5",
+      "exit_code": 0,
+      "elapsed_seconds": 0.092,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "invalid_call",
+        "valid_call"
+      ],
+      "output_sha256": "be33305a100ae81249c142c7cc19971027a703cb9b3219677e49d2d7ac77d003",
+      "passed": true
+    },
+    {
+      "day": 6,
+      "command": "python run.py day 6",
+      "exit_code": 0,
+      "elapsed_seconds": 0.093,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "answer"
+      ],
+      "output_sha256": "96b38918bca50b03fa5439b53563373c172a08892171d1a7c5750101bf422bc6",
+      "passed": true
+    },
+    {
+      "day": 7,
+      "command": "python run.py day 7",
+      "exit_code": 0,
+      "elapsed_seconds": 0.097,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "evidence_card"
+      ],
+      "output_sha256": "c06c34a3ad9ea03a5823c044a612a51d93b956e8d423be238daeceef420e6eb4",
+      "passed": true
+    },
+    {
+      "day": 8,
+      "command": "python run.py day 8",
+      "exit_code": 0,
+      "elapsed_seconds": 0.085,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "content_sha256",
+        "imported_record",
+        "persistence",
+        "records_after",
+        "records_before"
+      ],
+      "output_sha256": "3e9c1301faad6d082e56cb6d11b0f58964c73c9d1efc0db9cc8e3a01a27b4db4",
+      "passed": true
+    },
+    {
+      "day": 9,
+      "command": "python run.py day 9",
+      "exit_code": 0,
+      "elapsed_seconds": 0.127,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "chunks",
+        "method",
+        "retrieved"
+      ],
+      "output_sha256": "a2dbc085f54539b11b835c5402fdb98d408c686b54084804126bbeac9b8feb03",
+      "passed": true
+    },
+    {
+      "day": 10,
+      "command": "python run.py day 10",
+      "exit_code": 0,
+      "elapsed_seconds": 0.101,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "answer"
+      ],
+      "output_sha256": "174fac607d85641f23f07fc5ef4126f6d77859ffee5bdda8dbe4c056695b7408",
+      "passed": true
+    },
+    {
+      "day": 11,
+      "command": "python run.py day 11",
+      "exit_code": 0,
+      "elapsed_seconds": 0.12,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "evaluation"
+      ],
+      "output_sha256": "9d6cd36ef306117de5799cae2158db42076bee3269e40ad2262db3e2128b568b",
+      "passed": true
+    },
+    {
+      "day": 12,
+      "command": "python run.py day 12",
+      "exit_code": 0,
+      "elapsed_seconds": 0.09,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "checkpoint",
+        "loaded_existing",
+        "state"
+      ],
+      "output_sha256": "bb253d51efef0391c134bcf7852075b7b16d8fc2ae3618d4d2ea96bd091498e6",
+      "passed": true
+    },
+    {
+      "day": 13,
+      "command": "python run.py day 13",
+      "exit_code": 0,
+      "elapsed_seconds": 0.076,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "deleted",
+        "expired",
+        "logical_now",
+        "memory_path",
+        "other_user_visible",
+        "owner_visible",
+        "scope"
+      ],
+      "output_sha256": "d3087135feec4b558fd3b0130b078618899751a363ba6a4714007f965c0328e5",
+      "passed": true
+    },
+    {
+      "day": 14,
+      "command": "python run.py day 14",
+      "exit_code": 0,
+      "elapsed_seconds": 0.12,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "answer",
+        "project_checks"
+      ],
+      "output_sha256": "0a3bc81c78bd8282e4d3922d6145be305f28f9f5015c6478fdf231d80fc40bda",
+      "passed": true
+    },
+    {
+      "day": 15,
+      "command": "python run.py day 15",
+      "exit_code": 0,
+      "elapsed_seconds": 0.085,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "error",
+        "execution_order",
+        "graph",
+        "valid"
+      ],
+      "output_sha256": "df670d05e45c64925eb7513cee0ec447e1e38181b96fafe3afa7477cb32221c3",
+      "passed": true
+    },
+    {
+      "day": 16,
+      "command": "python run.py day 16",
+      "exit_code": 0,
+      "elapsed_seconds": 0.121,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "deadline",
+        "retry"
+      ],
+      "output_sha256": "4f8a8f52714f74ed9c67e43e68383f7756cd31a127f2e48dd935eae29ffc8aae",
+      "passed": true
+    },
+    {
+      "day": 17,
+      "command": "python run.py day 17",
+      "exit_code": 0,
+      "elapsed_seconds": 0.142,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "approval_scope",
+        "digest",
+        "path",
+        "preview",
+        "status"
+      ],
+      "output_sha256": "452cbcaca53f5eceb1610c04dac15747c9d5ab2d21ffe89580d5277b437b44dc",
+      "passed": true
+    },
+    {
+      "day": 18,
+      "command": "python run.py day 18",
+      "exit_code": 0,
+      "elapsed_seconds": 0.157,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "requests",
+        "responses",
+        "scope",
+        "stderr"
+      ],
+      "output_sha256": "87f7112a0f8f6aeb8fb0a90ea7f05f99c6afc297a207f3cade9841da5564ca65",
+      "passed": true
+    },
+    {
+      "day": 19,
+      "command": "python run.py day 19",
+      "exit_code": 0,
+      "elapsed_seconds": 0.114,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "engine",
+        "node_trace",
+        "state"
+      ],
+      "output_sha256": "e22999e9e485ebdaf1de2d333194667febffa07c02dd3c1d15b6a673a133383e",
+      "passed": true
+    },
+    {
+      "day": 20,
+      "command": "python run.py day 20",
+      "exit_code": 0,
+      "elapsed_seconds": 0.112,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "critic",
+        "mode",
+        "researcher",
+        "reviewer"
+      ],
+      "output_sha256": "519c108819eb3e6275316683344e674ac3de224f31a2572befe0d742de669e84",
+      "passed": true
+    },
+    {
+      "day": 21,
+      "command": "python run.py day 21",
+      "exit_code": 0,
+      "elapsed_seconds": 0.15,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "gate",
+        "report"
+      ],
+      "output_sha256": "204593037132f086a1f07a8bf3fa2e154d3d4d0625a015d67222f7fe09cb4c62",
+      "passed": true
+    },
+    {
+      "day": 22,
+      "command": "python run.py day 22",
+      "exit_code": 0,
+      "elapsed_seconds": 0.146,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "analysis",
+        "synthetic_data"
+      ],
+      "output_sha256": "9a3935d0aa672ea64d15bb0fdd61928cfc0aea3fcd59244b41f659160b02d7f3",
+      "passed": true
+    },
+    {
+      "day": 23,
+      "command": "python run.py day 23",
+      "exit_code": 0,
+      "elapsed_seconds": 0.143,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "policy",
+        "tool_result",
+        "untrusted_data"
+      ],
+      "output_sha256": "d0aac80bb074c3aea2d89f1ab0637f3f07cc1f166cfabf5b17cba842d7949327",
+      "passed": true
+    },
+    {
+      "day": 24,
+      "command": "python run.py day 24",
+      "exit_code": 0,
+      "elapsed_seconds": 0.094,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "evaluation"
+      ],
+      "output_sha256": "ac07c5c4a1edfac2bdea461e5d114290acef3c9dbb3ff22e2b507629a8b3fe2d",
+      "passed": true
+    },
+    {
+      "day": 25,
+      "command": "python run.py day 25",
+      "exit_code": 0,
+      "elapsed_seconds": 0.095,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "answer",
+        "observability"
+      ],
+      "output_sha256": "0e3a40a595ecc930b76beadb1782a51e0aa39fef772249bc81abf70f79dc3b21",
+      "passed": true
+    },
+    {
+      "day": 26,
+      "command": "python run.py day 26",
+      "exit_code": 0,
+      "elapsed_seconds": 0.11,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "local_url",
+        "next_command",
+        "request",
+        "response"
+      ],
+      "output_sha256": "e00e77d58fb5785418e7972e0f8a801c8e583bc37b3da79b00399c6f790e60cc",
+      "passed": true
+    },
+    {
+      "day": 27,
+      "command": "python run.py day 27",
+      "exit_code": 0,
+      "elapsed_seconds": 0.142,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "actual_calls",
+        "budget_exhausted",
+        "cache_hits",
+        "max_workers",
+        "results"
+      ],
+      "output_sha256": "441463e4865cc7d75a1f7a8cc25d0b880bea01111451478c117ac5783222cf19",
+      "passed": true
+    },
+    {
+      "day": 28,
+      "command": "python run.py day 28",
+      "exit_code": 0,
+      "elapsed_seconds": 0.099,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "instructions",
+        "manifest"
+      ],
+      "output_sha256": "7550ddf05c57f8343cd3905ad3d9ae2aa8b884b82ad07d43446ad3b28ac2c025",
+      "passed": true
+    },
+    {
+      "day": 29,
+      "command": "python run.py day 29",
+      "exit_code": 0,
+      "elapsed_seconds": 0.105,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "attack_check",
+        "conflict_review",
+        "unknown_answer"
+      ],
+      "output_sha256": "7b37d23bb9283e3e45b4354aa95906d6eb5ede261662c684c967264e39f5aee7",
+      "passed": true
+    },
+    {
+      "day": 30,
+      "command": "python run.py day 30",
+      "exit_code": 0,
+      "elapsed_seconds": 0.106,
+      "output_matches_stdout": true,
+      "correct_day": true,
+      "mode": "offline",
+      "result_fields": [
+        "answer",
+        "capability_card",
+        "evaluation",
+        "project_checks"
+      ],
+      "output_sha256": "b8573f63286b3a632c41cef8669585373d399a285b5c7342252392325392fb54",
+      "passed": true
+    }
+  ],
+  "additional_cli": [
+    {
+      "arguments": [
+        "ask",
+        "What is a tool contract?",
+        "--top-k",
+        "2"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.131
+    },
+    {
+      "arguments": [
+        "evaluate",
+        "--split",
+        "dev",
+        "--top-k",
+        "1"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.093,
+      "split": "dev",
+      "top_k": 1,
+      "retrieval_recall": 0.9166666666666666,
+      "answerable_accuracy": 0.8333333333333334,
+      "abstention_accuracy": 1.0,
+      "public_cases": 8
+    },
+    {
+      "arguments": [
+        "evaluate",
+        "--split",
+        "dev",
+        "--top-k",
+        "3"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.101,
+      "split": "dev",
+      "top_k": 3,
+      "retrieval_recall": 1.0,
+      "answerable_accuracy": 1.0,
+      "abstention_accuracy": 1.0,
+      "public_cases": 8
+    },
+    {
+      "arguments": [
+        "evaluate",
+        "--split",
+        "test",
+        "--top-k",
+        "1"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.101,
+      "split": "test",
+      "top_k": 1,
+      "retrieval_recall": 0.9166666666666666,
+      "answerable_accuracy": 0.8333333333333334,
+      "abstention_accuracy": 1.0,
+      "public_cases": 8
+    },
+    {
+      "arguments": [
+        "evaluate",
+        "--split",
+        "test",
+        "--top-k",
+        "3"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.133,
+      "split": "test",
+      "top_k": 3,
+      "retrieval_recall": 1.0,
+      "answerable_accuracy": 1.0,
+      "abstention_accuracy": 1.0,
+      "public_cases": 8
+    }
+  ],
+  "optional_framework_examples": [
+    {
+      "command": "python optional/mcp_sdk_demo.py",
+      "working_directory": "practice",
+      "package": "mcp",
+      "pinned_version": "1.30.0",
+      "exit_code": 0,
+      "elapsed_seconds": 2.308,
+      "actual_execution": true,
+      "external_model_calls": false,
+      "stdout": "{\n  \"sdk\": \"mcp==1.30.0\",\n  \"protocol_version\": \"2025-11-25\",\n  \"tools\": [\n    \"search_evidence\",\n    \"read_evidence\"\n  ],\n  \"response\": {\n    \"meta\": null,\n    \"content\": [\n      {\n        \"type\": \"text\",\n        \"text\": \"{\\n  \\\"id\\\": \\\"E03\\\",\\n  \\\"title\\\": \\\"Tool contracts\\\",\\n  \\\"text\\\": \\\"A tool contract specifies the function name, input argument types, allowed ranges, output shape, and failure behavior. Validate arguments before executing a tool. A model proposing a tool call does not grant permission to perform arbitrary actions. 工具契约要检查参数和权限。\\\",\\n  \\\"source_url\\\": \\\"https://modelcontextprotocol.io/specification/2025-06-18/server/tools\\\",\\n  \\\"kind\\\": \\\"original teaching note; URL is further reading, not a verbatim source\\\",\\n  \\\"checked_at\\\": \\\"2026-10-21\\\",\\n  \\\"score\\\": 0.320256,\\n  \\\"matched_terms\\\": [\\n    \\\"contract\\\",\\n    \\\"tool\\\"\\n  ]\\n}\",\n        \"annotations\": null,\n        \"meta\": null\n      },\n      {\n        \"type\": \"text\",\n        \"text\": \"{\\n  \\\"id\\\": \\\"E06\\\",\\n  \\\"title\\\": \\\"Numeric tools and missing values\\\",\\n  \\\"text\\\": \\\"Use a numerical tool to compute a mean rather than asking a language model to guess. Record the denominator and missing-value policy. Excluding missing values changes the valid row count and may change the interpretation. 数值结果必须保留分母和缺失策略。\\\",\\n  \\\"source_url\\\": \\\"https://docs.python.org/3/library/csv.html\\\",\\n  \\\"kind\\\": \\\"original teaching note; URL is further reading, not a verbatim source\\\",\\n  \\\"checked_at\\\": \\\"2026-10-21\\\",\\n  \\\"score\\\": 0.156174,\\n  \\\"matched_terms\\\": [\\n    \\\"tool\\\"\\n  ]\\n}\",\n        \"annotations\": null,\n        \"meta\": null\n      }\n    ],\n    \"structuredContent\": null,\n    \"isError\": false\n  }\n}\n",
+      "stderr": "Processing request of type ListToolsRequest\nProcessing request of type CallToolRequest\n",
+      "protocol_version": "2025-11-25",
+      "tools": [
+        "search_evidence",
+        "read_evidence"
+      ],
+      "tool_error": false
+    },
+    {
+      "command": "python optional/langgraph_demo.py",
+      "working_directory": "practice",
+      "package": "langgraph",
+      "pinned_version": "1.2.16",
+      "exit_code": 0,
+      "elapsed_seconds": 1.231,
+      "actual_execution": true,
+      "external_model_calls": false,
+      "stdout": "{\n  \"question\": \"What does relative abundance measure?\",\n  \"evidence\": [\n    {\n      \"id\": \"E02\",\n      \"title\": \"Relative abundance\",\n      \"text\": \"Relative abundance is a proportion within a sample. Proportions sum to one, so a change in one component can change another proportion without changing its absolute microbial count. Absolute abundance needs additional measurement or justified calibration. 相对丰度不等于绝对数量。\",\n      \"source_url\": \"https://doi.org/10.3389/fmicb.2017.02224\",\n      \"kind\": \"original teaching note; URL is further reading, not a verbatim source\",\n      \"checked_at\": \"2026-10-21\",\n      \"score\": 0.348155,\n      \"matched_terms\": [\n        \"abundance\",\n        \"relative\"\n      ]\n    }\n  ],\n  \"candidate\": {\n    \"status\": \"answered\",\n    \"answer\": \"Relative abundance is a proportion within a sample. Proportions sum to one, so a change in one component can change another proportion without changing its absolute microbial count. Absolute abundance needs additional measurement or justified calibration. 相对丰度不等于绝对数量。\",\n    \"citations\": [\n      {\n        \"evidence_id\": \"E02\",\n        \"quote\": \"Relative abundance is a proportion within a sample. Proportions sum to one, so a change in one component can change another proportion without changing its absolute microbial count. Absolute abundance needs additional measurement or justified calibration. 相对丰度不等于绝对数量。\",\n        \"source_url\": \"https://doi.org/10.3389/fmicb.2017.02224\"\n      }\n    ],\n    \"uncertainty\": \"Original teaching notes, not a scientific review.\"\n  },\n  \"check\": {\n    \"valid\": true,\n    \"errors\": [],\n    \"limitation\": \"Exact excerpt checking does not establish semantic support or scientific truth.\"\n  },\n  \"node_trace\": [\n    \"retrieve\",\n    \"draft\",\n    \"review\"\n  ]\n}\n",
+      "stderr": "",
+      "node_trace": [
+        "retrieve",
+        "draft",
+        "review"
+      ],
+      "answer_contract_valid": true
+    }
+  ],
+  "network_permission_gate": {
+    "exit_code": 2,
+    "error": "Real model access requires --allow-network; no request was sent.",
+    "fallback_used": false,
+    "model_requests_sent": false
+  },
+  "known_semantic_failure": {
+    "day": 29,
+    "question": "What is the cure for an unknown disease?",
+    "observed_status": "answered",
+    "observed_evidence_ids": [
+      "E08"
+    ],
+    "classification": "Unsupported answer caused by lexical overlap; deliberate teaching failure requiring human rejection",
+    "reason": "unknown matches E08 text about token usage, which does not answer the disease question",
+    "zero_match_control_question": "zxqv nebula recipe",
+    "zero_match_control_status": "abstained"
+  },
+  "verification_limits": [
+    "No real Ollama or OpenAI inference; provider protocol tests use mocked HTTP responses.",
+    "Dev and test each contain 8 public teaching cases, not blind evaluation or proof of semantic correctness.",
+    "Handwritten MCP is a small stdio teaching subset fixed at 2025-06-18; no full conformance claim.",
+    "Optional MCP SDK negotiated its own protocol version, separate from the handwritten subset.",
+    "No clinical, causal, production, high-concurrency, identity/authentication or full prompt-injection safety validation.",
+    "Python 3.12.14/Linux actually tested; Python 3.10 compatibility is a code target, Windows/macOS execution not performed."
+  ],
+  "download_artifacts": [
+    {
+      "path": "downloads/FONT-LICENSE.txt",
+      "bytes": 4388,
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9"
+    },
+    {
+      "path": "downloads/agent-complete.zip",
+      "bytes": 831907,
+      "sha256": "c3fcfdf5b6fd1331265fa30b8949e5e1f02eb3e3c95f75c28204473cd05adb52"
+    },
+    {
+      "path": "downloads/agent-course-complete.md",
+      "bytes": 254946,
+      "sha256": "08f1cc81c830544e7f091522296fb293db15533d601e6d7e796dcbfc9076032f"
+    },
+    {
+      "path": "downloads/agent-course-complete.pdf",
+      "bytes": 565497,
+      "sha256": "206eee83de9344152a74bdc40202b4c937020add48a3c5ba3646513dbe50134d"
+    },
+    {
+      "path": "downloads/agent-practice.zip",
+      "bytes": 43671,
+      "sha256": "ae5b8b25fd061f710968d25c8299bcf773f7ab3e5f59825d5f4a3266e5f7ac5b"
+    },
+    {
+      "path": "downloads/build-report.json",
+      "bytes": 9169,
+      "sha256": "67c3bc82e2b6d74fe2100c8bc547119278110dd5366a6baddc1b446cfd49daca"
+    },
+    {
+      "path": "downloads/day01.md",
+      "bytes": 8957,
+      "sha256": "c63989ffeb87f180e7836d80e8f1b436b0ac1ff52941d0e467170954a2a66ee7"
+    },
+    {
+      "path": "downloads/day01.pdf",
+      "bytes": 112657,
+      "sha256": "bbc74dc0327ba3a2c30c70fb7b7107736f8151d06ef6dbdd087c74ef807adb60"
+    },
+    {
+      "path": "downloads/day02.md",
+      "bytes": 7908,
+      "sha256": "0ff14a73ad74d0a0401bd579e0eab0bc39c03e11c4ed3f09fcdaf8fafb7a9647"
+    },
+    {
+      "path": "downloads/day02.pdf",
+      "bytes": 107540,
+      "sha256": "ebdb4b37cfb99a590a3a67fb6e85bbdaab5f0954cfc5c800925ff3df993887f3"
+    },
+    {
+      "path": "downloads/day03.md",
+      "bytes": 9311,
+      "sha256": "c9bc0fb00b024634c5ad2211d295668db6e8a69044bd474e77538c00c76557d5"
+    },
+    {
+      "path": "downloads/day03.pdf",
+      "bytes": 113009,
+      "sha256": "e14c48d9960fcf9606e47d803c71e92d82710c33277ad697203d21f1b526cbb0"
+    },
+    {
+      "path": "downloads/day04.md",
+      "bytes": 7850,
+      "sha256": "f430a664c114607359ec102d18d1019e3ea9a55ab09ee1fd30878689875fd5b1"
+    },
+    {
+      "path": "downloads/day04.pdf",
+      "bytes": 102008,
+      "sha256": "023db6ff43ce5cdd1fd6a1ff85b39de56f9e2d81453165b6d2d1e580822deced"
+    },
+    {
+      "path": "downloads/day05.md",
+      "bytes": 8005,
+      "sha256": "4cb325ad001d6695eaed0a7d60bbe276ac31cf88ba91d789b6958d101d3a1cea"
+    },
+    {
+      "path": "downloads/day05.pdf",
+      "bytes": 112424,
+      "sha256": "04e5c3f5787c0c5ee18e146ea0f3ac74cc9ebeb6175957d3109a3b385befef65"
+    },
+    {
+      "path": "downloads/day06.md",
+      "bytes": 7899,
+      "sha256": "69587518bc8ca413b7afaaf71c3ced36d60a90f4b0a18477fef345bdf61a054b"
+    },
+    {
+      "path": "downloads/day06.pdf",
+      "bytes": 109368,
+      "sha256": "3f34ba2c6819fe01380e70063b199a8f678339faf9c5970205f14cac9e169ed8"
+    },
+    {
+      "path": "downloads/day07.md",
+      "bytes": 8214,
+      "sha256": "847655aae123fac5d99e0d89624960bd1d822b2a85a032db22f31b8e9fbfe357"
+    },
+    {
+      "path": "downloads/day07.pdf",
+      "bytes": 108896,
+      "sha256": "1a35619ed2e14fec02af52ffdbefd1f2018d64d97a16d19a2dbb0d85b13103db"
+    },
+    {
+      "path": "downloads/day08.md",
+      "bytes": 8037,
+      "sha256": "2b4792acbf7592fe490e0dffc089dcabcd48f9ca4a0a9f6fb213addcaedb540d"
+    },
+    {
+      "path": "downloads/day08.pdf",
+      "bytes": 105312,
+      "sha256": "72fc005726bf63cd9ee41890de4ab41c34298dcf55015dfcca678473c3fce7b7"
+    },
+    {
+      "path": "downloads/day09.md",
+      "bytes": 7689,
+      "sha256": "2caca90b1ea3d61d128494fd1388d0378e70c4b05e0ea2c316bbc99d103b07b5"
+    },
+    {
+      "path": "downloads/day09.pdf",
+      "bytes": 105711,
+      "sha256": "88e14832ab69b2b35032f90e7cea4fabb71e7c545c57cc4b57942d1a7bbd30a9"
+    },
+    {
+      "path": "downloads/day10.md",
+      "bytes": 7999,
+      "sha256": "833ab9841e5a160860941943a533c485b0be2a33bafb01849ab31e566591c723"
+    },
+    {
+      "path": "downloads/day10.pdf",
+      "bytes": 108457,
+      "sha256": "c73d6a1d500183513e8676709e2c39a0eedca6fb1e7c30ff38763a57ac9adfe7"
+    },
+    {
+      "path": "downloads/day11.md",
+      "bytes": 8750,
+      "sha256": "175dce6ca5f94f3fb12e949fd685423161b2ec0d9bee463de33fc1f9e79d9e86"
+    },
+    {
+      "path": "downloads/day11.pdf",
+      "bytes": 104078,
+      "sha256": "b72e32d775f2930f4c4eeafdf11836af0a28d3680c45347f397fde94d2a17df5"
+    },
+    {
+      "path": "downloads/day12.md",
+      "bytes": 8440,
+      "sha256": "b0deebfc6b0a30b90fe7b1d499a4c00330dbb744dc5e2cafd8908e714da3595a"
+    },
+    {
+      "path": "downloads/day12.pdf",
+      "bytes": 106380,
+      "sha256": "a534b03d0903903d175a1474d31c4846c62f7664d81acadc5110c42d70a51f57"
+    },
+    {
+      "path": "downloads/day13.md",
+      "bytes": 8413,
+      "sha256": "94db2fd95ce4d9a87baa49c90d35f49c0b7d658c733b3cf86c90cd3fb24da87b"
+    },
+    {
+      "path": "downloads/day13.pdf",
+      "bytes": 105446,
+      "sha256": "a8a20679d140aa74b5d3d5ee95652e22672400bc5c61932426930855cb7c7a09"
+    },
+    {
+      "path": "downloads/day14.md",
+      "bytes": 8816,
+      "sha256": "9133d250be90ce6edf321a59de2244e017557b65025f45dfa840d9e8cc91d8e7"
+    },
+    {
+      "path": "downloads/day14.pdf",
+      "bytes": 110557,
+      "sha256": "c97be0892a815e75af6bed87812841e583bada6a8f93b28796f17c0783c7e837"
+    },
+    {
+      "path": "downloads/day15.md",
+      "bytes": 8185,
+      "sha256": "6fb88d387443babe3a17430b7aae85edc2d8fc5ca8db50c959d01b765b9f9c7c"
+    },
+    {
+      "path": "downloads/day15.pdf",
+      "bytes": 106258,
+      "sha256": "8a2742aa88244a01d3f188c9c03ef68908aece81c65782d2460dd701fe9f2abe"
+    },
+    {
+      "path": "downloads/day16.md",
+      "bytes": 8589,
+      "sha256": "1e3aeac7fb93a4da945c21b4a35ffe62886c592e96643c3133b2311a7a05fe47"
+    },
+    {
+      "path": "downloads/day16.pdf",
+      "bytes": 113268,
+      "sha256": "580b35d05f293952bac4fc94180accd3fd8252fb12915c49667df9cd6eab16fe"
+    },
+    {
+      "path": "downloads/day17.md",
+      "bytes": 8369,
+      "sha256": "851ec106b48de18232ee3e5ad87643c4e208ff36311a0e1a62109b2128686b73"
+    },
+    {
+      "path": "downloads/day17.pdf",
+      "bytes": 104622,
+      "sha256": "cf41af2b6b343d0279621108e46768f441ba6e398a611b01fb181f2e7fee8974"
+    },
+    {
+      "path": "downloads/day18.md",
+      "bytes": 8579,
+      "sha256": "5c3fae1e30548a94386298c63b37aac51f57a283b195becd6c4f2020a3bac0e4"
+    },
+    {
+      "path": "downloads/day18.pdf",
+      "bytes": 110913,
+      "sha256": "f92a5120dc407b362d5acbf4cac46732a0aa74ffbfcc215bebf08f9c17611f95"
+    },
+    {
+      "path": "downloads/day19.md",
+      "bytes": 8331,
+      "sha256": "0764ce8cb6b0334b127ea52343a1dbab6b58252dc7bcabd1678390d0f4b828c4"
+    },
+    {
+      "path": "downloads/day19.pdf",
+      "bytes": 113059,
+      "sha256": "a32441f25e8cc94f270a1ac03f74f0c25a3f1de9f924dabc19b1ea10bbac0aae"
+    },
+    {
+      "path": "downloads/day20.md",
+      "bytes": 8557,
+      "sha256": "53848ee67689f45de848bd41b710b2be506dcf1aa837322ba5df94e6fcbc2c57"
+    },
+    {
+      "path": "downloads/day20.pdf",
+      "bytes": 113584,
+      "sha256": "346c062165a976cf4d9474e805ca34d4681c9cc0160cc17db31a9eb447f1fe9c"
+    },
+    {
+      "path": "downloads/day21.md",
+      "bytes": 8632,
+      "sha256": "915023fbe0f08034434aa176558f8d3404813e3ec371e1d23d7893049066000e"
+    },
+    {
+      "path": "downloads/day21.pdf",
+      "bytes": 113972,
+      "sha256": "09ca4b33cd2c8e4620ee5ef188074b37a58ee9a53c780feefb548db28ca7fac0"
+    },
+    {
+      "path": "downloads/day22.md",
+      "bytes": 8712,
+      "sha256": "5b4ef04df25cee603cd57e0f162764d03f097c175ce71b98b4d1356ea6dcac9f"
+    },
+    {
+      "path": "downloads/day22.pdf",
+      "bytes": 111113,
+      "sha256": "be9bf0d280f9c48b2de4794a83df19d25eb2b7da19c62961c37863c87de7c5e1"
+    },
+    {
+      "path": "downloads/day23.md",
+      "bytes": 8640,
+      "sha256": "c58bac601ef933483a0fd8900fef30b68a23d9dfd5ca5106f2ffd129ba44c91b"
+    },
+    {
+      "path": "downloads/day23.pdf",
+      "bytes": 115690,
+      "sha256": "140a01dfc8b07a5685ee163646b1cf4fe6f8f4211c2fc1a04190ba778331214e"
+    },
+    {
+      "path": "downloads/day24.md",
+      "bytes": 8706,
+      "sha256": "7d01ea26b4e7e3c2a529cf4dac50f52d5cbcf0d8896b4296d3b76591198a0559"
+    },
+    {
+      "path": "downloads/day24.pdf",
+      "bytes": 113699,
+      "sha256": "423473c090a0dd3529f86618c318f9f69af2860af83525d171dceb0934dbf2c4"
+    },
+    {
+      "path": "downloads/day25.md",
+      "bytes": 8560,
+      "sha256": "8d347f0f3194d3fd958d8f1f1b4a5a0838cbe996e452d9b342c73ddc25e2ea8a"
+    },
+    {
+      "path": "downloads/day25.pdf",
+      "bytes": 111102,
+      "sha256": "7c980220d3a9bc10a6fa5da6052d792eefb4fed494f59d2354d25765bbfc8714"
+    },
+    {
+      "path": "downloads/day26.md",
+      "bytes": 8835,
+      "sha256": "a5655c5a17e11b5418249885911822239d1c8e82545825b38a938ee8ea8a7fbb"
+    },
+    {
+      "path": "downloads/day26.pdf",
+      "bytes": 112855,
+      "sha256": "8a2e04f53c7a16ab056ed6a5bac5de42654b524f42c1fe4425f10daa76dffa4a"
+    },
+    {
+      "path": "downloads/day27.md",
+      "bytes": 8435,
+      "sha256": "69d93ee3783a328954f08c8eb0642c2e7bb05a482a42e2a14524cef692f499a5"
+    },
+    {
+      "path": "downloads/day27.pdf",
+      "bytes": 113059,
+      "sha256": "fb1323f7036c5fc574b966219ab30e4373c61b37deaf7bc4336ed1cc52b8335f"
+    },
+    {
+      "path": "downloads/day28.md",
+      "bytes": 8654,
+      "sha256": "7ea89104e49576aa513197bfbe005ed61b772027608947906d7814ed0338314d"
+    },
+    {
+      "path": "downloads/day28.pdf",
+      "bytes": 107742,
+      "sha256": "a2e3b4834268d39bfdc6f97d24b27087d2e0fa1955480c18747b60c4827c9d57"
+    },
+    {
+      "path": "downloads/day29.md",
+      "bytes": 8987,
+      "sha256": "7c72899a109ca0c1deae1bd231ac21a238245fa275df53705d629d450a370333"
+    },
+    {
+      "path": "downloads/day29.pdf",
+      "bytes": 114077,
+      "sha256": "e030669ed7dd1a35e96a108a06a35044c63b51f7fe9d418c0d86ab16f2e60c0d"
+    },
+    {
+      "path": "downloads/day30.md",
+      "bytes": 9449,
+      "sha256": "ec03df84cf905422684575bdd88fcecfd174f0cc98ecd0916400125e85ae1dbb"
+    },
+    {
+      "path": "downloads/day30.pdf",
+      "bytes": 116669,
+      "sha256": "03529770b0a64d3128ae5ab1755a495947705153563947e0771ef601538cb419"
+    }
+  ],
+  "pdf_quality": {
+    "pdf_count": 31,
+    "complete_pdf_pages": 121,
+    "daily_pdf_pages": 120,
+    "days": [
+      {
+        "day": 1,
+        "pages": 4,
+        "title": "把第一个 Agent 项目跑起来",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 2,
+        "pages": 4,
+        "title": "用 JSON 给助手立规矩",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 3,
+        "pages": 4,
+        "title": "接上模型，也保留可重复的基线",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 4,
+        "pages": 4,
+        "title": "把模型输出变成可检查的结果",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 5,
+        "pages": 4,
+        "title": "给 Agent 配一组可信的工具",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 6,
+        "pages": 4,
+        "title": "做一个会停下来的行动循环",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 7,
+        "pages": 4,
+        "title": "第一周作品：一张可复核的证据卡",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 8,
+        "pages": 4,
+        "title": "给材料建立来源与版本档案",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 9,
+        "pages": 4,
+        "title": "做一个可以解释的检索基线",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 10,
+        "pages": 4,
+        "title": "让回答带着证据一起出现",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 11,
+        "pages": 4,
+        "title": "用小评价集检查检索与拒答",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 12,
+        "pages": 4,
+        "title": "保存状态，让任务能够继续",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 13,
+        "pages": 4,
+        "title": "让长期记忆有归属、期限与删除",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 14,
+        "pages": 4,
+        "title": "第二周作品：一个有边界的证据问答助手",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 15,
+        "pages": 4,
+        "title": "用依赖图组织多步骤任务",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 16,
+        "pages": 4,
+        "title": "失败以后，怎样重试才合理",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 17,
+        "pages": 4,
+        "title": "先审阅，再执行写入",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 18,
+        "pages": 4,
+        "title": "看见 MCP 的真实消息往返",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 19,
+        "pages": 4,
+        "title": "把现有流程迁移到 LangGraph",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 20,
+        "pages": 4,
+        "title": "让研究者、质疑者和复核者各司其职",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 21,
+        "pages": 4,
+        "title": "阶段作品：带质量门的文献研究助手",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 22,
+        "pages": 4,
+        "title": "用 CSV 工具完成一份可复核的数据摘要",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 23,
+        "pages": 4,
+        "title": "把外部指令留在数据边界内",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 24,
+        "pages": 4,
+        "title": "建立开发集与测试集的评价习惯",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 25,
+        "pages": 4,
+        "title": "记录轨迹、耗时与成本边界",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 26,
+        "pages": 4,
+        "title": "给研究助手加一个本地网页",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 27,
+        "pages": 4,
+        "title": "用缓存与并发控制重复工作",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 28,
+        "pages": 4,
+        "title": "把作品整理成别人能复现的项目",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 29,
+        "pages": 4,
+        "title": "为未知、冲突与攻击建立失败案例册",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      },
+      {
+        "day": 30,
+        "pages": 4,
+        "title": "毕业交付：可复现的科研学习 Agent",
+        "title_present": true,
+        "quiz_questions_present": [
+          true,
+          true
+        ],
+        "quiz_explanations_present": [
+          true,
+          true
+        ],
+        "complete_pdf_title_present": true,
+        "complete_pdf_explanations_present": [
+          true,
+          true
+        ]
+      }
+    ],
+    "extraction_pass": true,
+    "visual_review": {
+      "status": "pass",
+      "renderer": "pdftoppm, 105 DPI PNG",
+      "sample_days": [
+        1,
+        18,
+        30
+      ],
+      "inspected_pages": {
+        "day01": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "day18": [
+          2,
+          3,
+          4
+        ],
+        "day30": [
+          2,
+          3,
+          4
+        ]
+      },
+      "checks": {
+        "chinese_glyphs_readable": true,
+        "no_clipping_or_overlap_in_samples": true,
+        "commands_readable": true,
+        "quiz_answers_and_explanations_readable": true,
+        "references_readable": true,
+        "headings_and_footers_clear": true
+      },
+      "notes": [
+        "第1课第2题跨第3/4页续排，内容和解析完整，不影响阅读。",
+        "抽样覆盖环境命令、MCP命令、自测解析、参考链接与毕业验收；未逐页视觉审查全部121页。"
+      ]
+    },
+    "checked_at": "2026-10-22T00:21:50.344111+00:00",
+    "overall_status": "pass",
+    "scope": "Read-only PDF QA; PDFs were not edited. All 30 lesson titles and all 60 quiz questions/explanations checked by text extraction; 10 representative pages visually inspected."
+  },
+  "browser_quality": {
+    "status": "passed",
+    "surface": "isolated managed Chrome preview of final static files",
+    "checks": [
+      "Homepage and day1 render with complete material",
+      "20-minute lite mode records independently",
+      "Paused timer switches between20 and60 minutes",
+      "Premature completion rejected until all three criteria checked",
+      "Complete and note state persist after reload",
+      "Correct quiz answer shows explanation",
+      "390px and768px frames: document scroll width equals client width"
+    ],
+    "responsive_document_widths": [
+      375,
+      753
+    ],
+    "download_ui": "not claimed; artifact integrity validated separately"
+  },
+  "academy_integration": {
+    "checked_at": "2026-10-22T00:23:36.591Z",
+    "scope": "Parent academy integration: source preservation, course registry, script order, JS syntax and route execution with a minimal DOM harness.",
+    "checks": [
+      {
+        "name": "script_order",
+        "passed": true,
+        "detail": {
+          "llm": 29,
+          "agent": 30,
+          "app": 31
+        }
+      },
+      {
+        "name": "all_scripts_deferred",
+        "passed": true,
+        "detail": {
+          "script_count": 33
+        }
+      },
+      {
+        "name": "index_script_files_exist",
+        "passed": true,
+        "detail": {
+          "missing": []
+        }
+      },
+      {
+        "name": "javascript_syntax",
+        "passed": true,
+        "detail": {
+          "files_checked": 33,
+          "failed": []
+        }
+      },
+      {
+        "name": "original_validator",
+        "passed": true,
+        "detail": {
+          "command": "node academy/tools/validate.js",
+          "exit_code": 0,
+          "output": {
+            "projects": {
+              "english": 90,
+              "coding": 24,
+              "writing": 48,
+              "research": 52,
+              "visual": 24,
+              "neuro": 24,
+              "thinking": 365,
+              "career": 12,
+              "life": 100,
+              "papers": 100
+            },
+            "total_units": 839,
+            "bibliography_items": 100,
+            "priority": [
+              "english",
+              "coding",
+              "writing"
+            ],
+            "valid": true
+          }
+        }
+      },
+      {
+        "name": "original_courses_preserved",
+        "passed": true,
+        "detail": {
+          "original_course_count": 10,
+          "original_units": 839
+        }
+      },
+      {
+        "name": "llm_bridge_preserved",
+        "passed": true,
+        "detail": {
+          "llm_units": 39
+        }
+      },
+      {
+        "name": "course_ids_unique",
+        "passed": true,
+        "detail": {
+          "project_count": 12
+        }
+      },
+      {
+        "name": "course_numbers_unique",
+        "passed": true,
+        "detail": {
+          "numbers": [
+            {
+              "id": "english",
+              "number": "01"
+            },
+            {
+              "id": "coding",
+              "number": "03"
+            },
+            {
+              "id": "writing",
+              "number": "06"
+            },
+            {
+              "id": "research",
+              "number": "02"
+            },
+            {
+              "id": "visual",
+              "number": "05"
+            },
+            {
+              "id": "neuro",
+              "number": "08"
+            },
+            {
+              "id": "thinking",
+              "number": "07"
+            },
+            {
+              "id": "career",
+              "number": "09"
+            },
+            {
+              "id": "life",
+              "number": "12"
+            },
+            {
+              "id": "papers",
+              "number": "04"
+            },
+            {
+              "id": "llm",
+              "number": "11"
+            },
+            {
+              "id": "agent",
+              "number": "10"
+            }
+          ]
+        }
+      },
+      {
+        "name": "agent_number_10",
+        "passed": true,
+        "detail": {
+          "actual": "10"
+        }
+      },
+      {
+        "name": "agent_30_sequential_lessons",
+        "passed": true,
+        "detail": {
+          "lessons": 30,
+          "minutes": 60
+        }
+      },
+      {
+        "name": "combined_908_units",
+        "passed": true,
+        "detail": {
+          "base": 839,
+          "llm": 39,
+          "agent": 30,
+          "total": 908
+        }
+      },
+      {
+        "name": "agent_bridge_idempotent",
+        "passed": true,
+        "detail": {
+          "external_courses": [
+            "llm",
+            "agent"
+          ]
+        }
+      },
+      {
+        "name": "original_index_links_preserved",
+        "passed": true,
+        "detail": {
+          "removed_hrefs": []
+        }
+      },
+      {
+        "name": "journal_launch_preserved",
+        "passed": true,
+        "detail": {
+          "calls_in_current": 2
+        }
+      },
+      {
+        "name": "original_course_source_files_unchanged",
+        "passed": true,
+        "detail": [
+          {
+            "file": "assets/core.js",
+            "unchanged": true
+          },
+          {
+            "file": "assets/english.js",
+            "unchanged": true
+          },
+          {
+            "file": "assets/studio.js",
+            "unchanged": true
+          },
+          {
+            "file": "assets/explore.js",
+            "unchanged": true
+          },
+          {
+            "file": "data/papers.js",
+            "unchanged": true
+          },
+          {
+            "file": "assets/papers.js",
+            "unchanged": true
+          }
+        ]
+      },
+      {
+        "name": "no_tracked_academy_deletions",
+        "passed": true,
+        "detail": {
+          "deleted": []
+        }
+      },
+      {
+        "name": "agent_target_exists",
+        "passed": true,
+        "detail": {
+          "href": "agent-lab/?v=2026.10.22.1"
+        }
+      },
+      {
+        "name": "home_launchers_and_legacy_paths_render",
+        "passed": true,
+        "detail": {
+          "paths": [
+            "agent-lab/",
+            "llm-lab/",
+            "journals/",
+            "../100-days/",
+            "../"
+          ]
+        }
+      },
+      {
+        "name": "projects_page_counts_and_launchers",
+        "passed": true,
+        "detail": {
+          "projects": 12,
+          "units": 908
+        }
+      },
+      {
+        "name": "external_routes_execute",
+        "passed": true,
+        "detail": [
+          {
+            "route": "#/agent",
+            "expected": "agent-lab/?v=2026.10.22.1#/",
+            "actual": "agent-lab/?v=2026.10.22.1#/",
+            "passed": true
+          },
+          {
+            "route": "#/agent/1",
+            "expected": "agent-lab/?v=2026.10.22.1#/day/1",
+            "actual": "agent-lab/?v=2026.10.22.1#/day/1",
+            "passed": true
+          },
+          {
+            "route": "#/agent/30",
+            "expected": "agent-lab/?v=2026.10.22.1#/day/30",
+            "actual": "agent-lab/?v=2026.10.22.1#/day/30",
+            "passed": true
+          },
+          {
+            "route": "#/agent/31",
+            "expected": "agent-lab/?v=2026.10.22.1#/",
+            "actual": "agent-lab/?v=2026.10.22.1#/",
+            "passed": true
+          },
+          {
+            "route": "#/llm/39",
+            "expected": "llm-lab/?v=2026.10.21.4#/day/39",
+            "actual": "llm-lab/?v=2026.10.21.4#/day/39",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "name": "legacy_lesson_route_renders",
+        "passed": true,
+        "detail": {
+          "route": "#/english/1"
+        }
+      }
+    ],
+    "warnings": [
+      {
+        "kind": "preexisting_copy_mismatch",
+        "blocking": false,
+        "detail": "Existing home LLM launch copy says 30 units; LLM registry contains 39. The same copy is present in HEAD. Existing registry and total 908 remain correct."
+      }
+    ],
+    "failures": [],
+    "courses": [
+      {
+        "id": "english",
+        "number": "01",
+        "units": 90,
+        "external": null
+      },
+      {
+        "id": "coding",
+        "number": "03",
+        "units": 24,
+        "external": null
+      },
+      {
+        "id": "writing",
+        "number": "06",
+        "units": 48,
+        "external": null
+      },
+      {
+        "id": "research",
+        "number": "02",
+        "units": 52,
+        "external": null
+      },
+      {
+        "id": "visual",
+        "number": "05",
+        "units": 24,
+        "external": null
+      },
+      {
+        "id": "neuro",
+        "number": "08",
+        "units": 24,
+        "external": null
+      },
+      {
+        "id": "thinking",
+        "number": "07",
+        "units": 365,
+        "external": null
+      },
+      {
+        "id": "career",
+        "number": "09",
+        "units": 12,
+        "external": null
+      },
+      {
+        "id": "life",
+        "number": "12",
+        "units": 100,
+        "external": null
+      },
+      {
+        "id": "papers",
+        "number": "04",
+        "units": 100,
+        "external": null
+      },
+      {
+        "id": "llm",
+        "number": "11",
+        "units": 39,
+        "external": "llm-lab/?v=2026.10.21.4"
+      },
+      {
+        "id": "agent",
+        "number": "10",
+        "units": 30,
+        "external": "agent-lab/?v=2026.10.22.1"
+      }
+    ],
+    "source_sha256": {
+      "index.html": "b380cf6a37920244b757e2698e17bd385c2c182d4c30c5c9101a21267af7976a",
+      "assets/app.js": "a2cd8055891d803d47df57b7b2654dacd23294bfb9f14f8a69e450ae2f76a0cb",
+      "assets/agent-bridge.js": "cc9d834e693c8ab62bd088981e84f3923859a2ff4d18c3b3b9777c4eba38f061",
+      "assets/curatemicrobiota-bridge.js": "b0f77a952c19b2d6bc6309fb185f2ae9c808339fe2c7faffe2c87e1ce05332d2"
+    },
+    "passed": true,
+    "method_limit": "Routes and rendered strings were exercised with Node VM and a minimal DOM harness. This report does not claim a new visual browser inspection."
+  }
+}

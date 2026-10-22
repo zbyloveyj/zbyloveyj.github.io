@@ -1,0 +1,209 @@
+{
+  "day": 22,
+  "title": "用 CSV 工具完成一份可复核的数据摘要",
+  "subtitle": "把数值计算、缺失值规则与文字解释分开，避免凭语言猜数字。",
+  "phase": 4,
+  "minutes": 60,
+  "prerequisites": [
+    "已经完成第 21 课，或能解释其产物。",
+    "打开实践包 practice 目录；后文 python 可替换为虚拟环境内解释器的完整路径。"
+  ],
+  "outcomes": [
+    "区分缺失值、零值与有效样本量。",
+    "运行真实CSV读取和确定性摘要计算。",
+    "用另一种缺失策略制造可解释的失败。"
+  ],
+  "agenda": [
+    {
+      "label": "理解概念",
+      "minutes": 15,
+      "task": "阅读本课四节讲解，弄清一个关键机制与适用边界。"
+    },
+    {
+      "label": "亲手操作",
+      "minutes": 30,
+      "task": "先跑基线，再做一次单变量实验，保留前后结果。"
+    },
+    {
+      "label": "检查结果",
+      "minutes": 10,
+      "task": "逐项验收，完成两道自测并阅读解析。"
+    },
+    {
+      "label": "留下记录",
+      "minutes": 5,
+      "task": "写出本课发现、未解决问题和下次第一步。"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "先确认数据含义，再计算",
+      "paragraphs": [
+        "本课读取 data/participants.csv，它是教学用合成数据，不能用于诊断或真实研究结论。先查看列名、单位和每一行，再确认 abundance 指的是本练习约定的数值。",
+        "同名列在不同项目中可能代表计数、比例或经过转换的特征。不能仅因为列名像相对丰度，就把任何数字解释为生物学效果；迁移到真实数据时必须补上数据字典与采集背景。"
+      ]
+    },
+    {
+      "title": "缺失不是零",
+      "paragraphs": [
+        "缺失表示没有可用观测，零表示已经观测到数值为零。把空白默默当作零会改变平均值；排除缺失也会改变有效样本量，可能影响结果的代表性。",
+        "missing_policy=exclude 时，程序从统计中排除缺失值，同时报告 rows_total、rows_valid 与 rows_missing。error 策略则要求遇到缺失时停止。选择哪种策略，应当在分析之前说明理由。"
+      ]
+    },
+    {
+      "title": "让程序算，让人核对",
+      "paragraphs": [
+        "均值、最小值与最大值由确定性代码计算。你可以手工抽查小数据：先求有效数值之和，再除以有效数量。工具输出要能沿着原始行复核，而不是只保留一段没有依据的解释。",
+        "语言模型可以帮助解释变量与写摘要，但不应凭记忆补算或填入未观察的数字。即使后续接入真实模型，也应把工具产出的精确数值与解释过程分开保存。"
+      ]
+    },
+    {
+      "title": "从教学样本迁移到自己的项目",
+      "paragraphs": [
+        "你收藏的 CLEAR-Microbiome 与 SCUT_Minilab_MEF 可以提供研究问题和数据流程的参考，但本课没有下载、训练或复现它们的完整实验。先找一个公开的字段说明，尝试写出相应的工具合同。",
+        "真实科研分析还需要考虑样本独立性、批次、归一化、统计检验与隐私。一天一小时的目标是完成可追溯的描述统计，知道尚未覆盖什么，避免把小练习误称为完整分析平台。"
+      ]
+    }
+  ],
+  "walkthrough": [
+    {
+      "title": "找到本课的输入与配置",
+      "why": "先知道程序读什么，后面才能解释输出为何改变。",
+      "action": "在 VS Code 中打开 experiments.json，定位 day22。用下面的命令确认当前目录正确，并把各参数的作用写在笔记中。",
+      "command": "python -c \"import json; print(json.load(open('experiments.json', encoding='utf-8'))['day22'])\"",
+      "expected": "终端显示本课配置；键名与文件中的内容一致。"
+    },
+    {
+      "title": "运行本课基线",
+      "why": "保持默认设置的一次运行，是后续比较的参照。",
+      "action": "执行命令，打开新生成的 outputs/day22.json。先检查 day、mode 和 result，不急着修改代码。",
+      "command": "python run.py day 22",
+      "expected": "结果写入 outputs/day22.json；主线 mode 明确为 offline，代表规则教学流程。"
+    },
+    {
+      "title": "沿输出检查机制",
+      "why": "不能只看程序有没有报错，要检查它实际做了什么。",
+      "action": "格式化阅读输出，重点检查analysis.rows_total、rows_valid、rows_missing、mean、min、max 和 synthetic_data。把一个输入参数和一个输出字段用箭头对应起来。",
+      "command": "python -m json.tool outputs/day22.json",
+      "expected": "能够定位analysis.rows_total、rows_valid、rows_missing、mean、min、max 和 synthetic_data，并用自己的话解释该结果。"
+    },
+    {
+      "title": "改变一个条件并比较",
+      "why": "主动制造可解释的变化，才能验证自己理解的机制。",
+      "action": "完成下面“改一改”实验。对比基线与新结果，记录哪些字段改变、哪些保持稳定；不要同时改模型、材料和参数。",
+      "command": "",
+      "expected": "留下一组前后结果和一句解释；失败状态也可以是正确的实验产物。"
+    }
+  ],
+  "experiment": {
+    "title": "让缺失值成为必须处理的错误",
+    "instructions": [
+      "先以missing_policy=exclude运行第22课，备份outputs/day22.json作为基线。",
+      "只把experiments.json中day22.missing_policy改为error并保存。",
+      "运行python run.py day 22 2> outputs/day22-error.json。程序遇到缺失或无效值后以退出码2结束；这是预期的拒绝。",
+      "打开outputs/day22-error.json检查具体原因。失败时day22.json不会重写，不能把旧文件误认成新结果；比较基线与错误记录，最后恢复exclude。"
+    ],
+    "expected": "默认合成表中abundance含缺失或无效值。error策略会停止统计，错误写到stderr且退出码为2；既有outputs/day22.json保持旧基线。用单独错误记录完成比较。",
+    "explanation": "排除和拒绝是不同的分析政策；改变政策前必须了解缺失如何影响样本量与解释。"
+  },
+  "deliverable": {
+    "file": "outputs/day22.json",
+    "description": "提交exclude策略的统计基线与outputs/day22-error.json错误记录，说明有效行、缺失或无效值及策略选择。",
+    "checks": [
+      "读取CSV并准确说明目标列和教学数据身份。",
+      "能用有效行手工复核至少一个统计量。",
+      "保留exclude与error策略的结果并写明选择依据。"
+    ]
+  },
+  "troubleshooting": [
+    {
+      "symptom": "修改配置后结果没有变化",
+      "cause": "改了其他天的字段，或编辑后尚未保存。",
+      "fix": "核对 experiments.json 中的 day22，保存后重新运行；检查实际执行目录。"
+    },
+    {
+      "symptom": "程序已报错，day22.json却仍显示旧平均值",
+      "cause": "失败分支不会覆盖成功输出，所以该文件仍是上一次基线。",
+      "fix": "查看本次终端错误或day22-error.json及退出状态；恢复exclude后再运行，不把旧文件当成本次成功。"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "CSV中空白的 abundance 能否直接当成0？",
+      "options": [
+        "总是可以",
+        "不能，需按缺失规则处理",
+        "只要均值更好看就可以",
+        "文件是CSV就可以"
+      ],
+      "answer": 1,
+      "explanation": "空白与测量到零有不同含义，转换需要显式规则与依据。"
+    },
+    {
+      "question": "mean 应主要由谁产生？",
+      "options": [
+        "模型凭语感生成",
+        "确定性数值工具计算，并可从数据复核",
+        "报告标题决定",
+        "用相关论文的数字代替"
+      ],
+      "answer": 1,
+      "explanation": "可复核计算避免语言生成阶段引入算术或数据来源错误。"
+    }
+  ],
+  "reflection": [
+    "我的真实数据中哪些空白可能具有系统性原因？",
+    "如果解释段落与工具数字不一致，我先检查哪一份记录？"
+  ],
+  "lite": {
+    "minutes": 20,
+    "steps": [
+      "用5分钟阅读第一个概念，写出本课要解决的问题。",
+      "用10分钟运行 python run.py day 22，打开 outputs/day22.json，检查一个关键字段。",
+      "用5分钟完成第一道自测并留一句解释，完整实验与验收留到下次。"
+    ],
+    "done": "保存一份运行结果和自己的解释；精简练习单独记录，不等于整课验收全部完成。"
+  },
+  "stretch": {
+    "minutes": 20,
+    "title": "把本课机制迁移到一个自己的任务",
+    "steps": [
+      "从自己的文献整理或数据分析流程中选一个相似环节。",
+      "写清输入、允许动作、失败出口与验收方法。",
+      "提出一个会让当前实现失败的反例，并标明它是待实现扩展。"
+    ]
+  },
+  "references": [
+    {
+      "id": "python_csv",
+      "title": "Python：csv",
+      "url": "https://docs.python.org/3/library/csv.html",
+      "scope": "阅读 DictReader、字段名和newline的文件打开约定。"
+    },
+    {
+      "id": "bioagentlab",
+      "title": "BioAgentLab：科研 Agent 教材",
+      "url": "https://github.com/zbyloveyj/BioAgentLab",
+      "scope": "查阅 book/zh/28_reproducibility_and_safety.md，对照数据来源、参数与分析记录。"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Missing value",
+      "meaning": "没有可用观测的字段，不能自动等同于零。"
+    },
+    {
+      "term": "Descriptive statistic",
+      "meaning": "对当前数据做出的均值、范围等摘要。"
+    },
+    {
+      "term": "Synthetic data",
+      "meaning": "为教学或测试人为构造的数据。"
+    }
+  ],
+  "reviewDays": [
+    15,
+    19
+  ],
+  "next": "下一课检查外部材料里的指令，建立工具调用边界。"
+}

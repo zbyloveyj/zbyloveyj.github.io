@@ -8,3 +8,6 @@
 
 /* CurateMicrobiota course entry */
 .cm-launch{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:30px 0 42px;padding:30px 34px;background:#e9f1fc;border:1px solid #cbdcf3;border-radius:14px}.cm-launch h2{font-size:25px;margin:5px 0 10px}.cm-launch p{color:#536d8b;font-size:13px;margin-bottom:0}.cm-launch .eyebrow{font-size:10px;color:#25588f}.cm-launch .button{flex-shrink:0}@media(max-width:700px){.cm-launch{display:block;padding:24px}.cm-launch h2{font-size:22px}.cm-launch .button{margin-top:18px}}
+
+/* AI Agent course launch */
+.agent-launch{background:linear-gradient(115deg,#edf8f6,#eef4fb);border-color:#b7dad6}.agent-launch .eyebrow{color:#176c68}

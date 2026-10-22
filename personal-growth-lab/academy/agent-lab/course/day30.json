@@ -1,0 +1,209 @@
+{
+  "day": 30,
+  "title": "毕业交付：可复现的科研学习 Agent",
+  "subtitle": "交付作品、运行证据和诚实的能力卡，把一个月的学习变成可继续改进的项目。",
+  "phase": 5,
+  "minutes": 60,
+  "prerequisites": [
+    "已经完成第 29 课，或能解释其产物。",
+    "打开实践包 practice 目录；后文 python 可替换为虚拟环境内解释器的完整路径。"
+  ],
+  "outcomes": [
+    "运行结业入口并解释各项结果。",
+    "整理三个可复现案例与真实能力边界。",
+    "确定一个有数据、工具合同和验收标准的后续任务。"
+  ],
+  "agenda": [
+    {
+      "label": "理解概念",
+      "minutes": 15,
+      "task": "阅读本课四节讲解，弄清一个关键机制与适用边界。"
+    },
+    {
+      "label": "亲手操作",
+      "minutes": 30,
+      "task": "先跑基线，再做一次单变量实验，保留前后结果。"
+    },
+    {
+      "label": "检查结果",
+      "minutes": 10,
+      "task": "逐项验收，完成两道自测并阅读解析。"
+    },
+    {
+      "label": "留下记录",
+      "minutes": 5,
+      "task": "写出本课发现、未解决问题和下次第一步。"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "毕业作品是一条可解释的完整流程",
+      "paragraphs": [
+        "用一个材料内问题启动流程，展示检索依据、回答、引用、停止条件与评价结果。别人应当能够按README复现，而不只是观看你的截图。",
+        "本课把answer、evaluation、capability_card和project_checks集中到一个结果里。它是教学作品的结业入口，主要证明离线规则链路与工程机制；真实模型路径需要单独运行并记录结果。"
+      ]
+    },
+    {
+      "title": "能力卡必须说明实现与边界",
+      "paragraphs": [
+        "列出当前支持的输入、证据来源、工具、运行模式、失败行为及未覆盖内容。规则词法检索不能写成向量语义检索；规则角色分工不能写成多个模型独立研究；本地网页不能写成公网部署。",
+        "可选Ollama、OpenAI、MCP官方SDK与LangGraph分别有自己的依赖、配置和验证范围。没有实际执行过的路径，应标为未验证；不能因为示例文件存在或接口形状正确就声称已经端到端跑通。"
+      ]
+    },
+    {
+      "title": "用三个案例说明作品质量",
+      "paragraphs": [
+        "第一个案例展示材料内的正常回答，第二个展示未知或缺失引用时的拒绝，第三个展示一次预算限制、缺失值或批准失效的受控失败。每个案例保留输入、参数、结果和一句解释。",
+        "评价集合是公开的小型教学题。报告分数时附上样例规模和设置，不宣传为真实科研外测；错误仍然存在时，明确说明由谁复核、在什么条件下停止使用自动结论。"
+      ]
+    },
+    {
+      "title": "下一阶段只选一个真实问题",
+      "paragraphs": [
+        "从BioAgentLab或你收藏的CLEAR-Microbiome、SCUT_Minilab_MEF中选一个具体任务，例如公开文献证据整理或公开CSV摘要。先写数据字典、工具合同和十个评价样例，再考虑新增框架与模型。",
+        "课程没有复现收藏项目的训练流程，也没有把全部收藏下载成为知识库。你已经完成的是一套可以迁移的方法和可运行教学底座；下一阶段继续保持每天约一小时，每周保留复盘与缓冲。"
+      ]
+    }
+  ],
+  "walkthrough": [
+    {
+      "title": "找到本课的输入与配置",
+      "why": "先知道程序读什么，后面才能解释输出为何改变。",
+      "action": "在 VS Code 中打开 experiments.json，定位 day30。用下面的命令确认当前目录正确，并把各参数的作用写在笔记中。",
+      "command": "python -c \"import json; print(json.load(open('experiments.json', encoding='utf-8'))['day30'])\"",
+      "expected": "终端显示本课配置；键名与文件中的内容一致。"
+    },
+    {
+      "title": "运行本课基线",
+      "why": "保持默认设置的一次运行，是后续比较的参照。",
+      "action": "执行命令，打开新生成的 outputs/day30.json。先检查 day、mode 和 result，不急着修改代码。",
+      "command": "python run.py day 30",
+      "expected": "结果写入 outputs/day30.json；主线 mode 明确为 offline，代表规则教学流程。"
+    },
+    {
+      "title": "沿输出检查机制",
+      "why": "不能只看程序有没有报错，要检查它实际做了什么。",
+      "action": "格式化阅读输出，重点检查answer、evaluation、capability_card 与 project_checks。把一个输入参数和一个输出字段用箭头对应起来。",
+      "command": "python -m json.tool outputs/day30.json",
+      "expected": "能够定位answer、evaluation、capability_card 与 project_checks，并用自己的话解释该结果。"
+    },
+    {
+      "title": "完成演示与能力卡",
+      "why": "主动制造可解释的变化，才能验证自己理解的机制。",
+      "action": "先完成下方预算实验，再恢复默认设置。用正常、拒绝、受控失败三个案例各录制或写下1分钟演示；对照capability_card补充自己实际验证过的环境与可选路径，最后写下一阶段一个具体任务。",
+      "command": "",
+      "expected": "交付包含可复现入口、三个案例、能力卡与下一阶段验收标准。"
+    }
+  ],
+  "experiment": {
+    "title": "让结业演示触及预算边界",
+    "instructions": [
+      "先执行 python run.py day 30，将 outputs/day30.json 复制为自己的基线备份。",
+      "在 VS Code 打开 experiments.json，只修改 day30.max_steps 为 1，保持其他键不变并保存。",
+      "执行 python -m json.tool experiments.json 检查语法，再执行 python run.py day 30。",
+      "对比两份结果，重点观察answer、evaluation、capability_card 与 project_checks；解释改变原因后恢复原设置或明确记录保留值。"
+    ],
+    "expected": "主回答应反映步骤预算不足或相应停止状态；评价和项目检查按自身逻辑运行。记录不同组件的真实结果，不把一个步骤失败扩展成所有功能都失败。",
+    "explanation": "一个完整交付要能解释局部失败及其影响范围。预算受控地终止，比隐瞒失败或无限继续更可复现。"
+  },
+  "deliverable": {
+    "file": "outputs/day30.json",
+    "description": "交付作品、运行证据和诚实的能力卡，把一个月的学习变成可继续改进的项目。 保留基线、修改结果与自己的解释。",
+    "checks": [
+      "可从README复现正常、拒绝与受控失败三个案例。",
+      "能力卡明确主线离线规则、公开评测、合成数据及可选路径验证状态。",
+      "后续任务包含数据来源、允许动作、十个拟定样例和每天一小时安排。"
+    ]
+  },
+  "troubleshooting": [
+    {
+      "symptom": "修改配置后结果没有变化",
+      "cause": "改了其他天的字段，或编辑后尚未保存。",
+      "fix": "核对 experiments.json 中的 day30，保存后重新运行；检查实际执行目录。"
+    },
+    {
+      "symptom": "把受控失败误当成程序坏了",
+      "cause": "本课实验主动制造了边界条件。",
+      "fix": "先对照 expected 和状态字段，区分设计内拒绝与未处理异常；保留错误信息再修复。"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "只有离线主线测试通过时，能否宣称真实模型已完整验证？",
+      "options": [
+        "可以，接口相似就够了",
+        "不可以，要分别记录真实模型路径的执行证据",
+        "只要装过依赖就可以",
+        "只要有API key就可以"
+      ],
+      "answer": 1,
+      "explanation": "不同运行路径的外部依赖和失败方式不同，验证结论不能相互替代。"
+    },
+    {
+      "question": "选下一阶段项目时，哪种目标最容易验收？",
+      "options": [
+        "做一个万能科研助手",
+        "对一份公开CSV生成有字段说明和数值复核的摘要",
+        "让模型无限自主探索",
+        "先安装所有热门框架"
+      ],
+      "answer": 1,
+      "explanation": "明确输入、输出与检查条件，可以把学习时间转化为可完成、可评价的成果。"
+    }
+  ],
+  "reflection": [
+    "一个月后，我最能独立解释与修改的机制是什么？",
+    "如果只再投入七小时，我会先补哪一个真实风险，为什么？"
+  ],
+  "lite": {
+    "minutes": 20,
+    "steps": [
+      "用5分钟阅读第一个概念，写出本课要解决的问题。",
+      "用10分钟运行 python run.py day 30，打开 outputs/day30.json，检查一个关键字段。",
+      "用5分钟完成第一道自测并留一句解释，完整实验与验收留到下次。"
+    ],
+    "done": "保存一份运行结果和自己的解释；精简练习单独记录，不等于整课验收全部完成。"
+  },
+  "stretch": {
+    "minutes": 20,
+    "title": "把收藏中的一个问题写成下一阶段实验",
+    "steps": [
+      "从CLEAR-Microbiome、SCUT_Minilab_MEF或BioAgentLab选择一个公开、具体、一天可缩小的问题。",
+      "写出数据来源、字段含义、允许工具与十个拟定评价样例；此步骤不等于已经复现原项目。",
+      "安排下一周每天60分钟：前三天实现最小流程，两天检查与改错，一天演示，一天复盘或补缺。"
+    ]
+  },
+  "references": [
+    {
+      "id": "bioagentlab",
+      "title": "BioAgentLab：科研 Agent 教材",
+      "url": "https://github.com/zbyloveyj/BioAgentLab",
+      "scope": "回看 book/zh/06_tool_contracts.md、18_evaluation_and_calibration.md、28_reproducibility_and_safety.md，核对最终能力卡。"
+    },
+    {
+      "id": "anthropic_agents",
+      "title": "Anthropic：Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "scope": "重读何时使用简单工作流、何时引入自主Agent，解释自己的设计取舍。"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Capability card",
+      "meaning": "如实记录系统能力、限制、输入输出与验证状态的说明。"
+    },
+    {
+      "term": "Acceptance criterion",
+      "meaning": "可以通过具体观察判断是否完成的验收条件。"
+    },
+    {
+      "term": "Next experiment",
+      "meaning": "针对一个明确未知点安排的下一次可比较试验。"
+    }
+  ],
+  "reviewDays": [
+    23,
+    27
+  ],
+  "next": "完成本课后，以一个明确真实任务继续迭代；允许休息与回顾，课程进度不替代实际掌握。"
+}

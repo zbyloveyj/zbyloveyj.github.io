@@ -1,0 +1,55 @@
+[
+  {
+    "id": "T1",
+    "question": "How do I constrain a function argument?",
+    "evidence_ids": [
+      "E03"
+    ]
+  },
+  {
+    "id": "T2",
+    "question": "Are proportions the same as absolute microbial counts?",
+    "evidence_ids": [
+      "E02"
+    ]
+  },
+  {
+    "id": "T3",
+    "question": "Can an exact excerpt prove the interpretation?",
+    "evidence_ids": [
+      "E04"
+    ]
+  },
+  {
+    "id": "T4",
+    "question": "What if memory records expire or belong to another owner?",
+    "evidence_ids": [
+      "E05"
+    ]
+  },
+  {
+    "id": "T5",
+    "question": "Do confounding and reverse direction affect causality?",
+    "evidence_ids": [
+      "E01"
+    ]
+  },
+  {
+    "id": "T6",
+    "question": "How should numeric results and evaluation traces be checked?",
+    "evidence_ids": [
+      "E06",
+      "E08"
+    ]
+  },
+  {
+    "id": "T7",
+    "question": "quasar blorf snazzle",
+    "evidence_ids": []
+  },
+  {
+    "id": "T8",
+    "question": "zirconium hedgehog 49128",
+    "evidence_ids": []
+  }
+]

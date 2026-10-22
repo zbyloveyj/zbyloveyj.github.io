@@ -1,0 +1,478 @@
+[
+  {
+    "id": "bioagentlab",
+    "title": "你的 BioAgentLab：科研 Agent 教材",
+    "url": "https://github.com/zbyloveyj/BioAgentLab",
+    "kind": "own-project",
+    "starred": false,
+    "why": "延续你已有科研Agent材料，把工具合同、证据、状态、评价与复现迁移到每天可完成的练习。",
+    "readScope": "按当天主题定点阅读一节，不要求从头读完整本。主线例子是独立教学实现，不宣称已复现仓库全部功能。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      20,
+      21,
+      22,
+      24,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "readingLinks": [
+      {
+        "title": "工具合同",
+        "url": "https://github.com/zbyloveyj/BioAgentLab/blob/main/book/zh/06_tool_contracts.md"
+      },
+      {
+        "title": "Agentic RAG与证据",
+        "url": "https://github.com/zbyloveyj/BioAgentLab/blob/main/book/zh/10_agentic_rag_and_evidence.md"
+      },
+      {
+        "title": "评价与校准",
+        "url": "https://github.com/zbyloveyj/BioAgentLab/blob/main/book/zh/18_evaluation_and_calibration.md"
+      },
+      {
+        "title": "文献Agent",
+        "url": "https://github.com/zbyloveyj/BioAgentLab/blob/main/book/zh/20_literature_agent.md"
+      },
+      {
+        "title": "复现与安全",
+        "url": "https://github.com/zbyloveyj/BioAgentLab/blob/main/book/zh/28_reproducibility_and_safety.md"
+      },
+      {
+        "title": "基准与失败案例",
+        "url": "https://github.com/zbyloveyj/BioAgentLab/blob/main/book/zh/31_benchmark_and_failure_cases.md"
+      }
+    ]
+  },
+  {
+    "id": "clear_microbiome",
+    "title": "你已 Star：CLEAR-Microbiome",
+    "url": "https://github.com/zbyloveyj/CLEAR-Microbiome",
+    "kind": "github-star",
+    "starred": true,
+    "why": "用你真正收藏的研究项目选择微生物组方向的迁移任务，保留个人学习动机。",
+    "readScope": "先看README的问题定义、数据输入与结果解释，再选一个公开字段写工具合同；本课不执行原项目训练，也不使用真实患者数据。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      7,
+      22,
+      30
+    ]
+  },
+  {
+    "id": "mef",
+    "title": "你已 Star：SCUT_Minilab_MEF",
+    "url": "https://github.com/zbyloveyj/SCUT_Minilab_MEF",
+    "kind": "github-star",
+    "starred": true,
+    "why": "从已有收藏提取可拆小的研究流程，作为最终项目的选题参考。",
+    "readScope": "阅读README的任务与运行要求，辨认数据、预处理、评价三个环节；不要把课程合成CSV当作该项目原始数据。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      7,
+      22,
+      30
+    ]
+  },
+  {
+    "id": "llms_from_scratch_cn",
+    "title": "你的 Fork：LLMs-from-scratch-CN",
+    "url": "https://github.com/zbyloveyj/LLMs-from-scratch-CN",
+    "kind": "github-fork",
+    "starred": false,
+    "why": "作为模型、token与上下文概念的补充，帮助理解模型与Agent工程的边界。",
+    "readScope": "选读导读和token/context相关内容即可；从头训练大模型不计入30天主线。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      1,
+      3,
+      25
+    ],
+    "forked": true,
+    "upstream": "https://github.com/MLNLP-World/LLMs-from-scratch-CN"
+  },
+  {
+    "id": "python_100_days",
+    "title": "你的 Fork：Python-100-Days",
+    "url": "https://github.com/zbyloveyj/Python-100-Days",
+    "kind": "github-fork",
+    "starred": false,
+    "why": "为Python基础薄弱时提供按需补习路径，避免第一周被环境与语法卡住。",
+    "readScope": "按卡点补字典、函数、异常、文件与CSV读写；每天补习占用当日时段，不额外叠加大量作业。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      22,
+      28
+    ],
+    "forked": true,
+    "upstream": "https://github.com/jackfrued/Python-100-Days"
+  },
+  {
+    "id": "anthropic_agents",
+    "title": "Anthropic：Building effective agents",
+    "url": "https://www.anthropic.com/research/building-effective-agents",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "提供工作流与Agent的概念区分，以及路由、并行、评估者等设计取舍。",
+    "readScope": "优先读何时使用Agent、workflow与agent区别、routing、parallelization和evaluator-optimizer；具体产品接口以当前文档为准。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      1,
+      6,
+      15,
+      20,
+      21,
+      30
+    ]
+  },
+  {
+    "id": "hf_agents",
+    "title": "Hugging Face：Agents Course",
+    "url": "https://huggingface.co/learn/agents-course/en/unit0/introduction",
+    "kind": "official-course",
+    "starred": false,
+    "why": "补充Agent、工具和行动循环的直观解释，为选学框架提供导航。",
+    "readScope": "先读Unit0入门和Unit1基础概念；框架单元按需要选读，不把整个外部课程当成每日必做。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      1,
+      3,
+      5,
+      6,
+      18,
+      19
+    ]
+  },
+  {
+    "id": "hello_agents",
+    "title": "Datawhale：Hello Agents",
+    "url": "https://github.com/datawhalechina/hello-agents",
+    "kind": "community-course",
+    "starred": false,
+    "why": "提供中文背景解释与实践对照，降低概念学习的语言负担。",
+    "readScope": "按工具调用、记忆、检索与评估主题查阅；依赖和模型要求以该仓库当前说明为准，不混用课程脚本配置。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      1,
+      5,
+      6,
+      9,
+      12,
+      13,
+      20
+    ]
+  },
+  {
+    "id": "python_venv",
+    "title": "Python：venv 虚拟环境",
+    "url": "https://docs.python.org/3/library/venv.html",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "用隔离环境运行实践，便于区分标准库主线与选学依赖。",
+    "readScope": "阅读创建环境与各平台激活命令；遇到python命令差异时直接使用环境解释器。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      1,
+      3,
+      18,
+      19,
+      28
+    ]
+  },
+  {
+    "id": "python_json",
+    "title": "Python：json",
+    "url": "https://docs.python.org/3/library/json.html",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "理解配置、结构化输出与请求消息的实际编码方式。",
+    "readScope": "阅读load/loads、dump/dumps与JSONDecodeError；用python -m json.tool检查配置。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      2,
+      4,
+      8,
+      12,
+      18,
+      26
+    ]
+  },
+  {
+    "id": "python_argparse",
+    "title": "Python：argparse",
+    "url": "https://docs.python.org/3/library/argparse.html",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "帮助理解day、ask、evaluate与serve命令如何接收参数。",
+    "readScope": "阅读基础解析器、可选参数和子命令示例，对照run.py实际入口。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      1,
+      6,
+      14,
+      24,
+      26,
+      30
+    ]
+  },
+  {
+    "id": "python_unittest",
+    "title": "Python：unittest",
+    "url": "https://docs.python.org/3/library/unittest.html",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "用可执行断言检查输入边界和失败状态，支撑可复现交付。",
+    "readScope": "阅读assertEqual、assertRaises和测试发现；关注测试承诺范围，不把代码测试替代模型质量评价。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      2,
+      11,
+      24,
+      28,
+      30
+    ]
+  },
+  {
+    "id": "python_concurrent",
+    "title": "Python：concurrent.futures",
+    "url": "https://docs.python.org/3/library/concurrent.futures.html",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "解释等待超时、线程任务和有界并发，避免把超时当作强制取消。",
+    "readScope": "阅读Future.result(timeout)、ThreadPoolExecutor、shutdown及取消行为。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      16,
+      27
+    ]
+  },
+  {
+    "id": "python_http",
+    "title": "Python：http.server",
+    "url": "https://docs.python.org/3/library/http.server.html",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "支持本地网页练习，理解请求处理与标准库服务器的适用范围。",
+    "readScope": "阅读HTTPServer、BaseHTTPRequestHandler与安全注意；课程服务仅用于loopback教学。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      26
+    ]
+  },
+  {
+    "id": "python_hashlib",
+    "title": "Python：hashlib",
+    "url": "https://docs.python.org/3/library/hashlib.html",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "将批准绑定到具体内容，并为实际交付文件生成一致性摘要。",
+    "readScope": "阅读sha256、update、digest和hexdigest；摘要不等于加密或授权系统。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      8,
+      17,
+      28
+    ]
+  },
+  {
+    "id": "python_logging",
+    "title": "Python：logging",
+    "url": "https://docs.python.org/3/library/logging.html",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "为排查执行路径提供记录级别、字段和输出通道的基础。",
+    "readScope": "阅读日志级别、格式和handler；不记录API key或不必要的敏感原文。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      18,
+      25
+    ]
+  },
+  {
+    "id": "python_csv",
+    "title": "Python：csv",
+    "url": "https://docs.python.org/3/library/csv.html",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "用确定性代码读取表格，记录行数、缺失值与统计来源。",
+    "readScope": "阅读DictReader及newline文件打开约定，检查表头与原始行。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      22
+    ]
+  },
+  {
+    "id": "openai_tools",
+    "title": "OpenAI：Function calling",
+    "url": "https://platform.openai.com/docs/guides/function-calling",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "说明模型建议工具调用与应用实际执行工具的职责区分。",
+    "readScope": "阅读工具定义、参数schema、执行工具与回传结果的调用循环；按当前接口文档核对字段。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      2,
+      3,
+      5,
+      6,
+      14
+    ]
+  },
+  {
+    "id": "openai_responses",
+    "title": "OpenAI：Responses API",
+    "url": "https://platform.openai.com/docs/api-reference/responses",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "作为可选真实模型适配器与usage字段的接口依据。",
+    "readScope": "按需查请求输入、输出、工具调用与usage；没有真实调用证据时标记未验证，不硬编码永久价格。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      3,
+      6,
+      14,
+      25,
+      30
+    ]
+  },
+  {
+    "id": "ollama_toolcalling",
+    "title": "Ollama：Tool calling",
+    "url": "https://docs.ollama.com/capabilities/tool-calling",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "给可选本地模型路径提供原生接口和工具往返例子。",
+    "readScope": "阅读/api/chat工具定义、tool_calls与工具结果回传；模型下载与实际推理需在自己的电脑验证。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      3,
+      5,
+      6,
+      14,
+      30
+    ]
+  },
+  {
+    "id": "ollama_qwen3",
+    "title": "Ollama：qwen3:4b 模型页",
+    "url": "https://ollama.com/library/qwen3:4b",
+    "kind": "official-model-page",
+    "starred": false,
+    "why": "为可选本地路线提供明确模型标签，避免随意假设某个模型支持工具。",
+    "readScope": "核对模型标签、能力标识与本机资源需求；课程未用页面存在证明本机已成功推理。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      3,
+      6,
+      14,
+      30
+    ]
+  },
+  {
+    "id": "mcp_spec",
+    "title": "MCP：2025-11-25 协议规范",
+    "url": "https://modelcontextprotocol.io/specification/2025-11-25",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "为真实stdio消息演示提供协议生命周期、能力协商与工具接口依据。",
+    "readScope": "定点阅读初始化、initialized通知、tools/list、tools/call及安全原则；课程实现只是有限教学子集。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      17,
+      18,
+      23
+    ]
+  },
+  {
+    "id": "mcp_python",
+    "title": "MCP：官方 Python SDK",
+    "url": "https://github.com/modelcontextprotocol/python-sdk",
+    "kind": "official-sdk",
+    "starred": false,
+    "why": "作为正式客户端服务端API的选学入口，区别手写教学协议与官方SDK。",
+    "readScope": "先核对主版本和安装说明，再读stdio服务器与客户端示例；不要将不同主版本类名混用。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      18
+    ]
+  },
+  {
+    "id": "langgraph_overview",
+    "title": "LangGraph：Overview",
+    "url": "https://docs.langchain.com/oss/python/langgraph/overview",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "把已有任务步骤映射到状态、节点与边，理解框架带来的组织方式。",
+    "readScope": "阅读最小StateGraph示例和核心概念；可选脚本独立固定查询，不读取day19配置。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      15,
+      19
+    ]
+  },
+  {
+    "id": "langgraph_persistence",
+    "title": "LangGraph：Persistence",
+    "url": "https://docs.langchain.com/oss/python/langgraph/persistence",
+    "kind": "official-docs",
+    "starred": false,
+    "why": "对照课程检查点理解持久化、线程标识和恢复的区别。",
+    "readScope": "选读checkpoints、threads与恢复机制；课程选学图示例不等于已部署耐久工作流服务。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      12,
+      19
+    ]
+  },
+  {
+    "id": "owasp_injection",
+    "title": "OWASP：LLM01 Prompt Injection",
+    "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+    "kind": "security-reference",
+    "starred": false,
+    "why": "支持把外部资料视为不可信数据、采用最小权限并保留防护覆盖边界。",
+    "readScope": "阅读直接与间接注入、权限、输出验证与人工批准；单条样例通过不代表解决所有注入。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      23,
+      29
+    ]
+  },
+  {
+    "id": "rag_paper",
+    "title": "Lewis 等：Retrieval-Augmented Generation",
+    "url": "https://arxiv.org/abs/2005.11401",
+    "kind": "research-paper",
+    "starred": false,
+    "why": "提供检索增强生成的研究背景，并帮助区分本课词法检索教学与原论文方法。",
+    "readScope": "重点读摘要、检索器与生成器关系和评价设置；无需复现原论文训练。",
+    "checkedAt": "2026-10-21",
+    "relatedDays": [
+      9,
+      10,
+      11,
+      24
+    ]
+  }
+]
