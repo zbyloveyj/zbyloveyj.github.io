@@ -1,0 +1,210 @@
+{
+  "day": 1,
+  "title": "把第一个 Agent 项目跑起来",
+  "subtitle": "先拿到一次完整运行，再认识模型、工具与任务边界。",
+  "phase": 1,
+  "minutes": 60,
+  "prerequisites": [
+    "一台可以安装Python的电脑；主线无需GPU或API密钥。",
+    "下载实践包并解压，能找到practice目录。"
+  ],
+  "outcomes": [
+    "在 VS Code 中打开并运行实践包。",
+    "区分聊天、固定工作流和模型参与决策的 Agent。",
+    "写出输入、允许动作、交付物和停止条件。"
+  ],
+  "agenda": [
+    {
+      "label": "理解概念",
+      "minutes": 15,
+      "task": "阅读四节讲解，记下今天最关键的一个区别；外部资料按指定小节选读。"
+    },
+    {
+      "label": "操作与修改",
+      "minutes": 30,
+      "task": "先完成四步带练，再改变一个参数，保留修改前后的结果。"
+    },
+    {
+      "label": "验收与自测",
+      "minutes": 10,
+      "task": "对照三项验收，完成两道自测并阅读解析。"
+    },
+    {
+      "label": "记录与收尾",
+      "minutes": 5,
+      "task": "写下结果、未解决的问题和下次打开项目后的第一步。"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "一个月的目标，是做出可以解释的作品",
+      "paragraphs": [
+        "这一个月围绕科研证据助手展开：输入一个问题，查找指定材料，按需要调用工具，最后留下能够核对来源的结果。每天以一次小实验和一个具体文件衡量进展。30天是学习顺序；忙碌时可以分两次完成，不需要为了连续打卡而跳过理解。",
+        "课程主线采用Python标准库和明确标注的离线规则。它让没有GPU或API账号的电脑也能检查接口、数据和控制流程。第3天提供真实模型路径；离线运行成功与真实模型能力是两项不同的验证。"
+      ]
+    },
+    {
+      "title": "把聊天、工作流和 Agent 分开",
+      "paragraphs": [
+        "让模型将一段话改写成三句话，可以是一次模型调用。读取CSV、检查缺失、输出固定报告，可以预先写成工作流。如果系统需要根据不同问题选择下一步工具、观察结果后调整行动，才涉及模型参与的行动决策。结构越复杂，越需要明确成本与停止条件。",
+        "本课的offline模式是教学工作流，不会隐藏调用大模型。你将先学会外围程序如何约束、执行与检查，再接上模型。这能帮助你判断：一个结果来自检索、计算、固定规则还是模型，而不是把所有输出都归功于所谓智能。"
+      ]
+    },
+    {
+      "title": "让环境准备尽量简单",
+      "paragraphs": [
+        "先安装Python 3.10或以上版本与VS Code，再解压实践包。用VS Code的“文件→打开文件夹”选中能直接看到run.py、agentkit和data的practice目录，然后点“终端→新建终端”。网页负责阅读与记录，Python命令在你电脑的终端运行，不要输入到带有>>>的Python交互窗口。",
+        "Windows先试python --version，找不到时试py --version。建议建立.venv环境并直接使用其中的解释器：Windows是.\\.venv\\Scripts\\python.exe，macOS/Linux是.venv/bin/python。这样无需修改PowerShell执行策略。下文统一写python，你可以替换为环境内的完整路径。"
+      ]
+    },
+    {
+      "title": "先写任务边界，再增加功能",
+      "paragraphs": [
+        "合适的起步任务是“依据给定教学资料解释关联与因果的区别，并列出没有得到支持的部分”。它有有限输入和可检查的终点。“自动完成所有微生物研究”则缺少输入、权限、交付标准和结束条件，不能靠一次运行判断成功。",
+        "今天先写四句话：材料从哪里来；允许读取或写入什么；最后得到哪个文件；遇到什么情况停止。后面会把这些文字逐渐转成JSON参数、工具白名单、预算和人工批准。现在只生成任务卡，不宣称已经实现整个行动循环。"
+      ]
+    }
+  ],
+  "walkthrough": [
+    {
+      "title": "确认目录与解释器",
+      "why": "先排除路径问题。",
+      "action": "在practice目录打开终端；最后一行必须为True。",
+      "command": "python --version\npython -c \"from pathlib import Path; print(Path.cwd()); print(Path('run.py').exists())\"",
+      "expected": "Python版本不低于3.10；当前目录存在run.py。"
+    },
+    {
+      "title": "创建独立环境并执行第一课",
+      "why": "避免影响已有科研环境。",
+      "action": "Windows运行下面两行；macOS/Linux改为python3 -m venv .venv和.venv/bin/python run.py day 1。",
+      "command": "py -3 -m venv .venv\n.\\.venv\\Scripts\\python.exe run.py day 1",
+      "expected": "终端输出本课JSON，生成outputs/day01.json。"
+    },
+    {
+      "title": "读懂结果的层次",
+      "why": "知道本次程序真正完成了什么。",
+      "action": "打开输出，找到day、title、mode和result，确认是offline教学结果。",
+      "command": "python -m json.tool outputs/day01.json",
+      "expected": "JSON可正常格式化；你能指出任务卡与模式标记。"
+    },
+    {
+      "title": "把目标写成四句话",
+      "why": "让后续每个功能都有检查依据。",
+      "action": "在学习笔记写输入、允许动作、交付物、停止条件；对照experiments.json的day01配置。",
+      "command": "",
+      "expected": "留下一张小任务卡；不把任务卡误认成已执行的自主Agent。"
+    }
+  ],
+  "experiment": {
+    "title": "改变目标与预算，观察任务卡",
+    "instructions": [
+      "打开experiments.json，将day01.goal改成“从给定资料整理关联与因果的证据说明”。",
+      "将day01.max_steps改为4，保存后运行python run.py day 1。",
+      "对比result.task_card中的目标与步数；恢复原值或在笔记登记所保留的配置。"
+    ],
+    "expected": "任务卡反映实际修改；第1课不会因为步数变成4就自动执行四轮模型调用。",
+    "explanation": "把任务说明写成配置，是可检查程序的第一步；真正的行动循环在第6课出现。"
+  },
+  "deliverable": {
+    "file": "outputs/day01.json",
+    "description": "第1课运行结果、一次参数对照，以及自己能解释的学习笔记。",
+    "checks": [
+      "可以从新终端再次运行第1课。",
+      "能解释offline模式及本课任务卡的范围。",
+      "任务说明包含输入、权限、交付物与停止条件。"
+    ]
+  },
+  "troubleshooting": [
+    {
+      "symptom": "提示找不到run.py",
+      "cause": "终端没有位于practice目录。",
+      "fix": "用VS Code重新打开practice文件夹，再开终端；检查Path('run.py').exists()。"
+    },
+    {
+      "symptom": "PowerShell不允许激活环境",
+      "cause": "系统阻止执行激活脚本。",
+      "fix": "直接使用.\\.venv\\Scripts\\python.exe执行命令，无需调整系统策略。"
+    },
+    {
+      "symptom": "python命令不存在",
+      "cause": "解释器未安装或未加入路径。",
+      "fix": "Windows尝试py；macOS/Linux尝试python3。仍失败则从Python官网安装后重开终端。"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "离线示例运行成功，能够证明什么？",
+      "options": [
+        "某个真实模型已能自主科研",
+        "这组输入下教学流程能够运行",
+        "所有未来输入都可靠",
+        "研究结论已经得到验证"
+      ],
+      "answer": 1,
+      "explanation": "运行成功证明当前流程可执行，不能替代模型测试、真实数据分析或科学论证。"
+    },
+    {
+      "question": "第一版助手最适合哪种任务？",
+      "options": [
+        "处理一切科研事务",
+        "自动作出临床判断",
+        "从给定三份资料整理可复核证据卡",
+        "无限搜索直到得到肯定结论"
+      ],
+      "answer": 2,
+      "explanation": "有限输入、清楚输出与可检查的来源，使任务能够逐步实现和验收。"
+    }
+  ],
+  "reflection": [
+    "今天的困难属于安装、路径、程序还是任务定义？",
+    "下次能否在两分钟内重新运行这份结果？"
+  ],
+  "lite": {
+    "minutes": 20,
+    "steps": [
+      "用3分钟读“一个月的目标，是做出可以解释的作品”，写下一个关键区别。",
+      "用12分钟运行 python run.py day 1，打开 outputs/day01.json 并核对第一项预期结果。",
+      "用5分钟完成第一道自测并写一句解释；完整参数实验和其余验收留待下次。"
+    ],
+    "done": "留下本课运行结果与一句自己的解释；精简完成单独记录，不等于完整课程已经验收。"
+  },
+  "stretch": {
+    "minutes": 20,
+    "title": "为自己的科研工作写任务卡",
+    "steps": [
+      "选择一个真实工作场景，但只用公开或虚构材料。",
+      "把输入、允许动作、交付物与停止条件分别写成一句话。",
+      "删去当前无法验收的宽泛目标。"
+    ]
+  },
+  "references": [
+    {
+      "id": "python_venv",
+      "title": "Python 官方：虚拟环境",
+      "url": "https://docs.python.org/3/library/venv.html",
+      "scope": "阅读 Creating virtual environments；本课使用解释器完整路径，无需改变系统执行策略。"
+    },
+    {
+      "id": "anthropic_agents",
+      "title": "Anthropic：Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "scope": "阅读 workflows 与 agents 的区别，以及从简单结构开始的讨论。"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Agent",
+      "meaning": "模型参与选择下一步动作，外围程序负责约束、执行和检查的系统。"
+    },
+    {
+      "term": "Workflow",
+      "meaning": "主要步骤与转移规则预先确定的工作流。"
+    },
+    {
+      "term": "虚拟环境",
+      "meaning": "隔离一个项目的Python解释器和第三方依赖。"
+    }
+  ],
+  "reviewDays": [],
+  "next": "下一课把任务中的文字约定转成JSON和程序可以检查的数据结构。"
+}

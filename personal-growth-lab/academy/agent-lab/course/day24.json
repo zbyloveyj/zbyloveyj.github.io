@@ -1,0 +1,209 @@
+{
+  "day": 24,
+  "title": "建立开发集与测试集的评价习惯",
+  "subtitle": "分别测检索、可回答问题和拒答，把公开教学结果解释清楚。",
+  "phase": 4,
+  "minutes": 60,
+  "prerequisites": [
+    "已经完成第 23 课，或能解释其产物。",
+    "打开实践包 practice 目录；后文 python 可替换为虚拟环境内解释器的完整路径。"
+  ],
+  "outcomes": [
+    "解释三种评价指标各自在测什么。",
+    "分别运行公开dev与test并读取逐题结果。",
+    "用单变量实验观察检索规模对评价的影响。"
+  ],
+  "agenda": [
+    {
+      "label": "理解概念",
+      "minutes": 15,
+      "task": "阅读本课四节讲解，弄清一个关键机制与适用边界。"
+    },
+    {
+      "label": "亲手操作",
+      "minutes": 30,
+      "task": "先跑基线，再做一次单变量实验，保留前后结果。"
+    },
+    {
+      "label": "检查结果",
+      "minutes": 10,
+      "task": "逐项验收，完成两道自测并阅读解析。"
+    },
+    {
+      "label": "留下记录",
+      "minutes": 5,
+      "task": "写出本课发现、未解决问题和下次第一步。"
+    }
+  ],
+  "concepts": [
+    {
+      "title": "先规定什么叫成功",
+      "paragraphs": [
+        "检索是否找到相关证据、可回答问题是否答对、未知问题是否明确拒答，是不同的评价目标。只看最终回答是否流畅，无法判断证据链是否工作。",
+        "本课输出 evaluation，其中记录各项指标和逐题结果。先打开 data/eval_dev.json 与 data/eval_test.json，理解每个样例的预期结果；不要只复制一个总分而忽略失败类型。"
+      ]
+    },
+    {
+      "title": "开发集用于改进，测试集用于阶段检查",
+      "paragraphs": [
+        "你可以在开发集上调整top_k、措辞和规则；测试集用于在固定阶段观察变化后的表现。若反复查看测试答案并据此调参，测试结果也会逐渐变成开发反馈。",
+        "课程附带的两个小集合都公开给学习者，所以它们不是盲外测，也不是秘密基准。课程中保留名称是为了练习流程，不能据此宣称系统在未知真实科研问题上达到同样水平。"
+      ]
+    },
+    {
+      "title": "多个指标帮助定位错误",
+      "paragraphs": [
+        "retrieval_recall关注相关证据是否被找到；answerable_accuracy关注有依据的问题；abstention_accuracy关注系统是否会对材料外问题保留不确定。三个数可能朝不同方向变化。",
+        "扩大top_k可能找到更多相关材料，也可能加入噪声；当前词法检索与规则回答有自己的特征。用逐题结果说明变化，而不是假设参数越大越好或平均分越高就全面改进。"
+      ]
+    },
+    {
+      "title": "小数据集适合发现问题，不适合夸大能力",
+      "paragraphs": [
+        "几道教学题能快速发现回归错误，但分数对单题变化很敏感。还要考虑样例重复、资料泄漏和问题覆盖范围，才能判断评估是否代表真实任务。",
+        "本课的产物应包括本次参数、数据集合、逐题失败原因和下一步补充的样例类型。未来加入真正保留的外部题目时，应冻结题目与标准，并控制根据测试结果继续调参的次数。"
+      ]
+    }
+  ],
+  "walkthrough": [
+    {
+      "title": "找到本课的输入与配置",
+      "why": "先知道程序读什么，后面才能解释输出为何改变。",
+      "action": "在 VS Code 中打开 experiments.json，定位 day24。用下面的命令确认当前目录正确，并把各参数的作用写在笔记中。",
+      "command": "python -c \"import json; print(json.load(open('experiments.json', encoding='utf-8'))['day24'])\"",
+      "expected": "终端显示本课配置；键名与文件中的内容一致。"
+    },
+    {
+      "title": "运行本课基线",
+      "why": "保持默认设置的一次运行，是后续比较的参照。",
+      "action": "执行命令，打开新生成的 outputs/day24.json。先检查 day、mode 和 result，不急着修改代码。",
+      "command": "python run.py day 24",
+      "expected": "结果写入 outputs/day24.json；主线 mode 明确为 offline，代表规则教学流程。"
+    },
+    {
+      "title": "沿输出检查机制",
+      "why": "不能只看程序有没有报错，要检查它实际做了什么。",
+      "action": "格式化阅读输出，重点检查evaluation 的指标、样例数与逐题 items。把一个输入参数和一个输出字段用箭头对应起来。",
+      "command": "python -m json.tool outputs/day24.json",
+      "expected": "能够定位evaluation 的指标、样例数与逐题 items，并用自己的话解释该结果。"
+    },
+    {
+      "title": "改变一个条件并比较",
+      "why": "主动制造可解释的变化，才能验证自己理解的机制。",
+      "action": "完成下面“改一改”实验。对比基线与新结果，记录哪些字段改变、哪些保持稳定；不要同时改模型、材料和参数。",
+      "command": "",
+      "expected": "留下一组前后结果和一句解释；失败状态也可以是正确的实验产物。"
+    }
+  ],
+  "experiment": {
+    "title": "缩小检索规模，比较哪些题受到影响",
+    "instructions": [
+      "先执行 python run.py day 24，将 outputs/day24.json 复制为自己的基线备份。",
+      "在 VS Code 打开 experiments.json，只修改 day24.top_k 为 1，保持其他键不变并保存。",
+      "执行 python -m json.tool experiments.json 检查语法，再执行 python run.py day 24。",
+      "对比两份结果，重点观察evaluation 的指标、样例数与逐题 items；解释改变原因后恢复原设置或明确记录保留值。"
+    ],
+    "expected": "在相同split上比较top_k=3与1的逐题结果；可能有题变化，也可能整体分数不变，必须按真实输出记录。",
+    "explanation": "小样本和规则流程可能使某些参数变化不影响最终标签。逐题观察比预设“分数一定下降”更可靠。"
+  },
+  "deliverable": {
+    "file": "outputs/day24.json",
+    "description": "分别测检索、可回答问题和拒答，把公开教学结果解释清楚。 保留基线、修改结果与自己的解释。",
+    "checks": [
+      "分别保存开发集与测试集结果，标注参数。",
+      "至少解释一题成功或失败的原因。",
+      "报告明确写出公开小样本、非盲外测的限制。"
+    ]
+  },
+  "troubleshooting": [
+    {
+      "symptom": "修改配置后结果没有变化",
+      "cause": "改了其他天的字段，或编辑后尚未保存。",
+      "fix": "核对 experiments.json 中的 day24，保存后重新运行；检查实际执行目录。"
+    },
+    {
+      "symptom": "把受控失败误当成程序坏了",
+      "cause": "本课实验主动制造了边界条件。",
+      "fix": "先对照 expected 和状态字段，区分设计内拒绝与未处理异常；保留错误信息再修复。"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "不断查看test答案并据此调参后，test结果应怎样解释？",
+      "options": [
+        "仍然完全独立",
+        "已受到开发过程影响，独立性降低",
+        "题目越少越独立",
+        "可以称为盲外测"
+      ],
+      "answer": 1,
+      "explanation": "测试反馈参与了优化，它不再提供同等独立的验证。"
+    },
+    {
+      "question": "所有问题都回答一段话，可能损害哪个指标？",
+      "options": [
+        "未知问题的拒答准确性",
+        "只会提高所有指标",
+        "与评价无关",
+        "自动提升证据召回"
+      ],
+      "answer": 0,
+      "explanation": "对材料外问题也给出确定回答，可能牺牲拒答能力。"
+    }
+  ],
+  "reflection": [
+    "我更在意漏掉可回答问题，还是对未知问题乱答，为什么？",
+    "现有题目遗漏了我的真实任务中的哪一种失败？"
+  ],
+  "lite": {
+    "minutes": 20,
+    "steps": [
+      "用5分钟阅读第一个概念，写出本课要解决的问题。",
+      "用10分钟运行 python run.py day 24，打开 outputs/day24.json，检查一个关键字段。",
+      "用5分钟完成第一道自测并留一句解释，完整实验与验收留到下次。"
+    ],
+    "done": "保存一份运行结果和自己的解释；精简练习单独记录，不等于整课验收全部完成。"
+  },
+  "stretch": {
+    "minutes": 20,
+    "title": "把本课机制迁移到一个自己的任务",
+    "steps": [
+      "从自己的文献整理或数据分析流程中选一个相似环节。",
+      "写清输入、允许动作、失败出口与验收方法。",
+      "提出一个会让当前实现失败的反例，并标明它是待实现扩展。"
+    ]
+  },
+  "references": [
+    {
+      "id": "bioagentlab",
+      "title": "BioAgentLab：科研 Agent 教材",
+      "url": "https://github.com/zbyloveyj/BioAgentLab",
+      "scope": "阅读 book/zh/18_evaluation_and_calibration.md 与 book/zh/31_benchmark_and_failure_cases.md，重点看指标与失败分类。"
+    },
+    {
+      "id": "rag_paper",
+      "title": "Lewis 等：Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "scope": "阅读检索增强方法的任务设置与评价部分，对比本课词法检索的范围。"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Development set",
+      "meaning": "用于调试和改进系统的样例集合。"
+    },
+    {
+      "term": "Test set",
+      "meaning": "用于阶段性检查的样例集合；独立程度取决于使用方式。"
+    },
+    {
+      "term": "Abstention",
+      "meaning": "证据不足时明确停止推断或拒绝给出确定结论。"
+    }
+  ],
+  "reviewDays": [
+    17,
+    21
+  ],
+  "next": "下一课把耗时、调用与成本记录下来，让运行情况可解释。"
+}

@@ -1,0 +1,18 @@
+'use strict';
+const assert=require('node:assert/strict');
+require('../assets/progress.js');
+const P=global.AgentProgress,lessons=[1,2].map(day=>({day,deliverable:{checks:['a','b','c']},quiz:[{options:['a','b','c','d']}]}));
+const incoming=(day,note,at,checks=[true,true,true])=>P.normalize({schema:'agent-course-v1',records:{[day]:{note,updatedAt:at,checks,done:true}},last:day,lastAt:at},lessons);
+let current=incoming(1,'newer','2026-10-22T02:00:00Z');
+let merged=P.merge(current,incoming(1,'old','2026-10-22T01:00:00Z'));
+assert.equal(merged.state.records[1].note,'newer');assert.deepEqual(merged.changed,[]);
+merged=P.merge(current,incoming(2,'other','2026-10-22T03:00:00Z'));
+assert.equal(merged.state.records[1].note,'newer');assert.equal(merged.state.records[2].note,'other');assert.equal(merged.state.last,2);
+assert.equal(incoming(1,'x','2026-10-22T01:00:00Z',[true,false,true]).records[1].done,false);
+assert.throws(()=>P.normalize({schema:1,records:{}},lessons));
+assert.throws(()=>P.normalize({schema:'agent-course-v1',records:[]},lessons));
+const roundtrip=P.normalize(JSON.parse(JSON.stringify(merged.state)),lessons);assert.deepEqual(roundtrip,merged.state);
+const hostile=P.normalize({schema:'agent-course-v1',records:{1:{note:'x'.repeat(60000),quiz:{0:99},checks:[true,true,true],done:true,updatedAt:'wrong'},999:{note:'unexpected'}}},lessons);
+assert.equal(hostile.records[1].note.length,50000);assert.deepEqual(hostile.records[1].quiz,{});assert.equal(hostile.records[999],undefined);
+assert.equal(P.merge(current,current).changed.length,0);
+console.log('Progress checks passed: merge, stale imports, isolation, roundtrip, completion prerequisites, hostile data, idempotency.');
