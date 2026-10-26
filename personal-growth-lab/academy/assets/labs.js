@@ -373,6 +373,19 @@
     }
     const ids=new Set();for(const record of records){if(!record||typeof record.id!=='string'||ids.has(record.id))throw Error('数据记录标识重复或缺失，请刷新后重试');ids.add(record.id);}
     if(main.totalRecords!==undefined&&main.totalRecords!==records.length)throw Error('全库记录数量校验未通过，请刷新后重试');
+    const editorial=await json('data/lab-editorial-overrides.json');
+    if(editorial.schemaVersion!==1||!Array.isArray(editorial.updates))throw Error('人工事实更正清单格式无效');
+    const byId=new Map(records.map(record=>[record.id,record]));
+    for(const update of editorial.updates){
+      const record=byId.get(update.id);if(!record)throw Error('人工事实更正引用了未知稳定ID：'+update.id);
+      for(const [key,value] of Object.entries(update.set||{}))record[key]=key==='opportunity'?{...(record.opportunity||{}),...value}:value;
+      for(const [field,items] of Object.entries(update.upsert||{})){
+        if(!['sources','papers','assessmentEvidence'].includes(field))throw Error('人工事实更正集合不受支持：'+field);
+        record[field]=record[field]||[];
+        for(const item of items){const key=field==='assessmentEvidence'?String(item.dimension)+'|'+String(item.url):item.url;const index=record[field].findIndex(old=>(field==='assessmentEvidence'?String(old.dimension)+'|'+String(old.url):old.url)===key);if(index<0)record[field].push(item);else record[field][index]={...record[field][index],...item};}
+      }
+    }
+    main.editorialOverlay={edition:editorial.edition,verifiedAt:editorial.verifiedAt,updates:editorial.updates.length};
     main.labs=records;return main;
   }
   async function load() {
@@ -388,7 +401,7 @@
       const results=await Promise.allSettled([json(raw),json('data/lab-monitor.json')]);
       monitor=results.filter(x=>x.status==='fulfilled'&&x.value.schemaVersion===1).map(x=>x.value).sort((a,b)=>(b.checkedAt||'').localeCompare(a.checkedAt||''))[0]||{sources:{}};
       const date=monitor.checkedAt?new Date(monitor.checkedAt).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false}):'待首次运行';
-      $('freshness').textContent=`证据版本 ${data.edition} · 网页巡检 ${date}${monitor.checkedAt?' 北京时间':''}${monitor.checkedAt&&age(monitor.checkedAt)>3?'（超过3天未更新）':''} · 自动检查不等于内容复核`;
+      $('freshness').textContent='证据版本 '+data.edition+' · 人工事实更正 '+(data.editorialOverlay?.verifiedAt||'无')+' · 网页巡检 '+date+(monitor.checkedAt?' 北京时间':'')+(monitor.checkedAt&&age(monitor.checkedAt)>3?'（超过3天未更新）':'')+' · 自动检查不等于内容复核';
       document.querySelectorAll('.lab-card').forEach(el=>{const l=data.labs.find(l=>'lab-'+l.id===el.id),r=review(l),status=el.querySelector('.status');status.className='status '+r.status;status.textContent=data.statuses[r.status];el.querySelector('.opportunity-review-note')?.remove();if(r.reason){const p=document.createElement('p');p.className='review-note opportunity-review-note';p.textContent='待复核：'+r.reason;el.querySelector('.date').before(p);}el.querySelector('.date').textContent=`${verificationLabel(l)} ${l.verifiedAt} · ${evidenceMonitor(l)}`;});
       if($('status').value)render({preserveHash:true});else renderComparison();
     }catch(e){$('freshness').textContent='证据库读取失败。'+String(e.message||'请稍后刷新。').slice(0,180)+(data?' 当前保留上次完整载入的内容。':' 未完整载入前不显示部分人数。');if(!data)$('cards').innerHTML='<div class="empty"><h3>研究资料尚未完整载入</h3><p>请点击上方“刷新数据”重试。已收藏的名单和私人笔记仍保存在当前浏览器。</p></div>';}

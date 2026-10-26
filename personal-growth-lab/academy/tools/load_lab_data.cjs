@@ -13,6 +13,21 @@ module.exports=function loadLabData(file=path.join(__dirname,'../data/labs.json'
     if(part.compressedPath&&!zlib.gunzipSync(fs.readFileSync(path.join(path.dirname(file),'..',part.compressedPath))).equals(raw))throw Error('Compressed part mismatch');
     labs.push(...doc.labs);
   }
+  const overlayPath=path.join(path.dirname(file),'lab-editorial-overrides.json');
+  if(fs.existsSync(overlayPath)){
+    const overlay=JSON.parse(fs.readFileSync(overlayPath,'utf8'));
+    if(overlay.schemaVersion!==1||!Array.isArray(overlay.updates))throw Error('Invalid editorial override schema');
+    const byId=new Map(labs.map(l=>[l.id,l]));
+    for(const update of overlay.updates){
+      const record=byId.get(update.id);if(!record)throw Error('Editorial override references unknown stable ID: '+update.id);
+      for(const [key,value] of Object.entries(update.set||{}))record[key]=key==='opportunity'?{...(record.opportunity||{}),...value}:value;
+      for(const [field,items] of Object.entries(update.upsert||{})){
+        if(!['sources','papers','assessmentEvidence'].includes(field))throw Error('Unsupported editorial override collection: '+field);
+        record[field]=record[field]||[];
+        for(const item of items){const key=field==='assessmentEvidence'?String(item.dimension)+'|'+String(item.url):item.url;const index=record[field].findIndex(old=>(field==='assessmentEvidence'?String(old.dimension)+'|'+String(old.url):old.url)===key);if(index<0)record[field].push(item);else record[field][index]={...record[field][index],...item};}
+      }
+    }
+  }
   if(new Set(labs.map(l=>l.id)).size!==labs.length||data.totalRecords!==undefined&&data.totalRecords!==labs.length)throw Error('Directory identity/total mismatch');
   data.labs=labs;
   // The returned in-memory object is complete and safe as a browser fixture.

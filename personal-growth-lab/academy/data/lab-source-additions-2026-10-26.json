@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "editorial-2026-10-26-01",
+  "verifiedAt": "2026-10-26",
+  "refresh": [
+    {
+      "url": "https://researchinformation.umcutrecht.nl/en/persons/nf-ramsey/",
+      "scope": "已读取UMC Utrecht官方个人资料，核验教授任职及当前BCI研究目标。"
+    },
+    {
+      "url": "https://utrecht-bci.nl/open-position-for-a-postdoc/",
+      "scope": "已读取官方岗位页，确认公告日期为2022-08-03、计划2022年11月入职，不作为当前招聘依据。"
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "review-peer-bork-memorial-20261026",
+      "id": "review-peer-bork-memorial-20261026",
+      "url": "https://www.embl.org/news/embl-announcements/in-remembrance-of-peer-bork/",
+      "title": "In remembrance of Peer Bork — EMBL official announcement",
+      "institution": "European Molecular Biology Laboratory",
+      "country": "德国",
+      "kind": "identity",
+      "verifiedAt": "2026-10-26",
+      "parser": "editorial individual-source review",
+      "selector": "Official EMBL memorial announcement",
+      "timestampOrigin": "actual editorial content review; not HTTP status",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-10-26",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-26",
+        "scope": "已读取完整官方讣告正文；确认Peer Bork于2026-01-16去世及其历史任职。未进行直接HTTP抓取或正文hash计算。"
+      }
+    },
+    {
+      "sourceId": "review-peer-bork-obituary-20261026",
+      "id": "review-peer-bork-obituary-20261026",
+      "url": "https://www.embl.org/news/people-perspectives/remembering-peer-bork-obituary/",
+      "title": "Remembering Peer Bork (1963—2026) — EMBL obituary",
+      "institution": "European Molecular Biology Laboratory",
+      "country": "德国",
+      "kind": "identity",
+      "verifiedAt": "2026-10-26",
+      "parser": "editorial individual-source review",
+      "selector": "Official EMBL obituary and scientific legacy review",
+      "timestampOrigin": "actual editorial content review; not HTTP status",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-10-26",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-26",
+        "scope": "已读取完整官方回顾正文；核实其生物信息学、宏基因组学与微生物组科研贡献及历史身份。未进行直接HTTP抓取或正文hash计算。"
+      }
+    },
+    {
+      "sourceId": "review-ramsey-night-bci-20261026",
+      "id": "review-ramsey-night-bci-20261026",
+      "url": "https://researchinformation.umcutrecht.nl/en/publications/implanted-brain-computer-interface-functionality-during-nighttime/",
+      "title": "Implanted brain-computer interface functionality during nighttime in late-stage amyotrophic lateral sclerosis",
+      "institution": "University Medical Center Utrecht",
+      "country": "荷兰",
+      "kind": "publication",
+      "verifiedAt": "2026-10-26",
+      "parser": "editorial individual-source review",
+      "selector": "Official UMC Utrecht research output record",
+      "timestampOrigin": "actual editorial content review; not HTTP status",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-10-26",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-26",
+        "scope": "已读取官方研究成果页正文与摘要，确认2026年发表、作者、研究设计和夜间BCI可靠性结果。未进行直接HTTP抓取或正文hash计算。"
+      }
+    },
+    {
+      "sourceId": "review-ramsey-ecog-grid-20261026",
+      "id": "review-ramsey-ecog-grid-20261026",
+      "url": "https://researchinformation.umcutrecht.nl/en/publications/optimal-positioning-and-size-of-high-density-electrocorticography/",
+      "title": "Optimal positioning and size of high-density electrocorticography grids for speech brain-computer interfaces",
+      "institution": "University Medical Center Utrecht",
+      "country": "荷兰",
+      "kind": "publication",
+      "verifiedAt": "2026-10-26",
+      "parser": "editorial individual-source review",
+      "selector": "Official UMC Utrecht research output record",
+      "timestampOrigin": "actual editorial content review; not HTTP status",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-10-26",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-10-26",
+        "scope": "已读取官方研究成果页正文与摘要，确认2026年发表、作者、ECoG网格配置与分类结果。未进行直接HTTP抓取或正文hash计算。"
+      }
+    }
+  ],
+  "editorialReviewLog": {
+    "date": "2026-10-26",
+    "reviewId": "editorial-2026-10-26-01",
+    "recordIds": [
+      "pi-peer-bork-9df54a45",
+      "ramsey"
+    ],
+    "summary": "依据EMBL官方讣告将Peer Bork保留为历史科研贡献记录；为Nick Ramsey证据卡补入两篇2026年UMC Utrecht官方成果记录，并重新核验2022年旧博士后公告。接收机会仍保持unknown。",
+    "sourceUrls": [
+      "https://www.embl.org/news/embl-announcements/in-remembrance-of-peer-bork/",
+      "https://www.embl.org/news/people-perspectives/remembering-peer-bork-obituary/",
+      "https://researchinformation.umcutrecht.nl/en/publications/implanted-brain-computer-interface-functionality-during-nighttime/",
+      "https://researchinformation.umcutrecht.nl/en/publications/optimal-positioning-and-size-of-high-density-electrocorticography/",
+      "https://researchinformation.umcutrecht.nl/en/persons/nf-ramsey/",
+      "https://utrecht-bci.nl/open-position-for-a-postdoc/"
+    ],
+    "readMethod": "official_web_open",
+    "note": "不代表所有来源均进行直接HTTP抓取或hash核验；每条来源的读取方式单独注明。"
+  }
+}

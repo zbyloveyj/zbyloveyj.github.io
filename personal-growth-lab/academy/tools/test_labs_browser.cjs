@@ -22,6 +22,14 @@ const csvRowCount=text=>{const value=text.trimEnd();let rows=1,quoted=false;for(
   assert.equal(await page.locator('.lab-card').count(),24);
   assert.match(await page.locator('#stats').innerText(),new RegExp(data.labs.length.toLocaleString('zh-CN')));
   assert.equal(await page.locator('#status').inputValue(),'');
+  const borkRecord=data.labs.find(l=>l.id==='pi-peer-bork-9df54a45');
+  assert.equal(borkRecord.roleStatus,'deceased','The editorial overlay must be applied to the test catalog.');
+  assert.equal(borkRecord.candidateStatus,'historical');
+  await search('Peer Bork');
+  await page.waitForSelector('#lab-pi-peer-bork-9df54a45');
+  assert.match(await page.locator('#lab-pi-peer-bork-9df54a45').innerText(),/已故 · 历史贡献/,'The public browser card must not present a deceased researcher as an active PI.');
+  await page.getByRole('button',{name:'重置筛选',exact:true}).click();
+  await page.waitForFunction(()=>document.querySelectorAll('.lab-card').length===24);
   assert.equal(await page.locator('#field-navigation [data-field]').count(),T.fields.length);
   assert((await page.locator('#direction option').count())<=T.topics.length+1,'The main direction filter exposes merged groups.');
   // Source browsing stays bounded with a large directory, and search is exhaustive.

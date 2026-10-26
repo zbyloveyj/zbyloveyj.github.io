@@ -31,6 +31,28 @@ def load_catalog(path=None, verify=True):
             zipped = (path.parent.parent / part['compressedPath']).read_bytes()
             if gzip.decompress(zipped) != raw:
                 raise ValueError('Compressed part differs: ' + name)
+    # Apply a versioned editorial overlay after validating the immutable baseline.
+    overlay_path = path.parent / 'lab-editorial-overrides.json'
+    if overlay_path.exists():
+        overlay = json.loads(overlay_path.read_text())
+        if overlay.get('schemaVersion') != 1 or not isinstance(overlay.get('updates'), list):
+            raise ValueError('Invalid editorial override schema')
+        by_id = {row['id']: row for row in labs}
+        for update in overlay['updates']:
+            record = by_id.get(update.get('id'))
+            if record is None:
+                raise ValueError('Editorial override references unknown stable ID: ' + str(update.get('id')))
+            for key, value in update.get('set', {}).items():
+                record[key] = {**record.get(key, {}), **value} if key == 'opportunity' and isinstance(value, dict) else value
+            for field, items in update.get('upsert', {}).items():
+                if field not in ('sources', 'papers', 'assessmentEvidence'):
+                    raise ValueError('Unsupported editorial override collection: ' + field)
+                existing = record.setdefault(field, [])
+                for item in items:
+                    key = (item.get('dimension'), item.get('url')) if field == 'assessmentEvidence' else item.get('url')
+                    match = next((i for i, old in enumerate(existing) if ((old.get('dimension'), old.get('url')) if field == 'assessmentEvidence' else old.get('url')) == key), None)
+                    if match is None: existing.append(item)
+                    else: existing[match] = {**existing[match], **item}
     ids = [row['id'] for row in labs]
     if len(set(ids)) != len(ids):
         raise ValueError('Duplicate stable record IDs')

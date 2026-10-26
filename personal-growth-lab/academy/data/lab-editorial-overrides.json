@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "edition": "editorial-2026.10.26-01",
+  "verifiedAt": "2026-10-26",
+  "purpose": "针对高影响事实变化的可审计编辑叠加层。基础目录与分片保留原稳定ID和不可变版本；本文件只按ID修正状态或补充经过实际阅读的来源/成果。网页HTTP状态或hash变化不会自动产生本层记录。",
+  "updates": [
+    {
+      "id": "pi-peer-bork-9df54a45",
+      "changeId": "peer-bork-historical-status-2026-10-26",
+      "date": "2026-10-26",
+      "reason": "EMBL于2026-01-16发布官方讣告，并于2026-01-22发布官方回顾，明确Peer Bork已于2026-01-16去世。保留其历史科研贡献，但不再作为当前PI、导师或当前接收机会候选。",
+      "set": {
+        "role": "原研究组负责人（2026年1月16日去世）",
+        "roleStatus": "deceased",
+        "candidateStatus": "historical",
+        "roleVerifiedAt": "2026-10-26",
+        "verifiedAt": "2026-10-26",
+        "roleNote": "EMBL官方讣告确认Peer Bork于2026年1月16日去世。本条保留其宏基因组学、微生物组与计算生物学研究遗产，不代表当前仍主持实验室或接受新申请。",
+        "evidenceScope": "个人/研究组研究资料最初于2026-10-21整理；2026-10-26依据EMBL官方讣告与回顾核实历史身份。当前指导资格、招聘和接收机会不适用，未推断任何名额。",
+        "fieldBasis": "研究方向仍依据其历史官方研究资料；任职状态依据2026-01-16 EMBL官方讣告复核。",
+        "opportunity": {
+          "status": "unknown",
+          "summary": "历史科研贡献记录，不作为当前导师申请或招聘目标。保留研究页面作为历史科研资料入口；当前接收状态不适用，未推断名额。",
+          "url": "https://www.bork.embl.de/",
+          "deadline": null,
+          "verifiedAt": null,
+          "visit": "不适用于当前博士后/联合培养联系；历史研究资料保留。"
+        }
+      },
+      "upsert": {
+        "sources": [
+          {
+            "url": "https://www.embl.org/news/embl-announcements/in-remembrance-of-peer-bork/",
+            "label": "EMBL官方讣告",
+            "claim": "EMBL确认Peer Bork于2026-01-16去世；用于修正历史任职状态，不代表当前实验室或招生信息。",
+            "kind": "identity",
+            "verifiedAt": "2026-10-26",
+            "access": "已读取完整官方网页正文（web open；未做直接HTTP抓取或正文hash）。",
+            "readMethod": "web_open",
+            "country": "德国",
+            "institution": "European Molecular Biology Laboratory"
+          },
+          {
+            "url": "https://www.embl.org/news/people-perspectives/remembering-peer-bork-obituary/",
+            "label": "EMBL官方科研回顾",
+            "claim": "回顾其生物信息学、宏基因组学、肠道微生物组、MetaHIT与TREC相关科研贡献；用于保留历史科研线索。",
+            "kind": "identity",
+            "verifiedAt": "2026-10-26",
+            "access": "已读取完整官方网页正文（web open；未做直接HTTP抓取或正文hash）。",
+            "readMethod": "web_open",
+            "country": "德国",
+            "institution": "European Molecular Biology Laboratory"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ramsey",
+      "changeId": "ramsey-bci-outputs-2026-10-26",
+      "date": "2026-10-26",
+      "reason": "重新读取UMC Utrecht官方个人资料、2026年两篇研究成果记录和2022年旧博士后公告。补入真实成果证据；旧岗位仍为过期公告，当前机会保持unknown。",
+      "set": {
+        "verifiedAt": "2026-10-26",
+        "profileVerifiedAt": "2026-10-26",
+        "roleVerifiedAt": "2026-10-26",
+        "strength": "全植入式BCI与长期家庭使用证据突出；2026年研究进一步涉及夜间使用可靠性、昼夜信号漂移及高密度ECoG网格布局优化。",
+        "bridge": "以公开ECoG/BCI数据或可复现模拟信号开展昼夜域偏移、误触发率、校准频率与长期稳定性评估；再比较缩减电极网格下的语音解码鲁棒性。报告延迟、误触发和跨时段性能，不将单个临床案例泛化为普遍疗效。",
+        "opportunity": {
+          "status": "unknown",
+          "summary": "已重新核验官网旧岗位页：公告日期为2022-08-03，计划2022年11月入职，已过期，不能作为当前招聘依据。未确认2026年有效博士后岗位；博士联合培养/访问资格仍需单独核实。",
+          "url": "https://utrecht-bci.nl/open-position-for-a-postdoc/",
+          "deadline": null,
+          "verifiedAt": "2026-10-26",
+          "visit": "本次未核实正式博士联合培养或访问博士名额；需确认接收身份、指导安排、经费与数据权限。"
+        }
+      },
+      "upsert": {
+        "sources": [
+          {
+            "url": "https://researchinformation.umcutrecht.nl/en/persons/nf-ramsey/",
+            "label": "官方现任资料",
+            "claim": "UMC Utrecht官方个人资料列明其为认知神经科学教授，并将脑机接口、神经技术及转化神经科学列为研究方向；本次重新读取确认。",
+            "kind": "official",
+            "verifiedAt": "2026-10-26",
+            "access": "已读取官方个人资料正文（web open；未做直接HTTP抓取或正文hash）。",
+            "readMethod": "web_open"
+          },
+          {
+            "url": "https://utrecht-bci.nl/open-position-for-a-postdoc/",
+            "label": "旧岗位排除",
+            "claim": "官方页面日期为2022-08-03，计划2022年11月入职；本次重新核验后仍作为历史公告，不作为当前招聘依据。",
+            "kind": "official",
+            "verifiedAt": "2026-10-26",
+            "access": "已读取完整官方岗位页；公告已过期。",
+            "readMethod": "web_open"
+          },
+          {
+            "url": "https://researchinformation.umcutrecht.nl/en/publications/implanted-brain-computer-interface-functionality-during-nighttime/",
+            "label": "2026年研究成果",
+            "claim": "UMC Utrecht官方研究成果页：植入式BCI夜间使用研究，分析昼夜信号特征变化、日间解码器夜间误触发及夜间模式长期表现。",
+            "kind": "publication",
+            "verifiedAt": "2026-10-26",
+            "access": "已读取官方研究成果页正文与摘要（web open；未做直接HTTP抓取或正文hash）。",
+            "readMethod": "web_open"
+          },
+          {
+            "url": "https://researchinformation.umcutrecht.nl/en/publications/optimal-positioning-and-size-of-high-density-electrocorticography/",
+            "label": "2026年研究成果",
+            "claim": "UMC Utrecht官方研究成果页：高密度ECoG语音BCI电极网格布局与规模比较；研究闭集词分类中32电极配置与更大网格的表现。",
+            "kind": "publication",
+            "verifiedAt": "2026-10-26",
+            "access": "已读取官方研究成果页正文与摘要（web open；未做直接HTTP抓取或正文hash）。",
+            "readMethod": "web_open"
+          }
+        ],
+        "papers": [
+          {
+            "title": "Implanted brain-computer interface functionality during nighttime in late-stage amyotrophic lateral sclerosis",
+            "venue": "Scientific Reports",
+            "year": 2026,
+            "url": "https://researchinformation.umcutrecht.nl/en/publications/implanted-brain-computer-interface-functionality-during-nighttime/",
+            "why": "以长期家庭使用数据检验昼夜信号变化与BCI可靠性；日间解码器夜间可能产生误触发，提示必须显式评估真实场景和时间漂移。",
+            "kind": "研究论文",
+            "review": "已同行评议",
+            "verifiedAt": "2026-10-26"
+          },
+          {
+            "title": "Optimal positioning and size of high-density electrocorticography grids for speech brain-computer interfaces",
+            "venue": "Clinical Neurophysiology",
+            "year": 2026,
+            "url": "https://researchinformation.umcutrecht.nl/en/publications/optimal-positioning-and-size-of-high-density-electrocorticography/",
+            "why": "比较64–128电极记录与32电极配置的闭集词分类表现，为解码精度、植入负担和设备复杂度之间的权衡提供实证。",
+            "kind": "研究论文",
+            "review": "已同行评议",
+            "verifiedAt": "2026-10-26"
+          }
+        ],
+        "assessmentEvidence": [
+          {
+            "dimension": "research",
+            "summary": "UMC Utrecht官方个人资料将脑机接口、人类脑功能、神经技术和转化神经科学列为研究线，并说明开发下一代植入式BCI以支持交流障碍患者。",
+            "url": "https://researchinformation.umcutrecht.nl/en/persons/nf-ramsey/",
+            "verifiedAt": "2026-10-26",
+            "basis": "已读取官方个人资料正文"
+          },
+          {
+            "dimension": "methods",
+            "summary": "官方个人资料说明使用7T fMRI与颅内EEG，并将植入式BCI用于患者交流转化研究。",
+            "url": "https://researchinformation.umcutrecht.nl/en/persons/nf-ramsey/",
+            "verifiedAt": "2026-10-26",
+            "basis": "已读取官方个人资料正文"
+          },
+          {
+            "dimension": "outputs",
+            "summary": "2026年夜间植入式BCI研究显示昼夜神经信号变化会影响解码器可靠性，强调夜间模式与长期真实场景验证。",
+            "url": "https://researchinformation.umcutrecht.nl/en/publications/implanted-brain-computer-interface-functionality-during-nighttime/",
+            "verifiedAt": "2026-10-26",
+            "basis": "UMC Utrecht官方研究成果页正文与摘要"
+          },
+          {
+            "dimension": "outputs",
+            "summary": "2026年语音BCI网格布局研究显示，经过优化的32电极网格在闭集词分类中可达到与更大网格相近的准确率。",
+            "url": "https://researchinformation.umcutrecht.nl/en/publications/optimal-positioning-and-size-of-high-density-electrocorticography/",
+            "verifiedAt": "2026-10-26",
+            "basis": "UMC Utrecht官方研究成果页正文与摘要"
+          }
+        ]
+      }
+    }
+  ]
+}

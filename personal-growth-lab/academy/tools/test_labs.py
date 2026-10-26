@@ -209,4 +209,24 @@ class EvidenceTests(unittest.TestCase):
     def test_normalize_ignores_navigation_and_scripts(self):
         self.assertEqual(normalize('<header>menu</header><main><h1>Postdoc</h1><script>random()</script><p>Open  now</p></main>'),'Postdoc Open now')
 
+    def test_editorial_overrides_preserve_history_and_refresh_verified_outputs(self):
+        labs={row['id']:row for row in self.data['labs']}
+        bork=labs['pi-peer-bork-9df54a45']
+        self.assertEqual(bork['roleStatus'],'deceased')
+        self.assertEqual(bork['candidateStatus'],'historical')
+        self.assertEqual(bork['roleVerifiedAt'],'2026-10-26')
+        self.assertEqual(bork['opportunity']['status'],'unknown')
+        self.assertIsNone(bork['opportunity']['verifiedAt'])
+        self.assertTrue(any(s['url']=='https://www.embl.org/news/embl-announcements/in-remembrance-of-peer-bork/' for s in bork['sources']))
+        ramsey=labs['ramsey']
+        self.assertEqual(ramsey['verifiedAt'],'2026-10-26')
+        self.assertEqual(ramsey['opportunity']['status'],'unknown')
+        self.assertEqual(ramsey['opportunity']['verifiedAt'],'2026-10-26')
+        expected={
+            'https://researchinformation.umcutrecht.nl/en/publications/implanted-brain-computer-interface-functionality-during-nighttime/',
+            'https://researchinformation.umcutrecht.nl/en/publications/optimal-positioning-and-size-of-high-density-electrocorticography/'
+        }
+        self.assertTrue(expected.issubset({p['url'] for p in ramsey['papers']}))
+        self.assertTrue(expected.issubset({e['url'] for e in ramsey['assessmentEvidence'] if e['dimension']=='outputs'}))
+
 if __name__=='__main__':unittest.main()
