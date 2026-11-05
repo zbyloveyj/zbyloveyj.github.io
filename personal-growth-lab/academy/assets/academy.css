@@ -11,3 +11,8 @@
 
 /* AI Agent course launch */
 .agent-launch{background:linear-gradient(115deg,#edf8f6,#eef4fb);border-color:#b7dad6}.agent-launch .eyebrow{color:#176c68}
+
+/* Direct entry to the supplemental lessons; keep counts in the course data. */
+.course-updates{margin:-14px 0 38px}.course-updates .section-head{margin-bottom:18px}.course-updates .section-head h2{font-size:23px}.course-updates .section-head p{max-width:none}.supplement-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.supplement-link{display:grid;grid-template-columns:25px minmax(0,1fr) 14px;gap:11px;align-items:start;padding:20px;background:var(--paper,#fff);border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--navy);transition:border-color .15s,background .15s}.supplement-link:hover{border-color:var(--blue);background:#f3f7fb;text-decoration:none}.supplement-link:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.supplement-link strong{display:block;font-size:14px;line-height:1.6}.supplement-link small{display:block;margin-top:6px;color:var(--muted);font-size:12px;line-height:1.7}.supplement-link .num,.supplement-link .arrow{font-size:13px;line-height:1.8;color:var(--blue)}
+@media(max-width:1050px){.supplement-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.supplement-grid{grid-template-columns:1fr}.supplement-link{padding:17px}.course-updates .section-head{display:block}.course-updates .section-head>a{display:inline-block;margin-top:10px}}
