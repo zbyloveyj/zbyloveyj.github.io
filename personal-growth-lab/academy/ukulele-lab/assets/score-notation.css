@@ -1,0 +1,213 @@
+/* Four-string notation: two generous bars per row, one on small screens. */
+.score-page .score-bars {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 16px;
+}
+.score-page .score-bar {
+  --score-paper: #fffef8;
+  border: 0;
+  border-bottom: 1px solid #d9e1d0;
+  border-radius: 0;
+  padding: 22px 0 12px;
+  min-width: 0;
+  background: var(--score-paper);
+  break-inside: avoid;
+}
+.score-page .score-bar.active {
+  --score-paper: #edf3e3;
+  border-color: #8ba170;
+  box-shadow: 0 0 0 2px #afc19c66;
+}
+.score-page .score-bar-no {
+  top: 1px;
+  left: 13px;
+  color: #829174;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.score-tab {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.score-page .score-section { break-inside: auto; }
+.score-page .score-section > header { break-after: avoid; }
+.score-reading-note {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border: 1px solid #dddcca;
+  border-left: 3px solid #acaa7b;
+  background: #f7f5e9;
+  color: #6f7259;
+  font-size: 12px;
+  line-height: 1.9;
+  break-inside: avoid;
+}
+.score-reading-guide,
+.score-chord-guide {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border: 1px solid #d5decb;
+  border-radius: 8px;
+  background: #fbfcf5;
+  font-size: 12px;
+  color: #64755e;
+  line-height: 1.9;
+}
+.score-reading-guide > summary,
+.score-chord-guide > summary {
+  cursor: pointer;
+  color: #3f6149;
+  font-size: 13px;
+  font-weight: 600;
+  break-after: avoid;
+}
+.score-reading-guide[open] > summary,
+.score-chord-guide[open] > summary { margin-bottom: 14px; }
+.score-reading-guide > p,
+.score-chord-guide > p { margin: 10px 0; }
+.score-reading-guide .score-bars { margin: 14px 0; }
+.score-chord-guide .score-chords { margin: 12px 0; }
+.score-page .score-notation-key {
+  padding: 13px 16px;
+  border-left: 2px solid #92a77d;
+  background: #f0f4e9;
+  color: #64775d;
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 0 0 18px;
+}
+.score-notation-error {
+  padding: 22px 16px;
+  color: #926342;
+  background: #faf4e6;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* SVG beat starts are x=64,144,224,304 in a 400-wide viewBox. */
+.score-lyrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  padding: 6px 4% 2px 16%;
+  margin: 0;
+  min-height: 35px;
+  color: #3c5040;
+  font-size: 14px;
+  line-height: 1.9;
+  text-align: left;
+}
+.score-lyrics-grid > * {
+  min-width: 0;
+  padding-right: 8px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.score-lyrics-grid .empty,
+.score-lyrics-grid .placeholder {
+  color: #9aa58f;
+  font-size: 11px;
+}
+.score-lyrics-caption {
+  margin: 3px 4% 0 16%;
+  color: #88947b;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+/* The SVG already prints 1 & 2 & 3 & 4 &. Keep the existing DOM beat targets
+   as slim live indicators so playback continues to highlight the right beat. */
+.score-page .score-beats,
+.score-page .score-demo-beats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  padding: 0 4% 0 16%;
+}
+.score-page .score-beats span,
+.score-page .score-demo-beats span {
+  display: block;
+  height: 3px;
+  margin-right: 8px;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0;
+  line-height: 3px;
+  color: transparent;
+  background: #e7ecdf;
+}
+.score-page .score-beats span.active {
+  background: #63834e;
+  color: transparent;
+}
+.score-page .score-cue {
+  text-align: left;
+  margin: 6px 4% 0 16%;
+  color: #8a7c56;
+  font-size: 10px;
+  line-height: 1.7;
+}
+.score-page .score-practice { break-inside: avoid; }
+
+@media (max-width: 700px) {
+  .score-page .score-bars { grid-template-columns: minmax(0, 1fr); gap: 17px; }
+  .score-page .score-bar { padding-top: 19px; }
+  .score-page .score-notation-key { padding: 11px 12px; font-size: 11px; }
+  .score-lyrics-grid { font-size: 14px; }
+  .score-reading-note,
+  .score-reading-guide,
+  .score-chord-guide { padding: 12px 14px; }
+}
+
+@media print {
+  .score-page .score-bars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px 12px;
+  }
+  .score-page .score-section {
+    border: 0;
+    padding: 9px 0;
+    margin: 12px 0;
+    break-inside: auto;
+  }
+  .score-page .score-bar,
+  .score-page .score-bar.active {
+    --score-paper: #fff;
+    padding: 16px 0 7px;
+    box-shadow: none;
+    border-color: #c7cfc1;
+    break-inside: avoid;
+  }
+  .score-page .score-bar-no { font-size: 8pt; }
+  .score-page .score-beats,
+  .score-page .score-demo-beats { display: none; }
+  .score-lyrics-grid { font-size: 10pt; min-height: 26px; }
+  .score-page .score-notation-key {
+    font-size: 8pt;
+    padding: 8px 11px;
+    background: #fff;
+    border: 1px solid #ced5c8;
+    break-inside: avoid;
+  }
+  .score-page .score-cue,
+  .score-lyrics-caption { font-size: 7pt; }
+  .score-reading-note,
+  .score-reading-guide,
+  .score-chord-guide {
+    background: #fff;
+    border-radius: 0;
+    font-size: 8pt;
+    margin: 9px 0;
+    padding: 8px 10px;
+  }
+  .score-reading-guide { break-inside: auto; }
+  .score-chord-guide { break-inside: avoid; }
+}
+
+.score-lyrics-open { position:absolute; right:8px; top:1px; padding:1px 5px; background:transparent; color:#748768; font-size:10px; border:0; cursor:pointer; border-bottom:1px dotted #adba9c; }
+.score-lyric-verse.active { background:#e2ecd8; }
+.score-lyric-verse.active .score-lyric-verse-label { color:#385b38; font-weight:600; }
+@media print { .score-lyric-verse.active { background:transparent; } }

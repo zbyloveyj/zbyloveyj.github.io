@@ -44,7 +44,7 @@ https://zbyloveyj.github.io/personal-growth-lab/academy/ukulele-lab/
 
 ## 登录与私密同步
 
-GitHub Pages入口直接使用本机练习和课程。个人训练室采用ChatGPT真实登录、服务器端用户身份、D1进度与元数据、R2音频保存。当前训练室为账号所有者私密访问；录音不进入公开GitHub仓库。
+GitHub Pages入口直接使用本机练习和课程。个人训练室采用ChatGPT真实登录、服务器端用户身份、D1进度与元数据、R2音频保存。训练室已公开，未登录也可进入课程；云端进度与录音需要登录并按服务端账号隔离，录音不进入公开GitHub仓库。
 
 个人训练室：
 https://yixindao-ukulele-studio.lemony-fern-4058.chatgpt.site/
@@ -52,6 +52,14 @@ https://yixindao-ukulele-studio.lemony-fern-4058.chatgpt.site/
 公开课程与个人训练室不同源。首次迁移需在公开课录音库导出完整ZIP，到训练室导入后同步；不能假称浏览器会自动跨域读取旧记录。日后在训练室的新进度、录音与分析自动同步。进度按各条记录更新时间合并，上传重试幂等；同步失败保留本机内容。每人默认250MiB云端录音空间。
 
 进度仍沿用`yixindao.ukulele-academy.v1`与schema 1。录音单独存于`yixindao.ukulele-recordings.v2`。原进度JSON只含打卡、量表与笔记；完整ZIP包含这些内容、原始音频及报告。退出账号不删除共用设备的本机副本。
+
+## 和弦、四线谱与歌词对齐
+
+曲目页将和弦放在上方，实际尤克里里四线谱或扫弦放在中间，歌词放在对应拍点下方。TAB从上到下是A/E/C/G（第1至4弦）；数字为品位而不是指号。分解伴奏按实际拨弦顺序标数字，扫弦显示上下箭头及空扫，半小节和弦在第3拍切换。选择谱式会同时更新谱面与播放器，变调夹只改变实际音高，谱面保留相对夹子的指型。
+
+歌词编辑器支持自备词逐拍填写、TXT分拍导入及单曲JSON备份；同一唱段的不同遍次分别保存并排成多行。导入先预览，确认后合并。词只留在当前浏览器，不随课程发布、不发送给云端；旧进度JSON及录音ZIP不包含歌词，请单独备份。打印包含已经保存的词；基础离线HTML自带同一编辑器和谱面播放器，可重新导入歌词JSON。页面还提供四小节原创读谱示范，不能把示范词当成三首歌的歌词。
+
+三首歌的原词和原曲旋律指弹谱尚未收录，需要用户提供已有材料后再整理。本轮四线谱是课程和弦分解伴奏，不声称还原原唱旋律或原版前奏。
 
 ## 曲谱说明
 
@@ -66,6 +74,7 @@ node personal-growth-lab/academy/ukulele-lab/tools/build_scores.cjs
 node personal-growth-lab/academy/ukulele-lab/tools/build_materials.cjs
 node personal-growth-lab/academy/ukulele-lab/tools/validate.cjs
 node personal-growth-lab/academy/ukulele-lab/tools/test_audio_analysis.cjs --performance
+node personal-growth-lab/academy/ukulele-lab/tools/test_score_notation.cjs
 ```
 
 GitHub Actions的`Ukulele course quality`覆盖完整学院目录、新旧进度兼容、三首曲谱、音频分析边界、真实浏览器MediaRecorder/Worker/IndexedDB流程、含音频备份与移动布局。登录服务的独立Site源码另有真实SQLite与模拟R2集成测试，验证账号隔离、同源写入、并发合并、上传幂等、范围播放、配额和失败恢复。
