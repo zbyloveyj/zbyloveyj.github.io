@@ -38,7 +38,7 @@ function card(c,priority=false){
 }
 function llmLaunch(){
  const c=byId.llm;if(!c)return '';
- return `<section class="cm-launch"><div><p class="eyebrow">CURATEMICROBIOTA / ${c.lessons.length} UNITS</p><h2>从零写 GPT，到微生物表征模型。</h2><p>${E(c.pace)} · 五模型跨队列实战</p></div><a class="button primary" href="#/llm">进入大模型实战营 ↗</a></section>`;
+ return `<section class="cm-launch"><div><p class="eyebrow">CURATEMICROBIOTA / ${c.lessons.length} UNITS</p><h2>从零写 GPT，到微生物表征模型。</h2><p>${E(c.pace)} · 五模型跨队列实战</p></div><a class="button primary" href="llm-lab/">进入大模型实战营 ↗</a></section>`;
 }
 function supplementalLessons(){
  const c=byId.llm,lessons=c?.lessons.filter(l=>l.id>30)||[];if(!lessons.length)return '';
