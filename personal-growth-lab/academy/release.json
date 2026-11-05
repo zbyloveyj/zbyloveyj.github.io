@@ -1,5 +1,5 @@
 {
-  "version": "2026.11.05.2",
+  "version": "2026.11.05.3",
   "site": "https://zbyloveyj.github.io/personal-growth-lab/academy/",
   "projects": 13,
   "units": 938,
@@ -10,7 +10,7 @@
   ],
   "bibliography_items": 100,
   "quality_status": "Agent course: agent-lab/validation.json; prior course status retained in its own validation files",
-  "storage": "browser-local; manual JSON backup; no cloud synchronization",
+  "storage": "academy browser-local; ukulele adds private account sync in dedicated studio",
   "existing_plans": "preserved",
   "pdf": "full printable handbook and per-lesson browser print-to-PDF; downloadable Markdown provided",
   "llm_project": {
@@ -44,8 +44,9 @@
       "晴天",
       "一万次悲伤"
     ],
-    "assessment": "manual listening rubric with rule-based feedback; no automatic audio assessment",
-    "storage": "browser-local with JSON export/import",
-    "materials": "30 daily lessons, chord diagrams and synthesized demonstrations, metronome, recording, printable handbook and Markdown"
+    "assessment": "real browser signal diagnostics for rhythm, isolated note pitch and isolated chord; full-song listening rubric",
+    "storage": "IndexedDB audio library + complete ZIP backup; optional private ChatGPT account sync",
+    "materials": "30 daily lessons, 3 inline original chord arrangements with player and offline printable scores, recording library and analysis",
+    "private_studio": "https://yixindao-ukulele-studio.lemony-fern-4058.chatgpt.site/"
   }
 }

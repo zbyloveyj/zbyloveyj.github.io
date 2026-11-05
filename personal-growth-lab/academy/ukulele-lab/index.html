@@ -6,11 +6,19 @@
   <meta name="theme-color" content="#234d42">
   <meta name="description" content="零基础尤克里里30天训练课：每日教材、和弦与节奏示范、练习打卡、录音回听和三首歌实操测评。">
   <title>尤克里里30天弹唱 · 一心问道成长学院</title>
-  <link rel="stylesheet" href="assets/style.css?v=20261105-2">
-  <script src="assets/music-data.js" defer></script>
-  <script src="assets/course-data.js" defer></script>
-  <script src="assets/progress.js" defer></script>
-  <script src="assets/app.js" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=20261105-v2">
+  <link rel="stylesheet" href="assets/studio.css?v=20261105-v2">
+  <script src="assets/music-data.js?v=20261105-v2" defer></script>
+  <script src="assets/score-data.js?v=20261105-v2" defer></script>
+  <script src="assets/course-data.js?v=20261105-v2" defer></script>
+  <script src="assets/progress.js?v=20261105-v2" defer></script>
+  <script src="assets/recording-store.js?v=20261105-v2" defer></script>
+  <script src="assets/audio-analysis.js?v=20261105-v2" defer></script>
+  <script src="assets/studio.js?v=20261105-v2" defer></script>
+  <script src="assets/score-player.js?v=20261105-v2" defer></script>
+  <script src="assets/cloud-config.js?v=20261105-v2" defer></script>
+  <script src="assets/cloud.js?v=20261105-v2" defer></script>
+  <script src="assets/app.js?v=20261105-v2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到课程内容</a>
@@ -24,7 +32,9 @@
       <nav aria-label="课程导航" id="primary-nav">
         <a href="#/" data-route="home"><span>⌂</span>学习首页</a>
         <a href="#/roadmap" data-route="roadmap"><span>▦</span>30天训练路线</a>
-        <a href="#/songs" data-route="songs"><span>♫</span>三首歌档案</a>
+        <a href="#/songs" data-route="songs"><span>♫</span>三首课内伴奏谱</a>
+        <a href="#/recordings" data-route="recordings"><span>●</span>录音与自动测评</a>
+        <a href="#/account" data-route="account"><span>☁</span>登录与同步</a>
         <a href="#/tools" data-route="tools"><span>◉</span>练习工具</a>
         <a href="#/assessment" data-route="assessment"><span>✓</span>阶段与结业测评</a>
         <a href="#/insights" data-route="insights"><span>↗</span>练习复盘</a>
@@ -33,9 +43,9 @@
       <div class="sidebar-note"><span class="eyebrow">每天，一点点</span><p>先让节奏继续，<br>再让歌声进来。</p><a href="../index.html">← 回到成长学院</a></div>
     </aside>
     <div class="workspace">
-      <header class="topbar"><span>UKULELE / PRACTICE ROOM</span><div><span id="save-status" class="save-status" role="status">本机进度</span><button class="icon-btn" data-action="export" title="导出课程进度">备份 ↓</button></div></header>
+      <header class="topbar"><span>UKULELE / PRACTICE ROOM</span><div><a class="cloud-top-link" href="#/account">登录／同步</a><span id="save-status" class="save-status" role="status">本机进度</span><button class="icon-btn" data-action="export" title="导出课程进度">备份 ↓</button></div></header>
       <div id="storage-warning" class="notice warning" hidden></div>
-      <main id="main" tabindex="-1"><div class="loading"><span class="eyebrow">30天 · 三首歌</span><h1>正在打开你的练习室</h1><p>课程为静态网页，所有训练记录保存在当前浏览器。</p></div></main>
+      <main id="main" tabindex="-1"><div class="loading"><span class="eyebrow">30天 · 三首歌</span><h1>正在打开你的练习室</h1><p>正在载入课内伴奏谱、录音测评和每日训练。</p></div></main>
       <footer class="site-footer"><span>一心问道 · 成长学院 / 尤克里里训练</span><span>自己的节奏，也值得认真。</span></footer>
     </div>
   </div>
