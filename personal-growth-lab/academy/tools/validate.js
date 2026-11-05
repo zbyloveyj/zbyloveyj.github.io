@@ -17,7 +17,7 @@ function pageScripts(page){
  });
 }
 const scripts=pageScripts('index.html');
-const catalogSources=['assets/core.js','assets/english.js','assets/studio.js','assets/explore.js','data/papers.js','assets/papers.js','assets/curatemicrobiota-bridge.js','assets/agent-bridge.js'];
+const catalogSources=['assets/core.js','assets/english.js','assets/studio.js','assets/explore.js','data/papers.js','assets/papers.js','assets/curatemicrobiota-bridge.js','assets/agent-bridge.js','assets/ukulele-bridge.js'];
 for(const p of [...catalogSources,'assets/app.js'])assert(scripts.includes(p),`index.html: missing catalog script ${p}`);
 for(const p of catalogSources)assert(scripts.indexOf(p)<scripts.indexOf('assets/app.js'),`${p} must load before the academy app`);
 global.window=global;
@@ -43,13 +43,13 @@ if(process.argv.includes('--full-catalog'))assert.equal(PAPER_CATALOG.length,100
 // The independent classrooms are published too: a bridge alone is not a course.
 const release=readJSON('release.json');
 const external=ACADEMY.externalCourses||[];
-assert.equal(external.length,2,'external course count');
+assert.equal(external.length,3,'external course count');
 const allCourses=[...ACADEMY.courses,...external];
 assert.equal(new Set(allCourses.map(c=>c.id)).size,allCourses.length,'duplicate course IDs');
-const allExpected={...expected,llm:39,agent:30};
+const allExpected={...expected,llm:39,agent:30,ukulele:30};
 const runtimes={};
 let checkedScripts=scripts.length;
-for(const [id,dir,globalName,bodyKey] of [['llm','llm-lab','CM_COURSE','sections'],['agent','agent-lab','AGENT_COURSE','concepts']]){
+for(const [id,dir,globalName,bodyKey] of [['llm','llm-lab','CM_COURSE','sections'],['agent','agent-lab','AGENT_COURSE','concepts'],['ukulele','ukulele-lab','UKE_COURSE','concepts']]){
  const course=external.find(c=>c.id===id);
  assert(course,`missing ${id} bridge`);
  assert.equal(course.lessons.length,allExpected[id],`${id}: bridge lesson count`);
@@ -94,9 +94,12 @@ const topics=llm.coverage.groups.reduce((n,g)=>n+g.topics.length,0);
 assert.equal(manifest.coverage_topics,topics,'LLM manifest knowledge coverage');
 assert.equal(release.llm_project.coverage_topics,topics,'LLM release knowledge coverage');
 assert.equal(manifest.independent_checkpoints,llm.audit.checkpoints.length,'LLM manifest checkpoints');
-assert.equal(allCourses.length,12,'complete academy project count');
+assert.equal(allCourses.length,13,'complete academy project count');
 const totalUnits=allCourses.reduce((n,c)=>n+c.lessons.length,0);
-assert.equal(totalUnits,908,'complete academy unit count');
+assert.equal(totalUnits,938,'complete academy unit count');
 assert.equal(release.projects,allCourses.length,'release project count');
 assert.equal(release.units,totalUnits,'release total unit count');
-console.log(JSON.stringify({projects:allExpected,total_units:totalUnits,bibliography_items:PAPER_CATALOG.length,priority:['english','coding','writing'],external_source_lessons:runtimes.llm.lessons.length+runtimes.agent.lessons.length,checked_script_references:checkedScripts,valid:true},null,2));
+console.log(JSON.stringify({projects:allExpected,total_units:totalUnits,bibliography_items:PAPER_CATALOG.length,priority:['english','coding','writing'],external_source_lessons:runtimes.llm.lessons.length+runtimes.agent.lessons.length+runtimes.ukulele.lessons.length,checked_script_references:checkedScripts,valid:true},null,2));
+
+// The new music classroom has additional performance-gate and backup checks.
+require('./../ukulele-lab/tools/validate.cjs');

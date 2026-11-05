@@ -1,8 +1,8 @@
 {
-  "version": "2026.11.05.1",
+  "version": "2026.11.05.2",
   "site": "https://zbyloveyj.github.io/personal-growth-lab/academy/",
-  "projects": 12,
-  "units": 908,
+  "projects": 13,
+  "units": 938,
   "priority": [
     "english",
     "coding",
@@ -33,5 +33,19 @@
     "lite_minutes": 20,
     "materials": "daily PDF/Markdown + complete textbook + runnable Python practice",
     "storage": "browser-local with JSON export/import"
+  },
+  "ukulele_project": {
+    "name": "尤克里里30天弹唱",
+    "lessons": 30,
+    "path": "ukulele-lab/",
+    "daily_minutes": 50,
+    "target_songs": [
+      "安静",
+      "晴天",
+      "一万次悲伤"
+    ],
+    "assessment": "manual listening rubric with rule-based feedback; no automatic audio assessment",
+    "storage": "browser-local with JSON export/import",
+    "materials": "30 daily lessons, chord diagrams and synthesized demonstrations, metronome, recording, printable handbook and Markdown"
   }
 }
