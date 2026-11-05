@@ -24,7 +24,7 @@
 
 ## 通才培养计划 · 第01领域：哲学
 
-[哲学两日学习课程](https://zbyloveyj.github.io/personal-growth-lab/academy/generalist-lab/)：十本核心著作，分两天建立知识判断、道德行动与人生选择的哲学框架。每本提供完整导读、论证、案例、复述线索及参考文献；课程支持章节导航、打印/PDF与当前浏览器的本地勾选进度。完整讲义位于 `generalist-lab/philosophy.md`。这是原13个项目之外新增的独立专题，不影响原有938个学习单元。
+[哲学两日学习课程](https://zbyloveyj.github.io/personal-growth-lab/academy/generalist-lab/)：十本核心著作，分两天建立知识判断、道德行动与人生选择的哲学框架。每本提供完整导读、论证、案例、复述线索及参考文献；课程支持章节导航、打印/PDF与当前浏览器的本地勾选进度。完整讲义位于 `generalist-lab/philosophy.md`。新增 [哲学100个核心知识学习器](https://zbyloveyj.github.io/personal-growth-lab/academy/generalist-lab/knowledge.html)，按10个主题模块组织100个概念，附通俗解释、具体例子、复述问题、20次分批学习、本地掌握记录、检索及随机抽测；数据存于 `generalist-lab/philosophy-100.json`。这是原13个项目之外新增的独立专题，不影响原有938个学习单元。
 
 ## 独立实战与音乐课程
 
