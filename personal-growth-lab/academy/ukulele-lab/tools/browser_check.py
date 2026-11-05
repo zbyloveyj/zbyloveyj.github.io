@@ -143,7 +143,7 @@ with sync_playwright() as p:
     mobile.on('pageerror', lambda err: errors.append(str(err)))
     mobile.goto(base + '#/resources')
     mobile.locator('#import-file').set_input_files(str(backup))
-    expect(mobile.locator('#toast')).to_contain_text('导入')
+    expect(mobile.locator('#toast')).to_contain_text('校验通过')
     mobile.goto(base + '#/day/1')
     expect(mobile.locator('[data-field="note"][data-scope="day"]')).to_have_value('测试记录 <img src=x onerror=alert(1)>')
     for route in ['#/', '#/roadmap', '#/day/1', '#/day/18', '#/day/30', '#/songs/an-jing', '#/assessment/an-jing', '#/insights', '#/tools', '#/resources', '#/handbook']:
