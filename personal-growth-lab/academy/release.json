@@ -1,5 +1,5 @@
 {
-  "version": "2026.11.05.3",
+  "version": "2026.11.06.1",
   "site": "https://zbyloveyj.github.io/personal-growth-lab/academy/",
   "projects": 13,
   "units": 938,
@@ -48,5 +48,17 @@
     "storage": "IndexedDB audio library + complete ZIP backup; optional private ChatGPT account sync",
     "materials": "30 daily lessons, 3 inline original chord arrangements with player and offline printable scores, recording library and analysis",
     "private_studio": "https://yixindao-ukulele-studio.lemony-fern-4058.chatgpt.site/"
+  },
+  "generalist_plan": {
+    "name": "30天通才培养计划",
+    "path": "generalist-lab/",
+    "start": "2026-11-06",
+    "end": "2026-12-05",
+    "days": 30,
+    "approved_editions": 2,
+    "pending_editions": 28,
+    "format": "A introduction; B 7–10 book guides, 3–6 paragraphs each; C 100 concepts in 10 modules; D 3-minute summary and 5 applied questions with answers",
+    "storage": "browser-local tasks, self-assessments and notes; JSON export/import",
+    "catalog_counting": "separate scheduled plan; not counted as 30 completed teaching units"
   }
 }
