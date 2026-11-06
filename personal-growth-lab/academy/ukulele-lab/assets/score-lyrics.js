@@ -214,7 +214,11 @@
     const rows = Array.from({length: verses}, (_, index) => ({verse: index + 1, beats: getBeats(song.id, sectionId, barIndex, index + 1)}));
     const instrumental = ['intro', 'interlude', 'outro'].includes(section.role) && rows.every(row => !row.beats.some(Boolean));
     if (instrumental) return '<div class="score-lyric-row score-lyric-instrumental" data-lyric-row="' + escape(song.id + ':' + sectionId + ':' + barIndex) + '">器乐段 · 不唱</div>';
-    return '<div class="score-lyric-row" data-lyric-row="' + escape(song.id + ':' + sectionId + ':' + barIndex) + '">' + rows.map(row => '<div class="score-lyric-verse" data-lyric-verse="' + row.verse + '"><span class="score-lyric-verse-label">' + (verses > 1 ? '第' + row.verse + '遍' : '歌词') + (row.beats.some(Boolean) ? '' : ' · 待添加') + '</span><div class="score-lyrics-grid" aria-label="第' + row.verse + '遍歌词，按第1至4拍排列">' + row.beats.map((text, index) => '<span class="score-lyric-word' + (text ? '' : ' is-empty') + '" data-lyric-beat="' + index + '" aria-label="第' + (index + 1) + '拍：' + escape(text || '未填歌词') + '">' + (text ? escape(text) : '&#160;') + '</span>').join('') + '</div></div>').join('') + '</div>';
+    const phrase = (section.phrases || []).find(item => barIndex + 1 >= item.from && barIndex + 1 <= item.to);
+    const cue = phrase ? phrase.label : section.title.replace(/\s*·.*/, '');
+    return '<div class="score-lyric-row" data-lyric-row="' + escape(song.id + ':' + sectionId + ':' + barIndex) + '">' + rows.map(row =>
+      row.beats.some(Boolean) ? '<div class="score-lyric-verse" data-lyric-verse="' + row.verse + '"><span class="score-lyric-verse-label">' + (verses > 1 ? '第' + row.verse + '遍' : '歌词') + '</span><div class="score-lyrics-grid" aria-label="第' + row.verse + '遍歌词，按第1至4拍排列">' + row.beats.map((text, index) => '<span class="score-lyric-word' + (text ? '' : ' is-empty') + '" data-lyric-beat="' + index + '" aria-label="第' + (index + 1) + '拍：' + escape(text || '延音或空拍') + '">' + (text ? escape(text) : '&#160;') + '</span>').join('') + '</div></div>' :
+      '<div class="score-lyric-verse score-lyric-guide" data-lyric-verse="' + row.verse + '"><span class="score-lyric-verse-label">♫ ' + escape(cue) + (verses > 1 ? ' · 第' + row.verse + '遍' : '') + '</span></div>').join('') + '</div>';
   }
 
   function renderPanel(songOrId) {

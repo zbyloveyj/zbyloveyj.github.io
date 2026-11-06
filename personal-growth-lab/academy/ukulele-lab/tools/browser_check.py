@@ -230,9 +230,16 @@ def run():
         expect(page.locator('#assessment-result')).to_contain_text('未评')
         checks.append('blank/manual scores, 80-point gate, evidence gate, weak dimension and reset')
 
+        original_refs = {
+            'an-jing': 'https://www.sohu.com/a/203230031_664945',
+            'qing-tian': 'https://wwwuku.blogspot.com/2017/03/ukulele_22.html',
+            'sadness': 'https://chord4.com/tabs/2782'
+        }
         for song_id, total in [('an-jing', 90), ('qing-tian', 85), ('sadness', 92)]:
             visit('#/songs/' + song_id)
             expect(page.locator('.score-page h1')).to_be_visible()
+            expect(page.locator('.score-original-open')).to_have_attribute('href', original_refs[song_id])
+            expect(page.locator('.score-lyric-guide').first).to_be_visible()
             expect(page.locator('.score-summary')).to_contain_text(str(total) + '小节')
             expected_bars = page.evaluate('(id) => window.UKE_SCORES.songs.find(s=>s.id===id).sections.reduce((n,s)=>n+s.bars.length,0)', song_id)
             expect(page.locator('[data-score-bar]')).to_have_count(expected_bars)
@@ -251,6 +258,10 @@ def run():
             assert '整首歌词一键排版' in offline
             assert 'score-whole-lyrics' in offline
         visit('#/songs/an-jing')
+        expect(page.locator('.score-original-open')).to_have_attribute('href', 'https://www.sohu.com/a/203230031_664945')
+        expect(page.locator('.score-lyric-guide').first).to_be_visible()
+        assert '待添加' not in page.locator('#score-sheet').inner_text()
+        page.locator('.score-more-tools > summary').click()
         expect(page.locator('#score-whole-lyrics')).to_be_visible()
         needed = page.evaluate("""() => window.UKE_BULK_LYRICS.vocalForm(
             window.UKE_SCORES.songs.find(s=>s.id==='an-jing')
