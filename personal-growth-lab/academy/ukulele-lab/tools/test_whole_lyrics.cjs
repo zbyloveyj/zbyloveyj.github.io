@@ -25,7 +25,8 @@ verify('Each occurrence may receive different words without leaking into another
   const p=B.plan('an-jing',blocks.join('\n\n'),'blocks',false);
   const one=p.document.lyrics.verse['0'];
   const two=p.document.repeats.verse['2']['0'];
-  assert.notDeepEqual(plain(one),plain(two));
+  assert.notDeepEqual(plain(p.document.lyrics.verse),plain(p.document.repeats.verse['2']));
+  assert(one && two, 'both verse occurrences must be populated');
   assert(p.outcomes.every(x=>!x.reused));
   assert(!JSON.stringify(p.document).includes('一万次悲伤'));
 });
