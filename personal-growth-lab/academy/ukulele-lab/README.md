@@ -78,3 +78,7 @@ node personal-growth-lab/academy/ukulele-lab/tools/test_score_notation.cjs
 ```
 
 GitHub Actions的`Ukulele course quality`覆盖完整学院目录、新旧进度兼容、三首曲谱、音频分析边界、真实浏览器MediaRecorder/Worker/IndexedDB流程、含音频备份与移动布局。登录服务的独立Site源码另有真实SQLite与模拟R2集成测试，验证账号隔离、同源写入、并发合并、上传幂等、范围播放、配额和失败恢复。
+
+## 整首歌词一次排版（2026-11-06）
+
+三首歌的谱面现在额外支持“整首歌词一键排版”：从使用者合法持有的歌词中整首粘贴或导入本机TXT，按课内唱段顺序和反复段生成预览，确认后保存到浏览器本机。原词不随仓库、公开网页和账户上传。自动分配的是初步练习拍格，**不是原录音的真实字词起唱时刻**；须按原歌曲逐句校准。仍保留逐拍修改、单曲歌词JSON备份与离线阅读功能；既有进度和录音记录不变。

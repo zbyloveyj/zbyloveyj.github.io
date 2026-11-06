@@ -1,10 +1,10 @@
 'use strict';
-// Build a complete offline copy of the same notation/editor used in the course.
+// Build a complete offline copy of the same notation/whole-song lyric editor used in the course.
 // No remote scripts, fonts, images, lyrics service or third-party score is required.
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const read = name => fs.readFileSync(path.join(root, 'assets', name), 'utf8');
-const scriptNames = ['music-data.js', 'score-data.js', 'score-notation.js', 'score-lyrics.js', 'score-player.js'];
+const scriptNames = ['music-data.js', 'score-data.js', 'score-notation.js', 'score-lyrics.js', 'score-whole-lyrics.js', 'score-player.js'];
 const memory = new Map();
 const context = {
   document: {addEventListener() {}, getElementById() { return null; }, querySelectorAll() { return []; }},
@@ -14,7 +14,7 @@ const context = {
 context.window = context;
 for (const file of scriptNames) vm.runInNewContext(read(file), context, {filename: file});
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const css = ['style.css','studio.css','score-notation.css','score-lyrics.css'].map(read).join('\n') + `
+const css = ['style.css','studio.css','score-notation.css','score-lyrics.css','score-whole-lyrics.css'].map(read).join('\n') + `
 body{background:#f6f4ed}.offline-score{max-width:1160px;margin:24px auto;padding:0 24px}.offline-top{display:flex;gap:16px;align-items:center;justify-content:space-between;margin:0 0 18px;font-size:13px}.offline-note{font-size:13px;line-height:1.8;color:#617362;margin:18px 0}.score-page{width:100%}@media(max-width:650px){.offline-score{padding:0 12px;margin:16px auto}.offline-top{align-items:flex-start;flex-wrap:wrap}}@media print{.offline-score{max-width:none;margin:0;padding:0}.offline-top,.offline-note{display:none}}
 `;
 const scripts = scriptNames.map(name => '<script>' + read(name).replace(/<\/script/gi, '<\\/script') + '</script>').join('\n');

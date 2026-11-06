@@ -44,6 +44,7 @@ jobs:
           node personal-growth-lab/academy/ukulele-lab/tools/test_audio_analysis.cjs --performance
           node personal-growth-lab/academy/ukulele-lab/tools/test_v2.cjs
           node personal-growth-lab/academy/ukulele-lab/tools/test_score_notation.cjs
+          node personal-growth-lab/academy/ukulele-lab/tools/test_whole_lyrics.cjs
           node personal-growth-lab/academy/ukulele-lab/tools/test_cloud_sync.cjs
       - name: Install isolated browser test dependencies
         run: |
