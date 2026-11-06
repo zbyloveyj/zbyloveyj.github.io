@@ -245,6 +245,30 @@ def run():
             fit_viewport(page, 'desktop score ' + song_id)
         checks.append('three in-course scores, complete form totals, four-beat tiles and real offline-score downloads')
 
+        # Whole-song local import: no supplied commercial lyrics, no remote submission.
+        for song_id in ['an-jing', 'qing-tian', 'sadness']:
+            offline = (OUT / f'score-{song_id}.html').read_text(encoding='utf-8')
+            assert '整首歌词一键排版' in offline
+            assert 'score-whole-lyrics' in offline
+        visit('#/songs/an-jing')
+        expect(page.locator('#score-whole-lyrics')).to_be_visible()
+        needed = page.evaluate("""() => window.UKE_BULK_LYRICS.vocalForm(
+            window.UKE_SCORES.songs.find(s=>s.id==='an-jing')
+        ).reduce((n,x)=>n+x.phrases.length,0)""")
+        own_text = '\n'.join('原创验收短句' + str(i) + '认真弹奏' for i in range(1, needed + 1))
+        page.locator('#whole-lyrics-mode').select_option('continuous')
+        page.locator('#whole-lyrics-text').fill(own_text)
+        page.locator('[data-whole-action="preview"]').click()
+        expect(page.locator('#whole-lyrics-preview')).to_contain_text('已暂排')
+        expect(page.locator('#whole-lyrics-apply')).to_be_enabled()
+        page.locator('#whole-lyrics-apply').click()
+        expect(page.locator('#whole-lyrics-status')).to_contain_text('已把')
+        assert page.evaluate("""() => window.UKE_LYRICS.getBeats('an-jing','verse',0,1).some(Boolean)""")
+        assert page.locator('.score-lyric-word:not(.is-empty)').count() > 0
+        page.reload()
+        assert page.evaluate("""() => window.UKE_LYRICS.getBeats('an-jing','verse',0,1).some(Boolean)""")
+        checks.append('whole-song local lyric paste, preview, confirmation, aligned words, reload persistence and offline source availability')
+
         visit('#/songs/an-jing')
         page.locator('details.song-teaching > summary').click()
         page.locator('[data-scope="plan"][data-field="version"]').fill('TEST-ONLY C调简化版')
