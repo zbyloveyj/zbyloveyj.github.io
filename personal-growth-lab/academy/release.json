@@ -1,5 +1,5 @@
 {
-  "version": "2026.11.06.1",
+  "version": "2026.11.06.2",
   "site": "https://zbyloveyj.github.io/personal-growth-lab/academy/",
   "projects": 13,
   "units": 938,
@@ -59,6 +59,21 @@
     "pending_editions": 28,
     "format": "A introduction; B 7–10 book guides, 3–6 paragraphs each; C 100 concepts in 10 modules; D 3-minute summary and 5 applied questions with answers",
     "storage": "browser-local tasks, self-assessments and notes; JSON export/import",
-    "catalog_counting": "separate scheduled plan; not counted as 30 completed teaching units"
+    "catalog_counting": "separate scheduled plan; not counted as 30 completed teaching units",
+    "psychology_revision": {
+      "edition": "2026-11-06-depth2",
+      "books": 8,
+      "paragraphs_per_book": 6,
+      "concepts": 100,
+      "concept_sections": [
+        "mechanism",
+        "example",
+        "application"
+      ],
+      "module_guides": 10,
+      "applied_questions": 5,
+      "answers": "reasoned answers with scoring points; collapsed until opened"
+    },
+    "philosophy_module_guides": 10
   }
 }
