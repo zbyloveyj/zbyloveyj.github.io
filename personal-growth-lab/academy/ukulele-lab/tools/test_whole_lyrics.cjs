@@ -10,17 +10,17 @@ const B=s.UKE_BULK_LYRICS,L=s.UKE_LYRICS,plain=x=>JSON.parse(JSON.stringify(x));
 const verify=(name,fn)=>{try{fn();console.log('PASS '+name);}catch(e){console.error('FAIL '+name);throw e;}};
 verify('All three song forms accept a full continuous original placeholder lyric draft',()=>{
   for(const song of s.UKE_SCORES.songs){
-    const count=B.vocalForm(song.id).reduce((n,x)=>n+x.phrases.length,0);
+    const count=B.vocalForm(song).reduce((n,x)=>n+x.phrases.length,0);
     const lines=Array.from({length:count},(_,i)=>'原创测试短句'+(i+1)+'开始向前').join('\n');
     const p=B.plan(song.id,lines,'continuous',false);
     assert.equal(p.unused,0);
     assert(p.rows>0);
     assert.equal(L.validateDocument(p.document,song.id).songId,song.id);
-    assert(p.outcomes.every(x=>x.lines===B.vocalForm(song.id).find(y=>y.label===x.label)?.phrases.length));
+    assert(p.outcomes.every(x=>x.lines===B.vocalForm(song).find(y=>y.label===x.label)?.phrases.length));
   }
 });
 verify('Each occurrence may receive different words without leaking into another song',()=>{
-  const form=B.vocalForm('an-jing');
+  const form=B.vocalForm(s.UKE_SCORES.songs.find(x=>x.id==='an-jing'));
   const blocks=form.map((entry,i)=>entry.phrases.map((_,j)=>'个人新词'+i+'段'+j+'句').join('\n'));
   const p=B.plan('an-jing',blocks.join('\n\n'),'blocks',false);
   const one=p.document.lyrics.verse['0'];
@@ -30,7 +30,7 @@ verify('Each occurrence may receive different words without leaking into another
   assert(!JSON.stringify(p.document).includes('一万次悲伤'));
 });
 verify('Missing repeated chorus may reuse earlier chorus only when explicitly selected',()=>{
-  const form=B.vocalForm('qing-tian');
+  const form=B.vocalForm(s.UKE_SCORES.songs.find(x=>x.id==='qing-tian'));
   const firstThree=form.slice(0,3).map((entry,i)=>entry.phrases.map((_,j)=>'练习歌词'+i+'段'+j+'句').join('\n')).join('\n\n');
   const reused=B.plan('qing-tian',firstThree,'blocks',true);
   const spare=B.plan('qing-tian',firstThree,'blocks',false);
