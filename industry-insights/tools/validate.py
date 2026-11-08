@@ -101,6 +101,8 @@ def main():
     status=json.loads((ROOT/'data/update-status.json').read_text())
     assert not status['enabled'] or status.get('automationId'), 'Enabled label without actual automation'
     subprocess.run(['node','--check',str(ROOT/'assets/insights.js')],check=True)
+    subprocess.run(['node','--check',str(ROOT/'assets/insight-model.js')],check=True)
+    subprocess.run(['node',str(ROOT/'tools/test_model.cjs')],check=True)
     print(f'PASS: {len(current["entries"])} sourced events; capital bases; date windows; archives; HTML links; homepage entries; JS syntax.')
 
 if __name__=='__main__':

@@ -42,6 +42,10 @@ python3 industry-insights/tools/build_snapshot.py
 python3 industry-insights/tools/validate.py
 ```
 
-页面支持主线、领域、关键词、时间范围筛选、往期切换、来源跳转与 JSON 下载。筛选在本地浏览器执行，无追踪。`latest.html` 和每期 HTML 无需 JavaScript 即可阅读，JSON 获取失败时仍提供周报入口。
+页面支持主线、领域、关键词、时间范围筛选、往期切换、来源跳转与 JSON 下载。研究领域目录的14个条目均为真实链接，支持键盘、直接访问与浏览器前进/后退，例如 `?sector=organoids#sector-detail`。选择领域时清除旧的关键词、主线和日期限制，显示该领域的观察重点、核查指标、相关信息源和本期动态。没有已核验消息的领域也保留可用的研究入口，明确显示空缺，不补造新闻。各事件的领域标签也可点击。
+
+页面采用白底、黑字、少量暗红与文字列表的编辑式排版。维护时保留真实链接、单列事件列表和展开的分析明细，不恢复旧的青绿色卡片布局。内容数据与每周自动更新任务保持兼容；样式调整不改变原文事实。
+
+筛选在本地浏览器执行，无追踪。`latest.html` 和每期 HTML 无需 JavaScript 即可阅读，JSON 获取失败时仍提供周报入口。
 
 `data/watchlist.json` 是长期领域与公开信息源清单，不代表每个公司本周都有更新。AI VC 在该页面按 AI Virtual Cell（AI虚拟细胞）作为专门方向；风险投资 VC 属于资本主线。
