@@ -27,9 +27,8 @@ const org=model.matches(report,watch,{sector:'organoids',view:'capital',window:'
 assert.ok(org.length>0);
 assert.ok(org.every(e=>e.sectors.includes('organoids')&&e.tracks.includes('capital')&&e.window==='week'));
 assert.equal(model.matches(report,watch,{sector:'organoids',q:'never-a-real-company-23987'}).length,0);
-const unrecorded=watch.sectors.find(s=>!report.entries.some(e=>e.sectors.includes(s.id)));
-assert.ok(unrecorded);
-assert.equal(model.matches(report,watch,{sector:unrecorded.id}).length,0);
+const emptySectorReport={...report,entries:report.entries.filter(e=>!e.sectors.includes('energy'))};
+assert.equal(model.matches(emptySectorReport,watch,{sector:'energy'}).length,0);
 assert.equal(model.selectSector({},'untrusted-sector',watch).sector,'all');
 assert.equal(model.normalizeState({view:'invalid',window:'invalid'},watch).view,'all');
 assert.equal(model.matches(report,watch,model.selectSector(blocked,'all',watch)).length,report.entries.length);

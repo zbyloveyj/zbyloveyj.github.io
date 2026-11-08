@@ -21,7 +21,7 @@ class HTML(HTMLParser):
     def handle_starttag(self, tag, attrs):
         d=dict(attrs)
         if d.get('id'):self.ids.append(d['id'])
-        if tag in ('a','link','script') and (d.get('href') or d.get('src')):
+        if tag in ('a','link','script','img') and (d.get('href') or d.get('src')):
             self.links.append(d.get('href') or d.get('src'))
 
 def report_check(r, sectors):
@@ -94,16 +94,43 @@ def main():
         report_check(r,sectors)
         assert r['issue']==i['label'] and r['period']['end']==i['end']
     assert json.loads((ROOT/arc['issues'][0]['path']).read_text())==current
-    for page in [ROOT/'index.html',ROOT/'latest.html',*(ROOT/'reports').glob('*.html')]:
+    for page in [ROOT/'index.html',ROOT/'latest.html',*(ROOT/'reports').glob('*.html'),*(ROOT/'research').glob('*.html')]:
         html_check(page)
+    editorial=json.loads((ROOT/'data/research.json').read_text())
+    assert editorial['schemaVersion']==1
+    source_ids={s['id'] for s in editorial['sources']}
+    assert len(source_ids)==len(editorial['sources'])
+    assert len(editorial['articles'])>=10 and len(editorial['readings'])>=14
+    assert {b['id'] for b in editorial['sectorBriefs']}==sectors
+    article_ids=[a['id'] for a in editorial['articles']]
+    assert len(article_ids)==len(set(article_ids))
+    for a in editorial['articles']:
+        body=a['dek']+''.join(p for section in a['sections'] for p in section['paragraphs'])
+        assert len(body)==a['characterCount'] and len(body)>=1200, f'Incomplete long read: {a["id"]}'
+        assert len(a['sections'])>=6 and len(a['takeaways'])>=3
+        assert set(a['sectorIds'])<=sectors and set(a['sourceIds'])<=source_ids
+        for section in a['sections']:
+            assert set(section.get('sourceIds',[]))<=set(a['sourceIds'])
+        assert a['url']=='research/'+a['id']+'.html' and (ROOT/a['url']).is_file()
+    for b in editorial['sectorBriefs']:
+        assert len(b['valueChain'])>=3 and len(b['indicators'])>=4 and len(b['risks'])>=3
+        assert b['demand'] and b['bottleneck'] and b['capital'] and set(b['sourceIds'])<=source_ids
+        assert b['url']=='research/sector-'+b['id']+'.html' and (ROOT/b['url']).is_file()
+    for r in editorial['readings']:
+        assert r['sourceId'] in source_ids and r['publisher'] and r['question']
+    panorama=editorial['capitalPanorama']
+    assert abs(sum(x['value'] for x in panorama['values'])-panorama['total'])<1e-8
+    assert panorama['sourceId'] in source_ids and panorama['status']
     for page in ('index.html','personal-growth-lab/index.html','personal-growth-lab/academy/index.html'):
         assert 'industry-insights/' in (REPO/page).read_text(), f'Entry missing from {page}'
     status=json.loads((ROOT/'data/update-status.json').read_text())
     assert not status['enabled'] or status.get('automationId'), 'Enabled label without actual automation'
     subprocess.run(['node','--check',str(ROOT/'assets/insights.js')],check=True)
     subprocess.run(['node','--check',str(ROOT/'assets/insight-model.js')],check=True)
+    subprocess.run(['node','--check',str(ROOT/'assets/editorial.js')],check=True)
     subprocess.run(['node',str(ROOT/'tools/test_model.cjs')],check=True)
     print(f'PASS: {len(current["entries"])} sourced events; capital bases; date windows; archives; HTML links; homepage entries; JS syntax.')
+    print(f'PASS: {len(editorial["articles"])} complete long reads; {len(editorial["sectorBriefs"])} sector briefs; {len(editorial["readings"])} source guides; citations and capital chart.')
 
 if __name__=='__main__':
     main()

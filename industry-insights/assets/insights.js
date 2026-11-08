@@ -34,7 +34,7 @@
     panel.hidden=!s;if(!s){panel.innerHTML='';return;}
     const all=model.matches(report,watch,{sector:s.id}), fresh=all.filter(e=>e.window==='week').length;
     const scope=all.length?(fresh+' 条本期新消息 · '+(all.length-fresh)+' 条延伸背景'):'本期暂未收录已核验动态，继续跟踪';
-    panel.innerHTML='<div class="sector-detail-top"><div><p class="eyebrow">SECTOR RESEARCH</p><h3 id="selected-sector-title">'+esc(s.name)+'</h3></div><a class="sector-detail-close" href="?sector=all#signals" data-sector-link="all">全部领域 ↗</a></div><p>'+esc(s.watch)+'</p><p>重点指标：'+esc(s.indicators)+'</p><p class="scope">'+esc(scope)+'</p><div class="sector-sources"><span>继续查阅</span>'+model.sources(watch,s.id).map(external).join('')+'</div>';
+    panel.innerHTML='<div class="sector-detail-top"><div><p class="eyebrow">SECTOR RESEARCH</p><h3 id="selected-sector-title">'+esc(s.name)+'</h3></div><a class="sector-detail-close" href="?sector=all#signals" data-sector-link="all">全部领域 ↗</a></div><p>'+esc(s.watch)+'</p><p>重点指标：'+esc(s.indicators)+'</p><p class="scope">'+esc(scope)+'</p><p class="sector-brief-link"><a href="research/sector-'+esc(s.id)+'.html">阅读全文：客户、产业链、商业模式与风险 ↗</a></p><div class="sector-sources"><span>继续查阅</span>'+model.sources(watch,s.id).map(external).join('')+'</div>';
   }
   function renderCards() {
     const rows=model.matches(report,watch,state);

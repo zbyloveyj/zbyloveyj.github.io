@@ -6,6 +6,16 @@
 
 沿“国际巨头研发、前沿技术、资本流向”三条主线研究公开材料。长期清单包括 AI 虚拟细胞、类器官/器官芯片、人源细胞与科研工具、药物发现、合成生物、智能体、机器人、交通、半导体、能源、量子、医疗器械、商业航天及农业资源技术；不局限于 AI。
 
+## 研究与阅读层
+
+`data/research.json` 保存本站原创专题、14个行业简报、外部原文导读、来源和年度资金背景。原创文章均有完整正文、核心判断、分节目录与出处，不能只写标题和摘要。行业简报包括客户需求、价值链及可能的收入方式、瓶颈、资本用途、反证和持续观察指标；框架与示例不是已实现的经营数据。
+
+栏目组织参考麦肯锡与Harvard Business Review的公开网站。外部导读按真实机构归属，短摘要不替代原文；HBR只列题名、原文入口与本站阅读问题，不转载付费内容。本站原创不冒充上述机构发布，也不使用其品牌暗示合作或认可。
+
+运行 `python3 industry-insights/tools/build_research.py` 生成 `research/` 全文、文库目录与首页专题/机构观点/资本观察模块。首页生成区由 `EDITORIAL_START` 与 `EDITORIAL_END` 标记，维护生成内容应先修改JSON与生成器。构建可以重复执行，不删除已有文章。原创正文不少于1200字、至少6节，并有来源与明确标注的假设例子；新增文章要有独立的问题和推理，不能复用通用段落凑数。
+
+资本总览中的2026年能源数据为IEA年度估计，只展示能源内部同口径分类，不与公司融资、订单或营收样本合计。NASA图片为官方原文标注NASA的概念图，保留出处与用途说明，不代表设施已建成或NASA认可本站。
+
 每次优先研究最近结束的周一至周日，UTC+8。正文以连贯中文解释“发生了什么—为什么值得关注—下一步核查什么”。所有分析都明确标为观察判断，通过 `evidenceIds` 链接至收录事件。没有可信事件的领域允许留空，不用旧闻或融资传闻填满配额。
 
 ## 自动更新
@@ -17,7 +27,7 @@
 1. 读取本说明、最近数期 JSON 及 `watchlist.json`，检索上周的企业研发公告、论文、资助与资本行动。优先一手公开材料；报道可以作为发现线索，事实应尽量落至公司、投资方、交易所或政府原文。
 2. 按主体、事件和原始公告日期去重。核验发布日期、事件日期、金额、币种、资金类型和状态。事件日期未知时填 `null`，月份精度仅保留 `YYYY-MM`。转载日期不替换原始事件日期。
 3. 生成新的 `data/latest.json`，保留既有结构。`schemaVersion` 为1；`issue` 以报告结束日的 ISO 周号开头，例如 `2026-W45`。`generatedAt` 是实际运行的带时区时间，不能预填未来时间。
-4. 执行 `python3 industry-insights/tools/build_snapshot.py`，生成周报存档 JSON、可直接阅读/打印的 `latest.html` 和 `reports/YYYY-Www.html`，并更新 `archive.json`。该步骤可重复执行；旧期存档不删除。
+4. 执行 `python3 industry-insights/tools/build_snapshot.py`，生成周报存档 JSON、可直接阅读/打印的 `latest.html` 和 `reports/YYYY-Www.html`，并更新 `archive.json`；再执行 `python3 industry-insights/tools/build_research.py`，同步首页专题、导读和资本表。两项可重复执行；旧期存档与已有专题不删除。
 5. 执行 `python3 industry-insights/tools/validate.py`；确认通过后只提交本目录的必要变更至 `zbyloveyj/zbyloveyj.github.io` 的 `main`。检查最新分支，使用非强制更新/预期 SHA 防止覆盖他人提交。保留其他网页、课程和学习记录。
 6. 检查 Pages 发布结果或线上 JSON 与周报内容。分别报告“已生成、已提交、已上线”的实际状态。如网络、来源、授权或发布失败，应保留上一期可用内容并报告阻塞，不能把计划写成成功。未来运行无需再次请求对已授权范围的常规更新确认。
 
@@ -39,6 +49,7 @@
 
 ```bash
 python3 industry-insights/tools/build_snapshot.py
+python3 industry-insights/tools/build_research.py
 python3 industry-insights/tools/validate.py
 ```
 

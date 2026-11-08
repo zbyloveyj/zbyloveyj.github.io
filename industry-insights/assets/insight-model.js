@@ -15,11 +15,11 @@
     robotics:['NVIDIA','Amazon Science','Toyota'],
     mobility:['Toyota','NVIDIA','Amazon Science'],
     semiconductors:['TSMC','ASML','NVIDIA'],
-    energy:['CATL','BNL','欧洲投资银行'],
+    energy:['IEA','CATL','Xcimer Energy','BNL'],
     quantum:['IBM Quantum','QuiX Quantum','BNL'],
     medtech:['Siemens Healthineers','J&J','Google Research'],
-    space:['SpaceX','Nature'],
-    agfood:['Nature','欧洲投资银行']
+    space:['NASA','SpaceX','Nature'],
+    agfood:['FAO','McKinsey Insights','欧洲投资银行']
   };
   function normalizeState(state, watch) {
     return {

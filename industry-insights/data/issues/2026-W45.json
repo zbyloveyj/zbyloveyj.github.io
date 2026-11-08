@@ -5,8 +5,8 @@
     "start": "2026-11-02",
     "end": "2026-11-08"
   },
-  "generatedAt": "2026-11-08T09:59:15+08:00",
-  "coverageNote": "创刊样本：7条本期新消息、4条延伸背景，覆盖细胞模型、类器官、科研工具、机器人、量子计算、半导体和能源。非全量融资数据库；本期未核实到的赛道不补写消息。金额按原币种与资金类型保留，不混合汇总。",
+  "generatedAt": "2026-11-08T10:50:31+08:00",
+  "coverageNote": "本期样本：14条本期消息、9条延伸背景。新增商业航天、能源资助、消费健康及机构研究等内容。旧交易、年度估计与机构观点分别标注，不作为本周新增融资；不据样本条数推算全行业资金份额。",
   "theses": [
     {
       "title": "生命科学的机会，也在实验基础设施",
@@ -35,6 +35,55 @@
     }
   ],
   "entries": [
+    {
+      "id": "nasa-clps-20261107",
+      "title": "NASA更新月球运输框架：100亿美元为十年合同总上限",
+      "organizations": [
+        "NASA",
+        "Blue Origin",
+        "SpaceX",
+        "Northrop Grumman"
+      ],
+      "region": "美国",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "space",
+        "robotics"
+      ],
+      "kind": "contract",
+      "window": "week",
+      "publishedDate": "2026-11-07",
+      "eventDate": "2026-11-07",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "NASA公告CLPS 2框架遴选八家公司，未来可竞争月球表面运输任务；多供应商框架期限十年，总最高价值100亿美元。",
+      "insight": "公共客户的采购机制可能为商业航天创造需求，但资格、任务订单、实际履约和收入确认是不同阶段。",
+      "nextCheck": "核查后续任务订单及履约支付；不能把框架上限分摊成八家公司已获融资。",
+      "sources": [
+        {
+          "label": "NASA · 月球运输与技术公告",
+          "url": "https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/"
+        }
+      ],
+      "finance": {
+        "display": "100亿美元 · 多供应商框架上限",
+        "basis": "十年IDIQ框架合计最高值；不是已下达订单、实际支出或股权融资",
+        "stage": "框架采购 · 供应商获得竞争资格",
+        "investors": "NASA作为公共采购方",
+        "use": "未来月球货物运输任务",
+        "legs": [
+          {
+            "type": "contract",
+            "currency": "USD",
+            "amount": 10000000000,
+            "status": "framework_ceiling"
+          }
+        ]
+      }
+    },
     {
       "id": "ibm-20261106",
       "title": "IBM在芝加哥部署Quantum System Two，量子生态继续向实体设施延伸",
@@ -181,6 +230,99 @@
       ]
     },
     {
+      "id": "potential-20261105",
+      "title": "英国Sovereign AI支持Potential Sciences，现金与算力分别识别",
+      "organizations": [
+        "Potential Sciences",
+        "Sovereign AI"
+      ],
+      "region": "英国",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "drugdiscovery",
+        "agents"
+      ],
+      "kind": "equity",
+      "window": "week",
+      "publishedDate": "2026-11-05",
+      "eventDate": "2026-11-05",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "英国政府公告Sovereign AI参与Potential Sciences的一轮八位数融资，并提供算力支持；公告未给出可用于精确统计的本轮金额。",
+      "insight": "公共投资也可能与算力资源组合，现金投入与资源支持不能重复计为同一笔融资。",
+      "nextCheck": "核查精确金额、币种和算力支持的计价方式；未披露金额保持空缺。",
+      "sources": [
+        {
+          "label": "GOV.UK · Potential Sciences支持计划",
+          "url": "https://www.gov.uk/government/news/sovereign-ai-puts-cash-and-compute-behind-uk-startup-using-ai-to-redefine-chemistry"
+        }
+      ],
+      "finance": {
+        "display": "精确金额未披露 · 同时提供算力支持",
+        "basis": "官方仅称八位数融资，不自行推定精确金额；算力支持不折算进融资",
+        "stage": "早期融资 · 政府公告",
+        "investors": "Sovereign AI及公告列示其他投资人",
+        "use": "计算化学模型研发与计算资源",
+        "legs": [
+          {
+            "type": "equity",
+            "currency": "未披露",
+            "amount": null,
+            "status": "announced"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ionq-20261105",
+      "title": "IonQ第三季度财报：分清平台收入、代工业务和未来指引",
+      "organizations": [
+        "IonQ"
+      ],
+      "region": "美国",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "quantum",
+        "semiconductors"
+      ],
+      "kind": "earnings",
+      "window": "week",
+      "publishedDate": "2026-11-05",
+      "eventDate": "2026-11-05",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "IonQ披露第三季度合计收入1.738亿美元，其中平台收入9030万美元、SkyWater代工服务收入8350万美元。",
+      "insight": "量子企业的合并报表可能包含不同业务；分析产业商业化时，应将业务组合与计算服务需求拆开。",
+      "nextCheck": "核查分部口径、并购影响、毛利与现金流；收入不是融资，全年指引也不是已实现收入。",
+      "sources": [
+        {
+          "label": "IonQ · 2026第三季度财报",
+          "url": "https://www.ionq.com/news/ionq-announces-record-3q26-revenues-and-raises-fy2026-guidance-to-505---515-million-as-backlog-grows-to-1-2-billion"
+        }
+      ],
+      "finance": {
+        "display": "1.738亿美元 · 季度合计收入",
+        "basis": "2026Q3公司披露收入，包含平台与代工业务；不作为资本流入合计",
+        "stage": "2026Q3 · 财报披露",
+        "investors": "客户收入；不是投资机构注资",
+        "use": "经营收入观察",
+        "legs": [
+          {
+            "type": "earnings",
+            "currency": "USD",
+            "amount": 173800000,
+            "status": "reported_revenue"
+          }
+        ]
+      }
+    },
+    {
       "id": "bitbio-20261104",
       "title": "bit.bio获2500万美元D轮，人源细胞模型供应获资本支持",
       "organizations": [
@@ -225,6 +367,68 @@
         {
           "label": "bit.bio公告",
           "url": "https://www.bit.bio/news/bit.bio-secures-25-million-as-demand-for-its-human-cell-models-reaches-record-levels"
+        }
+      ]
+    },
+    {
+      "id": "amazon-20261104",
+      "title": "Amazon在加拿大开建机器人履约中心，关注自动化的现场经济性",
+      "organizations": [
+        "Amazon"
+      ],
+      "region": "加拿大",
+      "tracks": [
+        "giants",
+        "frontier"
+      ],
+      "sectors": [
+        "robotics",
+        "mobility"
+      ],
+      "kind": "deployment",
+      "window": "week",
+      "publishedDate": "2026-11-04",
+      "eventDate": "2026-11-04",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "Amazon官方宣布在新斯科舍省开建机器人履约中心。公告描述设施将采用其第14代机器人技术；目前属于建设阶段。",
+      "insight": "机器人价值需要放到吞吐量、服务成本、异常处理和交付可靠性中衡量，而不是只看演示动作。",
+      "nextCheck": "关注实际投产、单位处理成本及安全指标；未披露建设金额，不自行补算资本开支。",
+      "sources": [
+        {
+          "label": "Amazon · 加拿大机器人履约中心",
+          "url": "https://www.aboutamazon.ca/news/workplace/amazon-breaks-ground-on-first-robotics-fulfilment-centre-in-nova-scotia-creating-more-than-1-000-jobs"
+        }
+      ]
+    },
+    {
+      "id": "mck-pe-20261104",
+      "title": "麦肯锡私募股权访谈聚焦专业化和运营改善",
+      "organizations": [
+        "McKinsey",
+        "Providence Equity Partners"
+      ],
+      "region": "国际",
+      "tracks": [
+        "frontier"
+      ],
+      "sectors": [
+        "agents",
+        "semiconductors"
+      ],
+      "kind": "research",
+      "window": "week",
+      "publishedDate": "2026-11-04",
+      "eventDate": "2026-11-04",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "官方访谈讨论私募股权如何借助行业专业化和企业运营改善创造价值，涉及增长、商业能力与技术应用。",
+      "insight": "资本配置分析可以进一步看投资人带来了哪些可检验的经营改变，而不是只追踪融资金额。",
+      "nextCheck": "访谈是受访者经验与机构观点，不是对所有基金表现的统计证明。",
+      "sources": [
+        {
+          "label": "McKinsey · 私募股权专题访谈",
+          "url": "https://www.mckinsey.com/industries/private-capital/our-insights/why-growth-and-specialization-matter-more-than-ever-in-private-equity"
         }
       ]
     },
@@ -311,6 +515,66 @@
         {
           "label": "DeepMind原文",
           "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/"
+        }
+      ]
+    },
+    {
+      "id": "mgi-climate-20261103",
+      "title": "麦肯锡全球研究院发布气候适应研究，讨论投资落地障碍",
+      "organizations": [
+        "McKinsey Global Institute"
+      ],
+      "region": "国际",
+      "tracks": [
+        "frontier"
+      ],
+      "sectors": [
+        "energy",
+        "agfood"
+      ],
+      "kind": "research",
+      "window": "week",
+      "publishedDate": "2026-11-03",
+      "eventDate": "2026-11-03",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "MGI新研究讨论气候适应措施从经济价值到实际部署之间的障碍，覆盖需求、实施能力与融资条件等问题。",
+      "insight": "对灌溉、冷却、排水和监测工具，应继续追问受益者、购买者与付费者是否一致。",
+      "nextCheck": "报告中的未来机会估算不是已实现收入或已到位资金；研究边界与情景假设应同时阅读。",
+      "sources": [
+        {
+          "label": "McKinsey Global Institute · 气候适应研究",
+          "url": "https://www.mckinsey.com/mgi/our-research/advancing-adaptation-breaking-barriers-to-a-trillion-dollar-opportunity"
+        }
+      ]
+    },
+    {
+      "id": "mck-wellness-20261103",
+      "title": "麦肯锡更新健康消费研究，市场规模口径变化需单独识别",
+      "organizations": [
+        "McKinsey"
+      ],
+      "region": "国际",
+      "tracks": [
+        "frontier"
+      ],
+      "sectors": [
+        "medtech",
+        "agfood"
+      ],
+      "kind": "research",
+      "window": "week",
+      "publishedDate": "2026-11-03",
+      "eventDate": "2026-11-03",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "麦肯锡健康消费研究基于多国消费者调查，讨论需求变化与品类机会；原文提醒本期市场规模扩大了覆盖范围，不宜与上一版直接作增长比较。",
+      "insight": "观察消费健康机会，要同时检查用户真实需求、效果证据和复购，而不是把健康标签当作商业壁垒。",
+      "nextCheck": "不以调查意愿替代实际购买；不把市场定义扩张当作同口径增长。",
+      "sources": [
+        {
+          "label": "McKinsey · Future of Wellness",
+          "url": "https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/future-of-wellness-trends"
         }
       ]
     },
@@ -429,6 +693,110 @@
       ]
     },
     {
+      "id": "nasa-stations-20261009",
+      "title": "NASA征求商业空间站方案，仍需证明可持续运营与客户需求",
+      "organizations": [
+        "NASA"
+      ],
+      "region": "美国",
+      "tracks": [
+        "frontier"
+      ],
+      "sectors": [
+        "space"
+      ],
+      "kind": "partnership",
+      "window": "context",
+      "publishedDate": "2026-10-09",
+      "eventDate": "2026-10-09",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "NASA发布面向下一代商业空间站的最终方案征求公告，涉及开发、认证与服务采购。此处记录采购进展，未记录为已签公司订单。",
+      "insight": "商业航天的机会还包括地面服务、认证、运输与在轨运营；需要判断公共客户之外是否有稳定需求。",
+      "nextCheck": "征求方案并非合同授予，更非公司融资；跟踪后续评选与具体任务合同。",
+      "sources": [
+        {
+          "label": "NASA · 商业空间站征求方案",
+          "url": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/"
+        }
+      ]
+    },
+    {
+      "id": "xcimer-20261005",
+      "title": "Xcimer获得最高3050万美元里程碑资助，付款以验收为条件",
+      "organizations": [
+        "Xcimer Energy",
+        "U.S. DOE"
+      ],
+      "region": "美国",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "energy"
+      ],
+      "kind": "grant",
+      "window": "context",
+      "publishedDate": "2026-10-05",
+      "eventDate": "2026-10-05",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "Xcimer官网页面标注10月5日，新闻稿内文日期为10月6日。公告描述最高3050万美元新增联邦资助，须按技术和商业里程碑验证后付款。",
+      "insight": "硬科技项目可用分阶段公共支持降低早期工程风险，但奖项上限和实际现金到账应分别跟踪。",
+      "nextCheck": "日期存在官网与稿件一天差异，已保留说明；跟踪里程碑完成和实际付款，不能视为已全额到账。",
+      "sources": [
+        {
+          "label": "Xcimer · DOE里程碑资助",
+          "url": "https://xcimer.energy/news/xcimer-energy-receives-additional-30-5-million-award-from-doe-milestone-program/"
+        }
+      ],
+      "finance": {
+        "display": "最高3,050万美元 · 附里程碑条件",
+        "basis": "新增资助承诺上限；支付取决于独立核查的里程碑，不是立即全额到账",
+        "stage": "里程碑资助 · 条件性支付",
+        "investors": "美国能源部DOE",
+        "use": "聚变系统技术开发与工程验证",
+        "legs": [
+          {
+            "type": "grant",
+            "currency": "USD",
+            "amount": 30500000,
+            "status": "conditional_milestone_award"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fao-prices-20261002",
+      "title": "FAO食品价格指标作为农业技术成本与需求背景",
+      "organizations": [
+        "FAO"
+      ],
+      "region": "国际",
+      "tracks": [
+        "frontier"
+      ],
+      "sectors": [
+        "agfood"
+      ],
+      "kind": "research",
+      "window": "context",
+      "publishedDate": "2026-10-02",
+      "eventDate": "2026-10-02",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "FAO公开页面提供食品价格指数与构成说明。本次核验可见10月2日发布的9月信息；没有把日历中预定的11月发布当作已读取的新数据。",
+      "insight": "农业技术的付费意愿应放在农户利润、投入品成本与作物收入中理解，不能脱离经营周期。",
+      "nextCheck": "指数是国际商品价格篮子，并非当地农户销售价或农业科技投资金额；宏观价格变化不直接证明技术需求。",
+      "sources": [
+        {
+          "label": "FAO · Food Price Index",
+          "url": "https://www.fao.org/worldfoodsituation/foodpricesindex"
+        }
+      ]
+    },
+    {
       "id": "quine-20260929",
       "title": "AI虚拟细胞延伸背景：微软Quine尝试跨尺度生物模型与实验闭环",
       "organizations": [
@@ -457,6 +825,80 @@
         {
           "label": "微软研究原文",
           "url": "https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/"
+        }
+      ]
+    },
+    {
+      "id": "ayar-20260910",
+      "title": "Ayar Labs追加1.5亿美元融资，支持光互连制造与量产准备",
+      "organizations": [
+        "Ayar Labs"
+      ],
+      "region": "美国",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "semiconductors"
+      ],
+      "kind": "equity",
+      "window": "context",
+      "publishedDate": "2026-09-10",
+      "eventDate": "2026-09-10",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "Ayar Labs披露追加1.5亿美元融资，面向产品研发、制造生态和量产准备。该事件发生于9月，作为产业背景保留。",
+      "insight": "计算基础设施的机会也可能出现在连接、封装、验证与制造环节；需检查是否存在可交付产品与客户需求。",
+      "nextCheck": "不要把2026年累计融资6.5亿美元重复计入本轮；量产准备不等于已实现大规模收入。",
+      "sources": [
+        {
+          "label": "Ayar Labs · 追加融资公告",
+          "url": "https://ayarlabs.com/news/ayar-labs-expands-2026-funding-to-650-million"
+        }
+      ],
+      "finance": {
+        "display": "1.5亿美元 · 9月追加融资",
+        "basis": "本笔追加融资；全年累计融资为另一口径，旧闻不计作本周新增",
+        "stage": "追加融资 · 已宣布",
+        "investors": "企业公告列示战略及财务投资者",
+        "use": "共封装光学产品、制造生态与量产准备",
+        "legs": [
+          {
+            "type": "equity",
+            "currency": "USD",
+            "amount": 150000000,
+            "status": "announced"
+          }
+        ]
+      }
+    },
+    {
+      "id": "iea-invest-20260528",
+      "title": "IEA年度能源投资估计：用全球口径理解电气化与能源安全",
+      "organizations": [
+        "International Energy Agency"
+      ],
+      "region": "国际",
+      "tracks": [
+        "frontier"
+      ],
+      "sectors": [
+        "energy"
+      ],
+      "kind": "research",
+      "window": "context",
+      "publishedDate": "2026-05-28",
+      "eventDate": "2026-05-28",
+      "verifiedDate": "2026-11-08",
+      "evidence": "一手公开原文",
+      "fact": "IEA公开投资专题给出2026年全球能源投资约3.4万亿美元估计值，其中约2.2万亿美元投向清洁能源相关类别、约1.2万亿美元投向化石能源。",
+      "insight": "这提供能源内部的宏观资金背景；不能与本页企业融资样本相加，也不能据此比较所有行业资本份额。",
+      "nextCheck": "估计值随方法和后续数据可能调整；清洁能源类别含电网、储能等，不是仅指风光发电。",
+      "sources": [
+        {
+          "label": "IEA · Energy investment（2026估计值）",
+          "url": "https://www.iea.org/topics/investment"
         }
       ]
     }
