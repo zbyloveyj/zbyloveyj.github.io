@@ -1,13 +1,63 @@
-# Photography
+# 摄影署名与许可
 
-Huangshan photograph by Carlos Adampol Galindo, taken 2014-10-06.
+本站照片经缩放、WebP编码，版面可能响应式裁切。CC BY-SA 修改版本继续使用原许可。
 
-Source: https://commons.wikimedia.org/wiki/File:El_parque_nacional_de_HuangShan._Un_espectacular_paisaje_de_monta%C3%B1as_rocosas_por_encima_de_las_nubes._(15732624395).jpg
-
-License: CC BY-SA 2.0 — https://creativecommons.org/licenses/by-sa/2.0/
-
-Changes: resized to maximum width 2200 px and encoded as WebP. The responsive page displays a cropped frame. This image derivative is distributed under the same CC BY-SA 2.0 license. No endorsement by the photographer is implied.
-
-# Design research
-
-Blackstone https://www.blackstone.com/ and KKR https://www.kkr.com/ official homepages, observed 2026-11-08. No logos, proprietary source code or imagery copied.
+- 北京故宫 — Pixelflake — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:The_Forbidden_City_-_View_from_Coal_Hill.jpg) — `assets/regions/beijing.webp`
+- 天津海河与天津之眼 — kele_jb1984 — [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) — [原始文件](https://commons.wikimedia.org/wiki/File:%E7%82%AB%E5%BD%A9%E6%B4%A5%E9%97%A811Tianjin_Eye_and_Haihe_River.jpg) — `assets/regions/tianjin.webp`
+- 承德避暑山庄小金山 — Gisling — [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:%E9%81%BF%E6%9A%91%E5%B1%B1%E5%BA%84%E5%B0%8F%E9%87%91%E5%B1%B1.jpg) — `assets/regions/hebei.webp`
+- 晋中平遥古城 — AkakiBalanchivadze — [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Pingyao_Old_City_1.jpg) — `assets/regions/shanxi.webp`
+- 呼伦贝尔草原 — Emmazzye — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Hulun_Buir.jpg) — `assets/regions/neimenggu.webp`
+- 长白山天池 — Wang65 — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Tianchi_Changbai.JPG) — `assets/regions/jilin.webp`
+- 沈阳故宫 — Techyan — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Mukden_Palace_drone_view_5_(cropped_%26_rotated).jpg) — `assets/regions/liaoning.webp`
+- 哈尔滨圣索菲亚教堂 — N509FZ — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:West_facade_of_St._Sophia_Cathedral,_Harbin_(20230721150540).jpg) — `assets/regions/heilongjiang.webp`
+- 上海陆家嘴天际线 — Rodrigo.Argenton — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Shanghai_skyline_2018(cropped).jpg) — `assets/regions/shanghai.webp`
+- 杭州西湖与雷峰塔 — Louisa Salazar — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:West_Lake_-_Hangzhou,_China.jpg) — `assets/regions/zhejiang.webp`
+- 黄山云海 — Carlos Adampol Galindo from DF, México — [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) — [原始文件](https://commons.wikimedia.org/wiki/File:El_parque_nacional_de_HuangShan._Un_espectacular_paisaje_de_monta%C3%B1as_rocosas_por_encima_de_las_nubes._(15732624395).jpg) — `assets/regions/anhui.webp`
+- 苏州拙政园 — Ray in Manila — [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) — [原始文件](https://commons.wikimedia.org/wiki/File:The_Humble_Administrator%27s_Garden,_Suzhou,_China_(37825378061).jpg) — `assets/regions/jiangsu.webp`
+- 南昌滕王阁 — Huangdan2060 — [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Pavilion_of_Prince_Teng_2023021301.jpg) — `assets/regions/jiangxi.webp`
+- 南靖田螺坑土楼群 — 颐园新居 — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Tianluokeng_Tulou_cluster_20140829.JPG) — `assets/regions/fujian.webp`
+- 青岛五四广场海岸 — Trychmi — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Qingdao%EF%BC%8C%E9%9D%92%E5%B2%9B%E6%B5%B7%E6%BB%A8%EF%BC%8C%E9%9D%92%E5%B2%9B%E5%BB%BA%E7%AD%91%EF%BC%8C2019%E5%B9%B4.jpg) — `assets/regions/shandong.webp`
+- 武汉黄鹤楼 — 螺钉 — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:%E6%AD%A6%E6%B1%89%E9%BB%84%E9%B9%A4%E6%A5%BC.jpg) — `assets/regions/hubei.webp`
+- 张家界武陵源黄石寨 — chensiyuan — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:1_zhangjiajie_huangshizhai_wulingyuan_panorama_2012.jpg) — `assets/regions/hunan.webp`
+- 重庆洪崖洞 — Jonashtand — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:202308_Hongya_Cave_at_night_from_Qiansimen_Bridge.jpg) — `assets/regions/chongqing.webp`
+- 洛阳龙门石窟 — xiquinhosilva — [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) — [原始文件](https://commons.wikimedia.org/wiki/File:27381-Luoyang,_Longmen_Grottoes.jpg) — `assets/regions/henan.webp`
+- 韶关丹霞山 — xiquinhosilva — [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) — [原始文件](https://commons.wikimedia.org/wiki/File:39002-Danxiashan_(48989060302).jpg) — `assets/regions/guangdong.webp`
+- 桂林阳朔漓江 — chensiyuan — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:1_li_jiang_guilin_yangshuo_2011.jpg) — `assets/regions/guangxi.webp`
+- 三亚亚龙湾 — Gary Todd from Xinzheng, China — [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en) — [原始文件](https://commons.wikimedia.org/wiki/File:Yalong_Bay,_Sanya,_Hainan_Island_(10098686026).jpg) — `assets/regions/hainan.webp`
+- 阿坝九寨沟五花海 — Chensiyuan — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg) — `assets/regions/sichuan.webp`
+- 安顺黄果树瀑布 — FN-082 — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:%E9%BB%84%E6%9E%9C%E6%A0%91%E7%80%91%E5%B8%83%EF%BC%8C%E8%B4%B5%E5%B7%9E_202403_2.jpg) — `assets/regions/guizhou.webp`
+- 大理崇圣寺三塔 — Jackiejackie123123 — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Three_Pagodas_of_the_Chongsheng_Temple.jpg) — `assets/regions/yunnan.webp`
+- 拉萨布达拉宫 — Xiquinho — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Potala_Palace_HR.jpg) — `assets/regions/xizang.webp`
+- 西安城墙 — Kevinsmithnyc — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Xian_City_Wall.jpg) — `assets/regions/shaanxi.webp`
+- 张掖七彩丹霞 — xiquinhosilva — [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Zhangye_Danxia_National_Geopark.jpg) — `assets/regions/gansu.webp`
+- 青海湖 — Henry — [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Qinghai_Lake.jpg) — `assets/regions/qinghai.webp`
+- 中卫沙坡头 — Windmemories — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:20260809_Shapotou_Scenic_Area_(Desert_Area)_03.jpg) — `assets/regions/ningxia.webp`
+- 南投日月潭 — Dquai — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Landscape_of_Sun_Moon_Lake.jpg) — `assets/regions/taiwan.webp`
+- 阜康天山天池 — Caitriana Nicholson from 北京 ~ Beijing, 中国 ~ China — [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) — [原始文件](https://commons.wikimedia.org/wiki/File:The_Heavenly_Lake_%E5%A4%A9%E6%B1%A0_(8064384481).jpg) — `assets/regions/xinjiang.webp`
+- 香港维多利亚港 — Base64 — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Hong_Kong_Night_Skyline_non-HDR.jpg) — `assets/regions/hongkong.webp`
+- 澳门议事亭前地 — Georgio — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) — [原始文件](https://commons.wikimedia.org/wiki/File:Senado_Square_Macao.jpg) — `assets/regions/macao.webp`
+- 广州珠江与天际线 — Josephua — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:GuangzhouSkyline2020.jpg) — `assets/cities/guangzhou.webp`
+- 深圳城市天际线 — Charlie fong — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Shenzhen_West_at_dust2021.jpg) — `assets/cities/shenzhen.webp`
+- 潮州广济桥 — Akira CA — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Chaozhou_Guangji_Bridge_20191211.jpg) — `assets/cities/chaozhou.webp`
+- 佛山祖庙 — xiquinhosilva — [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Foshan_Ancestral_Temple_39538-Foshan_(49043191077).jpg) — `assets/cities/foshan.webp`
+- 汕头小公园 — Sgnpkd — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Xiaogongyuan.jpg) — `assets/cities/shantou.webp`
+- 梅州兴宁客家围龙屋 — HKB08 — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Hakka_WeiLong_House_in_Xingning_City.jpg) — `assets/cities/meizhou.webp`
+- 合肥逍遥津公园 — 钉钉 — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Xiaoyaojin_Park.jpg) — `assets/cities/hefei.webp`
+- 江门开平自力村碉楼 — DragonSamYU — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Kaiping_Diaolou_in_Zili_Village_-_20181028-1.jpg) — `assets/cities/kaiping.webp`
+- 池州九华山 — William Ng — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Mount_Jiuhua,_Anhui_Province_1.jpg) — `assets/cities/jiuhuashan.webp`
+- 安庆迎江寺与振风塔 — Zhou Guanhuai — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:%E8%BF%8E%E6%B1%9F%E5%AF%BA.jpg) — `assets/cities/anqing.webp`
+- 亳州花戏楼 — Windmemories — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:20260210_Huaxilou_01.jpg) — `assets/cities/bozhou.webp`
+- 宣城敬亭山 — Zhou Guanhuai — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Jing_Ting_Mountain.jpg) — `assets/cities/xuancheng.webp`
+- 歙县徽州古城城门 — Zhangzhugang — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Shexian_Chengqiang_2016.11.13_12-27-43.jpg) — `assets/cities/shexian.webp`
+- 泉州开元寺双塔 — Windmemories — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:20230129_Kaiyuan_Temple.jpg) — `assets/cities/quanzhou.webp`
+- 苏州虎丘 — Windmemories — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:20240203_Tiger_Hill_06.jpg) — `assets/cities/suzhou.webp`
+- 西安秦始皇帝陵兵马俑 — Ondřej Žváček — [CC BY 2.5](https://creativecommons.org/licenses/by/2.5) — [原始文件](https://commons.wikimedia.org/wiki/File:Terracotta_Army.jpg) — `assets/cities/xian.webp`
+- 洛阳白马寺 — Windmemories — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:White_Horse_Temple_01.jpg) — `assets/cities/luoyang.webp`
+- 成都锦里 — Daderot — [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en) — [原始文件](https://commons.wikimedia.org/wiki/File:Jinli_Street_-_Chengdu,_China_-_DSC05394.jpg) — `assets/cities/chengdu.webp`
+- 重庆磁器口 — Willi Weasel — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Street_in_the_Old_Town_of_Ciqikou.jpg) — `assets/cities/chongqing-ciqikou.webp`
+- 拉萨大昭寺院落 — Antoine Taveneaux — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Jokhang-1234.jpg) — `assets/cities/lhasa.webp`
+- 大理洱海 — Ngguls — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:20260223_Erhai_Park_in_Dali,_Yunnan_NE.jpg) — `assets/cities/dali.webp`
+- 敦煌鸣沙山月牙泉 — Nyx Ning — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:%E6%95%A6%E7%85%8C_%E6%9C%88%E7%89%99%E6%B3%89-%E6%9C%88%E6%B3%89%E6%99%93%E6%BE%88_-_panoramio.jpg) — `assets/cities/dunhuang.webp`
+- 香港中环皇后像广场 — Mk2010 — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Statue_Square_(Hong_Kong).jpg) — `assets/cities/hongkong-central.webp`
+- 台南赤崁楼 — Kdm852 — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Chihkan_Tower,_Tainan_at_dusk.jpg) — `assets/cities/tainan.webp`
+- 澳门大三巴牌坊周边 — Mike — [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Ruins_Of_St_Paul_(157820823).jpeg) — `assets/cities/macao-stpaul.webp`
