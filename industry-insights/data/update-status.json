@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "scheduleLabel": "每周一上午自动检索更新 · UTC+8",
+  "automationId": "Automation_9b742ef73a6481918b784878c5bab3c8",
+  "lastSuccessfulIssue": "2026-W45",
+  "configuredAt": "2026-11-08T09:59:15+08:00"
+}

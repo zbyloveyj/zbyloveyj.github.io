@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "issues": [
+    {
+      "id": "2026-W45",
+      "label": "2026-W45 · 创刊观察",
+      "path": "data/issues/2026-W45.json",
+      "html": "reports/2026-W45.html",
+      "start": "2026-11-02",
+      "end": "2026-11-08"
+    }
+  ]
+}
