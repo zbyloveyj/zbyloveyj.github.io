@@ -1,0 +1,4953 @@
+{
+  "id": "liaoning",
+  "name": "辽宁",
+  "region": "东北",
+  "memory": "清代宫城·工业·辽东海岸",
+  "intro": "辽宁可以从清代历史、近现代工业与辽东海岸三方面理解。沈阳的人文博物、大连的海滨、本溪丹东的山水构成不同旅行节奏。",
+  "season": "5—6月和9—10月；海滨多选夏季，赏枫看当年气候。",
+  "route": "6日：沈阳2日→本溪1日→丹东1日→大连2日。",
+  "duration": "6—8天",
+  "note": "山海线转场需预留；战争遗址参观尊重纪念空间。",
+  "places": [
+    {
+      "name": "沈阳",
+      "sights": "沈阳故宫、辽宁省博物馆、北陵",
+      "history": "清代宫城与近现代城市历史并存，辽宁省博物馆适合看书画和地方考古。",
+      "food": "老边饺子、鸡架、熏肉大饼。",
+      "theme": "宫城博物",
+      "story": "沈阳故宫展现清入关前后的宫廷制度，陵寝、近代街区与工业遗产则把城市历史继续向外展开。宫城不宜直接用北京故宫的尺度判断，它在布局和建筑细节上自有特点。先看东北地方考古，再读清代宫城与近现代变迁，能把几个看似分离的沈阳放在一起。",
+      "see": [
+        {
+          "name": "沈阳故宫",
+          "detail": "清入关前宫殿与后续营建形成独特格局，满汉等建筑因素和政治功能相互交织。按东、中、西路辨认不同功能与营建阶段，留意大政殿、十王亭和庭院关系。选一两组室内陈列细看，比只沿中轴拍照更能理解宫廷生活。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "沈阳",
+          "registryName": "沈阳故宫",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-adaca0723e19",
+          "verification": "",
+          "city": "沈阳市",
+          "district": "沈河区"
+        },
+        {
+          "name": "辽宁省博物馆",
+          "detail": "省级综合博物馆以考古文物、书画和专题展陈呈现辽宁与更广区域的文化交流。先看地方考古和通史，再按实际展览选书画专题。珍贵书画并非长期固定展出，按官方展讯决定重点，不以某一件名作作为唯一期待。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "area": "沈阳"
+        },
+        {
+          "name": "昭陵与北陵公园",
+          "detail": "清代皇家陵寝与后来的城市公园叠合，神道、陵宫与山林需分区理解。区分陵寝建筑与外围公园，观察神道、石像生、祭祀建筑的次序。与宫城对读，理解纪念、礼制与园林散步并非同一体验。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "沈阳"
+        },
+        {
+          "name": "九·一八历史博物馆",
+          "detail": "博物馆通过历史文物、照片和专题材料介绍九一八事变及东北抗战相关历史，可把铁路、城市与事件地图联系起来读。建议选择人物经历或一组原始资料深入，分辨史料、复制件和场景复原。内容情绪分量较重，亲子按年龄安排，给安静阅读和休息留时。",
+          "time": "2—3小时",
+          "kind": "历史博物",
+          "area": "大东"
+        },
+        {
+          "name": "张学良旧居陈列馆",
+          "detail": "以张氏帅府相关建筑、人物文献和生活空间呈现东北近代政治与家庭经历，可比较中西不同楼宇和院落用途。先理清年代、人物关系，再看建筑细部，比只听传奇轶闻更完整。旧居、复原陈设和专题展各有性质，按开放范围参观，适合近代史兴趣旅客。",
+          "time": "2—3小时",
+          "kind": "旧居博物",
+          "area": "沈河",
+          "registryName": "张学良旧居陈列馆",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-56472863e41b",
+          "verification": "",
+          "city": "沈阳市",
+          "district": "沈河区"
+        },
+        {
+          "name": "中国工业博物馆",
+          "detail": "旧厂房、生产设备与专题展陈让沈阳装备制造和工人生活变得具体。可从一台机床、一道生产流程或一组旧照片入手，理解工业如何影响交通、社区和城市空间，再走铁西公共道路观察更新。展馆与原生产区域的边界需遵守，临展及开放按官方安排。",
+          "time": "半天",
+          "kind": "工业博物",
+          "area": "铁西",
+          "registryName": "沈阳工业博物馆",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-b1904d4bd7f7",
+          "verification": "",
+          "city": "沈阳市",
+          "district": "铁西区"
+        }
+      ],
+      "eat": [
+        {
+          "name": "老边饺子",
+          "detail": "沈阳传统饺子名物以调馅、煸馅等工艺形成风格，肉菜、汤汁与面皮配合，馅香和软韧皮感是重点。不同馅料和规格应看实际菜单，老字号身份也要分清具体经营来源。可以点一两种小份比较，先原味再蘸少量醋，配清汤或小菜便是一顿简餐，不只为品牌故事排队。"
+        },
+        {
+          "name": "鸡架",
+          "detail": "沈阳常把带少量肉的鸡骨架卤、熏、烤、炸或拌制，吃的是骨边肉、调味和慢慢拆食的乐趣。它与抻面组合成为实在的街头简餐，不同做法咸香、酸甜或焦脆各有层次。点前分清熟制方式与辣度，少量尝两种即可，细小骨头不可吞咽，别把肉少简单当作没有风味。"
+        },
+        {
+          "name": "熏肉大饼",
+          "detail": "猪肉经煮制、熏制切片，夹进有层次的大饼，常配葱丝与酱，饼香、肉香和熏香形成对照。它在东北多地流行，具体老字号或地方版本有各自工艺，不能全部混作同一家。现烙饼卷熟肉更好吃，先少放酱，以免盖住熏制风味。"
+        },
+        {
+          "name": "朝鲜族冷面",
+          "detail": "荞麦等配粉制成弹韧面条，入冷汤配熟肉、鸡蛋、黄瓜等，酸甜与面筋性互相衬托，汤底各店不同。沈阳朝鲜族风味餐可与辣白菜、米肠小份搭配，和抻面安排在不同一餐；先尝原汤，再添醋辣，问清面量，一碗主食不必另叠大份饼饭。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "沈阳抻面",
+          "detail": "揉醒的面团经反复拉抻成为长面条，煮熟配清汤、肉汤或其他浇头，筋道与汤香是重点。它常与鸡架组合成沈阳实在的日常简餐，吃法比宴席菜更接近街坊生活。面条粗细、碗量各店不同，可先问普通份，先尝汤再加醋辣椒，避免掩住面香。"
+        },
+        {
+          "name": "沈北粘火勺",
+          "detail": "以黏性谷物面等制皮，包豆馅后烙或煎至外层焦香，内部软糯，属于沈阳地方推介的传统面食。它与蒸粘豆包在火候和表皮上有差别，适合少量趁热吃。各家粉料和甜度不同，点前可问配料，配清茶或稀粥更容易辨豆香与谷物香。"
+        },
+        {
+          "name": "彩塔炒焖子",
+          "detail": "淀粉制成的焖子切块在平锅煎炒，形成焦香表面、柔软内芯，再配蒜汁、麻酱等，沈阳彩塔夜市相关风味尤受关注。它是街头小吃，不是肉肠或荞面碗托。趁热拌匀现吃，酱汁先少加，比较焦边和软芯，适合夜市少量分享。"
+        },
+        {
+          "name": "雪绵豆沙",
+          "detail": "打发蛋清裹住豆沙馅后炸成轻软团，撒少量糖，外层蓬松、内馅绵密，是东北传统甜菜的代表。沈阳老菜馆可在饺子或家常菜后几人分一盘，现做工序和火候比外观大小更重要；先让内馅散热，再比较蛋泡与豆沙，糖量可请店家调整。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        }
+      ],
+      "walk": "第一天看故宫与附近街区，第二天完整留给辽宁省博物馆，午后按体力休息。第三天看昭陵与北陵公园再返程；若加工业展馆，另换一个半天，不把浑南博物馆当作宫城隔壁的小展厅。",
+      "stay": "中街、青年大街等轨道交通周边方便串联城区，主看省博可住浑南；选择老街住宿先关注夜间人声和停车。",
+      "move": "地铁解决主要城区转场，博物馆、北陵与故宫之间仍需分段接驳；冬季步行时间按寒风和结冰调整，室内项目适当穿插。",
+      "tip": "宫城与陵寝票务、预约分别核对，博物馆临展可能另有入场安排；看书画先查展期，避免把网上旧展讯当当前在展。",
+      "days": "2—3天",
+      "ratedScenic": [
+        {
+          "name": "老北市景区",
+          "city": "沈阳市",
+          "district": "和平区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "沈阳传统庙市文化与现代商业演艺叠合的街区，适合通过寺庙周边、店铺、地方小吃和民间艺术看城市生活。白天可辨认街巷与建筑关系，夜间则侧重灯光和展演，两种体验各有节奏。现有街景包含修缮与新建，不能把仿古门面都当作旧时原物。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-188b2164be81",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳故宫",
+          "city": "沈阳市",
+          "district": "沈河区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "清入关前宫殿与后来营建形成东、中、西路不同格局，大政殿、十王亭和院落关系反映政治礼仪与宫廷生活。可先理解各路功能，再选一组陈列看器物和人物，比只沿中轴拍照更有收获。建筑年代、原有功能与今天展览需要分别阅读，馆藏并非每件都常年展示。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-adaca0723e19",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳科学宫",
+          "city": "沈阳市",
+          "district": "沈河区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以互动展项、科学实验和专题活动向公众解释自然与技术知识，是沈阳传统科普场馆。适合让孩子围绕力、光、电等问题实际观察，再讨论装置为何出现相应现象。它与浑南的辽宁省科学技术馆是不同场馆，不能混用地址和预约；特种影院、活动与常设展分别核对安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-c26b29dc0e33",
+          "guideIndex": 0
+        },
+        {
+          "name": "张学良旧居陈列馆",
+          "city": "沈阳市",
+          "district": "沈河区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "张氏帅府相关楼宇、院落与人物史料共同呈现东北近代政治和家庭生活，中式院落与西式楼房可以对照观看。先理清张作霖、张学良等人物关系和年代，再看房间用途及建筑细部，能减少只听传奇的片面印象。旧居本体、复原陈设与专题展陈性质不同，按说明分辨。",
+          "time": "2—3小时",
+          "kind": "旧居博物",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-56472863e41b",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳“九·一八“历史博物馆",
+          "city": "沈阳市",
+          "district": "大东区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "围绕九一八事变、东北沦陷与抗日斗争展开的历史博物馆，文物、照片与地图让铁路和城市背景变得具体。可挑一组原始文献或人物经历深读，分清史料、复制件和艺术复原。纪念性建筑的象征表达与历史证据相互补充，适合留出安静阅读时间，亲子根据年龄选择内容。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-58f2760a5e41",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳抗美援朝烈士陵园",
+          "city": "沈阳市",
+          "district": "皇姑区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "安葬抗美援朝烈士并承担纪念、教育功能的陵园，纪念建筑、墓区和相关展陈共同构成参观动线。阅读姓名、生平与具体经历，比只看宏大纪念物更能理解战争中的个体生命。这里首先是祭奠空间，参观保持肃静，墓区和展馆按各自开放安排进入。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-ee2b85867b62",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈飞航空博览园",
+          "city": "沈阳市",
+          "district": "皇姑区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "依托沈阳航空工业发展形成的专题展示空间，航空实物、模型和图文让飞机研制、结构与制造过程可被理解。可选择一种机型，比较机翼、进气布局与用途，再看背后的技术和人员故事。展品参观区与现实工厂生产区不同，场馆开放不代表可以进入厂区或拍摄限制设施。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-59f3ecf77de6",
+          "guideIndex": 0
+        },
+        {
+          "name": "北陵公园(清昭陵）",
+          "city": "沈阳市",
+          "district": "皇姑区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "清太宗皇太极与孝端文皇后陵寝及外围城市公园叠合的文化景观，神道、石像生、祭祀建筑和山林各有空间层次。适合与沈阳故宫对读，认识入关前后皇家礼制的延续。陵寝核心与外围公园在保护、票务和开放范围上可能不同，不能只按普通城市公园理解全部建筑。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-074485212df4",
+          "guideIndex": 0
+        },
+        {
+          "name": "华晨宝马铁西工厂",
+          "city": "沈阳市",
+          "district": "铁西区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "在真实汽车制造基地中认识现代工业的参观项目，可沿规定线路了解车身制造、装配和质量控制怎样衔接。机械设备、物流组织与工人分工，比单看成品车更能解释大型工厂的运作。生产参观通常按预约与厂方接待进行，线路随生产情况调整。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-10bb9071753d",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳工业博物馆",
+          "city": "沈阳市",
+          "district": "铁西区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "利用工业旧厂房、设备与专题展陈讲述沈阳装备制造史，机器、铸件和工人生活材料把工业城市的形成过程具体化。可从一台机床或一道生产工序入手，理解技术如何影响社区与交通，再到铁西公共街区对照观察。展览、旧工业遗存和后期装置分开阅读。",
+          "time": "半天",
+          "kind": "工业博物",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-b1904d4bd7f7",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳铁路陈列馆",
+          "city": "沈阳市",
+          "district": "苏家屯区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以机车、车辆、铁路器材和历史资料呈现东北铁路发展，适合近距离比较蒸汽、内燃等不同动力设备的结构与用途。先看运输线路和技术背景，再看驾驶室、车轮和车厢细节，会比只与机车合影更完整。它是专题陈列馆，静态展览与运行体验不同，开放批次和讲解需事先确认。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-4fcee2022530",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳市植物园（沈阳世博园）",
+          "city": "沈阳市",
+          "district": "浑南区",
+          "level": "5A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "将植物园基础与世界园艺博览会园林展示结合的大片绿地，专类植物、不同风格展园和季节花木适合分主题慢看。可先选植物观察或园林设计其中一条线，再比较水面、地形与建筑如何组织空间。园区较大，花期随天气变化，历史展会名称也不代表所有旧展园始终以原貌开放。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-3bd2ee303b1f",
+          "guideIndex": 0
+        },
+        {
+          "name": "科学技术馆",
+          "city": "沈阳市",
+          "district": "浑南区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "浑南的辽宁省科学技术馆，以基础科学、技术应用和互动体验组织科普，适合把课堂知识转为观察与实验问题。可围绕一个主题反复比较展项，而不是逐件按按钮赶场。它与沈阳科学宫为不同场馆，特效影院、实践活动及常设展可能分别预约。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-0363f91173b4",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳棋盘山风景区",
+          "city": "沈阳市",
+          "district": "浑南区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "山林、湖面与近郊休闲设施组成沈阳东部的大范围游览区，登高、林间散步与滨水观景适合按体力选择。先确定一个片区和往返交通，再看山地植被、湖岸与城市边缘的关系，避免把不同入口当作随时互通。冰雪、游船和节庆是不同季节业态。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-ce6a9d44a660",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳市东陵公园（清福陵）",
+          "city": "沈阳市",
+          "district": "浑南区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "清太祖努尔哈赤及孝慈高皇后陵寝依山势布局，神道、石像生、台阶和陵宫共同体现皇家祭祀空间的层次。可先观察由前向后的礼仪次序，再把建筑与自然地形联系起来看。它与北陵的昭陵是不同陵寝，参观宜结合人物与年代区分；保护建筑、外围公园和修缮区域遵守各自开放规定。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-da2d75bcd5bc",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳森林动物园",
+          "city": "沈阳市",
+          "district": "浑南区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "在山地林园环境中设置不同动物展区，适合把动物的体形、行为和原生栖息地知识联系起来，而不是只追求一次看到最多物种。可根据步行距离与接驳安排挑选重点，给观察留出时间。园内场馆、接触体验和展示活动各有安排，不自行投喂或为近距离拍摄敲击围栏、追逐动物。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-dd5cc7b04c92",
+          "guideIndex": 0
+        },
+        {
+          "name": "稻梦空间",
+          "city": "沈阳市",
+          "district": "沈北新区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以稻田画、稻作体验和田园休闲呈现沈阳平原农业，观景角度、作物颜色与田块图案随季节变化。适合从高处读田块与灌溉布局，再了解播种、管理和收获怎样形成景观。它也是现实农业生产空间，稻田并非全年保持同一画面，体验采收与普通游园分别按当期活动安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-4072adddced3",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳方特欢乐世界",
+          "city": "沈阳市",
+          "district": "沈北新区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以主题包装、游乐设备和演艺组合形成的现代乐园，适合按同行者年龄、身高要求与兴趣挑选项目。先确定几项重点，结合演出时刻和园区路线安排，比反复横穿园区更轻松。科技影像与故事场景属于娱乐创作，室内、室外设施的运行会受维护和天气影响。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-4c59678a0b0e",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳怪坡风景区",
+          "city": "沈阳市",
+          "district": "沈北新区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以车辆和行人在斜坡上产生特殊感受的现象而闻名，适合把现场体验与视觉参照、坡度和感知判断联系起来。先观察周边地形，再对照科普说明，能把好奇变成一次简单的科学讨论。景区还结合近郊游憩设施，体验项目各自运营，不把民间神秘解释当作已经证实的物理结论。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-b2a243d37f20",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳爱新觉罗皇家博物院",
+          "city": "沈阳市",
+          "district": "法库县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "位于法库的酒文化与酿造展示目的地，围绕祖家坊相关品牌、生产技艺和历史叙述形成参观内容。适合先看原料、制曲与蒸馏等工艺，再辨认实物资料与品牌故事的证据层次。名称中的皇家文化不能使所有现存建筑都成为古代宫廷遗存；生产参观和体验按接待安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-f4cfd947baf6",
+          "guideIndex": 0
+        },
+        {
+          "name": "沈阳三农博览园",
+          "city": "沈阳市",
+          "district": "新民市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "在新民以多类专题展馆、民俗展示和生态农业园林结合的文化旅游园，农业、农村与农民生活可作为理解主线。适合从农具、日常器物与地方习俗入手，再观察田园水景如何组织休闲空间。展馆收藏、场景复原和现代造景性质不同，园区采用季节性开放安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.sysnbly.com.cn/"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-8cac14c41a7a",
+          "guideIndex": 0
+        }
+      ],
+      "ratedCount": 21
+    },
+    {
+      "name": "大连",
+      "sights": "金石滩、旅顺博物馆、滨海路",
+      "history": "港口城市、近代历史与海岸地质都值得看，旅顺方向宜单独一天。",
+      "food": "海鲜、焖子、海菜包子；焖子常煎后拌芝麻酱等。",
+      "theme": "海滨历史",
+      "story": "大连的港口成长、近代城市规划与辽东半岛海岸地貌相互交织。旅顺的历史需要结合博物馆与纪念空间认真阅读，滨海路和金石滩则更适合看海蚀地貌与岸线。市区、旅顺、金石滩各是一条完整子线，不能因都在大连名下便压缩成半日往返的景点组合。",
+      "see": [
+        {
+          "name": "滨海路开放步道",
+          "detail": "山地海岸与城市道路相连，正式步道可观察礁岸、坡地和城市公共空间。选一段连续岸线看山、湾与城市关系，步道和车行路并不处处相同。先定起终点与返程方式，再边走边看海岸植物、岩石和港湾。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "大连"
+        },
+        {
+          "name": "旅顺博物馆",
+          "detail": "馆藏与近代馆舍共同呈现考古、艺术和区域交流，不能只以建筑外形概括内容。结合馆藏与地方历史理解区域文化，按展陈说明区分考古、艺术与近代叙事。旅顺其他纪念设施分布较散，选一个主题补充即可。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "大连"
+        },
+        {
+          "name": "金石滩地质景观",
+          "detail": "滨海岩石、地层与侵蚀形态展示长期地质作用，正式观景区与潮间带有不同规则。观察海蚀柱、岩层与裂隙，结合地质说明理解形成过程。只在开放栈道和观景区移动，海浪变化时不跨到礁石低处拍照。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "area": "大连"
+        },
+        {
+          "name": "大连博物馆",
+          "detail": "综合展陈把港口城市的近代建设、交通与居民生活联系起来，适合先看地图、旧照片和生活器物，再去中山广场或旅顺实地对照。重点是理解城市变化的具体条件，不仅欣赏异国建筑外形。展览轮换与预约以馆方为准，半天选择一两个主题更容易读深。",
+          "time": "半天",
+          "kind": "地方博物",
+          "area": "沙河口",
+          "registryName": "大连博物馆",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-2a37aa88dd6d",
+          "verification": "",
+          "city": "大连市",
+          "district": "沙河口区"
+        },
+        {
+          "name": "旅顺日俄监狱旧址博物馆",
+          "detail": "保留的监狱空间与相关史料展示殖民统治和侵略历史，建筑本体让日常控制、劳动与人的遭遇有了尺度。可先读人物与文献，再看牢房、通道等空间，避免把苦难遗址当作猎奇场景。内容较沉重，适合安静参观，亲子按年龄和接受程度调整。",
+          "time": "2—3小时",
+          "kind": "历史旧址",
+          "area": "旅顺口",
+          "registryName": "旅顺日俄监狱旧址博物馆",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-d6f6110ab3e7",
+          "verification": "",
+          "city": "大连市",
+          "district": "旅顺口区"
+        },
+        {
+          "name": "中山广场近代建筑步行",
+          "detail": "放射状道路与周围近代公共建筑构成大连城市规划的重要现场，银行、办公与酒店等立面可作风格和功能比较。白天在公共道路观察门窗、柱式、材料与街道尺度，比只拍广场全景更具体。许多楼宇仍在使用，按允许开放范围进入，不把外观游览当作室内参观权。",
+          "time": "2—3小时",
+          "kind": "城市建筑",
+          "area": "中山"
+        }
+      ],
+      "eat": [
+        {
+          "name": "大连焖子",
+          "detail": "淀粉制成粉块，切块后煎出焦香表面，配芝麻酱、蒜汁等，内部仍柔软弹韧。大连还有加海鲜等配料的三鲜版本，和纯素街头小碗并非同一种份量。现煎现拌最好，先少添酱再尝焦边与软芯；它不是炖肉菜，也与荞麦碗托在原料、质地上不同。"
+        },
+        {
+          "name": "海菜包子",
+          "detail": "大连常以海麻线等食用海藻配肉丁、葱等调馅，包入面皮蒸熟，海藻清香、肉汁与麦香相衬。不同海菜品种、肉菜比例和面皮各店有变化，不把所有海藻包子统称同一配方。先问具体原料，现蒸小份趁热吃，少蘸醋更能辨海味，注意充分熟制。"
+        },
+        {
+          "name": "熟制海鲜",
+          "detail": "海鱼可蒸或家常炖，虾蟹、贝类按供应选择，简单烹调更便于比较海味与肉质。大连黄渤海岸线饮食可从一鱼一贝的小组合入手，与焖子、咸鱼饼子分餐安排；先问具体品种、重量、单价及加工费，几人共享搭米饭，不必为凑种类点满整个海鲜拼盘。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "大连海凉粉",
+          "detail": "以石花菜等海藻原料熬煮凝固成凉粉，切块配蒜、醋、香菜等调汁，清凉、嫩滑，与陆地淀粉凉粉的质感不同。它是大连沿海有辨识度的小吃，海藻来源和制作方法各店不同。先少拌汁尝质地，宜选择正规制作和冷藏的产品，适合作小份开胃菜。"
+        },
+        {
+          "name": "海胆豆腐",
+          "detail": "将海胆等与嫩豆腐蒸、炖或烧制，海味进入豆腐，口感细嫩，具体做法和用量依餐馆而异。它能展示大连把海鲜与家常豆制品结合的吃法，未必每家都用同样鱼汤。点前问海胆份量、加工与计价，选择熟透版本，少放蘸料更能辨豆香和海味。"
+        },
+        {
+          "name": "蚬子芸豆面",
+          "detail": "蚬子等贝类与芸豆煮成汤卤，配面条食用，贝鲜、豆角清香与面条筋性构成一碗沿海家常面。大连餐馆常见，海鲜品种、蔬菜切法和汤底各家有别。先尝原汤再调味，询问是否带壳、是否有其他海鲜，熟制后留意贝壳碎片，一碗即可作正餐。"
+        },
+        {
+          "name": "咸鱼饼子",
+          "detail": "咸鱼经煎、蒸或炖后搭玉米面饼，鱼的咸鲜与粗粮香互相衬托，是辽东沿海渔家餐桌的代表组合。具体鱼种、腌制程度和饼的做法各店不同，不能一概理解为新鲜清蒸鱼。少量分食、留意鱼刺，搭清淡蔬菜，饼蘸鱼汁也比再加酱料更有本味。"
+        },
+        {
+          "name": "锅塌大虾",
+          "detail": "虾经裹蛋等处理煎定型，再加汤汁焖烧，既有表层蛋香又能保留虾肉嫩度，体现辽菜常见锅塌技法。大连地方餐饮推介中常见这一菜型，具体虾种和酱汁各店不同。点前问整虾或虾仁、重量与计价，熟透趁热吃，搭清淡主食比较合适。"
+        }
+      ],
+      "walk": "第一天市区和滨海路短段步行，第二天专程旅顺看博物馆与一处纪念空间，第三天金石滩看海岸地质。第四天机动休闲或返程，若只待两天就选旅顺与金石滩其一，别把每日都变成半岛两端往返。",
+      "stay": "市区轨道交通周边适合多向出行，旅顺或金石滩连续游可各住一晚；海边住宿先看坡度和餐饮距离，景观好未必接驳便捷。",
+      "move": "市区、旅顺与金石滩距离明显，轨道交通到站后仍需公交或车辆；滨海路步行不是整条车行路通走，选正式连续段落。",
+      "tip": "旅顺纪念空间保持肃静，历史建筑按开放范围参观；赶海、游泳与观礁分别看官方管理，晴天也不保证海面风浪小。",
+      "days": "3—4天",
+      "ratedScenic": [
+        {
+          "name": "大连老虎滩海洋公园",
+          "city": "大连市",
+          "district": "中山区",
+          "level": "5A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "依海湾布局的海洋主题公园，动物场馆、海岸景观与游乐设施相结合，适合按兴趣在海洋生物观察和休闲项目间取舍。可选择一个展馆细看生物形态与栖息环境，而不把表演节目当全部内容。不同馆区、演出和设备有各自时间，海岸散步也不能替代景区实际入园与返程安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-c4940f92b587",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连棒棰岛宾馆景区",
+          "city": "大连市",
+          "district": "中山区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "海湾、沙滩、山林与宾馆园林共同形成相对舒展的滨海景观，适合看海岸曲线、礁石和植被在不同距离上的层次。步行可围绕正式开放海滩与园路安排，名称中的岛屿与游客可直接抵达范围并非一回事。宾馆接待、园区游览和海上活动分别管理。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-1356e15fcea4",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连武术文化博物馆景区",
+          "city": "大连市",
+          "district": "西岗区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以兵器、拳谱、武术资料与地方武术史构成专题展览，能把武术从舞台动作延伸到技术、传承和社会生活。可先比较不同器械的形制与用途，再读人物、流派和训练材料。馆内武术展演与静态藏品是不同体验，艺术化舞台表达不等于历史实战复原，节目和讲解按当期安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/sqgk/whly/ajjq/dl/2025101410094157149/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-18acfbf70e00",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连森林动物园",
+          "city": "大连市",
+          "district": "西岗区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "依山林地形组织动物展示与游览路线，动物观察、园区植被和山海城市环境可以结合阅读。适合先按步行和接驳能力挑选区域，再观察动物活动时间与环境布置，而不是只追求拍到近景。不同场馆和季节开放可能变化，不擅自投喂，亲子行程给休息和跨区交通留出足够时间。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-ab9d14c37514",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连博物馆",
+          "city": "大连市",
+          "district": "沙河口区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "综合展陈把大连近代城市建设、港口交通与居民生活联系起来，地图、旧照片和日用器物适合相互对照。可先读城市发展脉络，再去中山广场或旅顺观察相应地点，避免只从建筑外形理解历史。馆舍、常设展与专题展会调整，选一两个主题深读，比赶看所有展厅更有收获。",
+          "time": "半天",
+          "kind": "地方博物",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-2a37aa88dd6d",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连自然博物馆",
+          "city": "大连市",
+          "district": "沙河口区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以地质、古生物和现代生物标本解释自然世界，海洋生物等实物展示与黑石礁滨海环境可以相互参照。适合比较骨骼、形态与生境，而不只看巨大标本的体积。化石原件、现代标本和复原模型按说明区分，展览内容与开放场次以馆方为准，可给孩子留出提问和观察时间。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-24256dc40603",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连圣亚海洋世界",
+          "city": "大连市",
+          "district": "沙河口区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以水族展示、海底通道及不同海洋主题场馆构成城市海洋游览项目，适合围绕鱼类形态、游泳方式和生境关系观察。不同展馆、演出与套票并不一定包含相同内容，先确认实际选择再排路线。人工水族环境与自然海洋生态有所不同，科普说明、舞台表演和娱乐体验应分别理解。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-8da9fe43bb56",
+          "guideIndex": 1
+        },
+        {
+          "name": "西郊森林公园景区",
+          "city": "大连市",
+          "district": "甘井子区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "大连城市西部的山林绿地与休闲景点相结合，适合在近郊选择一段正式步道看谷地、林木与水面。它的价值在于较慢地观察季节植物和城市边缘生活，不能把整个西郊区域当成一个紧凑售票园。各入口、片区与经营项目距离不同，先确定往返交通。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-30b20f711951",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连七彩南山景区",
+          "city": "大连市",
+          "district": "旅顺口区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "在旅顺乡村环境中结合植物、蝴蝶、亲子体验和民俗展示的综合景区，另有松树山堡垒相关战争遗址。可以先分清自然科普、乡村生活与近代遗址三条线索，再选择重点参观。娱乐设施、后建场馆与历史遗存不能混称古迹，各馆开放和活动按当期运营安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026030216100150050/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-26a774083e4f",
+          "guideIndex": 1
+        },
+        {
+          "name": "东鸡冠山景区",
+          "city": "大连市",
+          "district": "旅顺口区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以日俄战争相关堡垒、战壕和军事遗存理解旅顺近代防御体系，地形高差与工事位置比单看一段墙体更重要。可结合地图读山岭、港湾及交通联系，再看原址与修缮展示的区别。战争遗存承载复杂的侵略和殖民历史，参观不宜猎奇，残存坑道与非开放设施不自行进入。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-e6409fc24412",
+          "guideIndex": 1
+        },
+        {
+          "name": "白玉山景区",
+          "city": "大连市",
+          "district": "旅顺口区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "山顶视野可俯瞰旅顺港口与城市格局，山上近代纪念建筑则联系日俄战争和殖民历史，景观与历史需要同时理解。可先看说明与地图，再从高处认识港口、防御山地及道路关系。塔体性质、建造背景与今天保护利用并非同一层面，不能只把它当作没有历史语境的观景地标。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-832c62aa6274",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连横山北普陀主题文化公园景区",
+          "city": "大连市",
+          "district": "旅顺口区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以横山山地林园与北普陀寺相关文化空间组织游览，适合在林木、台阶和寺院布局之间观察自然与信仰的关系。现有旅游设施和寺院建筑包含现代营建，不宜一概称为古刹原物。登高散步和宗教参访各有节奏，按体力选择路线，礼拜活动、殿内拍摄与开放范围遵守现场规定。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-f3ceb1c4575a",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连旅顺潜艇博物馆景区",
+          "city": "大连市",
+          "district": "旅顺口区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "通过退役潜艇实物及海军装备相关展示认识水下航行，狭窄舱室、管线与设备能直观说明人员生活和技术分工。适合先读结构图，再按动线比较控制、动力与生活空间。舰艇内部梯道较陡，同行者依行动能力选择；实物参观、模拟装置与临时活动不是同一种体验。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-d2bfef310d21",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连英歌石植物园",
+          "city": "大连市",
+          "district": "旅顺口区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "通过专类植物园、坡地花境和季节花卉展示植物多样性，园艺配置与周围山地景观共同形成游线。适合比较花叶形态、开花时间及不同植物对环境的适应，春秋所见并不相同。它是现代植物园，盛花照片不能作为花况保证，选一两条植物主题慢走。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-b0c3e1d85a3c",
+          "guideIndex": 1
+        },
+        {
+          "name": "旅顺日俄监狱旧址博物馆",
+          "city": "大连市",
+          "district": "旅顺口区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "监狱旧址空间与文献、人物资料共同展示殖民统治和侵略历史，牢房、通道及劳动设施让人的遭遇有了现实尺度。先读史料再看建筑，更容易分清原物、修复和复原陈列。这里适合安静参观，避免将苦难遗址作为猎奇背景；内容沉重，亲子按年龄及接受程度安排。",
+          "time": "2—3小时",
+          "kind": "历史旧址",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-d6f6110ab3e7",
+          "guideIndex": 1
+        },
+        {
+          "name": "金石滩景区",
+          "city": "大连市",
+          "district": "金州区",
+          "level": "5A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以金州东部海岸为核心的大范围度假与游览区，地质景观、沙滩和主题场馆分布在不同片区。可选滨海岩层和海蚀形态作为自然主线，再按兴趣补充休闲项目，理解海浪与岩层长期作用留下的形态。不同游览板块之间需要交通，海浴、潮间带和室内场馆各有开放条件。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-64169030e2dd",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连大黑山景区",
+          "city": "大连市",
+          "district": "金州区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "金州山地的岩峰、森林步道与寺庙遗存相互交织，适合登高看辽东半岛山海关系，也可通过古道和建筑读地方文化。路线的台阶、坡度与入口不同，先按体力确定一条主线。不要与北票大黑山混淆，宗教传说、文物年代和现代修缮分别阅读，花期与山林开放按当年情况安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-7b236d37fe93",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连铭湖度假景区",
+          "city": "大连市",
+          "district": "金州区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "把滑雪、温泉、住宿与田园休闲组合的近郊度假景区，冬季雪道与其他季节的园区体验各有主题。适合想减少频繁换住宿、安排家庭休闲的人，预订前确认自己实际使用的项目。温泉设施与雪场并非始终同时开放，初学滑雪需选择合适区域和服务。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-04dc6ba80cdf",
+          "guideIndex": 1
+        },
+        {
+          "name": "关向应纪念馆景区",
+          "city": "大连市",
+          "district": "金州区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以关向应生平、革命经历和相关史料构成纪念教育场所，故居环境与现代展馆提供不同阅读角度。可先按时间线认识人物，再看日常用品、照片和具体行动材料，避免只记住抽象称号。故居遗存、复原陈设和后来纪念建筑应区分，参观保持肃静。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-9f67c02145fc",
+          "guideIndex": 1
+        },
+        {
+          "name": "紫云花汐薰衣草庄园景区",
+          "city": "大连市",
+          "district": "金州区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以薰衣草和其他园艺花卉构成花田休闲景观，适合比较花色、香气、植株形态及田块与远山的层次。它是现代种植经营的庄园，花海与主题造景不属于古代遗存，盛花时间也会随品种、天气和管理变化。可先核对当季花况再选拍摄时段。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-cf9f740bb1af",
+          "guideIndex": 1
+        },
+        {
+          "name": "小水口森林公园景区",
+          "city": "大连市",
+          "district": "长海县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "长海县海岛上的森林与海岸游览空间，林间步道、礁岸和海湾景观适合放慢节奏观察。可把植被、岩石与海面变化放在同一条正式线路阅读，不只追求一处热门机位。行程首先受海岛船班、天气和往返衔接影响，不能按大陆城市公园的交通方式安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-402010afd589",
+          "guideIndex": 1
+        },
+        {
+          "name": "平岛辽参小镇生态旅游景区",
+          "city": "大连市",
+          "district": "普兰店市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "围绕辽参养殖文化与海岛生态组织旅游，海参主题展示、海岸景观和渔业生活相互关联。适合了解海珍品从海域生境到养殖加工的过程，再看地方饮食与产业如何连接。经营海域、保护区域和可游憩海滩不能混同，赶海与海上活动只在明确允许范围参加。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026030215574411718/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-94d406320f7e",
+          "guideIndex": 1
+        },
+        {
+          "name": "普兰店区世外俭汤旅游景区",
+          "city": "大连市",
+          "district": "普兰店市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以温泉住宿和乡村休闲为核心的普兰店度假片区，适合把泡汤、慢食与周边田园放在较舒缓的节奏里。不同酒店与院落的设施、接待方式各异，并非一个入口走完的传统山岳景区。温泉体验以舒适和个人状况为准，不附会治病功效；预订前确认具体经营主体、房型及公共设施开放。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-444b36738dfd",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连市安波旅游景区",
+          "city": "大连市",
+          "district": "普兰店市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以安波温泉和周边山地乡村资源为基础的度假景区，泡汤、住乡村与季节性户外活动可按兴趣组合。它的吸引力在于辽南山地生活与温泉休闲相伴，不能把一片区域等同于某一家温泉酒店。设施、餐饮和交通分别确认，温泉不是医疗诊断或治疗项目。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-6069bee73886",
+          "guideIndex": 1
+        },
+        {
+          "name": "仙浴湾旅游度假区",
+          "city": "大连市",
+          "district": "瓦房店市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "面向渤海的沙滩、近海景观与度假设施相结合，适合夏季海滨休闲，也可在其他季节看海湾、沙岸和渔业生活。海水浴、普通海岸步行与海上项目有不同要求，不能只看沙滩宽阔就推断随时可游泳。住宿和餐饮随旺淡季变化，按当期海况、正式开放岸段和返程交通安排时间。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-f2011b05a8ac",
+          "guideIndex": 1
+        },
+        {
+          "name": "将军石旅游景区",
+          "city": "大连市",
+          "district": "瓦房店市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以滨海度假、帆船等海上运动和海岸休闲形成特色，适合把海湾风景与海洋活动体验相结合。可先沿公共或正式开放岸线看港湾、沙滩和山地关系，再选择有组织的项目。海上活动对天气和经营资质有独立要求，观景不等于可以自行下水。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-a830141c8f66",
+          "guideIndex": 1
+        },
+        {
+          "name": "海王九岛旅游度假区",
+          "city": "大连市",
+          "district": "庄河市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "由多个海岛及近海水域组成的海岛度假目的地，海蚀地貌、礁岸、渔村与海鲜饮食构成相互关联的体验。适合选一座主要落脚岛慢住，再按船班决定是否增加其他岛屿，而不是逐岛打卡。往返船期、风浪和潮位影响实际可行性，景区名称不能理解为所有岛屿、海滩都随时自由进入。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-d13e4d57e594",
+          "guideIndex": 1
+        },
+        {
+          "name": "大连冰峪省级旅游度假区",
+          "city": "大连市",
+          "district": "庄河市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "庄河山地河谷的峰林、溪流与林木形成辽南较鲜明的山水景观，适合将河谷地形、岩壁和植被联系起来观察。可按当日正式游线选择步行或接驳，不必把不同谷段强行走遍。游船、栈道及其他项目可能分开运营，水位与季节影响体验；“北方桂林”是旅游比喻。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-ec8a229fa0a0",
+          "guideIndex": 1
+        },
+        {
+          "name": "天门山景区",
+          "city": "大连市",
+          "district": "庄河市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "庄河的山地峡谷与森林景观，登高、谷地步行和季节性水上项目各有体力要求。适合从岩壁、溪谷和林木变化读山地环境，选择一条能按时返回的正式路线。它与张家界天门山等同名地点不同，漂流并非全年或所有天气运行，预订时区分普通登山与附加体验内容。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-52aeb21770db",
+          "guideIndex": 1
+        }
+      ],
+      "ratedCount": 29
+    },
+    {
+      "name": "鞍山",
+      "sights": "千山、鞍钢相关工业展陈、玉佛苑",
+      "history": "钢铁工业传统与山地寺院文化构成对照，工业参观只选择正式开放场所。",
+      "food": "海城馅饼、炖菜、台安大张火勺。",
+      "theme": "工业山地",
+      "story": "鞍山近现代发展与钢铁工业密切相关，千山的寺院、岩峰与山路则呈现另一种时间尺度。海城又有独立的地方饮食和聚落文化。把工业展陈放进真实生产史，再用一整天走千山，能看出城市并非只有钢厂，也不是一座寺院就能概括的山城。",
+      "see": [
+        {
+          "name": "千山",
+          "detail": "峰岭、寺观与森林步道构成大范围山地文化景观，地形决定不同路线的体力要求。按体力选一条山路看岩峰、植被与寺院布局，先确定返程与下山方式。索道并不消除全部台阶，同行有老人孩子时应减少登高点位。",
+          "time": "1天",
+          "kind": "人文与自然",
+          "area": "鞍山"
+        },
+        {
+          "name": "鞍钢博物馆",
+          "detail": "钢铁生产实物、厂史材料和工人故事让工业城市形成过程变得具体。选择官方开放博物馆或参观点，看冶炼流程、设备与工人生活材料，理解钢铁怎样影响城市。生产区有严格管理，展馆开放不代表厂区可自由行走。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "鞍山",
+          "registryName": "鞍钢博物馆景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-1e7f3f9eeeaf",
+          "verification": "",
+          "city": "鞍山市",
+          "district": "铁西区"
+        },
+        {
+          "name": "鞍山市博物馆",
+          "detail": "地方馆将考古、历史与地域文化放入同一框架，可补充千山和钢铁之外的城市背景。先看地方通史，再把市内、海城和千山的地点对应到地图。器物与历史影像可补足工业城市表面之外的早期文化背景。",
+          "time": "2—3小时",
+          "kind": "人文与自然",
+          "area": "鞍山"
+        },
+        {
+          "name": "玉佛苑",
+          "detail": "以大型玉石造像、寺院式空间和相关展示构成现代文化旅游项目，适合从材料、雕刻与空间组织理解地方玉文化。应区分玉石地质、艺术加工和宗教象征，不把全部建筑视为古代遗存。可与鞍山博物馆、岫岩玉工艺线路比较，开放与宗教活动按现场要求。",
+          "time": "2—3小时",
+          "kind": "工艺宗教",
+          "area": "铁东",
+          "registryName": "玉佛苑景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-60d6486fe0b2",
+          "verification": "",
+          "city": "鞍山市",
+          "district": "铁东区"
+        },
+        {
+          "name": "海城市博物馆",
+          "detail": "地方馆通过考古、历史与民俗相关陈列认识海城在辽河平原交通和区域文化中的位置。可关注出土地点、日用器物与传统工艺，再到牛庄等城镇看街巷生活。它补充鞍山钢铁、千山之外的县域历史，馆舍、展览和开放信息应事前核对，适合途经时慢看。",
+          "time": "1—2小时",
+          "kind": "地方博物",
+          "area": "海城"
+        },
+        {
+          "name": "岫岩玉文化正规展馆与工坊",
+          "detail": "岫岩玉从矿物、选料到雕刻形成完整产业与工艺文化，正规展馆或预约工坊可看工具、设计与制作过程。重点是材料特点与技法，不应只追求价格或附会保健功效。展品、商品和生产区需要区分，进入作坊由经营者带领，购买时索要清楚的材质及交易说明。",
+          "time": "半天",
+          "kind": "工艺",
+          "area": "岫岩"
+        }
+      ],
+      "eat": [
+        {
+          "name": "海城馅饼",
+          "detail": "软面皮包牛肉、猪肉与蔬菜等调馅，平锅中煎烙至外层焦香、内部含汁，皮薄馅满是主要特色。牛庄馅饼属于海城有代表性的地方传统，牛庄一带的制作传统使其在辽南尤其有辨识度。点前问肉类、大小和一份数量，刚上桌先散热，配清汤或粥即可，不必再点多份主食。"
+        },
+        {
+          "name": "酸菜炖白肉",
+          "detail": "猪肉片与发酵酸白菜炖煮，粉条、冻豆腐等可吸收肉汤，酸香衬托肉的肥香，配料因店变化。鞍山千山行程后可选共享热锅，与海城馅饼留在不同一餐；先问锅量、是否含血肠，配少量饭，汤已有咸酸，尝过再添蒜酱，避免同时点多锅浓味肉菜。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "台安大张火勺",
+          "detail": "以面粉做成烙烤面点，外层焦香、内部层次和馅料因地方做法变化，是台安推介的特色主食。它与海城肉馅饼不是同一项，可从面皮、火候和食用方式比较。现做的小份搭汤很合适，点前问咸甜、是否夹肉和个数，避免再叠加太多面食。"
+        },
+        {
+          "name": "台安炖大鹅",
+          "detail": "鹅肉配土豆、酸菜或其他蔬菜慢炖，肉香厚实，汤汁适合配饼或米饭，属于辽河平原家常待客菜。具体配料、鹅的大小和炖煮时间不同，餐馆常需提前准备。多人点单先问份量，可搭一道清爽菜，不把“农家”招牌当作所有原料都自养的保证。"
+        },
+        {
+          "name": "台安羊肉大包子",
+          "detail": "发面皮包羊肉等调馅蒸熟，个头通常实在，皮软肉香，是台安地方餐饮推介中的主食。它与薄皮烧麦的形态、口感不同，具体葱量和肥瘦各店有变化。热汁较烫先小口散气，点前问个数和大小，配汤或小菜即可作为完整简餐，不宜再加多份主食。"
+        },
+        {
+          "name": "羊汤",
+          "detail": "羊肉与骨熬汤，切熟肉入碗，是否加杂件、配粉条以及汤的浓淡各店不同，热汤与饼相配。鞍山所辖县市行程可把羊汤作为一顿简餐，台安羊肉大包子则另作比较；先问肉汤还是杂汤及肉量，尝原汤后加葱醋辣，更能辨不同部位的香与韧。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "锅包肉",
+          "detail": "猪里脊片挂粉炸成酥壳，快速拌糖醋汁后外脆内嫩，壳厚薄与汁的多少影响回软。鞍山家常餐馆可把它作小盘共享菜，与台安炖鹅或酸菜锅选不同一餐；先吃热片尝糖醋平衡，再配清菜与米饭，放凉后口感变化明显，不只按甜酸浓度评手艺。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "粘豆包",
+          "detail": "黏米面或黄米面做皮，红豆煮成馅后包蒸，皮柔韧、馅有豆香，也可煎出焦底。鞍山乡村与市区东北餐桌可用小只豆包搭粥，和馅饼、大包子分餐体会不同粮食；先尝热蒸原味再决定加糖，一两只便有主食份量，现制与冷后回热口感不同。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        }
+      ],
+      "walk": "第一天市区看工业展陈与博物馆，第二天完整安排千山，登山后早休息。第三天若想尝海城风味再去海城慢走；两天行程不必为吃一张饼在登山后赶去另一县级市，再深夜回鞍山。将山路步行留在白天完成。",
+      "stay": "主城区适合餐饮与展馆，千山附近适合早进山，海城线可按返程车站落脚；山脚住宿先问清晚餐与到入口距离。",
+      "move": "城区公交打车可用，千山与海城属于不同方向的车辆转场；工业参观点按正式地址和预约要求抵达，不让导航带进企业门岗。",
+      "tip": "千山山路台阶多，提前了解线路难度和缆车安排，别把全程索道理解成无需徒步；工业体验只参加正式开放项目。",
+      "days": "2—3天",
+      "ratedScenic": [
+        {
+          "name": "玉佛苑景区",
+          "city": "鞍山市",
+          "district": "铁东区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "围绕大型玉石造像形成的现代宗教文化旅游空间，原料形态、雕刻工艺与殿堂布局是相互关联的看点。适合先理解岫岩玉的材料特点，再看艺术加工与象征表达，不把玉石地质年代等同于造像和建筑年代。可与鞍山博物馆或玉文化工坊对读，参访与礼拜活动并存。",
+          "time": "2—3小时",
+          "kind": "工艺宗教",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-60d6486fe0b2",
+          "guideIndex": 2
+        },
+        {
+          "name": "鞍钢博物馆景区",
+          "city": "鞍山市",
+          "district": "铁西区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以钢铁生产设备、企业史料与工人故事展示鞍山工业发展，可从冶炼、轧制等工序理解原料如何成为钢材。大型实物与旧照片能解释工厂对城市道路、社区和日常生活的影响。博物馆参观区与现实生产厂区分别管理，展览开放不表示可进入生产线。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-1e7f3f9eeeaf",
+          "guideIndex": 2
+        },
+        {
+          "name": "鞍山佳宁欢乐谷景区",
+          "city": "鞍山市",
+          "district": "立山区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以游乐设备、亲子活动和季节性休闲项目组织体验的现代乐园，适合根据同行者年龄、身高和兴趣选择重点。园区的主题场景属于娱乐设计，不能当作历史古迹或自然保护地。预订时先看实际运行项目和演出安排，再决定停留时长，天气、维护与淡旺季可能使部分设备暂停。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-1c09bfd4faf1",
+          "guideIndex": 2
+        },
+        {
+          "name": "祥和度假庄园景区",
+          "city": "鞍山市",
+          "district": "千山区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "位于千山区的现代度假庄园，将花木园林、亲子游乐、户外体验和住宿餐饮组合起来。适合以家庭休闲为主、希望减少跨城转场的人，可先选花园散步或儿童活动，再围绕同一片区安排用餐。欧式建筑与主题街景是当代造景，项目开放和住宿权益各自确认。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "locationSourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026012115223923663/index.shtml",
+          "note": "旧总表列为立山区；已按省厅转载鞍山市文旅局2026-01单项介绍更正为千山区。",
+          "contentSourceUrls": [
+            "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026012115223923663/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-4b593d59e8d0",
+          "guideIndex": 2
+        },
+        {
+          "name": "御汤泉旅游度假区",
+          "city": "鞍山市",
+          "district": "立山区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以温泉、亲水娱乐和住宿形成的休闲度假项目，适合把一天节奏放慢，在泡汤、散步与家庭活动间取舍。园区设施属于现代服务业，温泉水文化与具体健康效果不能混为一谈，也不应附会确定疗效。不同池区、室内外设施和水上设备有各自开放条件。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-df0b75db0ce7",
+          "guideIndex": 2
+        },
+        {
+          "name": "汤岗子温泉旅游度假区",
+          "city": "鞍山市",
+          "district": "立山区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "鞍山知名温泉利用地，历史记忆与现代温泉接待设施共同构成游览背景。适合从地热资源、地方生活和温泉度假三个层面理解，而不只是把泡汤当一次拍照体验。不同疗养或度假机构的接待性质不同，不能把旅游介绍当医疗建议；温泉、住宿、餐饮和可参观历史空间分别确认开放。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-13d5c0449695",
+          "guideIndex": 2
+        },
+        {
+          "name": "龙泉湖旅游度假风景区",
+          "city": "鞍山市",
+          "district": "岫岩满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "岫岩的湖泊与山地休闲景区，水面、林木、岸边田园和度假设施形成较舒缓的游览环境。适合选择一段正式岸线看湖湾形态，再结合地方玉文化或乡村一餐安排半日停留。它与全国其他龙泉湖并非同一目的地，水上活动与普通步行分别运营。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-3d684e88b766",
+          "guideIndex": 2
+        },
+        {
+          "name": "龙潭湾风景区",
+          "city": "鞍山市",
+          "district": "岫岩满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "岫岩山地的森林、溪谷与瀑布等自然景观交织，适合沿正式步道观察水流怎样切割岩石、林木如何随坡地变化。可选择一条主谷慢走，夏季溪水与秋季色叶各有重点。山中台阶、石面与水位影响行走，不为拍近景离开步道；传说命名可以增添趣味，不能替代地质和生态解释。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-de87382714c9",
+          "guideIndex": 2
+        },
+        {
+          "name": "清凉山风景区",
+          "city": "鞍山市",
+          "district": "岫岩满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以岫岩山地森林、峰岭和登山路线为主要内容，适合在安静步行中看树种、坡地和远山层次。名称中的清凉体现山地感受，不能作为任何时段温度或避暑效果的保证。先按体力和天气选择主线，山顶观景与谷地散步体验不同，秋冬或雨后特别留意正式开放路段及返回时间。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-fcb9887e3e8d",
+          "guideIndex": 2
+        },
+        {
+          "name": "天源农业景区",
+          "city": "鞍山市",
+          "district": "海城市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "海城耿庄以现代农业展示、热带植物、亲子活动及温泉水乐设施组合的旅游园区，农业品种和栽培方式比单纯游乐更有辨识度。可比较不同蔬果的生长环境，再选择适龄体验，理解设施农业如何改变季节限制。园内各板块不是一回事。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/sqgk/whly/ajjq/4ajq/2025101516255943252/"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-e028ce4a6f5b",
+          "guideIndex": 2
+        },
+        {
+          "name": "石头记千山大观园景区",
+          "city": "鞍山市",
+          "district": "高新技术产业\n开发区管委会",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以《红楼梦》为主题营建的中式园林与文化旅游综合体，院落、水景、客房和演艺尝试把小说场景转化为可游览空间。适合读过作品的人比较景名、人物与文学意象，也可从园林组织看现代文旅设计。它是当代仿古项目，不是曹雪芹故居或清代原园。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/ywdt/tpxx/2026020409410979735/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-5a2a93cd693f",
+          "guideIndex": 2
+        },
+        {
+          "name": "山水庄园度假旅游景区",
+          "city": "鞍山市",
+          "district": "高新技术产业\n开发区管委会",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "依千山山麓谷首峪山地环境发展的休闲度假庄园，林木、谷地与住宿温泉等服务形成田园度假氛围。适合减少高强度登山，用散步和一晚停留观察山村与山林关系。这里以现代经营服务为主，不能把乡土风格建筑一概当古迹；温泉、客房与户外项目按具体接待安排选择。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026012815284994810/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-45738c5fe56a",
+          "guideIndex": 2
+        },
+        {
+          "name": "辽宁千山景区",
+          "city": "鞍山市",
+          "district": "千山风景区管委会",
+          "level": "5A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "辽东名山的花岗岩峰岭、森林与佛道寺观形成范围较大的文化山水景观，登高路线和寺院线可以分别安排。可先选一条主线，看岩峰、植被与宗教建筑如何顺应地形，而不追求一次走遍。索道不能消除全部台阶，古建、修缮和自然山体的年代也不能混同。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-91efefc037cc",
+          "guideIndex": 2
+        },
+        {
+          "name": "千山老院子景区",
+          "city": "鞍山市",
+          "district": "千山风景区管委会",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "在千山周边将乡土院落、地方饮食与家庭休闲结合的现代文旅景区，适合以老式生活器物和民俗体验认识东北乡村意象。可与千山登高作轻重不同的组合，但不宜用“老院子”名称推断全部房屋都是历史原物。亲子设施、手工体验和餐饮各有经营安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-a4ffa2c41512",
+          "guideIndex": 2
+        }
+      ],
+      "ratedCount": 14
+    },
+    {
+      "name": "本溪",
+      "sights": "本溪水洞、关门山、五女山",
+      "history": "溶洞、山林与高句丽历史遗址构成层次，桓仁与市区间并非步行距离。",
+      "food": "小市羊汤、山野菜熟食、酸菜炖菜；菌菇与野菜选择正规供应的熟制菜。",
+      "theme": "溶洞山林",
+      "story": "本溪从近代工矿城市延伸到东部山地，水洞、枫林和桓仁五女山分别讲述地下水、森林季相与古代城址。五女山是理解高句丽早期历史的重要遗址，不能只当观景山峰。桓仁与市区、小市之间仍有较长转场，应按区域分日，不因同属一市就连成紧凑一日游。",
+      "see": [
+        {
+          "name": "本溪水洞",
+          "detail": "地下河与溶洞沉积形态共同构成自然景观，地质时间与现代游船体验应分开理解。在正式线路观察溶洞水系、钟乳石与光影，结合科普区分天然形成和人工照明效果。洞内温度体感与室外不同，乘船参观也需遵守停靠秩序。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "本溪",
+          "registryName": "本溪水洞景区",
+          "level": "5A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-a164aaa5d4fc",
+          "verification": "",
+          "city": "本溪市",
+          "district": "本溪满族自治县"
+        },
+        {
+          "name": "关门山",
+          "detail": "山地森林、溪谷与季节植被组成徒步景观，秋季色叶受天气和开放路线影响。选择一条开放山谷路线，观察溪流、林木与岩壁，秋天再留意不同树种变色。红叶时间和色彩不固定，其他季节也可围绕山林生态安排。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "area": "本溪"
+        },
+        {
+          "name": "五女山山城",
+          "detail": "山地城址与高句丽早期历史相关，选址、防御和考古材料需结合地图认识。位于桓仁，先看正式展陈，再看山顶城址、蓄水等遗存与地形的关系。遗址的地面痕迹需要地图辅助，不以保存建筑多少判断历史价值。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "area": "本溪"
+        },
+        {
+          "name": "本溪市博物馆",
+          "detail": "以考古、历史、矿业与地方生活等材料呈现本溪多层面貌，适合在水洞、枫林之外补充城市与人的故事。可先看区域地图，再选古代聚落或近现代工业一个主题，把器物与实际地点联系起来。展馆、馆舍和临展可能更新，出发前确认，留足阅读时间。",
+          "time": "2—3小时",
+          "kind": "地方博物",
+          "area": "明山"
+        },
+        {
+          "name": "桓仁地方博物展示",
+          "detail": "正式开放的地方馆与专题陈列可把五女山、高句丽遗产、满族民俗及近现代历史放回县域背景。参观时分清不同年代与材料来源，不用单一民族标签覆盖全部历史。适合看山城前先读地图与器物，具体馆名、开放场所和接待应按桓仁官方当期信息核对。",
+          "time": "1—2小时",
+          "kind": "地方博物",
+          "area": "桓仁"
+        },
+        {
+          "name": "望溪公园",
+          "detail": "山城公园的坡地、林木和观景空间能从日常尺度认识本溪地形，与工业城市和太子河关系形成直观对照。可选择一段有明确返回点的公开步道，观察居民活动和季节植物，不必追求登遍每个高点。适合博物馆后的轻散步，冬季台阶和雨后路面按现场情况调整。",
+          "time": "1—2小时",
+          "kind": "城市园林",
+          "area": "本溪市区"
+        }
+      ],
+      "eat": [
+        {
+          "name": "小市羊汤",
+          "detail": "羊肉、羊骨与羊杂等按店家配方熬汤，配葱花、香菜、醋与辣椒，小市以这一热汤简餐形成鲜明餐饮名片。清浓、内脏比例和肉量各家不同，不能仅看汤色判断品质。可先小碗原汤尝味，再配烧饼或土豆小吃，问清是否需要另加肉，冬日或山地步行后很合适。"
+        },
+        {
+          "name": "山野菜熟食",
+          "detail": "食用菌或可食山菜依品种焯、炒、炖，菌香、嫩滑与脆韧各有差别，菜单并非一年不变。辽宁东部山地的本溪行程可在餐馆问清当天原料，选一份熟菜配小市羊汤或米饭；先看实际菜名和烹饪法，再尝本味，了解山林食材进入日常餐桌的方式。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "酸菜炖菜",
+          "detail": "发酵白菜与肉、豆腐、粉条或土豆等慢炖，酸香逐渐柔和，各原料吸收汤汁，是东北家庭冬季储菜经验形成的日常菜型。它并非固定一道菜，荤素和配料随家庭变化。点前问是否有白肉、血肠或其他内脏，搭主食适量即可，先尝原汤再添盐醋，避免一桌重复酸菜菜肴。"
+        },
+        {
+          "name": "本溪烤豆皮",
+          "detail": "豆皮或干豆腐类薄片卷起、穿串或摊开烤制，刷酱后外香内韧，豆香与烧烤调味结合，是本溪街头风味之一。各店卷法和配菜不同，素食者也需问酱料是否含荤。趁热吃可比较焦边和韧芯，少量配肉串或蔬菜，不必以重辣掩住豆香。"
+        },
+        {
+          "name": "炭烤虹鳟鱼",
+          "detail": "虹鳟鱼经调味后烤至熟透，鱼皮焦香、肉质细嫩，是本溪山地养殖与休闲餐饮结合的常见菜型。具体鱼的来源、大小和加工收费要直接问餐馆，不能凭山泉招牌推定品质。按人数点鱼，可先轻调味尝本味，选择全熟版本，避免把生食当成本地必需吃法。"
+        },
+        {
+          "name": "小市铁板土豆片",
+          "detail": "土豆切片在铁板上煎烤，形成焦香表面和绵软内部，再配辣椒、孜然或酱料，是本溪小市推介的地方小吃。它显示普通根茎食材在街头餐饮中的变化，厚薄与火候会带来不同口感。适合现做少量吃，调料先少加，土豆已较饱腹，可与羊汤小份搭配。"
+        },
+        {
+          "name": "小鸡炖蘑菇",
+          "detail": "鸡块与泡发或鲜食用菌炖煮，菌香融入鸡汤，可加粉条吸汁，肉的软硬由鸡只与时长决定。本溪地方美食推介也重视这道林区炖菜，山谷游览后适合几人围桌；先问菌种和锅量，与烤虹鳟、羊汤分餐尝，配一碗饭便能体会鸡香与菌香。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "熏酱猪蹄",
+          "detail": "猪蹄经卤煮、熏制等加工，皮胶软糯、肉香与熏香相叠，本溪等东北餐馆和熟食店常见。它与单纯烤蹄或冷冻熟食在工艺上有差别，点前可问是否当天制作、冷吃或热吃。份量和脂香较足，适合多人小份拼盘，外带注意冷藏，熏香不代表可以常温久放。"
+        }
+      ],
+      "walk": "第一天到小市看水洞，第二天关门山山谷散步，第三天向桓仁转场并看博物馆，第四天五女山后返程。只有两天就保留小市一线；赏枫季人车集中，交通与排队也应作为实际行程的一部分。",
+      "stay": "水洞与关门山线可住小市或景区近邻镇区，五女山住桓仁更合适；山林民宿先确认供暖、湿度与晚餐条件。",
+      "move": "本溪市区、小市和桓仁之间需公路转场，山地景区入口也分散；公共交通先查接驳，不用地图上的近邻图标估算实际道路。",
+      "tip": "洞内与室外温差明显，夏季也带一层衣物；五女山文物遗迹不踩踏，林间摄影不离开开放步道寻找无人红叶机位。",
+      "days": "3—4天",
+      "ratedScenic": [
+        {
+          "name": "青云山景区",
+          "city": "本溪市",
+          "district": "明山区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "本溪市区南侧的现代山地综合景区，以山林观景和休闲游乐组合形成近城游览路线。可先选择登高或园路散步，再按同行者需求决定是否增加设备体验，适合不想长途转场的家庭。它于现代开发建设，不能因山名古雅就附会古代遗址。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://fgw.benxi.gov.cn/publicity/ywgz/tzgg/142761"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-f82ee4be8808",
+          "guideIndex": 3
+        },
+        {
+          "name": "大冰沟森林公园",
+          "city": "本溪市",
+          "district": "南芬区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "南芬山地的森林、溪谷与季节景观构成近郊游览环境，适合从林木、岩石和流水关系认识本溪山地。夏季走林间步道，秋季观察不同树种色叶，冬季项目则需另核对开放。名称中的冰不表示常年可看冰洞，摄影画面与实际季节有差异，亲水、涉冰及非开放林区不因景区评级而可自由进入。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-dfecfcb1a1fa",
+          "guideIndex": 3
+        },
+        {
+          "name": "本溪大峡谷景区",
+          "city": "本溪市",
+          "district": "南芬区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "南芬以峡谷岩壁、地质景观和高空游乐形成特色，既可从观景点读岩层与谷地尺度，也可按意愿参加玻璃桥等项目。适合把地质观察与娱乐体验分开选择，不必为了到过景区就完成全部刺激设备。峡谷的自然形成与现代设施建设分属不同过程。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://benxi.gov.cn/ly/lyzx/content_666423"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-f7d4c6a47146",
+          "guideIndex": 3
+        },
+        {
+          "name": "本溪水洞景区",
+          "city": "本溪市",
+          "district": "本溪满族自治县",
+          "level": "5A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "地下河与溶洞沉积共同形成的自然景观，正式游船线路让钟乳石、洞壁和水系关系变得直观。可借科普说明理解水与岩石的长期作用，再区分天然形态、灯光设计和旅游命名。洞内体感与室外不同，乘船也需要守秩序；地质年代不能凭形象故事判断。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-a164aaa5d4fc",
+          "guideIndex": 3
+        },
+        {
+          "name": "本溪关山湖风景区",
+          "city": "本溪市",
+          "district": "本溪满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "本溪县以湖面、山林和休闲设施组合的水岸景区，适合把观景、轻步行与亲子活动安排在同一片区。可先观察湖湾、岸坡和林木层次，再决定是否参加游船或其他经营项目。这里不是本溪水洞，也不等同于关门山森林公园，名称相近的目的地在入口、交通和票务上应分别核对。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-79f4af07c385",
+          "guideIndex": 3
+        },
+        {
+          "name": "小市一庄景区",
+          "city": "本溪市",
+          "district": "本溪满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以东北乡土建筑意象、地方餐饮、园林与亲子休闲结合的现代旅游项目，适合在小市一带放慢行程。可观察院落、木石材料与生活器物如何被转化为当代体验，再尝当地山野风味。它不是整村原貌保存的古镇，仿古布景、实际村落和主题演出需分别理解。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-a52adbe26613",
+          "guideIndex": 3
+        },
+        {
+          "name": "汤池沟绿石谷森林公园",
+          "city": "本溪市",
+          "district": "本溪满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以林木、溪流和覆有苔藓的石块等形成幽静谷地景观，适合近距离观察湿润环境中的植物与岩面关系。可沿正式步道看水流、树冠和绿色石面，不必离线寻找传说中的某一处景物。溪谷石面容易湿滑，摄影以不踩踏植被和不涉险为前提。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-c3964ae82893",
+          "guideIndex": 3
+        },
+        {
+          "name": "关门山森林公园",
+          "city": "本溪市",
+          "district": "本溪满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "山地森林、溪流与季节色叶共同构成著名赏枫环境，秋季不同树种和坡向的变色进度各异。可挑一条开放谷地路线慢看岩壁、林层和水面，而不把全部价值寄托在某一天的红叶颜色。它与同名大峡谷等经营景区要分别确认入口，登山强度和交通接驳先按同行者体力规划。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-18291eaf63e9",
+          "guideIndex": 3
+        },
+        {
+          "name": "大石湖风景区",
+          "city": "本溪市",
+          "district": "本溪满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "本溪县的山地溪谷、层叠水景和森林适合连成一条自然观察线路，重点可放在流水与岩层、树木之间的关系。可在不同高度比较谷地与山坡植被，春夏水景和秋季色叶各有内容。它与邻近老边沟等片区的游线和接待需要分别确认，不因一张旧照片就假定瀑布水量或道路始终相同。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-1a49b9d62448",
+          "guideIndex": 3
+        },
+        {
+          "name": "铁刹山风景区",
+          "city": "本溪市",
+          "district": "本溪满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以山地林木、洞天题刻与道教文化空间形成特色，适合把登山、建筑和地方信仰的线索放在一起看。先读正式说明中的沿革，再观察洞穴、台阶与庙宇如何依山势组织，不用神话替代确切年代。宗教活动与游客参访并存，山路有高差，拍摄和进入范围按现场要求。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-d06aefbd77e4",
+          "guideIndex": 3
+        },
+        {
+          "name": "五女山景区",
+          "city": "本溪市",
+          "district": "桓仁满族自治县",
+          "level": "5A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "桓仁的山城遗址与高句丽早期历史相关，山体形势、城墙遗迹、蓄水和生活设施需要结合地图阅读。可先在正式展陈建立时间线，再登山理解防御和聚落选址，比只看现存建筑多少更能认识价值。遗址、保护展示与后建设施性质不同，按开放步道参观。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-b8a5a94ea9ef",
+          "guideIndex": 3
+        },
+        {
+          "name": "枫林·谷里房车露营小镇",
+          "city": "本溪市",
+          "district": "桓仁满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以房车营地、林地休闲和度假接待为主要内容的现代旅游小镇，适合愿意在桓仁山水间住一晚的家庭。可从营地生活观察餐饮、用水与户外空间怎样组织，再选周边一处景点游览。房车营位、固定住宿和园内体验并不相同，季节与天气也影响适居性。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://benxi.gov.cn/ly/lyjq/content_642852"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-8ebe4998f260",
+          "guideIndex": 3
+        },
+        {
+          "name": "虎谷峡景区",
+          "city": "本溪市",
+          "district": "桓仁满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "桓仁山地河湖与峡谷景观结合的游览区，山林、峭壁和水面形成不同尺度的观景层次，部分线路借助游船或桥梁衔接。适合先核对完整动线与返程方式，再按体力安排登高。它的自然景观与现代娱乐设施可以分开体验，游船、玻璃设施等不保证所有天气运行。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-bdeb31423472",
+          "guideIndex": 3
+        },
+        {
+          "name": "枫林谷森林公园",
+          "city": "本溪市",
+          "district": "桓仁满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以桓仁森林和季节色叶形成辨识度的山谷景区，溪流、林层与山坡适合沿步道连续观察。秋季可比较不同树种的变色，其他季节也有植物和水景内容，不必只把它当红叶摄影背景。山中路线长短和高差不同，先确定主线与返回时间，花叶和开放情况都不能照搬往年最佳日期。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-5b20c6cb1d98",
+          "guideIndex": 3
+        },
+        {
+          "name": "望天洞景区",
+          "city": "本溪市",
+          "district": "桓仁满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "桓仁的溶洞以地下通道、洞厅和沉积形态为主要看点，适合结合科普理解流水溶蚀与矿物沉积形成的过程。人工照明与形象化命名能辅助观看，却不能直接用来判断地质年代。洞内路线与室外体感不同，低矮或湿滑路段按自身行动能力选择，不触摸洞壁沉积物。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-e57a5ee294fd",
+          "guideIndex": 3
+        },
+        {
+          "name": "大雅河漂流景区",
+          "city": "本溪市",
+          "district": "桓仁满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "在桓仁大雅河开展的季节性漂流项目，把山地河道、两岸景观与水上体验结合起来。适合愿意按组织安排参加户外运动的人，可留意水流急缓、河湾和岩岸之间的关系。漂流与普通公园散步不同，天气、水量、年龄和个人身体条件影响能否接待。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-8cd580647636",
+          "guideIndex": 3
+        }
+      ],
+      "ratedCount": 16
+    },
+    {
+      "name": "丹东",
+      "sights": "鸭绿江断桥、虎山长城、凤凰山",
+      "history": "边境城市生活、战争记忆与山地景观交织，参观边境沿线遵守现场管理。",
+      "food": "黄蚬子熟食、海鲜烧烤、朝鲜族冷面；海鲜充分熟制，先确认计价与分量。",
+      "theme": "边境历史",
+      "story": "丹东沿鸭绿江展开，断桥与纪念馆保存战争记忆，虎山体现边防历史，凤凰山则属于山地游线。边境城市也有普通居民的市场、饮食与通勤生活，不应只当作对岸景物的观景台。将纪念参观、江岸漫步和登山分日安排，能保留理解历史和感受城市的时间。",
+      "see": [
+        {
+          "name": "鸭绿江断桥",
+          "detail": "桥梁遗存与战争历史、城市交通相连，原物和后期纪念展示应分别看。结合桥体、江岸与说明读战争背景，留意断裂结构和保留方式。江边散步可以延续城市观察，摄影只在允许位置进行，遵守边境管理提示。",
+          "time": "2—3小时",
+          "kind": "人文与自然",
+          "area": "丹东"
+        },
+        {
+          "name": "抗美援朝纪念馆",
+          "detail": "以文物、档案与人物线索讲述战争历史，适合把地图与具体证据连起来读。按时间线看历史文物、档案和战场背景，选择重点主题细读。参观宜留充足时间与安静心境，不把纪念空间当快速拍照点。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "丹东",
+          "registryName": "抗美援朝纪念馆",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-9d995eddb439",
+          "verification": "",
+          "city": "丹东市",
+          "district": "振安区"
+        },
+        {
+          "name": "凤凰山",
+          "detail": "辽东山地岩峰、古建和登高路线共同组成体验，陡峭路段与轻松路线可分开选。位于凤城方向，先了解开放路线、台阶与险段，按能力选择普通步道。登高看辽东山势有独立价值，不必为了某条刺激路线勉强通行。",
+          "time": "1天",
+          "kind": "人文与自然",
+          "area": "丹东",
+          "registryName": "凤城市凤凰山风景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-6cd76dceb320",
+          "verification": "",
+          "city": "丹东市",
+          "district": "凤城市"
+        },
+        {
+          "name": "虎山长城",
+          "detail": "长城遗存、关口地形与边境河流构成丹东东部的人文地理主题，可在正式景区理解明长城防御与交通之间的关系。今天所见有修复展示，应结合年代说明阅读，不凭砖墙新旧作结论。山路与台阶需一定体力，边境管理范围严格，不能随意跨越围栏或进入限制区。",
+          "time": "半天",
+          "kind": "长城历史",
+          "area": "宽甸"
+        },
+        {
+          "name": "宽甸河口公开景区",
+          "detail": "鸭绿江河谷、山地村落和季节果园共同组成河口景观，适合从公开道路与正式观景点理解边境河流和乡村生产。春季花景、秋季水果与平时河景各有主题，不能保证每次都有同样画面。尊重边境管理，不拍摄或进入禁止区域，交通和餐饮需提前统筹。",
+          "time": "半天",
+          "kind": "河岸乡村",
+          "area": "宽甸"
+        },
+        {
+          "name": "丹东城市历史与港口公开步行",
+          "detail": "从博物或正式史料介绍出发，沿公共街道观察近代商业、铁路和港口相关建筑，能把断桥之外的丹东生活连起来。适合白天比较道路走向、建筑用途与江岸位置，再选市场熟食尝地方风味。部分建筑仍在使用，外观观察与室内参观应区分，不进入封闭设施。",
+          "time": "2—3小时",
+          "kind": "城市街区",
+          "area": "丹东"
+        }
+      ],
+      "eat": [
+        {
+          "name": "黄蚬子熟食",
+          "detail": "黄蚬子是丹东及东港餐饮代表贝类，可清蒸、煮、烤或快炒，肉质嫩鲜，壳中汁水与咸鲜味是重点。具体来源、季节和规格要问正规经营者，不能凭招牌认定全部当日现捕。选择熟透版本，先原味尝，再少量加蘸料，留意壳片，按重量和加工费确认总价。"
+        },
+        {
+          "name": "海鲜烧烤",
+          "detail": "虾、贝、鱿鱼或鱼等经烤炉、炭火熟制，焦香与海味相互衬托，丹东等沿海城市有丰富街头餐饮版本。不同食材成熟速度不同，适合分批少量点，先问品种、规格和计价。选择彻底熟制、不过度刷酱的版本更易比较本味，贝壳和鱼刺要留意，不把生腌菜混作烧烤。"
+        },
+        {
+          "name": "朝鲜族冷面",
+          "detail": "弹韧面条入酸甜凉汤，搭熟肉、蛋与蔬菜，汤底和面料配比各店不同，先喝汤能辨风格。丹东边境城市的朝鲜族餐饮和海鲜餐并存，可在一晚烧烤之外选冷面简餐；配少量辣白菜，尝原汤再调醋辣，问面量，不必同时点整锅拌饭。",
+          "sources": [
+            {
+              "label": "辽宁省文旅厅：丹东安东老街与朝鲜族食品",
+              "url": "https://whly.ln.gov.cn/whly/mtjj/2025020715173019385/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "丹东炒叉子",
+          "detail": "以玉米等淀粉加工成叉子面，切段后与蔬菜、肉或海鲜等炒制，面条滑韧，酱汁吸附表面，是丹东街头常见主食。它不是餐具名称，也与普通小麦炒面不同。原料、配菜和辣度各店不同，点前问清，选择正规储存、现炒熟透的版本，趁热吃口感较好。"
+        },
+        {
+          "name": "朝鲜族打糕",
+          "detail": "糯米蒸熟后反复捶打，切块裹豆粉或配甜馅，捶打使糕体黏而有韧，米豆香互衬。丹东安东老街有打糕手艺展示，可先看制作再选小份现做款，和炒叉子分开尝；原糕与豆粉各辨一口，再按喜好加糖，放凉后质地会收紧，少量购买更便于比较。",
+          "sources": [
+            {
+              "label": "辽宁省文旅厅：丹东安东老街与朝鲜族食品",
+              "url": "https://whly.ln.gov.cn/whly/mtjj/2025020715173019385/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "朝鲜族米肠",
+          "detail": "肠衣填糯米、蔬菜及血料等蒸熟后切段，米馅软糯，外皮有韧，配方与调味各店有差别。丹东朝鲜族餐可把小份米肠与冷面、泡菜搭配，先问具体原料与份量；热吃一段原味，再蘸少量汁，认识米食和肠衣结合的口感，不只按肉类冷盘估计。",
+          "sources": [
+            {
+              "label": "辽宁省文旅厅：丹东安东老街与朝鲜族食品",
+              "url": "https://whly.ln.gov.cn/whly/mtjj/2025020715173019385/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "朝鲜族辣白菜",
+          "detail": "白菜盐渍后配辣椒、蒜姜等发酵，清脆到酸软会随时间变化，是朝鲜族餐桌的重要配菜。丹东街区餐馆可先看套餐已含哪些小菜，再决定是否另点；比较偏鲜脆与酸熟的两种状态，配米饭或米肠，先少量尝咸酸，不需一开始摆满大份。",
+          "sources": [
+            {
+              "label": "辽宁省文旅厅：丹东安东老街与朝鲜族食品",
+              "url": "https://whly.ln.gov.cn/whly/mtjj/2025020715173019385/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "朝鲜族拌饭",
+          "detail": "米饭配熟肉、豆芽、蔬菜等，石锅版加热使底部有锅巴，再拌辣酱，软饭与焦边口感不同。丹东城市漫步转场时可点一锅作完整简餐，和安东老街的小吃分餐；先问蛋肉做法与配菜，酱逐次加，先留一角锅巴最后吃，比较受热前后的米香。",
+          "sources": [
+            {
+              "label": "辽宁省文旅厅：丹东安东老街与朝鲜族食品",
+              "url": "https://whly.ln.gov.cn/whly/mtjj/2025020715173019385/index.shtml"
+            }
+          ]
+        }
+      ],
+      "walk": "第一天到丹东看断桥和江岸，第二天纪念馆半天，午后市区休息或选虎山作为独立车辆支线。第三天专程凤凰山后返程；若只两天就保留城市历史线，不在纪念馆后赶登高又急着回城看夜景。",
+      "stay": "鸭绿江城区段便于散步与餐饮，凤城适合次日早登凤凰山；临江房间也需考虑道路噪声，别只按能否看见对岸选择。",
+      "move": "城内公交或打车可衔接纪念馆与江岸，虎山、凤凰山需不同方向转场；江上活动与边境道路按正式项目和现场管理。",
+      "tip": "边境摄影、船行与岸线停靠遵守明确标识，不擅自使用无人机；凤凰山险段与普通登山线难度不同，按体力选择即可。",
+      "days": "3天",
+      "ratedScenic": [
+        {
+          "name": "鸭绿江景区",
+          "city": "丹东市",
+          "district": "市辖区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以丹东及沿江正式开放景点理解鸭绿江的城市、交通和边境历史，断桥、江岸与河谷景观可分段阅读。先选择一个片区，再用地图看桥梁、城镇与山地关系，不把整个鸭绿江流域当成紧凑售票园。江岸散步、游船和边境管理有不同范围，按各自开放与个人条件核实。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-8b2924967558",
+          "guideIndex": 4
+        },
+        {
+          "name": "抗美援朝纪念馆",
+          "city": "丹东市",
+          "district": "振安区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "通过战争文物、档案、人物与战场地图呈现抗美援朝历史，适合把宏观时间线与具体个体经历联系起来。可选一组原始资料深读，分清文物、复制件和复原场景，再看纪念建筑的象征表达。内容信息量与情绪分量较大，安排充足安静时间，亲子根据年龄与理解能力选择重点。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-9d995eddb439",
+          "guideIndex": 4
+        },
+        {
+          "name": "天桥沟景区",
+          "city": "丹东市",
+          "district": "宽甸满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "宽甸山地的峰岭、森林与季节色叶构成景观，登高路线可观察辽东山地林层与岩壁之间的关系。秋季红叶有名，但色彩进度受天气、树种和坡向影响，其他季节也可围绕山林生态游览。选择一条开放主线比赶遍所有观景台更合适，索道或经营项目与步行路线分别确认。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-7d595058c8d0",
+          "guideIndex": 4
+        },
+        {
+          "name": "天华山森林公园",
+          "city": "丹东市",
+          "district": "宽甸满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "宽甸以山峰、岩壁、林木与溪谷形成山地游览空间，适合把岩石形态与植被层次连起来看。山中不同路线高差和难度不一，可先按体力确定普通步道与折返点，再决定是否登高。名称相似的山岳很多，应核对宽甸具体入口；陡段、雨后路面与季节封闭以当日正式安排为准。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-508c96b1523a",
+          "guideIndex": 4
+        },
+        {
+          "name": "大鹿岛甲午海战古战场景区",
+          "city": "丹东市",
+          "district": "东港市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "大鹿岛海滨休闲与甲午海战历史记忆相结合，相关纪念点能帮助理解黄海海战及邓世昌等人物。可先读海战地图与史料，再看海岸、渔村和纪念设施，避免把整个海岛景观都当作战场原物。往返船班和海况决定能否顺利进出岛，住宿与参观留出余量。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-afb1b103a2c3",
+          "guideIndex": 4
+        },
+        {
+          "name": "东港市獐岛风景区",
+          "city": "丹东市",
+          "district": "东港市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "东港近海岛屿的渔村、海岸和日出观景构成主要体验，适合住一晚慢看潮汐、渔业生活与海面光线。这里不是大连长海县的獐子岛，订船和住宿时尤其要核对名称。船班、风浪与潮位影响可达性，赶海只能在明确允许岸段和适宜潮时参加，不能为追海景忽略返程条件。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-212e773abcee",
+          "guideIndex": 4
+        },
+        {
+          "name": "凤城市大梨树生态农业观光旅游区",
+          "city": "丹东市",
+          "district": "凤城市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以生态农业、村庄建设和地方生活文化结合的乡村旅游区，果园、农事与村落空间提供理解乡村产业的具体入口。适合按季节看一种作物或体验一项农事，再把饮食与生产联系起来。它不是只在一处打卡的单体景点，采摘、展陈与村庄游览分别安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-13530f36d960",
+          "guideIndex": 4
+        },
+        {
+          "name": "凤城市凤凰山风景区",
+          "city": "丹东市",
+          "district": "凤城市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "凤城山地的岩峰、寺观和登高路线构成自然与文化复合景观，适合从山势、植被与建筑布局理解辽东名山。先了解普通步道和险峻路段的差异，按体力挑选一条主线，远眺山地也有独立价值。它与朝阳凤凰山是不同目的地，不必为挑战某条刺激路线勉强通行。",
+          "time": "1天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-6cd76dceb320",
+          "guideIndex": 4
+        },
+        {
+          "name": "蒲石河森林公园景区",
+          "city": "丹东市",
+          "district": "凤城市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "凤城东北部的森林溪谷，以水流、阔叶林与季节色叶形成相对幽静的游览环境。适合沿正式谷地步道观察树种、石块和水面反光，秋色之外也能看林地生态。山中道路、步道与保护范围并不相同，雨后水量和路面变化较快，先选适合体力的路线，不涉水追拍或采集野生植物。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-bcf48c22e859",
+          "guideIndex": 4
+        }
+      ],
+      "ratedCount": 9
+    },
+    {
+      "name": "锦州与葫芦岛",
+      "sights": "辽沈战役纪念馆、笔架山、兴城古城",
+      "history": "军事历史、明代城防与辽西海岸可串成一条线，潮汐景区看官方安排。",
+      "food": "锦州烧烤、沟帮子熏鸡、辽西海鲜。",
+      "theme": "海滨古城",
+      "story": "辽西走廊连接东北与华北，锦州的战争纪念、兴城的明代城防与海岸景观可以组成一条区域线，却不是同一座城市内的几个街区。兴城属葫芦岛，笔架山在锦州海边，先把行政归属与交通方向理清，再读军事地理，能理解这条狭长通道为何反复成为历史焦点。",
+      "see": [
+        {
+          "name": "辽沈战役纪念馆",
+          "detail": "战役地图、史料与人物材料共同解释事件，适合从东北交通与城市位置理解。位于锦州，先读战役总图与交通背景，再看文物、档案和人物材料。历史叙事信息量大，留时间安静阅读，别把复原场景当普通娱乐项目。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "锦州与葫芦岛",
+          "registryName": "辽沈战役纪念馆",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-50ff13379e22",
+          "verification": "",
+          "city": "锦州市",
+          "district": "凌河区"
+        },
+        {
+          "name": "笔架山",
+          "detail": "山体、潮汐和海岸交通形成特殊空间，自然通道是否可走必须按现场潮汐管理。看海岛与潮间带连接方式，所有上下岛安排按官方潮汐和运营指引。不能凭眼前露出的路面判断返程仍可通行，涨潮变化需要严格留意。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "area": "锦州与葫芦岛",
+          "registryName": "锦州市笔架山风景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-05f5bd6f6c2d",
+          "verification": "",
+          "city": "锦州市",
+          "district": "滨海新区"
+        },
+        {
+          "name": "兴城古城",
+          "detail": "明代城防格局、街道与后续生活共同构成古城，历史遗存和修缮更新需区分。沿城门、城墙与街巷看防御格局，再选择文庙等开放点读城内生活。古城与海滨是不同片区，先看军事空间，再慢走居民街巷更完整。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "area": "锦州与葫芦岛",
+          "registryName": "兴城市古城景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-1f1d50905bd0",
+          "verification": "",
+          "city": "葫芦岛市",
+          "district": "兴城市"
+        },
+        {
+          "name": "锦州市博物馆",
+          "detail": "地方馆通过考古、历史与艺术相关陈列帮助认识辽西交通和多文化交流，可先看县域地图与器物，再去奉国寺、北镇等地实地对照。适合把辽沈战役之外的时间尺度补齐，不用一段现代历史概括全城。展览与馆舍安排以官方开放信息为准，预留阅读时间。",
+          "time": "2—3小时",
+          "kind": "地方博物",
+          "area": "锦州",
+          "registryName": "锦州市博物馆",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-ca0abbc6a719",
+          "verification": "",
+          "city": "锦州市",
+          "district": "古塔区"
+        },
+        {
+          "name": "奉国寺",
+          "detail": "奉国寺以辽代大型木构大殿及造像群见长，建筑跨度、柱网和造像秩序共同构成震撼。先从殿外看结构比例，再按开放范围细看内部造像与装饰，比只拍正面更完整。适合古建与艺术爱好者，距离锦州市区需单独交通，保护与摄影要求按现场执行。",
+          "time": "2—3小时",
+          "kind": "古建造像",
+          "area": "义县",
+          "registryName": "义县奉国寺景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-073d386fd558",
+          "verification": "",
+          "city": "锦州市",
+          "district": "义县"
+        },
+        {
+          "name": "九门口长城",
+          "detail": "长城在河谷跨水形成城墙与桥式结构相结合的景观，可观察防御、交通和流水管理怎样在地形中协调。现有景区包含修缮与展示，宜结合说明理解不同部分。适合长城主题旅行，不必与兴城古城同日连赶过多远点，台阶、季节水量和开放范围均需留意。",
+          "time": "半天",
+          "kind": "长城水工",
+          "area": "绥中",
+          "registryName": "九门口长城景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-dfde9c4349fe",
+          "verification": "",
+          "city": "葫芦岛市",
+          "district": "绥中县"
+        }
+      ],
+      "eat": [
+        {
+          "name": "锦州烧烤",
+          "detail": "肉类、海鲜、豆制品与蔬菜在烤炉上熟制，撒料、刷酱和火候形成锦州夜间聚餐的鲜明风味。它不是固定一套串品，不同店有干料、酱香和小份食材的不同习惯。先点少量熟透肉串与蔬菜，再按口味加单，比较焦香与原料质地，避免以极辣或过焦判断地道。"
+        },
+        {
+          "name": "沟帮子熏鸡",
+          "detail": "北镇沟帮子传统熟鸡经卤煮、熏制等工序形成复合香气，皮肉软嫩，适合切块直接配主食。它与当地水馅包子共同构成有辨识度的简餐组合，但不同经营者、包装与制作日期要分辨。人数少可点半只或小份，先尝原味，外带按要求冷藏，熏香不等于能够常温久放。"
+        },
+        {
+          "name": "辽西海鲜",
+          "detail": "锦州、葫芦岛沿海餐饮可从清蒸虾蟹、熟制贝类和家常炖鱼选择，渤海风味既有本味清鲜，也有酱焖浓香。品种和货源随季节、物流变化，不凭地名认定每样都本地现捕。点前问重量、价格和加工方式，熟透后小份分享，注意壳片鱼刺，配饼或米饭即可。"
+        },
+        {
+          "name": "沟帮子水馅包子",
+          "detail": "面皮包入调入汤汁的肉馅，蒸熟后皮柔韧、馅中有汁，是锦州北镇沟帮子代表面食。它与熏鸡可搭配，但包子本身已是一顿主食，初尝先点小份。刚出笼先开小口散热，少蘸酱汁便能辨肉香，不把“水馅”理解成生水或没有肉。"
+        },
+        {
+          "name": "义县白丸子",
+          "detail": "肉馅等配料打制成丸子，以水煮或汆制形成清爽、弹嫩的口感，通常配汤食用，是义县地方餐饮名物。它与外层油炸肉丸在火候、汤色和质地上不同，具体肉类比例需问店家。适合与辽西面食搭配，先尝清汤，不必用浓酱盖住肉香。"
+        },
+        {
+          "name": "北镇熏猪蹄",
+          "detail": "猪蹄经卤煮与熏制等工序形成香气，皮胶与软肉层次明显，是北镇地方熟食代表。可以少量冷拼或加热配饼，具体软硬、咸度和熏香随经营者技艺变化。购买时看制作日期和储存条件，外带按要求冷藏，不将加工香味当作常温长途携带的保证。"
+        },
+        {
+          "name": "绥中水豆腐",
+          "detail": "新制豆腐或豆花带汤食用，质地柔嫩、豆香较清楚，可配卤汁、葱花或其他小料，是绥中日常餐饮的代表之一。它与压干豆腐、冻豆腐口感不同，具体咸卤和荤素各店变化。适合作早餐或海鲜餐的清淡搭配，先少加料尝豆香，热汤较烫慢吃。"
+        },
+        {
+          "name": "兴城花生小豆腐",
+          "detail": "花生磨浆或加工成细碎豆渣状后，与蔬菜等煮制成柔软的菜食，豆香、坚果香与稠厚质地相衬，是兴城红崖子相关地方风味。它与大豆压成的普通豆腐不同，具体配方要向店家确认。适合小份配主食，花生过敏者避免，先尝原味不必多加重酱。"
+        }
+      ],
+      "walk": "第一天在锦州看纪念馆，第二天笔架山按官方潮汐安排，第三天转兴城看古城，第四天海岸散步后返程。若三天就减少一处海滨，不以夜间跨城折返补足安排；战争纪念与古城都值得留完整半天。",
+      "stay": "锦州与兴城各住一至两晚可减少往返，古城周边适合早晨散步，海边适合连续休闲；先确定返程站点再选择最后一晚。",
+      "move": "两市间可铁路或公路转场，笔架山从锦州另需海岸接驳；兴城站与其他高铁站位置不同，不按城市名称自动选最近车站。",
+      "tip": "笔架山潮间带通道有严格时限与管理，切勿追随他人冒险涉水；古城墙开放段按指示行走，不攀未修复墙体或屋顶。",
+      "days": "4天",
+      "ratedScenic": [
+        {
+          "name": "北普陀山景区",
+          "city": "锦州市",
+          "district": "古塔区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "锦州近郊的山林、岩石与佛教文化空间结合的景区，适合把登高观景与寺院建筑分成轻重不同的体验。先读当地沿革，再看殿堂、石刻和山势关系，不因“普陀”名称就与其他省份同名寺山混同。宗教参访与日常游憩规则各异，选择正式开放步道。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-fb859ef88f70",
+          "guideIndex": 5
+        },
+        {
+          "name": "锦州市博物馆",
+          "city": "锦州市",
+          "district": "古塔区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "地方考古、历史与艺术陈列为认识辽西文化交流提供背景，器物出土地和地图适合与县域目的地对应。可先看通史，再选佛教艺术或地方生活等主题，把奉国寺、北镇与锦州城区放回共同地理。展览、旧照片和建筑本体各反映不同阶段，按馆方当期安排挑重点。",
+          "time": "2—3小时",
+          "kind": "地方博物",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-ca0abbc6a719",
+          "guideIndex": 5
+        },
+        {
+          "name": "辽沈战役纪念馆",
+          "city": "锦州市",
+          "district": "凌河区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以战役地图、文物、文献和人物材料解释辽沈战役，锦州在东北交通网络中的位置是理解的重要线索。可先看总图，再选一组装备或个人档案细读，分清历史证据与艺术化全景展示。纪念馆不只是一个大型战场场景，适合安静完整地观看，亲子按年龄选择内容与停留节奏。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-50ff13379e22",
+          "guideIndex": 5
+        },
+        {
+          "name": "义县奉国寺景区",
+          "city": "锦州市",
+          "district": "义县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "义县奉国寺以辽代大型木构大殿和造像群见长，柱网、屋顶尺度与殿内造像秩序共同构成观看重点。可先从外部理解结构比例，再按开放范围细看造像与装饰，建筑和宗教艺术互为说明。不同部分经历后期修缮，不能以单一年代概括全部。",
+          "time": "2—3小时",
+          "kind": "古建造像",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-073d386fd558",
+          "guideIndex": 5
+        },
+        {
+          "name": "岩井寺旅游景区",
+          "city": "锦州市",
+          "district": "凌海市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "凌海温滴楼一带的山林与寺院景观，古佛洞、双龙井和殿堂等点位适合结合山势观看。可先选择一段步道认识辽西林地，再按正式说明理解宗教建筑与地方故事，不凭名称附会其年代。景区与自然保护空间相邻或交叠，游览只限明确开放范围。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025112415491691493/"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-07637aedc1c4",
+          "guideIndex": 5
+        },
+        {
+          "name": "辽西九华山风景区",
+          "city": "锦州市",
+          "district": "凌海市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "凌海城市近郊的现代山地文化休闲景区，寺院意象建筑、广场与主题景观构成较鲜明的视觉空间。适合从建筑材料、场景组织与当代地方信仰观察，而不是把仿古造景当作西藏历史建筑的等同替身。夜景、演艺和游乐可能分时运营，先明确想看建筑外观还是参加项目。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-2f7b3b294880",
+          "guideIndex": 5
+        },
+        {
+          "name": "东方华地湿地温泉旅游区",
+          "city": "锦州市",
+          "district": "凌海市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "湿地景观、温泉住宿和休闲设施相结合的度假旅游区，适合将滨水步行与一晚慢住组合。观察水鸟、芦苇和水面时应分清游憩空间与生态保育范围，不能把保护地视作可随意进入的普通公园。温泉、住宿和户外活动有不同接待条件，不附会治病功效。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-5d6c645566c7",
+          "guideIndex": 5
+        },
+        {
+          "name": "北镇大朝阳温泉山城旅游区",
+          "city": "锦州市",
+          "district": "北镇市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "北镇医巫闾山周边结合山林、温泉住宿与休闲研学的度假景区，可把谷地环境与当地抗日义勇军相关展示分开阅读。适合减少赶路，在山村停留并选择轻量步行。名称中的山城不表示所有现有住宿建筑都是古城遗迹；毗邻自然保护区不等于可进入核心区。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/sqgk/whly/ajjq/4ajq/2025101516241716649/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-9723de819dec",
+          "guideIndex": 5
+        },
+        {
+          "name": "北镇医巫闾山大芦花风景区",
+          "city": "锦州市",
+          "district": "北镇市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "医巫闾山中南部的峰岭、岩壁与山地植被构成游览特色，秋季芦花为季节观察增加层次。可先看地形与岩石结构，再听形象命名，避免用旅游传说直接解释地质成因。与医巫闾山其他经营景区的入口、游线需分清，主峰登高和山下散步难度不同。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/sqgk/whly/ajjq/jz/2025101410380333495/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-05e805dba08a",
+          "guideIndex": 5
+        },
+        {
+          "name": "北镇市医巫闾山风景区",
+          "city": "锦州市",
+          "district": "北镇市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "辽西历史文化名山，森林、岩峰、寺观和历代题刻共同形成多层景观，可从古代名山制度、地方信仰与自然环境三条线索阅读。先定一个主游片区，再看建筑如何顺应山势，比赶集所有峰顶更完整。文物、传说和现代设施分别理解，自然保护区范围与开放旅游道路也不是同一概念。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-f712ce06f7b0",
+          "guideIndex": 5
+        },
+        {
+          "name": "锦州市北镇青岩寺景区",
+          "city": "锦州市",
+          "district": "北镇市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "北镇山地的寺院与岩壁、林木相依，台阶和殿堂次序体现宗教活动与地形的关系。适合在允许范围安静看建筑、题额与地方信仰实践，不把宣传中的灵验故事当作历史证据或健康承诺。现存建筑包含不同阶段修缮营建，登高强度按同行者体力安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-e6d66c06b0d1",
+          "guideIndex": 5
+        },
+        {
+          "name": "锦州东方欢乐王国水世界",
+          "city": "锦州市",
+          "district": "滨海新区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以水上游乐设施、主题包装和家庭休闲形成的现代水乐园，适合按年龄、身高和游泳能力挑选适合项目。造浪、滑道与儿童水区在运行条件上不同，先明确自己实际选择的区域再安排停留。它不是天然海水浴场，季节、天气和检修影响接待。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-e3f4312a2fba",
+          "guideIndex": 5
+        },
+        {
+          "name": "锦州世博园",
+          "city": "锦州市",
+          "district": "滨海新区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "依滨海地形营建的园艺展示与休闲公园，不同展园、水面和海岸视野适合比较地方植物与园林设计。可选一两个主题园慢看空间、材料与种植方式，再到滨海开放区散步。世博会留下的园区会随运营更新，不能把历史展会清单视为所有展项永久保留，园区较大。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-c09a251cf6ac",
+          "guideIndex": 5
+        },
+        {
+          "name": "锦州市笔架山风景区",
+          "city": "锦州市",
+          "district": "滨海新区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "海岛山体与潮间带通道构成鲜明景观，岛上建筑与海面视野可结合观看。重点不只是走过一条露出的路，而是理解潮汐怎样改变岛陆联系，所有往返都应依现场管理。眼前可见路面不表示返程仍能通行，步行、船运和关闭安排可能不同。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-05f5bd6f6c2d",
+          "guideIndex": 5
+        },
+        {
+          "name": "灵山景区",
+          "city": "葫芦岛市",
+          "district": "连山区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "葫芦岛连山区的山峰、洞穴与寺院建筑群相结合，适合从登山路线观察岩壁、林木和古刹布局的关系。可先读正式沿革，再区分文物建筑、后期修缮及形象化景物命名，不把全部设施统称为古迹。山地路线有高差，宗教活动与旅游参访并存。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/sqgk/whly/ajjq/hld/2025101515350465034/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-3430aa918b1b",
+          "guideIndex": 5
+        },
+        {
+          "name": "龙湾海滨风景区",
+          "city": "葫芦岛市",
+          "district": "龙港区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "龙港城区面向辽东湾的海滨公共空间，沙滩、岸线与城市生活相邻，适合在古城或山地游览后安排轻松看海。可沿正式步道观察海湾、沙岸和居民休闲方式，选一段连续路线即可。城市海滨散步不等于全年可以海浴，风浪、季节和运营决定可活动区域。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-83ade1e8dadb",
+          "guideIndex": 5
+        },
+        {
+          "name": "葫芦古镇",
+          "city": "葫芦岛市",
+          "district": "龙港区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以葫芦文化、关东民俗和主题演艺组织的现代文旅古镇，建筑、器物与互动项目呈现经过整理的地方生活意象。适合先看一组民俗展陈，再挑当期演出或手工体验，理解道具与技艺的使用背景。它不是完整原貌保存的古代城镇，仿古街景、历史资料和艺术表演需分别阅读。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-0ef994ffc6fa",
+          "guideIndex": 5
+        },
+        {
+          "name": "辽宁东戴河新区银泰水星海洋乐园景区",
+          "city": "葫芦岛市",
+          "district": "绥中县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "东戴河沿海的现代海洋主题休闲项目，沙滩环境与亲子游乐、度假服务相结合，适合按同行者年龄选半日活动。可把普通看海与设备体验分开安排，先确认自己实际购买的项目和使用时段。它不等同于所有东戴河海岸，海浴、游乐和住宿各有经营边界。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-7bce2bc49550",
+          "guideIndex": 5
+        },
+        {
+          "name": "九门口长城景区",
+          "city": "葫芦岛市",
+          "district": "绥中县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "长城在河谷跨水形成城墙与桥式结构相结合的景观，可观察防御、通行和流水管理怎样顺应地形。先从整体看山口与河道，再读各段遗存、修复和展示设施的说明，不能以砖墙新旧简单推断年代。台阶、水量与开放范围随季节变化，适合单独的长城主题线路。",
+          "time": "半天",
+          "kind": "长城水工",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-dfde9c4349fe",
+          "guideIndex": 5
+        },
+        {
+          "name": "龙潭大峡谷自然风景区",
+          "city": "葫芦岛市",
+          "district": "建昌县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "建昌山地的峡谷、岩壁、水潭与林木形成较强的纵深感，适合沿正式游线看水流与地形关系。可按台阶、高差和返程时间选择主线，而不为集齐全部潭瀑过度深入。这里与其他地区同名龙潭大峡谷不同，水量、道路和经营项目随天气季节变化。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-d341a8060b8e",
+          "guideIndex": 5
+        },
+        {
+          "name": "欢乐龙湾景区",
+          "city": "葫芦岛市",
+          "district": "兴城市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以造浪、滑道、儿童戏水与温泉休闲构成的现代水上乐园，适合按年龄、身高和游泳能力选择项目。儿童水寨、普通池区与刺激滑道体验不同，可先确定家庭主线，再安排休息和补水。它不是天然海湾浴场，设施运行受季节、天气和维护影响，入园、附加项目与住宿套餐分别核对。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025102216251065706/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-3277c1476a8e",
+          "guideIndex": 5
+        },
+        {
+          "name": "觉华岛旅游度假区",
+          "city": "葫芦岛市",
+          "district": "兴城市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "兴城近海岛屿的沙滩、渔村与宗教历史线索相结合，适合住一晚慢看岛上道路、海岸和居民生活。可先看地图与正式说明，再选择一段山海路线，不把每处主题建筑都当作原物古迹。进出岛依赖船班和海况，住宿、环岛交通与返回安排需要统筹。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-5c88c162da89",
+          "guideIndex": 5
+        },
+        {
+          "name": "兴城海滨风景区",
+          "city": "葫芦岛市",
+          "district": "兴城市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "兴城古城以外的滨海休闲片区，沙滩、海面与城市公共空间适合形成较轻松的半日。可将海滨观察与古城城防主题分开，感受同一座城市不同地理面貌。海岸散步、海水浴和经营游乐项目有不同开放条件，潮汐、风浪与季节影响能否下水，选择正式管理岸段。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-768698d879ea",
+          "guideIndex": 5
+        },
+        {
+          "name": "兴城市古城景区",
+          "city": "葫芦岛市",
+          "district": "兴城市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以明代城防格局、城门、街巷与后续居民生活构成历史城区，城墙、牌坊和文庙等点位可帮助理解防御与城市秩序。适合先沿城门辨认格局，再走生活街巷，比较文物、修缮建筑与现代商铺。古城不是完全停留在某一年代的布景，居民院落与可游览场馆需分清。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-1f1d50905bd0",
+          "guideIndex": 5
+        }
+      ],
+      "ratedCount": 24
+    },
+    {
+      "name": "盘锦",
+      "sights": "红海滩、辽河湿地、稻田景观",
+      "history": "湿地、盐生植物和农业共同构成景观，红色程度受季节与水文影响。",
+      "food": "盘锦河蟹、碱地柿子、稻米饭。",
+      "theme": "湿地生态",
+      "story": "盘锦位于辽河三角洲，湿地、稻田、河口与油田共同塑造城市。红海滩的色彩来自盐生植物的季节变化，而不是常年铺开的红色沙滩；水文、盐度和天气都会影响所见。把生态科普、农业与城市生活放在一起，能理解这里的颜色从何而来、又怎样受到保护。",
+      "see": [
+        {
+          "name": "红海滩国家风景廊道",
+          "detail": "碱蓬湿地与潮汐、水盐条件形成季节红色景观，不是全年固定鲜红。在开放栈道看盐生植物、水道与滩地层次，结合科普读适应盐碱环境的方式。不同季节颜色有差异，不为寻找鲜红区域跨出围栏。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "area": "盘锦",
+          "registryName": "盘锦红海滩国家风景廊道景区",
+          "level": "5A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-37de0755efc7",
+          "verification": "",
+          "city": "盘锦市",
+          "district": "大洼县"
+        },
+        {
+          "name": "辽河湿地开放观鸟区",
+          "detail": "河口湿地为候鸟提供生境，公开观景路线与保育核心区有明确界限。选择有明确公众开放说明的点位，带望远镜看水鸟与芦苇环境。观鸟不保证遇到特定物种，安静停留比不断追逐更有收获。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "盘锦"
+        },
+        {
+          "name": "盘锦稻田景观",
+          "detail": "水稻种植、灌溉和季节色彩展示平原农业，生产田与游客步道不能混同。沿正式乡村旅游道路看水田、沟渠与村落，留意稻作和湿地之间的关系。田埂与生产路不都是公共步道，不进入正在作业的农田取景。",
+          "time": "2—3小时",
+          "kind": "人文与自然",
+          "area": "盘锦"
+        },
+        {
+          "name": "田庄台古镇公共街区",
+          "detail": "田庄台与辽河航运、商贸和多种饮食传统有关，公开街巷、老字号与相关展陈能呈现盘锦湿地之外的城镇生活。可先读河运地图，再尝烧鸡、熟食或油茶，观察传统店铺与当代经营如何并存。部分街景经整治更新，不把所有仿古建筑视为完整原物。",
+          "time": "2—3小时",
+          "kind": "街区饮食",
+          "area": "大洼"
+        },
+        {
+          "name": "辽河美术馆",
+          "detail": "美术馆通过绘画、书法及其他当期艺术展览提供认识地方视觉文化的空间，适合在湿地摄影之外慢看艺术家的材料与表达。建议出发前看展讯，挑一个主题细读，不将旧展名单当常年固定内容。它可与城市公园和水岸步行组合，开放预约按馆方安排。",
+          "time": "1—2小时",
+          "kind": "艺术",
+          "area": "盘锦"
+        },
+        {
+          "name": "辽河碑林",
+          "detail": "碑刻、书法展示与园林空间结合，适合比较不同书体、刻石效果和步行观看距离。可选择几件作品读文字、笔势与材质，再看其在水岸绿地中的位置，而非只拍碑廊全景。这里以现代整理展示为主，石刻作品与原作者时代需区分，按公开园路慢走即可。",
+          "time": "1—2小时",
+          "kind": "书法园林",
+          "area": "盘锦",
+          "registryName": "盘锦辽河碑林景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-50eb74b0d947",
+          "verification": "",
+          "city": "盘锦市",
+          "district": "双台子区"
+        }
+      ],
+      "eat": [
+        {
+          "name": "盘锦河蟹",
+          "detail": "河蟹以清蒸等熟制方法最容易比较肉、黄或膏的口感，盘锦稻田与养殖生产使其成为地方饮食名片。规格、雌雄、季节与实际来源影响很大，应向正规经营者问清，不一概认定野生。先原味尝、再少量配姜醋，按人数点适量，彻底熟制后吃，不吃生腌或来源不明蟹。"
+        },
+        {
+          "name": "盘锦大米嘎巴",
+          "detail": "把大米与水等加工成薄脆锅巴类食品，烘烤或熟化后米香集中、咬感酥脆，盘锦地标美食推介中有明确一席。它比单列一碗米饭更能展示稻米加工与日常零食文化。不同产品调味、油量不一，购买看配料和日期，原味小份最容易辨米香与脆度。"
+        },
+        {
+          "name": "碱地柿子",
+          "detail": "盘锦等地利用盐碱地条件种植的番茄产品，风味常以酸甜、汁水与果肉口感体现，是地方农业与餐饮的代表。它可鲜食、炒蛋或做汤，具体品种和成熟度会影响质地，不能所有小番茄都叫同一产地。正规销售点买小份尝味，问当季与来源，清洗后食用，不用食疗宣传代替介绍。"
+        },
+        {
+          "name": "河蟹豆腐",
+          "detail": "把熟制河蟹与豆腐等同炖或烧制，蟹味进入豆腐与汤汁，是盘锦将水产和家常豆食结合的地方菜型。各店用整蟹、蟹肉或蟹黄的方式不同，点前问具体做法与计价。选择完全熟制版本，吃时留意蟹壳碎片，搭米饭即可，不必再点一桌相近蟹菜。"
+        },
+        {
+          "name": "文蛤茄子",
+          "detail": "文蛤与茄子同烧或炖煮，茄子吸收贝类汤汁，海味与柔软口感相互衬托，属于盘锦地方推介的家常海鲜菜。它不像清蒸贝类只重本味，更能看到食材互相入味。点前问是否去壳、配料与份量，贝类充分熟制后再吃，留意壳片，适合配主食分食。"
+        },
+        {
+          "name": "炖鲜蒲笋",
+          "detail": "蒲笋等湿地植物的食用部分经过处理后炖制，清香、柔嫩与汤汁相配，呈现盘锦湿地物产进入餐桌的一面。具体原料、采收与供应季节需问正规餐馆，不自行在保护区采集。可与肉或其他配料同炖，点前确认荤素，少量尝其植物口感，不附会夸张保健作用。"
+        },
+        {
+          "name": "田庄台烧鸡",
+          "detail": "盘锦田庄台传统熟鸡名物，经卤煮等工序入味，皮肉软嫩，香辛料与鸡香相融，可切块作拼盘或配饼。它与河蟹、水产形成不同风味，能补充古镇餐桌的人情记忆。购买看具体经营者、制作日期与储存要求，不因名称相近推定所有店都是同一传承。"
+        },
+        {
+          "name": "铁锅手炒油茶",
+          "detail": "面粉等谷物与油、坚果或其他配料炒熟，冲入热水后成为稠滑食物，盘锦地方版本有自己的配方与炒制习惯。名字有茶却通常不是茶叶饮料，重在炒面香和细腻口感。点前问咸甜、是否含坚果，少量作早点或点心，和清粥可形成不同谷物体验。"
+        }
+      ],
+      "walk": "第一天上午看湿地科普，午后红海滩栈道慢走，傍晚回城区。第二天按季节选择一处开放观鸟点或稻田乡村路线，午后返程；不要为等某种鸟或固定红度不断跨区移动，留时间体会三角洲整体环境。",
+      "stay": "兴隆台、大洼按出入方向各有便利，红海滩线可住大洼一侧；住乡村先确认晚餐、道路与夜间交通，避免拍完日落无车可回。",
+      "move": "车站、城区与湿地入口之间需接驳，景区内部按官方交通组织；盘锦北站与盘锦站位置不同，订车先核对车票站名。",
+      "tip": "湿地保护区并非全部开放，鸟群停歇地和盐生植物地不踏入；红海滩颜色随自然条件变化，不把网上照片当当天保证。",
+      "days": "2天",
+      "ratedScenic": [
+        {
+          "name": "盘锦辽河碑林景区",
+          "city": "盘锦市",
+          "district": "双台子区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "碑刻、书法展示与园林水岸结合的城市文化景区，适合比较不同书体、刻石材质及作品在空间中的观看距离。可挑几件作品读文字与笔势，再观察碑廊、道路和绿地如何组织游览，而非只拍全景。这里以现代整理展示为主，书家时代、作品来源与石碑制作年代需要分别理解。",
+          "time": "1—2小时",
+          "kind": "书法园林",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-50eb74b0d947",
+          "guideIndex": 6
+        },
+        {
+          "name": "广厦艺术街",
+          "city": "盘锦市",
+          "district": "兴隆台区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "辽河国际艺术区中以画廊、艺术家工作室、文创和公共文化空间形成的艺术街区，适合从当期作品和创作过程认识地方视觉文化。可先挑一家开放画室细看材料与主题，再结合书店或餐饮慢逛。它是现代文化商业空间，展览与经营者会变化。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/sqgk/whly/ajjq/pj/2025101515375382874/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-378498f4c042",
+          "guideIndex": 6
+        },
+        {
+          "name": "盘锦苇海●鼎翔生态旅游度假区",
+          "city": "盘锦市",
+          "district": "兴隆台区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以芦苇、水网、林地与观鸟休闲结合的生态旅游区，适合从正式观景点比较湿地、林鸟和水鸟的不同生境。可围绕一条步道安静观察，理解辽河下游水环境与地方生活的联系。生态保育区并非普通游乐园，看到鸟类与花草有季节和偶然性，不追逐、不投喂。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-741b1473b4a8",
+          "guideIndex": 6
+        },
+        {
+          "name": "盘锦红海滩国家风景廊道景区",
+          "city": "盘锦市",
+          "district": "大洼县",
+          "level": "5A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以盐生碱蓬与潮汐湿地构成鲜明季节景观，红色来自植物生长阶段与水盐环境共同作用，并非全年固定鲜红。可沿开放栈道比较植物、水道和滩地层次，再读科普理解适应盐碱环境的方式。观景与生态保护边界清楚，不为寻找更红画面进入围栏外滩涂。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-37de0755efc7",
+          "guideIndex": 6
+        },
+        {
+          "name": "辽东湾新区金帛海滩景区",
+          "city": "盘锦市",
+          "district": "大洼县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "辽东湾沿海的沙滩与现代海滨休闲设施组成游览目的地，适合把看海、轻步行和家庭活动放在较缓的半日。它与盘锦红海滩的碱蓬湿地是不同环境，不能因同属海岸就期待相同景观。游泳、游乐与普通岸线观景分别核对开放，风浪、潮位与季节影响实际可参加项目。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-633e2d863560",
+          "guideIndex": 6
+        },
+        {
+          "name": "盘锦中尧七彩庄园",
+          "city": "盘锦市",
+          "district": "大洼县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以现代农业展示、特色农产品、牧场互动和亲子体验组成综合庄园，适合把番茄等作物的生长、加工与餐桌用途连起来认识。可先选农业研学主线，再挑适龄游乐，比较单纯看景更有参与感。园区历史主题街景属于现代营建，采摘、动物互动和水上项目各有季节与规则。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/sqgk/whly/ajjq/pj/2025101515375147188/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-6d6aeaa302ba",
+          "guideIndex": 6
+        },
+        {
+          "name": "北旅田园大唐文化旅游区",
+          "city": "盘锦市",
+          "district": "大洼县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "将唐风主题建筑、园林与演艺休闲结合的现代文旅园区，适合看当代设计如何把服饰、舞台和历史意象转化为体验。可选择建筑散步或一场演出为主，再用餐休息，避免只为拍照连续换装赶场。名称中的大唐不表示这里是唐代遗址，艺术化剧情与历史证据分别理解。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-3c6695e413e8",
+          "guideIndex": 6
+        },
+        {
+          "name": "盘锦特产博物园景区",
+          "city": "盘锦市",
+          "district": "盘山县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以大米、河蟹、烧烤和苇艺草编等主题展示认识盘锦特产，能把稻作、湿地资源与地方餐桌联系起来。适合先看一种原料的生产环境，再比较加工工具、技艺和商品用途，给孩子建立从产地到生活的完整线索。它是专题文旅博物园，展品、复原场景和销售商品性质不同。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025102216303459994/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-0cbcf6f469d2",
+          "guideIndex": 6
+        }
+      ],
+      "ratedCount": 8
+    },
+    {
+      "name": "抚顺",
+      "sights": "赫图阿拉城、清永陵、抚顺市雷锋纪念馆",
+      "history": "抚顺既是近现代煤业城市，也通向新宾的清代历史遗产。赫图阿拉、清永陵与沈阳故宫可放进后金至清的时间线，市区则适合读工业生产与劳动生活。两条历史线相隔山区道路，不宜在一天内全看；城址的现代展示、陵寝古建与工业遗存也应分别识别。",
+      "food": "满族粘豆包、酸菜白肉、抚顺麻辣拌",
+      "theme": "清源工业",
+      "story": "抚顺既是近现代煤业城市，也通向新宾的清代历史遗产。赫图阿拉、清永陵与沈阳故宫可放进后金至清的时间线，市区则适合读工业生产与劳动生活。两条历史线相隔山区道路，不宜在一天内全看；城址的现代展示、陵寝古建与工业遗存也应分别识别。",
+      "see": [
+        {
+          "name": "赫图阿拉城",
+          "detail": "清入关前城址与相关展示使早期政治、居住和地方社会有了空间线索。位于新宾满族自治县永陵镇，结合城址说明读后金早期政治与聚落布局。现有旅游建筑包含复原展示，注意区分遗迹、重建场景与民俗表演。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "抚顺",
+          "registryName": "赫图阿拉城旅游景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-9ec817a85f83",
+          "verification": "",
+          "city": "抚顺市",
+          "district": "新宾满族自治县"
+        },
+        {
+          "name": "清永陵",
+          "detail": "清代皇家祖陵通过神道、陵宫、石刻与山势呈现礼制与历史记忆。看陵寝轴线、祭祀建筑和自然环境，结合说明了解清皇室祖先祭祀。它与赫图阿拉同属新宾子线，仍要给点间车辆转场与午餐留余地。",
+          "time": "2—3小时",
+          "kind": "人文与自然",
+          "area": "抚顺"
+        },
+        {
+          "name": "抚顺市雷锋纪念馆",
+          "detail": "以雷锋经历、文物和相关资料展示人物与时代，旧物、复原和宣传材料要分别阅读。结合雷锋生平、劳动与军旅资料理解人物及时代背景，先看文物和时间线，再看纪念建筑。与煤业城市发展对照阅读，也能看见生产与公共记忆的联系。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "抚顺",
+          "registryName": "雷锋纪念馆景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-cf91deebbb9e",
+          "verification": "",
+          "city": "抚顺市",
+          "district": "望花区"
+        },
+        {
+          "name": "平顶山惨案纪念馆",
+          "detail": "纪念馆与遗址材料记录侵华日军制造惨案及受害者经历，适合从具体人物、史料和保护展示认识历史。参观应区分原址、复制资料和场景复原，以尊重受害者为前提，不把遗址当作猎奇空间。内容沉重，亲子按年龄调整，给安静阅读和情绪休息留时。",
+          "time": "2—3小时",
+          "kind": "历史遗址",
+          "area": "抚顺"
+        },
+        {
+          "name": "抚顺战犯管理所旧址",
+          "detail": "旧址与相关陈列展示近现代司法、改造及人物经历，可从房间用途、制度材料和具体档案理解这一特殊历史空间。适合近现代史爱好者先读背景再看原址，不只追逐个别名人故事。建筑保护区、复原陈设和开放展区按说明区分，预约与接待以官方当期安排为准。",
+          "time": "2—3小时",
+          "kind": "历史旧址",
+          "area": "抚顺"
+        },
+        {
+          "name": "萨尔浒风景名胜区",
+          "detail": "水库、山地和萨尔浒历史主题共同形成游览空间，适合先了解战役、交通与地形，再选正式开放步道看湖湾和林地。历史事件与今天水库景观分属不同阶段，不能直接用现代湖形复原当年战场。交通、登高和观景需留足时间，保护与水工区域不随意进入。",
+          "time": "半天",
+          "kind": "山水历史",
+          "area": "抚顺"
+        }
+      ],
+      "eat": [
+        {
+          "name": "满族粘豆包",
+          "detail": "黄米等黏粮制皮，红豆煮馅包蒸，热时柔韧，也可煎食，粮香与豆香是基础。抚顺新宾满族文化行程可认识黏食与冬令储食的联系，餐馆中选小份豆包配粥或咸菜；先尝热蒸原味，再比较煎焦底，一两只计入主食，甜糖不必一次蘸满。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "酸菜白肉",
+          "detail": "发酵白菜切丝与猪肉片合煮，酸汤衬脂香，血肠、冻豆腐或粉条依餐馆加入，锅量适合共享。抚顺满族风味餐可用它与新宾宴席菜分餐体验，先问一锅的实际荤素料；轻尝原汤再添蒜酱，主食配少量饭或饼，别与另一大锅同味酸菜肉菜重复。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "抚顺麻辣拌",
+          "detail": "土豆、蔬菜、豆皮、丸子或粉条等先煮熟、沥水，再与醋、糖、辣椒油、芝麻等拌匀，酸甜、麻辣、咸辣各有版本。它从麻辣烫式选料发展为抚顺鲜明街头风味，重点是拌汁而非汤。点前说清辣度、甜酸和份量，配料已有主食时无需再多点面食，现拌热吃更有层次。"
+        },
+        {
+          "name": "抚顺永安饺子",
+          "detail": "当地传统饺子名物以面皮、调馅和煮制形成自身风格，肉菜配比与馅料种类需看店家实际菜单。它与东北家庭饺子文化相连，又有具体经营品牌与地方记忆。点前问份量、馅料与是否拼盘，先原味尝皮馅，再少量蘸醋，避免只看老字号故事而忽略现做口感。"
+        },
+        {
+          "name": "萨尔浒鱼头汤",
+          "detail": "鱼头配葱姜、豆腐或其他食材熬汤，汤香与头部细嫩部位是重点，具体鱼种和配料依餐馆变化。它与抚顺水库、地方渔业餐饮文化联系紧密，但鱼的实际来源需问清。多人点前确认重量与收费，熟透后留意碎骨和鱼刺，配主食即可，不以汤白浓度判断品质。"
+        },
+        {
+          "name": "新宾八碟八碗",
+          "detail": "满族地方宴席以碟、碗成套组织荤素菜，蒸、炖等方法使菜肴适合多人分食，具体菜单随家庭、节庆与餐馆变化。它展示的是待客与宴席文化，不是一道单菜或固定全国菜谱。适合多人提前预约，先问菜数、荤素、份量和是否有小套组合，避免浪费。"
+        },
+        {
+          "name": "羊汤",
+          "detail": "羊肉、骨等熬成汤，熟肉切入碗，葱、醋、辣椒在食用时调，清汤和浓汤各有风格。抚顺城市与县域转场可选小碗羊汤配面饼作简餐，把麻辣拌、满族宴席留给另一顿；先问纯肉或含杂件，尝过再调味，能比较汤底与肉的柔嫩，不只看浓白程度。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "雪绵豆沙",
+          "detail": "细豆沙包在打发蛋清中入油锅，蛋泡膨松轻软，内馅香甜，现炸火候决定外层细腻程度。抚顺东北老菜馆可在家常菜后几人分少量，与满族黏豆包分开认识，两者皮料和工序不同；先稍散热，尝蛋香再辨豆沙，糖量少些更清楚。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        }
+      ],
+      "walk": "第一天抚顺市区看雷锋纪念馆，有余力再选正式开放的工业展陈。第二天向新宾转场看赫图阿拉，住新宾或永陵镇附近；第三天清永陵后返程。若接沈阳清代线，应单列跨城交通，不把新宾当作沈阳城边的短暂加项。",
+      "stay": "市区住宿便于工业展陈，清源线住新宾或永陵镇可减少来回；乡镇房间先确认供暖、热水与餐饮是否稳定提供。",
+      "move": "抚顺市区到新宾需要公路转场，遗产点之间也需车辆；工业场馆按正式预约入口抵达，避免误入矿业生产或修复区域。",
+      "tip": "赫图阿拉的复原场景和演出要与历史遗迹区分阅读；陵寝保持安静，不攀古树、石构件，工业遗产只走明确开放线路。",
+      "days": "3天",
+      "ratedScenic": [
+        {
+          "name": "雷锋纪念馆景区",
+          "city": "抚顺市",
+          "district": "望花区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以雷锋生平、劳动和军旅经历及相关实物史料构成纪念展陈，适合把人物与当时的生产、社会生活放在一起理解。可先沿时间线看具体事迹，再比较原始物件、照片和后来的宣传作品。它与辽阳弓长岭的雷锋纪念场馆不是同一地点，参观保持肃静。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-cf91deebbb9e",
+          "guideIndex": 7
+        },
+        {
+          "name": "抚顺三块石公园",
+          "city": "抚顺市",
+          "district": "抚顺县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "抚顺县山地森林与抗日斗争相关记忆相结合的游览地，突出的岩体、峰岭和谷地为自然观察提供线索。可先看地图与正式展陈理解当地交通和抗联活动背景，再按体力选择登山步道。山地景观与革命旧址的具体位置分别辨认，不把每处岩石命名都当历史事件。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-5be67fde2b16",
+          "guideIndex": 7
+        },
+        {
+          "name": "辽宁天女山森林公园",
+          "city": "抚顺市",
+          "district": "抚顺县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以森林、山地步道和天女木兰等植物景观形成特色，适合在花期观察花叶形态，在其他季节看林木与坡地变化。可围绕植物生态选择一段连续路线，而不是只寻找同一处拍摄点。天女木兰花期受天气影响，林区并非全年同样可达，登山与休闲设施各按当日开放。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-9acb47456ce0",
+          "guideIndex": 7
+        },
+        {
+          "name": "南天门文化旅游风景区",
+          "city": "抚顺市",
+          "district": "清原满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "清原山林与水景结合的现代综合旅游区，栈道、玻璃吊桥和亲子活动让自然观景与游乐体验并存。适合先选普通山水步行，再按个人意愿决定是否参加高空或滑行项目。高空设施并非理解景观的必需环节，主题包装也不能替代历史证据。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://whly.fushun.gov.cn/xydt/013004/013004001/20221028/4dda3636-5f75-4bb3-b148-337ebf42e84e.html"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-e77d58626cf1",
+          "guideIndex": 7
+        },
+        {
+          "name": "枸乃甸乡筐子沟村筐子沟景区",
+          "city": "抚顺市",
+          "district": "清原满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "清原筐子沟村的森林溪谷与季节色叶构成主要风景，适合看不同树种如何沿沟谷和坡地形成颜色层次。可沿开放栈道慢走，比较水流、石块和林下植物，不必只等一个所谓最佳红叶日。花叶变化受气候影响，山村与景区的生产、居住空间仍需尊重。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-292ac455ae5f",
+          "guideIndex": 7
+        },
+        {
+          "name": "红河峡谷漂流景区",
+          "city": "抚顺市",
+          "district": "清原满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "依清原山地河道开展的漂流景区，河谷景观与水上运动体验相结合，适合愿意参加有组织户外活动的旅客。漂流前了解路线、穿戴和团队规则，再感受急缓水段与两岸林木变化。它不是全年随到随漂的普通公园，水量、天气、适用年龄及个人身体条件都影响接待。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-8a79d07c9360",
+          "guideIndex": 7
+        },
+        {
+          "name": "参仙谷景区",
+          "city": "抚顺市",
+          "district": "新宾满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "新宾永陵镇的山林溪流与度假休闲项目相结合，可通过林间步行、植物观察和乡村活动感受辽东山地环境。适合家庭选一段轻量路线，再把周边满族文化与赫图阿拉历史线作分别安排。景区中的文化主题、住宿与体验设施是现代运营内容。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.fushun.gov.cn/zwgk/002015/20261012/8a0ff2da-2930-4819-83e8-8665b66ef2fb.html"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-6e2084151acf",
+          "guideIndex": 7
+        },
+        {
+          "name": "和睦森林公园",
+          "city": "抚顺市",
+          "district": "新宾满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "新宾山地森林景观以林木、溪谷和步道为游览基础，适合在不同季节观察阔叶树与林下生态。它能补充赫图阿拉等历史目的地之外的自然主题，可把一条谷地路线走深，留意水流与植物分布。森林保护与游客活动范围并不相同，防火、雨雪和维护可能改变开放。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-1c8efb030286",
+          "guideIndex": 7
+        },
+        {
+          "name": "赫图阿拉城旅游景区",
+          "city": "抚顺市",
+          "district": "新宾满族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "清入关前的重要城址，城墙格局、井址和相关展陈提供理解后金早期政治与聚落生活的空间线索。可先读地图和时间线，再看遗存、复原建筑与民俗表演怎样组织今日游览。它与附近清永陵性质不同，既不把所有现有宫殿都说成原物。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-9ec817a85f83",
+          "guideIndex": 7
+        },
+        {
+          "name": "沈抚示范区皇家海洋乐园",
+          "city": "沈抚改革创新示范区",
+          "district": "沈抚改革创新示范区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以海洋生物、极地动物主题展馆与游乐演艺组合的现代海洋乐园，适合家庭选择一两个馆区细看动物形态和生境说明。静态科普、动物展示与舞台表演有不同目的，人工场景不能替代自然生态认识。不同园区、套票和演出时间需分别核对，按年龄安排步行与休息。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-09260e221dc6",
+          "guideIndex": 7
+        },
+        {
+          "name": "沈抚改革创新示范区丰远热高乐园景区",
+          "city": "沈抚改革创新示范区",
+          "district": "沈抚改革创新示范区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "在沈抚区域以水上、森林主题、亲子与度假设施组成的大型现代乐园，适合围绕一个主园区安排一天。不同板块的主题、设备强度和季节各异，先选适龄内容，避免以为一张票能同时走完全部区域。园区不是历史城镇，水乐、冰雪、温泉与室外设备分别按天气、维护和当期运营确认开放。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-7bf7afcf58ac",
+          "guideIndex": 7
+        }
+      ],
+      "ratedCount": 11
+    },
+    {
+      "name": "阜新",
+      "sights": "查海遗址博物馆、海棠山、阜新市博物馆",
+      "history": "阜新的故事可从查海的新石器时代聚落、海棠山宗教石刻读到近代资源城市。查海不是一座仍保留完整房屋的古镇，价值在遗迹、器物及它们之间的考古关系；海棠山又呈现另一时段的信仰与雕刻。先分清时代，再看蒙古贞地区的当代生活，层次会更清晰。",
+      "food": "蒙古馅饼、荞面、手把羊肉",
+      "theme": "史前石刻",
+      "story": "阜新的故事可从查海的新石器时代聚落、海棠山宗教石刻读到近代资源城市。查海不是一座仍保留完整房屋的古镇，价值在遗迹、器物及它们之间的考古关系；海棠山又呈现另一时段的信仰与雕刻。先分清时代，再看蒙古贞地区的当代生活，层次会更清晰。",
+      "see": [
+        {
+          "name": "查海遗址博物馆",
+          "detail": "查海早期聚落的房址、石器、陶器与环境材料共同支持对新石器时代生活的认识。位于阜新蒙古族自治县，先看玉、石、陶器及聚落说明，再看允许开放的遗迹展示。房址复原和出土原件按标识区分，关注证据而非最早之类排名。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "阜新"
+        },
+        {
+          "name": "海棠山",
+          "detail": "山地摩崖造像、宗教文化与林地步道结合，图像和岩面保护应优先。沿开放山路看摩崖造像与岩壁、树林的关系，观察不同姿态和雕刻层次。自然保护与文物保护并存，不离开路线寻找隐蔽石刻。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "area": "阜新",
+          "registryName": "阜新海棠山风景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-caa295e59021",
+          "verification": "",
+          "city": "阜新市",
+          "district": "阜新蒙古族自治县"
+        },
+        {
+          "name": "阜新市博物馆",
+          "detail": "地方馆可认识考古、民族文化与近现代产业背景，展品需与旗县地理对应。在地方通史中连接史前、区域民族文化与近现代发展，重点看展品出处和地图。馆内先建立时间线，之后到查海与海棠山更容易比较。",
+          "time": "2—3小时",
+          "kind": "人文与自然",
+          "area": "阜新"
+        },
+        {
+          "name": "阜新万人坑死难矿工纪念馆",
+          "detail": "通过矿工遗骸保护展示、文献和相关史料认识殖民矿业、劳动与人的遭遇，是理解阜新工业史不可忽略的一面。可把生产数字与具体个体生命联系起来，避免把遗址当作工业奇观。内容沉重，适合安静阅读，亲子按年龄安排，开放与摄影遵守馆方要求。",
+          "time": "2—3小时",
+          "kind": "工业历史",
+          "area": "太平",
+          "registryName": "阜新万人坑死难矿工纪念馆",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-a0303e29bd4a",
+          "verification": "",
+          "city": "阜新市",
+          "district": "太平区"
+        },
+        {
+          "name": "瑞应寺",
+          "detail": "寺院群与周边聚落呈现蒙古地区佛教文化及地方社会的联系，可从山势、院落与殿宇布局理解空间。现存建筑经历不同阶段营建和修缮，应按说明区分，不能一概当作同一年代。宗教活动优先，游客在开放区域安静观看，交通从市区单独安排。",
+          "time": "2—3小时",
+          "kind": "古建宗教",
+          "area": "阜新蒙古族自治县",
+          "registryName": "阜新瑞应寺风景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-9b11e95f5bd9",
+          "verification": "",
+          "city": "阜新市",
+          "district": "阜新蒙古族自治县"
+        },
+        {
+          "name": "海州露天矿工业遗产正式观景区",
+          "detail": "大型露天采矿地形与相关解说让资源开采的尺度、机械运输及城市发展变得直观。应从正式开放的观景或展陈区域认识，不进入坑底、边坡和封闭生产设施。适合工业与地理兴趣旅客结合矿工历史思考产业转型，现场开放可能受维护影响，出发前确认。",
+          "time": "1—2小时",
+          "kind": "工业地理",
+          "area": "海州"
+        }
+      ],
+      "eat": [
+        {
+          "name": "蒙古馅饼",
+          "detail": "软面包牛羊等肉馅煎烙成薄饼，焦皮与肉汁相合；旧时荞麦面皮与今天麦粉皮的版本体现用料变化。阜新蒙古贞馅饼是当地代表，点前可问面料和馅料，和荞面蒸饺分餐尝；先点一只热食，咬小口散热，再配清汤，薄皮本身也值得细辨。",
+          "sources": [
+            {
+              "label": "阜新县政府：蒙古贞馅饼面料与制作变化",
+              "url": "https://www.fmx.gov.cn/content/2026/294305.html"
+            }
+          ]
+        },
+        {
+          "name": "荞面",
+          "detail": "荞麦磨粉可制拨面、蒸饺、锅贴、猫耳朵汤或蒸卷等，配粉和成形方法决定软韧，不限于一种压条面。阜新荞面系列是当地推介的地方食品，选两种小份对照更有意义；先问当天形制与馅料，原面尝过再蘸汁，比较杂粮如何进入不同主食。",
+          "sources": [
+            {
+              "label": "阜新市文旅局：荞面系列食品与形态",
+              "url": "https://whly.fuxin.gov.cn/content/2020/337706.html"
+            }
+          ]
+        },
+        {
+          "name": "手把羊肉",
+          "detail": "带骨羊肉分块清煮，简洁调味让肉香与骨边脂香突出，部位不同有嫩、有韧，可配蘸料。阜新蒙古贞餐桌把手把肉与全羊汤列作地方代表，适合几人共享小份；点前问部位与带骨重量，先尝原肉再蘸韭菜花，和喇嘛炖肉分餐比较清煮与浓炖。",
+          "sources": [
+            {
+              "label": "阜新市文旅局：蒙古贞全羊汤手把肉",
+              "url": "https://whly.fuxin.gov.cn/channel/list/13908.html"
+            }
+          ]
+        },
+        {
+          "name": "喇嘛炖肉",
+          "detail": "阜新蒙古勒津地方肉食以炖制形成浓厚风味，肉类、部位与配料随具体餐馆做法有所变化。它进入辽宁地标美食名录，适合与馅饼、杂粮主食比较当地宴客饮食。点前问清原料、是否带汤和份量，选择熟透成菜，不为名称附会未经证实的宗教起源故事。"
+        },
+        {
+          "name": "阜新驴肉蒸饺",
+          "detail": "驴肉配蔬菜、葱姜等调馅，包入面皮蒸熟，肉香集中、皮有韧性，是阜新地方推介的面食品种。它与羊肉馅饼、水饺在面皮和火候上不同，适合比较农牧交错区多样肉食。热汁先散气，问清份量与具体配料，少量蘸醋即可，常可作为正餐主食。"
+        },
+        {
+          "name": "彰武黑豆腐",
+          "detail": "以黑豆等原料制作的豆腐经过地方调味、烹饪形成菜品，豆香与质地是重点，具体颜色与软硬不能仅凭名称推定。它是彰武地方食品名物，适合从豆类种植和加工认识地方餐桌。点前问原料比例、做法与荤素，先尝清淡版本，不将产品宣传当作营养或疗效保证。"
+        },
+        {
+          "name": "阜新煎饼",
+          "detail": "杂粮面糊在鏊子上摊薄，熟后可卷菜、熟肉或配汤，原料配比影响谷香、柔韧与干湿。它是阜新农牧交错地区日常面食的一种，与蒙古馅饼的包馅煎烙方式不同。买前问是干煎饼还是现卷成品，适量复软后卷料更方便，不把所有东北煎饼归为一个固定配方。"
+        },
+        {
+          "name": "彰武大鱼四吃",
+          "detail": "把较大的鱼按部位分别做成炖、煎、汤等多种菜式，具体四种方法由餐馆与鱼种决定，体现一鱼充分利用的宴客方式。它是彰武地方推介名物，适合多人提前问套餐内容。确认鱼的正规来源、重量与总价，各菜都应熟透，吃时留意鱼刺，不追求稀有鱼种。"
+        }
+      ],
+      "walk": "第一天市区博物馆，第二天专程查海，留时间看展陈与遗址关系。第三天海棠山半日到一日后返程；只有两天则在市区展陈、查海中调整半天组合，不在石刻山路日落后继续赶行程。",
+      "stay": "阜新城区便于餐饮与交通，查海、海棠山线可按阜新县方向选住处；乡村住宿先核对到公路和正式入口的距离。",
+      "move": "两处郊外点需公路衔接，铁路抵达阜新不等于已到县域遗址；山地与乡村公共交通接驳先查明，必要时提前约车。",
+      "tip": "查海周边不拾取陶石碎片，不进入未开放考古区域；海棠山造像表面不触摸、不拓印，宗教题材拍摄遵守现场要求。",
+      "days": "2—3天",
+      "ratedScenic": [
+        {
+          "name": "阜新万人坑死难矿工纪念馆",
+          "city": "阜新市",
+          "district": "太平区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "通过矿工遗骸保护展示、文献和相关史料认识殖民矿业、强迫劳动与人的遭遇，是理解阜新工业史不可忽略的一面。可把生产制度与具体个体生命联系起来，原址、保护展示和后来的纪念设施分别阅读。内容沉重，参观应尊重死难者，避免猎奇拍摄。",
+          "time": "2—3小时",
+          "kind": "工业历史",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-a0303e29bd4a",
+          "guideIndex": 8
+        },
+        {
+          "name": "阜新黄家沟旅游度假区",
+          "city": "阜新市",
+          "district": "细河区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "阜新近郊把乡村休闲、亲子游乐与季节性户外项目结合的旅游度假区，适合根据同行者需求选择半日活动。可先确定农事、游乐或运动主线，再围绕同一片区安排用餐，避免重复转场。不同季节经营内容会变，水上、冰雪和普通园区参观并非始终同步开放。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-eda812eef051",
+          "guideIndex": 8
+        },
+        {
+          "name": "乌兰木图山风景区",
+          "city": "阜新市",
+          "district": "阜新蒙古族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "阜新县以山峰、裸露岩体与林地形成特色的山地景区，适合从远近不同位置看岩石形态及山势起伏。可先了解开放路线，再选择登高或山脚慢行，观察林木与草地在坡面上的变化。当地故事、景物命名与岩石形成的科学解释分别阅读，不为寻找某个造型离开步道。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-9af8a300bd8d",
+          "guideIndex": 8
+        },
+        {
+          "name": "阜新海棠山风景区",
+          "city": "阜新市",
+          "district": "阜新蒙古族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "山地岩壁上的摩崖造像与周围林地共同构成主要看点，佛教图像、雕刻技法和信仰传播可相互参照。适合沿正式路线比较不同造像姿态、布局及岩面保护方式，先读说明再听传说。宗教、文物和生态保护范围并存，不触摸、描摹石刻，也不离线寻找隐蔽造像。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-caa295e59021",
+          "guideIndex": 8
+        },
+        {
+          "name": "阜新宝地斯帕温泉度假区",
+          "city": "阜新市",
+          "district": "阜新蒙古族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以温泉酒店、泡汤设施与家庭休闲服务为主要内容的现代度假区，适合在阜新行程中安排较舒缓的一晚。可把温泉体验与周边地方文化目的地分成不同半日，而不连续赶场。温泉、餐饮和客房属于不同服务内容，预订时核对具体权益；矿物水介绍不等于个人医疗效果。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-59fd53784129",
+          "guideIndex": 8
+        },
+        {
+          "name": "阜新瑞应寺风景区",
+          "city": "阜新市",
+          "district": "阜新蒙古族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "蒙古地区佛教文化的重要地方寺院，殿宇群、院落与周边聚落共同展示信仰生活和地方社会联系。可先从山势看建筑组织，再读殿堂功能和相关历史说明，比较藏式、汉式等不同营建因素。现存建筑经历多阶段恢复与修缮，不能一概当作同一时期原物。",
+          "time": "2—3小时",
+          "kind": "古建宗教",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-9b11e95f5bd9",
+          "guideIndex": 8
+        },
+        {
+          "name": "辽宁德力格尔草原风景区",
+          "city": "阜新市",
+          "district": "彰武县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "彰武以草原环境、民族风情与休闲活动组织游览的景区，适合从草地植被、放牧文化和周围农业空间认识辽西北。可将草原景观与当地生态治理背景联系起来，不仅观看舞台式民族表演。它不是内蒙古深处的大草原，季节草色与经营项目会变。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-2c285bed24c1",
+          "guideIndex": 8
+        }
+      ],
+      "ratedCount": 7
+    },
+    {
+      "name": "辽阳",
+      "sights": "辽阳白塔、辽阳博物馆、太子河开放步道",
+      "history": "辽阳在东北区域历史中长期占有重要位置，白塔、博物馆与太子河共同提供阅读入口。古塔属于历史遗存，邻近寺院的当代重建则要另作辨认；地方人物与近代住宅又展示城市生活的延续。短程旅行不必搜集很多点，先理解城市为何沿河而兴、古塔为何留在此处。",
+      "food": "辽阳塔糖、汤河鲜鱼熟食、东北饺子",
+      "theme": "古塔城市",
+      "story": "辽阳在东北区域历史中长期占有重要位置，白塔、博物馆与太子河共同提供阅读入口。古塔属于历史遗存，邻近寺院的当代重建则要另作辨认；地方人物与近代住宅又展示城市生活的延续。短程旅行不必搜集很多点，先理解城市为何沿河而兴、古塔为何留在此处。",
+      "see": [
+        {
+          "name": "辽阳白塔",
+          "detail": "大型砖塔是辽阳古城地标，形制、装饰和周边寺院关系值得细看。从远处看密檐式轮廓，再在允许范围观察砖雕、塔身比例与维修说明。它是不可随意攀登的文物，邻近新建景观与古塔年代不同。",
+          "time": "1—2小时",
+          "kind": "人文与自然",
+          "area": "辽阳"
+        },
+        {
+          "name": "辽阳博物馆",
+          "detail": "旧宅院与地方历史陈列相互补充，建筑与展品展示不同年代的生活。结合地方考古、历史文物和馆舍环境读城市发展，留意汉魏等时期在东北的区域联系。具体展厅以开放安排为准，先看通史再选专题。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "辽阳",
+          "registryName": "辽阳博物馆景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-331c5d01348b",
+          "verification": "",
+          "city": "辽阳市",
+          "district": "白塔区"
+        },
+        {
+          "name": "太子河开放步道",
+          "detail": "河流、桥梁和城市绿地相连，适合从公共岸线认识辽阳地形与居民生活。选城市段正式滨水路线，看河道、桥梁与城市边界，作为古迹参观后的轻量散步。水岸并非处处连通，提前确定起终点和离开方式。",
+          "time": "2—3小时",
+          "kind": "人文与自然",
+          "area": "辽阳"
+        },
+        {
+          "name": "辽阳汉魏壁画馆",
+          "detail": "壁画相关展示把汉魏时期墓葬、车马出行、宴饮与生活图像联系起来，适合从具体画面理解早期辽东社会与艺术。参观时分清原作、复制和保护性展示，结合墓葬布局读图，比只看色彩更完整。与辽阳博物馆、白塔可组合，馆区和展览开放先确认。",
+          "time": "1—2小时",
+          "kind": "考古艺术",
+          "area": "辽阳"
+        },
+        {
+          "name": "东京城遗址公开区域",
+          "detail": "后金东京城相关遗存能帮助理解清入关前辽阳在政治与城市建设中的位置，城址地图与地形比单看一处门楼更重要。可在正式解说与公开道路观察边界、道路和现有建筑关系，区分遗迹、修复和纪念展示。保护地内不探挖、不攀墙，适合历史兴趣旅客。",
+          "time": "1—2小时",
+          "kind": "城市遗址",
+          "area": "文圣"
+        },
+        {
+          "name": "广佑寺",
+          "detail": "白塔周边的寺院空间与今日城市公共生活相连，现有建筑包含较多后期恢复营建，适合比较古塔与新建寺院的关系。可从布局、造像和当地信仰活动理解其用途，不把全部建筑当作辽代原物。礼拜与游客参观共存，按允许范围安静进入，摄影遵守现场要求。",
+          "time": "1—2小时",
+          "kind": "宗教建筑",
+          "area": "白塔",
+          "registryName": "辽阳市广佑寺景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-90a1592dfb8e",
+          "verification": "",
+          "city": "辽阳市",
+          "district": "白塔区"
+        }
+      ],
+      "eat": [
+        {
+          "name": "辽阳塔糖",
+          "detail": "糖浆经过熬制、冷却、捣白等工序形成浅色、多孔的酥脆糖体，切成条块后有轻巧易碎的口感，是辽阳传统糖果名物。它与白塔和地方记忆相连，具体由来宜按可核资料阅读，不必照搬人物传奇。适合小份配茶或作伴手礼，购买看日期、防潮和配料，甜味本身较集中。"
+        },
+        {
+          "name": "汤河鲜鱼熟食",
+          "detail": "辽阳汤河相关餐饮常以蒸、炖等方法表现鱼类，与豆腐、蔬菜同桌呈现水岸家庭风味。具体鱼种、养殖或其他正规来源以及供应季节都应向餐馆确认，不把水域招牌当现捕证明。按重量和总价点适量，熟透后细辨鱼刺，少量调汁更能比较鱼肉与汤的鲜味。"
+        },
+        {
+          "name": "东北饺子",
+          "detail": "麦粉皮包酸菜肉、白菜肉等馅煮熟，皮韧、馅润，肉菜比例与酸菜发酵香影响风味。辽阳古城看馆与白塔转场时，可选拼馅小份作午餐，和酱驴蹄、烩小碗子分餐品尝；先尝原馅再添醋蒜，按一份个数点量，已经含主食，不需另叠大碗饭。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "白塔琉璃茄子",
+          "detail": "茄子经过煎炸、挂汁等处理，外层有亮泽、内部柔软，是辽阳地方餐饮中有辨识度的菜肴。所谓琉璃多指成菜色泽和表面效果，并不是加入玻璃。不同店酸甜、咸鲜和酱汁厚薄有差异，点前可问口味，适合多人分食，搭清汤或清淡主食平衡油香。"
+        },
+        {
+          "name": "文圣烩小碗子",
+          "detail": "把时蔬、禽畜或海鲜等按组合烩成介于羹与汤之间的小碗菜，汤汁与细切食材融合，是辽阳传统餐饮的特色。配方随宴席和店家变化，不能用一个固定原料表概括。适合少量配主食，点前问是否含海鲜、肉类及稠度，可从一碗认识辽菜重汁重味的技法。"
+        },
+        {
+          "name": "文圣酱驴蹄",
+          "detail": "驴蹄等经过长时间卤酱加工，胶质软韧、香辛料与肉香相融，是辽阳文圣地方推介的熟食。它与普通酱驴肉切片在部位和口感上不同，初尝小份更合适。点前问骨、皮和可食部分比例，配清淡面食，外带要按要求冷藏，不以卤香代替正规保存。"
+        },
+        {
+          "name": "沈旦炖豆腐",
+          "detail": "豆腐与汤汁、葱姜或其他配料慢炖，使豆香和调味充分融合，是辽阳灯塔沈旦一带地方推介的家常菜。原料、荤素和是否加鱼肉因餐馆不同，名称并不代表统一全国配方。先问做法，选择小锅配饼或米饭，清淡版本较能比较豆腐细嫩和吸汤能力。"
+        },
+        {
+          "name": "雪绵豆沙",
+          "detail": "打发蛋清裹细豆沙后炸成松软外层，撒糖后蛋香与豆香相合，轻盈外观之下是有份量的甜菜。辽阳东北家常馆可在白塔琉璃茄子等咸菜之外几人分一小盘，先确认现做；开小口让热馅散气，再比较外泡与内沙，不必同时再点数种糖菜。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        }
+      ],
+      "walk": "第一天上午看白塔与邻近开放空间，下午辽阳博物馆，晚上尝家常饺子。第二天选太子河城市段散步，午后返程；若想去汤河温泉或山地，再加一天，别把远郊项目当作河岸步道旁的短支线。",
+      "stay": "白塔区或主要公交道路附近适合古塔和博物馆步行组合；想去远郊温泉则按目标单独住一晚，先核对接驳条件。",
+      "move": "城区可公交、步行和短程打车，太子河不同岸线入口分散；远郊汤河等方向需公路转场，不按同名片区推断距离。",
+      "tip": "古塔观赏与寺院礼佛各有规则，拍照不攀护栏、不靠近脆弱砖雕；河岸水利或施工封闭区域即使有人经过也别跟随。",
+      "days": "2天",
+      "ratedScenic": [
+        {
+          "name": "辽阳市广佑寺景区",
+          "city": "辽阳市",
+          "district": "白塔区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "白塔周边的佛教文化与城市公共空间结合，寺院布局、造像和今日信仰活动可与辽阳古城地标相互对照。适合比较古塔与后期恢复营建寺院的年代、功能和材料，避免把现有建筑全部解释成辽代原物。景区、寺院殿堂与周边公园的参访规则不同，礼拜与游客共存。",
+          "time": "1—2小时",
+          "kind": "宗教建筑",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-90a1592dfb8e",
+          "guideIndex": 9
+        },
+        {
+          "name": "辽阳博物馆景区",
+          "city": "辽阳市",
+          "district": "白塔区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "地方考古、历史器物与馆舍环境共同呈现辽阳的长期城市发展，适合从辽东区域地图读到具体出土地点。可先看通史，再选择汉魏生活、地方人物或艺术专题，将白塔、东京城等目的地放回时间线。馆舍建筑与展品有不同年代，原件、复制和复原按标识辨认。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-331c5d01348b",
+          "guideIndex": 9
+        },
+        {
+          "name": "辽阳市太子河历史文化风光带景区",
+          "city": "辽阳市",
+          "district": "文圣区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "沿太子河把滨水绿地、城市景观和地方历史线索串联起来的开放型旅游空间，适合从桥梁、水岸和道路看辽阳如何围绕河流展开。可先选一段连续步道，再结合邻近历史展示，避免把整条风光带当作半小时走完的单体景点。水岸不一定处处连通，汛期和维护会调整通行。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-76c7085377ab",
+          "guideIndex": 9
+        },
+        {
+          "name": "辽阳龙石风景旅游区",
+          "city": "辽阳市",
+          "district": "宏伟区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "辽阳近城的山地林园与公共休闲空间，适合轻量登高、观察树木和从高处看城市边缘地形。可选择一段正式步道，将山坡、林地与周围居民生活联系起来，补充城区古迹之外的日常面貌。它与各地同名龙山、石山并非一地，具体入口及路线先核对。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025111814511267103/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-d0b957caec07",
+          "guideIndex": 9
+        },
+        {
+          "name": "人参谷森林公园",
+          "city": "辽阳市",
+          "district": "弓长岭区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "弓长岭安平乡以林间谷地、溪流和山石为特色的森林景区，栈道连接观景与轻徒步，周边山货市集也呈现乡村生活。适合从流水、岩壁和树木位置理解谷地环境，再选短距离登高。名称不等于可自行挖采人参或获得保健疗效，林区、村民生产空间与游客路线需分清。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/ywdt/jrln/tpxw/2024110109092192104/"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-18aa68b50666",
+          "guideIndex": 9
+        },
+        {
+          "name": "辽阳市雷锋纪念馆",
+          "city": "辽阳市",
+          "district": "弓长岭区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "围绕雷锋在弓长岭的劳动与生活经历开展纪念展示，可把人物史料、企业生产和地方工业背景联系起来阅读。适合先了解具体工作阶段与同事故事，再看物件、照片和纪念建筑，避免只记抽象口号。它与抚顺雷锋纪念馆不同，馆内原物、复原和后来的宣传资料分别辨认。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-e5d06f488110",
+          "guideIndex": 9
+        },
+        {
+          "name": "辽宁汤河国际温泉旅游度假区",
+          "city": "辽阳市",
+          "district": "弓长岭区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以汤河一带温泉资源和住宿休闲设施为基础的度假旅游区，可把山地水岸与泡汤体验安排在较慢节奏里。适合希望在辽阳近郊停留一晚、减少反复转场的旅客，先确定具体经营场所再规划交通。温泉水的介绍不应直接变成医疗承诺。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-1b21d24c0fd2",
+          "guideIndex": 9
+        },
+        {
+          "name": "辽阳佟二堡国际皮草购物旅游区",
+          "city": "辽阳市",
+          "district": "灯塔市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以皮草服装生产、设计与商贸形成特色的购物旅游区，适合从款式、裁剪和交易方式了解地方专业市场如何发展。可先看市场整体分工，再比较具体商品的材料、工艺与价格，而不把购物简单等同于文化展览。批发、零售和体验活动有不同接待方式。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-d595190d6d5c",
+          "guideIndex": 9
+        }
+      ],
+      "ratedCount": 8
+    },
+    {
+      "name": "铁岭",
+      "sights": "银冈书院、铁煤蒸汽机车博物馆、莲花湿地开放游览区",
+      "history": "铁岭南北跨度明显，银冈书院与城市街区讲述教育和地方社会，调兵山蒸汽机车展陈则联系煤炭工业和铁路技术。二人转等曲艺有活态传统，但任何一场商业演出都不是整座城市的全部性格。把书院、工业与湿地分开观察，更容易理解东北城镇的不同面貌。",
+      "food": "李记坛肉、铁岭榛子、东北炖菜",
+      "theme": "书院工业",
+      "story": "铁岭南北跨度明显，银冈书院与城市街区讲述教育和地方社会，调兵山蒸汽机车展陈则联系煤炭工业和铁路技术。二人转等曲艺有活态传统，但任何一场商业演出都不是整座城市的全部性格。把书院、工业与湿地分开观察，更容易理解东北城镇的不同面貌。",
+      "see": [
+        {
+          "name": "银冈书院",
+          "detail": "书院建筑与近代人物教育经历相连，教学、居住和后来纪念展示要分开认识。在铁岭城区看院落与教育史展陈，关注教学、生活和地方人物的联系。先读具体史料，再看建筑格局，避免只因名人故事匆忙拍一张门前照。",
+          "time": "2小时",
+          "kind": "人文与自然",
+          "area": "铁岭"
+        },
+        {
+          "name": "铁煤蒸汽机车博物馆",
+          "detail": "蒸汽机车、铁路装备与工业史材料展示煤炭运输与机械技术，实物尺度鲜明。位于调兵山市，看不同机车的轮式、锅炉和驾驶室结构，结合展陈了解煤炭运输。动态展示是否举行按正式安排，不保证随到随有运行。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "铁岭",
+          "registryName": "铁岭市铁煤蒸汽机车博物馆",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-a4bda6807f50",
+          "verification": "",
+          "city": "铁岭市",
+          "district": "调兵山市"
+        },
+        {
+          "name": "莲花湿地开放游览区",
+          "detail": "水面、芦苇与城市公共绿地相连，观鸟、步行区域与保育区应区分。选择正式步道看水面、芦苇与城市新区关系，按季节观察花木和鸟类。湿地不是全年荷花盛开的花园，其他时节也可读水环境与栖息地。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "铁岭"
+        },
+        {
+          "name": "铁岭市博物馆",
+          "detail": "地方馆通过考古、历史和生活材料认识辽河平原、交通与城镇发展，可把银冈书院、矿业和农业背景放回同一地图。建议留意不同县域出土器物及用途，不只看知名人物。馆舍、临展和预约可能更新，适合作为城市半日线路的起点或阴雨日补充。",
+          "time": "1—2小时",
+          "kind": "地方博物",
+          "area": "铁岭"
+        },
+        {
+          "name": "开原老城公开街区",
+          "detail": "开原老城的城防、寺塔与街巷线索关联东北交通和边地交流，适合先看正式历史说明，再沿公共道路比较不同年代建筑。今天生活社区与修缮展示相互交织，居民院落不随意进入。可搭地方炖牛肉或面食一餐，距离铁岭城区需另算交通，不必一日走遍全县。",
+          "time": "半天",
+          "kind": "城市历史",
+          "area": "开原"
+        },
+        {
+          "name": "城子山正式开放线路",
+          "detail": "西丰山地森林、城址相关遗存与步道组成自然和考古主题线路，可从地形、城墙位置和道路理解古代山城选址。遗迹年代与功能应按正式资料阅读，不凭地名编故事。山路有高差，保护范围和季节开放需要确认，不攀爬残墙、不离开正式步道。",
+          "time": "半天至1天",
+          "kind": "山地遗址",
+          "area": "西丰"
+        }
+      ],
+      "eat": [
+        {
+          "name": "李记坛肉",
+          "detail": "铁岭传统坛肉名物以猪肉经调味、慢炖等工序形成皮肉软糯、汁香浓厚的口感，坛或相应器皿有助于缓慢入味。它是地方老字号和家常熟肉记忆的一部分，具体部位、肥瘦与份量各店变化。适合多人小份配主食和蔬菜，先尝原汁，不把浓酱和油多当成越地道。"
+        },
+        {
+          "name": "铁岭榛子",
+          "detail": "铁岭榛子既可鲜食或熟化作坚果，也可进入糕点，籽仁香气、脆度与大小随品种、产地和加工变化。它是地方农业名片，适合正规小包装伴手礼，不等于所有招牌都当地野生现采。先尝原味熟榛更容易辨坚果香，购买看新陈、配料与储存，壳较硬用工具开，不靠牙咬。"
+        },
+        {
+          "name": "东北炖菜",
+          "detail": "肉类、豆角、土豆、白菜、豆腐与粉条等按季节组合慢炖，汤汁在原料间融合，体现东北家庭储菜、耐寒食材与围桌共享习惯。它是一类做法，不是固定一盘独家菜，餐馆点前要问具体主料。选择一锅配少量主食与清爽菜即可，豆角需炖透，不必再重复点多道相近大炖。"
+        },
+        {
+          "name": "开原炖牛肉",
+          "detail": "牛肉切块配香辛料、蔬菜等慢炖，重点是软烂程度、肉香和浓郁汤汁，体现东北家庭与宴客常见炖菜传统。开原地方推介中以古法等称谓出现，具体做法仍需问餐馆。多人点菜先问部位与份量，配饼、米饭和清爽蔬菜，不必为“古法”附上精确朝代。"
+        },
+        {
+          "name": "调兵山扒肘子",
+          "detail": "猪肘经煮、蒸或扒烧等工序变得软糯入味，皮胶、肉层与酱汁相互融合，是调兵山地方餐饮代表之一。它属于多人分享的大菜，单人可问小份或拼盘。具体骨重和肥瘦比例不同，点前确认份量，搭蔬菜与清汤，不宜同时叠加多道浓汁大肉。"
+        },
+        {
+          "name": "羊汤",
+          "detail": "羊骨和羊肉熬汤，再切配熟肉，含不含羊杂、是否加粉条依店变化，配饼能把汤与麦香连起来。铁岭县域行程可用它作一顿灵活简餐，与坛肉、扒肘子等浓味肉食分开；先问肉量与汤型，原汤尝过再加醋辣，小碗配一份火勺便容易控制份量。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "铁岭火勺",
+          "detail": "地方烙烤面点以外皮焦香、内里层次或馅料形成风味，常作早点、配汤主食，具体咸甜和大小依店家。它是铁岭市井饮食的一部分，不宜仅凭名字想象成灶具。现做时先掰开尝麦香，问清一份数量，搭羊汤或豆腐脑即可，避免主食重复点过多。"
+        },
+        {
+          "name": "铁岭烧鸡",
+          "detail": "整鸡经调味、卤煮等工序形成软嫩熟食，香辛料与鸡肉味相融，是地方熟食店和家庭聚餐常见选择。不同经营者工艺和配方各异，可少量切块与火勺、主食搭配。购买时看制作日期、是否热售与冷藏要求，不因为叫烧鸡就推定一定是明火现烤。"
+        }
+      ],
+      "walk": "第一天市区看银冈书院，下午莲花湿地选短段步行。第二天专程调兵山看蒸汽机车博物馆，留出跨城区道路时间；若加西丰或开原古迹，再留一天，不将铁岭全域当成银州区周边。车站接驳也需单独留时。",
+      "stay": "铁岭城区适合书院与湿地组合，机车主题可住调兵山；选择靠车站住宿先确认是哪座车站，不能只凭铁岭二字判断位置。",
+      "move": "铁岭站、铁岭西站与调兵山方向接驳不同，县市间以公路为主；机车馆到生产铁路有明确边界，按正式入口和动线参观。",
+      "tip": "机车静态展品也有攀爬限制，除允许区域外别上驾驶室或轨道；想看运行项目先查馆方公告，不追车、不靠近作业线路。",
+      "days": "2—3天",
+      "ratedScenic": [
+        {
+          "name": "铁岭市铁岭莲花湿地景区",
+          "city": "铁岭市",
+          "district": "铁岭县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "铁岭城市新区的水面、芦苇、荷塘和步道共同形成湿地游览空间，适合从水鸟生境与城市公共绿地关系观察。可在开放观景点安静停留，比较不同季节植物和鸟类变化，而不追求每次见到同样物种。湿地不等于全年荷花盛开的花园，保育区与游憩区分别管理。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-0f063bef7bf3",
+          "guideIndex": 10
+        },
+        {
+          "name": "西丰县城子山风景区",
+          "city": "铁岭市",
+          "district": "西丰县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "西丰山地森林、城址遗存与登高路线形成自然和考古相结合的主题，城墙位置与山势可帮助理解古代山城选址。可先看正式遗址说明和地图，再观察残存构筑与地形关系，不只凭地面建筑多少判断价值。遗存年代和功能以考古资料为准，山路有高差。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-dd842e30665e",
+          "guideIndex": 10
+        },
+        {
+          "name": "铁岭市铁煤蒸汽机车博物馆",
+          "city": "铁岭市",
+          "district": "调兵山市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "调兵山以蒸汽机车、铁路器材和工业历史展示煤炭运输与机械技术，实物尺度适合观察锅炉、轮式和驾驶空间。可比较不同机车的用途，再读铁路如何服务矿区与城市生活。静态陈列与动态运行活动是不同内容，不能保证随到随有蒸汽列车运行。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-a4bda6807f50",
+          "guideIndex": 10
+        }
+      ],
+      "ratedCount": 3
+    },
+    {
+      "name": "朝阳",
+      "sights": "朝阳鸟化石国家地质公园、朝阳北塔及相关展陈、凤凰山",
+      "history": "朝阳位于辽西，热河生物群化石与佛教古塔展示完全不同尺度的时间。鸟类、带羽毛恐龙等标本需要放进地层与演化研究理解，北塔及相关博物馆则讲述古代城市与宗教活动。两条线都重证据，不能把化石当奇石商品，也不把古塔只当城市夜景背景。",
+      "food": "凌源烧饼、荞面饸饹、朝阳炖菜",
+      "theme": "佛塔化石",
+      "story": "朝阳位于辽西，热河生物群化石与佛教古塔展示完全不同尺度的时间。鸟类、带羽毛恐龙等标本需要放进地层与演化研究理解，北塔及相关博物馆则讲述古代城市与宗教活动。两条线都重证据，不能把化石当奇石商品，也不把古塔只当城市夜景背景。",
+      "see": [
+        {
+          "name": "朝阳鸟化石国家地质公园",
+          "detail": "化石、地层和演化展陈帮助认识辽西古生物，标本产地与研究证据最重要。在正式博物馆看标本、地层与复原图，重点辨认原始化石和艺术复原的区别。选择一组鸟类演化线索细读，比逐件寻找最大标本更有意义。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "area": "朝阳"
+        },
+        {
+          "name": "朝阳北塔及相关展陈",
+          "detail": "古塔建筑与考古发现共同呈现佛教艺术和地方历史，塔体、地宫文物及复制展示需分辨。结合塔体、地宫出土文物说明与城市布局读佛教遗存，观察不同营建阶段。塔内是否可进入按正式安排，外观与馆内资料同样重要。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "朝阳"
+        },
+        {
+          "name": "凤凰山",
+          "detail": "朝阳山地寺院、塔寺和自然地形共同组成文化线路，营建年代有多个层次。按开放山路看林木、山势与寺院关系，结合朝阳城市远景理解聚落环境。宗教场所保持安静，登高不必集齐全部山峰或院落。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "area": "朝阳",
+          "registryName": "朝阳市凤凰山景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-ab1b6f00618a",
+          "verification": "",
+          "city": "朝阳市",
+          "district": "双塔区"
+        },
+        {
+          "name": "朝阳博物馆",
+          "detail": "馆藏与专题陈列将三燕、佛教艺术、地方考古等历史联系起来，适合在看北塔和凤凰山之前先建立时间框架。重点可放在出土地点、器物用途和文化交流，不用一座塔概括整座城。馆舍及临展安排会更新，提前查官方开放，半天细读比只拍建筑更有内容。",
+          "time": "2—3小时",
+          "kind": "地方博物",
+          "area": "朝阳"
+        },
+        {
+          "name": "牛河梁国家考古遗址公园",
+          "detail": "遗址及正式博物展示提供认识红山文化礼仪、玉器和聚落环境的重要证据。可先看地图、发掘材料与保护说明，再到开放遗址理解台地和空间关系，避免用传说填补研究尚未确定的问题。距离城区较远，考古保护区不可自行进入、采石或探挖。",
+          "time": "半天至1天",
+          "kind": "考古遗址",
+          "area": "凌源建平一带",
+          "registryName": "牛河梁国家考古遗址公园",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-1305b1522004",
+          "verification": "",
+          "city": "朝阳市",
+          "district": "凌源市、建平县交界",
+          "locationSourceUrl": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/cy/2025101515393017712/index.shtml",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/sqgk/whly/ajjq/cy/2025101515393017712/index.shtml"
+          ]
+        },
+        {
+          "name": "大凌河城市公开岸线",
+          "detail": "公开岸线让河流、桥梁与城市地形关系直观可见，适合在博物馆、塔寺行程间放缓节奏。可选一段有明确出入口的步道，观察季节植被和居民生活，思考城市怎样围绕河谷展开。它是公共空间组合，不是统一售票景点，汛期或维护时按现场封闭安排调整。",
+          "time": "1—2小时",
+          "kind": "城市水岸",
+          "area": "朝阳"
+        }
+      ],
+      "eat": [
+        {
+          "name": "凌源烧饼",
+          "detail": "吊炉或其他烤制装置使面坯内外受热，形成酥香表层与松韧内芯，是凌源日常早点和传统面食名物。油酥、芝麻与咸甜版本各店不同，可与豆腐脑、熟肉或清汤搭配。现烤掰开更能吃出层次，买前问是否夹馅和一份大小，不把所有名为吊炉的烧饼都当同一配方。"
+        },
+        {
+          "name": "荞面饸饹",
+          "detail": "荞麦等配粉和团，经孔床压入沸水成条，再配肉卤或素汤，粉料比例影响荞香与筋韧。朝阳辽西杂粮饮食可把它和喀左碗坨分餐比较，前者压条、后者凝块切食；点前问具体汤卤和份量，先尝原面再加醋辣，认识相同原料的不同手工。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "朝阳炖菜",
+          "detail": "辽西家庭常把猪肉、土豆、豆角、白菜或豆腐等慢炖，肉香和蔬菜汁相互融合，体现本地农业与北方耐储食材的日常。它是菜型而非固定古老名菜，点前从实际菜单选一锅具体组合。搭饼或杂粮主食适量即可，菜中若已含粉条、土豆就不必再堆多份主食，先尝原汁。"
+        },
+        {
+          "name": "二十家子老汤干豆腐",
+          "detail": "薄干豆腐在老汤与调料中煨煮，使豆香、韧性和卤汁融合，是朝阳二十家子相关地方熟食名物。它与凉拌干豆腐、烤豆皮质地不同，可配饼或作拼盘。点前问汤底荤素和辣度，适合少量趁热或按店家方式吃，外带注意正规冷藏保存。"
+        },
+        {
+          "name": "建平粘豆包",
+          "detail": "以黏性谷物面制皮包豆馅蒸熟，外皮软糯有韧性，馅料带豆香，是建平及东北区域共享的节庆与日常面食。地方配方在粉料、发酵与馅料甜度上不同，不能与普通白面包子混同。可原味、蘸少量糖或再煎，少量现热吃，糯食本身比较饱腹。"
+        },
+        {
+          "name": "喀左焦熘饹馇",
+          "detail": "豆面薄片等制成饹馇后，经炸和熘汁等工序形成外香、带汁的菜肴，豆香与酸甜或咸鲜口味相衬。它是喀左地方餐饮推介名物，与单吃炸片或汤饹馇不同。点前问原料和口味，现做才能保留口感，适合多人少量分食，不必再点多道油炸菜。"
+        },
+        {
+          "name": "喀左碗坨",
+          "detail": "以荞麦面等调糊蒸成碗状凝固主食，切块配蒜醋、辣椒等调汁，柔韧与谷香是重点。它与华北、晋陕碗托类面食相通，喀左店家的配方和浇头各有习惯。先少放汁尝本味，凉食与热炒如均供应可选一种，不需把同一食物不同切法当成多道名菜。"
+        },
+        {
+          "name": "凌源豆腐脑",
+          "detail": "嫩豆花配咸卤和葱蒜等调料，豆香与卤汁形成柔滑早餐，凌源地方版本与烧饼等面食常同桌。具体卤料可能含肉、鸡蛋或其他原料，点前可确认。先尝原卤再添辣椒，趁热慢吃，适合把它作为完整早点组合的一部分，而不是赶路时只喝一口。"
+        }
+      ],
+      "walk": "第一天市区看北塔与相关展陈，第二天完整安排鸟化石地质公园，留时间阅读标本说明。第三天看凤凰山后返程；若加建平牛河梁或北票方向，应另留一至两天，不把辽西史前遗址都视为市中心附近。",
+      "stay": "朝阳市区便于北塔、餐饮和交通，地质公园往返先确定接驳；更远的县域遗址按目标县城住一晚，不必每天回原点。",
+      "move": "城区公交或打车可用，化石公园与凤凰山需不同方向接驳；朝阳站等铁路节点离具体景点仍有距离，出行按正式地址核对。",
+      "tip": "化石资源受严格保护，不采挖、不购买来源不明标本，也别把遗址周边碎石当纪念品；博物馆复原图是研究解释，应与实物区分。",
+      "days": "3天",
+      "ratedScenic": [
+        {
+          "name": "朝阳市凤凰山景区",
+          "city": "朝阳市",
+          "district": "双塔区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "朝阳山地寺院、塔寺与森林共同构成文化线路，适合把辽西佛教文化和城市地形联系起来理解。可先读寺塔沿革，再沿开放山路观察建筑、林木和山势关系，从高处看河谷与城区布局。这里与凤城凤凰山是不同目的地，现存建筑经历不同阶段营建修缮。",
+          "time": "半天至1天",
+          "kind": "人文与自然",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-ab1b6f00618a",
+          "guideIndex": 11
+        },
+        {
+          "name": "辽宁朝阳鸟化石国家地质公园景区",
+          "city": "朝阳市",
+          "district": "龙城区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "通过化石标本、地层与古生物展陈解释辽西生命演化，标本产地和研究证据比单纯寻找最大化石更重要。可围绕早期鸟类、带羽毛恐龙或植物中的一个主题深读，比较原件与科学复原。它是认识古生物知识的场所，园区与化石产地并非随意采集区。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-e3b0acb02d7d",
+          "guideIndex": 11
+        },
+        {
+          "name": "朝阳化石谷景区",
+          "city": "朝阳市",
+          "district": "龙城区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以古生物化石博物馆、互动体验与文创展示组成现代化石主题园区，适合让孩子把标本观察与演化问题联系起来。可先比较骨骼、羽毛或植物化石的保存方式，再参加当期研学活动。艺术复原、模拟挖掘和化石原件性质不同，体验活动不等于真实科研发掘。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/sqgk/whly/ajjq/4ajq/2025101410584537971/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-07fa076d1ab5",
+          "guideIndex": 11
+        },
+        {
+          "name": "朝阳县千佛洞风景区",
+          "city": "朝阳市",
+          "district": "朝阳县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "朝阳县以洞窟、石刻造像和山地寺庙景观形成特色，适合观察图像布局、雕刻痕迹及洞穴空间的关系。可先读正式文物说明，再辨认旧造像、后期增修和现代旅游设施，避免将传说直接当成准确年代。洞内光线、石面与保护条件决定观看方式，不触摸造像、不离开规定通道。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-92e441ae1e68",
+          "guideIndex": 11
+        },
+        {
+          "name": "牛河梁国家考古遗址公园",
+          "city": "朝阳市",
+          "district": "凌源市、建平县交界",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "位于凌源市与建平县交界的红山文化遗址公园，女神庙、祭坛和积石冢等保护展示提供认识史前礼仪的重要证据。可先看博物馆地图、发掘过程和玉器材料，再到开放遗址理解台地与空间关系。科学研究与艺术复原需要分清，保护区并非普通郊野公园。",
+          "time": "半天至1天",
+          "kind": "考古遗址",
+          "history": "",
+          "locationSourceUrl": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/cy/2025101515393017712/index.shtml",
+          "note": "旧总表列为朝阳县；已按省政府转载省厅单项介绍更正为凌源市、建平县交界。遗址整体保护范围与旅游公园并非完全相同。",
+          "contentSourceUrls": [
+            "https://www.ln.gov.cn/web/sqgk/whly/ajjq/cy/2025101515393017712/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-1305b1522004",
+          "guideIndex": 11
+        },
+        {
+          "name": "喀左龙凤山风景区",
+          "city": "朝阳市",
+          "district": "喀喇沁左翼\n蒙古族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "喀左山地岩峰、林木与寺庙文化相结合的景区，适合从正式步道看山势、谷地和宗教建筑如何相互依存。可先读沿革与地方故事，再比较自然岩体与人工构筑，传说中的人物和年代不直接当作考古结论。它与其他省份同名龙凤山不同，路线有高差，按体力选主线。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-d78736d260cc",
+          "guideIndex": 11
+        },
+        {
+          "name": "喀左龙源旅游区",
+          "city": "朝阳市",
+          "district": "喀喇沁左翼\n蒙古族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "以喀左龙源湖为中心串联滨水景观、城市展示、民族民俗与紫砂文化等资源，适合把自然水岸与现代县城生活一起读。可选湖边步行加一处正式文化展示，理解生态治理与地方产业如何联系。它是分布较广的城市旅游区，不能把所有点位压成一小时步行。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://epaper.lnd.com.cn/lnrbepaper/pc/con/202212/09/content_172575.html"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-847c021c9446",
+          "guideIndex": 11
+        },
+        {
+          "name": "喀左凌河第一湾景区",
+          "city": "朝阳市",
+          "district": "喀喇沁左翼\n蒙古族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "大凌河在喀左的曲流与丘陵、田园形成开阔景观，观景点适合看河道转弯、岸坡和村落之间的空间关系。可先从高处读地形，再沿正式路线观察河谷生态，不用形象化“第一湾”名称替代水文知识。观景范围与河岸生产空间不同，水位和季节影响面貌。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-f46b9a154d93",
+          "guideIndex": 11
+        },
+        {
+          "name": "喀左浴龙谷温泉度假区",
+          "city": "朝阳市",
+          "district": "喀喇沁左翼\n蒙古族自治县",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "喀左以温泉住宿、泡汤和家庭休闲服务形成的现代度假区，适合将县域文化游览与一晚休息结合。不同温泉池、客房和水上项目有各自适用条件，先选真正想体验的内容，避免把多个套餐混为一体。这里不是古代宫苑遗址，温泉矿物介绍也不等于个人疗效。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-8a4584ba6c62",
+          "guideIndex": 11
+        },
+        {
+          "name": "北票市大黑山景区",
+          "city": "朝阳市",
+          "district": "北票市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "北票山地的峰林、岩壁与森林步道组成自然观景路线，登高可见辽西丘陵层叠，林间则适合比较树种与岩石形态。可先确定一条有明确返程的主线，再按兴趣补充寺庙或观景点。它与大连大黑山不同，索道与步行范围分别确认，岩体旅游命名不直接作为地质成因解释。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-074dd75753d5",
+          "guideIndex": 11
+        },
+        {
+          "name": "老虎沟生态旅游区",
+          "city": "朝阳市",
+          "district": "凌源市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "凌源大王杖子乡依托森林、丘陵、石埂梯田和村落形成的生态旅游区，适合从山坡生产景观看自然与乡村生活的联系。可选一段林间步行，再到正式开放观景点看田块与石砌村舍，春夏秋各有内容。它是现代开发运营的乡村旅游目的地，民居与生产地并非全部开放。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://www.lingyuan.gov.cn/html/LYSZF/202304/0168171990219288.html"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-7cb3e3d26e5c",
+          "guideIndex": 11
+        }
+      ],
+      "ratedCount": 11
+    },
+    {
+      "name": "营口",
+      "sights": "辽河老街、营口西炮台遗址、北海团山开放海岸",
+      "history": "营口地处大辽河入海区域，近代商埠、炮台、渔港与今日海滨休闲交叠。辽河老街适合看商业与城市建筑，西炮台体现海防历史，鲅鱼圈、熊岳等地则另有海岸与温泉线。老城区和南部海滨不是步行相邻，按两片区分住，更能避免海边度假全被往返车程占用。",
+      "food": "鲅鱼饺子、熟制虾蟹贝类、大酱蘸菜",
+      "theme": "商埠海岸",
+      "story": "营口地处大辽河入海区域，近代商埠、炮台、渔港与今日海滨休闲交叠。辽河老街适合看商业与城市建筑，西炮台体现海防历史，鲅鱼圈、熊岳等地则另有海岸与温泉线。老城区和南部海滨不是步行相邻，按两片区分住，更能避免海边度假全被往返车程占用。",
+      "see": [
+        {
+          "name": "辽河老街",
+          "detail": "近代港口商贸与居民生活留下街区线索，修缮建筑和持续使用空间并存。观察商号门面、院落和河岸的关系，结合地方展陈看开埠与贸易。街区包含修复和新经营用途，保留建筑、复原陈列与当代商店应分别理解。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "营口"
+        },
+        {
+          "name": "营口西炮台遗址",
+          "detail": "海口炮台与近代防御史相连，台体、火炮位置和河海地形需要一起看。看炮位、夯土结构和防御朝向，先读历史背景再观察现存遗迹。展示火炮可能为复制品，按说明辨认，不以设备外观推断全部为原物。",
+          "time": "2—3小时",
+          "kind": "人文与自然",
+          "area": "营口"
+        },
+        {
+          "name": "北海团山开放海岸",
+          "detail": "海蚀地貌、岩石与潮间带组成自然观察现场，潮汐与开放边界决定可走范围。位于盖州方向，观察海蚀地貌与潮间带，选择正式步道看岩层与水面。潮位和风浪影响可走范围，不跨入未开放礁滩寻找近景。",
+          "time": "半天",
+          "kind": "人文与自然",
+          "area": "营口"
+        },
+        {
+          "name": "营口市博物馆",
+          "detail": "通过考古、港口贸易、近代城市与地方生活资料，认识营口在辽河入海口的地理优势和复杂历史。可先看地图、贸易物件与旧照片，再到辽河老街、西炮台实地对应。适合把海鲜和温泉之外的人文线索补齐，馆舍、展览和预约安排以官方当期信息为准。",
+          "time": "2—3小时",
+          "kind": "地方博物",
+          "area": "营口"
+        },
+        {
+          "name": "金牛山遗址相关正式展示",
+          "detail": "金牛山古人类遗址与相关考古材料是认识辽东早期人类活动的重要证据，可从化石、地层和环境说明理解研究过程。实际遗址、馆内展陈和保护区并不都随时接待，应先查官方开放。适合考古兴趣旅客，不自行进入洞口或探挖采集，不能用传说代替年代证据。",
+          "time": "1—2小时",
+          "kind": "古人类考古",
+          "area": "大石桥"
+        },
+        {
+          "name": "望儿山",
+          "detail": "山体、登高步道与母爱主题纪念设施构成近城游览空间，适合把自然观景、地方传说和现代营建分开认识。可选正式开放路线看海岸平原与城市关系，纪念建筑不是全部古迹。台阶与天气影响体力，交通、门票和附加活动按当期安排，不必追求每个主题点都到。",
+          "time": "2—3小时",
+          "kind": "山地文化",
+          "area": "鲅鱼圈",
+          "registryName": "望儿山景区",
+          "level": "4A",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "registryId": "liaoning-97f1ea70cc29",
+          "verification": "",
+          "city": "营口市",
+          "district": "鲅鱼圈区"
+        }
+      ],
+      "eat": [
+        {
+          "name": "鲅鱼饺子",
+          "detail": "鲅鱼肉去骨剁馅，配葱姜、韭菜或少量其他原料，包入面皮煮熟，鱼肉细嫩、汁香是特色。营口及辽东沿海把常见海产用于北方饺子，馅料比例和面皮各店有风格。先问是否混猪肉或其他海鲜，少蘸醋尝鱼香，熟透后留意细刺，按个头与一份数量点餐。"
+        },
+        {
+          "name": "熟制虾蟹贝类",
+          "detail": "营口近海餐饮可选择清蒸、煮、炒等熟制方法，虾的弹嫩、蟹肉与贝汁各有口感，简单调味便于比较。产地、鲜冻状态和规格随季节与物流变化，点前问单价、重量和加工费。少量分食更容易尝多样，彻底熟制、留意壳片，不将生腌、酒醉与熟食混作同一风险和吃法。"
+        },
+        {
+          "name": "大酱蘸菜",
+          "detail": "豆酱或鸡蛋炒酱配黄瓜、萝卜、白菜等时蔬，咸鲜豆香与蔬菜清脆相互衬托，内容随季节变化。营口吃鲅鱼饺子、虾蟹时可用小份蘸菜搭配，和熟制热菜形成质地变化；先看是否已有套餐配菜，少量蘸酱比较原蔬香，不需重复摆满同类蔬菜。",
+          "sources": [
+            {
+              "label": "辽宁省政府：辽菜与地标美食正式认定",
+              "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+            }
+          ]
+        },
+        {
+          "name": "盖州过油肉",
+          "detail": "肉片先经上浆、过油等处理，再与蔬菜和调料快炒，重点是肉嫩、火候与咸鲜汁香，是盖州地方推介的家常菜。名称与其他省过油肉相同，但配菜、醋香和手法可能不同。可问当天做法，配米饭或饼少量分食，不把重油当作越多越地道。"
+        },
+        {
+          "name": "大石桥蛸夹子豆腐",
+          "detail": "以当地称蛸夹子的海产章鱼等与豆腐同炖或烧制，海鲜韧弹与豆腐嫩滑相衬，具体原料需问餐馆。它展示营口把近海食材用于家常豆食的方式，不是单纯一盘生海鲜。点前确认海产种类、份量和做法，充分熟制后趁热吃，留意海鲜过敏原。"
+        },
+        {
+          "name": "酱焗鲅鱼段",
+          "detail": "鲅鱼切段以酱料、蒜等焗烧，外层入味、鱼肉保持嫩度，营口鲅鱼圈地方推介有多种现代变化。它与鲅鱼饺子使用同一类海产却呈现不同质感，具体酱料及配料应问清。按鱼段数量与计价点适量，熟透后留意鱼刺，少添蘸料以免掩住鱼香。"
+        },
+        {
+          "name": "熟制海蜇头",
+          "detail": "海蜇经过正规加工与充分处理后，可作热炒等熟食，营口餐饮中以脆爽口感形成地方风味。不同产品脱盐、处理和配菜差别大，不能把鲜海蜇直接当成可食凉菜。选择正规餐馆、点前问具体做法，适量与熟蔬菜和主食搭配，不追求未经处理的“原生鲜”。"
+        },
+        {
+          "name": "清蒸鱼",
+          "detail": "鱼经处理后加葱姜等蒸熟，少量调汁衬托肉质，是沿江沿海比较不同鱼种本味的直接做法。当地餐馆供应的品种与来源会随季节变化，不能凭水域名称认定全部是当日野生捕捞。点前问品种和计价，吃时留意鱼刺，熟透后趁热尝味更合适。"
+        }
+      ],
+      "walk": "第一天营口老城区看辽河老街与西炮台，夜宿市区。第二天转盖州北海团山看海岸，第三天若想加鲅鱼圈或熊岳休闲再停一晚；只有两天就减少海滨项目，不在看完潮间带后赶回老城再折返南部。",
+      "stay": "老城区住辽河街区附近便于商埠步行，海滨线选盖州或鲅鱼圈方向；海景房与正式海岸入口可能隔坡、隔路，订前核对。",
+      "move": "营口、鲅鱼圈与盖州的车站和城区不同，铁路与公路接驳按实际目的地安排；团山海岸仍需最后一段车辆转场。",
+      "tip": "西炮台遗址与复制展品不攀爬，海岸地质景观不敲取岩石；赶海与观景各有开放规则，退潮露出的礁滩不代表可自由穿行。",
+      "days": "2—3天",
+      "ratedScenic": [
+        {
+          "name": "月亮湖公园",
+          "city": "营口市",
+          "district": "鲅鱼圈区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "鲅鱼圈城市滨海公园，湖面、广场、绿地和近海公共空间适合轻量散步，能从日常尺度看港口新城生活。可选一段步道观察水岸、植被和居民活动，再结合附近一餐安排休息。它与专业海浴场、温泉景区性质不同，园路开放不等于所有水面可游泳。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-85d5b1cd4971",
+          "guideIndex": 12
+        },
+        {
+          "name": "望儿山景区",
+          "city": "营口市",
+          "district": "鲅鱼圈区",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "山体、登高步道与母爱主题纪念设施共同构成近城游览空间，适合把自然观景、地方传说和现代营建分开认识。可沿正式路线看海岸平原与城市关系，再读相关故事如何被纪念。现有设施不是全部古迹，台阶与天气影响体力，附加体验按当期安排选择。",
+          "time": "2—3小时",
+          "kind": "山地文化",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-97f1ea70cc29",
+          "guideIndex": 12
+        },
+        {
+          "name": "仙人岛白沙湾黄金海岸景区",
+          "city": "营口市",
+          "district": "盖州市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "盖州沿海的沙滩、海湾与海滨度假设施形成休闲目的地，适合夏季选择正式海浴区，其他季节则看沙岸与渔业环境。名称中的白沙不代表所有岸段具有相同沙质或接待条件，住宿和海上项目也并非同一经营者。先核对当期风浪、潮汐与允许活动范围。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-2f1274db2050",
+          "guideIndex": 12
+        },
+        {
+          "name": "辽宁团山国家级海洋公园景区",
+          "city": "营口市",
+          "district": "盖州市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "北海团山以海蚀崖、平台、岩石与潮间带呈现海浪作用下的海岸形态，适合从正式步道近看岩层与侵蚀细节。可把地貌科普与海面观察结合，旅游造型名称只能辅助想象。海洋公园内保育与游憩范围不同，潮位和风浪决定可走岸段，不跨围栏下到低处礁滩追求更近的照片。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-49b402b58543",
+          "guideIndex": 12
+        },
+        {
+          "name": "营口虹溪谷旅游度假区",
+          "city": "营口市",
+          "district": "盖州市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "盖州以温泉住宿、园林和休闲设施为主的现代度假区，适合将泡汤与短距离海岸游览分开安排，给休息留足时间。不同酒店、池区和套餐有各自服务内容，景区名称不能等同于所有设施一票通。可从地热利用与地方度假生活认识温泉。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-1fa4d259c2b0",
+          "guideIndex": 12
+        },
+        {
+          "name": "万福赤山旅游景区",
+          "city": "营口市",
+          "district": "盖州市",
+          "level": "4A",
+          "address": "",
+          "sourceUrl": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+          "sourceAsOf": "2025-12",
+          "detail": "盖州万福镇的山地景区，森林、岩峰与宗教文化点位适合组成一条登山观景路线。可先观察林木随坡地的变化，再看庙宇如何依山布局，将自然、地方信仰与现代旅游设施分别理解。它与其他省份同名赤山不同，行程按具体入口和体力安排。",
+          "time": "",
+          "kind": "",
+          "history": "",
+          "contentSourceUrls": [
+            "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025112415290813331/index.shtml"
+          ],
+          "regionId": "liaoning",
+          "regionName": "辽宁",
+          "id": "liaoning-5a7474abc819",
+          "guideIndex": 12
+        }
+      ],
+      "ratedCount": 6
+    }
+  ],
+  "sources": [
+    {
+      "label": "文化和旅游部 · 景区官方查询",
+      "url": "https://lyfw.mct.gov.cn/site/special/scenic"
+    },
+    {
+      "label": "辽宁省政府 · 旅游资源",
+      "url": "https://www.ln.gov.cn/web/sqgk/lyzy/index.shtml"
+    },
+    {
+      "label": "辽宁省文化和旅游厅 · A级景区名录",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml"
+    },
+    {
+      "label": "辽宁省文化和旅游厅 · 查海遗址博物馆",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/lnww/zdwwbhdw/2E6350707F1F4DDA996E7AD8E51F5E14/index.shtml"
+    },
+    {
+      "label": "辽宁省文化和旅游厅 · 辽阳白塔",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/lnww/zdwwbhdw/6E53874C8CAA4274A71F945B40058AF5/index.shtml"
+    },
+    {
+      "label": "辽宁省政府 · 朝阳鸟化石地质公园",
+      "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/cy/2025101515393099654/index.shtml"
+    },
+    {
+      "label": "营口市政府 · 辽河老街",
+      "url": "https://www.yingkou.gov.cn/005/005002/005002002/20190505/75927f2c-d879-4c44-a676-2a0aebedb1f8.html"
+    },
+    {
+      "label": "辽宁省政府 · 工业与纪念场馆线路",
+      "url": "https://www.ln.gov.cn/web/zwgkx/lnsrmzfgb/2022n/zk/zk23/bmwj/F4CFF5A2CF50493A83D5CB7D3A4A0BEC/index.shtml"
+    },
+    {
+      "label": "辽宁省政府：2024正式认定196道地标美食",
+      "url": "https://www.ln.gov.cn/web/ywdt/jrln/wzxx2018/2024121108443267365/index.shtml"
+    },
+    {
+      "label": "辽宁省商务厅：各市地方食品与菜目（正式名单对照，仅使用未变更菜项）",
+      "url": "https://swt.ln.gov.cn/swt/ywxx/tzgg/2024102916531538698/index.shtml"
+    },
+    {
+      "label": "辽宁省商务厅：十大名小吃与制作说明",
+      "url": "https://swt.ln.gov.cn/swt/ywxx/tzgg/2023072517333771173/"
+    },
+    {
+      "label": "沈阳市文旅局：正式地标美食与辽菜",
+      "url": "https://wlgd.shenyang.gov.cn/xxfb/ywbb/202412/t20241212_4775387.html"
+    },
+    {
+      "label": "辽宁省政府：烩小碗子、大米嘎巴等地方做法",
+      "url": "https://www.ln.gov.cn/web/ywdt/jrln/tpxw/2024092709014051619/index.shtml"
+    },
+    {
+      "label": "辽宁商务厅：海菜包子、焖子等具体做法",
+      "url": "https://swt.ln.gov.cn/swt/ywxx/gnmy/2023072510504691559/index.shtml"
+    },
+    {
+      "label": "辽宁商务厅：抚顺麻辣拌调味与工艺",
+      "url": "https://swt.ln.gov.cn/swt/ywxx/gnmy/2023072514183047439/index.shtml"
+    },
+    {
+      "label": "辽宁商务厅：海菜包子、焖子等具体做法",
+      "url": "https://swt.ln.gov.cn/swt/ywxx/gnmy/2023072510504691559/index.shtml"
+    },
+    {
+      "label": "辽宁商务厅：抚顺麻辣拌调味与工艺",
+      "url": "https://swt.ln.gov.cn/swt/ywxx/gnmy/2023072514183047439/index.shtml"
+    },
+    {
+      "label": "景区内容核验·沈阳三农博览园",
+      "url": "https://www.sysnbly.com.cn/",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·大连武术文化博物馆景区",
+      "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/dl/2025101410094157149/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·大连七彩南山景区",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026030216100150050/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·平岛辽参小镇生态旅游景区",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026030215574411718/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·祥和度假庄园景区",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026012115223923663/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·天源农业景区",
+      "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/4ajq/2025101516255943252/",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·石头记千山大观园景区",
+      "url": "https://www.ln.gov.cn/web/ywdt/tpxx/2026020409410979735/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·山水庄园度假旅游景区",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026012815284994810/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·南天门文化旅游风景区",
+      "url": "https://whly.fushun.gov.cn/xydt/013004/013004001/20221028/4dda3636-5f75-4bb3-b148-337ebf42e84e.html",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·参仙谷景区",
+      "url": "https://www.fushun.gov.cn/zwgk/002015/20261012/8a0ff2da-2930-4819-83e8-8665b66ef2fb.html",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·青云山景区",
+      "url": "https://fgw.benxi.gov.cn/publicity/ywgz/tzgg/142761",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·本溪大峡谷景区",
+      "url": "https://benxi.gov.cn/ly/lyzx/content_666423",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·枫林·谷里房车露营小镇",
+      "url": "https://benxi.gov.cn/ly/lyjq/content_642852",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·岩井寺旅游景区",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025112415491691493/",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·北镇大朝阳温泉山城旅游区",
+      "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/4ajq/2025101516241716649/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·北镇医巫闾山大芦花风景区",
+      "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/jz/2025101410380333495/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·万福赤山旅游景区",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025112415290813331/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·辽阳龙石风景旅游区",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025111814511267103/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·人参谷森林公园",
+      "url": "https://www.ln.gov.cn/web/ywdt/jrln/tpxw/2024110109092192104/",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·朝阳化石谷景区",
+      "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/4ajq/2025101410584537971/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·牛河梁国家考古遗址公园",
+      "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/cy/2025101515393017712/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·喀左龙源旅游区",
+      "url": "https://epaper.lnd.com.cn/lnrbepaper/pc/con/202212/09/content_172575.html",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·老虎沟生态旅游区",
+      "url": "https://www.lingyuan.gov.cn/html/LYSZF/202304/0168171990219288.html",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·广厦艺术街",
+      "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/pj/2025101515375382874/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·盘锦中尧七彩庄园",
+      "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/pj/2025101515375147188/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·盘锦特产博物园景区",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025102216303459994/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·灵山景区",
+      "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/hld/2025101515350465034/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    },
+    {
+      "label": "景区内容核验·欢乐龙湾景区",
+      "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025102216251065706/index.shtml",
+      "asOf": "2026-11-08检索；页面自身日期为准"
+    }
+  ],
+  "orientation": "辽宁可先分成辽中城市、辽东山地海岸与辽西走廊。沈阳连接清代宫城和近现代城市，本溪、丹东偏山地水系与边境历史，大连与营口各有港口、商埠和海岸地貌；锦州、葫芦岛至朝阳则可读军事通道、古塔与史前文化。资源型城市也有工业博物馆和新公共空间，不能只用海鲜、宫殿或东北工业一种印象概括全省。每条子线留转场，比一次绕完所有山海更有内容。",
+  "access": "沈阳、大连适合作为航空铁路门户，其他城市可按子线选择铁路出入。旅顺、金石滩、桓仁与辽西县域遗址到站后仍需公路接驳；海岸和山地季节客流不同，跨城当天减少景点安排。",
+  "stay": "沈阳、大连住轨道交通沿线便于首访，远郊连游则按旅顺、金石滩或桓仁分住。辽西线可锦州与兴城各住一晚，海滨住宿核对坡度、实际岸线入口与餐饮，不只看海景房照片。",
+  "reading": "按“辽西史前—高句丽与辽代遗存—清代宫陵—近代商埠工业—战争纪念”组织年代。工业与海岸常在同城相遇，先识别建筑、展品和复原场景，再读各自背景，纪念空间给予完整时间与尊重。",
+  "routes": [
+    {
+      "title": "沈阳与本溪桓仁线",
+      "days": "6天",
+      "steps": [
+        "第1天：沈阳故宫与附近街区。",
+        "第2天：辽宁省博物馆，午后休息。",
+        "第3天：北陵后转本溪或小市，当天不再安排山地。",
+        "第4天：本溪水洞，午后关门山短线或另留一天。",
+        "第5天：向桓仁转场，正式展陈与县城休息。",
+        "第6天：五女山山城半天至一天，返程留道路时间。"
+      ]
+    },
+    {
+      "title": "辽西古城与化石线",
+      "days": "5天",
+      "steps": [
+        "第1天：锦州辽沈战役纪念馆。",
+        "第2天：按正式潮汐安排笔架山，夜宿锦州。",
+        "第3天：转兴城看古城，海岸活动按体力选择。",
+        "第4天：转朝阳，下午北塔与相关展陈。",
+        "第5天：朝阳鸟化石地质公园，留交通返程。"
+      ]
+    }
+  ],
+  "contentVersion": "v3-guide",
+  "checkedAt": "2026-11-08",
+  "inventory": {
+    "asOf": "2025-12",
+    "coverage": "官方全表",
+    "missing": "",
+    "sources": [
+      {
+        "label": "辽宁省文化和旅游厅：辽宁省A级旅游景区名录（截至2025年12月）",
+        "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026010617062543557/index.shtml",
+        "asOf": "2025-12"
+      },
+      {
+        "label": "景区内容核验·沈阳三农博览园",
+        "url": "https://www.sysnbly.com.cn/",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·大连武术文化博物馆景区",
+        "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/dl/2025101410094157149/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·大连七彩南山景区",
+        "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026030216100150050/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·平岛辽参小镇生态旅游景区",
+        "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026030215574411718/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·祥和度假庄园景区",
+        "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026012115223923663/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·天源农业景区",
+        "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/4ajq/2025101516255943252/",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·石头记千山大观园景区",
+        "url": "https://www.ln.gov.cn/web/ywdt/tpxx/2026020409410979735/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·山水庄园度假旅游景区",
+        "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2026012815284994810/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·南天门文化旅游风景区",
+        "url": "https://whly.fushun.gov.cn/xydt/013004/013004001/20221028/4dda3636-5f75-4bb3-b148-337ebf42e84e.html",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·参仙谷景区",
+        "url": "https://www.fushun.gov.cn/zwgk/002015/20261012/8a0ff2da-2930-4819-83e8-8665b66ef2fb.html",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·青云山景区",
+        "url": "https://fgw.benxi.gov.cn/publicity/ywgz/tzgg/142761",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·本溪大峡谷景区",
+        "url": "https://benxi.gov.cn/ly/lyzx/content_666423",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·枫林·谷里房车露营小镇",
+        "url": "https://benxi.gov.cn/ly/lyjq/content_642852",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·岩井寺旅游景区",
+        "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025112415491691493/",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·北镇大朝阳温泉山城旅游区",
+        "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/4ajq/2025101516241716649/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·北镇医巫闾山大芦花风景区",
+        "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/jz/2025101410380333495/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·万福赤山旅游景区",
+        "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025112415290813331/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·辽阳龙石风景旅游区",
+        "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025111814511267103/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·人参谷森林公园",
+        "url": "https://www.ln.gov.cn/web/ywdt/jrln/tpxw/2024110109092192104/",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·朝阳化石谷景区",
+        "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/4ajq/2025101410584537971/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·牛河梁国家考古遗址公园",
+        "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/cy/2025101515393017712/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·喀左龙源旅游区",
+        "url": "https://epaper.lnd.com.cn/lnrbepaper/pc/con/202212/09/content_172575.html",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·老虎沟生态旅游区",
+        "url": "https://www.lingyuan.gov.cn/html/LYSZF/202304/0168171990219288.html",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·广厦艺术街",
+        "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/pj/2025101515375382874/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·盘锦中尧七彩庄园",
+        "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/pj/2025101515375147188/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·盘锦特产博物园景区",
+        "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025102216303459994/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·灵山景区",
+        "url": "https://www.ln.gov.cn/web/sqgk/whly/ajjq/hld/2025101515350465034/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      },
+      {
+        "label": "景区内容核验·欢乐龙湾景区",
+        "url": "https://whly.ln.gov.cn/whly/wlzt/sjly/ajjq/2025102216251065706/index.shtml",
+        "asOf": "2026-11-08检索；页面自身日期为准"
+      }
+    ],
+    "excluded": [],
+    "checkedAt": "2026-11-08",
+    "count": 167,
+    "unmatched": 0,
+    "notes": "逐行解析官方Excel，合并单元格按市、县区向下继承；含沈抚改革创新示范区2项，行政标签原样保留，不擅自划入沈阳或抚顺。"
+  },
+  "unmappedScenic": []
+}

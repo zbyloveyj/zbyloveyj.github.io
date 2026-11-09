@@ -170,12 +170,14 @@
   if (document.body.dataset.page === 'region') {
     const guides = $$('.city-guide');
     function openHash() {
-      const match = location.hash.match(/^#city-(\d+)$/);
-      if (!match) return;
-      const target = guides.find(node => node.id === `city-${match[1]}`);
-      if (target) {
-        if (target.hidden) { $('#city-search').value = ''; filterCities(); }
-        target.open = true; target.scrollIntoView({behavior: 'instant', block: 'start'});
+      let id='';try{id=decodeURIComponent(location.hash.slice(1));}catch(_){return;}
+      const target=document.getElementById(id);
+      if(!target)return;
+      const guide=target.closest('.city-guide');
+      if(guide){
+        if(guide.hidden){$('#city-search').value='';filterCities();}
+        guide.open=true;
+        target.scrollIntoView({behavior:'instant',block:'start'});
       }
     }
     let previousOpen = null;

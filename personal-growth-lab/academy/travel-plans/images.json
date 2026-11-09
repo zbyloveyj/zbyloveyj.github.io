@@ -700,6 +700,19 @@
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ruins_Of_St_Paul_(157820823).jpeg",
       "changes": "按原始比例缩小并转为 WebP，未裁切；衍生图片沿用原图许可。"
+    },
+    {
+      "regionId": "jiangsu",
+      "placeName": "南京",
+      "src": "assets/cities/nanjing.webp",
+      "alt": "南京牛首山佛顶宫的现代穹顶、外廊与入口前广场",
+      "caption": "南京 · 牛首山佛顶宫外观（当代建筑）",
+      "title": "2024-Apr Niushoushan Nanjing - 佛顶宫 Foding Palace (exterior) 06.jpg",
+      "author": "Chainwit.",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2024-Apr_Niushoushan_Nanjing_-_%E4%BD%9B%E9%A1%B6%E5%AE%AB_Foding_Palace_(exterior)_06.jpg",
+      "changes": "按原始比例缩小、转为WebP；网页随响应式版面裁切。"
     }
   ]
 }

@@ -61,3 +61,4 @@
 - 香港中环皇后像广场 — Mk2010 — [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Statue_Square_(Hong_Kong).jpg) — `assets/cities/hongkong-central.webp`
 - 台南赤崁楼 — Kdm852 — [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Chihkan_Tower,_Tainan_at_dusk.jpg) — `assets/cities/tainan.webp`
 - 澳门大三巴牌坊周边 — Mike — [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) — [原始文件](https://commons.wikimedia.org/wiki/File:Ruins_Of_St_Paul_(157820823).jpeg) — `assets/cities/macao-stpaul.webp`
+- 南京 · 牛首山佛顶宫外观（当代建筑） — Chainwit. — [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — [原始文件](https://commons.wikimedia.org/wiki/File:2024-Apr_Niushoushan_Nanjing_-_%E4%BD%9B%E9%A1%B6%E5%AE%AB_Foding_Palace_(exterior)_06.jpg) — `assets/cities/nanjing.webp`

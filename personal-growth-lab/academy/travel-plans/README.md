@@ -1,21 +1,21 @@
-# 未来旅游规划 · 第二版
+# 未来旅游规划 · 第三版
 
 入口：https://zbyloveyj.github.io/personal-growth-lab/academy/travel-plans/
 
-34个省级地区，378个城市与旅行片区。各地区独立HTML指南位于`regions/`，包含景点看点、地方历史、食物与吃法、游览顺序、住宿片区、交通及行前提醒。部分相邻城市合并成一篇，具体覆盖以目录为准，不声称穷尽每个县市乡镇。
+覆盖34个地区、396个城市与旅行片区。取消每城3景点/3美食的内容模式；重点目的地与4A/5A景区名录分别纳入，每项解释内容、历史背景、看点或地方饮食文化。等级按所列来源版本记录，公开转录待原件核对者单独标识；不代表实时开放或创建/公示已获评。
 
-## 内容与生成
+## 源文件与生成
 
-`data.json`为完整结构化内容；`catalog.js`为检索与清单使用的轻量目录；`data.js`保留旧接口兼容。`全国旅游攻略.md`为全文，`guides/`为分地区文字版。页面静态生成，禁用JS仍可通过目录和details阅读全部内容。
+`data.json`为版本3源清单，`data/regions/*.json`为地区完整内容，`data/inventory/*.json`为分省景区名录，`data/coverage.json`列各省来源版本、补核范围和缺口。不是把所有名录均冒称为2026-11-08即时现行的全量。
 
-修改`data.json`与`images.json`后，在本目录运行`python build.py`可重新生成全部页面与文字攻略；仅需Python标准库。原城市name与顺序应保留，新增城市追加在末尾，以兼容已有清单。
+运行`python build.py`生成地区HTML、轻量目录`catalog.js`、各地Markdown及`全国旅游攻略.zip`。仅需Python标准库；`guide_renderer.py`负责详细城市内容。`scenic.html`与`scenic-index.js`用于全部入库景区检索，按省、市、等级筛选；`build_scenic.py`生成索引与版本页。
 
-`journal.css`和`journal.js`负责第二版视觉与交互。旧style.css/app.js/editorial.css留存兼容，但新页面不加载它们。旧#region-xx书签会导向新地区页。
+`全国旅游攻略.md`是各地文字攻略目录；完整正文位于ZIP与`guides/`。34张地区图与26张城市图的作者、许可及来源见`sources.html`和`assets/CREDITS.md`。旧版`data.js/app.js/style.css/editorial.css`不被新页面加载，不应作为当前数据源。
 
-## 个人计划
+## 个人清单与兼容
 
-沿用`future-travel-plan-v1` localStorage键，旧城市条目的名称与索引顺序保留，可继续读取旧收藏。仅保存于浏览器，无跨设备自动同步。JSON导出、合并导入和个人Markdown下载均由浏览器完成。
+继续使用`future-travel-plan-v1`浏览器localStorage。原城市name和索引顺序保持不变，新片区追加；不把个人笔记写回GitHub。支持JSON备份、合并恢复和个人Markdown导出。
 
-## 摄影与参考
+## 发布与核验
 
-34张地区照片，另有25张城市细节照片。全部许可与原始来源在`sources.html`、`assets/CREDITS.md`。不含未经许可复制的商业旅行网站图片。编写日期2026-11-08，开放、预约、天气、交通、通行要求须行前核验。
+静态GitHub Pages页面，不需要外部字体、第三方脚本或登录。等级清单按各项原始来源及截止日期记录；正式认定、拟公示、摘牌和降级分别判断。台湾香港澳门不套用大陆A级体系。开放、交通、天气、边境与港澳台通行请行前核验。

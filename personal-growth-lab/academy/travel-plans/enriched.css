@@ -1,0 +1,101 @@
+/* Reading tools for the expanded guide, not a second visual theme. */
+.city-counts{display:flex;gap:15px;font-size:10px;margin-top:7px;color:var(--accent)}
+.city-counts>span{color:var(--muted)}
+.city-chapters{display:flex;gap:25px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:17px 0;font-size:11px}
+.city-chapters a{border-bottom:1px solid var(--line)}
+.rating{display:inline-block;font:10px/1.5 var(--sans);padding:1px 5px;color:var(--accent);border:1px solid #802f2940;vertical-align:middle;margin-left:6px;font-weight:400;white-space:nowrap}
+.entry-meta,.spot-address{font-size:10px!important;color:var(--muted)!important}
+.entry-source{margin-top:8px;font-size:10px;color:var(--muted)}
+.entry-source>summary,.city-guide .entry-source>summary{display:inline-block;padding:0;font:10px/1.8 var(--sans);cursor:pointer;border-bottom:1px dotted var(--line);list-style:none}
+.entry-source ul{padding-left:15px;margin:8px 0;font-size:10px;overflow-wrap:anywhere}
+.entry-source p{font-size:10px;margin:5px 0}
+.inventory-subhead{border-top:1px solid var(--ink);padding:27px 0 20px;margin-top:32px}
+.inventory-subhead h4{font-family:var(--serif);font-size:22px;font-weight:500}
+.inventory-subhead>p{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.9}
+.food-category{display:block;color:var(--accent);font-size:9px;letter-spacing:.05em;margin-bottom:5px}
+.city-references{margin-top:25px;border-top:1px solid var(--line);padding-top:15px}
+.city-guide .city-references>summary{font-size:11px;padding:0;display:block;cursor:pointer}
+.city-references ul{padding-left:16px;font-size:11px;line-height:2;overflow-wrap:anywhere}
+.city-route{padding:20px 0;border-top:1px solid var(--line)}
+.city-route h4{font-size:16px;font-family:var(--serif)}
+.city-route h4 small{font:10px var(--sans);color:var(--muted);margin-left:8px}
+.city-route ol{font-size:12px;padding-left:18px;margin:15px 0 0;line-height:2}
+.coverage-note{background:#eeeae0;padding:25px 28px;font-size:12px;line-height:2}
+.coverage-note p+p{margin-top:10px}
+.coverage-note .text-link{display:inline-block;margin-top:17px}
+.regional-inventory{border-top:1px solid var(--line)}
+.regional-inventory>h3{margin:40px 0 15px}
+.regional-inventory>p{font-size:12px;color:var(--muted)}
+.unmatched-spots{max-width:880px;margin-top:25px}
+.scenic-page,.coverage-page{padding-block:65px 80px}
+.scenic-page>.eyebrow,.coverage-page>.eyebrow{margin-bottom:20px}
+.scenic-page h1,.coverage-page h1{font-size:clamp(42px,5vw,67px)}
+.registry-intro{display:flex;align-items:baseline;gap:15px;margin:35px 0 18px;padding-block:22px;border-block:1px solid var(--line);font-size:12px;flex-wrap:wrap}
+.registry-intro strong{font-family:Georgia,var(--serif);font-size:34px;font-weight:400;line-height:1}
+.registry-intro a{margin-left:auto;border-bottom:1px solid var(--ink);font-size:11px}
+.registry-controls{display:grid;grid-template-columns:140px 200px 170px 1fr auto;align-items:end;gap:15px;margin-top:35px}
+.registry-controls label,.registry-pagination label{display:block;font-size:10px;color:var(--muted)}
+.registry-controls input,.registry-controls select{display:block;width:100%;padding:10px 12px;margin-top:8px;background:var(--white);font-size:12px;height:44px}
+.registry-controls button{height:44px;font-size:12px}
+.registry-results{display:flex;justify-content:space-between;gap:20px;align-items:baseline;padding:23px 0;font-size:11px;color:var(--muted)}
+.registry-results>a{text-decoration:underline;text-underline-offset:4px}
+.registry-table-wrap{overflow-x:auto;border-top:1px solid var(--ink)}
+.registry-table{border-collapse:collapse;width:100%;font-size:12px;line-height:1.9}
+.registry-table th{text-align:left;padding:15px 12px;border-bottom:1px solid var(--ink);font-size:10px;font-weight:500;color:var(--muted)}
+.registry-table td{vertical-align:top;border-bottom:1px solid var(--line);padding:19px 12px}
+.registry-table td:first-child{width:33%}
+.registry-table td:nth-child(2){width:24%}
+.registry-table td:nth-child(3){white-space:nowrap;width:10%}
+.registry-table td:nth-child(4){width:20%;font-size:10px}
+.registry-table td:last-child{white-space:nowrap;font-size:11px}
+.registry-table strong{display:block;font-family:var(--serif);font-size:18px;font-weight:500;line-height:1.65}
+.registry-table small{display:block;font-size:10px;color:var(--muted);line-height:1.8;margin-top:4px}
+.registry-table td:first-child a{font-size:9px;border-bottom:1px dotted var(--line)}
+.registry-pagination{display:flex;align-items:center;justify-content:center;gap:25px;padding-block:30px;font-size:11px}
+.registry-pagination button{font-size:11px}
+.registry-pagination button:disabled{opacity:.4}
+.registry-pagination label{display:flex;align-items:center;gap:8px}
+.registry-pagination select{font-size:11px;padding:5px}
+.scenic-page>.coverage-note{margin-top:35px}
+.coverage-note h2{font-size:23px;margin-bottom:15px}
+.coverage-page>.big-copy{max-width:800px;margin:30px 0 15px}
+.coverage-page>p:not(.eyebrow){font-size:14px}
+.coverage-regions{margin-top:45px}
+.coverage-region{padding:35px 0;border-top:1px solid var(--line)}
+.coverage-region header{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:20px}
+.coverage-region header h2{font-size:30px}
+.coverage-region header a{font-size:12px}
+.coverage-region dl{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:22px 50px}
+.coverage-region dt{font-size:10px;color:var(--accent);margin-bottom:7px}
+.coverage-region dd{margin:0;font-size:12px;color:var(--muted);line-height:2}
+.coverage-region details{font-size:12px;margin-top:20px}
+.coverage-region summary{cursor:pointer}
+@media(max-width:1100px){.registry-controls{grid-template-columns:1fr 1fr 1fr}.registry-search{grid-column:1/3}.masthead nav{gap:18px}}
+@media(max-width:760px){.masthead nav{font-size:10px;gap:8px}.city-counts{font-size:9px;gap:10px}.city-chapters{font-size:10px;gap:15px;padding-block:13px}.rating{font-size:9px}.city-section .section-label h3 br{display:none}.entry-source>summary,.city-guide .entry-source>summary{font-size:9px}.entry-meta,.spot-address{font-size:9px!important}.city-route ol{font-size:11px}.city-route h4{font-size:16px}.inventory-subhead h4{font-size:20px}.inventory-subhead>p{font-size:10px}.coverage-note{padding:20px 17px;font-size:11px}.regional-inventory>h3{font-size:23px}.scenic-page,.coverage-page{padding-top:38px}.scenic-page .section-heading>p{margin-top:20px}.registry-intro{gap:9px 11px;margin-top:25px}.registry-intro strong{font-size:28px}.registry-intro span{font-size:10px}.registry-intro a{font-size:10px;margin-left:0;flex-basis:100%;width:fit-content;max-width:max-content;margin-top:8px}.registry-controls{grid-template-columns:1fr 1fr;gap:15px 12px;margin-top:28px}.registry-controls label:nth-child(3){grid-column:1/3}.registry-search{grid-column:1/3}.registry-controls button{grid-column:1/3;font-size:11px}.registry-controls input,.registry-controls select{font-size:11px}.registry-results{display:block;font-size:10px}.registry-results>a{display:inline-block;margin-top:8px}.registry-table{min-width:650px;font-size:11px}.registry-table strong{font-size:16px}.registry-table th{padding:12px 8px}.registry-table td{padding:15px 8px}.registry-table-wrap{margin-inline:-4px}.registry-pagination{gap:12px;flex-wrap:wrap;font-size:10px}.registry-pagination button{font-size:10px;padding:7px 11px}.registry-pagination label{font-size:10px;flex-basis:100%;justify-content:center}.coverage-page>p:not(.eyebrow){font-size:12px}.coverage-region dl{display:block}.coverage-region dl>div+div{margin-top:18px}.coverage-region dd{font-size:11px}.coverage-region header h2{font-size:26px}}
+@media print{.entry-source{display:none}.city-chapters,.registry-controls,.registry-pagination{display:none}.rating{color:inherit}.coverage-note{background:transparent;border:1px solid var(--line)}.registry-table-wrap{overflow:visible}.registry-table{min-width:0}.scenic-page,.coverage-page{padding:0}}
+
+.city-directory{border-bottom:1px solid var(--line);padding:17px 0;margin-bottom:10px}
+.city-guide .city-directory>summary{display:block;padding:0;font:12px/1.8 var(--sans);cursor:pointer;color:var(--accent)}
+.city-guide .city-directory>summary::after{content:" ＋"}
+.city-guide .city-directory[open]>summary::after{content:" −"}
+.city-directory nav{display:grid;grid-template-columns:1fr 1fr;gap:8px 25px;padding:20px 0 6px;line-height:1.9;font-size:12px}
+.city-directory nav a{display:block;border-bottom:1px dotted var(--line);padding-bottom:5px}
+@media(max-width:760px){.city-directory nav{grid-template-columns:1fr;font-size:11px;gap:8px}.city-guide .city-directory>summary{font-size:11px}}
+@media print{.city-directory{display:none}}
+.edition-data{display:grid;grid-template-columns:repeat(3,1fr) 1.2fr;border-top:1px solid var(--line,#d8d4ca);border-bottom:1px solid var(--line,#d8d4ca);margin-top:1.5rem}
+.edition-data>a{display:flex;flex-direction:column;gap:.35rem;padding:1.35rem 1.4rem;text-decoration:none;border-right:1px solid var(--line,#d8d4ca)}
+.edition-data>a:first-child{padding-left:0}.edition-data>a:last-child{border-right:0}
+.edition-data strong{font-family:Georgia,"Noto Serif SC",serif;font-size:2rem;font-weight:400;line-height:1.2;font-variant-numeric:tabular-nums}
+.edition-data span,.edition-data .edition-source{font-size:.78rem;line-height:1.8}.edition-data .edition-source{justify-content:center}
+@media(max-width:640px){.edition-data{grid-template-columns:repeat(2,1fr)}.edition-data>a{padding:1rem}.edition-data>a:nth-child(2){border-right:0}.edition-data>a:nth-child(3){padding-left:0;border-top:1px solid var(--line,#d8d4ca)}.edition-data>a:nth-child(4){border-top:1px solid var(--line,#d8d4ca)}.edition-data strong{font-size:1.7rem}}
+
+.sight-list .spot-status{border-left:2px solid var(--accent,#8e4b36);padding:8px 12px;margin-top:12px;font-size:.78rem;background:rgba(142,75,54,.035)}
+@media(max-width:640px){
+ .sight-list p,.food-list p{font-size:14px;line-height:1.95}
+ .city-intro>p{font-size:14px;line-height:1.95}
+ .city-section .section-label>p,.inventory-subhead p{font-size:12px;line-height:1.9}
+ .practical .walk,.practical dd,.region-practical p{font-size:13px;line-height:1.95}
+ .source-list,.entry-source{font-size:12px}.sight-list .spot-status{font-size:12px}
+ .save-button{font-size:12px;min-height:42px;padding:9px 14px}
+ .registry-pagination button{min-height:42px}
+}
