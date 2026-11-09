@@ -1,8 +1,105 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-08T10:50:31+08:00",
+  "updatedAt": "2026-11-09T08:20:20+08:00",
   "editorialNote": "本站原创分析与外部原文分栏展示。引用支持所标注的公开事实，其他商业框架、假说与例子均为本站分析；不代表麦肯锡、HBR或被引用机构观点。",
   "articles": [
+    {
+      "id": "fusion-supplier-qualification",
+      "title": "聚变电站之前，谁会为功率器件和诊断设备付钱？",
+      "dek": "从美国能源部项目遴选、Helion高压器件研发意向与Xcimer里程碑资助出发，拆解聚变配套设备如何取得第一笔可持续的商业收入。",
+      "category": "能源与功率半导体",
+      "sectorIds": [
+        "energy",
+        "semiconductors"
+      ],
+      "author": "行业规律洞察编辑部",
+      "publishedDate": "2026-11-09",
+      "updatedAt": "2026-11-09T08:19:25+08:00",
+      "takeaways": [
+        "实验室、原型机团队和电站开发商的付款预算与验收标准各不相同。",
+        "功率器件、诊断和集成服务的价值需要用系统试验、运维成本与第二个客户检验。",
+        "项目入选、意向书、里程碑付款与设备复购对应不同阶段。"
+      ],
+      "sections": [
+        {
+          "title": "第一笔预算可能来自测试系统",
+          "paragraphs": [
+            "11月2日，美国能源部公布FY2026 INFUSE遴选结果，计划为28项聚变研究提供合计850万美元的支持，涉及实验室、高校与企业合作。方向覆盖材料、等离子体诊断和模拟。公告同时指出，入选方进入资助谈判，正式拨付取决于后续协议。",
+            "本站判断，研究资金先解决测量、材料和部件的验证问题。判断配套商能否取得收入，应该追问设备由谁买、哪项故障会耽误试验，以及客户愿意为多少次合格运行付费。把问题限定到一次试验任务，才能将研发合作、工程订单与发电收入放在各自的时间轴上。"
+          ],
+          "sourceIds": [
+            "doe-infuse-2026"
+          ]
+        },
+        {
+          "title": "使用者、付款人与验收人如何分工",
+          "paragraphs": [
+            "在原型阶段，操作设备的往往是实验或工程团队。付款可能来自实验机构的仪器预算、聚变公司的原型机预算或正式资助下的项目预算。即使一项研究联合多家机构，供应商仍要查清哪一方负责下单、谁拥有试验数据，以及哪一方承担现场集成风险。",
+            "采购指标应从设备规格延伸至完整任务。例如诊断系统可以先按带宽、噪声和环境适应性进行台架验收，再按时间同步、数据缺失和连续运行稳定性验收。按项目供货适合早期定制，校准和换件服务有可能在设备被纳入固定维护流程后形成复购。"
+          ],
+          "sourceIds": []
+        },
+        {
+          "title": "功率链条里有哪些独立交付环节",
+          "paragraphs": [
+            "10月22日，NIST公布的商务部意向书涉及Helion高压器件和功率模块研发，资金上限为1.75亿美元。Helion披露其路线需要器件承受高峰值脉冲，还需要能量回收、散热与封装设计协同。器件研发和器件供货的定价依据由此分开。",
+            "本站将潜在供货分为器件与封装、脉冲电源和控制、测试与现场集成三层。器件层可按样品、批次或模块计价。系统层以供货、调试和质保交付为主。测试层则能按台架使用、可靠性验证和失效分析计价。价值分配会随责任变化，关键是合同中谁对波形、连续运行及故障停机负责。"
+          ],
+          "sourceIds": [
+            "nist-helion-loi-2026",
+            "helion-power-loi-2026"
+          ]
+        },
+        {
+          "title": "竞争发生在系统验证中",
+          "paragraphs": [
+            "Brookhaven等团队10月披露的超导电路演示处理了与托卡马克控制有关的数据，其中也有模拟器数据。工程团队下一步需要核查传感器、控制算法、信号转换和执行器构成的完整回路。单环节的处理速度只能描述其中一段。",
+            "本站判断，供应商既要面对整机厂自研，也要和成熟工业器件加冗余设计的组合竞争。专用方案若在实验室领先，但低温配套、维修和停机代价偏高，通用方案仍有可能获选。支持规模化采购的证据应包括跨设备复现、可替换接口和现场维护记录。"
+          ],
+          "sourceIds": [
+            "bnl-fusion-controls"
+          ]
+        },
+        {
+          "title": "三类资金各自对应什么证据",
+          "paragraphs": [
+            "INFUSE公告的850万美元是28项遴选的组合金额。Helion的1.75亿美元属于意向书上限，正式协议仍待核查，公司同时披露预计配套5000万美元私营投资与附条件股权安排。Xcimer披露另有最高3050万美元的追加联邦资金，支付与里程碑挂钩。",
+            "可把资金观察表分为两列，一列记录承诺条件和可支付上限，另一列记录签约、验收和实收。用于研究合作的预算可以形成实验支出，正式设备合同可以形成订单，销售收入还要跟交付和会计确认。对比企业时，分母应是同阶段的项目或同口径的可比订单。"
+          ],
+          "sourceIds": [
+            "doe-infuse-2026",
+            "helion-power-loi-2026",
+            "xcimer"
+          ]
+        },
+        {
+          "title": "一个完全假设的采购测算",
+          "paragraphs": [
+            "假设同一台架需要完成600次合格脉冲。通用模块每套12万元，在该工况下假设可完成200次，因此需要三套。专用模块假设售价25万元且可完成600次。若每次更换产生2万元停机和人工成本，通用方案的两次更换使成本变为40万元，专用方案假设无需更换，成本为25万元。",
+            "再假设专用模块要追加18万元的一次性接口与认证费用，首批总成本就变为43万元。单位合格脉冲成本分别约667元和717元，首批的排序发生逆转。下一台设备能否复用接口、两种模块的失效率及发生故障后的恢复时间，才是判断批量采购的变量。上述数字全为假设，未引用企业价格或性能。"
+          ],
+          "sourceIds": []
+        },
+        {
+          "title": "哪些现象会让商业假设失效",
+          "paragraphs": [
+            "如果意向到期仍未签署协议，或样机在额定条件下达标但现场出现频繁停机，商业成熟度应下调。若只见一家项目方的联合开发，长期没有可复用的设计或第二个付费客户，供应商的议价能力可能依然有限。",
+            "持续跟踪时，先记正式协议与资助条件，再记模块在不同温度、负载和循环次数下的失效率，以及诊断回路的端到端延迟。商业侧同时记录批量验证订单、交付验收率、复购、备件周期与实际回款。若后续证据显示传统器件和维护体系已达到同等稳定性，就需重新评估专用部件的溢价。"
+          ],
+          "sourceIds": []
+        }
+      ],
+      "sourceIds": [
+        "doe-infuse-2026",
+        "nist-helion-loi-2026",
+        "helion-power-loi-2026",
+        "bnl-fusion-controls",
+        "xcimer"
+      ],
+      "characterCount": 1679,
+      "readingMinutes": 5,
+      "url": "research/fusion-supplier-qualification.html"
+    },
     {
       "id": "technology-to-revenue",
       "title": "从技术突破到商业兑现，一条新赛道要跨过哪些门槛？",
@@ -1080,7 +1177,7 @@
           "evidence": "结果能否形成真实决策"
         }
       ],
-      "bottleneck": "重点难题包括干预数据覆盖、技术批次差异、跨体系泛化和外部验证。把相关性、预测与可行动的干预建议分开；少数成功案例可以提供线索，但需要知道它们是否在方案预先指定后仍可成立。还应检查模型是否依赖客户难以长期获得的数据。",
+      "bottleneck": "重点难题包括干预数据覆盖、技术批次差异、跨体系泛化和外部验证。把相关性、预测与可行动的干预建议分开；少数成功案例可以提供线索，但需要知道它们是否在方案预先指定后仍可成立。还应检查模型是否依赖客户难以长期获得的数据。 Arc于2026-08-20公布六细胞系零样本扰动预测设置，10月15日更新给出结果发布时间。评价应分开考察基线对比、跨细胞背景成绩与外部实验证实。",
       "capital": "资本用途可按数据生成、模型训练、实验验证与客户集成分列。若融资主要用于更大模型，却没有明确下游任务与验证预算，就不能直接推断商业壁垒增强。Quine等系统是可追踪的研究案例，不能自动代表完整细胞模拟已经实现。",
       "risks": [
         "把状态识别当成干预预测",
@@ -1091,21 +1188,24 @@
         "外部任务成功范围",
         "每次验证的成本",
         "候选淘汰与确认效率",
-        "付费项目重复使用"
+        "付费项目重复使用",
+        "独立细胞背景下相对简单基线的增益"
       ],
       "sourceIds": [
         "quine",
         "deepmind",
-        "nvidia"
+        "nvidia",
+        "arc-vcc-2026",
+        "arc-vcc-timeline"
       ],
-      "updatedAt": "2026-11-08T10:50:31+08:00",
+      "updatedAt": "2026-11-09T08:19:25+08:00",
       "title": "AI虚拟细胞",
       "url": "research/sector-virtualcell.html"
     },
     {
       "id": "organoids",
       "question": "类器官能否成为研发流程里可重复使用的验证工具？",
-      "demand": "需求应从具体药效、毒理或疾病机制任务出发，而不是笼统替代所有动物实验。不同组织模型保留的结构和功能不同，采购者需要知道它在哪些任务上更有信息量，以及使用、培养、测量和解释结果要增加多少工作。",
+      "demand": "需求应从具体药效、毒理或疾病机制任务出发，而不是笼统替代所有动物实验。不同组织模型保留的结构和功能不同，采购者需要知道它在哪些任务上更有信息量，以及使用、培养、测量和解释结果要增加多少工作。 abc biopply与Panome Bio的合作正文署2026年10月，索引标11月5日。共同交付面向临床前研究的多类器官与多组学读出，实际采用须以客户和复现数据核验。",
       "valueChain": [
         {
           "layer": "模型与样本",
@@ -1143,14 +1243,17 @@
         "每次成功实验总成本",
         "失败批次及原因",
         "培养和读出周期",
-        "外部客户复购"
+        "外部客户复购",
+        "独立批次的多组学读出一致性与周转时间"
       ],
       "sourceIds": [
         "vitroscope",
         "bitbio",
-        "nvidia"
+        "nvidia",
+        "abc-panome-organoids",
+        "abc-press-index"
       ],
-      "updatedAt": "2026-11-08T10:50:31+08:00",
+      "updatedAt": "2026-11-09T08:19:25+08:00",
       "title": "类器官与器官芯片",
       "url": "research/sector-organoids.html"
     },
@@ -1185,7 +1288,7 @@
         }
       ],
       "bottleneck": "核心约束可能来自质量控制、运输、库存、操作者训练及实验条件匹配。产品规格越清楚，越容易比较失败来自材料还是操作；但为了适配客户而无限定制，可能增加支持成本，削弱产品模式的可复制性。",
-      "capital": "bit.bio提供了一项实体人源细胞供应的资金观察，不应算作AI虚拟细胞融资。可将资金用于扩充产品组合与提高客户可及性的目标，转换为可核查的供货、产品覆盖和重复购买指标。",
+      "capital": "bit.bio提供了一项实体人源细胞供应的资金观察，不应算作AI虚拟细胞融资。可将资金用于扩充产品组合与提高客户可及性的目标，转换为可核查的供货、产品覆盖和重复购买指标。 NIH在2026-09-21公告中分别列出基础设施资金、检测挑战奖项及拟建标准化人源模型平台。持续观察跨机构接入、样本协议和标准测试。",
       "risks": [
         "把实体细胞与算法模型混淆",
         "忽略运输库存和售后成本",
@@ -1195,13 +1298,15 @@
         "交付时间与稳定性",
         "质量投诉和返工",
         "产品重复采购",
-        "装机后的耗材与服务"
+        "装机后的耗材与服务",
+        "开放平台的跨机构重复实验与样本协议"
       ],
       "sourceIds": [
         "bitbio",
-        "vitroscope"
+        "vitroscope",
+        "nih-human-nams-2026"
       ],
-      "updatedAt": "2026-11-08T10:50:31+08:00",
+      "updatedAt": "2026-11-09T08:19:25+08:00",
       "title": "人源细胞与科研工具",
       "url": "research/sector-cellmodels.html"
     },
@@ -1236,7 +1341,7 @@
         }
       ],
       "bottleneck": "难点在数据噪声、任务迁移、实验可行性和后续开发。一个计算分数改善，不等于候选已具备药物属性；应继续检查实验验证和比较基线。官方演示可以启发工作流程，但不能替代独立、预先规定的评估。",
-      "capital": "合作金额尤其需要区分已支付首款、未来最高里程碑及潜在销售分成。若只公布总上限，不能全部记为当年收入或融资。融资是否配备实验验证和项目交付能力，比单独增加计算资源更值得检查。",
+      "capital": "合作金额尤其需要区分已支付首款、未来最高里程碑及潜在销售分成。若只公布总上限，不能全部记为当年收入或融资。融资是否配备实验验证和项目交付能力，比单独增加计算资源更值得检查。 Specific Biologics于2026-11-02披露完成3500万美元A轮，目标为候选疗法的初步临床生物标志物验证。后续证据沿递送、剂量、安全性、标志物和临床结局分别收集。",
       "risks": [
         "计算设计被误写成有效药物",
         "同一数据参与训练与验证",
@@ -1246,15 +1351,17 @@
         "实验确认率及适用范围",
         "每个可推进候选成本",
         "外部合作重复使用",
-        "里程碑实际达成"
+        "里程碑实际达成",
+        "给药后的靶点相关标志物变化和安全性"
       ],
       "sourceIds": [
         "deepmind",
         "gov-chemistry",
         "nvidia",
-        "quine"
+        "quine",
+        "specific-series-a-2026"
       ],
-      "updatedAt": "2026-11-08T10:50:31+08:00",
+      "updatedAt": "2026-11-09T08:19:25+08:00",
       "title": "药物发现与精准治疗",
       "url": "research/sector-drugdiscovery.html"
     },
@@ -1494,7 +1601,7 @@
           "evidence": "总成本与运行效率"
         }
       ],
-      "bottleneck": "关键约束包括设计验证、量产良率、供应保障和客户认证。合作开发不等于批量采购，样品收入也不等于规模交付。应追踪客户在哪个产品阶段采用，以及采用后改善了什么系统指标。",
+      "bottleneck": "关键约束包括设计验证、量产良率、供应保障和客户认证。合作开发不等于批量采购，样品收入也不等于规模交付。应追踪客户在哪个产品阶段采用，以及采用后改善了什么系统指标。 2026-10-22的Helion意向公告把脉冲器件、封装和工装放进同一研发议程。验证应覆盖额定负载下的循环寿命、冷却与系统接口。",
       "capital": "Ayar追加融资用于光互连制造准备，提供了配套环节资本配置案例。需将本轮与累计融资分开，再跟踪设计导入、制造验证和交付。扩建产能前的客户承诺与资金占用也应核查。",
       "risks": [
         "峰值性能替代系统价值",
@@ -1505,14 +1612,17 @@
         "量产良率与交期",
         "设计导入阶段",
         "单位合格产品成本",
-        "客户集中与订单条件"
+        "客户集中与订单条件",
+        "脉冲器件在指定工况下的寿命及量产认证"
       ],
       "sourceIds": [
         "ayar",
         "nvidia",
-        "iea-invest"
+        "iea-invest",
+        "nist-helion-loi-2026",
+        "helion-power-loi-2026"
       ],
-      "updatedAt": "2026-11-08T10:50:31+08:00",
+      "updatedAt": "2026-11-09T08:19:25+08:00",
       "title": "半导体与计算基础设施",
       "url": "research/sector-semiconductors.html"
     },
@@ -1546,8 +1656,8 @@
           "evidence": "工程验证而非愿景图"
         }
       ],
-      "bottleneck": "瓶颈可能是接入、设备、建设能力或运行协调。不能把不同地区最有利收入简单相加，也不能把全球投资估计视为某种设备的订单。需要检查停机、衰减、维护、融资和政策机制。",
-      "capital": "IEA年度数据适合提供能源内部投资背景；Xcimer资助适合研究公共资本如何分阶段支持工程。两者在统计单位、时间与状态上不同，不应合计为同一个融资指标。",
+      "bottleneck": "瓶颈可能是接入、设备、建设能力或运行协调。不能把不同地区最有利收入简单相加，也不能把全球投资估计视为某种设备的订单。需要检查停机、衰减、维护、融资和政策机制。 Google在2026-11-04披露马来西亚基础设施计划，OpenAI在11月2日介绍拟建园区负荷弹性。长期跟踪实际接电进度、需求响应时长和分期支出。",
+      "capital": "IEA年度数据适合提供能源内部投资背景；Xcimer资助适合研究公共资本如何分阶段支持工程。两者在统计单位、时间与状态上不同，不应合计为同一个融资指标。 2026-11-02的INFUSE遴选覆盖材料、诊断与模拟。850万美元为28项拟支持金额，正式协议及付款需逐项目核验。",
       "risks": [
         "年度计划当作已支出",
         "上限或资助承诺当作到账",
@@ -1557,14 +1667,18 @@
         "投产与接入进度",
         "合同和回款条件",
         "利用率与全周期成本",
-        "里程碑验收"
+        "里程碑验收",
+        "研发遴选项目的正式签约与付款进度"
       ],
       "sourceIds": [
         "iea-invest",
         "iea-electricity",
-        "xcimer"
+        "xcimer",
+        "doe-infuse-2026",
+        "google-malaysia-2026",
+        "openai-grid-2026"
       ],
-      "updatedAt": "2026-11-08T10:50:31+08:00",
+      "updatedAt": "2026-11-09T08:20:20+08:00",
       "title": "能源与气候技术",
       "url": "research/sector-energy.html"
     },
@@ -1599,7 +1713,7 @@
         }
       ],
       "bottleneck": "技术路线与任务差异使单一排名容易误导。应记录比较条件、控制复杂性、错误处理和系统成本。对多业务企业，应将量子平台、代工和其他服务收入拆开，不以合并增长直接证明某一应用成熟。",
-      "capital": "IBM部署、IonQ财报与QuiX产业项目是三种不同证据。分别跟踪设备使用、收入构成和制造里程碑，才能判断资本是否对应真实风险消除；跨年项目总预算不等于一家公司的本轮融资。",
+      "capital": "IBM部署、IonQ财报与QuiX产业项目是三种不同证据。分别跟踪设备使用、收入构成和制造里程碑，才能判断资本是否对应真实风险消除；跨年项目总预算不等于一家公司的本轮融资。 IonQ在11月4日公告Elisity全股票并购已完成，SEC文件记载交割日为2026-11-03。10-Q披露总对价约13亿美元，含最高1.5亿美元或有对价，订阅收入另行跟踪。",
       "risks": [
         "参数排行榜替代任务比较",
         "并购后的合并收入缺少拆分",
@@ -1609,14 +1723,18 @@
         "可复现任务与基线",
         "收入业务构成",
         "客户重复使用",
-        "制造与控制里程碑"
+        "制造与控制里程碑",
+        "交割后的客户续费、交叉销售和购买价分摊"
       ],
       "sourceIds": [
         "ibm",
         "ionq",
-        "quix"
+        "quix",
+        "ionq-elisity-close",
+        "ionq-elisity-sec8",
+        "ionq-elisity-sec10"
       ],
-      "updatedAt": "2026-11-08T10:50:31+08:00",
+      "updatedAt": "2026-11-09T08:20:20+08:00",
       "title": "量子与先进材料",
       "url": "research/sector-quantum.html"
     },
@@ -1702,7 +1820,7 @@
           "evidence": "利用率、维护和现金流"
         }
       ],
-      "bottleneck": "关键不只在于技术能否飞行，还包括任务频率、供应链、认证、资本占用和客户集中。概念图、工程样机和运行设施应分别展示。多任务能力也需要明确环境和验收边界。",
+      "bottleneck": "关键不只在于技术能否飞行，还包括任务频率、供应链、认证、资本占用和客户集中。概念图、工程样机和运行设施应分别展示。多任务能力也需要明确环境和验收边界。 NASA于2026-11-03确认SSPICY航天器在调试阶段失联后无法恢复。承包商需要把通信和调试作为独立验收节点，与入轨和后续自主操作分别记录。",
       "capital": "NASA月球框架和商业空间站采购公告提供两种公共需求信号。一个是竞争任务的框架，另一个是征求方案；不能都写成公司已取得订单。观察实际任务、里程碑支付和公共客户之外的收入。",
       "risks": [
         "框架总上限当作企业订单",
@@ -1713,14 +1831,16 @@
         "具体订单与任务阶段",
         "验收和付款节点",
         "设备利用与维护",
-        "客户集中及资本占用"
+        "客户集中及资本占用",
+        "入轨后的双向通信、调试成功和冗余验证"
       ],
       "sourceIds": [
         "nasa-moon",
         "nasa-leo",
-        "nasa-cargo"
+        "nasa-cargo",
+        "nasa-sspicy-2026"
       ],
-      "updatedAt": "2026-11-08T10:50:31+08:00",
+      "updatedAt": "2026-11-09T08:19:25+08:00",
       "title": "商业航天与空间基础设施",
       "url": "research/sector-space.html"
     },
@@ -1931,6 +2051,61 @@
       "group": "companies",
       "date": "2026-11-03",
       "access": "以原站访问要求为准；HBR可能需要订阅"
+    },
+    {
+      "id": "infuse-selection-guide",
+      "publisher": "美国能源部",
+      "title": "聚变项目如何进入资助谈判",
+      "summary": "读28项入选项目的牵头单位、方向和谈判边界。",
+      "question": "哪些共享试验可以转化为下一个采购或工程验收节点？",
+      "sourceId": "doe-infuse-2026",
+      "group": "institutions",
+      "date": "2026-11-02",
+      "access": "公开原文"
+    },
+    {
+      "id": "nist-pulse-power-guide",
+      "publisher": "NIST",
+      "title": "高压脉冲功率器件的研发资助意向",
+      "summary": "公告列出能源半导体研发意向与用途。",
+      "question": "哪些器件需求可能跨客户复用，哪些依赖单一原型路线？",
+      "sourceId": "nist-helion-loi-2026",
+      "group": "institutions",
+      "date": "2026-10-22",
+      "access": "公开原文"
+    },
+    {
+      "id": "sspicy-failure-guide",
+      "publisher": "NASA",
+      "title": "SSPICY通信中断与任务恢复边界",
+      "summary": "公告记录演示任务调试阶段的失联及恢复判断。",
+      "question": "在轨任务的通信冗余如何影响验收和商业风险？",
+      "sourceId": "nasa-sspicy-2026",
+      "group": "institutions",
+      "date": "2026-11-03",
+      "access": "公开原文"
+    },
+    {
+      "id": "arc-cross-context-guide",
+      "publisher": "Arc Institute",
+      "title": "虚拟细胞的跨细胞背景扰动测试",
+      "summary": "阅读六个细胞系的预测任务和未扰动对照设计。",
+      "question": "零样本外推的性能能否改善实验优先级，最合适的简单基线是什么？",
+      "sourceId": "arc-vcc-2026",
+      "group": "institutions",
+      "date": "2026-08-20",
+      "access": "公开原文"
+    },
+    {
+      "id": "organoid-omics-cro-guide",
+      "publisher": "abc biopply",
+      "title": "多类器官与多组学服务如何组合",
+      "summary": "合作将标准化人源模型与分子分析相连，正文署2026年10月。",
+      "question": "模型跨批次一致性和组学分析周转时间是否足以支持重复采购？",
+      "sourceId": "abc-panome-organoids",
+      "group": "companies",
+      "date": "2026-11-05",
+      "access": "公开原文"
     }
   ],
   "sources": [
@@ -2089,6 +2264,102 @@
       "label": "NVIDIA · 生命科学合作",
       "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care",
       "date": "2026-10-21"
+    },
+    {
+      "id": "doe-infuse-2026",
+      "label": "美国能源部 · FY2026 INFUSE遴选",
+      "url": "https://www.energy.gov/science/articles/does-office-science-announces-85-million-innovative-fusion-energy-public-private",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "nist-helion-loi-2026",
+      "label": "NIST · 能源半导体研发意向",
+      "url": "https://www.nist.gov/news-events/news/2026/10/department-commerce-announces-letters-intent-4-companies-389-million-rd",
+      "date": "2026-10-22"
+    },
+    {
+      "id": "helion-power-loi-2026",
+      "label": "Helion · 高压功率半导体意向书",
+      "url": "https://www.helionenergy.com/newsroom/helion-signs-letter-of-intent-for-175-million-chips-award-to-advance-semiconductor-fusion-energy",
+      "date": "2026-10-22"
+    },
+    {
+      "id": "arc-vcc-2026",
+      "label": "Arc Institute · 2026虚拟细胞挑战设计",
+      "url": "https://arcinstitute.org/news/virtual-cell-challenge-2026",
+      "date": "2026-08-20"
+    },
+    {
+      "id": "abc-panome-organoids",
+      "label": "abc biopply · 合作原文",
+      "url": "https://biopply.com/about-us/news/abc-biopply-ag-and-panome-bio-announce-collaboration-to-integrate-advanced-multi-omics-analysis-with-standardized-human-multi-organoid-disease-models",
+      "date": "2026-11-05"
+    },
+    {
+      "id": "abc-press-index",
+      "label": "abc biopply · 公告索引日期",
+      "url": "https://biopply.com/about-us/news/",
+      "date": "2026-11-05"
+    },
+    {
+      "id": "nasa-sspicy-2026",
+      "label": "NASA · SSPICY任务更新",
+      "url": "https://www.nasa.gov/blogs/smallsatellites/2026/11/03/nasa-funded-sspicy-mission-experiences-communications-loss/",
+      "date": "2026-11-03"
+    },
+    {
+      "id": "specific-series-a-2026",
+      "label": "Specific Biologics · 公司融资公告",
+      "url": "https://www.prnewswire.com/news-releases/specific-biologics-announces-oversubscribed-us35-million-series-a-financing-to-advance-gene-editing-therapy-for-als-302926076.html",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "bnl-fusion-controls",
+      "label": "BNL原文",
+      "url": "https://www.bnl.gov/newsroom/news.php?a=123222",
+      "date": "2026-10-19"
+    },
+    {
+      "id": "nih-human-nams-2026",
+      "label": "NIH · 人源研究基础设施",
+      "url": "https://www.nih.gov/news-events/news-releases/nih-makes-major-investments-advance-human-based-research-infrastructure-technologies",
+      "date": "2026-09-21"
+    },
+    {
+      "id": "ionq-elisity-close",
+      "label": "IonQ · Elisity交割公告",
+      "url": "https://investors.ionq.com/news/news-details/2026/IonQ-Completes-Acquisition-of-Elisity-Extending-Quantum-Security-for-Enterprises-and-Government/default.aspx",
+      "date": "2026-11-04"
+    },
+    {
+      "id": "google-malaysia-2026",
+      "label": "Google Cloud · 马来西亚投资公告",
+      "url": "https://www.googlecloudpresscorner.com/2026-11-04-Google-Announces-Digital-Infrastructure-Expansion-Local-Jobs-Water-Replenishment-and-Clean-Energy-Initiatives-with-US-15-Billion-Malaysia-Investment",
+      "date": "2026-11-04"
+    },
+    {
+      "id": "openai-grid-2026",
+      "label": "OpenAI · Grid Protectors公告",
+      "url": "https://openai.com/index/grid-protectors-program/",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "arc-vcc-timeline",
+      "label": "Arc Institute · 挑战结果时间说明",
+      "url": "https://arcinstitute.org/news/vcc-competitor-showcase-2026",
+      "date": "2026-10-15"
+    },
+    {
+      "id": "ionq-elisity-sec8",
+      "label": "IonQ · SEC 8-K交割股份",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526449779/ionq-20261103.htm",
+      "date": "2026-11-05"
+    },
+    {
+      "id": "ionq-elisity-sec10",
+      "label": "IonQ · SEC 10-Q期后事项",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526449829/ionq-20260930.htm",
+      "date": "2026-11-05"
     }
   ],
   "capitalPanorama": {

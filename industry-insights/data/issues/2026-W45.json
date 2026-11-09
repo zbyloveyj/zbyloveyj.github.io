@@ -1,43 +1,49 @@
 {
   "schemaVersion": 1,
-  "issue": "2026-W45 · 创刊观察",
+  "issue": "2026-W45 · 复核增补",
   "period": {
     "start": "2026-11-02",
     "end": "2026-11-08"
   },
-  "generatedAt": "2026-11-08T10:50:31+08:00",
-  "coverageNote": "本期样本：14条本期消息、9条延伸背景。新增商业航天、能源资助、消费健康及机构研究等内容。旧交易、年度估计与机构观点分别标注，不作为本周新增融资；不据样本条数推算全行业资金份额。",
+  "generatedAt": "2026-11-09T08:20:20+08:00",
+  "coverageNote": "本期覆盖11月2日至8日，共20条本期消息、13条延伸背景。样本包含聚变与电网、量子、商业航天、类器官与人源模型、基因编辑、医疗器械及机器人。原文署10月的类器官合作归入背景。虚拟细胞挑战的成绩、部分设备与药企的新研发披露，以及各计划的实际支出仍有缺口。并购以监管文件核对实际交割日，分列已交付股份和或有对价。资本金额按原币种、口径及进度分别呈现。",
   "theses": [
     {
-      "title": "生命科学的机会，也在实验基础设施",
-      "text": "人源细胞供应商与活体组织灌流平台在本期分别披露融资。可提出一个待持续检验的判断：当计算设计越来越快，可重复的细胞、组织模型与实验数据可能成为关键配套。要继续看客户复购、跨批次一致性与真实药企采用。",
+      "title": "聚变和算力项目开始把约束拆成可采购的部件",
+      "text": "DOE的聚变遴选覆盖诊断、材料和模拟，Helion十月意向指向高压脉冲器件。另一边，Google马来西亚园区投资计划和OpenAI用电弹性方案把建设进度与电力容量放到一起看。本站判断，设备与工程服务有机会先进入验证和采购阶段，兑现仍取决于正式协议、台架指标和园区实际接电。",
       "evidenceIds": [
+        "doe-infuse-20261102",
+        "helion-nist-loi-20261022",
+        "google-malaysia-20261104",
+        "openai-grid-20261102"
+      ]
+    },
+    {
+      "title": "生物技术资金对应不同的验证门槛",
+      "text": "Specific的A轮瞄准患者生物标志物概念验证，bit.bio和Vitroscope的融资对应人源细胞供应与活体组织灌流。类器官与组学服务合作展示了另一种交付形式。本站判断，工具供应商更早面对跨批次重现、周转和复购，疗法开发则需依次验证递送、安全性和临床效果。Arc挑战的跨细胞背景成绩仍待正式公布。",
+      "evidenceIds": [
+        "specific-series-a-20261102",
         "bitbio-20261104",
-        "vitroscope-20261103"
+        "vitroscope-20261103",
+        "abc-panome-202610",
+        "arc-vcc-20260820"
       ]
     },
     {
-      "title": "前沿技术开始争夺具体工作流程",
-      "text": "化学研究智能体、代码形式验证和自动驾驶货运分别指向有明确使用者的工作场景。它们的共同观察点是能否减少一次真实任务的成本和错误；融资或演示本身还不能回答规模交付的问题。",
+      "title": "框架、订单和工程验证各有一条兑现路径",
+      "text": "NASA同周公布月球运输采购与SSPICY演示无法恢复，分别提供需求与工程失败的证据。IonQ交割Elisity获得网络安全产品与客户渠道，IBM芝加哥部署提供量子系统的实体验证场景。本站判断，下一步应跟踪任务订单验收、在轨通信可靠性、量子设备使用和安全产品续费，从可观测的使用与回款检验商业假设。",
       "evidenceIds": [
-        "deepmind-20261103",
-        "msr-pdd-20261105",
-        "humble-20261105"
-      ]
-    },
-    {
-      "title": "量子计算要同时看部署与制造配套",
-      "text": "IBM披露新的系统部署，QuiX报告参与欧洲量子光子试验线。两者提示可以从设备与产业配套一起观察量子发展，但欧盟项目总预算不能视作QuiX本轮融资，更不能直接推断行业已普遍盈利。",
-      "evidenceIds": [
-        "ibm-20261106",
-        "quix-20261104"
+        "nasa-clps-20261107",
+        "nasa-sspicy-20261103",
+        "ionq-elisity-close-20261104",
+        "ibm-20261106"
       ]
     }
   ],
   "entries": [
     {
       "id": "nasa-clps-20261107",
-      "title": "NASA更新月球运输框架：100亿美元为十年合同总上限",
+      "title": "NASA公布月球运输框架、月球车交付合同与发射任务订单",
       "organizations": [
         "NASA",
         "Blue Origin",
@@ -57,11 +63,11 @@
       "window": "week",
       "publishedDate": "2026-11-07",
       "eventDate": "2026-11-07",
-      "verifiedDate": "2026-11-08",
+      "verifiedDate": "2026-11-09",
       "evidence": "一手公开原文",
-      "fact": "NASA公告CLPS 2框架遴选八家公司，未来可竞争月球表面运输任务；多供应商框架期限十年，总最高价值100亿美元。",
+      "fact": "NASA于11月7日公布CLPS 2十年框架总上限100亿美元，八家公司获任务竞标资格。另披露Blue Origin月球车交付基础合同9400万美元、按表现触发的1.4亿美元选择项，以及VADR框架下六份任务订单合计约13亿美元。",
       "insight": "公共客户的采购机制可能为商业航天创造需求，但资格、任务订单、实际履约和收入确认是不同阶段。",
-      "nextCheck": "核查后续任务订单及履约支付；不能把框架上限分摊成八家公司已获融资。",
+      "nextCheck": "分开跟踪CLPS 2具体任务订单、PROMISE选择项是否行权，以及VADR各任务交付与回款。",
       "sources": [
         {
           "label": "NASA · 月球运输与技术公告",
@@ -69,17 +75,35 @@
         }
       ],
       "finance": {
-        "display": "100亿美元 · 多供应商框架上限",
-        "basis": "十年IDIQ框架合计最高值；不是已下达订单、实际支出或股权融资",
-        "stage": "框架采购 · 供应商获得竞争资格",
-        "investors": "NASA作为公共采购方",
-        "use": "未来月球货物运输任务",
+        "display": "100亿美元框架上限 · 六份VADR订单约13亿美元",
+        "basis": "CLPS 2是十年框架上限。VADR六份任务订单另属VADR框架。Blue Origin月球车基础合同9400万美元与1.4亿美元选择项各自列示。",
+        "stage": "框架遴选、已授任务订单、选择项分别列示",
+        "investors": "NASA为采购方，承包方以各项订单为准",
+        "use": "月面交付、月球车运输及载荷发射与转运",
         "legs": [
           {
             "type": "contract",
             "currency": "USD",
             "amount": 10000000000,
             "status": "framework_ceiling"
+          },
+          {
+            "type": "contract",
+            "currency": "USD",
+            "amount": 94000000,
+            "status": "base_contract_awarded"
+          },
+          {
+            "type": "contract",
+            "currency": "USD",
+            "amount": 140000000,
+            "status": "performance_option"
+          },
+          {
+            "type": "contract",
+            "currency": "USD",
+            "amount": 1300000000,
+            "status": "six_task_orders_awarded_approx"
           }
         ]
       }
@@ -433,6 +457,116 @@
       ]
     },
     {
+      "id": "google-malaysia-20261104",
+      "title": "Google公布马来西亚2027—2028年150亿美元投资计划",
+      "organizations": [
+        "Google"
+      ],
+      "region": "马来西亚",
+      "tracks": [
+        "giants",
+        "capital"
+      ],
+      "sectors": [
+        "semiconductors",
+        "energy"
+      ],
+      "kind": "capex",
+      "window": "week",
+      "publishedDate": "2026-11-04",
+      "eventDate": "2026-11-04",
+      "verifiedDate": "2026-11-09",
+      "evidence": "一手公开原文",
+      "fact": "Google于11月4日公布面向2027—2028年的150亿美元马来西亚投资计划。方案包含工业区数据中心园区，并配套提出新增清洁电力、水资源与培训计划。",
+      "insight": "选址竞争也取决于电网容量、用水和建设进度。上游机会可能先出现在变电、机电和供水工程，实际订单还要看各园区落实。",
+      "nextCheck": "核查各园区开工、接电容量和投运节点，以及当地供应商合同与分期支出。",
+      "sources": [
+        {
+          "label": "Google Cloud · 马来西亚投资公告",
+          "url": "https://www.googlecloudpresscorner.com/2026-11-04-Google-Announces-Digital-Infrastructure-Expansion-Local-Jobs-Water-Replenishment-and-Clean-Energy-Initiatives-with-US-15-Billion-Malaysia-Investment"
+        }
+      ],
+      "finance": {
+        "display": "150亿美元 · 两年投资计划",
+        "basis": "公告为数字基础设施综合投资计划总额，资本开支拆分和实际支出待后续披露。",
+        "stage": "计划披露 · 2027—2028",
+        "investors": "Google",
+        "use": "马来西亚数字基础设施及配套计划",
+        "legs": [
+          {
+            "type": "capex",
+            "currency": "USD",
+            "amount": 15000000000,
+            "status": "investment_plan_scope_not_itemized"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ionq-elisity-close-20261104",
+      "title": "IonQ完成Elisity全股票并购",
+      "organizations": [
+        "IonQ",
+        "Elisity"
+      ],
+      "region": "美国",
+      "tracks": [
+        "capital",
+        "frontier"
+      ],
+      "sectors": [
+        "quantum"
+      ],
+      "kind": "acquisition",
+      "window": "week",
+      "publishedDate": "2026-11-04",
+      "eventDate": "2026-11-03",
+      "verifiedDate": "2026-11-09",
+      "evidence": "公司交割公告及SEC申报",
+      "fact": "IonQ于11月4日发布交割新闻稿，随后提交的8-K将实际交割日记为11月3日。交割已交付32,233,274股，另有最高4,265,934股与财务目标挂钩。10-Q披露总对价约13亿美元，含最高1.5亿美元或有对价，初始并购会计处理尚未完成。",
+      "insight": "成熟网络安全客户和部署渠道，可能为量子安全产品提供销售入口。交割后的交叉销售仍需以客户采用和续费验证。",
+      "nextCheck": "查验初始购买价分摊、或有股份触发情况和产品整合后的客户续费。",
+      "sources": [
+        {
+          "label": "IonQ · Elisity交割公告",
+          "url": "https://investors.ionq.com/news/news-details/2026/IonQ-Completes-Acquisition-of-Elisity-Extending-Quantum-Security-for-Enterprises-and-Government/default.aspx"
+        },
+        {
+          "label": "IonQ · SEC 8-K交割股份",
+          "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526449779/ionq-20261103.htm"
+        },
+        {
+          "label": "IonQ · SEC 10-Q期后事项",
+          "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526449829/ionq-20260930.htm"
+        },
+        {
+          "label": "IonQ · 初始交易协议",
+          "url": "https://www.ionq.com/news/ionq-to-acquire-elisity-to-accelerate-zero-trust-for-the-quantum-era"
+        }
+      ],
+      "finance": {
+        "display": "约13亿美元 · 全股票总对价，含最高1.5亿美元或有对价",
+        "basis": "以10-Q披露为准。1.5亿美元或有对价上限包含在约13亿美元总对价中。已交付股份数量以8-K为准。",
+        "stage": "全股票并购 · 已交割",
+        "investors": "IonQ为收购方，Elisity为标的",
+        "use": "扩充企业网络安全产品、客户与渠道",
+        "legs": [
+          {
+            "type": "acquisition",
+            "currency": "USD",
+            "amount": 1300000000,
+            "status": "approx_total_including_earnout"
+          },
+          {
+            "type": "acquisition",
+            "currency": "USD",
+            "amount": 150000000,
+            "status": "earnout_ceiling_included_in_total"
+          }
+        ]
+      }
+    },
+    {
       "id": "vitroscope-20261103",
       "title": "Vitroscope融资支持活体组织与类器官灌流平台，股权和资助分开看",
       "organizations": [
@@ -579,6 +713,200 @@
       ]
     },
     {
+      "id": "nasa-sspicy-20261103",
+      "title": "NASA确认SSPICY在轨演示任务无法恢复",
+      "organizations": [
+        "NASA",
+        "Starfish Space"
+      ],
+      "region": "美国",
+      "tracks": [
+        "frontier"
+      ],
+      "sectors": [
+        "space",
+        "robotics"
+      ],
+      "kind": "deployment",
+      "window": "week",
+      "publishedDate": "2026-11-03",
+      "eventDate": null,
+      "verifiedDate": "2026-11-09",
+      "evidence": "一手公开原文",
+      "fact": "NASA于11月3日公布，10月1日发射的SSPICY演示任务在调试阶段失去与Otter航天器的双向通信。NASA与运营方Starfish Space判断航天器无法恢复，公告未给出失联的具体日期。",
+      "insight": "在轨服务收入依赖通信、调试和自主接近等环节连续通过。已入轨的演示任务仍可能在交付链的前端失效。",
+      "nextCheck": "跟踪故障复盘、下一次演示的冗余通信设计，以及采购方是否调整验收与付款节点。",
+      "sources": [
+        {
+          "label": "NASA · SSPICY任务更新",
+          "url": "https://www.nasa.gov/blogs/smallsatellites/2026/11/03/nasa-funded-sspicy-mission-experiences-communications-loss/"
+        }
+      ]
+    },
+    {
+      "id": "doe-infuse-20261102",
+      "title": "美国能源部公布28项聚变研发入选项目，合计拟支持850万美元",
+      "organizations": [
+        "美国能源部科学办公室",
+        "美国国家实验室",
+        "美国高校"
+      ],
+      "region": "美国",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "energy",
+        "semiconductors"
+      ],
+      "kind": "program",
+      "window": "week",
+      "publishedDate": "2026-11-02",
+      "eventDate": "2026-11-02",
+      "verifiedDate": "2026-11-09",
+      "evidence": "一手公开原文",
+      "fact": "11月2日公布的FY2026 INFUSE遴选涉及28项研究，17项由国家实验室牵头、11项由高校牵头，共涉及22家企业。方向包括材料、等离子体诊断、模拟及配套技术。计划支持期为一至两年。",
+      "insight": "公共资金在这里购买的是共享实验和工程验证机会。诊断、材料与控制的验证周期可以独立于完整电站建设，部分成果未来可能进入供应链采购。",
+      "nextCheck": "跟踪哪些项目完成谈判、签约、达到测试指标，以及能否形成商业采购。",
+      "sources": [
+        {
+          "label": "美国能源部 · FY2026 INFUSE遴选",
+          "url": "https://www.energy.gov/science/articles/does-office-science-announces-85-million-innovative-fusion-energy-public-private"
+        }
+      ],
+      "finance": {
+        "display": "850万美元 · 28项合计拟支持",
+        "basis": "项目组合金额，单项预算区间10万至50万美元。入选进入谈判阶段，拨付以正式协议为准。",
+        "stage": "FY2026 INFUSE · 入选资助谈判",
+        "investors": "美国能源部科学办公室",
+        "use": "共享实验条件、材料、诊断与模拟研发",
+        "legs": [
+          {
+            "type": "program",
+            "currency": "USD",
+            "amount": 8500000,
+            "status": "selected_for_negotiation"
+          }
+        ]
+      }
+    },
+    {
+      "id": "openai-grid-20261102",
+      "title": "OpenAI发布算力园区用电弹性计划",
+      "organizations": [
+        "OpenAI",
+        "Georgia Power"
+      ],
+      "region": "美国",
+      "tracks": [
+        "giants",
+        "frontier"
+      ],
+      "sectors": [
+        "semiconductors",
+        "energy"
+      ],
+      "kind": "deployment",
+      "window": "week",
+      "publishedDate": "2026-11-02",
+      "eventDate": "2026-11-02",
+      "verifiedDate": "2026-11-09",
+      "evidence": "一手公开原文",
+      "fact": "11月2日启动Grid Protectors计划，拟与公用事业按园区约定可削减负荷和持续时间。公告以佐治亚州Effingham County拟建园区的既有协议为例，披露最高1000兆瓦需求响应能力。",
+      "insight": "把用电弹性写进园区建设条件，可以让电力侧按高峰压力设计容量。经济性取决于电力收益能否覆盖算力迁移、储能和服务约束。",
+      "nextCheck": "查看协议中的响应时长、调用次数、负荷恢复曲线和投运后的实测容量。1000兆瓦为功率上限，实际供能量取决于响应时长。",
+      "sources": [
+        {
+          "label": "OpenAI · Grid Protectors公告",
+          "url": "https://openai.com/index/grid-protectors-program/"
+        }
+      ]
+    },
+    {
+      "id": "specific-series-a-20261102",
+      "title": "Specific Biologics披露完成3500万美元A轮",
+      "organizations": [
+        "Specific Biologics",
+        "Hatteras Venture Partners"
+      ],
+      "region": "加拿大",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "drugdiscovery",
+        "biomanufacturing"
+      ],
+      "kind": "equity",
+      "window": "week",
+      "publishedDate": "2026-11-02",
+      "eventDate": null,
+      "verifiedDate": "2026-11-09",
+      "evidence": "公司新闻稿 · PR Newswire分发",
+      "fact": "加拿大Specific Biologics于11月2日公告完成超额认购的3500万美元A轮，资金用于推进Dualase候选疗法，目标是在C9ORF72相关ALS患者中获得初步临床生物标志物概念验证。",
+      "insight": "本轮资金对应明确的研发门槛。后续估值和合作机会将受到递送、剂量、安全性及临床可解释性的共同影响。",
+      "nextCheck": "跟踪注册试验、给药后靶点相关标志物变化及安全数据，区分生物标志物信号与患者临床结局。",
+      "sources": [
+        {
+          "label": "Specific Biologics · 公司融资公告",
+          "url": "https://www.prnewswire.com/news-releases/specific-biologics-announces-oversubscribed-us35-million-series-a-financing-to-advance-gene-editing-therapy-for-als-302926076.html"
+        }
+      ],
+      "finance": {
+        "display": "3500万美元 · A轮",
+        "basis": "公司公告披露本轮股权融资总额，交割日未单列。",
+        "stage": "A轮 · 宣布完成",
+        "investors": "Hatteras领投，Lumira、adMare、Genesys、BDC Life Sciences Venture Fund、DeepWork和Seido参与",
+        "use": "推进基因编辑候选疗法的初期临床生物标志物验证",
+        "legs": [
+          {
+            "type": "equity",
+            "currency": "USD",
+            "amount": 35000000,
+            "status": "closed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "abc-panome-202610",
+      "title": "类器官CRO与多组学CRO合作提供临床前分析",
+      "organizations": [
+        "abc biopply",
+        "Panome Bio"
+      ],
+      "region": "瑞士 / 美国",
+      "tracks": [
+        "frontier"
+      ],
+      "sectors": [
+        "organoids",
+        "cellmodels",
+        "drugdiscovery"
+      ],
+      "kind": "partnership",
+      "window": "context",
+      "publishedDate": "2026-11-05",
+      "eventDate": "2026-10",
+      "verifiedDate": "2026-11-09",
+      "evidence": "一手公开原文",
+      "fact": "双方披露签署战略合作，将多类器官疾病模型与代谢组、脂质组和蛋白组分析结合。公司索引标为11月5日，合作原文署2026年10月，因此归入背景。",
+      "insight": "可采购的交付可能是标准化模型和可解释分子读出的组合。成本与结果可重复性决定药企会否扩大采购。",
+      "nextCheck": "查找独立对照、跨批次验证、样本失败率以及后续付费研究项目。",
+      "sources": [
+        {
+          "label": "abc biopply · 合作原文",
+          "url": "https://biopply.com/about-us/news/abc-biopply-ag-and-panome-bio-announce-collaboration-to-integrate-advanced-multi-omics-analysis-with-standardized-human-multi-organoid-disease-models"
+        },
+        {
+          "label": "abc biopply · 公告索引日期",
+          "url": "https://biopply.com/about-us/news/"
+        }
+      ]
+    },
+    {
       "id": "quix-20261104",
       "title": "QuiX更新欧洲P4Q量子光子试验线参与进展，5000万欧元为项目总预算",
       "organizations": [
@@ -624,6 +952,63 @@
           "url": "https://www.quixquantum.com/news/quix-quantum-advances-europes-industrial-quantum-computing-ambitions"
         }
       ]
+    },
+    {
+      "id": "helion-nist-loi-20261022",
+      "title": "Helion签高压功率半导体研发资助意向书",
+      "organizations": [
+        "Helion",
+        "美国商务部CHIPS R&D Office"
+      ],
+      "region": "美国",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "energy",
+        "semiconductors"
+      ],
+      "kind": "program",
+      "window": "context",
+      "publishedDate": "2026-10-22",
+      "eventDate": "2026-10-22",
+      "verifiedDate": "2026-11-09",
+      "evidence": "一手公开原文",
+      "fact": "10月22日美国商务部公告拟支持Helion的高压功率器件及模块研发，最高1.75亿美元。Helion披露预计配套5000万美元私营投资，并说明正式协议将涉及非投票股权安排。",
+      "insight": "资金用途指向脉冲功率器件、封装和制造工艺。若相关器件能在其他高可靠性场景通过认证，配套供应链的商业周期可能早于聚变电站。",
+      "nextCheck": "查验正式协议、股权条款、私营配套落实和器件可靠性数据。",
+      "sources": [
+        {
+          "label": "NIST · 能源半导体研发意向",
+          "url": "https://www.nist.gov/news-events/news/2026/10/department-commerce-announces-letters-intent-4-companies-389-million-rd"
+        },
+        {
+          "label": "Helion · 高压功率半导体意向书",
+          "url": "https://www.helionenergy.com/newsroom/helion-signs-letter-of-intent-for-175-million-chips-award-to-advance-semiconductor-fusion-energy"
+        }
+      ],
+      "finance": {
+        "display": "最高1.75亿美元 · 拟议研发支持",
+        "basis": "10月意向书上限，预计配套5000万美元私营投资独立记录，融资工具和到账状态待确认。",
+        "stage": "意向书 · 等待正式协议",
+        "investors": "美国商务部CHIPS R&D Office，预计私营资金配套",
+        "use": "脉冲功率半导体、模块、先进封装及工装",
+        "legs": [
+          {
+            "type": "program",
+            "currency": "USD",
+            "amount": 175000000,
+            "status": "conditional_loi_ceiling"
+          },
+          {
+            "type": "program",
+            "currency": "USD",
+            "amount": 50000000,
+            "status": "expected_private_cofunding"
+          }
+        ]
+      }
     },
     {
       "id": "nvidia-20261021",
@@ -829,6 +1214,59 @@
       ]
     },
     {
+      "id": "nih-human-nams-20260921",
+      "title": "NIH公布人源研究基础设施与标准化类器官计划",
+      "organizations": [
+        "NIH"
+      ],
+      "region": "美国",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "organoids",
+        "cellmodels",
+        "medtech"
+      ],
+      "kind": "program",
+      "window": "context",
+      "publishedDate": "2026-09-21",
+      "eventDate": "2026-09-21",
+      "verifiedDate": "2026-11-09",
+      "evidence": "一手公开原文",
+      "fact": "NIH于9月21日公告拟推进多项人源研究措施，包括超过8400万美元的生物医学基础设施资金、总额超过700万美元的Qu-SAFE挑战奖项，以及规划中的人源类器官自动化实验平台。",
+      "insight": "公共基础设施可能降低独立实验室接入标准模型和测量平台的门槛。预算与模型跨中心复现的改善是两个可分别核查的结果。",
+      "nextCheck": "区分基础设施拨款、竞赛奖金与实验室建设进度，追踪开放条件与验证数据。",
+      "sources": [
+        {
+          "label": "NIH · 人源研究基础设施",
+          "url": "https://www.nih.gov/news-events/news-releases/nih-makes-major-investments-advance-human-based-research-infrastructure-technologies"
+        }
+      ],
+      "finance": {
+        "display": "超过8400万美元基建资金 · 超过700万美元挑战奖项",
+        "basis": "两项均为公开披露的下界，独立列示。基建资金与竞赛奖项有不同对象与支付条件。",
+        "stage": "9月背景 · NIH项目公告",
+        "investors": "NIH",
+        "use": "人源研究基础设施、临床前检测原型",
+        "legs": [
+          {
+            "type": "program",
+            "currency": "USD",
+            "amount": 84000000,
+            "status": "infrastructure_funding_lower_bound"
+          },
+          {
+            "type": "program",
+            "currency": "USD",
+            "amount": 7000000,
+            "status": "challenge_prizes_lower_bound"
+          }
+        ]
+      }
+    },
+    {
       "id": "ayar-20260910",
       "title": "Ayar Labs追加1.5亿美元融资，支持光互连制造与量产准备",
       "organizations": [
@@ -872,6 +1310,40 @@
           }
         ]
       }
+    },
+    {
+      "id": "arc-vcc-20260820",
+      "title": "Arc虚拟细胞挑战考查未见过的细胞环境",
+      "organizations": [
+        "Arc Institute"
+      ],
+      "region": "美国 / 国际",
+      "tracks": [
+        "frontier"
+      ],
+      "sectors": [
+        "virtualcell",
+        "cellmodels"
+      ],
+      "kind": "research",
+      "window": "context",
+      "publishedDate": "2026-08-20",
+      "eventDate": "2026-08-20",
+      "verifiedDate": "2026-11-09",
+      "evidence": "一手公开原文",
+      "fact": "Arc于8月20日发布2026挑战设计，要求依据未扰动对照预测六个细胞系的CRISPRi敲低响应。10月15日机构更新预告11月19日公布获奖结果。",
+      "insight": "跨细胞背景的外推能力比在同一细胞系内补全扰动更贴近实际研发需求。榜单之外仍需判断预测增益能否改善实验排序。",
+      "nextCheck": "待官方公布结果后比较简单基线、分细胞系成绩和可复现性。",
+      "sources": [
+        {
+          "label": "Arc Institute · 2026虚拟细胞挑战设计",
+          "url": "https://arcinstitute.org/news/virtual-cell-challenge-2026"
+        },
+        {
+          "label": "Arc Institute · 参赛者与结果发布时间",
+          "url": "https://arcinstitute.org/news/vcc-competitor-showcase-2026"
+        }
+      ]
     },
     {
       "id": "iea-invest-20260528",
