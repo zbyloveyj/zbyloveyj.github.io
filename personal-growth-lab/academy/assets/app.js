@@ -52,7 +52,8 @@ function generalistLaunch(){
  const date=new Intl.DateTimeFormat('en-CA',{timeZone:plan.timezone,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
  const d=plan.domains.find(d=>d.date===date)||plan.domains[date<plan.start?0:29];
  const label=date<plan.start?'首日安排':date>plan.end?'最后一天':'今日安排';
- return `<section class="generalist-launch" aria-labelledby="generalist-heading"><div><p class="eyebrow">2026.11.06—12.05 / 每天一个完整领域</p><h2 id="generalist-heading">30天通才培养计划</h2><p>领域导论、7—10本经典精讲、100个知识点、复述与应用测试。</p><p class="generalist-status">${label}：Day ${String(d.day).padStart(2,'0')} · ${E(d.name)} <span>哲学、心理学讲义已制作；其余28天正文待编写。</span></p></div><div class="generalist-links"><a class="button primary" href="generalist-lab/?day=${d.day}&tab=tasks">打开每日任务</a><a href="generalist-lab/?tab=catalog">查看30天完整目录 →</a></div></section>`;
+ const available=plan.domains.filter(d=>d.status==='available');
+ return `<section class="generalist-launch" aria-labelledby="generalist-heading"><div><p class="eyebrow">2026.11.06—12.05 / 每天一个完整领域</p><h2 id="generalist-heading">30天通才培养计划</h2><p>领域导论、7—10本经典精讲、100个知识点、复述与应用测试。</p><p class="generalist-status">${label}：Day ${String(d.day).padStart(2,'0')} · ${E(d.name)} <span>${E(available.map(course=>course.name).join('、'))}讲义已制作（${available.length} / ${plan.domains.length}天）。</span></p></div><div class="generalist-links"><a class="button primary" href="generalist-lab/?day=${d.day}&tab=tasks">打开每日任务</a><a href="generalist-lab/?tab=catalog">查看30天完整目录 →</a></div></section>`;
 }
 function home(){
  const p=['english','coding','writing'].map(x=>byId[x]);

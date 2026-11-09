@@ -1,8 +1,14 @@
 'use strict';
 // Canonical schedule: 1 day = 1 field + 7–10 book guides + all 100 concepts.
 // Module titles describe coverage, not completed lessons or extra learning days.
+const generalistEditions = {
+  1: ['day-01-philosophy-complete.md', 10],
+  2: ['day-02-psychology-complete.md', 8],
+  3: ['courses/day-03-economics.md', 7],
+  4: ['courses/day-04-history.md', 8],
+};
 window.GENERALIST_PLAN = {
-  title: '30天通才培养计划', version: '2026-11-06-psychology-expanded', timezone: 'Asia/Taipei',
+  title: '30天通才培养计划', version: '20261109-generalist04', timezone: 'Asia/Taipei',
   start: '2026-11-06', end: '2026-12-05', books: [7,10], paragraphsPerBook: [3,6], knowledgePerDay: 100,
   domains: [
     ['哲学','逻辑思维、认识论、价值观、人生意义、批判性思考','从怎样判断知识，走向怎样行动，再思考怎样生活。','哲学方法|逻辑与论证|认识论|形而上学与心灵|科学哲学|伦理学|政治哲学|中国哲学|人生哲学|语言美学与技术伦理'],
@@ -35,5 +41,9 @@ window.GENERALIST_PLAN = {
     ['人类学','人类起源、文化演化、社会习俗、文明多样性','从人类与文化的多样性出发，理解习俗背后的关系、意义和历史。','人类学视角|田野与民族志|人类起源与演化|考古与物质文化|语言与意义|亲属家庭与社会|交换生计与经济|宗教仪式与象征|权力殖民与全球化|应用人类学与研究伦理'],
     ['生态与环境科学','生态平衡、气候变化、能源、可持续发展','从生态相互作用和物质循环出发，理解环境压力及治理选择。','生态系统与能量|物质循环|种群与群落|生物多样性|土地水与海洋|污染与环境健康|气候变化|能源与转型|环境经济与治理|可持续发展与恢复'],
     ['军事与战略学','战略思维、博弈、竞争、资源配置、风险判断','以历史与理论理解目标、手段和约束，学习不确定性下的战略判断。','战略目的与手段|战争史与比较|战略经典|地理资源与后勤|信息与不确定性|组织与指挥理论|威慑与安全困境|联盟与国际安全|冲突代价与伦理|战略评估与和平治理']
-  ].map((row,i)=>({day:i+1,date:new Date(Date.UTC(2026,10,6+i)).toISOString().slice(0,10),name:row[0],core:row[1],logic:row[2],modules:row[3].split('|'),status:i<2?'available':'planned',source:i===0?'day-01-philosophy-complete.md':i===1?'day-02-psychology-complete.md':null,bookCount:i===0?10:i===1?8:null}))
+  ].map(([name,core,logic,modules],i)=>{
+    const day=i+1, [source,bookCount]=generalistEditions[day]||[null,null];
+    const date=new Date(Date.UTC(2026,10,6+i)).toISOString().slice(0,10);
+    return {day,date,name,core,logic,modules:modules.split('|'),status:source?'available':'planned',source,bookCount};
+  })
 };
