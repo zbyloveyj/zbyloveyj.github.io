@@ -7,9 +7,55 @@ editions = [
  (2,'day-02-psychology-complete.md',8),
  (3,'courses/day-03-economics.md',7),
  (4,'courses/day-04-history.md',8),
+ (8,'courses/day-08-sociology.md',7),
 ]
+def sociology_edition(s,day,name,book_count):
+ """Parse the expanded Day08 prose without changing existing course formats."""
+ a=s.index('## A 领域导论与学习主线')
+ b=s.index('## B 七本代表性著作精讲')
+ c=s.index('## C 一百个核心知识点')
+ d=s.index('## D 连贯复述与五道应用自测')
+ e=s.index('## E 概念检索与延伸阅读')
+ intro=s[:s.index('## 阅读导航')].strip()+'\n\n'+s[a:b].strip()
+ books=[x.strip() for x in re.split(r'(?=^### \d{2} )',s[b:c],flags=re.M)[1:]]
+ modules=[];items=[];guides={}
+ for group in re.split(r'(?=^### 模块)',s[c:d],flags=re.M)[1:]:
+  title=group.splitlines()[0].removeprefix('### ')
+  first=re.search(r'^\*\*\d{3} ',group,re.M)
+  closing=re.search(r'^\*\*(?:模块衔接|全课收束)。\*\*',group,re.M)
+  assert first and closing
+  modules.append(title)
+  guides[title]={'intro':group[len(group.splitlines()[0]):first.start()].strip(),'review':group[closing.start():].strip()}
+  for m in re.finditer(r'^\*\*(\d{3}) ([^\n]+?)。\*\*\s*\n(.*?)(?=^\*\*\d{3} |\Z)',group[:closing.start()],re.M|re.S):
+   items.append(dict(id=int(m[1]),title=m[2],body=m[3].strip(),module=title))
+ review=s[d:e].strip()
+ start=re.search(r'^### 题1 ',review,re.M)
+ assert start
+ questions=[]
+ for question in re.split(r'(?=^### 题\d )',review[start.start():],flags=re.M):
+  if not question.strip():continue
+  prompt,answer=question.split('<details>',1)
+  answer=re.sub(r'<summary>.*?</summary>','',answer,flags=re.S).replace('</details>','').strip()
+  questions.append({'prompt':prompt.strip(),'answer':answer})
+ assert len(books)==book_count==7
+ assert len(items)==100 and [x['id'] for x in items]==list(range(1,101))
+ assert len(modules)==10 and all(sum(x['module']==g for x in items)==10 for g in modules)
+ assert all(len(x['body'].split('\n\n'))==3 for x in items)
+ assert all(len(book.split('\n\n'))==5 for book in books)
+ assert len(questions)==5 and all('**评分。**' in q['answer'] and '<details>' not in q['answer'] for q in questions)
+ return dict(day=day,source=name,intro=intro,books=books,modules=modules,items=items,review=review,references=s[e:].strip(),moduleGuides=guides,reviewBrief=review[:start.start()].strip(),reviewTail='### 完成自测后\n\n依据每题评分点核对解释与证据，回到对应编号补读，再尝试用新的现实案例复述。',questions=questions)
+
 for day,name,book_count in editions:
  s=(p/name).read_text()
+ if day==8:
+  out=sociology_edition(s,day,name,book_count)
+  target=p/f'course-{day:02}.json'
+  expected=json.dumps(out,ensure_ascii=False,indent=2)+'\n'
+  if '--check' in sys.argv:
+   assert target.read_text()==expected, f'Rebuild {target.name}'
+  elif not target.exists() or target.read_text()!=expected:
+   target.write_text(expected)
+  continue
  if day==1:
   a=s.index('## 第一部分');b=s.index('## 第二部分');c=s.index('## 综合复习');d=s.index('## 原著与参考来源')
   intro=s[:a];books=re.split(r'(?=^## \d{2} )',s[a:b],flags=re.M)[1:];points=s[b:c];review=s[c:d];refs=s[d:]
@@ -68,3 +114,4 @@ for day,name,book_count in editions:
  elif not target.exists() or target.read_text()!=expected:
   target.write_text(expected)
 print(f'Validated {sum(book_count for _,_,book_count in editions)} book guides and {100*len(editions)} core concepts across {len(editions)} editions.')
+

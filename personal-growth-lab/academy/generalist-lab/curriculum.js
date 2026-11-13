@@ -6,9 +6,10 @@ const generalistEditions = {
   2: ['day-02-psychology-complete.md', 8],
   3: ['courses/day-03-economics.md', 7],
   4: ['courses/day-04-history.md', 8],
+  8: ['courses/day-08-sociology.md', 7],
 };
 window.GENERALIST_PLAN = {
-  title: '30天通才培养计划', version: '20261109-generalist04', timezone: 'Asia/Taipei',
+  title: '30天通才培养计划', version: '20261113-sociology08', timezone: 'Asia/Taipei',
   start: '2026-11-06', end: '2026-12-05', books: [7,10], paragraphsPerBook: [3,6], knowledgePerDay: 100,
   domains: [
     ['哲学','逻辑思维、认识论、价值观、人生意义、批判性思考','从怎样判断知识，走向怎样行动，再思考怎样生活。','哲学方法|逻辑与论证|认识论|形而上学与心灵|科学哲学|伦理学|政治哲学|中国哲学|人生哲学|语言美学与技术伦理'],
@@ -47,3 +48,4 @@ window.GENERALIST_PLAN = {
     return {day,date,name,core,logic,modules:modules.split('|'),status:source?'available':'planned',source,bookCount};
   })
 };
+
