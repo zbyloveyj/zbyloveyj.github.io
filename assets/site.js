@@ -38,7 +38,7 @@
     const b = qs('#theme-toggle');
     if(b) b.setAttribute('aria-label', value === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     const meta = qs('meta[name="theme-color"]');
-    if (meta) meta.content = value === 'dark' ? '#202020' : '#781f2b';
+    if (meta) meta.content = value === 'dark' ? '#191d20' : '#ffffff';
   }
   qsa('#main-nav a').forEach(a => { if(['index.html#beyond','index.html#books'].includes(a.getAttribute('href'))){ a.setAttribute('href','books.html'); a.innerHTML=bi('Books','著作'); } });
   const data = window.ACADEMIC_DATA || {publications: [], repositories: []};
@@ -152,13 +152,13 @@
     const hadFocus=qs('#main-nav')?.contains(document.activeElement);
     document.body.classList.remove('nav-open');
     menuBtn?.setAttribute('aria-expanded','false');
-    menuBtn?.setAttribute('aria-label','Open navigation');
+    menuBtn?.setAttribute('aria-label',lang === 'zh' ? '展开导航' : 'Open navigation');
     if(hadFocus)menuBtn?.focus();
   }
   menuBtn?.addEventListener('click',()=>{
     const open=document.body.classList.toggle('nav-open');
     menuBtn.setAttribute('aria-expanded',String(open));
-    menuBtn.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+    menuBtn.setAttribute('aria-label',lang === 'zh' ? (open ? '收起导航' : '展开导航') : (open ? 'Close navigation' : 'Open navigation'));
     if(open)qs('#main-nav a')?.focus();
   });
   qsa('#main-nav a').forEach(a=>a.addEventListener('click',closeMenu));
