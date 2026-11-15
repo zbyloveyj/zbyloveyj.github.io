@@ -1,5 +1,14 @@
 (() => {
   'use strict';
+  function revealReference(hash=location.hash){
+    if(!hash.startsWith('#'))return;
+    const section=document.getElementById(hash.slice(1));
+    const fold=section?.querySelector('.reference-fold');
+    if(fold)fold.open=true;
+  }
+  window.addEventListener('hashchange',()=>revealReference());
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>revealReference(a.getAttribute('href'))));
+  revealReference();
   const query=document.getElementById('research-query');
   const sector=document.getElementById('research-sector');
   function filterArticles(){

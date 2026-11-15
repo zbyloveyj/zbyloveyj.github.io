@@ -1,161 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#173967">
-  <meta name="description" content="一心问道·投稿期刊导航。输入论文标题或摘要匹配候选期刊，跨学科检索并比较影响因子、学科分区、数据库收录、年度文献量与审稿时间，建立自己的投稿清单。每项数据保留年份、口径和来源。">
-  <title>投稿期刊导航 · Journal Atlas｜成长学院</title>
-  <link rel="canonical" href="https://zbyloveyj.github.io/personal-growth-lab/academy/journals/">
-  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261021-ui4">
-  <script defer src="matcher.js?v=20261021-ui4"></script>
-  <script defer src="app.js?v=20261021-ui4"></script>
-</head>
-<body>
-  <a class="skip-link" href="#main">跳到主要内容</a>
-  <header class="site-header">
-    <div class="shell header-row">
-      <a class="brand" href="./" aria-label="投稿期刊导航首页"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 5h8c2 0 3 1 3 3v20c0-2-1-3-3-3H6zM17 8c0-2 1-3 3-3h6v20h-6c-2 0-3 1-3 3"/><path d="M9 10h4m-4 4h4m8-4h2m-2 4h2"/></svg></span><span>投稿期刊导航<small>JOURNAL ATLAS</small></span></a>
-      <nav class="topnav" aria-label="站点导航"><a href="../index.html">成长学院</a><a href="../labs.html">科研环境观察站</a><a href="#methods" data-view="methods">数据说明 ↗</a></nav>
-    </div>
-  </header>
-
-  <main id="main" tabindex="-1">
-    <section class="hero shell" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow"><span></span> JOURNAL ATLAS · RESEARCH WORKSPACE</p>
-        <h1 id="hero-title">让选刊，<em>有据可依。</em></h1>
-        <p class="hero-intro">从一个标题、一段摘要，找到值得进一步了解的期刊。<br class="desktop-break">把研究方向、分区、影响因子与投稿条件，放在一起比较。</p>
-        <div class="hero-links"><a href="#matcher" class="primary-button hero-primary" data-view="matcher"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.1 6.9L21 12l-6.9 2.1L12 21l-2.1-6.9L3 12l6.9-2.1Z"/></svg>用标题 / 摘要匹配<span aria-hidden="true">↗</span></a><a href="#catalog" class="secondary-button" data-view="catalog">浏览期刊目录 <span aria-hidden="true">↓</span></a></div>
-        <div class="hero-utility"><span><i aria-hidden="true"></i> 中英文研究描述均可</span><button class="text-button" type="button" id="open-import">导入个人分区数据</button></div>
-      </div>
-      <aside class="hero-note" aria-label="选刊工作流程">
-        <div class="note-kicker"><span>从研究，到候选</span><span class="note-private">本地匹配</span></div>
-        <h2>先看契合，再做选择。</h2>
-        <ol class="hero-workflow"><li><span>01</span><div><strong>描述你的研究</strong><small>标题、摘要或几个关键词</small></div></li><li><span>02</span><div><strong>设定投稿条件</strong><small>学科、收录、分区与时间</small></div></li><li><span>03</span><div><strong>比较并建立清单</strong><small>每项指标保留年份与来源</small></div></li></ol>
-        <a class="note-foot" href="#matcher" data-view="matcher">开始为这篇稿件选刊 <span aria-hidden="true">↗</span></a>
-      </aside>
-    </section>
-
-    <section class="shell stats" aria-label="数据库覆盖情况" id="stats"><div><span class="stat-value" data-stat="total">—</span><span class="stat-label">跨学科期刊候选</span></div><div><span class="stat-value" data-stat="jif">—</span><span class="stat-label">收录 JIF 数据</span></div><div><span class="stat-value" data-stat="quartile">—</span><span class="stat-label">收录 JCR 分区</span></div><div><span class="stat-value" data-stat="curated">—</span><span class="stat-label">出版方详情核验</span></div><div class="stat-update"><span class="live-dot"></span><span>数据核验日期<br><b id="snapshot-date">正在读取</b></span></div></section>
-
-    <div class="shell workspace">
-      <div class="workspace-tabs" role="tablist" aria-label="期刊工作台">
-        <button id="tab-catalog" role="tab" aria-selected="true" aria-controls="view-catalog" data-view="catalog">探索期刊 <span class="tab-number">01</span></button>
-        <button id="tab-matcher" role="tab" aria-selected="false" aria-controls="view-matcher" data-view="matcher">稿件匹配 <span class="tab-new">NEW</span></button>
-        <button id="tab-shortlist" role="tab" aria-selected="false" aria-controls="view-shortlist" data-view="shortlist">我的投稿清单 <span id="saved-count" class="tab-count">0</span></button>
-        <button id="tab-methods" role="tab" aria-selected="false" aria-controls="view-methods" data-view="methods">数据与方法 <span class="tab-number">04</span></button>
-      </div>
-
-      <section id="view-catalog" role="tabpanel" tabindex="-1" aria-labelledby="tab-catalog">
-        <div class="search-panel"><form id="search-form" class="search-form" role="search"><label class="sr-only" for="search-input">检索刊名、ISSN、研究方向</label><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search-input" type="search" placeholder="搜索刊名、ISSN 或研究方向，如：微生物、脑科学、人工智能" autocomplete="off"><button type="submit" class="primary-button">检索期刊 <span aria-hidden="true">↗</span></button></form><div class="quick-topics"><span>从研究方向开始</span><button data-query="微生物">微生物与生态</button><button data-query="生物信息">生物信息学</button><button data-query="精神病">精神与心理</button><button data-query="脑科学">脑科学</button><button data-query="人工智能">人工智能</button><button data-query="材料">材料与工程</button><button data-query="社会科学">社会科学</button></div></div>
-        <div class="catalog-match-prompt"><span><strong>还没有目标期刊？</strong> 给出标题或一段研究描述，先生成候选清单。</span><button type="button" class="text-button" data-view="matcher">试试稿件匹配 <span aria-hidden="true">↗</span></button></div>
-        <div class="catalog-layout">
-          <aside class="filters" id="filter-panel" aria-label="期刊筛选条件">
-            <div class="filter-heading"><h2>筛选期刊</h2><button class="text-button" id="reset-filters" type="button">重置</button></div>
-            <div class="filter-group"><label for="filter-field">学科领域</label><select id="filter-field"><option value="">全部学科</option></select></div>
-            <div class="filter-group"><label for="filter-database">数据库 / 目录收录</label><select id="filter-database"><option value="">不限收录</option><option value="SCIE">SCI / SCIE</option><option value="SSCI">SSCI</option><option value="ESCI">ESCI</option><option value="AHCI">AHCI</option><option value="MEDLINE">MEDLINE</option><option value="Scopus">Scopus（核实记录）</option><option value="DOAJ">DOAJ</option><option value="SciELO">SciELO</option><option value="CCF-A">CCF A 类</option><option value="CCF-B">CCF B 类</option><option value="CCF-C">CCF C 类</option></select></div>
-            <div class="filter-group"><label for="filter-system">分区体系</label><div class="filter-pair"><select id="filter-system"><option value="JCR">JCR 分区</option></select><select id="filter-quartile" aria-label="分区"><option value="">全部分区</option><option value="Q1">Q1</option><option value="Q2">Q2</option><option value="Q3">Q3</option><option value="Q4">Q4</option></select></div><label class="sub-label" for="filter-category">分区学科</label><select id="filter-category"><option value="">全部分区学科</option></select></div>
-            <div class="filter-group"><label for="filter-year">影响因子 JIF</label><select id="filter-year"><option value="">各刊最新已收录年份</option></select><div class="range-pair"><input type="number" id="filter-min" aria-describedby="catalog-jif-help" min="0" step="0.1" placeholder="最低" aria-label="最低影响因子"><span>—</span><input type="number" id="filter-max" aria-describedby="catalog-jif-help" min="0" step="0.1" placeholder="最高" aria-label="最高影响因子"></div><p class="filter-help" id="catalog-jif-help">数值筛选仅使用所选年份的精确 JIF；区间值不换算，也不回退旧年。</p></div>
-            <div class="filter-group"><label for="filter-oa">开放获取模式</label><select id="filter-oa"><option value="">全部模式</option><option value="yes">OpenAlex 标记全开放获取</option><option value="no">未标记全开放获取</option></select></div>
-            <div class="filter-group"><label for="filter-country">出版国家 / 地区</label><select id="filter-country"><option value="">全部国家 / 地区</option></select></div>
-            <div class="filter-group"><label for="filter-publisher">出版方</label><input id="filter-publisher" type="search" placeholder="如 Springer、Elsevier、Wiley"></div>
-            <div class="filter-group filter-review-group"><label for="filter-review-stage">处理阶段与时间上限</label><select id="filter-review-stage"><option value="first">投稿至首次决定（整体）</option><option value="peer">外审后首次决定</option><option value="publication">投稿至发表（DOAJ 等）</option></select><label class="sr-only" for="filter-review">所选阶段的时间上限</label><select id="filter-review" style="margin-top:7px"><option value="">不限 / 含本站未收录</option><option value="7">7 天内</option><option value="14">14 天内</option><option value="30">30 天内</option><option value="60">60 天内</option><option value="90">90 天内</option><option value="180">180 天内</option><option value="365">365 天内</option></select><p class="filter-help">整体首次决定可能含编辑初筛；外审后决定单独筛选。未披露的阶段保持未知，不互相代替。</p></div>
-            <label class="checkbox-row"><input type="checkbox" id="filter-curated">仅看出版方详情核验期刊</label>
-            <label class="checkbox-row"><input type="checkbox" id="filter-saved">仅看我的收藏</label>
-            <div class="filter-save"><button id="save-search" class="secondary-button full" type="button">＋ 保存这组筛选</button><div id="saved-searches"></div></div>
-          </aside>
-          <div class="catalog-main">
-            <div class="results-toolbar"><div><p class="result-count" id="result-count" role="status" aria-live="polite">正在载入期刊目录…</p><p class="result-subtitle" id="result-subtitle">支持中英文方向与 ISSN 检索</p></div><div class="toolbar-actions"><button id="mobile-filter-toggle" class="secondary-button mobile-filter" type="button" aria-expanded="false" aria-controls="filter-panel">筛选</button><label class="sr-only" for="sort-by">排序方式</label><select id="sort-by"><option value="recommended">详情优先</option><option value="jif-desc">JIF 从高到低</option><option value="jif-asc">JIF 从低到高</option><option value="volume-desc">年度收录量从高到低</option><option value="review-asc">所选阶段时间从短到长</option><option value="name">刊名 A–Z</option></select><div class="view-switch" aria-label="结果显示方式"><button type="button" id="view-cards" aria-pressed="true" aria-label="卡片视图" title="卡片视图">▦</button><button type="button" id="view-table" aria-pressed="false" aria-label="表格视图" title="表格视图">☷</button></div></div></div>
-            <div class="result-actions"><div id="active-filters" class="active-filters"></div><div class="export-actions"><button type="button" id="share-search" class="text-button">复制检索链接</button><button type="button" id="export-results" class="text-button">导出结果 CSV ↓</button></div></div>
-            <div id="catalog-message" class="loading-panel"><span class="loading-ring" aria-hidden="true"></span><h3>正在准备期刊目录</h3><p>首次读取全学科目录需要一点时间；详细数据按需加载。</p></div>
-            <div id="results"></div>
-            <div id="pagination" class="pagination" aria-label="结果翻页"></div>
-            <p class="catalog-footnote">候选目录基于公开文献元数据整理，收录不等于当前接受投稿。投稿前请核对期刊官网、征稿范围与收录状态。未公开的信息保留为空。</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="view-matcher" role="tabpanel" tabindex="-1" aria-labelledby="tab-matcher" hidden>
-        <div class="section-header matcher-heading">
-          <div><p class="eyebrow">FIND A JOURNAL FOR YOUR RESEARCH</p><h2>这篇研究，适合哪些期刊？</h2><p>默认精选 5 本，最多 10 本。先检查核心主题，再执行投稿条件；证据不足时不凑数。</p></div>
-          <div class="local-processing"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="9" width="16" height="12" rx="3"/><path d="M8 9V6a4 4 0 0 1 8 0v3m-4 5v3"/></svg><span>在当前浏览器中处理<small>输入内容无需上传</small></span></div>
-        </div>
-        <form id="matcher-form" class="matcher-form" autocomplete="off" aria-describedby="match-input-guidance">
-          <div class="match-input-card">
-            <div class="match-panel-heading"><span class="step-number">01</span><div><h3>告诉我们，你在研究什么</h3><p id="match-input-guidance">标题、摘要、关键词，任选一项即可开始。</p></div></div>
-            <div class="match-field"><label for="match-title">论文标题 <span>中文或英文</span></label><textarea id="match-title" rows="2" aria-describedby="match-title-count" maxlength="500" placeholder="如：Gut microbiota and host metabolism in depression"></textarea><div class="match-field-footer"><span></span><span id="match-title-count" class="input-count">0 / 500</span></div></div>
-            <div class="match-field"><label for="match-abstract">摘要 / 研究描述 <span>可只写一段话</span></label><textarea id="match-abstract" rows="7" aria-describedby="match-abstract-help match-abstract-count" maxlength="12000" placeholder="粘贴摘要，或简述研究对象、主要问题、方法和发现。
-例如：研究肠道微生物与抑郁症的关系，结合宏基因组、代谢组和脑影像，分析潜在的跨尺度机制。"></textarea><div class="match-field-footer"><p id="match-abstract-help" class="match-input-help">更具体的研究主题有助于缩小候选范围。</p><span id="match-abstract-count" class="input-count">0 / 12,000</span></div></div>
-            <div class="match-field"><label for="match-keywords">补充关键词 <span>选填</span></label><input id="match-keywords" maxlength="500" placeholder="如 microbiome；depression；neuroimaging"></div>
-            <div class="match-examples"><span>试试示例</span><button type="button" data-match-example="microbiome">微生物与脑科学</button><button type="button" data-match-example="ai">人工智能医学</button><button type="button" data-match-example="materials">生物材料与组织工程</button><button type="button" data-match-example="social">城市与社会科学</button></div>
-            <button class="text-button match-use-manuscript" type="button" id="match-use-manuscript">使用投稿清单中的稿件信息 <span aria-hidden="true">↗</span></button>
-          </div>
-          <aside class="match-preferences-card" aria-label="稿件匹配条件">
-            <div class="match-panel-heading"><span class="step-number">02</span><div><h3>设定你在意的条件</h3><p>条件同时生效，先淘汰不符合项，再形成少量候选。</p></div></div>
-            <div class="match-selection-controls">
-              <div class="match-field"><label for="match-limit">本次最多推荐</label><select id="match-limit"><option value="3">3 本 · 更精简</option><option value="5" selected>5 本 · 默认精选</option><option value="10">10 本 · 扩展清单</option></select></div>
-              <label class="match-identity-control"><input type="checkbox" id="match-identity" checked aria-describedby="match-identity-help"><span>有出版方、ISSN 与官网记录</span></label>
-              <p id="match-identity-help" class="match-input-help">默认排除入口资料缺失的条目。官网记录不代表已经逐刊确认当前接受投稿。</p>
-            </div>
-            <div class="match-preferences-grid">
-              <div class="match-field match-span"><label for="match-field">学科范围</label><select id="match-field"><option value="">不限学科 · 保留交叉方向</option></select></div>
-              <div class="match-field match-span"><label for="match-database">数据库 / 目录收录</label><select id="match-database"><option value="">不限收录</option><option value="SCIE">SCI / SCIE</option><option value="SSCI">SSCI</option><option value="ESCI">ESCI</option><option value="AHCI">AHCI</option><option value="DOAJ">DOAJ</option></select></div>
-              <div class="match-field"><label for="match-system">分区体系</label><select id="match-system"><option value="JCR">JCR 分区</option><option value="CAS">中科院 2025 参考</option><option value="SJR">SJR · 个人导入</option></select></div>
-              <div class="match-field"><label for="match-quartile">分区要求</label><select id="match-quartile"><option value="">全部分区</option><option value="Q1">Q1 / 1 区</option><option value="Q2">Q2 / 2 区</option><option value="Q3">Q3 / 3 区</option><option value="Q4">Q4 / 4 区</option></select></div>
-              <div class="match-field"><label for="match-min">最低 JIF</label><input type="number" id="match-min" min="0" max="1000" step="0.1" placeholder="不限"></div>
-              <div class="match-field"><label for="match-max">最高 JIF</label><input type="number" id="match-max" min="0" max="1000" step="0.1" placeholder="不限"></div>
-              <div class="match-field match-span"><label for="match-oa">开放获取模式</label><select id="match-oa"><option value="">全部模式</option><option value="yes">标记为全开放获取</option><option value="no">未标记为全开放获取</option></select></div>
-            </div>
-            <details class="match-advanced" open><summary><span>时间与费用条件</span><span aria-hidden="true">＋</span></summary><div class="match-advanced-fields">
-              <div class="match-field"><label for="match-review-stage">处理阶段</label><select id="match-review-stage"><option value="first">投稿至首次决定（整体）</option><option value="peer">外审后首次决定</option><option value="publication">投稿至发表</option></select></div>
-              <div class="match-field"><label for="match-review">所选阶段的时间上限</label><select id="match-review"><option value="">不限 / 含本站未收录</option><option value="14">14 天内</option><option value="30">30 天内</option><option value="60">60 天内</option><option value="90">90 天内</option><option value="180">180 天内</option><option value="365">365 天内</option></select></div>
-              <div class="match-field"><label for="match-fee">APC 收取情况</label><select id="match-fee"><option value="">不限 / 含未知</option><option value="free">DOAJ 记录为不收 APC</option><option value="paid">DOAJ 记录为收取 APC</option></select></div>
-              <p class="match-input-help">整体首次决定、外审后首次决定、投稿至发表分别筛选。时间不明的期刊不能通过时间上限；不收 APC 不代表没有其他费用。</p>
-            </div></details>
-            <div class="match-condition-note"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></svg><p>指定分区、JIF、时间或费用时，相应信息缺失的期刊不会进入结果。JIF 使用各刊最新已收录年份。</p></div>
-          </aside>
-          <div class="match-submit-row"><div><strong>不够符合，就少推荐。</strong><p>只保留通过主题证据门槛与全部所选条件的候选。</p></div><div class="inline-actions"><button id="match-clear" class="secondary-button" type="button">清空输入</button><button id="match-submit" class="primary-button" type="submit">筛选推荐期刊 <span aria-hidden="true">↗</span></button></div></div>
-        </form>
-        <div id="match-status" class="match-status" role="status" aria-live="polite"></div>
-        <div id="match-analysis" class="match-analysis"></div>
-        <div class="match-results-heading"><div id="match-summary" class="match-summary"></div><div id="match-actions" class="inline-actions" hidden><label class="sr-only" for="match-sort">当前清单内排序</label><select id="match-sort"><option value="relevance">清单内：主题相关优先</option><option value="jif-desc">清单内：JIF 从高到低</option><option value="review-asc">清单内：所选阶段用时从短到长</option></select><button type="button" class="secondary-button" id="match-export">导出这份清单 ↓</button><button type="button" class="text-button" id="match-to-catalog">继续筛选这几本 ↗</button></div></div>
-        <div id="match-results" class="match-result-list"><div class="match-empty"><div class="match-empty-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="13" y="9" width="30" height="43" rx="5"/><path d="M21 20h14M21 27h10M21 34h7"/><circle cx="43" cy="42" r="10"/><path d="m50 50 8 8"/></svg></div><h3>从你的研究出发，筛出少量候选。</h3><p>输入标题或摘要，默认最多推荐 5 本。<br>每本都会说明保留理由、缺少的证据与官网入口。</p><div class="match-empty-steps"><span>识别研究主题</span><i aria-hidden="true">→</i><span>筛选投稿条件</span><i aria-hidden="true">→</i><span>解释匹配依据</span></div></div></div>
-
-        <details class="match-method-note"><summary>如何理解匹配结果？</summary><p>系统在当前浏览器中，把研究描述与刊名、主题和学科资料进行文字检索，再检查关键研究方向、直接证据及语境。仅命中宽泛学科、相关词或不一致语境的记录会被淘汰；你还可以把主题设为必须匹配。主题门槛和投稿条件全部通过后，才选取前 3、5 或 10 本。排序仅改变当前清单的排列，不放宽筛选。</p><p>每本候选会显示保留理由和未覆盖的核心主题。元数据主题可能不完整，当前结果属于投稿前初筛，不代表已核实全文适配，也不预测录用概率。请通过卡片上的官网、作者指南和时间来源，继续核对 Aims &amp; Scope、文章类型、费用与最新收录状态。</p></details>
-      </section>
-
-      <section id="view-shortlist" role="tabpanel" tabindex="-1" aria-labelledby="tab-shortlist" hidden>
-        <div class="section-header"><div><p class="eyebrow">YOUR SUBMISSION DESK</p><h2>把候选，整理成下一步。</h2><p>收藏期刊、记录适配理由与投稿进度。所有个人内容仅保存在当前浏览器。</p></div><div class="inline-actions"><button class="secondary-button" id="backup-personal" type="button">备份个人数据 ↓</button><button class="secondary-button" id="restore-personal" type="button">恢复备份</button></div></div>
-        <div class="manuscript-panel"><div><h3>当前稿件</h3><p>给这份清单一个明确的研究目标。</p></div><div class="manuscript-fields"><label>稿件名称<input id="manuscript-title" placeholder="为正在准备的稿件起个名字" maxlength="300"></label><label>研究关键词<input id="manuscript-keywords" placeholder="如 microbiome depression 或 微生物 精神病" maxlength="500"></label><div class="inline-actions"><button type="button" id="manuscript-search" class="primary-button">用这份稿件匹配期刊</button><button type="button" class="secondary-button" data-view="matcher">打开稿件匹配 ↗</button><span class="fine-print">本地关键词匹配，不预测录用概率。</span></div></div></div>
-        <div class="shortlist-toolbar"><label for="shortlist-stage">投稿状态 <select id="shortlist-stage"><option value="">全部状态</option><option value="considering">待评估</option><option value="primary">优先目标</option><option value="backup">备选目标</option><option value="preparing">准备投稿</option><option value="submitted">已投稿</option><option value="revision">修回中</option><option value="accepted">已接收</option><option value="closed">已结束</option></select></label><button class="text-button" id="export-shortlist" type="button">导出投稿清单 CSV ↓</button></div>
-        <div id="shortlist-content"></div>
-      </section>
-
-      <section id="view-methods" role="tabpanel" tabindex="-1" aria-labelledby="tab-methods" hidden>
-        <div class="section-header"><div><p class="eyebrow">DATA, WITH CONTEXT</p><h2>先读懂指标，再比较期刊。</h2><p>每一个数字都有适用范围。来源、年份、统计对象与缺失情况一起保留。</p></div><button type="button" class="secondary-button" id="open-import-methods">导入个人指标</button></div>
-        <div class="method-grid"><article class="method-card wide"><span class="section-number">01 / COVERAGE</span><h3>这份数据库覆盖了什么</h3><div id="coverage-detail"><p>目录载入后显示实际覆盖统计。</p></div><p>JIF 批量资料来自 NIIC 公开的机构转录表，已核验出版方值优先；JCR 学科分区来自 UEFISCDI 的公开年度表。两类来源分别保留，不当作当前实时查询。</p><p>DOAJ 出版政策使用 2026 年 9 月 20 日公开快照。每刊详情另列 DOAJ 记录的最后更新日期，该日期可能更早；本站访问日期不等于出版社重新确认所有政策的日期。</p><p>本网站区分广泛的“候选目录”与有出版方详细证据的期刊。候选目录不代表推荐名单，不保证当前接收投稿，也不意味着所有指标均已核验。</p><div class="source-links"><a href="https://openalex.org/sources" target="_blank" rel="noopener noreferrer">OpenAlex 期刊目录 ↗</a><a href="https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf" target="_blank" rel="noopener noreferrer">NIIC 公开 JIF 转录表 ↗</a><a href="https://uefiscdi.gov.ro/scientometrie-reviste-0" target="_blank" rel="noopener noreferrer">公开分区资料 ↗</a></div></article>
-        <article class="method-card"><span class="section-number">02 / IMPACT</span><h3>JIF 的年份如何理解</h3><p>2025 年影响因子通常在 2026 年发布。这里以“指标年份”展示趋势，并在详情保留发布年份。不同年份的数据不会混成同一年，也不把 OpenAlex 的两年平均被引次数当作 JIF。最新记录为“&lt;0.1”等阈值时保留原文，不用旧年数值代替；仅选择年份可查看该年记录，设置上下限则只使用精确值。</p><p>JIF 是期刊层面的指标，不能代替单篇论文质量、方法可靠性或研究契合度判断。</p><a class="text-link" href="https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/" target="_blank" rel="noopener noreferrer">Journal Citation Reports ↗</a></article>
-        <article class="method-card"><span class="section-number">03 / QUARTILES</span><h3>三个分区体系，分别看</h3><p><strong>JCR：</strong>按指标年份和 Web of Science 学科记录，同一本刊可以有多个学科分区。卡片展示已收录的各分区；详情列出全部学科。</p><p><strong>中科院分区：</strong>本库如有记录，展示 2025 历史参考版；源表未标明大类、小类时保留这一限制，不从 JCR 推算。</p><p>中国科学院文献情报中心已公告不再更新原分区表；原平台于 2026 年 9 月 30 日停止服务，日期据高校图书馆转知的停止服务通知。“新锐”等其他评价体系应单独识别。</p><p><strong>SJR：</strong>属于另一个评价体系，不等于 JCR。支持本地导入有权使用的记录并标记来源。</p><div class="source-links"><a href="https://www.las.cas.cn/news/tzgg/202603/t20260327_8178738.html" target="_blank" rel="noopener noreferrer">中科院文献情报中心停更公告 ↗</a><a href="https://library.sysu.edu.cn/article/4774" target="_blank" rel="noopener noreferrer">平台停止服务通知 ↗</a></div></article>
-        <article class="method-card"><span class="section-number">04 / INDEXING</span><h3>有影响因子，不等于 SCI</h3><p>SCIE、SSCI、AHCI 与 ESCI 分开记录。目录历史版本中的收录，不等于投稿当天的实时状态；详情保留证据日期，投稿前可通过 Master Journal List 核对。</p><p>未出现在已核验目录或公开声明中的收录状态保留为未知，不当作未收录。MEDLINE、PMC 与 PubMed 不能互相替代。DOAJ 是开放获取期刊目录，OpenAlex 是学术元数据来源；二者均不等于 SCI。</p><div class="source-links"><a href="https://mjl.clarivate.com/" target="_blank" rel="noopener noreferrer">Master Journal List ↗</a><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog/journals" target="_blank" rel="noopener noreferrer">NLM Catalog ↗</a><a href="https://doaj.org/" target="_blank" rel="noopener noreferrer">DOAJ ↗</a></div></article>
-        <article class="method-card"><span class="section-number">05 / VOLUME</span><h3>年度文献量的统计口径</h3><p>年度趋势默认显示 OpenAlex 对该来源收录的文献记录数，可能包含研究论文、综述、社论、勘误等。它不是出版社确认的研究论文发文量，也不是 JIF 分母。</p><p>出版社公布的年度发文量单独展示。当前年度尚未结束，不与完整年度直接比较；缺失年份不按零计算。来源元数据中的异常会显示提示。</p><a class="text-link" href="https://help.openalex.org/how-to/counting/" target="_blank" rel="noopener noreferrer">OpenAlex 计数说明 ↗</a></article>
-        <article class="method-card"><span class="section-number">06 / REVIEW</span><h3>“首次决定”与“外审”不同</h3><p>首次决定可能包含编辑直接退稿。外审后决定、投稿至接收、接收至上线，分别是不同阶段；平均数和中位数也不能直接混用。</p><p>本站仅按已披露口径展示，不根据其他期刊推算未知周期。过往时间用于规划，不能保证下一篇稿件的处理时长。</p></article>
-        <article class="method-card"><span class="section-number">07 / SUBMISSIONS</span><h3>投稿人数、投稿量与录用率</h3><p>投稿人数是独立投稿者数量，投稿量是稿件数量，二者不同。只有来源明确披露时才显示；不根据年度发文量倒推出投稿量，也不推测“多少人正在投”。</p><p>录用率须注明年份、统计对象与分母。某刊整体录用率不能当作你这篇稿件的录用概率。</p></article>
-        <article class="method-card"><span class="section-number">08 / YOUR DATA</span><h3>个人数据如何保存</h3><p>收藏、笔记、稿件名称、筛选方案和个人导入数据只写入本浏览器的本地存储，不上传到服务器。更换设备或清理浏览器可能丢失，建议定期导出 JSON 备份。</p><p>导入的 JCR / 中科院 / SJR 记录始终标记为“个人导入”，不会覆盖公开来源或上传到公共目录。</p><button class="text-button" id="backup-methods" type="button">下载我的备份 ↓</button></article></div>
-      </section>
-    </div>
-  </main>
-
-  <div id="compare-tray" class="compare-tray" hidden><div class="shell compare-tray-inner"><div><span class="compare-label">横向比较</span><strong id="compare-count">0 / 4</strong><span id="compare-names"></span></div><div class="inline-actions"><button id="clear-compare" class="text-button" type="button">清空</button><button id="open-compare" class="primary-button" type="button">比较所选期刊 ↗</button></div></div></div>
-
-  <dialog id="journal-dialog" class="journal-dialog" aria-labelledby="journal-dialog-title"><div class="dialog-header"><p class="eyebrow">JOURNAL PROFILE</p><button class="icon-button" type="button" data-close="journal-dialog" aria-label="关闭期刊详情">×</button></div><div id="journal-detail"></div></dialog>
-  <dialog id="compare-dialog" class="compare-dialog" aria-labelledby="compare-dialog-title"><div class="dialog-header"><div><p class="eyebrow">SIDE BY SIDE</p><h2 id="compare-dialog-title">把差异放在一起看。</h2></div><button class="icon-button" type="button" data-close="compare-dialog" aria-label="关闭对比">×</button></div><div id="compare-content"></div></dialog>
-  <dialog id="import-dialog" class="import-dialog" aria-labelledby="import-dialog-title"><div class="dialog-header"><div><p class="eyebrow">PRIVATE METRIC OVERLAY</p><h2 id="import-dialog-title">导入个人分区与指标</h2></div><button class="icon-button" type="button" data-close="import-dialog" aria-label="关闭导入">×</button></div><p>导入你有权使用的 CSV 数据，通过 ISSN 匹配期刊。记录只保存在当前浏览器，详情始终保留“个人导入”标签。</p><div class="import-spec"><strong>CSV 表头</strong><code>ISSN,year,system,category,quartile,impact_factor,source</code><p>system 可为 JCR、CAS（中科院）或 SJR；quartile 可为 Q1–Q4 或 1–4。year 必填。中科院大类与小类请在 category 中注明。impact_factor 仅用于 JCR；未知留空。</p></div><div class="inline-actions"><button type="button" id="choose-metrics" class="primary-button">选择 CSV 文件</button><button type="button" id="download-template" class="secondary-button">下载空白模板</button></div><p id="metric-import-result" role="status" class="import-result"></p><div id="personal-metrics-summary"></div></dialog>
-  <input type="file" id="metric-file" accept=".csv,text/csv" hidden>
-  <input type="file" id="backup-file" accept=".json,application/json" hidden>
-  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-  <footer class="site-footer shell"><div><a class="footer-brand" href="../index.html">一心问道 · 成长学院</a><p>把选择做得更清楚，把研究留给真正重要的问题。</p></div><div><a href="../index.html">返回成长学院 ↗</a><span> / </span><a href="#methods" data-view="methods">数据与方法</a><p>公开来源 · 年份可追溯 · 个人记录本地保存</p></div></footer>
-  <noscript><div class="noscript">期刊检索和个人清单需要 JavaScript。你仍可访问 <a href="https://mjl.clarivate.com/">Master Journal List</a>、<a href="https://doaj.org/">DOAJ</a> 与 <a href="https://openalex.org/sources">OpenAlex</a> 查询期刊。</div></noscript>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#173967" name="theme-color"/>
+<meta content="一心问道·投稿期刊导航。输入论文标题或摘要匹配候选期刊，跨学科检索并比较影响因子、学科分区、数据库收录、年度文献量与审稿时间，建立自己的投稿清单。每项数据保留年份、口径和来源。" name="description"/>
+<title>投稿期刊导航 · Journal Atlas｜成长学院</title>
+<link href="https://zbyloveyj.github.io/personal-growth-lab/academy/journals/" rel="canonical"/>
+<link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="styles.css?v=20261021-ui4" rel="stylesheet"/>
+<script defer="" src="matcher.js?v=20261021-ui4"></script>
+<script defer="" src="app.js?v=20261021-ui4"></script>
+<link href="../../../assets/site-context.css?v=20261115" rel="stylesheet"/></head>
+<body><div class="site-context"><div><a class="context-brand" href="../../../index.html">朱宝圆 <small>BAOYUAN ZHU</small></a><nav aria-label="个人网站导航"><a href="../../../books.html">著作</a><a href="../../../personal-growth-lab/academy/">成长学院</a><a href="../../../industry-insights/">行业洞察</a><a href="../../../about.html">关于</a></nav></div></div>
+<a class="skip-link" href="#main">跳到主要内容</a>
+<header class="site-header">
+<div class="shell header-row">
+<a aria-label="投稿期刊导航首页" class="brand" href="./"><span aria-hidden="true" class="brand-icon"><svg viewbox="0 0 32 32"><path d="M6 5h8c2 0 3 1 3 3v20c0-2-1-3-3-3H6zM17 8c0-2 1-3 3-3h6v20h-6c-2 0-3 1-3 3"></path><path d="M9 10h4m-4 4h4m8-4h2m-2 4h2"></path></svg></span><span>投稿期刊导航<small>JOURNAL ATLAS</small></span></a>
+<nav aria-label="站点导航" class="topnav"><a href="../index.html">成长学院</a><a href="../labs.html">科研环境观察站</a><a data-view="methods" href="#methods">数据说明 ↗</a></nav>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<section aria-labelledby="hero-title" class="hero shell">
+<div class="hero-copy">
+<p class="eyebrow"><span></span> JOURNAL ATLAS · RESEARCH WORKSPACE</p>
+<h1 id="hero-title">让选刊，<em>有据可依。</em></h1>
+<p class="hero-intro">从一个标题、一段摘要，找到值得进一步了解的期刊。<br class="desktop-break"/>把研究方向、分区、影响因子与投稿条件，放在一起比较。</p>
+<div class="hero-links"><a class="primary-button hero-primary" data-view="matcher" href="#matcher"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m12 3 2.1 6.9L21 12l-6.9 2.1L12 21l-2.1-6.9L3 12l6.9-2.1Z"></path></svg>用标题 / 摘要匹配<span aria-hidden="true">↗</span></a><a class="secondary-button" data-view="catalog" href="#catalog">浏览期刊目录 <span aria-hidden="true">↓</span></a></div>
+<div class="hero-utility"><span><i aria-hidden="true"></i> 中英文研究描述均可</span><button class="text-button" id="open-import" type="button">导入个人分区数据</button></div>
+</div>
+<aside aria-label="选刊工作流程" class="hero-note">
+<div class="note-kicker"><span>从研究，到候选</span><span class="note-private">本地匹配</span></div>
+<h2>先看契合，再做选择。</h2>
+<ol class="hero-workflow"><li><span>01</span><div><strong>描述你的研究</strong><small>标题、摘要或几个关键词</small></div></li><li><span>02</span><div><strong>设定投稿条件</strong><small>学科、收录、分区与时间</small></div></li><li><span>03</span><div><strong>比较并建立清单</strong><small>每项指标保留年份与来源</small></div></li></ol>
+<a class="note-foot" data-view="matcher" href="#matcher">开始为这篇稿件选刊 <span aria-hidden="true">↗</span></a>
+</aside>
+</section>
+<section aria-label="数据库覆盖情况" class="shell stats" id="stats"><div><span class="stat-value" data-stat="total">—</span><span class="stat-label">跨学科期刊候选</span></div><div><span class="stat-value" data-stat="jif">—</span><span class="stat-label">收录 JIF 数据</span></div><div><span class="stat-value" data-stat="quartile">—</span><span class="stat-label">收录 JCR 分区</span></div><div><span class="stat-value" data-stat="curated">—</span><span class="stat-label">出版方详情核验</span></div><div class="stat-update"><span class="live-dot"></span><span>数据核验日期<br/><b id="snapshot-date">正在读取</b></span></div></section>
+<div class="shell workspace">
+<div aria-label="期刊工作台" class="workspace-tabs" role="tablist">
+<button aria-controls="view-catalog" aria-selected="true" data-view="catalog" id="tab-catalog" role="tab">探索期刊 <span class="tab-number">01</span></button>
+<button aria-controls="view-matcher" aria-selected="false" data-view="matcher" id="tab-matcher" role="tab">稿件匹配 <span class="tab-new">NEW</span></button>
+<button aria-controls="view-shortlist" aria-selected="false" data-view="shortlist" id="tab-shortlist" role="tab">我的投稿清单 <span class="tab-count" id="saved-count">0</span></button>
+<button aria-controls="view-methods" aria-selected="false" data-view="methods" id="tab-methods" role="tab">数据与方法 <span class="tab-number">04</span></button>
+</div>
+<section aria-labelledby="tab-catalog" id="view-catalog" role="tabpanel" tabindex="-1">
+<div class="search-panel"><form class="search-form" id="search-form" role="search"><label class="sr-only" for="search-input">检索刊名、ISSN、研究方向</label><svg aria-hidden="true" class="search-icon" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg><input autocomplete="off" id="search-input" placeholder="搜索刊名、ISSN 或研究方向，如：微生物、脑科学、人工智能" type="search"/><button class="primary-button" type="submit">检索期刊 <span aria-hidden="true">↗</span></button></form><div class="quick-topics"><span>从研究方向开始</span><button data-query="微生物">微生物与生态</button><button data-query="生物信息">生物信息学</button><button data-query="精神病">精神与心理</button><button data-query="脑科学">脑科学</button><button data-query="人工智能">人工智能</button><button data-query="材料">材料与工程</button><button data-query="社会科学">社会科学</button></div></div>
+<div class="catalog-match-prompt"><span><strong>还没有目标期刊？</strong> 给出标题或一段研究描述，先生成候选清单。</span><button class="text-button" data-view="matcher" type="button">试试稿件匹配 <span aria-hidden="true">↗</span></button></div>
+<div class="catalog-layout">
+<aside aria-label="期刊筛选条件" class="filters" id="filter-panel">
+<div class="filter-heading"><h2>筛选期刊</h2><button class="text-button" id="reset-filters" type="button">重置</button></div>
+<div class="filter-group"><label for="filter-field">学科领域</label><select id="filter-field"><option value="">全部学科</option></select></div>
+<div class="filter-group"><label for="filter-database">数据库 / 目录收录</label><select id="filter-database"><option value="">不限收录</option><option value="SCIE">SCI / SCIE</option><option value="SSCI">SSCI</option><option value="ESCI">ESCI</option><option value="AHCI">AHCI</option><option value="MEDLINE">MEDLINE</option><option value="Scopus">Scopus（核实记录）</option><option value="DOAJ">DOAJ</option><option value="SciELO">SciELO</option><option value="CCF-A">CCF A 类</option><option value="CCF-B">CCF B 类</option><option value="CCF-C">CCF C 类</option></select></div>
+<div class="filter-group"><label for="filter-system">分区体系</label><div class="filter-pair"><select id="filter-system"><option value="JCR">JCR 分区</option></select><select aria-label="分区" id="filter-quartile"><option value="">全部分区</option><option value="Q1">Q1</option><option value="Q2">Q2</option><option value="Q3">Q3</option><option value="Q4">Q4</option></select></div><label class="sub-label" for="filter-category">分区学科</label><select id="filter-category"><option value="">全部分区学科</option></select></div>
+<div class="filter-group"><label for="filter-year">影响因子 JIF</label><select id="filter-year"><option value="">各刊最新已收录年份</option></select><div class="range-pair"><input aria-describedby="catalog-jif-help" aria-label="最低影响因子" id="filter-min" min="0" placeholder="最低" step="0.1" type="number"/><span>—</span><input aria-describedby="catalog-jif-help" aria-label="最高影响因子" id="filter-max" min="0" placeholder="最高" step="0.1" type="number"/></div><p class="filter-help" id="catalog-jif-help">数值筛选仅使用所选年份的精确 JIF；区间值不换算，也不回退旧年。</p></div>
+<div class="filter-group"><label for="filter-oa">开放获取模式</label><select id="filter-oa"><option value="">全部模式</option><option value="yes">OpenAlex 标记全开放获取</option><option value="no">未标记全开放获取</option></select></div>
+<div class="filter-group"><label for="filter-country">出版国家 / 地区</label><select id="filter-country"><option value="">全部国家 / 地区</option></select></div>
+<div class="filter-group"><label for="filter-publisher">出版方</label><input id="filter-publisher" placeholder="如 Springer、Elsevier、Wiley" type="search"/></div>
+<div class="filter-group filter-review-group"><label for="filter-review-stage">处理阶段与时间上限</label><select id="filter-review-stage"><option value="first">投稿至首次决定（整体）</option><option value="peer">外审后首次决定</option><option value="publication">投稿至发表（DOAJ 等）</option></select><label class="sr-only" for="filter-review">所选阶段的时间上限</label><select id="filter-review" style="margin-top:7px"><option value="">不限 / 含本站未收录</option><option value="7">7 天内</option><option value="14">14 天内</option><option value="30">30 天内</option><option value="60">60 天内</option><option value="90">90 天内</option><option value="180">180 天内</option><option value="365">365 天内</option></select><p class="filter-help">整体首次决定可能含编辑初筛；外审后决定单独筛选。未披露的阶段保持未知，不互相代替。</p></div>
+<label class="checkbox-row"><input id="filter-curated" type="checkbox"/>仅看出版方详情核验期刊</label>
+<label class="checkbox-row"><input id="filter-saved" type="checkbox"/>仅看我的收藏</label>
+<div class="filter-save"><button class="secondary-button full" id="save-search" type="button">＋ 保存这组筛选</button><div id="saved-searches"></div></div>
+</aside>
+<div class="catalog-main">
+<div class="results-toolbar"><div><p aria-live="polite" class="result-count" id="result-count" role="status">正在载入期刊目录…</p><p class="result-subtitle" id="result-subtitle">支持中英文方向与 ISSN 检索</p></div><div class="toolbar-actions"><button aria-controls="filter-panel" aria-expanded="false" class="secondary-button mobile-filter" id="mobile-filter-toggle" type="button">筛选</button><label class="sr-only" for="sort-by">排序方式</label><select id="sort-by"><option value="recommended">详情优先</option><option value="jif-desc">JIF 从高到低</option><option value="jif-asc">JIF 从低到高</option><option value="volume-desc">年度收录量从高到低</option><option value="review-asc">所选阶段时间从短到长</option><option value="name">刊名 A–Z</option></select><div aria-label="结果显示方式" class="view-switch"><button aria-label="卡片视图" aria-pressed="true" id="view-cards" title="卡片视图" type="button">▦</button><button aria-label="表格视图" aria-pressed="false" id="view-table" title="表格视图" type="button">☷</button></div></div></div>
+<div class="result-actions"><div class="active-filters" id="active-filters"></div><div class="export-actions"><button class="text-button" id="share-search" type="button">复制检索链接</button><button class="text-button" id="export-results" type="button">导出结果 CSV ↓</button></div></div>
+<div class="loading-panel" id="catalog-message"><span aria-hidden="true" class="loading-ring"></span><h3>正在准备期刊目录</h3><p>首次读取全学科目录需要一点时间；详细数据按需加载。</p></div>
+<div id="results"></div>
+<div aria-label="结果翻页" class="pagination" id="pagination"></div>
+<p class="catalog-footnote">候选目录基于公开文献元数据整理，收录不等于当前接受投稿。投稿前请核对期刊官网、征稿范围与收录状态。未公开的信息保留为空。</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="tab-matcher" hidden="" id="view-matcher" role="tabpanel" tabindex="-1">
+<div class="section-header matcher-heading">
+<div><p class="eyebrow">FIND A JOURNAL FOR YOUR RESEARCH</p><h2>这篇研究，适合哪些期刊？</h2><p>默认精选 5 本，最多 10 本。先检查核心主题，再执行投稿条件；证据不足时不凑数。</p></div>
+<div class="local-processing"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="12" rx="3" width="16" x="4" y="9"></rect><path d="M8 9V6a4 4 0 0 1 8 0v3m-4 5v3"></path></svg><span>在当前浏览器中处理<small>输入内容无需上传</small></span></div>
+</div>
+<form aria-describedby="match-input-guidance" autocomplete="off" class="matcher-form" id="matcher-form">
+<div class="match-input-card">
+<div class="match-panel-heading"><span class="step-number">01</span><div><h3>告诉我们，你在研究什么</h3><p id="match-input-guidance">标题、摘要、关键词，任选一项即可开始。</p></div></div>
+<div class="match-field"><label for="match-title">论文标题 <span>中文或英文</span></label><textarea aria-describedby="match-title-count" id="match-title" maxlength="500" placeholder="如：Gut microbiota and host metabolism in depression" rows="2"></textarea><div class="match-field-footer"><span></span><span class="input-count" id="match-title-count">0 / 500</span></div></div>
+<div class="match-field"><label for="match-abstract">摘要 / 研究描述 <span>可只写一段话</span></label><textarea aria-describedby="match-abstract-help match-abstract-count" id="match-abstract" maxlength="12000" placeholder="粘贴摘要，或简述研究对象、主要问题、方法和发现。
+例如：研究肠道微生物与抑郁症的关系，结合宏基因组、代谢组和脑影像，分析潜在的跨尺度机制。" rows="7"></textarea><div class="match-field-footer"><p class="match-input-help" id="match-abstract-help">更具体的研究主题有助于缩小候选范围。</p><span class="input-count" id="match-abstract-count">0 / 12,000</span></div></div>
+<div class="match-field"><label for="match-keywords">补充关键词 <span>选填</span></label><input id="match-keywords" maxlength="500" placeholder="如 microbiome；depression；neuroimaging"/></div>
+<div class="match-examples"><span>试试示例</span><button data-match-example="microbiome" type="button">微生物与脑科学</button><button data-match-example="ai" type="button">人工智能医学</button><button data-match-example="materials" type="button">生物材料与组织工程</button><button data-match-example="social" type="button">城市与社会科学</button></div>
+<button class="text-button match-use-manuscript" id="match-use-manuscript" type="button">使用投稿清单中的稿件信息 <span aria-hidden="true">↗</span></button>
+</div>
+<aside aria-label="稿件匹配条件" class="match-preferences-card">
+<div class="match-panel-heading"><span class="step-number">02</span><div><h3>设定你在意的条件</h3><p>条件同时生效，先淘汰不符合项，再形成少量候选。</p></div></div>
+<div class="match-selection-controls">
+<div class="match-field"><label for="match-limit">本次最多推荐</label><select id="match-limit"><option value="3">3 本 · 更精简</option><option selected="" value="5">5 本 · 默认精选</option><option value="10">10 本 · 扩展清单</option></select></div>
+<label class="match-identity-control"><input aria-describedby="match-identity-help" checked="" id="match-identity" type="checkbox"/><span>有出版方、ISSN 与官网记录</span></label>
+<p class="match-input-help" id="match-identity-help">默认排除入口资料缺失的条目。官网记录不代表已经逐刊确认当前接受投稿。</p>
+</div>
+<div class="match-preferences-grid">
+<div class="match-field match-span"><label for="match-field">学科范围</label><select id="match-field"><option value="">不限学科 · 保留交叉方向</option></select></div>
+<div class="match-field match-span"><label for="match-database">数据库 / 目录收录</label><select id="match-database"><option value="">不限收录</option><option value="SCIE">SCI / SCIE</option><option value="SSCI">SSCI</option><option value="ESCI">ESCI</option><option value="AHCI">AHCI</option><option value="DOAJ">DOAJ</option></select></div>
+<div class="match-field"><label for="match-system">分区体系</label><select id="match-system"><option value="JCR">JCR 分区</option><option value="CAS">中科院 2025 参考</option><option value="SJR">SJR · 个人导入</option></select></div>
+<div class="match-field"><label for="match-quartile">分区要求</label><select id="match-quartile"><option value="">全部分区</option><option value="Q1">Q1 / 1 区</option><option value="Q2">Q2 / 2 区</option><option value="Q3">Q3 / 3 区</option><option value="Q4">Q4 / 4 区</option></select></div>
+<div class="match-field"><label for="match-min">最低 JIF</label><input id="match-min" max="1000" min="0" placeholder="不限" step="0.1" type="number"/></div>
+<div class="match-field"><label for="match-max">最高 JIF</label><input id="match-max" max="1000" min="0" placeholder="不限" step="0.1" type="number"/></div>
+<div class="match-field match-span"><label for="match-oa">开放获取模式</label><select id="match-oa"><option value="">全部模式</option><option value="yes">标记为全开放获取</option><option value="no">未标记为全开放获取</option></select></div>
+</div>
+<details class="match-advanced" open=""><summary><span>时间与费用条件</span><span aria-hidden="true">＋</span></summary><div class="match-advanced-fields">
+<div class="match-field"><label for="match-review-stage">处理阶段</label><select id="match-review-stage"><option value="first">投稿至首次决定（整体）</option><option value="peer">外审后首次决定</option><option value="publication">投稿至发表</option></select></div>
+<div class="match-field"><label for="match-review">所选阶段的时间上限</label><select id="match-review"><option value="">不限 / 含本站未收录</option><option value="14">14 天内</option><option value="30">30 天内</option><option value="60">60 天内</option><option value="90">90 天内</option><option value="180">180 天内</option><option value="365">365 天内</option></select></div>
+<div class="match-field"><label for="match-fee">APC 收取情况</label><select id="match-fee"><option value="">不限 / 含未知</option><option value="free">DOAJ 记录为不收 APC</option><option value="paid">DOAJ 记录为收取 APC</option></select></div>
+<p class="match-input-help">整体首次决定、外审后首次决定、投稿至发表分别筛选。时间不明的期刊不能通过时间上限；不收 APC 不代表没有其他费用。</p>
+</div></details>
+<div class="match-condition-note"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6m0-10v1"></path></svg><p>指定分区、JIF、时间或费用时，相应信息缺失的期刊不会进入结果。JIF 使用各刊最新已收录年份。</p></div>
+</aside>
+<div class="match-submit-row"><div><strong>不够符合，就少推荐。</strong><p>只保留通过主题证据门槛与全部所选条件的候选。</p></div><div class="inline-actions"><button class="secondary-button" id="match-clear" type="button">清空输入</button><button class="primary-button" id="match-submit" type="submit">筛选推荐期刊 <span aria-hidden="true">↗</span></button></div></div>
+</form>
+<div aria-live="polite" class="match-status" id="match-status" role="status"></div>
+<div class="match-analysis" id="match-analysis"></div>
+<div class="match-results-heading"><div class="match-summary" id="match-summary"></div><div class="inline-actions" hidden="" id="match-actions"><label class="sr-only" for="match-sort">当前清单内排序</label><select id="match-sort"><option value="relevance">清单内：主题相关优先</option><option value="jif-desc">清单内：JIF 从高到低</option><option value="review-asc">清单内：所选阶段用时从短到长</option></select><button class="secondary-button" id="match-export" type="button">导出这份清单 ↓</button><button class="text-button" id="match-to-catalog" type="button">继续筛选这几本 ↗</button></div></div>
+<div class="match-result-list" id="match-results"><div class="match-empty"><div aria-hidden="true" class="match-empty-icon"><svg viewbox="0 0 64 64"><rect height="43" rx="5" width="30" x="13" y="9"></rect><path d="M21 20h14M21 27h10M21 34h7"></path><circle cx="43" cy="42" r="10"></circle><path d="m50 50 8 8"></path></svg></div><h3>从你的研究出发，筛出少量候选。</h3><p>输入标题或摘要，默认最多推荐 5 本。<br/>每本都会说明保留理由、缺少的证据与官网入口。</p><div class="match-empty-steps"><span>识别研究主题</span><i aria-hidden="true">→</i><span>筛选投稿条件</span><i aria-hidden="true">→</i><span>解释匹配依据</span></div></div></div>
+<details class="match-method-note"><summary>如何理解匹配结果？</summary><p>系统在当前浏览器中，把研究描述与刊名、主题和学科资料进行文字检索，再检查关键研究方向、直接证据及语境。仅命中宽泛学科、相关词或不一致语境的记录会被淘汰；你还可以把主题设为必须匹配。主题门槛和投稿条件全部通过后，才选取前 3、5 或 10 本。排序仅改变当前清单的排列，不放宽筛选。</p><p>每本候选会显示保留理由和未覆盖的核心主题。元数据主题可能不完整，当前结果属于投稿前初筛，不代表已核实全文适配，也不预测录用概率。请通过卡片上的官网、作者指南和时间来源，继续核对 Aims &amp; Scope、文章类型、费用与最新收录状态。</p></details>
+</section>
+<section aria-labelledby="tab-shortlist" hidden="" id="view-shortlist" role="tabpanel" tabindex="-1">
+<div class="section-header"><div><p class="eyebrow">YOUR SUBMISSION DESK</p><h2>把候选，整理成下一步。</h2><p>收藏期刊、记录适配理由与投稿进度。所有个人内容仅保存在当前浏览器。</p></div><div class="inline-actions"><button class="secondary-button" id="backup-personal" type="button">备份个人数据 ↓</button><button class="secondary-button" id="restore-personal" type="button">恢复备份</button></div></div>
+<div class="manuscript-panel"><div><h3>当前稿件</h3><p>给这份清单一个明确的研究目标。</p></div><div class="manuscript-fields"><label>稿件名称<input id="manuscript-title" maxlength="300" placeholder="为正在准备的稿件起个名字"/></label><label>研究关键词<input id="manuscript-keywords" maxlength="500" placeholder="如 microbiome depression 或 微生物 精神病"/></label><div class="inline-actions"><button class="primary-button" id="manuscript-search" type="button">用这份稿件匹配期刊</button><button class="secondary-button" data-view="matcher" type="button">打开稿件匹配 ↗</button><span class="fine-print">本地关键词匹配，不预测录用概率。</span></div></div></div>
+<div class="shortlist-toolbar"><label for="shortlist-stage">投稿状态 <select id="shortlist-stage"><option value="">全部状态</option><option value="considering">待评估</option><option value="primary">优先目标</option><option value="backup">备选目标</option><option value="preparing">准备投稿</option><option value="submitted">已投稿</option><option value="revision">修回中</option><option value="accepted">已接收</option><option value="closed">已结束</option></select></label><button class="text-button" id="export-shortlist" type="button">导出投稿清单 CSV ↓</button></div>
+<div id="shortlist-content"></div>
+</section>
+<section aria-labelledby="tab-methods" hidden="" id="view-methods" role="tabpanel" tabindex="-1">
+<div class="section-header"><div><p class="eyebrow">DATA, WITH CONTEXT</p><h2>先读懂指标，再比较期刊。</h2><p>每一个数字都有适用范围。来源、年份、统计对象与缺失情况一起保留。</p></div><button class="secondary-button" id="open-import-methods" type="button">导入个人指标</button></div>
+<div class="method-grid"><article class="method-card wide"><span class="section-number">01 / COVERAGE</span><h3>这份数据库覆盖了什么</h3><div id="coverage-detail"><p>目录载入后显示实际覆盖统计。</p></div><p>JIF 批量资料来自 NIIC 公开的机构转录表，已核验出版方值优先；JCR 学科分区来自 UEFISCDI 的公开年度表。两类来源分别保留，不当作当前实时查询。</p><p>DOAJ 出版政策使用 2026 年 9 月 20 日公开快照。每刊详情另列 DOAJ 记录的最后更新日期，该日期可能更早；本站访问日期不等于出版社重新确认所有政策的日期。</p><p>本网站区分广泛的“候选目录”与有出版方详细证据的期刊。候选目录不代表推荐名单，不保证当前接收投稿，也不意味着所有指标均已核验。</p><div class="source-links"><a href="https://openalex.org/sources" rel="noopener noreferrer" target="_blank">OpenAlex 期刊目录 ↗</a><a href="https://www.niic.nsc.ru/phocadownload/publications/2025/JCR_JournalImpactFactor_2026.pdf" rel="noopener noreferrer" target="_blank">NIIC 公开 JIF 转录表 ↗</a><a href="https://uefiscdi.gov.ro/scientometrie-reviste-0" rel="noopener noreferrer" target="_blank">公开分区资料 ↗</a></div></article>
+<article class="method-card"><span class="section-number">02 / IMPACT</span><h3>JIF 的年份如何理解</h3><p>2025 年影响因子通常在 2026 年发布。这里以“指标年份”展示趋势，并在详情保留发布年份。不同年份的数据不会混成同一年，也不把 OpenAlex 的两年平均被引次数当作 JIF。最新记录为“&lt;0.1”等阈值时保留原文，不用旧年数值代替；仅选择年份可查看该年记录，设置上下限则只使用精确值。</p><p>JIF 是期刊层面的指标，不能代替单篇论文质量、方法可靠性或研究契合度判断。</p><a class="text-link" href="https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/" rel="noopener noreferrer" target="_blank">Journal Citation Reports ↗</a></article>
+<article class="method-card"><span class="section-number">03 / QUARTILES</span><h3>三个分区体系，分别看</h3><p><strong>JCR：</strong>按指标年份和 Web of Science 学科记录，同一本刊可以有多个学科分区。卡片展示已收录的各分区；详情列出全部学科。</p><p><strong>中科院分区：</strong>本库如有记录，展示 2025 历史参考版；源表未标明大类、小类时保留这一限制，不从 JCR 推算。</p><p>中国科学院文献情报中心已公告不再更新原分区表；原平台于 2026 年 9 月 30 日停止服务，日期据高校图书馆转知的停止服务通知。“新锐”等其他评价体系应单独识别。</p><p><strong>SJR：</strong>属于另一个评价体系，不等于 JCR。支持本地导入有权使用的记录并标记来源。</p><div class="source-links"><a href="https://www.las.cas.cn/news/tzgg/202603/t20260327_8178738.html" rel="noopener noreferrer" target="_blank">中科院文献情报中心停更公告 ↗</a><a href="https://library.sysu.edu.cn/article/4774" rel="noopener noreferrer" target="_blank">平台停止服务通知 ↗</a></div></article>
+<article class="method-card"><span class="section-number">04 / INDEXING</span><h3>有影响因子，不等于 SCI</h3><p>SCIE、SSCI、AHCI 与 ESCI 分开记录。目录历史版本中的收录，不等于投稿当天的实时状态；详情保留证据日期，投稿前可通过 Master Journal List 核对。</p><p>未出现在已核验目录或公开声明中的收录状态保留为未知，不当作未收录。MEDLINE、PMC 与 PubMed 不能互相替代。DOAJ 是开放获取期刊目录，OpenAlex 是学术元数据来源；二者均不等于 SCI。</p><div class="source-links"><a href="https://mjl.clarivate.com/" rel="noopener noreferrer" target="_blank">Master Journal List ↗</a><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog/journals" rel="noopener noreferrer" target="_blank">NLM Catalog ↗</a><a href="https://doaj.org/" rel="noopener noreferrer" target="_blank">DOAJ ↗</a></div></article>
+<article class="method-card"><span class="section-number">05 / VOLUME</span><h3>年度文献量的统计口径</h3><p>年度趋势默认显示 OpenAlex 对该来源收录的文献记录数，可能包含研究论文、综述、社论、勘误等。它不是出版社确认的研究论文发文量，也不是 JIF 分母。</p><p>出版社公布的年度发文量单独展示。当前年度尚未结束，不与完整年度直接比较；缺失年份不按零计算。来源元数据中的异常会显示提示。</p><a class="text-link" href="https://help.openalex.org/how-to/counting/" rel="noopener noreferrer" target="_blank">OpenAlex 计数说明 ↗</a></article>
+<article class="method-card"><span class="section-number">06 / REVIEW</span><h3>“首次决定”与“外审”不同</h3><p>首次决定可能包含编辑直接退稿。外审后决定、投稿至接收、接收至上线，分别是不同阶段；平均数和中位数也不能直接混用。</p><p>本站仅按已披露口径展示，不根据其他期刊推算未知周期。过往时间用于规划，不能保证下一篇稿件的处理时长。</p></article>
+<article class="method-card"><span class="section-number">07 / SUBMISSIONS</span><h3>投稿人数、投稿量与录用率</h3><p>投稿人数是独立投稿者数量，投稿量是稿件数量，二者不同。只有来源明确披露时才显示；不根据年度发文量倒推出投稿量，也不推测“多少人正在投”。</p><p>录用率须注明年份、统计对象与分母。某刊整体录用率不能当作你这篇稿件的录用概率。</p></article>
+<article class="method-card"><span class="section-number">08 / YOUR DATA</span><h3>个人数据如何保存</h3><p>收藏、笔记、稿件名称、筛选方案和个人导入数据只写入本浏览器的本地存储，不上传到服务器。更换设备或清理浏览器可能丢失，建议定期导出 JSON 备份。</p><p>导入的 JCR / 中科院 / SJR 记录始终标记为“个人导入”，不会覆盖公开来源或上传到公共目录。</p><button class="text-button" id="backup-methods" type="button">下载我的备份 ↓</button></article></div>
+</section>
+</div>
+</main>
+<div class="compare-tray" hidden="" id="compare-tray"><div class="shell compare-tray-inner"><div><span class="compare-label">横向比较</span><strong id="compare-count">0 / 4</strong><span id="compare-names"></span></div><div class="inline-actions"><button class="text-button" id="clear-compare" type="button">清空</button><button class="primary-button" id="open-compare" type="button">比较所选期刊 ↗</button></div></div></div>
+<dialog aria-labelledby="journal-dialog-title" class="journal-dialog" id="journal-dialog"><div class="dialog-header"><p class="eyebrow">JOURNAL PROFILE</p><button aria-label="关闭期刊详情" class="icon-button" data-close="journal-dialog" type="button">×</button></div><div id="journal-detail"></div></dialog>
+<dialog aria-labelledby="compare-dialog-title" class="compare-dialog" id="compare-dialog"><div class="dialog-header"><div><p class="eyebrow">SIDE BY SIDE</p><h2 id="compare-dialog-title">把差异放在一起看。</h2></div><button aria-label="关闭对比" class="icon-button" data-close="compare-dialog" type="button">×</button></div><div id="compare-content"></div></dialog>
+<dialog aria-labelledby="import-dialog-title" class="import-dialog" id="import-dialog"><div class="dialog-header"><div><p class="eyebrow">PRIVATE METRIC OVERLAY</p><h2 id="import-dialog-title">导入个人分区与指标</h2></div><button aria-label="关闭导入" class="icon-button" data-close="import-dialog" type="button">×</button></div><p>导入你有权使用的 CSV 数据，通过 ISSN 匹配期刊。记录只保存在当前浏览器，详情始终保留“个人导入”标签。</p><div class="import-spec"><strong>CSV 表头</strong><code>ISSN,year,system,category,quartile,impact_factor,source</code><p>system 可为 JCR、CAS（中科院）或 SJR；quartile 可为 Q1–Q4 或 1–4。year 必填。中科院大类与小类请在 category 中注明。impact_factor 仅用于 JCR；未知留空。</p></div><div class="inline-actions"><button class="primary-button" id="choose-metrics" type="button">选择 CSV 文件</button><button class="secondary-button" id="download-template" type="button">下载空白模板</button></div><p class="import-result" id="metric-import-result" role="status"></p><div id="personal-metrics-summary"></div></dialog>
+<input accept=".csv,text/csv" hidden="" id="metric-file" type="file"/>
+<input accept=".json,application/json" hidden="" id="backup-file" type="file"/>
+<div aria-live="polite" class="toast" hidden="" id="toast" role="status"></div>
+<footer class="site-footer shell"><div><a class="footer-brand" href="../index.html">一心问道 · 成长学院</a><p>把选择做得更清楚，把研究留给真正重要的问题。</p></div><div><a href="../index.html">返回成长学院 ↗</a><span> / </span><a data-view="methods" href="#methods">数据与方法</a><p>公开来源 · 年份可追溯 · 个人记录本地保存</p></div></footer>
+<noscript><div class="noscript">期刊检索和个人清单需要 JavaScript。你仍可访问 <a href="https://mjl.clarivate.com/">Master Journal List</a>、<a href="https://doaj.org/">DOAJ</a> 与 <a href="https://openalex.org/sources">OpenAlex</a> 查询期刊。</div></noscript>
 </body>
 </html>

@@ -22,7 +22,7 @@
       b.querySelector('.language-other').textContent = lang === 'en' ? '中文' : 'EN';
       b.setAttribute('aria-label', lang === 'en' ? '切换到中文' : 'Switch to English');
     }
-    if(!document.body.classList.contains('inner-page'))document.title = lang === 'zh' ? '朱宝圆 | 微生物组 · 脑科学 · 人工智能' : 'Baoyuan Zhu · Microbiome, Brain & AI';
+    if(!document.body.classList.contains('inner-page')||document.body.classList.contains('page-home'))document.title = lang === 'zh' ? '朱宝圆 | 微生物组 · 脑科学 · 人工智能' : 'Baoyuan Zhu · Microbiome, Brain & AI';
     updatePubCount();
   }
   function applyTheme(value) {
@@ -45,7 +45,7 @@
         <span class="pub-year">${Number(p.year)}</span>
         <div class="pub-details"><h3 class="pub-title"><a href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener noreferrer" aria-label="Open journal article: ${esc(p.title)}">${esc(p.title)}</a></h3><p class="pub-authors">${parts}</p>
         <p class="pub-meta"><span class="pub-journal">${esc(p.journal)}</span><span>DOI: ${esc(p.doi)}</span><span class="pub-role ${p.role === 'coauthor' ? 'coauthor' : ''}">${bi(p.leadLabel, p.leadLabelZh)}</span></p></div>
-        <div class="pub-links"><a href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI for ${esc(p.title)}">PAPER ↗</a><button class="cite-copy" type="button" data-index="${i}" aria-label="Copy citation for ${esc(p.title)}">${bi('COPY CITE','复制引文')}</button></div>
+        <div class="pub-links"><button class="cite-copy" type="button" data-index="${i}" aria-label="Copy citation for ${esc(p.title)}">${bi('COPY CITE','复制引文')}</button></div>
       </article>`;
     }).join('');
     qsa('.cite-copy',pubRoot).forEach(b=>b.addEventListener('click',()=>copyCitation(data.publications[Number(b.dataset.index)]?.citation)));

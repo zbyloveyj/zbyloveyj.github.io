@@ -6,7 +6,7 @@ from urllib.parse import urlsplit, unquote
 from xml.etree import ElementTree as ET
 import re, json, subprocess, sys
 R=Path(__file__).resolve().parents[1]
-PAGES=['index.html','research.html','publications.html','projects.html','cv.html','404.html']
+PAGES=['index.html','about.html','books.html','research.html','publications.html','projects.html','cv.html','404.html']
 class Analyzer(HTMLParser):
  def __init__(self):super().__init__();self.links=[];self.ids=[]
  def handle_starttag(self,tag,attrs):
@@ -36,7 +36,7 @@ def validate():
   if name in ('research.html','publications.html','projects.html'):
    for x in ('class="inner-hero"','id="main-nav"','assets/v3.js'):
     if x not in content:raise AssertionError(f'{name}: missing {x}')
- for key in ('about','research','publications','open-science','journey','beyond','contact'):
+ for key in ('about','research','publications','open-science','books','beyond','contact'):
   if f'id="{key}"' not in (R/'index.html').read_text('utf-8'):
    raise AssertionError('Homepage missing '+key)
  for f in ('assets/data.js','assets/site.js','assets/v3.js'):
@@ -61,13 +61,19 @@ def validate():
  ET.parse(R/'sitemap.xml')
  for label in ('telephone','birth date','home address'):
   if label in (R/'index.html').read_text('utf-8').lower():raise AssertionError('Unnecessary private info')
- # V4 regression checks: release all linked scholarly resources.
- for page in ('index.html','research.html','publications.html','projects.html'):
+ # Redesign regression: the catalogue has one owner, and the core pages one stylesheet.
+ for page in ('index.html','research.html','publications.html','projects.html','about.html','books.html'):
   html=(R/page).read_text('utf-8')
-  if 'assets/editorial-v4.css' not in html or 'href="cv.html"' not in html:
-   raise AssertionError('Missing editorial v4 CSS or CV link: '+page)
- if 'graduate-research-handbook/' not in (R/'index.html').read_text('utf-8') or 'graduate-research-handbook/' not in (R/'projects.html').read_text('utf-8'):
-  raise AssertionError('Graduate guide must be linked from homepage and open-science page')
+  if 'assets/site-design.css' not in html or len(re.findall(r'rel="stylesheet"',html))!=1:
+   raise AssertionError('Core page must use one design stylesheet: '+page)
+  if 'personal-growth-lab/academy/' not in html:raise AssertionError('Learning navigation missing: '+page)
+  p=Analyzer();p.feed(html)
+  if len(p.ids)!=len(set(p.ids)):raise AssertionError('Duplicate IDs: '+page)
+ for page in ('index.html','projects.html','about.html'):
+  if 'class="edition-books-grid"' in (R/page).read_text():raise AssertionError('Duplicated full book catalogue: '+page)
+ if 'id="journey"' not in (R/'about.html').read_text():raise AssertionError('Biography lost academic experience')
+ if 'href="cv.html"' not in (R/'about.html').read_text():raise AssertionError('Printable CV missing from About')
+ if 'graduate-research-handbook/' not in (R/'books.html').read_text():raise AssertionError('Handbook missing from catalogue')
  if 'graduate-research-handbook/' not in (R/'sitemap.xml').read_text('utf-8'):
   raise AssertionError('Graduate guide missing from sitemap')
  for fname in ('assets/editorial-v4.css','graduate-research-handbook/index.html','graduate-research-handbook/data/catalog.json','graduate-research-handbook/assets/app.js'):
@@ -86,5 +92,5 @@ def validate():
  profile_readme=(R/'github-profile/README.md').read_text('utf-8')
  if 'happily in a relationship' not in profile_readme or '和对象一起的日常生活' not in profile_readme:
   raise AssertionError('Profile README personal note missing')
- print('PASS: 6 HTML pages; 10 verified DOI records; full-author BibTeX/RIS; 5 projects; internal links; JS syntax; PDF and illustrations.')
+ print('PASS: 8 HTML pages; unified navigation/design; no duplicated book catalogues; 10 verified DOI records; full-author BibTeX/RIS; 5 projects; internal links; JS syntax; PDF and illustrations.')
 if __name__=='__main__':validate()
