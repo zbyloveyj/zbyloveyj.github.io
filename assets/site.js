@@ -7,7 +7,9 @@
   const safeSet = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const bi = (en, zh) => `<span class="en-only">${esc(en)}</span><span class="zh-only">${esc(zh)}</span>`;
-  let lang = safeGet('academic-site:lang') === 'en' ? 'en' : 'zh';
+  const requestedLanguage = new URLSearchParams(location.search).get('lang');
+  const initialLanguage = ['zh','en'].includes(requestedLanguage) ? requestedLanguage : (root.dataset.languageEntry || safeGet('academic-site:lang') || 'zh');
+  let lang = initialLanguage === 'en' ? 'en' : 'zh';
   let filter = 'all';
   let publicationQuery = '';
 
@@ -17,11 +19,16 @@
     root.lang = lang === 'zh' ? 'zh-CN' : 'en';
     safeSet('academic-site:lang', lang);
     const b = qs('#lang-toggle');
-    if (b) {
-      b.querySelector('.language-current').textContent = lang === 'en' ? 'EN' : '中文';
-      b.querySelector('.language-other').textContent = lang === 'en' ? '中文' : 'EN';
+    if (b?.querySelector('[data-site-lang]')) {
+      b.querySelectorAll('[data-site-lang]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.siteLang === lang)));
+    } else if (b) {
+      if(b.querySelector('.language-current')) b.querySelector('.language-current').textContent = lang === 'en' ? 'EN' : '中文';
+      if(b.querySelector('.language-other')) b.querySelector('.language-other').textContent = lang === 'en' ? '中文' : 'EN';
       b.setAttribute('aria-label', lang === 'en' ? '切换到中文' : 'Switch to English');
     }
+    qsa('[data-alt-zh]').forEach(image => { image.alt = lang === 'en' ? image.dataset.altEn : image.dataset.altZh; });
+    qsa('[data-label-zh]').forEach(element => { element.setAttribute('aria-label', lang === 'en' ? element.dataset.labelEn : element.dataset.labelZh); });
+    qsa('[data-placeholder-zh]').forEach(input => { input.placeholder = lang === 'en' ? input.dataset.placeholderEn : input.dataset.placeholderZh; });
     if(!document.body.classList.contains('inner-page')||document.body.classList.contains('page-home'))document.title = lang === 'zh' ? '朱宝圆 | 微生物组 · 脑科学 · 人工智能' : 'Baoyuan Zhu · Microbiome, Brain & AI';
     updatePubCount();
   }
@@ -31,7 +38,7 @@
     const b = qs('#theme-toggle');
     if(b) b.setAttribute('aria-label', value === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     const meta = qs('meta[name="theme-color"]');
-    if (meta) meta.content = value === 'dark' ? '#19241f' : '#f7f6f1';
+    if (meta) meta.content = value === 'dark' ? '#202020' : '#781f2b';
   }
   qsa('#main-nav a').forEach(a => { if(['index.html#beyond','index.html#books'].includes(a.getAttribute('href'))){ a.setAttribute('href','books.html'); a.innerHTML=bi('Books','著作'); } });
   const data = window.ACADEMIC_DATA || {publications: [], repositories: []};
@@ -54,14 +61,14 @@
   function updatePubCount() {
     const total = qsa('.pub-item:not([hidden])').length;
     const text = qs('#pub-count');
-    if(text) text.textContent = lang === 'zh' ? `显示 ${total} 篇` : `${total} papers shown`;
+    if(text) text.textContent = lang === 'zh' ? `显示 ${total} 篇` : `${total} ${total === 1 ? 'paper' : 'papers'} shown`;
   }
   function setFilter(value) {
     filter=value;
     let visible=0;
     qsa('.pub-item').forEach(el => {
       const indexed = data.publications[Number(el.dataset.index)];
-      const text = indexed ? [indexed.title,indexed.authors,indexed.journal,indexed.doi,String(indexed.year)].join(' ').toLocaleLowerCase() : el.textContent.toLocaleLowerCase();
+      const text = indexed ? [indexed.title,indexed.authors,indexed.journal,indexed.doi,indexed.key,indexed.topic,indexed.focus,indexed.focusZh,String(indexed.year)].join(' ').toLocaleLowerCase() : el.textContent.toLocaleLowerCase();
       const matchesYear = value==='all' || (value==='lead' ? el.dataset.lead === 'true' : el.dataset.year===value);
       el.hidden = !(matchesYear && (!publicationQuery || text.includes(publicationQuery)));
       if(!el.hidden)visible++;
@@ -114,7 +121,14 @@
   }
   renderPubs();renderRepos();
   applyLang(lang);applyTheme(safeGet('academic-site:theme') === 'dark'?'dark':'light');
-  qs('#lang-toggle')?.addEventListener('click', () => applyLang(lang === 'en' ? 'zh' : 'en'));
+  if(qs('[data-site-lang]')) {
+    qsa('[data-site-lang]').forEach(button => button.addEventListener('click', () => {
+      applyLang(button.dataset.siteLang);
+      if(['http:','https:'].includes(location.protocol)) {
+        try { const url = new URL(location.href); url.searchParams.set('lang', lang); history.replaceState(null, '', url); } catch (_) {}
+      }
+    }));
+  } else qs('#lang-toggle')?.addEventListener('click', () => applyLang(lang === 'en' ? 'zh' : 'en'));
   qs('#theme-toggle')?.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
   qsa('[data-filter]').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));
   qs('#pub-search')?.addEventListener('input',e=>{
