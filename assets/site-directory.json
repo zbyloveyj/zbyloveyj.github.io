@@ -1,0 +1,427 @@
+{
+  "version": "20261116-structure",
+  "groups": [
+    {
+      "id": "research",
+      "title": "研究与代码",
+      "titleEn": "Research & code",
+      "entries": [
+        {
+          "title": "研究介绍",
+          "titleEn": "Research overview",
+          "href": "research.html",
+          "description": "科学问题、方法框架与3项代表研究的完整介绍。",
+          "descriptionEn": "Research questions, methods and three detailed case studies.",
+          "kind": "研究介绍",
+          "keywords": "Wiredancer BIGHI 生态因子 多界 微生物组 脑肠",
+          "kindEn": "Research overview"
+        },
+        {
+          "title": "精选论文目录",
+          "titleEn": "Selected publications",
+          "href": "publications.html",
+          "description": "检索本站精选10篇论文，查看贡献并下载引文。",
+          "descriptionEn": "Search 10 selected papers, authorship notes and citation downloads.",
+          "kind": "论文检索",
+          "keywords": "DOI BibTeX RIS CSV 自杀 认知 抑郁 精神分裂",
+          "kindEn": "Publication search"
+        },
+        {
+          "title": "开源项目",
+          "titleEn": "Open code",
+          "href": "projects.html",
+          "description": "5个研究与教学项目，附用途、配套研究和GitHub入口。",
+          "descriptionEn": "Five research and teaching repositories with context and links.",
+          "kind": "代码仓库",
+          "keywords": "Wiredancer CLEAR Normative Network BioAgentLab 多界 规范网络",
+          "kindEn": "Code repositories"
+        }
+      ]
+    },
+    {
+      "id": "writing",
+      "title": "著作与教材",
+      "titleEn": "Books & guides",
+      "entries": [
+        {
+          "title": "全部著作与开放教材",
+          "titleEn": "All books and guides",
+          "href": "books.html",
+          "description": "2部科学小说、2部指南与教材的阅读、目录和下载方式。",
+          "descriptionEn": "Reading and downloads for two science novels and two guides.",
+          "kind": "作品目录",
+          "keywords": "一心问道 小说 写作 书籍",
+          "kindEn": "Books and guides"
+        },
+        {
+          "title": "看不见的文明",
+          "titleEn": "The Invisible Civilization",
+          "href": "books.html#book-microbes",
+          "description": "从科学史与普通人的生活进入微生物世界。",
+          "descriptionEn": "A science-history novel about microbes and everyday life.",
+          "kind": "中文小说",
+          "keywords": "微生物 科学史",
+          "kindEn": "Novel · Chinese"
+        },
+        {
+          "title": "在我们理解大脑之前",
+          "titleEn": "Before We Understood the Brain",
+          "href": "books.html#book-brain",
+          "description": "神经科学发现中的人物、实验与选择。",
+          "descriptionEn": "A novel about neuroscience, experiments and scientific lives.",
+          "kind": "中文小说",
+          "keywords": "神经科学 大脑 图文 PDF",
+          "kindEn": "Novel · Chinese"
+        },
+        {
+          "title": "BioAgentLab · 教材与示例",
+          "titleEn": "BioAgentLab · textbook and examples",
+          "href": "books.html#book-agent",
+          "description": "GitHub上的科研智能体教材与配套代码示例。",
+          "descriptionEn": "GitHub-hosted scientific-agent teaching material and examples.",
+          "kind": "中文教材 / GitHub",
+          "keywords": "AI Agent 生物学 教学 证据",
+          "kindEn": "Textbook · Chinese · GitHub"
+        },
+        {
+          "title": "从读研到做研究",
+          "titleEn": "From Graduate Study to Research",
+          "href": "graduate-research-handbook/",
+          "description": "按章节阅读科研入门手册，支持全文检索与学习计划。",
+          "descriptionEn": "Read the research handbook by chapter, search or study plan.",
+          "kind": "中文手册",
+          "keywords": "文献 选题 实验 统计 论文 研究生",
+          "kindEn": "Handbook · Chinese"
+        }
+      ]
+    },
+    {
+      "id": "learning",
+      "title": "成长学院与课程",
+      "titleEn": "Academy & courses",
+      "entries": [
+        {
+          "title": "成长学院 · 学习工作台",
+          "titleEn": "Growth academy · learning desk",
+          "href": "personal-growth-lab/academy/",
+          "description": "统一学习入口；继续最近一课，查看计划与记录。",
+          "descriptionEn": "The main learning entrance, with recent practice and plans.",
+          "kind": "学习总入口",
+          "keywords": "学习 首页 继续",
+          "kindEn": "Learning home"
+        },
+        {
+          "title": "全部课程与学习计划",
+          "titleEn": "Course and plan catalogue",
+          "href": "personal-growth-lab/academy/#/projects",
+          "description": "搜索专题课程，以及通才、口才和100天计划。",
+          "descriptionEn": "Find subject courses and independent learning plans.",
+          "kind": "课程目录",
+          "keywords": "全部 学习 目录",
+          "kindEn": "Course catalogue"
+        },
+        {
+          "title": "我的学习记录",
+          "titleEn": "My practice records",
+          "href": "personal-growth-lab/academy/#/journal",
+          "description": "回看本机专题课程记录，进入各独立课程的记录页。",
+          "descriptionEn": "Review local subject-course notes and links to independent logs.",
+          "kind": "本地记录",
+          "keywords": "笔记 备份 导出 进度",
+          "kindEn": "Local records"
+        },
+        {
+          "title": "30天通才培养计划",
+          "titleEn": "30-day generalist plan",
+          "href": "personal-growth-lab/academy/generalist-lab/?tab=catalog",
+          "description": "按领域浏览正式讲义、已有初稿及待完善课程。",
+          "descriptionEn": "Browse fields, released lessons, draft readings and planned material.",
+          "kind": "中文课程 / 日期计划",
+          "keywords": "哲学 心理 经济 历史 管理 金融 社会 逻辑 法律 教育",
+          "kindEn": "Chinese course · Scheduled plan"
+        },
+        {
+          "title": "90天学术英语",
+          "titleEn": "90-day academic English",
+          "href": "personal-growth-lab/academy/#/english",
+          "description": "科研介绍、学术交流与日常表达。",
+          "descriptionEn": "Practice research introductions, discussion and everyday communication.",
+          "kind": "中文课程 / 自主推进",
+          "keywords": "english 学习",
+          "kindEn": "Chinese course · Self-paced"
+        },
+        {
+          "title": "AI编程实战实验室",
+          "titleEn": "AI coding lab",
+          "href": "personal-growth-lab/academy/#/coding",
+          "description": "从数据契约到评估、测试与可复现代码。",
+          "descriptionEn": "Practice data contracts, evaluation, tests and reproducible code.",
+          "kind": "中文课程 / 自主推进",
+          "keywords": "coding 学习",
+          "kindEn": "Chinese course · Self-paced"
+        },
+        {
+          "title": "12个月深度写作",
+          "titleEn": "12-month writing practice",
+          "href": "personal-growth-lab/academy/#/writing",
+          "description": "从具体细节、文章结构到持续写作。",
+          "descriptionEn": "Develop observation, structure and a writing practice.",
+          "kind": "中文课程 / 自主推进",
+          "keywords": "writing 学习",
+          "kindEn": "Chinese course · Self-paced"
+        },
+        {
+          "title": "52周科研思维",
+          "titleEn": "52-week research thinking",
+          "href": "personal-growth-lab/academy/#/research",
+          "description": "将选题、研究设计与证据判断变成练习。",
+          "descriptionEn": "Practice research questions, study design and evidence evaluation.",
+          "kind": "中文课程 / 自主推进",
+          "keywords": "research 学习",
+          "kindEn": "Chinese course · Self-paced"
+        },
+        {
+          "title": "科研绘图与视觉表达",
+          "titleEn": "Scientific visualization",
+          "href": "personal-growth-lab/academy/#/visual",
+          "description": "练习科研图表与视觉叙事。",
+          "descriptionEn": "Practice scientific figures and visual communication.",
+          "kind": "中文课程 / 自主推进",
+          "keywords": "visual 学习",
+          "kindEn": "Chinese course · Self-paced"
+        },
+        {
+          "title": "脑科学与脑机接口",
+          "titleEn": "Neuroscience and BCI",
+          "href": "personal-growth-lab/academy/#/neuro",
+          "description": "系统学习脑科学概念与脑机接口基础。",
+          "descriptionEn": "Study neuroscience concepts and brain–computer interface foundations.",
+          "kind": "中文课程 / 自主推进",
+          "keywords": "neuro 学习",
+          "kindEn": "Chinese course · Self-paced"
+        },
+        {
+          "title": "365天思考与认知",
+          "titleEn": "Thinking and cognition",
+          "href": "personal-growth-lab/academy/#/thinking",
+          "description": "用具体问题练习推理、判断与反思。",
+          "descriptionEn": "Practice reasoning, judgment and reflection through concrete questions.",
+          "kind": "中文课程 / 自主推进",
+          "keywords": "thinking 学习",
+          "kindEn": "Chinese course · Self-paced"
+        },
+        {
+          "title": "国际实验室与博后导航",
+          "titleEn": "International labs and postdoc preparation",
+          "href": "personal-growth-lab/academy/#/career",
+          "description": "学习如何查找研究环境、准备申请与核验证据。",
+          "descriptionEn": "Learn how to investigate labs and prepare research applications.",
+          "kind": "中文课程 / 自主推进",
+          "keywords": "career 学习",
+          "kindEn": "Chinese course · Self-paced"
+        },
+        {
+          "title": "人生100次新体验",
+          "titleEn": "100 new life experiences",
+          "href": "personal-growth-lab/academy/#/life",
+          "description": "将体验、行动与复盘组织成个人练习。",
+          "descriptionEn": "Plan experiences, action and personal reflection.",
+          "kind": "中文课程 / 自主推进",
+          "keywords": "life 学习",
+          "kindEn": "Chinese course · Self-paced"
+        },
+        {
+          "title": "100篇论文深度精读",
+          "titleEn": "100-paper reading practice",
+          "href": "personal-growth-lab/academy/#/papers",
+          "description": "按任务阅读论文、整理问题与方法。",
+          "descriptionEn": "Read papers through structured questions and methods notes.",
+          "kind": "中文课程 / 自主推进",
+          "keywords": "papers 学习",
+          "kindEn": "Chinese course · Self-paced"
+        },
+        {
+          "title": "大模型全景实战 · CurateMicrobiota",
+          "titleEn": "Large-model practice · CurateMicrobiota",
+          "href": "personal-growth-lab/academy/llm-lab/",
+          "description": "大模型原理、微生物表征与项目实践。",
+          "descriptionEn": "Large-model foundations, microbiome representations and project practice.",
+          "kind": "独立课程 / 中文",
+          "keywords": "LLM GPT Transformer 微生物",
+          "kindEn": "Independent course · Chinese"
+        },
+        {
+          "title": "30天AI Agent实战",
+          "titleEn": "30-day AI agent practice",
+          "href": "personal-growth-lab/academy/agent-lab/",
+          "description": "科研助手、工具调用与证据核验练习。",
+          "descriptionEn": "Scientific assistants, tool use and evidence checking.",
+          "kind": "独立课程 / 中文",
+          "keywords": "MCP 多智能体 科研助手",
+          "kindEn": "Independent course · Chinese"
+        },
+        {
+          "title": "尤克里里30天弹唱",
+          "titleEn": "30-day ukulele practice",
+          "href": "personal-growth-lab/academy/ukulele-lab/",
+          "description": "课程、曲谱、录音与该课程的个人记录。",
+          "descriptionEn": "Lessons, scores, recordings and course-specific records.",
+          "kind": "独立课程 / 中文",
+          "keywords": "音乐 和弦 弹唱",
+          "kindEn": "Independent course · Chinese"
+        },
+        {
+          "title": "21天口才与表达训练",
+          "titleEn": "21-day speaking practice",
+          "href": "personal-growth-lab/",
+          "description": "原有口才课程、PDF教材与训练记录。",
+          "descriptionEn": "The original speaking course, PDF materials and practice records.",
+          "kind": "独立课程 / 中文",
+          "keywords": "演讲 表达 录音 口才",
+          "kindEn": "Independent course · Chinese"
+        },
+        {
+          "title": "100天生活成长计划",
+          "titleEn": "100-day life practice",
+          "href": "personal-growth-lab/100-days/",
+          "description": "独立的生活实践计划及其记录。",
+          "descriptionEn": "An independent daily-life plan with its own records.",
+          "kind": "独立课程 / 中文",
+          "keywords": "习惯 作息 运动",
+          "kindEn": "Independent course · Chinese"
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "title": "工具与资料",
+      "titleEn": "Tools & resources",
+      "entries": [
+        {
+          "title": "科研环境观察站",
+          "titleEn": "Research environment explorer",
+          "href": "personal-growth-lab/academy/labs.html",
+          "description": "筛选课题组与研究方向，查阅公开证据。",
+          "descriptionEn": "Explore laboratories and research topics through public sources.",
+          "kind": "网页工具",
+          "keywords": "导师 博后 申请 国家 实验室",
+          "kindEn": "Web tool"
+        },
+        {
+          "title": "投稿期刊导航",
+          "titleEn": "Journal explorer",
+          "href": "personal-growth-lab/academy/journals/",
+          "description": "比较期刊范围与已整理的投稿信息。",
+          "descriptionEn": "Compare journal scope and curated submission information.",
+          "kind": "网页工具",
+          "keywords": "期刊 投稿 影响因子 分区 费用",
+          "kindEn": "Web tool"
+        },
+        {
+          "title": "科研手册 · 模板与资料",
+          "titleEn": "Research templates and materials",
+          "href": "graduate-research-handbook/resources.html",
+          "description": "获取研究入门所需的模板、清单与示例。",
+          "descriptionEn": "Find research templates, checklists and examples.",
+          "kind": "资料下载",
+          "keywords": "模板 数据 论文 SOP 下载",
+          "kindEn": "Downloads"
+        },
+        {
+          "title": "成长学院 · 工具与资料",
+          "titleEn": "Academy tools and resources",
+          "href": "personal-growth-lab/academy/#/resources",
+          "description": "科研工具、生活工具与学习备份说明。",
+          "descriptionEn": "Research tools, life tools and practice-backup guidance.",
+          "kind": "工具目录",
+          "keywords": "备份 学习 资源",
+          "kindEn": "Tool directory"
+        },
+        {
+          "title": "未来旅游规划",
+          "titleEn": "Travel planning",
+          "href": "personal-growth-lab/academy/travel-plans/",
+          "description": "整理目的地、路线与旅行准备。",
+          "descriptionEn": "Organize destinations, routes and travel preparation.",
+          "kind": "生活工具",
+          "keywords": "旅游 旅行 出行",
+          "kindEn": "Life tool"
+        }
+      ]
+    },
+    {
+      "id": "insights",
+      "title": "行业洞察",
+      "titleEn": "Industry insights",
+      "entries": [
+        {
+          "title": "行业洞察 · 总览",
+          "titleEn": "Industry insights · overview",
+          "href": "industry-insights/",
+          "description": "从技术、客户、交付与成本理解行业。",
+          "descriptionEn": "Understand sectors through technology, customers, delivery and costs.",
+          "kind": "行业总览",
+          "keywords": "商业 创业 资本 AI 能源 航天",
+          "kindEn": "Industry overview"
+        },
+        {
+          "title": "行业研究文库",
+          "titleEn": "Industry research library",
+          "href": "industry-insights/research/",
+          "description": "按专题查阅完整研究文章。",
+          "descriptionEn": "Browse full research articles by topic.",
+          "kind": "研究文章",
+          "keywords": "产业 机器人 量子 虚拟细胞",
+          "kindEn": "Research articles"
+        },
+        {
+          "title": "本期行业周报",
+          "titleEn": "Current industry report",
+          "href": "industry-insights/latest.html",
+          "description": "阅读最近一期更新及其原始来源。",
+          "descriptionEn": "Read the latest published edition with original sources.",
+          "kind": "周报",
+          "keywords": "动态 更新 每周",
+          "kindEn": "Weekly report"
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "title": "个人介绍与联系",
+      "titleEn": "About & contact",
+      "entries": [
+        {
+          "title": "关于朱宝圆",
+          "titleEn": "About Baoyuan Zhu",
+          "href": "about.html",
+          "description": "个人介绍、教育经历、荣誉与写作身份。",
+          "descriptionEn": "Biography, education, recognition and writing.",
+          "kind": "个人介绍",
+          "keywords": "Baoyuan Zhu 一心问道 华南理工",
+          "kindEn": "Biography"
+        },
+        {
+          "title": "可打印学术简历",
+          "titleEn": "Printable academic CV",
+          "href": "cv.html",
+          "description": "英文打印版简历与PDF入口。",
+          "descriptionEn": "The English print-format CV and PDF download.",
+          "kind": "英文简历",
+          "keywords": "CV 履历 简历 PDF",
+          "kindEn": "CV · English"
+        },
+        {
+          "title": "学术交流与联系方式",
+          "titleEn": "Academic contact",
+          "href": "about.html#personal-contact",
+          "description": "围绕研究、计算方法和科学写作交流。",
+          "descriptionEn": "Contact details for research, methods and science-writing discussions.",
+          "kind": "联系",
+          "keywords": "邮箱 Email 合作",
+          "kindEn": "Contact"
+        }
+      ]
+    }
+  ]
+}

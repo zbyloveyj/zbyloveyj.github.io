@@ -34,6 +34,7 @@
     menu?.setAttribute('aria-label', lang === 'zh' ? (expanded ? '收起导航' : '展开导航') : (expanded ? 'Close navigation' : 'Open navigation'));
     updateThemeLabel();
     if(!document.body.classList.contains('inner-page')||document.body.classList.contains('page-home'))document.title = lang === 'zh' ? '朱宝圆 | 微生物组 · 脑科学 · 人工智能' : 'Baoyuan Zhu · Microbiome, Brain & AI';
+    if(document.body.classList.contains('page-directory'))document.title = lang === 'zh' ? '全站导航 | 朱宝圆' : 'Site directory | Baoyuan Zhu';
     updatePubCount();
   }
   function updateThemeLabel() {

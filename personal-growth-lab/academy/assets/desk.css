@@ -1,6 +1,122 @@
-/* Learning home is a desk; the searchable catalogue owns all course entries. */
-:root{--bg:#faf9f6;--paper:#faf9f6;--ink:#202c28;--green:#385f50;--accent:#385f50;--line:#dcded7;--muted:#69746e}
-body{background:#faf9f6}.masthead{position:relative;box-shadow:none;border-bottom:1px solid #dcded7}.masthead .bar{display:flex;justify-content:space-between;align-items:center;gap:25px;padding-block:20px}.masthead nav{display:flex;gap:25px;flex-wrap:wrap}.masthead nav a{font-size:14px;white-space:nowrap}.brand-mark{background:transparent!important;border:1px solid #a7b5aa;color:#385f50!important}.wrap{max-width:1180px}.desk-intro{display:grid;grid-template-columns:1fr 230px;gap:70px;padding:55px 0 40px;border-bottom:1px solid #dcded7}.desk-intro h1{font-size:40px;line-height:1.5;font-weight:500}.desk-intro .lead{max-width:750px;font-size:16px;line-height:2;color:#69746e;margin-top:20px}.desk-intro aside{display:grid;grid-template-columns:60px 1fr;gap:16px;align-content:center;align-items:center;border-left:1px solid #dcded7;padding-left:28px}.desk-intro aside strong{font:38px Georgia,serif;color:#385f50}.desk-intro aside span{font-size:12px;color:#69746e}.desk-today{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:35px;padding-bottom:30px;border-bottom:1px solid #dcded7}.desk-continue{padding:25px 0}.desk-continue h2{font-size:27px}.desk-continue>p:not(.eyebrow){margin:15px 0 22px;color:#69746e}.desk-today .generalist-launch{margin:0;padding:26px 30px;display:block;border:0;border-radius:0;background:#eef0e9;box-shadow:none}.generalist-launch h2{font-size:27px}.generalist-launch p{font-size:14px;line-height:1.9}.generalist-links{margin-top:20px;display:block}.generalist-status span{display:block;font-size:12px}.desk-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}.desk-paths>a{padding:24px 0;border-top:2px solid #a7b5aa}.desk-paths>a>span{font-size:11px;color:#69746e}.desk-paths h3{font-size:24px;margin:16px 0 12px}.desk-paths p{font-size:14px;line-height:1.9;color:#69746e}.desk-paths b{display:block;font-size:13px;font-weight:500;color:#385f50;margin-top:20px}.desk-note{font-size:12px;color:#69746e;border-top:1px solid #dcded7;padding-top:20px;margin:0 0 30px}.library-top{padding-bottom:20px}.library-top h1{font-size:38px}.project-card{border:0!important;border-top:1px solid #dcded7!important;background:transparent!important;border-radius:0!important;padding:25px 0!important;box-shadow:none!important;transform:none!important}.project-card h3{font-size:23px}.project-card .card-title{border-bottom:1px solid transparent}.project-card .card-title:hover{border-color:#385f50}.project-card p{font-size:14px;line-height:1.9}.grid{gap:25px 45px}.filters{padding-block:15px;border-bottom:1px solid #dcded7}.filters button,.filters input,.button{border-radius:2px!important}.desk-tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin:30px 0}.desk-tools a{border-top:2px solid #a7b5aa;padding:20px 0}.desk-tools strong{font-size:19px;display:block;font-weight:500}.desk-tools span{display:block;margin-top:12px;font-size:14px;color:#69746e}.site-footer{margin-top:45px;background:transparent;border-top:1px solid #dcded7;font-size:12px}.cm-launch{border-radius:0}.section{margin-block:32px}.section-head h2{font-size:28px}.lesson-sheet{box-shadow:none}.page-top{padding-top:40px}
-@media(max-width:760px){.masthead .bar{display:block;padding-block:15px}.masthead nav{gap:8px 18px;margin-top:17px}.desk-intro{grid-template-columns:1fr;gap:22px;padding-top:30px}.desk-intro h1{font-size:30px}.desk-intro aside{border:0;border-top:1px solid #dcded7;padding:18px 0 0;grid-template-columns:40px 1fr 40px 1fr;gap:10px}.desk-intro aside strong{font-size:29px}.desk-today{grid-template-columns:1fr;gap:18px;margin-top:10px}.desk-continue{padding:18px 0}.desk-paths,.desk-tools{grid-template-columns:1fr;gap:16px}.desk-paths>a{padding:18px 0}.desk-paths h3{margin:10px 0}.desk-paths b{margin-top:12px}.library-top h1{font-size:30px}.desk-today .generalist-launch{padding:24px}.generalist-launch h2{font-size:24px}.masthead nav a{font-size:13px}.section-head h2{font-size:25px}.grid{gap:12px 25px}.filters .search-wide{min-width:0;width:100%}}
-
-@media(min-width:761px){.masthead .bar{flex-wrap:nowrap}.masthead .bar nav{order:0;flex-basis:auto;margin-left:auto}.masthead .bar nav a{padding:10px 0}}
+/* Shared academy desk: course catalogue, records and tools have distinct homes. */
+:root {
+  --bg: #fff;
+  --paper: #fff;
+  --white: #fff;
+  --ink: #282c2f;
+  --muted: #5f676b;
+  --green: #872d3d;
+  --accent: #872d3d;
+  --blue: #872d3d;
+  --navy: #282c2f;
+  --teal: #872d3d;
+  --light: #f5f4ef;
+  --line: #e0e3e3;
+  --shadow: none;
+}
+body { background: var(--paper); font-family: Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+a, button, input, select, textarea { overflow-wrap: anywhere; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.wrap { max-width: 1180px; }
+.masthead { position: relative; background: var(--paper); box-shadow: none; border-bottom: 1px solid var(--line); }
+.masthead .bar { display: flex; justify-content: space-between; align-items: center; gap: 25px; padding-block: 17px; }
+.masthead nav { display: flex; gap: 25px; flex-wrap: wrap; }
+.masthead nav a { font-size: 14px; white-space: nowrap; }
+.brand-mark { background: transparent !important; border: 1px solid var(--line); border-radius: 0; color: var(--accent) !important; }
+.desk-intro { display: grid; grid-template-columns: 1fr 230px; gap: 70px; padding: 38px 0 30px; border-bottom: 1px solid var(--line); }
+.desk-intro h1 { font-size: 36px; line-height: 1.5; font-weight: 600; letter-spacing: 0; }
+.desk-intro .lead { max-width: 750px; font-size: 15px; line-height: 1.95; color: var(--muted); margin-top: 15px; }
+.desk-directory { display: inline-block; margin-top: 16px; font-size: 13px; border-bottom: 1px solid var(--line); }
+.desk-intro aside { display: grid; grid-template-columns: 60px 1fr; gap: 16px; align-content: center; align-items: center; border-left: 1px solid var(--line); padding-left: 28px; }
+.desk-intro aside strong { font: 34px Georgia, serif; color: var(--accent); }
+.desk-intro aside span { font-size: 12px; color: var(--muted); }
+.desk-today { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; margin-top: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.desk-continue { padding: 25px 0; }
+.desk-continue h2 { font-size: 25px; }
+.desk-continue > p:not(.eyebrow) { margin: 15px 0 22px; color: var(--muted); }
+.desk-today .generalist-launch { margin: 0; padding: 23px 27px; display: block; border: 1px solid var(--line); border-radius: 0; background: var(--light); box-shadow: none; }
+.generalist-launch h2 { font-family: inherit; font-size: 25px; }
+.generalist-launch p { font-size: 14px; line-height: 1.9; }
+.generalist-links { margin-top: 19px; display: flex; flex-direction: row; gap: 15px; flex-wrap: wrap; align-items: center; }
+.generalist-status span { display: block; font-size: 12px; }
+.desk-paths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; }
+.desk-paths > a { padding: 22px 0; border-top: 2px solid var(--line); color: var(--ink); }
+.desk-paths > a:hover { text-decoration: none; border-color: var(--accent); }
+.desk-paths > a > span { font-size: 11px; color: var(--muted); }
+.desk-paths h3 { font-size: 23px; margin: 13px 0 10px; }
+.desk-paths p { font-size: 14px; line-height: 1.9; color: var(--muted); }
+.desk-paths b { display: block; font-size: 13px; font-weight: 500; color: var(--accent); margin-top: 18px; }
+.desk-note { font-size: 13px; line-height: 1.9; color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; margin: 0 0 30px; }
+.library-top { padding-bottom: 20px; }
+.library-top h1, .tools-page > h1 { font-size: 34px; font-weight: 600; letter-spacing: 0; }
+.library-top > p:not(.eyebrow), .tools-page > .lead { max-width: 860px; margin-top: 15px; color: var(--muted); font-size: 15px; line-height: 1.95; }
+.project-card { border: 0 !important; border-top: 1px solid var(--line) !important; background: transparent !important; border-radius: 0 !important; padding: 23px 0 !important; box-shadow: none !important; transform: none !important; }
+.project-card h3 { font-size: 22px; }
+.project-card .card-title { border-bottom: 1px solid transparent; }
+.project-card .card-title:hover { border-color: var(--accent); }
+.project-card p { font-size: 14px; line-height: 1.9; }
+.grid { gap: 25px 42px; }
+.filters { padding-block: 15px; border-bottom: 1px solid var(--line); }
+.filters button, .filters input, .button, button { border-radius: 2px !important; }
+.primary { background: var(--accent); border-color: var(--accent); color: var(--white); }
+.primary:hover { background: #6d2230; border-color: #6d2230; color: var(--white); }
+button:hover, .button:not(.primary):hover { background: var(--light); border-color: var(--accent); }
+.tool-group { margin-top: 30px; padding-top: 25px; border-top: 1px solid var(--line); }
+.tool-group .section-head { align-items: baseline; }
+.tool-group .section-head .eyebrow { margin-bottom: 8px; }
+.desk-tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; margin: 23px 0 0; }
+.desk-tools a { border-top: 2px solid var(--line); padding: 19px 0; color: var(--ink); }
+.desk-tools a:hover { border-color: var(--accent); text-decoration: none; }
+.desk-tools strong { font-size: 20px; display: block; font-weight: 600; }
+.desk-tools span { display: block; margin-top: 11px; font-size: 14px; line-height: 1.9; color: var(--muted); }
+.desk-tools.life-tools { grid-template-columns: minmax(0, 1fr); max-width: 600px; }
+.help-section, .record-sources { background: transparent; border: 0; border-top: 1px solid var(--line); padding: 26px 0; margin-top: 23px; }
+.help-section h2, .record-sources h2 { font-size: 23px; margin-bottom: 13px; }
+.help-section > p, .record-sources > p { color: var(--muted); line-height: 1.95; font-size: 14px; margin: 12px 0; max-width: 960px; }
+.help-section .actions { flex-wrap: wrap; margin-top: 18px; }
+.record-sources nav { display: flex; flex-wrap: wrap; gap: 11px 24px; margin-top: 16px; font-size: 14px; }
+.record-sources nav a { border-bottom: 1px solid var(--line); }
+.resources-grid { margin-top: 20px; }
+.resource-card { background: var(--paper); border-color: var(--line); box-shadow: none; border-radius: 2px; }
+.resource-card:hover { background: var(--light); border-color: var(--accent); }
+.usage-details summary { cursor: pointer; color: var(--accent); font-size: 15px; }
+.notice { background: var(--light); color: var(--muted); border-color: var(--line); }
+.progress { background: var(--light); }
+.project-card .num { color: var(--accent); }
+.cm-launch { border-radius: 0; background: var(--light); }
+.section { margin-block: 30px; }
+.section-head h2 { font-size: 27px; }
+.lesson-sheet { box-shadow: none; }
+.page-top { padding-top: 34px; }
+.site-footer { margin-top: 35px; background: transparent; border-top: 1px solid var(--line); font-size: 12px; }
+@media (min-width: 761px) {
+  .masthead .bar { flex-wrap: nowrap; }
+  .masthead .bar nav { order: 0; flex-basis: auto; margin-left: auto; }
+  .masthead .bar nav a { padding: 10px 0; }
+}
+@media (max-width: 760px) {
+  .masthead .bar { display: block; padding-block: 15px; }
+  .masthead nav { gap: 8px 18px; margin-top: 16px; }
+  .masthead nav a { font-size: 13px; }
+  .desk-intro { grid-template-columns: 1fr; gap: 22px; padding-top: 27px; }
+  .desk-intro h1, .library-top h1, .tools-page > h1 { font-size: 29px; }
+  .desk-intro aside { border: 0; border-top: 1px solid var(--line); padding: 17px 0 0; grid-template-columns: 40px 1fr 40px 1fr; gap: 10px; }
+  .desk-intro aside strong { font-size: 28px; }
+  .desk-today { grid-template-columns: 1fr; gap: 18px; margin-top: 10px; }
+  .desk-continue { padding: 18px 0; }
+  .desk-paths, .desk-tools { grid-template-columns: 1fr; gap: 14px; }
+  .desk-paths > a { padding: 18px 0; }
+  .desk-paths h3 { margin: 10px 0; }
+  .desk-paths b { margin-top: 12px; }
+  .desk-today .generalist-launch { padding: 22px; }
+  .generalist-launch h2 { font-size: 23px; }
+  .section-head h2 { font-size: 24px; }
+  .tool-group .section-head { display: block; }
+  .grid { gap: 12px 25px; }
+  .filters .search-wide { min-width: 0; width: 100%; }
+  .help-section, .record-sources { padding-top: 22px; }
+}
+@media print {
+  .desk-directory, .record-sources { display: none; }
+  .desk-today .generalist-launch, .help-section, .resource-card { background: white; border-color: #ccc; }
+}

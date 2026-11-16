@@ -60,3 +60,8 @@ python3 industry-insights/tools/validate.py
 筛选在本地浏览器执行，无追踪。`latest.html` 和每期 HTML 无需 JavaScript 即可阅读，JSON 获取失败时仍提供周报入口。
 
 `data/watchlist.json` 是长期领域与公开信息源清单，不代表每个公司本周都有更新。AI VC 在该页面按 AI Virtual Cell（AI虚拟细胞）作为专门方向；风险投资 VC 属于资本主线。
+
+
+### Shared parent navigation
+
+After regenerating industry entry pages or research articles, run `python3 tools/sync_navigation.py` from the repository root. This preserves the personal-site return link and the distinct overview, research-library and site-directory entrances without changing article content.

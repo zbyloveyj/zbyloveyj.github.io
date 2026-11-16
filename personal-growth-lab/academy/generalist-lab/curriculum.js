@@ -8,8 +8,18 @@ const generalistEditions = {
   4: ['courses/day-04-history.md', 8],
   8: ['courses/day-08-sociology.md', 7],
 };
+// Drafts are readable source material; they do not enable completion or count as formal editions.
+const generalistDrafts = {
+  5: 'courses/day-05-political-science.md',
+  6: 'courses/day-06-management.md',
+  7: 'courses/day-07-finance.md',
+  9: 'courses/day-09-logic.md',
+  10: 'courses/day-10-communication.md',
+  11: 'courses/day-11-law.md',
+  12: 'courses/day-12-education.md',
+};
 window.GENERALIST_PLAN = {
-  title: '30天通才培养计划', version: '20261113-sociology08', timezone: 'Asia/Taipei',
+  title: '30天通才培养计划', version: '20261116-draft-access', timezone: 'Asia/Taipei',
   start: '2026-11-06', end: '2026-12-05', books: [7,10], paragraphsPerBook: [3,6], knowledgePerDay: 100,
   domains: [
     ['哲学','逻辑思维、认识论、价值观、人生意义、批判性思考','从怎样判断知识，走向怎样行动，再思考怎样生活。','哲学方法|逻辑与论证|认识论|形而上学与心灵|科学哲学|伦理学|政治哲学|中国哲学|人生哲学|语言美学与技术伦理'],
@@ -45,7 +55,7 @@ window.GENERALIST_PLAN = {
   ].map(([name,core,logic,modules],i)=>{
     const day=i+1, [source,bookCount]=generalistEditions[day]||[null,null];
     const date=new Date(Date.UTC(2026,10,6+i)).toISOString().slice(0,10);
-    return {day,date,name,core,logic,modules:modules.split('|'),status:source?'available':'planned',source,bookCount};
+    return {day,date,name,core,logic,modules:modules.split('|'),status:source?'available':'planned',source,bookCount,draftSource:generalistDrafts[day]||null};
   })
 };
 

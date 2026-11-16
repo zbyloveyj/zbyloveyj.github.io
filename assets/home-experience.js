@@ -1,6 +1,13 @@
-/* Progressive method tabs and a scroll-aware homepage index. */
+/* Keyboard-accessible research-method previews and legacy section routing. */
 (() => {
   'use strict';
+  if (location.hash === '#journals') {
+    const target = new URL('publications.html', location.href);
+    target.search = location.search;
+    target.hash = 'journals';
+    location.replace(target.href);
+    return;
+  }
   const explorer = document.querySelector('.method-explorer');
   if (explorer) {
     const list = explorer.querySelector('.method-tabs');
@@ -37,31 +44,4 @@
     });
     select(0);
   }
-  const index = document.querySelector('.home-toc');
-  if (!index) return;
-  const links = [...index.querySelectorAll('a')];
-  const sections = links.map(link => document.getElementById(link.hash.slice(1)));
-  let pending = false;
-  function updateIndex() {
-    pending = false;
-    const boundary = index.getBoundingClientRect().bottom + 40;
-    let active = -1;
-    sections.forEach((section, i) => {
-      if (section && section.getBoundingClientRect().top <= boundary) active = i;
-    });
-    links.forEach((link, i) => {
-      if (i === active) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
-    });
-  }
-  function schedule() {
-    if (!pending) {
-      pending = true;
-      requestAnimationFrame(updateIndex);
-    }
-  }
-  addEventListener('scroll', schedule, {passive: true});
-  addEventListener('resize', schedule);
-  document.getElementById('lang-toggle')?.addEventListener('click', schedule);
-  updateIndex();
 })();

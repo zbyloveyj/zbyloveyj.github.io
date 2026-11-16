@@ -6,7 +6,7 @@ from urllib.parse import urlsplit, unquote
 from xml.etree import ElementTree as ET
 import re, json, subprocess, sys
 R=Path(__file__).resolve().parents[1]
-PAGES=['index.html','about.html','books.html','research.html','publications.html','projects.html','cv.html','404.html']
+PAGES=['index.html','about.html','books.html','research.html','publications.html','projects.html','directory.html','cv.html','404.html']
 class Analyzer(HTMLParser):
  def __init__(self):super().__init__();self.links=[];self.ids=[]
  def handle_starttag(self,tag,attrs):
@@ -30,7 +30,8 @@ def validate():
    target=(f.parent/unquote(parsed.path)).resolve()
    if target.is_dir():target=target/'index.html'
    if not target.is_relative_to(R) or not target.is_file():raise AssertionError(f'{name}: broken local {tag} link {link}')
-   if parsed.fragment and target.suffix.lower()=='.html':
+   # Hash-router paths are handled by the learning applications, not HTML IDs.
+   if parsed.fragment and not parsed.fragment.startswith('/') and target.suffix.lower()=='.html':
     p=Analyzer();p.feed(target.read_text('utf-8'))
     if parsed.fragment not in p.ids:raise AssertionError(f'{name}: {link} invalid fragment')
   if name in ('research.html','publications.html','projects.html'):
@@ -92,5 +93,5 @@ def validate():
  profile_readme=(R/'github-profile/README.md').read_text('utf-8')
  if 'happily in a relationship' not in profile_readme or '和对象一起的日常生活' not in profile_readme:
   raise AssertionError('Profile README personal note missing')
- print('PASS: 8 HTML pages; unified navigation/design; no duplicated book catalogues; 10 verified DOI records; full-author BibTeX/RIS; 5 projects; internal links; JS syntax; PDF and illustrations.')
+ print('PASS: 9 HTML pages; unified navigation/design; no duplicated book catalogues; 10 verified DOI records; full-author BibTeX/RIS; 5 projects; internal links; JS syntax; PDF and illustrations.')
 if __name__=='__main__':validate()

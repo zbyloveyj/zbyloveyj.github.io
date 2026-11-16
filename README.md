@@ -4,30 +4,32 @@ Public website: https://zbyloveyj.github.io/
 
 ## Current information structure · November 2026
 
-The homepage is a concise editorial introduction. Each full collection has one canonical home:
+The homepage is an orientation page. Complete collections have one canonical home:
 
-| Page | Responsibility |
+| Destination | Responsibility |
 |---|---|
-| `research.html` | Research questions, methods and three published case studies |
-| `publications.html` | Searchable bibliography, research notes and citation exports |
-| `books.html` | Complete four-book catalogue and reading/download links |
-| `projects.html` | Five research and teaching code projects |
-| `about.html` | Biography, academic experience, writing, personal perspective and contact |
-| `cv.html` | Printable academic CV, linked from About |
-| `personal-growth-lab/academy/` | Learning desk; `#/projects` owns the searchable course catalogue |
-| `industry-insights/` | Curated industry overview; `research/` owns the full research catalogue |
+| `research.html` | Research questions, methods and three complete case studies |
+| `publications.html` | Ten selected publication records, filters, notes and citation exports |
+| `projects.html` | Five code projects with scope and links to their related research |
+| `books.html` | Four online works, with contents and reading/download destinations |
+| `about.html` | Biography, education, recognition and contact; links to the English printable CV |
+| `personal-growth-lab/academy/` | Canonical learning home; `#/projects` is the course catalogue, `#/journal` records, `#/resources` tools and resources |
+| `personal-growth-lab/` | The original 21-day speaking course, not a second academy home |
+| `industry-insights/` | Industry overview; `research/` holds the complete article catalogue; `latest.html` is the current report |
+| `directory.html` | Searchable, categorized directory of research, books, courses and tools |
 
-Core pages use **one stylesheet**, `assets/site-design.css`, plus the existing bilingual, theme and bibliography behaviour. App pages share `assets/site-context.css`, retaining their specialist readers and controls. The academy's learning desk uses `assets/desk.css`. Old stylesheets are retained for legacy pages, but are no longer stacked on the core editorial pages.
+`assets/site-directory.json` owns directory entries. `tools/sync_navigation.py` generates the directory and shared navigation for core pages and course/reader entry pages. Run it after editing an entry page or rebuilding industry articles, then run the existing validations. Header links and the compact parent navigation must not drift into competing site hierarchies.
 
-The homepage includes bilingual method tabs (input, method and output), a sticky section index, enlarged attributed research figures, and journal context beside the selected bibliography. `assets/home-experience.js` progressively enhances the tabs: with scripts disabled, all three method descriptions remain readable. Tabs support arrow keys, Home and End. Chinese and English entry pages share the same content and interactions.
+`index-en.html` and `index-zh.html` remain compatible language aliases and preserve query parameters and fragments. The homepage content is maintained only in `index.html`. Core pages share `assets/site-design.css`; specialist readers share only the compact `assets/site-context.css` parent navigation and retain their own controls.
 
-Course content, DOI metadata, CV PDF, learning storage keys and record schemas are preserved. A lesson's availability is not a claim that the user completed it. No private MicroNorm material is added.
+Course source, DOI metadata, CV PDF, storage keys and record schemas are preserved. The 30-day generalist plan distinguishes released structured lessons, seven preliminary Markdown drafts and planned material; drafts are readable but do not unlock completion. Material availability never means a lesson was completed by the user. Private MicroNorm material is not included.
 
-GitHub Pages deploys from `main` through the built-in branch-based workflow. `.github/workflows/deploy.yml` validates content and readers; it must not publish a competing Pages artifact.
+GitHub Pages deploys from `main` through its built-in workflow. Validation workflows must not publish a competing Pages artifact.
 
 ## Checks
 
 ```bash
+python3 tools/sync_navigation.py
 python3 tests/validate_site.py
 node --check assets/site.js
 node --check personal-growth-lab/academy/assets/app.js
