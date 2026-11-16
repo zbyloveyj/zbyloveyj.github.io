@@ -19,6 +19,8 @@ The homepage is a concise editorial introduction. Each full collection has one c
 
 Core pages use **one stylesheet**, `assets/site-design.css`, plus the existing bilingual, theme and bibliography behaviour. App pages share `assets/site-context.css`, retaining their specialist readers and controls. The academy's learning desk uses `assets/desk.css`. Old stylesheets are retained for legacy pages, but are no longer stacked on the core editorial pages.
 
+The homepage includes bilingual method tabs (input, method and output), a sticky section index, enlarged attributed research figures, and journal context beside the selected bibliography. `assets/home-experience.js` progressively enhances the tabs: with scripts disabled, all three method descriptions remain readable. Tabs support arrow keys, Home and End. Chinese and English entry pages share the same content and interactions.
+
 Course content, DOI metadata, CV PDF, learning storage keys and record schemas are preserved. A lesson's availability is not a claim that the user completed it. No private MicroNorm material is added.
 
 GitHub Pages deploys from `main` through the built-in branch-based workflow. `.github/workflows/deploy.yml` validates content and readers; it must not publish a competing Pages artifact.

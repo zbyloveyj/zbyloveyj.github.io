@@ -49,7 +49,7 @@ if(pageName==='publications'){
   const notes=document.createElement('details');notes.className='pub-details-summary';
   notes.innerHTML='<summary><span class="en-only">Research note</span><span class="zh-only">论文研究概览</span></summary><p class="en-only">'+htmlEscape(p.focus||'')+'</p><p class="zh-only">'+htmlEscape(p.focusZh||'')+'</p>';
   detail.append(notes);
-  const cite=document.createElement('button');cite.className='bib-copy';cite.type='button';cite.textContent='BibTeX ↗';cite.setAttribute('aria-label','Copy full-author BibTeX for '+p.title);
+  const cite=document.createElement('button');cite.className='bib-copy';cite.type='button';cite.textContent='BibTeX';cite.setAttribute('aria-label','Copy full-author BibTeX for '+p.title);
   cite.addEventListener('click',()=>copy(bib(p)));actions.append(cite);
  }
  // Slash focuses publication search unless the user is already typing.

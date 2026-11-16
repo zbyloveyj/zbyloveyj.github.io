@@ -1,0 +1,34 @@
+[
+  {
+    "file": "wiredancer-fig1.jpg",
+    "title": "Wiredancer：生态因子建模与验证框架",
+    "authors": "Zhu et al.",
+    "journal": "Advanced Science",
+    "doi": "10.1002/advs.202517087",
+    "pmc": "PMC13335992",
+    "figure": "Figure 1",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13335992/",
+    "asset_api": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13335992/supplementaryFiles?includeInlineImage=true",
+    "retrieved": "2026-11-15",
+    "modifications": "None; browser display scaling only",
+    "sha256": "5c40d0b85313d3a34f545272bccc818cb0fbe1ad36002f2d01016e08243b39a9"
+  },
+  {
+    "file": "bighi-fig1.jpg",
+    "title": "BIGHI：脑肠健康队列总览",
+    "authors": "Wu et al.",
+    "journal": "Research",
+    "doi": "10.34133/research.1142",
+    "pmc": "PMC12953926",
+    "figure": "Figure 1",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12953926/",
+    "asset_api": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12953926/supplementaryFiles?includeInlineImage=true",
+    "retrieved": "2026-11-15",
+    "modifications": "None; browser display scaling only",
+    "sha256": "7b0258a1dd508ac646493da9dc50b3029fcc64a24776cc0304ff2effdd53c59a"
+  }
+]
