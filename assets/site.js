@@ -29,14 +29,22 @@
     qsa('[data-alt-zh]').forEach(image => { image.alt = lang === 'en' ? image.dataset.altEn : image.dataset.altZh; });
     qsa('[data-label-zh]').forEach(element => { element.setAttribute('aria-label', lang === 'en' ? element.dataset.labelEn : element.dataset.labelZh); });
     qsa('[data-placeholder-zh]').forEach(input => { input.placeholder = lang === 'en' ? input.dataset.placeholderEn : input.dataset.placeholderZh; });
+    const menu = qs('#menu-toggle');
+    const expanded = menu?.getAttribute('aria-expanded') === 'true';
+    menu?.setAttribute('aria-label', lang === 'zh' ? (expanded ? '收起导航' : '展开导航') : (expanded ? 'Close navigation' : 'Open navigation'));
+    updateThemeLabel();
     if(!document.body.classList.contains('inner-page')||document.body.classList.contains('page-home'))document.title = lang === 'zh' ? '朱宝圆 | 微生物组 · 脑科学 · 人工智能' : 'Baoyuan Zhu · Microbiome, Brain & AI';
     updatePubCount();
+  }
+  function updateThemeLabel() {
+    const dark = root.dataset.theme === 'dark';
+    const button = qs('#theme-toggle');
+    button?.setAttribute('aria-label', lang === 'zh' ? (dark ? '切换浅色主题' : '切换深色主题') : (dark ? 'Switch to light theme' : 'Switch to dark theme'));
   }
   function applyTheme(value) {
     root.dataset.theme = value;
     safeSet('academic-site:theme', value);
-    const b = qs('#theme-toggle');
-    if(b) b.setAttribute('aria-label', value === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    updateThemeLabel();
     const meta = qs('meta[name="theme-color"]');
     if (meta) meta.content = value === 'dark' ? '#191d20' : '#ffffff';
   }
