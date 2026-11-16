@@ -1,8 +1,126 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-09T08:20:20+08:00",
+  "updatedAt": "2026-11-16T08:28:37+08:00",
   "editorialNote": "本站原创分析与外部原文分栏展示。引用支持所标注的公开事实，其他商业框架、假说与例子均为本站分析；不代表麦肯锡、HBR或被引用机构观点。",
   "articles": [
+    {
+      "id": "bottleneck-capital-allocation",
+      "title": "资本为什么流向封装、卫星电力与量子控制这些瓶颈层？",
+      "dek": "从台积电资本拨款、卫星电力子系统融资和量子控制软件扩张出发，判断重资产与深科技项目中谁先付款、收入怎样形成，以及哪些数字仍只是上限或计划。",
+      "category": "资本配置与工程瓶颈",
+      "sectorIds": [
+        "semiconductors",
+        "space",
+        "energy",
+        "quantum"
+      ],
+      "author": "行业规律洞察编辑部",
+      "publishedDate": "2026-11-16",
+      "updatedAt": "2026-11-16T08:28:37+08:00",
+      "takeaways": [
+        "客户通常为可验证的产能、可靠性或任务交付付款，而不是为技术名称付款。",
+        "资本拨款、股权融资、合同与营收处在不同时间轴，不能合并计算。",
+        "瓶颈层是否形成好生意，要由第二个客户、批量良率和运维成本检验。"
+      ],
+      "sections": [
+        {
+          "title": "本周资金共同指向可交付的约束",
+          "paragraphs": [
+            "11月10日，TSMC董事会批准约409.267亿美元资本拨款，覆盖先进制程、先进封装、成熟或特殊制程、晶圆厂设施与2027年研发资本投资。两天后，Revolv Space披露500万欧元A轮，主要用于把已完成资格验证的卫星执行机构扩大到批量生产，并研发兼容太阳翼。Q-CTRL的2.9亿美元C轮则瞄准量子基础设施软件与无GPS导航部署。三者规模、币种与资产属性不同，不能相加为一个行业资金池。",
+            "本站判断，它们有一个可比较的商业问题：客户愿意为什么约束付钱。晶圆客户需要可用产能和良率，卫星制造商需要按期交付且在轨可靠的电力与执行机构，航空和自主系统客户需要在GPS受限环境仍能工作的导航能力。资金进入这些层级，说明资本开始寻找整机或模型背后的交付瓶颈。"
+          ],
+          "sourceIds": [
+            "tsmc-board-202611",
+            "revolv-series-a",
+            "qctrl-series-c"
+          ]
+        },
+        {
+          "title": "付款人决定产品形态和验收标准",
+          "paragraphs": [
+            "半导体资本支出的付款人主要是晶圆制造企业，收入最终由芯片设计公司和系统客户的投片需求支撑。设备、厂务与封装供应商面对的是技术规格、产能爬坡和持续服务。卫星子系统的直接买方可能是整星厂、星座运营商或公共任务承包商，通常关注质量认证、交付周期、接口兼容与在轨寿命。量子控制软件和导航的付款人则可能来自数据中心、航空、防务或自主系统，验收标准分别落在误差抑制、跨硬件兼容、定位漂移和极端环境可靠性。",
+            "Axiom Space与Nitride Global的合作备忘录进一步显示，新材料需要在轨和地面对照才能证明价值。合作方向、任务资格和付费订单之间有很长距离。阅读公告时，应先找最终使用者、采购主体和验收环节，再判断技术是否已经形成收入。"
+          ],
+          "sourceIds": [
+            "axiom-nitride",
+            "tsmc-board-202611"
+          ]
+        },
+        {
+          "title": "价值链收入来自设备、部件、软件和服务",
+          "paragraphs": [
+            "瓶颈层并非只有一种商业模式。先进封装和厂务系统可通过设备销售、耗材、维护与工艺服务获得收入。卫星电力和运动部件可以按单机销售，也可能通过预集成子系统提高单星价值。地球观测公司Marble Imaging本周追加600万欧元，用于卫星和发射采购，其模式同时包含空间资产、数据交付与分析服务，资本占用高于纯软件。量子基础设施软件可以采用许可证、订阅、集成或项目交付，但必须观察经常性收入占比和客户留存。",
+            "本站推断，越靠近物理资产，订单、在制品、验收和回款之间的时间差通常越大。越靠近软件，扩张速度可能更快，但客户可能要求跨硬件兼容与结果担保。两类模式都要回到合同和现金流，而不是用融资额替代需求。"
+          ],
+          "sourceIds": [
+            "marble-extension",
+            "revolv-series-a",
+            "qctrl-series-c"
+          ]
+        },
+        {
+          "title": "资本用途要拆到产能、验证和客户交付",
+          "paragraphs": [
+            "TSMC的409.267亿美元是董事会批准的资本拨款口径，尚不能当作本周已经支出的现金。另三项各不超过5亿美元的投资额度也需要等待实际执行。Revolv明确把资金分配到产能工业化与太阳翼研发，Marble把新增资金指向卫星和发射采购，Q-CTRL则强调软件与导航的全球部署。可比较的不是金额本身，而是资金是否缩短合格产品交付时间、提高良率或形成新的付费部署。",
+            "投资者可持续核查四类证据：设备是否安装并通过验收，部件是否完成资格验证并批量交付，软件是否从项目收入转成续费，资产是否按期发射并产生可售数据。若公告只给出目标产能或计划星座规模，应保留为未来指标。"
+          ],
+          "sourceIds": [
+            "tsmc-board-202611",
+            "revolv-series-a",
+            "marble-extension",
+            "qctrl-series-c"
+          ]
+        },
+        {
+          "title": "完全假设的单位经济计算",
+          "paragraphs": [
+            "下面仅是本站的完全假设例子，用于说明如何比较资本效率，不代表任何公司的真实经营数据。假设某卫星电力子系统新增产线投入500万欧元，第一年可交付200套，每套售价6万欧元，材料与直接制造成本3.6万欧元，则单套毛利2.4万欧元，满产毛利约480万欧元。若实际良率只有70%，可交付量降为140套，毛利约336万欧元，且返工和保修可能进一步压低结果。",
+            "这个例子说明，融资金额无法直接回答生意质量。需要同时知道合格产出、客户验收、回款周期、售后责任和产线利用率。对先进封装、量子导航或在轨制造，也应把各自的关键单位替换为合格晶圆、有效任务小时或满足精度的运行小时。"
+          ],
+          "sourceIds": [
+            "revolv-series-a"
+          ]
+        },
+        {
+          "title": "竞争优势可能被替代、延迟和集中度削弱",
+          "paragraphs": [
+            "瓶颈可以产生定价权，也可能吸引替代技术。先进封装需求若低于预期，新增产能会压低利用率。卫星子系统可能受到整星厂自研、标准接口变化和发射延期影响。量子导航需要与惯性导航、星基增强和其他抗干扰技术竞争。Q-CTRL公告中的性能和商业领先主要来自公司自述，仍需独立测试。Axiom与Nitride Global目前是合作备忘录，尚未给出商业产量和订单。",
+            "治理也是反证。本周NVIDIA突发管理层更替提醒，关键人、调查和组织稳定性可能影响技术路线执行。行业研究应把管理层声明与后续供货、人才流动和财报结果分开验证。"
+          ],
+          "sourceIds": [
+            "qctrl-series-c",
+            "axiom-nitride",
+            "nvidia-transition"
+          ]
+        },
+        {
+          "title": "下一期应追踪哪些兑现指标",
+          "paragraphs": [
+            "半导体方向跟踪资本开支实际发生额、设备验收、先进封装产能与利用率。卫星子系统跟踪年产量、在轨失效率、第二批客户和交付周期。地球观测跟踪首星发射、成像质量、数据延迟与锚定客户。量子软件和导航跟踪付费部署、经常性收入、跨硬件复现和第三方实地测试。能源韧性项目还应记录事故基线、避免损失和维护成本，IEA新观测站可提供风险地图，但其事件覆盖并非完整全球故障率。",
+            "本站最终判断是，资本正在寻找可验证的工程约束，但这只是候选主线。只有当资金转成合格产能、复购合同、稳定运行和现金回款时，瓶颈层才会成为可持续商业资产。"
+          ],
+          "sourceIds": [
+            "tsmc-board-202611",
+            "revolv-series-a",
+            "marble-extension",
+            "qctrl-series-c",
+            "iea-resilience-obs"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "tsmc-board-202611",
+        "revolv-series-a",
+        "qctrl-series-c",
+        "axiom-nitride",
+        "marble-extension",
+        "nvidia-transition",
+        "iea-resilience-obs"
+      ],
+      "characterCount": 2063,
+      "readingMinutes": 5,
+      "url": "research/bottleneck-capital-allocation.html"
+    },
     {
       "id": "fusion-supplier-qualification",
       "title": "聚变电站之前，谁会为功率器件和诊断设备付钱？",
@@ -1150,7 +1268,7 @@
     {
       "id": "virtualcell",
       "question": "预测细胞干预响应，能否真正减少实验决策的不确定性？",
-      "demand": "先识别客户究竟需要状态描述、候选排序还是干预响应预测。三类任务的验证要求不同；模型能从数据中识别细胞类型，不等于能在新药物、新细胞背景或不同实验平台中可靠预测。客户愿意持续支付的前提，是模型帮助完成某个原本昂贵的决策，而不是仅增加一个嵌入向量。",
+      "demand": "遗传学、药物研发与转化团队需要把静态细胞图谱转成细胞类型或状态特异的变异与扰动预测，并用实验验证减少候选空间。",
       "valueChain": [
         {
           "layer": "基础模型",
@@ -1177,8 +1295,8 @@
           "evidence": "结果能否形成真实决策"
         }
       ],
-      "bottleneck": "重点难题包括干预数据覆盖、技术批次差异、跨体系泛化和外部验证。把相关性、预测与可行动的干预建议分开；少数成功案例可以提供线索，但需要知道它们是否在方案预先指定后仍可成立。还应检查模型是否依赖客户难以长期获得的数据。 Arc于2026-08-20公布六细胞系零样本扰动预测设置，10月15日更新给出结果发布时间。评价应分开考察基线对比、跨细胞背景成绩与外部实验证实。",
-      "capital": "资本用途可按数据生成、模型训练、实验验证与客户集成分列。若融资主要用于更大模型，却没有明确下游任务与验证预算，就不能直接推断商业壁垒增强。Quine等系统是可追踪的研究案例，不能自动代表完整细胞模拟已经实现。",
+      "bottleneck": "AlphaGenome 2显示条件化到细胞状态的能力，但外部疾病泛化、湿实验命中、临床边界与商业许可仍是关键瓶颈。",
+      "capital": "资金更可能用于高质量单细胞和扰动数据、条件化模型、实验闭环与第三方验证。",
       "risks": [
         "把状态识别当成干预预测",
         "只在单一实验体系展示",
@@ -1192,20 +1310,18 @@
         "独立细胞背景下相对简单基线的增益"
       ],
       "sourceIds": [
-        "quine",
-        "deepmind",
-        "nvidia",
-        "arc-vcc-2026",
-        "arc-vcc-timeline"
+        "deepmind-alphagenome2",
+        "arc-vcc-timeline",
+        "quine"
       ],
-      "updatedAt": "2026-11-09T08:19:25+08:00",
+      "updatedAt": "2026-11-16T08:28:37+08:00",
       "title": "AI虚拟细胞",
       "url": "research/sector-virtualcell.html"
     },
     {
       "id": "organoids",
       "question": "类器官能否成为研发流程里可重复使用的验证工具？",
-      "demand": "需求应从具体药效、毒理或疾病机制任务出发，而不是笼统替代所有动物实验。不同组织模型保留的结构和功能不同，采购者需要知道它在哪些任务上更有信息量，以及使用、培养、测量和解释结果要增加多少工作。 abc biopply与Panome Bio的合作正文署2026年10月，索引标11月5日。共同交付面向临床前研究的多类器官与多组学读出，实际采用须以客户和复现数据核验。",
+      "demand": "药企、CRO与再生医学团队需要批次一致、成熟度可量化且能进入药效和安全评价的人源类器官。",
       "valueChain": [
         {
           "layer": "模型与样本",
@@ -1232,8 +1348,8 @@
           "evidence": "外部实验室可复现"
         }
       ],
-      "bottleneck": "难点可能在成熟度、血管化、免疫成分、培养周期和读出标准。研究时应按任务选择最重要约束，不把更复杂的模型自动视为更好的产品。一个模型如果更难操作却没有提高决策质量，客户未必愿意承担增加的成本。",
-      "capital": "观察资金是投向生物模型本身、培养设备还是数据平台。Vitroscope融资涉及灌流基础设施；其中股权与资助应拆开。下一步证据包括装机后的使用、耗材复购及高通量平台真正可交付的时间。",
+      "bottleneck": "培养材料、自动化、细胞成熟和跨批次一致性决定能否从展示样本进入采购目录。iORGANBIO与三井化学合作尚未披露量产指标。",
+      "capital": "本期战略投资金额未披露，资本用途指向培养材料、自动化闭环和难制备细胞类型。",
       "risks": [
         "以形态相似替代功能验证",
         "批次与操作者差异未被处理",
@@ -1247,20 +1363,18 @@
         "独立批次的多组学读出一致性与周转时间"
       ],
       "sourceIds": [
-        "vitroscope",
-        "bitbio",
-        "nvidia",
+        "iorganbio-mitsui",
         "abc-panome-organoids",
-        "abc-press-index"
+        "nih-human-nams-2026"
       ],
-      "updatedAt": "2026-11-09T08:19:25+08:00",
+      "updatedAt": "2026-11-16T08:28:37+08:00",
       "title": "类器官与器官芯片",
       "url": "research/sector-organoids.html"
     },
     {
       "id": "cellmodels",
       "question": "人源细胞与科研工具，能否成为高频、稳定的实验供给？",
-      "demand": "客户购买细胞、试剂或设备，通常需要在可接受时间内得到可用材料与可靠结果。因此要同时研究产品性能、可交付性和服务，而不是只看一次实验效果。不同产品可能进入完全不同的采购预算，临时课题购买与常规平台采购应分别记录。",
+      "demand": "研发团队需要可稳定供货的人源细胞、患者来源神经元和可追溯实验数据，用于靶点与候选药验证。",
       "valueChain": [
         {
           "layer": "标准材料",
@@ -1287,8 +1401,8 @@
           "evidence": "持续使用及数据衔接"
         }
       ],
-      "bottleneck": "核心约束可能来自质量控制、运输、库存、操作者训练及实验条件匹配。产品规格越清楚，越容易比较失败来自材料还是操作；但为了适配客户而无限定制，可能增加支持成本，削弱产品模式的可复制性。",
-      "capital": "bit.bio提供了一项实体人源细胞供应的资金观察，不应算作AI虚拟细胞融资。可将资金用于扩充产品组合与提高客户可及性的目标，转换为可核查的供货、产品覆盖和重复购买指标。 NIH在2026-09-21公告中分别列出基础设施资金、检测挑战奖项及拟建标准化人源模型平台。持续观察跨机构接入、样本协议和标准测试。",
+      "bottleneck": "细胞身份、成熟度、批间差和与临床表型的一致性仍限制模型的可迁移性。",
+      "capital": "资本同时进入标准化细胞供应、类器官制造和患者来源细胞合作，需用复购和实验命中检验。",
       "risks": [
         "把实体细胞与算法模型混淆",
         "忽略运输库存和售后成本",
@@ -1302,18 +1416,19 @@
         "开放平台的跨机构重复实验与样本协议"
       ],
       "sourceIds": [
-        "bitbio",
-        "vitroscope",
-        "nih-human-nams-2026"
+        "deepmind-alphagenome2",
+        "iorganbio-mitsui",
+        "oyster-series-a2",
+        "bitbio"
       ],
-      "updatedAt": "2026-11-09T08:19:25+08:00",
+      "updatedAt": "2026-11-16T08:28:37+08:00",
       "title": "人源细胞与科研工具",
       "url": "research/sector-cellmodels.html"
     },
     {
       "id": "drugdiscovery",
       "question": "更多候选分子，如何变成更好的研发决策？",
-      "demand": "药物发现的需求不只是快速生成结构，还包括选择什么值得合成、测量或继续推进。要明确技术帮助的是靶点、分子设计、实验排序还是临床开发的某一步。不同步骤对应不同客户、证据和时间周期，不应混合使用同一个成功率。",
+      "demand": "药企和临床团队需要从遗传与细胞证据出发，获得可进入临床并显示患者获益的候选药。",
       "valueChain": [
         {
           "layer": "计算设计",
@@ -1340,8 +1455,8 @@
           "evidence": "阶段成果和后续责任"
         }
       ],
-      "bottleneck": "难点在数据噪声、任务迁移、实验可行性和后续开发。一个计算分数改善，不等于候选已具备药物属性；应继续检查实验验证和比较基线。官方演示可以启发工作流程，但不能替代独立、预先规定的评估。",
-      "capital": "合作金额尤其需要区分已支付首款、未来最高里程碑及潜在销售分成。若只公布总上限，不能全部记为当年收入或融资。融资是否配备实验验证和项目交付能力，比单独增加计算资源更值得检查。 Specific Biologics于2026-11-02披露完成3500万美元A轮，目标为候选疗法的初步临床生物标志物验证。后续证据沿递送、剂量、安全性、标志物和临床结局分别收集。",
+      "bottleneck": "脑内暴露、靶点调节、安全窗、II期疗效和诊断路径是本期神经科学管线的主要门槛。",
+      "capital": "SRTD、Oyster、Neurosterix与Delix融资分别对应临床前至II期阶段，不能仅按金额横向判断成熟度。",
       "risks": [
         "计算设计被误写成有效药物",
         "同一数据参与训练与验证",
@@ -1355,13 +1470,13 @@
         "给药后的靶点相关标志物变化和安全性"
       ],
       "sourceIds": [
-        "deepmind",
-        "gov-chemistry",
-        "nvidia",
-        "quine",
-        "specific-series-a-2026"
+        "srtd-seed",
+        "oyster-series-a2",
+        "neurosterix-series-b",
+        "delix-series-c",
+        "roche-ctad2026"
       ],
-      "updatedAt": "2026-11-09T08:19:25+08:00",
+      "updatedAt": "2026-11-16T08:28:37+08:00",
       "title": "药物发现与精准治疗",
       "url": "research/sector-drugdiscovery.html"
     },
@@ -1472,7 +1587,7 @@
     {
       "id": "robotics",
       "question": "把复杂动作变成可复制的现场交付，需要哪些能力？",
-      "demand": "从高频、明确的任务出发：谁验收结果、允许什么异常、失败后谁接管。不同现场的货物、节拍、光照和布局可能不同，机器人适用范围必须写清。客户的价值可能来自成本，也可能来自稳定节拍或减少损伤，均需与实际流程连接。",
+      "demand": "制造客户需要机器人在真实工位保持节拍、低人工接管和可接受的安全成本。",
       "valueChain": [
         {
           "layer": "核心部件",
@@ -1499,8 +1614,8 @@
           "evidence": "利用率与持续交付"
         }
       ],
-      "bottleneck": "机械、感知、控制和流程软件的任何一个环节都可能限制任务完成。要比较连续运行与现场支持，而不是动作片段。若每个客户都需大量专门开发，应按项目服务经济性判断，而非自动视为高毛利平台。",
-      "capital": "本期Amazon与Humble体现内部自动化建设和外部客户试点两类路径。它们的证据要求不同；融资及开工不能代替投产与盈利。观察资金是否降低部署、维护和异常处理成本。",
+      "bottleneck": "单次概念验证成功率需要扩展到连续运行、异常恢复、换线和总拥有成本。",
+      "capital": "后续资本应优先对应数据采集、部署工程、安全验证和可复制工位，而非只增加演示任务。",
       "risks": [
         "只展示受控环境",
         "漏算远程与现场人工",
@@ -1513,10 +1628,10 @@
         "同类客户复购部署"
       ],
       "sourceIds": [
-        "amazon-robotics",
-        "humble"
+        "deepmind-robotics25",
+        "amazon-robotics"
       ],
-      "updatedAt": "2026-11-08T10:50:31+08:00",
+      "updatedAt": "2026-11-16T08:28:37+08:00",
       "title": "机器人与智能制造",
       "url": "research/sector-robotics.html"
     },
@@ -1574,7 +1689,7 @@
     {
       "id": "semiconductors",
       "question": "计算需求怎样转化为某一层供应商的可持续收入？",
-      "demand": "从客户系统所受约束出发，分别分析计算、存储、连接、封装、测试、供电和冷却。系统的主要瓶颈可能变化，但技术必要性不等于某家供应商的盈利能力。替代架构、内部开发与多家竞争都需要进入判断。",
+      "demand": "芯片设计、云计算、汽车和航天客户需要先进制程、封装、功率器件与可靠供应。",
       "valueChain": [
         {
           "layer": "设计和IP",
@@ -1601,8 +1716,8 @@
           "evidence": "总成本与运行效率"
         }
       ],
-      "bottleneck": "关键约束包括设计验证、量产良率、供应保障和客户认证。合作开发不等于批量采购，样品收入也不等于规模交付。应追踪客户在哪个产品阶段采用，以及采用后改善了什么系统指标。 2026-10-22的Helion意向公告把脉冲器件、封装和工装放进同一研发议程。验证应覆盖额定负载下的循环寿命、冷却与系统接口。",
-      "capital": "Ayar追加融资用于光互连制造准备，提供了配套环节资本配置案例。需将本轮与累计融资分开，再跟踪设计导入、制造验证和交付。扩建产能前的客户承诺与资金占用也应核查。",
+      "bottleneck": "巨额资本拨款能否转成按期安装、良率爬坡和高利用率产能，是比批准上限更关键的证据。",
+      "capital": "TSMC董事会批准约409.267亿美元资本拨款，并设置生态投资额度。上限与实际支出分开跟踪。",
       "risks": [
         "峰值性能替代系统价值",
         "计划产能被视作实际交付",
@@ -1616,20 +1731,18 @@
         "脉冲器件在指定工况下的寿命及量产认证"
       ],
       "sourceIds": [
+        "tsmc-board-202611",
         "ayar",
-        "nvidia",
-        "iea-invest",
-        "nist-helion-loi-2026",
-        "helion-power-loi-2026"
+        "nvidia"
       ],
-      "updatedAt": "2026-11-09T08:19:25+08:00",
+      "updatedAt": "2026-11-16T08:28:37+08:00",
       "title": "半导体与计算基础设施",
       "url": "research/sector-semiconductors.html"
     },
     {
       "id": "energy",
       "question": "新增能源需求，能否形成可融资且可交付的项目？",
-      "demand": "能源业务需要把发电、输配电、储能、设备和运行服务分开。项目回报可能由长期合同、当地市场规则与资本成本共同决定。设备出货增长与项目经济性是不同问题，应明确研究的是哪一类资产或企业。",
+      "demand": "电网、园区和公共部门需要在极端天气、算力负荷与电气化增长下保持供电并快速恢复。",
       "valueChain": [
         {
           "layer": "能源设备",
@@ -1656,8 +1769,8 @@
           "evidence": "工程验证而非愿景图"
         }
       ],
-      "bottleneck": "瓶颈可能是接入、设备、建设能力或运行协调。不能把不同地区最有利收入简单相加，也不能把全球投资估计视为某种设备的订单。需要检查停机、衰减、维护、融资和政策机制。 Google在2026-11-04披露马来西亚基础设施计划，OpenAI在11月2日介绍拟建园区负荷弹性。长期跟踪实际接电进度、需求响应时长和分期支出。",
-      "capital": "IEA年度数据适合提供能源内部投资背景；Xcimer资助适合研究公共资本如何分阶段支持工程。两者在统计单位、时间与状态上不同，不应合计为同一个融资指标。 2026-11-02的INFUSE遴选覆盖材料、诊断与模拟。850万美元为28项拟支持金额，正式协议及付款需逐项目核验。",
+      "bottleneck": "风险地图和事件数据库需要与资产级损失、维护成本和措施效果连接，报告偏差也需校正。",
+      "capital": "年度能源投资背景、园区资本计划和韧性措施不能与公司融资合计，应分别跟踪。",
       "risks": [
         "年度计划当作已支出",
         "上限或资助承诺当作到账",
@@ -1671,21 +1784,19 @@
         "研发遴选项目的正式签约与付款进度"
       ],
       "sourceIds": [
+        "iea-resilience-obs",
         "iea-invest",
-        "iea-electricity",
-        "xcimer",
-        "doe-infuse-2026",
-        "google-malaysia-2026",
-        "openai-grid-2026"
+        "openai-grid-2026",
+        "google-malaysia-2026"
       ],
-      "updatedAt": "2026-11-09T08:20:20+08:00",
+      "updatedAt": "2026-11-16T08:28:37+08:00",
       "title": "能源与气候技术",
       "url": "research/sector-energy.html"
     },
     {
       "id": "quantum",
       "question": "前沿量子技术如何产生可验证任务与客户价值？",
-      "demand": "明确系统面向计算、制造、传感、安全还是科研服务。不同产品需要不同的性能和商业证据。参数与设备部署值得记录，但实际任务比较、客户使用及经济性仍需分别验证，不由任何一个指标自动推出。",
+      "demand": "数据中心、航空、防务与自主系统需要误差抑制软件、跨硬件控制和无GPS导航。",
       "valueChain": [
         {
           "layer": "硬件与控制",
@@ -1712,8 +1823,8 @@
           "evidence": "真实任务与重复购买"
         }
       ],
-      "bottleneck": "技术路线与任务差异使单一排名容易误导。应记录比较条件、控制复杂性、错误处理和系统成本。对多业务企业，应将量子平台、代工和其他服务收入拆开，不以合并增长直接证明某一应用成熟。",
-      "capital": "IBM部署、IonQ财报与QuiX产业项目是三种不同证据。分别跟踪设备使用、收入构成和制造里程碑，才能判断资本是否对应真实风险消除；跨年项目总预算不等于一家公司的本轮融资。 IonQ在11月4日公告Elisity全股票并购已完成，SEC文件记载交割日为2026-11-03。10-Q披露总对价约13亿美元，含最高1.5亿美元或有对价，订阅收入另行跟踪。",
+      "bottleneck": "公司自述性能需要第三方实地测试、跨平台复现、付费部署与经常性收入证明。",
+      "capital": "Q-CTRL完成2.9亿美元C轮，资本用途覆盖量子软件和导航部署，估值不计入本轮。",
       "risks": [
         "参数排行榜替代任务比较",
         "并购后的合并收入缺少拆分",
@@ -1727,14 +1838,11 @@
         "交割后的客户续费、交叉销售和购买价分摊"
       ],
       "sourceIds": [
+        "qctrl-series-c",
         "ibm",
-        "ionq",
-        "quix",
-        "ionq-elisity-close",
-        "ionq-elisity-sec8",
-        "ionq-elisity-sec10"
+        "quix"
       ],
-      "updatedAt": "2026-11-09T08:20:20+08:00",
+      "updatedAt": "2026-11-16T08:28:37+08:00",
       "title": "量子与先进材料",
       "url": "research/sector-quantum.html"
     },
@@ -1793,7 +1901,7 @@
     {
       "id": "space",
       "question": "商业航天的采购机会如何走到任务完成和现金回收？",
-      "demand": "把发射、运输、载荷集成、地面服务和在轨设施运营分开。客户购买的可能是任务结果或长期服务，资本投入与风险不同。公共机构的框架可以提供潜在需求，但仍需要具体订单、验收与付款来证明兑现。",
+      "demand": "整星厂、星座运营商和公共任务需要电力、执行机构、成像数据、发射与在轨制造服务。",
       "valueChain": [
         {
           "layer": "运输与发射",
@@ -1820,8 +1928,8 @@
           "evidence": "利用率、维护和现金流"
         }
       ],
-      "bottleneck": "关键不只在于技术能否飞行，还包括任务频率、供应链、认证、资本占用和客户集中。概念图、工程样机和运行设施应分别展示。多任务能力也需要明确环境和验收边界。 NASA于2026-11-03确认SSPICY航天器在调试阶段失联后无法恢复。承包商需要把通信和调试作为独立验收节点，与入轨和后续自主操作分别记录。",
-      "capital": "NASA月球框架和商业空间站采购公告提供两种公共需求信号。一个是竞争任务的框架，另一个是征求方案；不能都写成公司已取得订单。观察实际任务、里程碑支付和公共客户之外的收入。",
+      "bottleneck": "资格验证、批量良率、发射进度、在轨可靠性和锚定客户决定计划能否形成收入。",
+      "capital": "本期Revolv 500万欧元A轮和Marble 600万欧元种子扩展分别进入子系统产能与卫星、发射采购。",
       "risks": [
         "框架总上限当作企业订单",
         "愿景图当成已建成设施",
@@ -1835,12 +1943,12 @@
         "入轨后的双向通信、调试成功和冗余验证"
       ],
       "sourceIds": [
-        "nasa-moon",
-        "nasa-leo",
-        "nasa-cargo",
-        "nasa-sspicy-2026"
+        "revolv-series-a",
+        "marble-extension",
+        "axiom-nitride",
+        "nasa-moon"
       ],
-      "updatedAt": "2026-11-09T08:19:25+08:00",
+      "updatedAt": "2026-11-16T08:28:37+08:00",
       "title": "商业航天与空间基础设施",
       "url": "research/sector-space.html"
     },
@@ -1898,6 +2006,61 @@
     }
   ],
   "readings": [
+    {
+      "id": "deepmind-alphagenome2-guide",
+      "publisher": "Google DeepMind",
+      "title": "AlphaGenome 2：从组织平均走向细胞状态条件化",
+      "summary": "官方技术原文列出训练数据、基准、开放方式和临床使用边界。",
+      "question": "跨数据集泛化和湿实验命中率是否支持真实研发流程？",
+      "sourceId": "deepmind-alphagenome2",
+      "group": "companies",
+      "date": "2026-11-11",
+      "access": "公开原文"
+    },
+    {
+      "id": "iea-resilience-guide",
+      "publisher": "IEA",
+      "title": "全球能源韧性观测站：从风险地图到投资优先级",
+      "summary": "观测站汇集中断、暴露和措施目录，适合建立风险基线。",
+      "question": "事件报告偏差和资产暴露如何转成可比较的投资回报？",
+      "sourceId": "iea-resilience-obs",
+      "group": "institutions",
+      "date": "2026-11-10",
+      "access": "公开原文"
+    },
+    {
+      "id": "tsmc-capital-guide",
+      "publisher": "TSMC",
+      "title": "董事会决议：资本拨款与投资额度必须分别阅读",
+      "summary": "原文同时列出产能资本拨款和三项战略投资上限。",
+      "question": "哪些金额会实际发生，先进封装和厂务系统如何形成新增产能？",
+      "sourceId": "tsmc-board-202611",
+      "group": "companies",
+      "date": "2026-11-10",
+      "access": "公开原文"
+    },
+    {
+      "id": "axiom-nitride-guide",
+      "publisher": "Axiom Space",
+      "title": "在轨制造超宽禁带材料：先看对照实验与样品回收",
+      "summary": "合作备忘录描述材料、硬件和潜在任务方向，未给出订单。",
+      "question": "轨道环境带来的性能增益能否覆盖发射、回收与良率成本？",
+      "sourceId": "axiom-nitride",
+      "group": "companies",
+      "date": "2026-11-10",
+      "access": "公开原文"
+    },
+    {
+      "id": "openai-control-guide",
+      "publisher": "OpenAI",
+      "title": "Control Room：研究智能体如何在基础设施层被停止",
+      "summary": "官方说明任务标识、推理授权、35秒停止上限与故障关闭。",
+      "question": "高负载和故障条件下的真实停止时间与旁路覆盖率是多少？",
+      "sourceId": "openai-control-room",
+      "group": "companies",
+      "date": "2026-11-09",
+      "access": "公开原文"
+    },
     {
       "id": "mgi-adaptation",
       "publisher": "McKinsey Global Institute",
@@ -2360,6 +2523,144 @@
       "label": "IonQ · SEC 10-Q期后事项",
       "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526449829/ionq-20260930.htm",
       "date": "2026-11-05"
+    },
+    {
+      "id": "deepmind-alphagenome2",
+      "label": "Google DeepMind · AlphaGenome 2",
+      "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+      "date": "2026-11-11"
+    },
+    {
+      "id": "deepmind-robotics25",
+      "label": "Google DeepMind · Gemini Robotics 2.5",
+      "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+      "date": "2026-11-10"
+    },
+    {
+      "id": "deepmind-weather-data",
+      "label": "Google DeepMind · SatWeave与PARDIG",
+      "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/",
+      "date": "2026-11-13"
+    },
+    {
+      "id": "openai-lattice-sm",
+      "label": "OpenAI · 标准模型格点候选方案",
+      "url": "https://openai.com/index/step-toward-defining-the-standard-model/",
+      "date": "2026-11-15"
+    },
+    {
+      "id": "openai-control-room",
+      "label": "OpenAI · Control Room",
+      "url": "https://openai.com/index/control-room/",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "msr-lazarus",
+      "label": "Microsoft Research · Lazarus",
+      "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+      "date": "2026-11-10"
+    },
+    {
+      "id": "microsoft-terranova",
+      "label": "Microsoft · TerraNova",
+      "url": "https://news.microsoft.com/source/features/ai/how-a-new-ai-model-could-help-crushed-rock-fight-climate-change/",
+      "date": "2026-11-12"
+    },
+    {
+      "id": "ibm-ms-imagine",
+      "label": "IBM · Imagine Enterprise",
+      "url": "https://newsroom.ibm.com/2026-11-10-ibm-and-microsoft-announce-a-new-ai-agent-platform-designed-for-industry-specific-transformation",
+      "date": "2026-11-10"
+    },
+    {
+      "id": "tsmc-board-202611",
+      "label": "TSMC · 董事会决议",
+      "url": "https://pr.tsmc.com/english/news/3352",
+      "date": "2026-11-10"
+    },
+    {
+      "id": "roche-ctad2026",
+      "label": "Roche · CTAD 2026公告",
+      "url": "https://www.roche.com/media/releases/med-cor-2026-11-10",
+      "date": "2026-11-10"
+    },
+    {
+      "id": "roche-gazyva-202611",
+      "label": "Roche · Gazyva CHMP建议",
+      "url": "https://www.roche.com/media/releases/med-cor-2026-11-13",
+      "date": "2026-11-13"
+    },
+    {
+      "id": "iea-resilience-obs",
+      "label": "IEA · 全球能源韧性观测站",
+      "url": "https://www.iea.org/news/iea-launches-global-observatory-to-help-strengthen-energy-sector-resilience",
+      "date": "2026-11-10"
+    },
+    {
+      "id": "iorganbio-mitsui",
+      "label": "iORGANBIO · 三井化学合作",
+      "url": "https://rss.globenewswire.com/news-release/2026/11/10/3399347/0/en/iorganbio-and-mitsui-chemicals-collaborate-to-advance-ai-driven-human-cell-and-organoid-manufacturing.html",
+      "date": "2026-11-10"
+    },
+    {
+      "id": "srtd-seed",
+      "label": "SRTD Biotech · 种子轮",
+      "url": "https://srtd-biotech.com/news/srtd-biotech-raises-a-e31-5-million-seed-round-to-develop-next-generation-precision-mrna-therapeutics/",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "oyster-series-a2",
+      "label": "Oyster Therapeutics · A-2轮",
+      "url": "https://www.oyster-tx.com/media/kesmalea-therapeutics-announces-60-million-series-a-financing-to-advance-next--generation-targeted-protein-degraders-for-alzheimers-and-other-neurodegenerative-diseases-and-rebrands-as-oyster-therapeutics",
+      "date": "2026-11-10"
+    },
+    {
+      "id": "neurosterix-series-b",
+      "label": "Addex · Neurosterix B轮",
+      "url": "https://www.addextherapeutics.com/en/investors/ad-hoc-announcements-art-53-lr/addex-spin-out-neurosterix-closes-105-million-series-b-financing/",
+      "date": "2026-11-11"
+    },
+    {
+      "id": "delix-series-c",
+      "label": "Delix Therapeutics · C轮",
+      "url": "https://delixtherapeutics.com/news/delix-closes-100-million-series-c-financing/",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "qctrl-series-c",
+      "label": "Q-CTRL · C轮",
+      "url": "https://q-ctrl.com/blog/q-ctrl-secures-us-290-million-series-c-funding-led-by-salesforce-ventures-to-accelerate-the-convergence-of-quantum-and-ai",
+      "date": "2026-11-12"
+    },
+    {
+      "id": "axiom-nitride",
+      "label": "Axiom Space · Nitride Global合作",
+      "url": "https://www.axiomspace.com/release/axiom-space-nitride-global-sign-mou-to-accelerate-semiconductor-innovation-in-space",
+      "date": "2026-11-10"
+    },
+    {
+      "id": "marble-extension",
+      "label": "Marble Imaging · 追加融资",
+      "url": "https://www.marble-imaging.de/news/marble-imaging-raises-additional-6-million-led-by-cherry-ventures",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "revolv-series-a",
+      "label": "CDP Venture Capital · Revolv A轮",
+      "url": "https://www.cdpventurecapital.it/it/news.page?contentId=COM52956",
+      "date": "2026-11-12"
+    },
+    {
+      "id": "samsung-eyewear",
+      "label": "Samsung · 智能眼镜",
+      "url": "https://news.samsung.com/global/samsung-announces-december-release-for-intelligent-eyewear-bringing-a-smarter-way-to-see-the-world",
+      "date": "2026-11-12"
+    },
+    {
+      "id": "nvidia-transition",
+      "label": "NVIDIA · CEO更替",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+      "date": "2026-11-12"
     }
   ],
   "capitalPanorama": {

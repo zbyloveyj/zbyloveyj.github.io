@@ -2,6 +2,14 @@
   "schemaVersion": 1,
   "issues": [
     {
+      "id": "2026-W46",
+      "label": "2026-W46 · 研究与资本更新",
+      "path": "data/issues/2026-W46.json",
+      "html": "reports/2026-W46.html",
+      "start": "2026-11-09",
+      "end": "2026-11-15"
+    },
+    {
       "id": "2026-W45",
       "label": "2026-W45 · 复核增补",
       "path": "data/issues/2026-W45.json",

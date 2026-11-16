@@ -1,186 +1,213 @@
 {
   "schemaVersion": 1,
-  "issue": "2026-W45 · 复核增补",
+  "issue": "2026-W46 · 研究与资本更新",
   "period": {
-    "start": "2026-11-02",
-    "end": "2026-11-08"
+    "start": "2026-11-09",
+    "end": "2026-11-15"
   },
-  "generatedAt": "2026-11-09T08:20:20+08:00",
-  "coverageNote": "本期覆盖11月2日至8日，共20条本期消息、13条延伸背景。样本包含聚变与电网、量子、商业航天、类器官与人源模型、基因编辑、医疗器械及机器人。原文署10月的类器官合作归入背景。虚拟细胞挑战的成绩、部分设备与药企的新研发披露，以及各计划的实际支出仍有缺口。并购以监管文件核对实际交割日，分列已交付股份和或有对价。资本金额按原币种、口径及进度分别呈现。",
+  "generatedAt": "2026-11-16T08:28:37+08:00",
+  "coverageNote": "本期覆盖11月9日至15日，共23条本期消息、9条延伸背景，涉及AI虚拟细胞、人源细胞与类器官、药物发现、机器人、半导体、能源韧性、量子、医疗器械和商业航天。资本样本按股权融资、资本拨款和投资额度分别记录，未披露金额保留为空；TSMC批准上限不视为已支出。AlphaGenome 2、机器人生产线概念验证和类器官制造合作提供了技术信号，但临床采用、批次一致性、付费订单与长期可靠性仍有明显证据缺口。",
   "theses": [
     {
-      "title": "聚变和算力项目开始把约束拆成可采购的部件",
-      "text": "DOE的聚变遴选覆盖诊断、材料和模拟，Helion十月意向指向高压脉冲器件。另一边，Google马来西亚园区投资计划和OpenAI用电弹性方案把建设进度与电力容量放到一起看。本站判断，设备与工程服务有机会先进入验证和采购阶段，兑现仍取决于正式协议、台架指标和园区实际接电。",
+      "title": "生物模型正在从通用预测转向细胞状态和制造一致性",
+      "text": "AlphaGenome 2把遗传变异作用定位到具体细胞类型和状态，iORGANBIO与三井化学把材料、培养板和自动化闭环放进类器官生产。本站判断，下一轮商业分化将更多由跨批次重现、实验命中与药企采购决定。Oyster等疗法融资仍需穿过体内暴露和临床疗效，模型指标不能替代治疗证据。",
       "evidenceIds": [
-        "doe-infuse-20261102",
-        "helion-nist-loi-20261022",
-        "google-malaysia-20261104",
-        "openai-grid-20261102"
+        "deepmind-alphagenome2-20261111",
+        "iorganbio-mitsui-20261110",
+        "oyster-series-a2-20261110",
+        "bitbio-20261104"
       ]
     },
     {
-      "title": "生物技术资金对应不同的验证门槛",
-      "text": "Specific的A轮瞄准患者生物标志物概念验证，bit.bio和Vitroscope的融资对应人源细胞供应与活体组织灌流。类器官与组学服务合作展示了另一种交付形式。本站判断，工具供应商更早面对跨批次重现、周转和复购，疗法开发则需依次验证递送、安全性和临床效果。Arc挑战的跨细胞背景成绩仍待正式公布。",
+      "title": "资本同时押注重资产瓶颈和临床概念验证",
+      "text": "TSMC批准的大额资本拨款主要面向制程、封装和厂务系统，Revolv与Marble的融资进入卫星电力子系统及在轨资产，Q-CTRL则把量子资金投向软件与导航部署。另一组资金流向精神疾病和神经退行性疾病II期前后的临床验证。本站判断，资本并未只追逐模型，而是在设备产能、可复用部件和关键临床节点之间分配。",
       "evidenceIds": [
-        "specific-series-a-20261102",
-        "bitbio-20261104",
-        "vitroscope-20261103",
-        "abc-panome-202610",
-        "arc-vcc-20260820"
+        "tsmc-board-20261110",
+        "revolv-series-a-20261112",
+        "marble-extension-20261109",
+        "qctrl-series-c-20261112",
+        "neurosterix-series-b-20261111",
+        "delix-series-c-20261109"
       ]
     },
     {
-      "title": "框架、订单和工程验证各有一条兑现路径",
-      "text": "NASA同周公布月球运输采购与SSPICY演示无法恢复，分别提供需求与工程失败的证据。IonQ交割Elisity获得网络安全产品与客户渠道，IBM芝加哥部署提供量子系统的实体验证场景。本站判断，下一步应跟踪任务订单验收、在轨通信可靠性、量子设备使用和安全产品续费，从可观测的使用与回款检验商业假设。",
+      "title": "真实场景指标开始出现，治理与故障仍构成反证",
+      "text": "机器人生产线试点、碳移除采样模型和能源韧性观测站都把技术放进具体运行约束。与此同时，Lazarus权重后门、NASA任务失败背景与NVIDIA管理层突发更替提醒，安全、治理和可靠性会直接影响商业兑现。本站判断，应优先跟踪连续运行、人工接管、第三方验证和正式付款，而不是把一次试点或公司声明外推为规模化成熟。",
       "evidenceIds": [
-        "nasa-clps-20261107",
+        "deepmind-robotics25-20261110",
+        "microsoft-terranova-20261112",
+        "iea-resilience-observatory-20261110",
+        "msr-lazarus-20261110",
         "nasa-sspicy-20261103",
-        "ionq-elisity-close-20261104",
-        "ibm-20261106"
+        "nvidia-transition-20261112"
       ]
     }
   ],
   "entries": [
     {
-      "id": "nasa-clps-20261107",
-      "title": "NASA公布月球运输框架、月球车交付合同与发射任务订单",
+      "id": "deepmind-alphagenome2-20261111",
+      "title": "AlphaGenome 2把遗传变异预测推进到具体细胞类型和状态",
       "organizations": [
-        "NASA",
-        "Blue Origin",
-        "SpaceX",
-        "Northrop Grumman"
+        "Google DeepMind"
       ],
-      "region": "美国",
-      "tracks": [
-        "frontier",
-        "capital"
-      ],
-      "sectors": [
-        "space",
-        "robotics"
-      ],
-      "kind": "contract",
-      "window": "week",
-      "publishedDate": "2026-11-07",
-      "eventDate": "2026-11-07",
-      "verifiedDate": "2026-11-09",
-      "evidence": "一手公开原文",
-      "fact": "NASA于11月7日公布CLPS 2十年框架总上限100亿美元，八家公司获任务竞标资格。另披露Blue Origin月球车交付基础合同9400万美元、按表现触发的1.4亿美元选择项，以及VADR框架下六份任务订单合计约13亿美元。",
-      "insight": "公共客户的采购机制可能为商业航天创造需求，但资格、任务订单、实际履约和收入确认是不同阶段。",
-      "nextCheck": "分开跟踪CLPS 2具体任务订单、PROMISE选择项是否行权，以及VADR各任务交付与回款。",
-      "sources": [
-        {
-          "label": "NASA · 月球运输与技术公告",
-          "url": "https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/"
-        }
-      ],
-      "finance": {
-        "display": "100亿美元框架上限 · 六份VADR订单约13亿美元",
-        "basis": "CLPS 2是十年框架上限。VADR六份任务订单另属VADR框架。Blue Origin月球车基础合同9400万美元与1.4亿美元选择项各自列示。",
-        "stage": "框架遴选、已授任务订单、选择项分别列示",
-        "investors": "NASA为采购方，承包方以各项订单为准",
-        "use": "月面交付、月球车运输及载荷发射与转运",
-        "legs": [
-          {
-            "type": "contract",
-            "currency": "USD",
-            "amount": 10000000000,
-            "status": "framework_ceiling"
-          },
-          {
-            "type": "contract",
-            "currency": "USD",
-            "amount": 94000000,
-            "status": "base_contract_awarded"
-          },
-          {
-            "type": "contract",
-            "currency": "USD",
-            "amount": 140000000,
-            "status": "performance_option"
-          },
-          {
-            "type": "contract",
-            "currency": "USD",
-            "amount": 1300000000,
-            "status": "six_task_orders_awarded_approx"
-          }
-        ]
-      }
-    },
-    {
-      "id": "ibm-20261106",
-      "title": "IBM在芝加哥部署Quantum System Two，量子生态继续向实体设施延伸",
-      "organizations": [
-        "IBM",
-        "University of Chicago"
-      ],
-      "region": "美国",
+      "region": "全球研究社区",
       "tracks": [
         "giants",
         "frontier"
       ],
       "sectors": [
-        "quantum"
-      ],
-      "kind": "deployment",
-      "window": "week",
-      "publishedDate": "2026-11-06",
-      "eventDate": "2026-11-06",
-      "verifiedDate": "2026-11-08",
-      "evidence": "企业官方部署说明",
-      "fact": "IBM官方博客披露，配备Nighthawk r2处理器的Quantum System Two已部署至芝加哥大学Hyde Park Labs，服务国家量子算法中心及当地研究生态。",
-      "insight": "可把观察重点从处理器发布扩展到设备部署、算力接入与终端使用场景，跟踪科研平台如何形成持续需求。",
-      "nextCheck": "核查设备利用率、可复现算法成果和付费使用；实体部署不等于通用量子优势或商业盈利。",
-      "sources": [
-        {
-          "label": "IBM原文",
-          "url": "https://www.ibm.com/quantum/blog/chicago-quantum-computer"
-        }
-      ]
-    },
-    {
-      "id": "google-health-20261105",
-      "title": "Google研究用消费级手表信号识别高血压风险",
-      "organizations": [
-        "Google Research"
-      ],
-      "region": "国际多中心研究",
-      "tracks": [
-        "giants",
-        "frontier"
-      ],
-      "sectors": [
-        "medtech"
+        "virtualcell",
+        "cellmodels",
+        "drugdiscovery"
       ],
       "kind": "research",
       "window": "week",
-      "publishedDate": "2026-11-05",
-      "eventDate": "2026-11-05",
-      "verifiedDate": "2026-11-08",
-      "evidence": "论文 + 官方研究解读",
-      "fact": "Google与Nature论文报告，结合光电容积描记与加速度信号，在196名参与者的前瞻性多中心研究中评估高血压筛查。参照24小时动态血压监测，报告灵敏度65.8%、特异度90.0%。",
-      "insight": "可穿戴设备的产业机会可能来自发现需要进一步评估的人群，而非仅增加健康指标。数据质量与临床路径整合值得跟踪。",
-      "nextCheck": "研究用于机会性筛查，仍需规范血压测量和确认诊断；核查外部验证、适用人群与监管状态。",
+      "publishedDate": "2026-11-11",
+      "eventDate": "2026-11-11",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Google DeepMind发布AlphaGenome 2。官方称模型以超过1.07亿个单细胞谱训练，可在指定组织、细胞类型或状态下预测DNA序列和变异对表达、染色质可及性及甲基化等读出的影响，并以API向非商业研究开放，商业研究处于私测。TenK10K评估中识别的因果变异比例由原模型的16%提高到30%，方向性基因效应由23%提高到43%。",
+      "insight": "这类模型正把静态细胞图谱转成条件化预测工具。产业价值更可能先出现在变异优先级排序和实验选择，而非直接取代湿实验或诊断流程。",
+      "nextCheck": "核查论文同行评议、外部疾病队列泛化、商业许可和湿实验命中率。官方明确其尚未获批用于临床或诊断。",
       "sources": [
         {
-          "label": "Google研究",
-          "url": "https://www.research.google/blog/detecting-signs-of-hypertension-using-wearable-sensors/"
-        },
-        {
-          "label": "Nature论文",
-          "url": "https://www.nature.com/articles/s41586-026-11336-3"
+          "label": "Google DeepMind · AlphaGenome 2",
+          "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/"
         }
       ]
     },
     {
-      "id": "msr-pdd-20261105",
-      "title": "微软研究PDD Kit：把智能体生成代码与形式化规格连接起来",
+      "id": "deepmind-robotics25-20261110",
+      "title": "Gemini Robotics 2.5用汽车生产线试点检验操作可靠性",
       "organizations": [
-        "Microsoft Research",
-        "GitHub Next"
+        "Google DeepMind",
+        "Apptronik",
+        "Mercedes-Benz"
       ],
-      "region": "国际",
+      "region": "德国与匈牙利",
+      "tracks": [
+        "giants",
+        "frontier"
+      ],
+      "sectors": [
+        "robotics"
+      ],
+      "kind": "research",
+      "window": "week",
+      "publishedDate": "2026-11-10",
+      "eventDate": "2026-11-10",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Google DeepMind发布Gemini Robotics 2.5，并披露在Mercedes-Benz生产线概念验证中，Apptronik Apollo 2完成汽车零件分拣与配套任务的成功率为96%。官方还报告不同任务类别相对既有基线成功率提高30%至100%，完成速度快20%至30%，安全绕障与近人任务指标亦有提升。",
+      "insight": "机器人竞争的证据正在从演示视频转向特定工位的循环成功率、节拍和异常恢复。单个概念验证仍不能代表整线经济性。",
+      "nextCheck": "继续核查连续运行时长、人工接管率、节拍、部署成本和是否从试点转为付费订单。",
+      "sources": [
+        {
+          "label": "Google DeepMind · Gemini Robotics 2.5",
+          "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/"
+        }
+      ]
+    },
+    {
+      "id": "deepmind-weather-data-20261113",
+      "title": "DeepMind开放天气模型背后的卫星与降水基础数据",
+      "organizations": [
+        "Google DeepMind"
+      ],
+      "region": "全球",
+      "tracks": [
+        "giants",
+        "frontier"
+      ],
+      "sectors": [
+        "agfood",
+        "energy"
+      ],
+      "kind": "research",
+      "window": "week",
+      "publishedDate": "2026-11-13",
+      "eventDate": "2026-11-13",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Google DeepMind发布SatWeave与PARDIG数据集及历史、实时入口。SatWeave整合五颗地球同步卫星影像，PARDIG提供约10公里、15分钟分辨率的全球降水估计，历史档案覆盖1999年至2026年。官方评估称PARDIG在轻至中等降水的小时探测技能上相对IMERG-Final提高超过30%。",
+      "insight": "开放基础数据可能降低天气、水文与农业模型的起步成本，价值取决于地区偏差、实时稳定性和下游决策能否改善。",
+      "nextCheck": "核查数据许可、断流率、极端降水地区外部验证，以及农业、保险和电网客户的实际使用。",
+      "sources": [
+        {
+          "label": "Google DeepMind · 天气基础数据",
+          "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/"
+        }
+      ]
+    },
+    {
+      "id": "openai-lattice-sm-20261115",
+      "title": "OpenAI科学博客公布标准模型格点定义候选方案",
+      "organizations": [
+        "OpenAI",
+        "University of California Santa Barbara"
+      ],
+      "region": "美国",
+      "tracks": [
+        "giants",
+        "frontier"
+      ],
+      "sectors": [
+        "agents",
+        "quantum"
+      ],
+      "kind": "research",
+      "window": "week",
+      "publishedDate": "2026-11-15",
+      "eventDate": "2026-10",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "OpenAI科学博客刊出物理学家Nathaniel Craig的客座文章，介绍与GPT-6 Astra协作形成的标准模型非微扰格点定义候选方案。文章明确该工作仍需专家检验，当前更多是原理性答案，反射正定性、连续时空极限和现实格点模拟可用性仍待解决。",
+      "insight": "科学智能体的可信度不能只看是否形成证明文本，还要看专家复核、可独立重现和开放问题是否被清楚列出。",
+      "nextCheck": "跟踪预印本审阅、独立数学核查及反射正定性问题，避免把候选构造写成已解决的物理结论。",
+      "sources": [
+        {
+          "label": "OpenAI · 标准模型格点定义",
+          "url": "https://openai.com/index/step-toward-defining-the-standard-model/"
+        }
+      ]
+    },
+    {
+      "id": "openai-control-room-20261109",
+      "title": "OpenAI公开研究算力任务的集中停止系统",
+      "organizations": [
+        "OpenAI"
+      ],
+      "region": "美国",
+      "tracks": [
+        "giants",
+        "frontier"
+      ],
+      "sectors": [
+        "agents"
+      ],
+      "kind": "deployment",
+      "window": "week",
+      "publishedDate": "2026-11-09",
+      "eventDate": null,
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "OpenAI公开Control Room。该系统为研究推理任务分配任务标识，在推理引擎层逐次检查授权。官方称在决定干预后最多35秒停止继续生成，并采用故障关闭设计，已覆盖前沿模型研究工作负载，其他研究负载仍在继续铺开。",
+      "insight": "更强智能体扩大操作风险后，基础设施层的可观测、最小权限和可停止能力成为部署成本的一部分。",
+      "nextCheck": "核查35秒上限在故障与高负载下的实测分布、旁路检测覆盖率，以及外部服务是否采用同等控制。",
+      "sources": [
+        {
+          "label": "OpenAI · Control Room",
+          "url": "https://openai.com/index/control-room/"
+        }
+      ]
+    },
+    {
+      "id": "msr-lazarus-20261110",
+      "title": "微软披露无需重训即可植入智能体权重后门的Lazarus方法",
+      "organizations": [
+        "Microsoft Research"
+      ],
+      "region": "美国",
       "tracks": [
         "giants",
         "frontier"
@@ -190,121 +217,427 @@
       ],
       "kind": "research",
       "window": "week",
-      "publishedDate": "2026-11-05",
-      "eventDate": "2026-11-05",
-      "verifiedDate": "2026-11-08",
-      "evidence": "研究原型说明",
-      "fact": "微软研究介绍PDD Kit，尝试把开发意图转为Verus规格，并检查生成的Rust代码是否满足规格。官方将其定位为研究原型，数据库、时钟等受信任边界仍需要测试。",
-      "insight": "随着生成代码成本降低，验证需求与运行可靠性可能成为新的价值环节。要比较实际缺陷减少和验证成本。",
-      "nextCheck": "目前侧重Rust；正确性保证依赖规格和受信任组件，不能据此声称整个应用绝对安全。",
+      "publishedDate": "2026-11-10",
+      "eventDate": "2026-11-10",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "微软研究称，少于10个休眠神经元的权重重编程即可让智能体在隐藏触发条件出现时执行恶意命令，且无需重新训练并可能通过常规评测。官方同时强调模型来源、权重完整性、权限限制和运行监控，并称正在研究权重扫描、红队工具与可验证签名。",
+      "insight": "开放权重与内部模型都可能遭遇供应链篡改。采购和部署成本将包含基线权重比对、签名、审计及运行时隔离。",
+      "nextCheck": "核查论文复现、扫描的误报漏报、不同架构适用性，并把审计视为一层证据而非安全保证。",
       "sources": [
         {
-          "label": "微软研究原文",
-          "url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/"
+          "label": "Microsoft Research · Lazarus",
+          "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/"
         }
       ]
     },
     {
-      "id": "humble-20261105",
-      "title": "Humble Robotics披露5100万美元A轮，推进自动驾驶电动货运",
+      "id": "microsoft-terranova-20261112",
+      "title": "Microsoft与Terradot用模型减少增强岩石风化的测量负担",
       "organizations": [
-        "Humble Robotics",
-        "Obvious Ventures",
-        "Eclipse",
-        "Energy Impact Partners"
+        "Microsoft",
+        "Terradot"
       ],
-      "region": "美国",
+      "region": "美国与巴西",
+      "tracks": [
+        "giants",
+        "frontier"
+      ],
+      "sectors": [
+        "energy",
+        "agfood"
+      ],
+      "kind": "research",
+      "window": "week",
+      "publishedDate": "2026-11-12",
+      "eventDate": "2026-11-12",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Microsoft披露TerraNova模型以Aurora天气模型和Terradot田间数据为基础，预测土壤与岩粉条件下的风化反应。官方称田间数据模拟显示，在最大场地可减少75%的采样量并维持相同准确度，但研究仍待预印本和同行评议，实体测量并未被取消。",
+      "insight": "碳移除项目的商业瓶颈常在测量、报告与核证。模型若只减少采样而不能获得买方和核证机构接受，成本优势仍难形成收入。",
+      "nextCheck": "核查预印本、跨地区盲测、核证标准接受度和每吨二氧化碳的完整测量成本。",
+      "sources": [
+        {
+          "label": "Microsoft · TerraNova",
+          "url": "https://news.microsoft.com/source/features/ai/how-a-new-ai-model-could-help-crushed-rock-fight-climate-change/"
+        }
+      ]
+    },
+    {
+      "id": "ibm-microsoft-imagine-20261110",
+      "title": "IBM与Microsoft推出面向受监管行业的智能体平台",
+      "organizations": [
+        "IBM",
+        "Microsoft"
+      ],
+      "region": "全球企业市场",
+      "tracks": [
+        "giants",
+        "frontier"
+      ],
+      "sectors": [
+        "agents"
+      ],
+      "kind": "product",
+      "window": "week",
+      "publishedDate": "2026-11-10",
+      "eventDate": "2026-11-10",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "IBM与Microsoft公布Imagine Enterprise，组合IBM Consulting超过6000项预构建智能体与资产，以及Microsoft的云、身份、数据、安全和治理技术，并为符合条件的项目提供前线工程支持。公告给出SEI案例方向，但未披露产品收入、价格或通用客户转化率。",
+      "insight": "企业智能体的竞争逐渐从模型能力转向行业流程接入、治理与部署服务。资产数量不能直接等同于可复用程度或客户价值。",
+      "nextCheck": "核查定价、付费客户、上线周期、人工复核比例和监管审计结果。",
+      "sources": [
+        {
+          "label": "IBM · Imagine Enterprise",
+          "url": "https://newsroom.ibm.com/2026-11-10-ibm-and-microsoft-announce-a-new-ai-agent-platform-designed-for-industry-specific-transformation"
+        }
+      ]
+    },
+    {
+      "id": "tsmc-board-20261110",
+      "title": "TSMC批准约409.267亿美元资本拨款并设置三项投资额度",
+      "organizations": [
+        "TSMC"
+      ],
+      "region": "中国台湾及全球",
+      "tracks": [
+        "giants",
+        "capital"
+      ],
+      "sectors": [
+        "semiconductors"
+      ],
+      "kind": "mixed",
+      "window": "week",
+      "publishedDate": "2026-11-10",
+      "eventDate": "2026-11-10",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "TSMC董事会批准约409.267亿美元资本拨款，用于先进制程与先进封装、成熟或特殊制程、晶圆厂建设及2027年研发资本投资等。董事会另批准最多5亿美元设立战略投资公司，并分别批准最多5亿美元按IPO价格投资Anthropic普通股、最多5亿美元投资OpenAI优先股。",
+      "insight": "本周最清晰的大额资本信号仍是产能、封装和厂务系统。三项投资额度体现生态布局，但批准上限不能当作已经支出或到账。",
+      "nextCheck": "跟踪实际资本开支、设备验收、先进封装产能利用率，以及三项投资的最终执行金额和交割条件。",
+      "sources": [
+        {
+          "label": "TSMC · 董事会决议",
+          "url": "https://pr.tsmc.com/english/news/3352"
+        }
+      ],
+      "finance": {
+        "display": "约409.267亿美元资本拨款；另有三项各不超过5亿美元投资额度",
+        "basis": "董事会批准口径。资本拨款、战略投资公司额度、Anthropic IPO投资上限与OpenAI优先股投资上限分别列示，均不视作已支付。",
+        "stage": "董事会批准，实际支出与交割待后续披露",
+        "investors": "TSMC为资本支出主体及投资方",
+        "use": "先进制程、先进封装、晶圆厂、研发资本投资与战略生态投资",
+        "legs": [
+          {
+            "type": "capex",
+            "currency": "USD",
+            "amount": 40926700000,
+            "status": "approved_capital_appropriation_not_spent"
+          },
+          {
+            "type": "equity",
+            "currency": "USD",
+            "amount": 500000000,
+            "status": "strategic_investment_company_maximum"
+          },
+          {
+            "type": "equity",
+            "currency": "USD",
+            "amount": 500000000,
+            "status": "anthropic_ipo_investment_maximum"
+          },
+          {
+            "type": "equity",
+            "currency": "USD",
+            "amount": 500000000,
+            "status": "openai_preferred_investment_maximum"
+          }
+        ]
+      }
+    },
+    {
+      "id": "roche-ctad-20261110",
+      "title": "Roche把阿尔茨海默病药物、血液检测和试验路径放在同一组合中",
+      "organizations": [
+        "Roche"
+      ],
+      "region": "全球",
+      "tracks": [
+        "giants",
+        "frontier"
+      ],
+      "sectors": [
+        "drugdiscovery",
+        "medtech"
+      ],
+      "kind": "research",
+      "window": "week",
+      "publishedDate": "2026-11-10",
+      "eventDate": "2026-11-10",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Roche在CTAD 2026会前公告中披露，trontinemab的PrevenTRON III期预防性研究已开始入组，口服NLRP3抑制剂RG6434的TARBELA-AD II期研究启动，同时将展示pTau217与pTau181血液检测的临床和卫生经济学材料。部分数据安排在11月16日至19日会议期间公布，本期未把未来展示内容写成既成结果。",
+      "insight": "药物和诊断组合有机会共同改变筛查、入组和治疗路径，但临床疗效、检测阈值与支付证据必须分别成立。",
+      "nextCheck": "核查CTAD实际数据、安全性、入组速度、血液检测在真实门诊中的阳性预测值及支付政策。",
+      "sources": [
+        {
+          "label": "Roche · CTAD 2026公告",
+          "url": "https://www.roche.com/media/releases/med-cor-2026-11-10"
+        }
+      ]
+    },
+    {
+      "id": "roche-gazyva-chmp-20261113",
+      "title": "CHMP建议欧盟批准Gazyva用于系统性红斑狼疮",
+      "organizations": [
+        "Roche"
+      ],
+      "region": "欧洲",
+      "tracks": [
+        "giants",
+        "frontier"
+      ],
+      "sectors": [
+        "drugdiscovery"
+      ],
+      "kind": "regulatory",
+      "window": "week",
+      "publishedDate": "2026-11-13",
+      "eventDate": "2026-11-13",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Roche宣布，欧洲药品管理局人用药品委员会建议扩大Gazyva/Gazyvaro用途至系统性红斑狼疮。该建议属于欧盟委员会最终决定前的监管步骤，药物已在狼疮性肾炎等适应证和多种血液肿瘤中获批。",
+      "insight": "成熟抗体向相邻免疫疾病扩展可利用既有制造与安全数据库，商业兑现仍取决于最终批准、标签范围、竞争治疗和支付准入。",
+      "nextCheck": "跟踪欧盟委员会最终决定、完整ALLEGORY数据、标签与定价，并与其他B细胞靶向疗法比较。",
+      "sources": [
+        {
+          "label": "Roche · CHMP建议公告",
+          "url": "https://www.roche.com/media/releases/med-cor-2026-11-13"
+        }
+      ]
+    },
+    {
+      "id": "iea-resilience-observatory-20261110",
+      "title": "IEA上线全球能源韧性观测站",
+      "organizations": [
+        "IEA"
+      ],
+      "region": "全球",
+      "tracks": [
+        "frontier"
+      ],
+      "sectors": [
+        "energy"
+      ],
+      "kind": "data",
+      "window": "week",
+      "publishedDate": "2026-11-10",
+      "eventDate": "2026-11-10",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "IEA发布全球能源部门韧性观测站，首期包括中断记录、洪水、热浪与热带气旋暴露地图，以及130多项应对措施。IEA称自2022年以来追踪到150多个国家约3000起与极端天气等自然灾害相关的停电事件。",
+      "insight": "电力投资评价将越来越重视可恢复性和暴露风险。事件统计来自观测站覆盖范围，不能直接当作完整全球故障率。",
+      "nextCheck": "核查数据更新频率、报告偏差、资产级暴露与实际损失的关联，以及韧性措施的成本收益。",
+      "sources": [
+        {
+          "label": "IEA · 全球能源韧性观测站",
+          "url": "https://www.iea.org/news/iea-launches-global-observatory-to-help-strengthen-energy-sector-resilience"
+        }
+      ]
+    },
+    {
+      "id": "iorganbio-mitsui-20261110",
+      "title": "三井化学投资iORGANBIO，合作推进人源细胞和类器官制造",
+      "organizations": [
+        "iORGANBIO",
+        "Mitsui Chemicals"
+      ],
+      "region": "美国与日本",
       "tracks": [
         "frontier",
         "capital"
       ],
       "sectors": [
-        "robotics",
-        "mobility"
+        "organoids",
+        "cellmodels",
+        "biomanufacturing"
       ],
       "kind": "equity",
       "window": "week",
-      "publishedDate": "2026-11-05",
-      "eventDate": "2026-11-05",
-      "verifiedDate": "2026-11-08",
-      "evidence": "公司新闻稿 · 通讯社分发",
-      "fact": "公司通过Business Wire发布5100万美元A轮融资，由Obvious Ventures领投，Eclipse、Energy Impact Partners等参与。资金面向客户试点、测试验证、早期制造和车型平台扩展。",
+      "publishedDate": "2026-11-10",
+      "eventDate": null,
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "iORGANBIO宣布获得三井化学旗下321Catalyst企业风投投资，金额未披露。合作将把InnoCell培养板和材料开发能力与iORGANBIO的AI、单细胞分析及机器人闭环实验平台结合，探索更一致的人源细胞和类器官生产，并延伸到药效与安全评价。",
+      "insight": "资本选择了制造一致性和培养材料这一基础层。合作的价值要由批间差异、成熟度、交付周期和药企采购验证。",
+      "nextCheck": "核查投资轮次与金额、量产批次指标、第三方药效毒理预测效度和付费客户。",
+      "sources": [
+        {
+          "label": "iORGANBIO · 三井化学合作",
+          "url": "https://rss.globenewswire.com/news-release/2026/11/10/3399347/0/en/iorganbio-and-mitsui-chemicals-collaborate-to-advance-ai-driven-human-cell-and-organoid-manufacturing.html"
+        }
+      ],
       "finance": {
-        "display": "5,100万美元 · 本轮",
-        "basis": "公司披露的A轮股权融资；累计融资7,500万美元单独记录，不重复计入本轮",
-        "stage": "Series A · 已宣布",
-        "investors": "Obvious Ventures领投；Eclipse、Energy Impact Partners等参与",
-        "use": "客户试点、验证、早期制造与平台扩展",
+        "display": "金额未披露",
+        "basis": "公司仅确认收到三井化学企业风投投资，未公开轮次、币种或实际金额。",
+        "stage": "战略投资，金额与交割细节未披露",
+        "investors": "Mitsui Chemicals 321Catalyst",
+        "use": "类器官制造、培养材料和自动化闭环平台",
         "legs": [
           {
             "type": "equity",
-            "currency": "USD",
-            "amount": 51000000,
-            "status": "announced"
+            "currency": "UNDISCLOSED",
+            "amount": null,
+            "status": "announced_amount_undisclosed"
           }
         ]
-      },
-      "insight": "自动驾驶资本也流向具体物流场景与车辆平台，观察重点应落在运输任务的可靠性、维护成本和客户采用。",
-      "nextCheck": "区分融资与收入，核查付费试点、可运营范围、监管条件和量产交付。",
-      "sources": [
-        {
-          "label": "公司新闻稿",
-          "url": "https://www.morningstar.com/news/business-wire/20261105576352/humble-robotics-raises-51-million-series-a-to-scale-its-unified-approach-to-autonomous-and-electric-freight"
-        }
-      ]
+      }
     },
     {
-      "id": "potential-20261105",
-      "title": "英国Sovereign AI支持Potential Sciences，现金与算力分别识别",
+      "id": "srtd-seed-20261109",
+      "title": "SRTD Biotech完成3150万欧元种子轮推进精准mRNA疗法",
       "organizations": [
-        "Potential Sciences",
-        "Sovereign AI"
+        "SRTD Biotech"
       ],
-      "region": "英国",
+      "region": "德国",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "biomanufacturing",
+        "drugdiscovery"
+      ],
+      "kind": "equity",
+      "window": "week",
+      "publishedDate": "2026-11-09",
+      "eventDate": "2026-11-09",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "SRTD Biotech宣布完成3150万欧元超额认购种子轮，由Mérieux Equity Partners领投，NRW.BANK与Boehringer Ingelheim Venture Fund共同领投，Lilly Ventures、HTGF及Anobis Asset参与。资金用于肿瘤、自身免疫和纤维化管线的临床前开发并推进至IND。",
+      "insight": "资金投向细胞选择性表达、递送和合成生物设计的组合平台，但商业验证仍要穿过体内分布、毒理和制造放大。",
+      "nextCheck": "跟踪候选药物选择、IND时间、非靶组织表达、LNP放大与后续合作。",
+      "sources": [
+        {
+          "label": "SRTD Biotech · 种子轮公告",
+          "url": "https://srtd-biotech.com/news/srtd-biotech-raises-a-e31-5-million-seed-round-to-develop-next-generation-precision-mrna-therapeutics/"
+        }
+      ],
+      "finance": {
+        "display": "3150万欧元",
+        "basis": "本轮已宣布完成的种子轮，不含管理层既往交易经验或未来估值。",
+        "stage": "种子轮已完成",
+        "investors": "Mérieux Equity Partners领投；NRW.BANK、Boehringer Ingelheim Venture Fund共同领投；Lilly Ventures、HTGF、Anobis Asset参与",
+        "use": "临床前管线、递送与合成生物平台，推进至IND",
+        "legs": [
+          {
+            "type": "equity",
+            "currency": "EUR",
+            "amount": 31500000,
+            "status": "closed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "oyster-series-a2-20261110",
+      "title": "Oyster Therapeutics完成6000万美元A-2轮推进口服tau降解剂",
+      "organizations": [
+        "Oyster Therapeutics"
+      ],
+      "region": "英国与美国",
       "tracks": [
         "frontier",
         "capital"
       ],
       "sectors": [
         "drugdiscovery",
-        "agents"
+        "cellmodels"
       ],
       "kind": "equity",
       "window": "week",
-      "publishedDate": "2026-11-05",
-      "eventDate": "2026-11-05",
-      "verifiedDate": "2026-11-08",
-      "evidence": "一手公开原文",
-      "fact": "英国政府公告Sovereign AI参与Potential Sciences的一轮八位数融资，并提供算力支持；公告未给出可用于精确统计的本轮金额。",
-      "insight": "公共投资也可能与算力资源组合，现金投入与资源支持不能重复计为同一笔融资。",
-      "nextCheck": "核查精确金额、币种和算力支持的计价方式；未披露金额保持空缺。",
+      "publishedDate": "2026-11-10",
+      "eventDate": "2026-11-10",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "原Kesmalea Therapeutics更名为Oyster Therapeutics并宣布完成6000万美元A-2轮，由4BIO Capital领投，Eli Lilly等新投资方与现有投资方参与。资金用于推进可口服、可穿越血脑屏障的tau降解剂进入临床，并继续开发SELFTAC平台；公司同时与MGH开展患者来源神经元细胞研究。",
+      "insight": "资本押注的是脑内暴露和小分子可开发性，而非仅有靶点故事。临床前细胞和tau读出仍需转成安全性与患者疗效。",
+      "nextCheck": "核查IND、脑脊液或影像药效标志物、健康tau保留、安全窗与首个临床数据。",
       "sources": [
         {
-          "label": "GOV.UK · Potential Sciences支持计划",
-          "url": "https://www.gov.uk/government/news/sovereign-ai-puts-cash-and-compute-behind-uk-startup-using-ai-to-redefine-chemistry"
+          "label": "Oyster Therapeutics · A-2轮公告",
+          "url": "https://www.oyster-tx.com/media/kesmalea-therapeutics-announces-60-million-series-a-financing-to-advance-next--generation-targeted-protein-degraders-for-alzheimers-and-other-neurodegenerative-diseases-and-rebrands-as-oyster-therapeutics"
         }
       ],
       "finance": {
-        "display": "精确金额未披露 · 同时提供算力支持",
-        "basis": "官方仅称八位数融资，不自行推定精确金额；算力支持不折算进融资",
-        "stage": "早期融资 · 政府公告",
-        "investors": "Sovereign AI及公告列示其他投资人",
-        "use": "计算化学模型研发与计算资源",
+        "display": "6000万美元",
+        "basis": "已宣布完成的A-2轮，不把未来合作或管线价值计入本轮。",
+        "stage": "A-2轮已完成",
+        "investors": "4BIO Capital领投；Eli Lilly、CE Ventures、Actium Group、TOHO Ventures及现有投资方参与",
+        "use": "tau降解剂临床转化、SELFTAC平台与患者来源神经元合作",
         "legs": [
           {
             "type": "equity",
-            "currency": "未披露",
-            "amount": null,
-            "status": "announced"
+            "currency": "USD",
+            "amount": 60000000,
+            "status": "closed"
           }
         ]
       }
     },
     {
-      "id": "ionq-20261105",
-      "title": "IonQ第三季度财报：分清平台收入、代工业务和未来指引",
+      "id": "neurosterix-series-b-20261111",
+      "title": "Neurosterix完成1.05亿美元B轮支持精神分裂症II期研究",
       "organizations": [
-        "IonQ"
+        "Neurosterix",
+        "Addex Therapeutics"
+      ],
+      "region": "瑞士与美国",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "drugdiscovery"
+      ],
+      "kind": "equity",
+      "window": "week",
+      "publishedDate": "2026-11-11",
+      "eventDate": "2026-11-11",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Addex公告其分拆公司Neurosterix完成1.05亿美元B轮，投资方仅披露为生命科学投资机构财团。资金主要支持M4正向变构调节剂NTX-253用于精神分裂症的计划II期研究，并支持其他神经精神疾病变构调节剂管线。Addex未参与本轮，其持股被稀释至8.5%。",
+      "insight": "大额资金对应临床概念验证和多项目选择权。未披露投资方名单与试验设计，使资本质量和临床可比性仍有信息缺口。",
+      "nextCheck": "核查II期方案、入组时间、主要终点、投资方完整名单和现金跑道。",
+      "sources": [
+        {
+          "label": "Addex · Neurosterix B轮公告",
+          "url": "https://www.addextherapeutics.com/en/investors/ad-hoc-announcements-art-53-lr/addex-spin-out-neurosterix-closes-105-million-series-b-financing/"
+        }
+      ],
+      "finance": {
+        "display": "1.05亿美元",
+        "basis": "公司公告确认B轮已完成。Addex披露的持股估值不计入本轮融资额。",
+        "stage": "B轮已完成",
+        "investors": "生命科学投资机构财团，具体名单未披露",
+        "use": "NTX-253精神分裂症II期及其他神经精神管线",
+        "legs": [
+          {
+            "type": "equity",
+            "currency": "USD",
+            "amount": 105000000,
+            "status": "closed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "delix-series-c-20261109",
+      "title": "Delix完成1亿美元C轮推进非致幻神经可塑性药物II期",
+      "organizations": [
+        "Delix Therapeutics"
       ],
       "region": "美国",
       "tracks": [
@@ -312,39 +645,274 @@
         "capital"
       ],
       "sectors": [
-        "quantum",
-        "semiconductors"
+        "drugdiscovery"
       ],
-      "kind": "earnings",
+      "kind": "equity",
       "window": "week",
-      "publishedDate": "2026-11-05",
-      "eventDate": "2026-11-05",
-      "verifiedDate": "2026-11-08",
-      "evidence": "一手公开原文",
-      "fact": "IonQ披露第三季度合计收入1.738亿美元，其中平台收入9030万美元、SkyWater代工服务收入8350万美元。",
-      "insight": "量子企业的合并报表可能包含不同业务；分析产业商业化时，应将业务组合与计算服务需求拆开。",
-      "nextCheck": "核查分部口径、并购影响、毛利与现金流；收入不是融资，全年指引也不是已实现收入。",
+      "publishedDate": "2026-11-09",
+      "eventDate": "2026-11-09",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Delix Therapeutics宣布完成1亿美元超额认购C轮，由Johnson & Johnson Innovation–JJDC与SV Health Investors的Dementia Discovery Fund领投。资金用于zalsupindole的复发性重度抑郁IIb期概念验证及更广泛神经可塑性药物管线，公司预计2027年上半年启动II期。",
+      "insight": "资本正支持把神经可塑性机制从早期安全性推进到安慰剂对照疗效验证。非致幻设计的便利性主张仍需与疗效持续时间和安全性一起检验。",
+      "nextCheck": "跟踪II期启动、剂量、主要终点、随访持续时间和与标准治疗的差异。",
       "sources": [
         {
-          "label": "IonQ · 2026第三季度财报",
-          "url": "https://www.ionq.com/news/ionq-announces-record-3q26-revenues-and-raises-fy2026-guidance-to-505---515-million-as-backlog-grows-to-1-2-billion"
+          "label": "Delix Therapeutics · C轮公告",
+          "url": "https://delixtherapeutics.com/news/delix-closes-100-million-series-c-financing/"
         }
       ],
       "finance": {
-        "display": "1.738亿美元 · 季度合计收入",
-        "basis": "2026Q3公司披露收入，包含平台与代工业务；不作为资本流入合计",
-        "stage": "2026Q3 · 财报披露",
-        "investors": "客户收入；不是投资机构注资",
-        "use": "经营收入观察",
+        "display": "1亿美元",
+        "basis": "已宣布完成的C轮，不含未来融资、估值或管线潜在价值。",
+        "stage": "C轮已完成",
+        "investors": "JJDC与Dementia Discovery Fund领投，多家既有和新投资方参与",
+        "use": "zalsupindole IIb期概念验证及神经可塑性药物管线",
         "legs": [
           {
-            "type": "earnings",
+            "type": "equity",
             "currency": "USD",
-            "amount": 173800000,
-            "status": "reported_revenue"
+            "amount": 100000000,
+            "status": "closed"
           }
         ]
       }
+    },
+    {
+      "id": "qctrl-series-c-20261112",
+      "title": "Q-CTRL完成2.9亿美元C轮扩大量子软件与导航部署",
+      "organizations": [
+        "Q-CTRL"
+      ],
+      "region": "澳大利亚与全球",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "quantum",
+        "mobility"
+      ],
+      "kind": "equity",
+      "window": "week",
+      "publishedDate": "2026-11-12",
+      "eventDate": "2026-11-12",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Q-CTRL宣布完成2.9亿美元C轮，由Salesforce Ventures领投，Bullhound Capital、Affinity Partners等参与。公司称资金将扩大面向量子计算的数据中心软件和无GPS量子导航的全球部署，覆盖航空、自主系统等场景。",
+      "insight": "这笔融资把量子资本的商业化焦点部分拉向误差抑制软件和导航传感器。公司自述的性能领先与客户价值仍需第三方测试和收入拆分。",
+      "nextCheck": "核查量子导航实地测试、付费部署、软件订阅收入、毛利及不同硬件平台上的可复现效果。",
+      "sources": [
+        {
+          "label": "Q-CTRL · C轮公告",
+          "url": "https://q-ctrl.com/blog/q-ctrl-secures-us-290-million-series-c-funding-led-by-salesforce-ventures-to-accelerate-the-convergence-of-quantum-and-ai"
+        }
+      ],
+      "finance": {
+        "display": "2.9亿美元",
+        "basis": "公司公告的C轮私募融资额，不把独角兽称号或估值计入融资。",
+        "stage": "C轮已完成",
+        "investors": "Salesforce Ventures领投；Bullhound Capital、Affinity Partners及多家新老投资方参与",
+        "use": "量子基础设施软件、量子导航和全球部署",
+        "legs": [
+          {
+            "type": "equity",
+            "currency": "USD",
+            "amount": 290000000,
+            "status": "closed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "axiom-nitride-20261110",
+      "title": "Axiom Space与Nitride Global签署在轨制造超宽禁带材料合作备忘录",
+      "organizations": [
+        "Axiom Space",
+        "Nitride Global"
+      ],
+      "region": "美国",
+      "tracks": [
+        "frontier"
+      ],
+      "sectors": [
+        "space",
+        "semiconductors"
+      ],
+      "kind": "partnership",
+      "window": "week",
+      "publishedDate": "2026-11-10",
+      "eventDate": "2026-11-10",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Axiom Space与Nitride Global签署合作备忘录，计划设计在轨制造硬件，在国际空间站和Axiom任务上开展氮化铝、氮氧化铝及先进封装材料的概念验证，并探索在Axiom Station等平台扩大制造。公告未披露订单金额、试验时间或商业产量。",
+      "insight": "在轨制造的关键证据将是地面难以复制的材料性能增益和单位质量经济性。备忘录只确认合作方向。",
+      "nextCheck": "核查任务清单、资金来源、在轨与地面对照、样品回收、良率和潜在晶圆或封装客户。",
+      "sources": [
+        {
+          "label": "Axiom Space · Nitride Global合作",
+          "url": "https://www.axiomspace.com/release/axiom-space-nitride-global-sign-mou-to-accelerate-semiconductor-innovation-in-space"
+        }
+      ]
+    },
+    {
+      "id": "marble-extension-20261109",
+      "title": "Marble Imaging追加600万欧元种子轮用于卫星和发射采购",
+      "organizations": [
+        "Marble Imaging"
+      ],
+      "region": "德国与欧洲",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "space"
+      ],
+      "kind": "equity",
+      "window": "week",
+      "publishedDate": "2026-11-09",
+      "eventDate": "2026-11-09",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Marble Imaging宣布由Cherry Ventures领投追加600万欧元，作为此前530万欧元种子轮的扩展。本轮新资金用于卫星和发射采购，首颗卫星已完成飞行前测试，计划2027年初发射；公司称目标到2030年形成30颗卫星星座。此前融资与非稀释资助不重复计入本轮。",
+      "insight": "资本从分析软件延伸到拥有成像资产，客户可能包括防务、公共安全和关键基础设施。计划星座规模仍不等于已采购或在轨能力。",
+      "nextCheck": "跟踪首星按期发射、成像质量、数据交付延迟、付费客户与后续卫星采购。",
+      "sources": [
+        {
+          "label": "Marble Imaging · 追加融资公告",
+          "url": "https://www.marble-imaging.de/news/marble-imaging-raises-additional-6-million-led-by-cherry-ventures"
+        }
+      ],
+      "finance": {
+        "display": "追加600万欧元",
+        "basis": "本轮为种子轮扩展。此前530万欧元种子轮及累计非稀释资助不计入本轮。",
+        "stage": "种子轮扩展已宣布",
+        "investors": "Cherry Ventures领投",
+        "use": "卫星和发射采购、星座扩展及地球观测分析",
+        "legs": [
+          {
+            "type": "equity",
+            "currency": "EUR",
+            "amount": 6000000,
+            "status": "announced_extension"
+          }
+        ]
+      }
+    },
+    {
+      "id": "revolv-series-a-20261112",
+      "title": "Revolv Space完成500万欧元A轮扩卫星电力与执行机构产能",
+      "organizations": [
+        "Revolv Space"
+      ],
+      "region": "意大利与欧洲",
+      "tracks": [
+        "frontier",
+        "capital"
+      ],
+      "sectors": [
+        "space",
+        "energy"
+      ],
+      "kind": "equity",
+      "window": "week",
+      "publishedDate": "2026-11-12",
+      "eventDate": "2026-11-12",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "CDP Venture Capital公告Revolv Space完成500万欧元A轮，由Deep Ocean Capital旗下基金领投，Primo Capital、CDP Venture Capital及Sole Ventures参与。资金主要用于扩大已完成资格验证的卫星运动产品产能，并研发与现有产品兼容的太阳翼。累计融资860万欧元不作为本轮金额。",
+      "insight": "卫星产业资本正在进入电力与执行机构等可复用子系统。真正的放量信号是批量交付、在轨可靠性和第二批客户订单。",
+      "nextCheck": "核查年产量、交付周期、在轨失效率、客户集中度和太阳翼资格验证。",
+      "sources": [
+        {
+          "label": "CDP Venture Capital · Revolv A轮",
+          "url": "https://www.cdpventurecapital.it/it/news.page?contentId=COM52956"
+        }
+      ],
+      "finance": {
+        "display": "500万欧元",
+        "basis": "公司A轮已完成。累计融资860万欧元不计入本轮。",
+        "stage": "A轮已完成",
+        "investors": "Deep Ocean Capital领投；Primo Capital、CDP Venture Capital、Sole Ventures参与",
+        "use": "运动执行机构工业化、产能扩大和太阳翼研发",
+        "legs": [
+          {
+            "type": "equity",
+            "currency": "EUR",
+            "amount": 5000000,
+            "status": "closed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "samsung-eyewear-20261112",
+      "title": "Samsung智能眼镜进入预售并给出明确价格与上市时间",
+      "organizations": [
+        "Samsung Electronics",
+        "Google",
+        "Gentle Monster",
+        "Warby Parker"
+      ],
+      "region": "美国与韩国",
+      "tracks": [
+        "giants",
+        "frontier"
+      ],
+      "sectors": [
+        "medtech",
+        "agents"
+      ],
+      "kind": "product",
+      "window": "week",
+      "publishedDate": "2026-11-12",
+      "eventDate": "2026-11-12",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "Samsung宣布智能眼镜将于12月10日在美国和韩国部分市场上市，11月12日开始预售。产品约41克，配备摄像头、开放式扬声器和麦克风，结合Gemini提供视觉问答、翻译与导航。美国Warby Parker款起价395美元，Gentle Monster款449至489美元。",
+      "insight": "明确价格、渠道和续航让可穿戴智能体进入可观察的消费验证阶段。预售并不等于持续使用，隐私和续航会影响复购与退货。",
+      "nextCheck": "跟踪实际交付、退货率、日活、续航、隐私投诉和第三方开发生态。",
+      "sources": [
+        {
+          "label": "Samsung · 智能眼镜公告",
+          "url": "https://news.samsung.com/global/samsung-announces-december-release-for-intelligent-eyewear-bringing-a-smarter-way-to-see-the-world"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-transition-20261112",
+      "title": "NVIDIA突发更换CEO，董事会调查与产品执行风险需并列观察",
+      "organizations": [
+        "NVIDIA"
+      ],
+      "region": "美国",
+      "tracks": [
+        "giants"
+      ],
+      "sectors": [
+        "semiconductors",
+        "agents"
+      ],
+      "kind": "governance",
+      "window": "week",
+      "publishedDate": "2026-11-12",
+      "eventDate": "2026-11-12",
+      "verifiedDate": "2026-11-16",
+      "evidence": "机构一手公开材料",
+      "fact": "NVIDIA董事会11月12日宣布Jensen Huang即时辞去总裁、CEO与董事职务，由CFO Colette Kress兼任临时CEO，并启动永久继任者遴选。独立董事11月10日已宣布聘请外部律师开展调查。公司称客户承诺和产品路线将继续，但尚无外部证据证明执行完全不受影响。",
+      "insight": "龙头公司的技术路线也受治理与关键人风险约束。短期应观察供应链、客户和研发团队稳定性，不能用公司声明替代经营结果。",
+      "nextCheck": "跟踪正式继任、调查结论、核心人员变动、供货承诺与后续财报，不对未公布调查内容作推断。",
+      "sources": [
+        {
+          "label": "NVIDIA · CEO更替公告",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+        },
+        {
+          "label": "NVIDIA · 独立董事声明",
+          "url": "https://nvidianews.nvidia.com/news/statement-from-the-independent-members-of-the-nvidia-board"
+        }
+      ]
     },
     {
       "id": "bitbio-20261104",
@@ -364,10 +932,10 @@
         "biomanufacturing"
       ],
       "kind": "equity",
-      "window": "week",
+      "window": "context",
       "publishedDate": "2026-11-04",
       "eventDate": "2026-11-04",
-      "verifiedDate": "2026-11-08",
+      "verifiedDate": "2026-11-16",
       "evidence": "企业官方融资公告",
       "fact": "bit.bio公告获得2500万美元D轮融资，参与方包括M&G Investments和Jonathan Milner。公司称资金将用于扩展人源细胞产品组合与客户覆盖，并披露今年以来订单和活跃客户增长。",
       "finance": {
@@ -395,178 +963,6 @@
       ]
     },
     {
-      "id": "amazon-20261104",
-      "title": "Amazon在加拿大开建机器人履约中心，关注自动化的现场经济性",
-      "organizations": [
-        "Amazon"
-      ],
-      "region": "加拿大",
-      "tracks": [
-        "giants",
-        "frontier"
-      ],
-      "sectors": [
-        "robotics",
-        "mobility"
-      ],
-      "kind": "deployment",
-      "window": "week",
-      "publishedDate": "2026-11-04",
-      "eventDate": "2026-11-04",
-      "verifiedDate": "2026-11-08",
-      "evidence": "一手公开原文",
-      "fact": "Amazon官方宣布在新斯科舍省开建机器人履约中心。公告描述设施将采用其第14代机器人技术；目前属于建设阶段。",
-      "insight": "机器人价值需要放到吞吐量、服务成本、异常处理和交付可靠性中衡量，而不是只看演示动作。",
-      "nextCheck": "关注实际投产、单位处理成本及安全指标；未披露建设金额，不自行补算资本开支。",
-      "sources": [
-        {
-          "label": "Amazon · 加拿大机器人履约中心",
-          "url": "https://www.aboutamazon.ca/news/workplace/amazon-breaks-ground-on-first-robotics-fulfilment-centre-in-nova-scotia-creating-more-than-1-000-jobs"
-        }
-      ]
-    },
-    {
-      "id": "mck-pe-20261104",
-      "title": "麦肯锡私募股权访谈聚焦专业化和运营改善",
-      "organizations": [
-        "McKinsey",
-        "Providence Equity Partners"
-      ],
-      "region": "国际",
-      "tracks": [
-        "frontier"
-      ],
-      "sectors": [
-        "agents",
-        "semiconductors"
-      ],
-      "kind": "research",
-      "window": "week",
-      "publishedDate": "2026-11-04",
-      "eventDate": "2026-11-04",
-      "verifiedDate": "2026-11-08",
-      "evidence": "一手公开原文",
-      "fact": "官方访谈讨论私募股权如何借助行业专业化和企业运营改善创造价值，涉及增长、商业能力与技术应用。",
-      "insight": "资本配置分析可以进一步看投资人带来了哪些可检验的经营改变，而不是只追踪融资金额。",
-      "nextCheck": "访谈是受访者经验与机构观点，不是对所有基金表现的统计证明。",
-      "sources": [
-        {
-          "label": "McKinsey · 私募股权专题访谈",
-          "url": "https://www.mckinsey.com/industries/private-capital/our-insights/why-growth-and-specialization-matter-more-than-ever-in-private-equity"
-        }
-      ]
-    },
-    {
-      "id": "google-malaysia-20261104",
-      "title": "Google公布马来西亚2027—2028年150亿美元投资计划",
-      "organizations": [
-        "Google"
-      ],
-      "region": "马来西亚",
-      "tracks": [
-        "giants",
-        "capital"
-      ],
-      "sectors": [
-        "semiconductors",
-        "energy"
-      ],
-      "kind": "capex",
-      "window": "week",
-      "publishedDate": "2026-11-04",
-      "eventDate": "2026-11-04",
-      "verifiedDate": "2026-11-09",
-      "evidence": "一手公开原文",
-      "fact": "Google于11月4日公布面向2027—2028年的150亿美元马来西亚投资计划。方案包含工业区数据中心园区，并配套提出新增清洁电力、水资源与培训计划。",
-      "insight": "选址竞争也取决于电网容量、用水和建设进度。上游机会可能先出现在变电、机电和供水工程，实际订单还要看各园区落实。",
-      "nextCheck": "核查各园区开工、接电容量和投运节点，以及当地供应商合同与分期支出。",
-      "sources": [
-        {
-          "label": "Google Cloud · 马来西亚投资公告",
-          "url": "https://www.googlecloudpresscorner.com/2026-11-04-Google-Announces-Digital-Infrastructure-Expansion-Local-Jobs-Water-Replenishment-and-Clean-Energy-Initiatives-with-US-15-Billion-Malaysia-Investment"
-        }
-      ],
-      "finance": {
-        "display": "150亿美元 · 两年投资计划",
-        "basis": "公告为数字基础设施综合投资计划总额，资本开支拆分和实际支出待后续披露。",
-        "stage": "计划披露 · 2027—2028",
-        "investors": "Google",
-        "use": "马来西亚数字基础设施及配套计划",
-        "legs": [
-          {
-            "type": "capex",
-            "currency": "USD",
-            "amount": 15000000000,
-            "status": "investment_plan_scope_not_itemized"
-          }
-        ]
-      }
-    },
-    {
-      "id": "ionq-elisity-close-20261104",
-      "title": "IonQ完成Elisity全股票并购",
-      "organizations": [
-        "IonQ",
-        "Elisity"
-      ],
-      "region": "美国",
-      "tracks": [
-        "capital",
-        "frontier"
-      ],
-      "sectors": [
-        "quantum"
-      ],
-      "kind": "acquisition",
-      "window": "week",
-      "publishedDate": "2026-11-04",
-      "eventDate": "2026-11-03",
-      "verifiedDate": "2026-11-09",
-      "evidence": "公司交割公告及SEC申报",
-      "fact": "IonQ于11月4日发布交割新闻稿，随后提交的8-K将实际交割日记为11月3日。交割已交付32,233,274股，另有最高4,265,934股与财务目标挂钩。10-Q披露总对价约13亿美元，含最高1.5亿美元或有对价，初始并购会计处理尚未完成。",
-      "insight": "成熟网络安全客户和部署渠道，可能为量子安全产品提供销售入口。交割后的交叉销售仍需以客户采用和续费验证。",
-      "nextCheck": "查验初始购买价分摊、或有股份触发情况和产品整合后的客户续费。",
-      "sources": [
-        {
-          "label": "IonQ · Elisity交割公告",
-          "url": "https://investors.ionq.com/news/news-details/2026/IonQ-Completes-Acquisition-of-Elisity-Extending-Quantum-Security-for-Enterprises-and-Government/default.aspx"
-        },
-        {
-          "label": "IonQ · SEC 8-K交割股份",
-          "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526449779/ionq-20261103.htm"
-        },
-        {
-          "label": "IonQ · SEC 10-Q期后事项",
-          "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526449829/ionq-20260930.htm"
-        },
-        {
-          "label": "IonQ · 初始交易协议",
-          "url": "https://www.ionq.com/news/ionq-to-acquire-elisity-to-accelerate-zero-trust-for-the-quantum-era"
-        }
-      ],
-      "finance": {
-        "display": "约13亿美元 · 全股票总对价，含最高1.5亿美元或有对价",
-        "basis": "以10-Q披露为准。1.5亿美元或有对价上限包含在约13亿美元总对价中。已交付股份数量以8-K为准。",
-        "stage": "全股票并购 · 已交割",
-        "investors": "IonQ为收购方，Elisity为标的",
-        "use": "扩充企业网络安全产品、客户与渠道",
-        "legs": [
-          {
-            "type": "acquisition",
-            "currency": "USD",
-            "amount": 1300000000,
-            "status": "approx_total_including_earnout"
-          },
-          {
-            "type": "acquisition",
-            "currency": "USD",
-            "amount": 150000000,
-            "status": "earnout_ceiling_included_in_total"
-          }
-        ]
-      }
-    },
-    {
       "id": "vitroscope-20261103",
       "title": "Vitroscope融资支持活体组织与类器官灌流平台，股权和资助分开看",
       "organizations": [
@@ -585,10 +981,10 @@
         "cellmodels"
       ],
       "kind": "mixed",
-      "window": "week",
+      "window": "context",
       "publishedDate": "2026-11-03",
       "eventDate": "2026-11-03",
-      "verifiedDate": "2026-11-08",
+      "verifiedDate": "2026-11-16",
       "evidence": "企业官方融资公告",
       "fact": "Vitroscope披露700万美元资金，由500万美元种子轮和200万美元非稀释资助构成。平台用于对活体组织及血管化类器官施加可控灌流，支持更长时间的实验观察。",
       "finance": {
@@ -622,97 +1018,6 @@
       ]
     },
     {
-      "id": "deepmind-20261103",
-      "title": "Google DeepMind展示化学信息学智能体工作流程",
-      "organizations": [
-        "Google DeepMind"
-      ],
-      "region": "国际",
-      "tracks": [
-        "giants",
-        "frontier"
-      ],
-      "sectors": [
-        "agents",
-        "drugdiscovery"
-      ],
-      "kind": "research",
-      "window": "week",
-      "publishedDate": "2026-11-03",
-      "eventDate": "2026-11-03",
-      "verifiedDate": "2026-11-08",
-      "evidence": "官方工作流程演示",
-      "fact": "DeepMind介绍Antigravity化学信息学工作流程，将文献中的化合物与实验数据整理、分子分析、预测建模和候选设计连接起来，并强调需要对设计开展实验验证。",
-      "insight": "科研工具的竞争可能从单个预测模型转向完整任务流程。跟踪重点是数据溯源、实验衔接与真实项目效率，而不是对话演示是否流畅。",
-      "nextCheck": "官方演示不等同于独立基准；继续检查外部复现、数据泄漏和跨实验室泛化。",
-      "sources": [
-        {
-          "label": "DeepMind原文",
-          "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/"
-        }
-      ]
-    },
-    {
-      "id": "mgi-climate-20261103",
-      "title": "麦肯锡全球研究院发布气候适应研究，讨论投资落地障碍",
-      "organizations": [
-        "McKinsey Global Institute"
-      ],
-      "region": "国际",
-      "tracks": [
-        "frontier"
-      ],
-      "sectors": [
-        "energy",
-        "agfood"
-      ],
-      "kind": "research",
-      "window": "week",
-      "publishedDate": "2026-11-03",
-      "eventDate": "2026-11-03",
-      "verifiedDate": "2026-11-08",
-      "evidence": "一手公开原文",
-      "fact": "MGI新研究讨论气候适应措施从经济价值到实际部署之间的障碍，覆盖需求、实施能力与融资条件等问题。",
-      "insight": "对灌溉、冷却、排水和监测工具，应继续追问受益者、购买者与付费者是否一致。",
-      "nextCheck": "报告中的未来机会估算不是已实现收入或已到位资金；研究边界与情景假设应同时阅读。",
-      "sources": [
-        {
-          "label": "McKinsey Global Institute · 气候适应研究",
-          "url": "https://www.mckinsey.com/mgi/our-research/advancing-adaptation-breaking-barriers-to-a-trillion-dollar-opportunity"
-        }
-      ]
-    },
-    {
-      "id": "mck-wellness-20261103",
-      "title": "麦肯锡更新健康消费研究，市场规模口径变化需单独识别",
-      "organizations": [
-        "McKinsey"
-      ],
-      "region": "国际",
-      "tracks": [
-        "frontier"
-      ],
-      "sectors": [
-        "medtech",
-        "agfood"
-      ],
-      "kind": "research",
-      "window": "week",
-      "publishedDate": "2026-11-03",
-      "eventDate": "2026-11-03",
-      "verifiedDate": "2026-11-08",
-      "evidence": "一手公开原文",
-      "fact": "麦肯锡健康消费研究基于多国消费者调查，讨论需求变化与品类机会；原文提醒本期市场规模扩大了覆盖范围，不宜与上一版直接作增长比较。",
-      "insight": "观察消费健康机会，要同时检查用户真实需求、效果证据和复购，而不是把健康标签当作商业壁垒。",
-      "nextCheck": "不以调查意愿替代实际购买；不把市场定义扩张当作同口径增长。",
-      "sources": [
-        {
-          "label": "McKinsey · Future of Wellness",
-          "url": "https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/future-of-wellness-trends"
-        }
-      ]
-    },
-    {
       "id": "nasa-sspicy-20261103",
       "title": "NASA确认SSPICY在轨演示任务无法恢复",
       "organizations": [
@@ -728,10 +1033,10 @@
         "robotics"
       ],
       "kind": "deployment",
-      "window": "week",
+      "window": "context",
       "publishedDate": "2026-11-03",
       "eventDate": null,
-      "verifiedDate": "2026-11-09",
+      "verifiedDate": "2026-11-16",
       "evidence": "一手公开原文",
       "fact": "NASA于11月3日公布，10月1日发射的SSPICY演示任务在调试阶段失去与Otter航天器的双向通信。NASA与运营方Starfish Space判断航天器无法恢复，公告未给出失联的具体日期。",
       "insight": "在轨服务收入依赖通信、调试和自主接近等环节连续通过。已入轨的演示任务仍可能在交付链的前端失效。",
@@ -761,10 +1066,10 @@
         "semiconductors"
       ],
       "kind": "program",
-      "window": "week",
+      "window": "context",
       "publishedDate": "2026-11-02",
       "eventDate": "2026-11-02",
-      "verifiedDate": "2026-11-09",
+      "verifiedDate": "2026-11-16",
       "evidence": "一手公开原文",
       "fact": "11月2日公布的FY2026 INFUSE遴选涉及28项研究，17项由国家实验室牵头、11项由高校牵头，共涉及22家企业。方向包括材料、等离子体诊断、模拟及配套技术。计划支持期为一至两年。",
       "insight": "公共资金在这里购买的是共享实验和工程验证机会。诊断、材料与控制的验证周期可以独立于完整电站建设，部分成果未来可能进入供应链采购。",
@@ -808,10 +1113,10 @@
         "energy"
       ],
       "kind": "deployment",
-      "window": "week",
+      "window": "context",
       "publishedDate": "2026-11-02",
       "eventDate": "2026-11-02",
-      "verifiedDate": "2026-11-09",
+      "verifiedDate": "2026-11-16",
       "evidence": "一手公开原文",
       "fact": "11月2日启动Grid Protectors计划，拟与公用事业按园区约定可削减负荷和持续时间。公告以佐治亚州Effingham County拟建园区的既有协议为例，披露最高1000兆瓦需求响应能力。",
       "insight": "把用电弹性写进园区建设条件，可以让电力侧按高峰压力设计容量。经济性取决于电力收益能否覆盖算力迁移、储能和服务约束。",
@@ -822,53 +1127,6 @@
           "url": "https://openai.com/index/grid-protectors-program/"
         }
       ]
-    },
-    {
-      "id": "specific-series-a-20261102",
-      "title": "Specific Biologics披露完成3500万美元A轮",
-      "organizations": [
-        "Specific Biologics",
-        "Hatteras Venture Partners"
-      ],
-      "region": "加拿大",
-      "tracks": [
-        "frontier",
-        "capital"
-      ],
-      "sectors": [
-        "drugdiscovery",
-        "biomanufacturing"
-      ],
-      "kind": "equity",
-      "window": "week",
-      "publishedDate": "2026-11-02",
-      "eventDate": null,
-      "verifiedDate": "2026-11-09",
-      "evidence": "公司新闻稿 · PR Newswire分发",
-      "fact": "加拿大Specific Biologics于11月2日公告完成超额认购的3500万美元A轮，资金用于推进Dualase候选疗法，目标是在C9ORF72相关ALS患者中获得初步临床生物标志物概念验证。",
-      "insight": "本轮资金对应明确的研发门槛。后续估值和合作机会将受到递送、剂量、安全性及临床可解释性的共同影响。",
-      "nextCheck": "跟踪注册试验、给药后靶点相关标志物变化及安全数据，区分生物标志物信号与患者临床结局。",
-      "sources": [
-        {
-          "label": "Specific Biologics · 公司融资公告",
-          "url": "https://www.prnewswire.com/news-releases/specific-biologics-announces-oversubscribed-us35-million-series-a-financing-to-advance-gene-editing-therapy-for-als-302926076.html"
-        }
-      ],
-      "finance": {
-        "display": "3500万美元 · A轮",
-        "basis": "公司公告披露本轮股权融资总额，交割日未单列。",
-        "stage": "A轮 · 宣布完成",
-        "investors": "Hatteras领投，Lumira、adMare、Genesys、BDC Life Sciences Venture Fund、DeepWork和Seido参与",
-        "use": "推进基因编辑候选疗法的初期临床生物标志物验证",
-        "legs": [
-          {
-            "type": "equity",
-            "currency": "USD",
-            "amount": 35000000,
-            "status": "closed"
-          }
-        ]
-      }
     },
     {
       "id": "abc-panome-202610",
@@ -890,7 +1148,7 @@
       "window": "context",
       "publishedDate": "2026-11-05",
       "eventDate": "2026-10",
-      "verifiedDate": "2026-11-09",
+      "verifiedDate": "2026-11-16",
       "evidence": "一手公开原文",
       "fact": "双方披露签署战略合作，将多类器官疾病模型与代谢组、脂质组和蛋白组分析结合。公司索引标为11月5日，合作原文署2026年10月，因此归入背景。",
       "insight": "可采购的交付可能是标准化模型和可解释分子读出的组合。成本与结果可重复性决定药企会否扩大采购。",
@@ -903,53 +1161,6 @@
         {
           "label": "abc biopply · 公告索引日期",
           "url": "https://biopply.com/about-us/news/"
-        }
-      ]
-    },
-    {
-      "id": "quix-20261104",
-      "title": "QuiX更新欧洲P4Q量子光子试验线参与进展，5000万欧元为项目总预算",
-      "organizations": [
-        "QuiX Quantum",
-        "EU Chips Joint Undertaking"
-      ],
-      "region": "欧洲",
-      "tracks": [
-        "frontier",
-        "capital"
-      ],
-      "sectors": [
-        "quantum",
-        "semiconductors"
-      ],
-      "kind": "program",
-      "window": "context",
-      "publishedDate": "2026-11-04",
-      "eventDate": "2026-04",
-      "verifiedDate": "2026-11-08",
-      "evidence": "参与企业项目进展公告",
-      "fact": "QuiX于11月4日介绍参与P4Q试验线。公告称该项目从2026年4月运行至2029年3月，总预算5000万欧元，涉及多国合作方，目标是建设量子光子集成电路的制造能力。",
-      "finance": {
-        "display": "5,000万欧元 · 多方项目总预算",
-        "basis": "2026年4月已启动项目的进展更新；不是QuiX新一轮融资，也不是其独享资金",
-        "stage": "2026—2029项目 · 参与进展披露",
-        "investors": "EU Chips Joint Undertaking及各国公共资助方",
-        "use": "量子光子器件试验线与可扩展制造能力",
-        "legs": [
-          {
-            "type": "program",
-            "currency": "EUR",
-            "amount": 50000000,
-            "status": "multi_year_budget"
-          }
-        ]
-      },
-      "insight": "量子技术的产业配套也需要制造工艺和供应链投入。项目预算能说明资源配置方向，但不能用于估计单家公司融资或当周新增资金。",
-      "nextCheck": "追踪各方实际拨款、制造良率、开放服务和可交付器件；避免重复计算跨年项目预算。",
-      "sources": [
-        {
-          "label": "QuiX原文",
-          "url": "https://www.quixquantum.com/news/quix-quantum-advances-europes-industrial-quantum-computing-ambitions"
         }
       ]
     },
@@ -973,7 +1184,7 @@
       "window": "context",
       "publishedDate": "2026-10-22",
       "eventDate": "2026-10-22",
-      "verifiedDate": "2026-11-09",
+      "verifiedDate": "2026-11-16",
       "evidence": "一手公开原文",
       "fact": "10月22日美国商务部公告拟支持Helion的高压功率器件及模块研发，最高1.75亿美元。Helion披露预计配套5000万美元私营投资，并说明正式协议将涉及非投票股权安排。",
       "insight": "资金用途指向脉冲功率器件、封装和制造工艺。若相关器件能在其他高可靠性场景通过认证，配套供应链的商业周期可能早于聚变电站。",
@@ -1011,209 +1222,6 @@
       }
     },
     {
-      "id": "nvidia-20261021",
-      "title": "NVIDIA将蛋白设计、科研智能体与自动化实验室连接起来",
-      "organizations": [
-        "NVIDIA",
-        "UW Medicine Institute for Protein Design",
-        "Siemens Healthineers"
-      ],
-      "region": "国际",
-      "tracks": [
-        "giants",
-        "frontier"
-      ],
-      "sectors": [
-        "drugdiscovery",
-        "agents",
-        "medtech"
-      ],
-      "kind": "partnership",
-      "window": "context",
-      "publishedDate": "2026-10-21",
-      "eventDate": "2026-10-21",
-      "verifiedDate": "2026-11-08",
-      "evidence": "企业官方合作公告",
-      "fact": "NVIDIA与华盛顿大学蛋白设计研究所介绍RFD4-Proteina，并披露BioNeMo相关科研智能体、自动化实验室与医疗合作。公告还涉及Siemens Healthineers的自适应放疗研发。",
-      "insight": "平台企业在把模型、计算与实验工作流程整合，后续可以关注谁控制数据接口、实验执行和客户关系。",
-      "nextCheck": "合作与研发计划不等于临床产品获批；关注模型许可、实验验证和实际部署进度。",
-      "sources": [
-        {
-          "label": "NVIDIA公告",
-          "url": "https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care"
-        }
-      ]
-    },
-    {
-      "id": "fusion-20261019",
-      "title": "超导神经网络芯片用于聚变等离子体数据分析，关注控制系统瓶颈",
-      "organizations": [
-        "Brookhaven National Laboratory",
-        "PPPL",
-        "DIII-D",
-        "Great Sky"
-      ],
-      "region": "美国",
-      "tracks": [
-        "frontier"
-      ],
-      "sectors": [
-        "energy",
-        "semiconductors"
-      ],
-      "kind": "research",
-      "window": "context",
-      "publishedDate": "2026-10-19",
-      "eventDate": null,
-      "verifiedDate": "2026-11-08",
-      "evidence": "国家实验室技术示范公告",
-      "fact": "布鲁克海文国家实验室介绍与Great Sky等合作的超导神经网络芯片示范，处理来自托卡马克装置及模拟器的数据，用于异常分类、破裂预测等任务。公告时详细论文仍在准备。",
-      "insight": "聚变产业值得同时跟踪控制电子、传感、材料等配套环节，这些环节可能形成独立的技术需求。",
-      "nextCheck": "本次为数据分析示范，不能解释成聚变发电商业化；继续观察现场闭环控制与论文验证。",
-      "sources": [
-        {
-          "label": "BNL原文",
-          "url": "https://www.bnl.gov/newsroom/news.php?a=123222"
-        }
-      ]
-    },
-    {
-      "id": "nasa-stations-20261009",
-      "title": "NASA征求商业空间站方案，仍需证明可持续运营与客户需求",
-      "organizations": [
-        "NASA"
-      ],
-      "region": "美国",
-      "tracks": [
-        "frontier"
-      ],
-      "sectors": [
-        "space"
-      ],
-      "kind": "partnership",
-      "window": "context",
-      "publishedDate": "2026-10-09",
-      "eventDate": "2026-10-09",
-      "verifiedDate": "2026-11-08",
-      "evidence": "一手公开原文",
-      "fact": "NASA发布面向下一代商业空间站的最终方案征求公告，涉及开发、认证与服务采购。此处记录采购进展，未记录为已签公司订单。",
-      "insight": "商业航天的机会还包括地面服务、认证、运输与在轨运营；需要判断公共客户之外是否有稳定需求。",
-      "nextCheck": "征求方案并非合同授予，更非公司融资；跟踪后续评选与具体任务合同。",
-      "sources": [
-        {
-          "label": "NASA · 商业空间站征求方案",
-          "url": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/"
-        }
-      ]
-    },
-    {
-      "id": "xcimer-20261005",
-      "title": "Xcimer获得最高3050万美元里程碑资助，付款以验收为条件",
-      "organizations": [
-        "Xcimer Energy",
-        "U.S. DOE"
-      ],
-      "region": "美国",
-      "tracks": [
-        "frontier",
-        "capital"
-      ],
-      "sectors": [
-        "energy"
-      ],
-      "kind": "grant",
-      "window": "context",
-      "publishedDate": "2026-10-05",
-      "eventDate": "2026-10-05",
-      "verifiedDate": "2026-11-08",
-      "evidence": "一手公开原文",
-      "fact": "Xcimer官网页面标注10月5日，新闻稿内文日期为10月6日。公告描述最高3050万美元新增联邦资助，须按技术和商业里程碑验证后付款。",
-      "insight": "硬科技项目可用分阶段公共支持降低早期工程风险，但奖项上限和实际现金到账应分别跟踪。",
-      "nextCheck": "日期存在官网与稿件一天差异，已保留说明；跟踪里程碑完成和实际付款，不能视为已全额到账。",
-      "sources": [
-        {
-          "label": "Xcimer · DOE里程碑资助",
-          "url": "https://xcimer.energy/news/xcimer-energy-receives-additional-30-5-million-award-from-doe-milestone-program/"
-        }
-      ],
-      "finance": {
-        "display": "最高3,050万美元 · 附里程碑条件",
-        "basis": "新增资助承诺上限；支付取决于独立核查的里程碑，不是立即全额到账",
-        "stage": "里程碑资助 · 条件性支付",
-        "investors": "美国能源部DOE",
-        "use": "聚变系统技术开发与工程验证",
-        "legs": [
-          {
-            "type": "grant",
-            "currency": "USD",
-            "amount": 30500000,
-            "status": "conditional_milestone_award"
-          }
-        ]
-      }
-    },
-    {
-      "id": "fao-prices-20261002",
-      "title": "FAO食品价格指标作为农业技术成本与需求背景",
-      "organizations": [
-        "FAO"
-      ],
-      "region": "国际",
-      "tracks": [
-        "frontier"
-      ],
-      "sectors": [
-        "agfood"
-      ],
-      "kind": "research",
-      "window": "context",
-      "publishedDate": "2026-10-02",
-      "eventDate": "2026-10-02",
-      "verifiedDate": "2026-11-08",
-      "evidence": "一手公开原文",
-      "fact": "FAO公开页面提供食品价格指数与构成说明。本次核验可见10月2日发布的9月信息；没有把日历中预定的11月发布当作已读取的新数据。",
-      "insight": "农业技术的付费意愿应放在农户利润、投入品成本与作物收入中理解，不能脱离经营周期。",
-      "nextCheck": "指数是国际商品价格篮子，并非当地农户销售价或农业科技投资金额；宏观价格变化不直接证明技术需求。",
-      "sources": [
-        {
-          "label": "FAO · Food Price Index",
-          "url": "https://www.fao.org/worldfoodsituation/foodpricesindex"
-        }
-      ]
-    },
-    {
-      "id": "quine-20260929",
-      "title": "AI虚拟细胞延伸背景：微软Quine尝试跨尺度生物模型与实验闭环",
-      "organizations": [
-        "Microsoft Research",
-        "Broad Institute"
-      ],
-      "region": "国际",
-      "tracks": [
-        "giants",
-        "frontier"
-      ],
-      "sectors": [
-        "virtualcell",
-        "drugdiscovery"
-      ],
-      "kind": "research",
-      "window": "context",
-      "publishedDate": "2026-09-29",
-      "eventDate": "2026-09-29",
-      "verifiedDate": "2026-11-08",
-      "evidence": "早期研究系统说明",
-      "fact": "微软介绍Quine研究系统，目标是整合多模态生物世界模型、工具、文献与实验。官方描述了与Broad Institute合作筛选候选化合物并开展部分湿实验验证的研究。",
-      "insight": "AI虚拟细胞的长期价值要看干预预测和跨体系泛化，以及是否能够通过实验缩小候选空间。Quine是相邻的跨尺度生物研究系统，不是完整细胞模拟器。",
-      "nextCheck": "该消息发表于9月，作为背景保留；核查开放数据、可访问性和独立复现，不把早期结果当成临床效用。",
-      "sources": [
-        {
-          "label": "微软研究原文",
-          "url": "https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/"
-        }
-      ]
-    },
-    {
       "id": "nih-human-nams-20260921",
       "title": "NIH公布人源研究基础设施与标准化类器官计划",
       "organizations": [
@@ -1233,7 +1241,7 @@
       "window": "context",
       "publishedDate": "2026-09-21",
       "eventDate": "2026-09-21",
-      "verifiedDate": "2026-11-09",
+      "verifiedDate": "2026-11-16",
       "evidence": "一手公开原文",
       "fact": "NIH于9月21日公告拟推进多项人源研究措施，包括超过8400万美元的生物医学基础设施资金、总额超过700万美元的Qu-SAFE挑战奖项，以及规划中的人源类器官自动化实验平台。",
       "insight": "公共基础设施可能降低独立实验室接入标准模型和测量平台的门槛。预算与模型跨中心复现的改善是两个可分别核查的结果。",
@@ -1267,51 +1275,6 @@
       }
     },
     {
-      "id": "ayar-20260910",
-      "title": "Ayar Labs追加1.5亿美元融资，支持光互连制造与量产准备",
-      "organizations": [
-        "Ayar Labs"
-      ],
-      "region": "美国",
-      "tracks": [
-        "frontier",
-        "capital"
-      ],
-      "sectors": [
-        "semiconductors"
-      ],
-      "kind": "equity",
-      "window": "context",
-      "publishedDate": "2026-09-10",
-      "eventDate": "2026-09-10",
-      "verifiedDate": "2026-11-08",
-      "evidence": "一手公开原文",
-      "fact": "Ayar Labs披露追加1.5亿美元融资，面向产品研发、制造生态和量产准备。该事件发生于9月，作为产业背景保留。",
-      "insight": "计算基础设施的机会也可能出现在连接、封装、验证与制造环节；需检查是否存在可交付产品与客户需求。",
-      "nextCheck": "不要把2026年累计融资6.5亿美元重复计入本轮；量产准备不等于已实现大规模收入。",
-      "sources": [
-        {
-          "label": "Ayar Labs · 追加融资公告",
-          "url": "https://ayarlabs.com/news/ayar-labs-expands-2026-funding-to-650-million"
-        }
-      ],
-      "finance": {
-        "display": "1.5亿美元 · 9月追加融资",
-        "basis": "本笔追加融资；全年累计融资为另一口径，旧闻不计作本周新增",
-        "stage": "追加融资 · 已宣布",
-        "investors": "企业公告列示战略及财务投资者",
-        "use": "共封装光学产品、制造生态与量产准备",
-        "legs": [
-          {
-            "type": "equity",
-            "currency": "USD",
-            "amount": 150000000,
-            "status": "announced"
-          }
-        ]
-      }
-    },
-    {
       "id": "arc-vcc-20260820",
       "title": "Arc虚拟细胞挑战考查未见过的细胞环境",
       "organizations": [
@@ -1329,7 +1292,7 @@
       "window": "context",
       "publishedDate": "2026-08-20",
       "eventDate": "2026-08-20",
-      "verifiedDate": "2026-11-09",
+      "verifiedDate": "2026-11-16",
       "evidence": "一手公开原文",
       "fact": "Arc于8月20日发布2026挑战设计，要求依据未扰动对照预测六个细胞系的CRISPRi敲低响应。10月15日机构更新预告11月19日公布获奖结果。",
       "insight": "跨细胞背景的外推能力比在同一细胞系内补全扰动更贴近实际研发需求。榜单之外仍需判断预测增益能否改善实验排序。",
@@ -1342,35 +1305,6 @@
         {
           "label": "Arc Institute · 参赛者与结果发布时间",
           "url": "https://arcinstitute.org/news/vcc-competitor-showcase-2026"
-        }
-      ]
-    },
-    {
-      "id": "iea-invest-20260528",
-      "title": "IEA年度能源投资估计：用全球口径理解电气化与能源安全",
-      "organizations": [
-        "International Energy Agency"
-      ],
-      "region": "国际",
-      "tracks": [
-        "frontier"
-      ],
-      "sectors": [
-        "energy"
-      ],
-      "kind": "research",
-      "window": "context",
-      "publishedDate": "2026-05-28",
-      "eventDate": "2026-05-28",
-      "verifiedDate": "2026-11-08",
-      "evidence": "一手公开原文",
-      "fact": "IEA公开投资专题给出2026年全球能源投资约3.4万亿美元估计值，其中约2.2万亿美元投向清洁能源相关类别、约1.2万亿美元投向化石能源。",
-      "insight": "这提供能源内部的宏观资金背景；不能与本页企业融资样本相加，也不能据此比较所有行业资本份额。",
-      "nextCheck": "估计值随方法和后续数据可能调整；清洁能源类别含电网、储能等，不是仅指风光发电。",
-      "sources": [
-        {
-          "label": "IEA · Energy investment（2026估计值）",
-          "url": "https://www.iea.org/topics/investment"
         }
       ]
     }
