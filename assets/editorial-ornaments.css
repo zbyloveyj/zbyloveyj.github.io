@@ -245,6 +245,31 @@ html[data-lang=zh] .page-home .profile-intro h1 {
 .inner-page :where(.text-link,.method-source,.pub-links a,.directory-entry a):hover {
   text-decoration:underline;text-decoration-color:var(--clay);text-underline-offset:5px;
 }
+
+/* Interior page atmosphere: a light botanical scientific engraving, never content. */
+.inner-page :is(.inner-hero,.edition-library-hero,.personal-hero){
+  position:relative;isolation:isolate;overflow:hidden;
+}
+.inner-page .inner-hero::after {
+  content:"";position:absolute;right:-44px;top:9%;width:min(44vw,480px);height:245px;
+  background:url("ecology-illustration.svg") center/contain no-repeat;
+  opacity:.16;pointer-events:none;z-index:-1;
+}
+.inner-page .edition-library-hero::after,
+.inner-page .personal-hero::after {
+  content:"";position:absolute;right:-70px;top:-115px;
+  width:440px;height:440px;border:1px solid rgba(124,156,132,.16);
+  border-radius:50%;pointer-events:none;z-index:-1;
+  box-shadow:0 0 0 60px rgba(125,158,134,.025),0 0 0 130px rgba(177,145,120,.022);
+}
+.inner-page .personal-hero em{font-style:normal;color:var(--accent)}
+.inner-page .edition-cover{background:linear-gradient(135deg,#f0f2e9,#f3eae0)}
+.inner-page .edition-cover img{box-shadow:6px 8px 18px rgba(52,63,52,.1)}
+@media(max-width:700px){
+ .inner-page .inner-hero::after{width:270px;height:155px;opacity:.08;top:3%;right:-105px}
+ .inner-page .edition-library-hero::after,.inner-page .personal-hero::after{width:260px;height:260px;right:-140px;top:-80px}
+}
+:root[data-theme=dark] .inner-page .edition-cover{background:var(--tint)}
 /* A single design language for the academy (content and progress unchanged). */
 .page-academy {
   --serif:"Noto Serif SC","Songti SC",Georgia,serif;
