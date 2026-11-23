@@ -49,6 +49,20 @@ jobs:
         run: python .github/lab-directory/apply_source_additions.py
       - name: Test source-addition merge idempotence
         run: python .github/lab-directory/test_apply_source_additions.py
+      - name: Rebuild compressed catalog manifest
+        run: |
+          python - <<'PY'
+          import gzip
+          from pathlib import Path
+          raw_path = Path("personal-growth-lab/academy/data/labs.json")
+          compressed_path = raw_path.with_suffix(".json.gz")
+          raw = raw_path.read_bytes()
+          compressed = gzip.compress(raw, compresslevel=9, mtime=0)
+          if len(compressed) >= len(raw) / 2:
+              raise SystemExit(f"compressed catalog is unexpectedly large: {len(compressed)} / {len(raw)} bytes")
+          compressed_path.write_bytes(compressed)
+          print(f"rebuilt compressed manifest: {len(raw)} -> {len(compressed)} bytes")
+          PY
       - name: Validate editorial data and monitor rules
         run: |
           python personal-growth-lab/academy/tools/test_labs.py
@@ -60,7 +74,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add personal-growth-lab/academy/data/lab-monitor.json personal-growth-lab/academy/data/lab-sources.json
+          git add personal-growth-lab/academy/data/lab-monitor.json personal-growth-lab/academy/data/lab-sources.json personal-growth-lab/academy/data/labs.json.gz
           if ! git diff --cached --quiet; then
             git commit -m "chore(academy): refresh public lab source monitor"
             git pull --rebase origin main
