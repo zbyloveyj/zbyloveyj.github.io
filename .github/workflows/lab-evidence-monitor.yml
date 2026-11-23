@@ -13,7 +13,7 @@ on:
       - 'personal-growth-lab/academy/data/lab-records-*.json.gz'
       - 'personal-growth-lab/academy/data/lab-sources.json'
       - 'personal-growth-lab/academy/data/lab-editorial-overrides.json'
-      - 'personal-growth-lab/academy/data/lab-source-additions-2026-10-26.json'
+      - 'personal-growth-lab/academy/data/lab-source-additions-*.json'
       - '.github/lab-directory/apply_source_additions.py'
       - '.github/lab-directory/test_apply_source_additions.py'
       - 'personal-growth-lab/academy/tools/monitor_labs.py'

@@ -6,20 +6,20 @@
 
 ## 当前版本：v7 与复核输入
 
-`2026.10.21-mentor-v7` 有 **41,446 条候选记录**，为基线的 **3.32 倍**：保留全部 **12,491 个基线稳定 ID**，净增 **28,955 条**，补充 **1,160 条已有记录**。主机构／项目依托单位在中国大陆的有 **3,322 条**，记录涉及 **53 个国家／地区**。来源清单有 32,622 条来源记录（含本轮新增的官方身份与论文来源）。这些是候选条目和来源关联的统计，不等于已逐人确认的博士导师数、独立实验室数量或排名。
+`2026.10.21-mentor-v7` 有 **41,446 条候选记录**，为基线的 **3.32 倍**：保留全部 **12,491 个基线稳定 ID**，净增 **28,955 条**，补充 **1,160 条已有记录**。主机构／项目依托单位在中国大陆的有 **3,322 条**，记录涉及 **53 个国家／地区**。来源清单有 32,638 条来源记录（含本轮新增的官方身份与论文来源）。这些是候选条目和来源关联的统计，不等于已逐人确认的博士导师数、独立实验室数量或排名。
 
 | `evidenceLevel` | 数量 | 支持的判断与边界 |
 | --- | ---: | --- |
 | `reviewed` | 18 | 保留原代表作、研究问题及适配卡；不能将原卡的能力衔接分组当作导师实力排名。 |
-| `research_profile` | 932 | 已整理明确归属个人的研究资料，保留具体来源、读取方式和范围；不代表每人全部论文或培养资格均已复核。 |
-| `official_directory` | 11,761 | 官方目录中的具名导师／研究人员及可见研究说明；目录身份不证明现任主聘、独立指导权或当前名额。 |
+| `research_profile` | 937 | 已整理明确归属个人的研究资料，保留具体来源、读取方式和范围；不代表每人全部论文或培养资格均已复核。 |
+| `official_directory` | 11,756 | 官方目录中的具名导师／研究人员及可见研究说明；目录身份不证明现任主聘、独立指导权或当前名额。 |
 | `project_record` | 28,735 | 官方相关科研项目中的具名 PI、具体项目题目和来源；标签由项目标题与研究目标句自动提取，不等于逐人核验个人研究和导师资格。 |
 
 除原详细卡外的记录仍使用 `tier: D`，表示未完成详细适配分析。四类证据与任职、研究方向、接收机会分开记录，不按资料条数推断科研质量。
 
 ### 编辑事实更正叠加层与来源补充
 
-`personal-growth-lab/academy/data/lab-editorial-overrides.json` 用于小范围、可审计的高影响事实更新，避免为修正一条任职状态而重建全部压缩分片。每条以既有稳定 `id` 为键，记录 `changeId`、日期、理由、字段变更和逐条来源。Python `lab_data.py`、Node `load_lab_data.cjs` 与浏览器 `labs.js` 必须应用同一叠加层；`test_labs.py` 和浏览器测试检查结果一致。来源补充输入 `personal-growth-lab/academy/data/lab-source-additions-2026-10-26.json` 由 `.github/lab-directory/apply_source_additions.py` 幂等合并到大型 `lab-sources.json`；合并不重复追加同一URL或reviewId。该层不增加候选条目、不覆盖私人笔记，也不根据网页hash自动推断事实或接收机会。
+`personal-growth-lab/academy/data/lab-editorial-overrides.json` 用于小范围、可审计的高影响事实更新，避免为修正一条任职状态而重建全部压缩分片。每条以既有稳定 `id` 为键，记录 `changeId`、日期、理由、字段变更和逐条来源。Python `lab_data.py`、Node `load_lab_data.cjs` 与浏览器 `labs.js` 必须应用同一叠加层；`test_labs.py` 和浏览器测试检查结果一致。来源补充输入 `personal-growth-lab/academy/data/lab-source-additions-*.json` 由 `.github/lab-directory/apply_source_additions.py` 按日期顺序合并到大型 `lab-sources.json`。每个批次使用独立reviewId；已应用批次会跳过，不会用旧日期覆盖后续人工复核。该层不增加候选条目、不覆盖私人笔记，也不根据网页hash自动推断事实或接收机会。
 
 | 文件／程序 | 职责 |
 | --- | --- |
@@ -241,3 +241,8 @@ node personal-growth-lab/academy/tools/check_workbook.cjs
 `lab_data.py` 检查完整分片库和压缩副本。`test_lab_model.cjs` 验证跨轴交集、缺失标签、权重覆盖、证据维度、备份格式及较新记录合并。`test_lab_discovery.cjs` 检查合并导航、来源类型和研究说明；浏览器测试验证完整数据加载、真实筛选、比较、公开导出、私人笔记隔离、URL 状态与多尺寸布局。验证结果结合本次 diff 判断；没有重新读取来源时，不能把通过测试写成来源已重新核验。
 
 保留的 `test_enrich_candidates.py` 验证同名不同人、稳定 ID 校正、个人研究证据不被目录降级、同一 URL 同时用于研究和身份的分类、未来任职未知状态以及转任后机会重置。运行：`python3 .github/lab-directory/test_enrich_candidates.py`。
+
+
+### 2026-11-23 人工复核批次
+
+本轮未新增候选，保留稳定ID。将5个已有VIB.AI研究组（Stein Aerts、Pedro Gonçalves、Dmitry Kobak、Joana Pereira、Wouter Saelens）从官方目录层补充为 research_profile，分别核验team/research/publications或工具页面，并按六轴记录研究问题、方法、模态和尺度；机会仍为unknown。Bethge Lab补入两篇2026成果，并依据Join & contact页面将当前博士后招聘标记为recruiting；实验室整体招聘不等于每个方向都有名额。来源补充批次为 `lab-source-additions-2026-11-23.json`，人工叠加层为 `lab-editorial-overrides.json`。

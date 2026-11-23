@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "editorial-2026-11-23-vib-ai-bethge-01",
+  "verifiedAt": "2026-11-23",
+  "refresh": [
+    {
+      "url": "https://vib.ai/en/vibai-labs",
+      "scope": "直接读取VIB.AI官方目录正文，核验五个核心实验室及其独立主页链接；目录列出的已关闭招聘公告不作为当前机会。"
+    },
+    {
+      "url": "https://bethgelab.org/publications/",
+      "scope": "直接读取Bethge Lab成果页2026条目，核验Only Brains Align with Brains与DeepGaze3.5-VL的题目、作者及页面摘要。"
+    },
+    {
+      "url": "https://bethgelab.org/join/",
+      "scope": "直接读取Join & contact页面，核验当前博士后招聘方向、申请流程、IMPRS-IS/ELLIS博士路径及在读博士research visit说明。"
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "review-vib-aerts-team-20261123",
+      "id": "review-vib-aerts-team-20261123",
+      "url": "https://aertslab.sites.vib.be/en/team",
+      "title": "Stein Aerts — VIB/KU Leuven official team page",
+      "institution": "VIB-KU Leuven Center for Brain & Disease Research / KU Leuven",
+      "country": "比利时",
+      "kind": "research_profile",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取团队页，核验Group Leader、KU Leuven Full Professor和VIB.AI Scientific Director任职。"
+      }
+    },
+    {
+      "sourceId": "review-vib-aerts-research-20261123",
+      "id": "review-vib-aerts-research-20261123",
+      "url": "https://aertslab.sites.vib.be/en/research",
+      "title": "Aerts Lab — research programme",
+      "institution": "VIB-KU Leuven Center for Brain & Disease Research / KU Leuven",
+      "country": "比利时",
+      "kind": "research_evidence",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取研究页，核验基因调控、单细胞/空间技术、果蝇脑衰老及神经退行性疾病研究。"
+      }
+    },
+    {
+      "sourceId": "review-vib-aerts-publications-20261123",
+      "id": "review-vib-aerts-publications-20261123",
+      "url": "https://aertslab.sites.vib.be/en/publications",
+      "title": "Aerts Lab — recent publications and preprints",
+      "institution": "VIB-KU Leuven Center for Brain & Disease Research / KU Leuven",
+      "country": "比利时",
+      "kind": "publication",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取成果页，核验2026年帕金森病队列预印本、CREsted及其他代表成果题目与页面摘要；未逐篇阅读全文。"
+      }
+    },
+    {
+      "sourceId": "review-vib-pedro-team-20261123",
+      "id": "review-vib-pedro-team-20261123",
+      "url": "https://goncalveslab.sites.vib.be/en/team",
+      "title": "Pedro Gonçalves — VIB/KU Leuven official team page",
+      "institution": "VIB.AI / KU Leuven / VIB-KU Leuven Center for Neuroscience",
+      "country": "比利时",
+      "kind": "research_profile",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取团队页，核验VIB.AI Group Leader、KU Leuven副教授及affiliated PI身份。"
+      }
+    },
+    {
+      "sourceId": "review-vib-pedro-research-20261123",
+      "id": "review-vib-pedro-research-20261123",
+      "url": "https://goncalveslab.sites.vib.be/en/research",
+      "title": "Gonçalves Lab — research programme",
+      "institution": "VIB.AI / KU Leuven",
+      "country": "比利时",
+      "kind": "research_evidence",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取研究页，核验机制建模、机器学习、神经活动/行为数据与ICLR 2026多保真模拟推断。"
+      }
+    },
+    {
+      "sourceId": "review-vib-pedro-publications-20261123",
+      "id": "review-vib-pedro-publications-20261123",
+      "url": "https://goncalveslab.sites.vib.be/en/publications",
+      "title": "Gonçalves Lab — publications and preprints",
+      "institution": "VIB.AI / KU Leuven",
+      "country": "比利时",
+      "kind": "publication",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取成果页，核验ICLR 2026论文及2025年预印本条目。"
+      }
+    },
+    {
+      "sourceId": "review-vib-pedro-code-20261123",
+      "id": "review-vib-pedro-code-20261123",
+      "url": "https://goncalveslab.sites.vib.be/en/code-tools",
+      "title": "Gonçalves Lab — code and tools",
+      "institution": "VIB.AI / KU Leuven",
+      "country": "比利时",
+      "kind": "research_evidence",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取工具页，核验sbi与Jaxley开源工具的用途及实验室参与情况。"
+      }
+    },
+    {
+      "sourceId": "review-vib-kobak-team-20261123",
+      "id": "review-vib-kobak-team-20261123",
+      "url": "https://kobaklab.sites.vib.be/en/team",
+      "title": "Dmitry Kobak — VIB/Ghent official team page",
+      "institution": "VIB.AI / Ghent University",
+      "country": "比利时",
+      "kind": "research_profile",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取团队页，核验VIB Group Leader及Ghent University教授（2026年4月起）身份。"
+      }
+    },
+    {
+      "sourceId": "review-vib-kobak-research-20261123",
+      "id": "review-vib-kobak-research-20261123",
+      "url": "https://kobaklab.sites.vib.be/en/research",
+      "title": "Kobak Lab — research programme",
+      "institution": "VIB.AI / Ghent University",
+      "country": "比利时",
+      "kind": "research_evidence",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取研究页，核验低维表示、流形/对比学习、单细胞RNA-seq与多模态细胞数据分析。"
+      }
+    },
+    {
+      "sourceId": "review-vib-joana-team-20261123",
+      "id": "review-vib-joana-team-20261123",
+      "url": "https://pereiralab.sites.vib.be/en/team",
+      "title": "Joana Pereira — VIB/KU Leuven official team page",
+      "institution": "VIB.AI / KU Leuven",
+      "country": "比利时",
+      "kind": "research_profile",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取团队页，核验VIB Group Leader与KU Leuven Assistant Professor（页面注明自2025年2月起）。"
+      }
+    },
+    {
+      "sourceId": "review-vib-joana-research-20261123",
+      "id": "review-vib-joana-research-20261123",
+      "url": "https://pereiralab.sites.vib.be/en/research",
+      "title": "Pereira Lab — research programme",
+      "institution": "VIB.AI / KU Leuven",
+      "country": "比利时",
+      "kind": "research_evidence",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取研究页，核验蛋白质序列/结构/功能图谱、机器学习、网络分析、Protein Universe Atlas与GCsnap。"
+      }
+    },
+    {
+      "sourceId": "review-vib-wouter-team-20261123",
+      "id": "review-vib-wouter-team-20261123",
+      "url": "https://wsaelenslab.sites.vib.be/en/team",
+      "title": "Wouter Saelens — VIB/Ghent official team page",
+      "institution": "VIB.AI / Ghent University",
+      "country": "比利时",
+      "kind": "research_profile",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取团队页，核验VIB Group Leader（2026年4月起）及Ghent University Professor（2026年1月至今），并区分历史postdoc经历。"
+      }
+    },
+    {
+      "sourceId": "review-vib-wouter-home-20261123",
+      "id": "review-vib-wouter-home-20261123",
+      "url": "https://wsaelenslab.sites.vib.be/en",
+      "title": "Wouter Saelens Lab — research programme",
+      "institution": "VIB.AI / Ghent University",
+      "country": "比利时",
+      "kind": "research_evidence",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取主页，核验因果系统免疫学、概率AI、多重扰动组学、巨噬细胞、炎症和肿瘤研究。"
+      }
+    },
+    {
+      "sourceId": "review-vib-wouter-publications-20261123",
+      "id": "review-vib-wouter-publications-20261123",
+      "url": "https://wsaelenslab.sites.vib.be/en/publications",
+      "title": "Wouter Saelens Lab — selected publications",
+      "institution": "VIB.AI / Ghent University",
+      "country": "比利时",
+      "kind": "publication",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取成果页，核验Nature Genetics 2025 scTF-seq及Nature Communications 2025 ChromatinHD条目。"
+      }
+    },
+    {
+      "sourceId": "review-bethge-arxiv-2604-20261123",
+      "id": "review-bethge-arxiv-2604-20261123",
+      "url": "https://arxiv.org/abs/2604.21780",
+      "title": "Only Brains Align with Brains: Cross-Region Alignment Patterns Expose Limits of Normative Models",
+      "institution": "University of Tübingen · Bethge Lab",
+      "country": "德国",
+      "kind": "research_output",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取arXiv记录，核验2026-04-23提交日期、作者、摘要及ICLR 2026会议引用。"
+      }
+    },
+    {
+      "sourceId": "review-bethge-arxiv-2607-20261123",
+      "id": "review-bethge-arxiv-2607-20261123",
+      "url": "https://arxiv.org/abs/2607.02083",
+      "title": "DeepGaze3.5-VL: Modeling Scanpaths via Autoregressive Token Prediction",
+      "institution": "University of Tübingen · Bethge Lab",
+      "country": "德国",
+      "kind": "research_output",
+      "verifiedAt": "2026-11-23",
+      "parser": "editorial individual-source review",
+      "selector": "Official team/research/publications page or individual arXiv record; directly read for the stated scope only",
+      "timestampOrigin": "actual editorial content review; not HTTP status or body hash",
+      "includedCount": 1,
+      "readMethod": "web_open",
+      "reviewedAt": "2026-11-23",
+      "provenance": {
+        "readMethod": "web_open",
+        "reviewedAt": "2026-11-23",
+        "scope": "直接读取arXiv记录，核验2026-07-02提交日期、作者及视觉scanpath自回归建模摘要；仍按预印本标注。"
+      }
+    }
+  ],
+  "editorialReviewLog": {
+    "date": "2026-11-23",
+    "reviewId": "editorial-2026-11-23-vib-ai-bethge-01",
+    "recordIds": [
+      "pi-stein-aerts-e42f09e5",
+      "pi-pedro-goncalves-d72b204b",
+      "pi-dmitry-kobak-4fa3504b",
+      "pi-joana-pereira-597b972c",
+      "pi-wouter-saelens-51be9120",
+      "bethge"
+    ],
+    "summary": "总候选数不变。将5个既有VIB.AI团队从official_directory升级为research_profile，补充身份、研究问题、方法、部分成果/资源及六轴标签；为Bethge Lab补入两篇2026科研成果并核实当前博士后招聘与research visit规则。没有把目录中关闭岗位当作当前招聘，也未推断联合培养名额。",
+    "sourceUrls": [
+      "https://vib.ai/en/vibai-labs",
+      "https://aertslab.sites.vib.be/en/team",
+      "https://aertslab.sites.vib.be/en/research",
+      "https://aertslab.sites.vib.be/en/publications",
+      "https://goncalveslab.sites.vib.be/en/team",
+      "https://goncalveslab.sites.vib.be/en/research",
+      "https://goncalveslab.sites.vib.be/en/publications",
+      "https://goncalveslab.sites.vib.be/en/code-tools",
+      "https://kobaklab.sites.vib.be/en/team",
+      "https://kobaklab.sites.vib.be/en/research",
+      "https://pereiralab.sites.vib.be/en/team",
+      "https://pereiralab.sites.vib.be/en/research",
+      "https://wsaelenslab.sites.vib.be/en/team",
+      "https://wsaelenslab.sites.vib.be/en",
+      "https://wsaelenslab.sites.vib.be/en/publications",
+      "https://bethgelab.org/publications/",
+      "https://bethgelab.org/join/",
+      "https://arxiv.org/abs/2604.21780",
+      "https://arxiv.org/abs/2607.02083"
+    ],
+    "readMethod": "official_web_open",
+    "note": "只对上述实际直接读取的网页/论文记录写入本轮日期；没有对所有监测变化页面或失败页面刷新verifiedAt；未上传网页全文缓存。"
+  }
+}

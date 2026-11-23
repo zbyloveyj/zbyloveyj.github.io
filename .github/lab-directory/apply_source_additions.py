@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Idempotently merge reviewed public source additions into the large source manifest."""
+"""Idempotently merge immutable reviewed batches into the large source manifest."""
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "personal-growth-lab/academy/data/lab-sources.json"
-ADDITIONS = ROOT / "personal-growth-lab/academy/data/lab-source-additions-2026-10-26.json"
+DATA_DIR = MANIFEST.parent
+ADDITIONS = DATA_DIR / "lab-source-additions-2026-10-26.json"
 
 
 def apply(manifest_path=MANIFEST, additions_path=ADDITIONS):
@@ -15,6 +16,13 @@ def apply(manifest_path=MANIFEST, additions_path=ADDITIONS):
     if manifest.get("schemaVersion") != 1 or additions.get("schemaVersion") != 1:
         raise ValueError("Unsupported source-manifest schema")
     sources = manifest.setdefault("sources", [])
+    history = manifest.setdefault("editorialReviewLog", [])
+    log = additions.get("editorialReviewLog")
+    review_id = (log or {}).get("reviewId") or additions.get("reviewId")
+    # An already-applied immutable batch must not refresh old dates over newer reviews.
+    if review_id and any(item.get("reviewId") == review_id for item in history):
+        return {"added": 0, "refreshed": 0, "total": len(sources),
+                "reviewId": review_id, "skipped": True}
     by_url = {row.get("url"): row for row in sources if row.get("url")}
     added = refreshed = 0
     stamp = additions["verifiedAt"]
@@ -36,20 +44,26 @@ def apply(manifest_path=MANIFEST, additions_path=ADDITIONS):
             by_url[url] = item
             added += 1
         else:
-            latest = {"date": stamp, "readMethod": "web_open", "scope": item.get("provenance", {}).get("scope", "Reviewed official source.")}
+            latest = {"date": stamp, "readMethod": "web_open",
+                      "scope": item.get("provenance", {}).get("scope", "Reviewed official source.")}
             row["verifiedAt"] = stamp
             row["reviewedAt"] = stamp
             row["latestReview"] = latest
             row["provenance"] = {**row.get("provenance", {}), "latestReview": latest}
             refreshed += 1
-    log = additions.get("editorialReviewLog")
-    if log:
-        history = manifest.setdefault("editorialReviewLog", [])
-        if not any(item.get("reviewId") == log.get("reviewId") for item in history):
-            history.append(log)
+    if log and not any(item.get("reviewId") == log.get("reviewId") for item in history):
+        history.append(log)
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, separators=(",", ":")) + "\n")
-    return {"added": added, "refreshed": refreshed, "total": len(sources), "reviewId": additions.get("reviewId")}
+    return {"added": added, "refreshed": refreshed, "total": len(sources),
+            "reviewId": review_id, "skipped": False}
+
+
+def apply_all(manifest_path=MANIFEST, additions_dir=None):
+    manifest_path = Path(manifest_path)
+    directory = Path(additions_dir) if additions_dir else manifest_path.parent
+    batches = sorted(directory.glob("lab-source-additions-*.json"))
+    return [apply(manifest_path, batch) for batch in batches]
 
 
 if __name__ == "__main__":
-    print(json.dumps(apply(), ensure_ascii=False))
+    print(json.dumps(apply_all(), ensure_ascii=False))

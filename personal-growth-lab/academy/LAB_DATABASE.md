@@ -1,12 +1,12 @@
 # 全球科研导师与研究团队长期候选库
 
-公开入口：[labs.html](labs.html)。正式数据入口：[data/labs.json](data/labs.json)（主清单及其 `dataParts` 构成完整库）。来源清单：[data/lab-sources.json](data/lab-sources.json)。人工事实更正叠加层：[data/lab-editorial-overrides.json](data/lab-editorial-overrides.json)。来源补充输入：[data/lab-source-additions-2026-10-26.json](data/lab-source-additions-2026-10-26.json)。自动巡检：[data/lab-monitor.json](data/lab-monitor.json)。可重复构建方法见[维护 README](../../.github/lab-directory/README.md)。
+公开入口：[labs.html](labs.html)。正式数据入口：[data/labs.json](data/labs.json)（主清单及其 `dataParts` 构成完整库）。来源清单：[data/lab-sources.json](data/lab-sources.json)。人工事实更正叠加层：[data/lab-editorial-overrides.json](data/lab-editorial-overrides.json)。来源补充输入：[data/lab-source-additions-2026-10-26.json](data/lab-source-additions-2026-10-26.json) 与 [data/lab-source-additions-2026-11-23.json](data/lab-source-additions-2026-11-23.json)。自动巡检：[data/lab-monitor.json](data/lab-monitor.json)。可重复构建方法见[维护 README](../../.github/lab-directory/README.md)。
 
 ## 收录目的与范围
 
 按研究方向、团队身份与可查证的科研信息建立长期候选库。**不以当前招生、招聘、欢迎咨询或有无名额为收录条件。** 有相关方向且仍有可查证研究活动的导师和团队，可以用于提前一至两年准备联合培养、访问、博士后或后续学术合作。没有当前职位不会从库中删除，也不能推断两年后一定有名额。
 
-2026-10-21 的 `2026.10.21-mentor-v7` 版本共有 **41,446 条候选记录**，为上一版的 **3.32 倍**：保留全部 **12,491 个基线稳定 ID**，净增 **28,955 条**，补充 **1,160 条已有记录**。其中，新增国科大目录候选220条、补证190条；从29,569条相关NIH项目PI候选中合并834条已有身份、净增28,735条。主机构／项目依托单位在中国大陆的记录有 **3,322 条**，记录共涉及 **53 个国家／地区、32,622 个来源 URL**。这轮扩充明显偏向美国科研项目；项目国家／单位不等同个人当前工作地点。候选条目不等于已逐人核验的博士导师数、独立实验室数或全球排名。
+2026-10-21 的 `2026.10.21-mentor-v7` 版本共有 **41,446 条候选记录**，为上一版的 **3.32 倍**：保留全部 **12,491 个基线稳定 ID**，净增 **28,955 条**，补充 **1,160 条已有记录**。其中，新增国科大目录候选220条、补证190条；从29,569条相关NIH项目PI候选中合并834条已有身份、净增28,735条。主机构／项目依托单位在中国大陆的记录有 **3,322 条**，记录共涉及 **53 个国家／地区、32,638 个来源 URL**。这轮扩充明显偏向美国科研项目；项目国家／单位不等同个人当前工作地点。候选条目不等于已逐人核验的博士导师数、独立实验室数或全球排名。
 
 覆盖全球脑科学、计算神经科学、神经影像、脑机接口、计算生物学、AI for Biology、AI Virtual Cell、单细胞与空间组学、基因组学，以及本轮深入补充的微生物组、微生物生态、肠脑轴、计算精神病学、精准精神病学、医学人工智能、神经免疫和代谢组学。继续拓展国家、机构和重点 PI，不设五国限制。院系／研究所／网络、附属医院和独立实验室按实际性质标注；联合任职不等同主聘单位。科研实力需结合具体代表成果，不给全部收录者统一贴“全球顶尖”排名标签。
 
@@ -18,7 +18,7 @@
 | --- | ---: | --- |
 | `reviewed` | 18 | 保留原详细卡和稳定 ID，含任职、核心问题、至少两篇可核验代表作、技术平台、适配分析、技能缺口、起步项目、适配边界及逐条来源。A/B/C 描述原卡的能力衔接距离，不是导师实力等级。 |
 | `research_profile` | 932 | 已逐人整理官方个人、研究组、明确归属个人的项目或成果证据。官方人物专题、共享组页面及仅能读取搜索索引的情况须保留范围说明；此层不代表每人均已读网页全文、审阅全部论文或完成适配评估。 |
-| `official_directory` | 11,761 | 核对官方导师、研究组或专题研究人员目录中的身份和明确可见的研究说明；未逐人补齐全部 Research 页面、代表作或指导资格。目录身份不证明排名、经费或当前招生。 |
+| `official_directory` | 11,756 | 核对官方导师、研究组或专题研究人员目录中的身份和明确可见的研究说明；未逐人补齐全部 Research 页面、代表作或指导资格。目录身份不证明排名、经费或当前招生。 |
 | `project_record` | 28,735 | 官方相关科研项目中的具名PI、具体研究题目和项目来源。主题标签由项目标题与研究目标句自动提取，未逐人完成个人研究、现任主聘及博士指导资格核验；项目单位明确标为“项目依托单位”。 |
 
 除 `reviewed` 外的三类记录使用 `tier: D`，表示尚待原详细卡式的适配分析。不得为了填充字段编造论文、项目、排名、联系资格或职位。空的 `papers`、细分标签以及机会 `status: unknown`、机会 `verifiedAt: null` 均有明确含义。有独立来源的成果可以记录在 `assessmentEvidence.outputs`，不因此自动升级为 `reviewed`。
@@ -95,7 +95,7 @@ NIH RePORTER项目页是动态页面，巡检使用官方项目API核对对应�
 
 每日工作流只提交公共`lab-monitor.json`。由GITHUB_TOKEN写入的监测commit可能不触发Pages，因此浏览器比较站点副本和公开raw GitHub feed，选择最新批次。团队数据由正常内容提交发布；不创建与既有Pages竞争的部署工作流。
 
-2026-10-26 的编辑复核采用独立叠加层 `data/lab-editorial-overrides.json`，不重写不可变的 v7 分片或改变稳定 ID。该层记录逐条 `changeId`、日期、修改理由、前后状态、官方来源与读取方式；Python/Node维护加载器及浏览器加载器均在校验基础目录后应用同一叠加层。当前修正包括：依据EMBL官方讣告将Peer Bork保留为 `historical`（已故、历史科研贡献），不再显示为当前导师；为Nick Ramsey补入两篇2026年UMC Utrecht官方研究成果，并重新确认2022年旧博士后公告已过期。岗位状态仍为 `unknown`，不推断当前名额。新来源先写入小型补充清单，再由每日维护工作流幂等合并到大型 `lab-sources.json`；本轮来源补充已于2026-10-26合并入正式清单，现有32,622条来源记录；web open阅读不冒充直接HTTP抓取或hash核验。
+2026-10-26 的编辑复核采用独立叠加层 `data/lab-editorial-overrides.json`，不重写不可变的 v7 分片或改变稳定 ID。该层记录逐条 `changeId`、日期、修改理由、前后状态、官方来源与读取方式；Python/Node维护加载器及浏览器加载器均在校验基础目录后应用同一叠加层。当前修正包括：依据EMBL官方讣告将Peer Bork保留为 `historical`（已故、历史科研贡献），不再显示为当前导师；为Nick Ramsey补入两篇2026年UMC Utrecht官方研究成果，并重新确认2022年旧博士后公告已过期。岗位状态仍为 `unknown`，不推断当前名额。新来源先写入小型补充清单，再由每日维护工作流幂等合并到大型 `lab-sources.json`；本轮来源补充已于2026-10-26合并入正式清单，现有32,638条来源记录；web open阅读不冒充直接HTTP抓取或hash核验。
 
 现有每周研究任务继续复核来源变化、补充新导师与代表成果；范围包括所有已收录国家及其他相关地区。首要目标是维持长期候选地图，当前职位仅为附加更新。自动研究任务账户、任务ID及用户私人背景不写进公开仓库。不得自动联系导师、发送邮件或提交申请。
 
@@ -117,3 +117,12 @@ node personal-growth-lab/academy/tools/check_workbook.cjs
 ```
 
 模型测试覆盖跨轴交集、缺失数据、权重覆盖、证据维度与备份验证／合并。浏览器测试另需 Playwright 和可用 Chromium，覆盖分页、跨页比较、多轴筛选、匹配条件、公开 CSV 和分享链接、私人笔记与备份、深链接、320／390／768／1440 px 布局及过期机会降级。保留现有课程 ID、内容、记录 schema、storage key 与用户笔记，不把历史课程总量写成未来不能增加课程的约束。
+
+
+## 2026-11-23 重点证据复核
+
+本轮新增候选 **0**，总量保持 **41,446**；保留全部稳定ID。将5个已有VIB.AI团队（Stein Aerts、Pedro Gonçalves、Dmitry Kobak、Joana Pereira、Wouter Saelens）从 `official_directory` 补证为 `research_profile`，分别直接读取团队页、研究页及可用的成果/工具页，补充任职、具体研究问题、方法、六轴标签和有限的代表成果。资料层级仍为 `D`，未将其冒充为完整reviewed详细卡，当前接收机会仍为 `unknown`。
+
+为Bethge Lab补入两篇2026成果：ICLR 2026论文 *Only Brains Align with Brains*（arXiv:2604.21780）和arXiv预印本 *DeepGaze3.5-VL*（arXiv:2607.02083）。直接读取Join & contact页面后，将其博士后状态更新为 `recruiting`；该招聘覆盖多个AI方向，其中包括neuroscience foundation models，未声称所有岗位均为神经科学岗位。页面说明当前PhD学生可申请research visit，但未据此推断正式联合学位名额。
+
+本轮来源补充批次：`data/lab-source-additions-2026-11-23.json`；人工事实更正：`data/lab-editorial-overrides.json`。只记录实际直接读取的页面日期；未把网页hash变化或读取失败刷新为人工核验。个人收藏、准备阶段和笔记仍仅保存在浏览器本地。

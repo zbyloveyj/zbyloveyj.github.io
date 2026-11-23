@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "edition": "editorial-2026.10.26-01",
-  "verifiedAt": "2026-10-26",
-  "purpose": "针对高影响事实变化的可审计编辑叠加层。基础目录与分片保留原稳定ID和不可变版本；本文件只按ID修正状态或补充经过实际阅读的来源/成果。网页HTTP状态或hash变化不会自动产生本层记录。",
+  "edition": "editorial-2026-11-23-01",
+  "verifiedAt": "2026-11-23",
+  "purpose": "针对高影响事实变化的可审计编辑叠加层。基础目录与分片保留原稳定ID和不可变版本；本文件只按ID修正状态或补充经过实际阅读的来源/成果。网页HTTP状态或hash变化不会自动产生本层记录。2026-11-23新增VIB.AI五组研究资料及Bethge Lab科研成果/招聘复核。",
   "updates": [
     {
       "id": "pi-peer-bork-9df54a45",
@@ -163,6 +163,924 @@
             "url": "https://researchinformation.umcutrecht.nl/en/publications/optimal-positioning-and-size-of-high-density-electrocorticography/",
             "verifiedAt": "2026-10-26",
             "basis": "UMC Utrecht官方研究成果页正文与摘要"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pi-stein-aerts-e42f09e5",
+      "changeId": "pi-stein-aerts-e42f09e5-research-profile-20261123",
+      "date": "2026-11-23",
+      "reason": "依据VIB.AI官方目录及该PI独立实验室的team/research/publications页面，补充真实任职、研究问题、方法、代表成果与资源；原稳定ID不变。当前机会未核实，仍保持unknown。",
+      "set": {
+        "name": "Stein Aerts",
+        "role": "Group Leader, VIB-KU Leuven Center for Brain & Disease Research；Full Professor, KU Leuven；Scientific Director, VIB.AI",
+        "roleStatus": "current",
+        "roleVerifiedAt": "2026-11-23",
+        "profileVerifiedAt": "2026-11-23",
+        "verifiedAt": "2026-11-23",
+        "evidenceLevel": "research_profile",
+        "tier": "D",
+        "candidateStatus": "long_term",
+        "question": "基因组调控序列与转录因子网络如何决定细胞类型/状态，并在脑衰老、神经退行性疾病、发育和肿瘤中发生变化？",
+        "directions": [
+          "计算生物学",
+          "AI for Biology",
+          "脑科学",
+          "基因组学"
+        ],
+        "facets": {
+          "domains": [
+            "计算生物学",
+            "AI for Biology",
+            "脑科学",
+            "基因组学"
+          ],
+          "methods": [
+            "单细胞多组学",
+            "基因调控网络推断",
+            "增强子序列建模",
+            "深度学习",
+            "微流控与高通量实验"
+          ],
+          "diseases": [
+            "帕金森病",
+            "阿尔茨海默病",
+            "肿瘤"
+          ],
+          "modalities": [
+            "单细胞RNA测序",
+            "单细胞ATAC测序",
+            "单细胞多组学",
+            "空间转录组",
+            "全基因组测序"
+          ],
+          "researchScales": [
+            "分子",
+            "细胞",
+            "组织",
+            "脑区",
+            "生物体"
+          ],
+          "studyDesigns": [
+            "方法开发",
+            "单细胞队列研究",
+            "扰动实验",
+            "跨物种比较"
+          ]
+        },
+        "roleNote": "官方团队页明确列出其为VIB-KU Leuven Center for Brain & Disease Research Group Leader、KU Leuven Full Professor及VIB.AI Scientific Director；这些任职分别保留，不把中心关联合并成单一主聘。",
+        "affiliations": [
+          {
+            "institution": "KU Leuven",
+            "institutionKey": "KU Leuven",
+            "country": "比利时",
+            "city": "Leuven",
+            "status": "current",
+            "role": "Full Professor",
+            "url": "https://aertslab.sites.vib.be/en/team"
+          },
+          {
+            "institution": "VIB-KU Leuven Center for Brain & Disease Research",
+            "institutionKey": "VIB-KU Leuven Center for Brain & Disease Research",
+            "country": "比利时",
+            "city": "Leuven",
+            "status": "current",
+            "role": "Group Leader",
+            "url": "https://aertslab.sites.vib.be/en/team"
+          },
+          {
+            "institution": "VIB.AI · Center for AI & Computational Biology",
+            "institutionKey": "VIB.AI",
+            "country": "比利时",
+            "city": "Leuven",
+            "status": "current",
+            "role": "Scientific Director",
+            "url": "https://aertslab.sites.vib.be/en/team"
+          }
+        ],
+        "city": "Leuven",
+        "profileScope": "直接读取个人/研究组官方team与research页面；仅整理页面明确列出的身份、研究问题和技术路线，不把目录成员身份扩大为独立PI资格。",
+        "evidenceScope": "2026-11-23直接读取VIB.AI官方目录及该实验室team/research页面；并按条目读取其成果或工具页面。已整理研究问题、方法、部分代表成果与资源；未逐篇阅读全文，也未核实当前博士后、访问博士或联合培养名额，因此保留research_profile与D级待评估。",
+        "fieldBasis": "六轴标签仅依据该实验室本人的研究页面与成果页面；不从VIB.AI中心标签或相邻团队推断未出现的疾病、模态或AIVC方向。",
+        "bridge": "组学与机器学习可衔接单细胞调控网络和脑细胞状态研究；需补足scRNA/scATAC质控整合、调控网络生物学、序列到功能模型及空间组学。现实起步项目：用公开帕金森病脑单细胞数据复现细胞类型特异性调控网络，并对已知风险位点做增强子/靶基因优先级分析。此为一般能力路径，不是个体适配评级。"
+      },
+      "upsert": {
+        "sources": [
+          {
+            "url": "https://vib.ai/en/vibai-labs",
+            "label": "VIB.AI官方实验室目录",
+            "claim": "直接读取VIB.AI官方目录，核对其列出的实验室名称及通往各自独立实验室主页的链接；目录中已关闭的招聘公告不作为当前岗位结论。",
+            "kind": "directory",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://aertslab.sites.vib.be/en/team",
+            "label": "Stein Aerts — official team page",
+            "claim": "团队页确认Stein Aerts的Group Leader、KU Leuven Full Professor和VIB.AI Scientific Director身份。",
+            "kind": "research_profile",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://aertslab.sites.vib.be/en/research",
+            "label": "Aerts Lab — research programme",
+            "claim": "研究页明确覆盖基因组调控、scRNA-seq/scATAC-seq、空间/单细胞技术、微流控、增强子建模、果蝇脑衰老及帕金森病/阿尔茨海默病相关细胞状态。",
+            "kind": "research_evidence",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://aertslab.sites.vib.be/en/publications",
+            "label": "Aerts Lab — recent publications and preprints",
+            "claim": "成果页列出2026年帕金森病队列脑增强子调控预印本、CREsted、单细胞ATAC技术评估及其他代表成果；仅记录页面所列题目与摘要，不声称逐篇阅读全文。",
+            "kind": "publication",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB-KU Leuven Center for Brain & Disease Research / KU Leuven"
+          }
+        ],
+        "assessmentEvidence": [
+          {
+            "dimension": "research",
+            "summary": "研究重点是解码基因组调控代码，解释调控程序如何驱动细胞状态变化；模型系统覆盖果蝇、小鼠及人类细胞/组织，并明确涉及果蝇脑衰老和神经退行性疾病。",
+            "url": "https://aertslab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "methods",
+            "summary": "湿实验与计算方法并行：单细胞RNA/ATAC、多组学与空间测量、微流控、增强子报告实验、深度学习序列模型及基因调控网络推断。",
+            "url": "https://aertslab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "outputs",
+            "summary": "官方成果页列出2026年帕金森病队列研究：190名供者、约420万细胞核，并报告超过53,000个与细胞类型特异性增强子活性相关的变异；另列CREsted等成果。该2026队列条目为预印本。",
+            "url": "https://aertslab.sites.vib.be/en/publications",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "resources",
+            "summary": "实验室维护SCENIC/SCENIC+、cisTopic、CREsted、SCOPE等工具；资源清单来自官方研究页。",
+            "url": "https://aertslab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pi-pedro-goncalves-d72b204b",
+      "changeId": "pi-pedro-goncalves-d72b204b-research-profile-20261123",
+      "date": "2026-11-23",
+      "reason": "依据VIB.AI官方目录及该PI独立实验室的team/research/publications页面，补充真实任职、研究问题、方法、代表成果与资源；原稳定ID不变。当前机会未核实，仍保持unknown。",
+      "set": {
+        "name": "Pedro Goncalves",
+        "role": "Group Leader, VIB.AI；Associate Professor, KU Leuven Departments of Computer Science and Electrical Engineering；affiliated PI, VIB-KU Leuven Center for Neuroscience",
+        "roleStatus": "current",
+        "roleVerifiedAt": "2026-11-23",
+        "profileVerifiedAt": "2026-11-23",
+        "verifiedAt": "2026-11-23",
+        "evidenceLevel": "research_profile",
+        "tier": "D",
+        "candidateStatus": "long_term",
+        "question": "能否用可解释的机制模型与现代机器学习，从神经元、神经网络和行为数据中识别神经系统动力学，并产生可实验检验的预测？",
+        "directions": [
+          "计算生物学",
+          "AI for Biology",
+          "脑科学",
+          "计算神经科学"
+        ],
+        "facets": {
+          "domains": [
+            "计算生物学",
+            "AI for Biology",
+            "脑科学",
+            "计算神经科学"
+          ],
+          "methods": [
+            "机制建模",
+            "模拟基础推断",
+            "深度神经密度估计",
+            "可微分神经元模拟",
+            "机器学习"
+          ],
+          "diseases": [],
+          "modalities": [
+            "神经元活动",
+            "神经群体活动",
+            "行为数据",
+            "计算模拟"
+          ],
+          "researchScales": [
+            "单神经元",
+            "神经网络",
+            "行为",
+            "计算模型"
+          ],
+          "studyDesigns": [
+            "计算建模",
+            "模拟推断",
+            "方法开发",
+            "实验合作验证"
+          ]
+        },
+        "roleNote": "官方团队页明确列出Group Leader、KU Leuven计算机科学与电气工程副教授及VIB-KU Leuven Center for Neuroscience affiliated PI；affiliated PI不是另一个独立实验室。",
+        "affiliations": [
+          {
+            "institution": "KU Leuven",
+            "institutionKey": "KU Leuven",
+            "country": "比利时",
+            "city": "Leuven",
+            "status": "current",
+            "role": "Associate Professor, Computer Science and Electrical Engineering",
+            "url": "https://goncalveslab.sites.vib.be/en/team"
+          },
+          {
+            "institution": "VIB-KU Leuven Center for Neuroscience",
+            "institutionKey": "VIB-KU Leuven Center for Neuroscience",
+            "country": "比利时",
+            "city": "Leuven",
+            "status": "current",
+            "role": "Affiliated PI",
+            "url": "https://goncalveslab.sites.vib.be/en/team"
+          }
+        ],
+        "city": "Leuven",
+        "profileScope": "直接读取个人/研究组官方team与research页面；仅整理页面明确列出的身份、研究问题和技术路线，不把目录成员身份扩大为独立PI资格。",
+        "evidenceScope": "2026-11-23直接读取VIB.AI官方目录及该实验室team/research页面；并按条目读取其成果或工具页面。已整理研究问题、方法、部分代表成果与资源；未逐篇阅读全文，也未核实当前博士后、访问博士或联合培养名额，因此保留research_profile与D级待评估。",
+        "fieldBasis": "六轴标签仅依据该实验室本人的研究页面与成果页面；不从VIB.AI中心标签或相邻团队推断未出现的疾病、模态或AIVC方向。",
+        "bridge": "脑影像/脑网络分析与机器学习可作为进入计算神经科学的起点；需补足电生理数据、神经元/突触机制模型、贝叶斯模拟推断和JAX。现实起步项目：用Jaxley构建简化神经元/小网络模型，再用sbi从公开神经活动数据估计参数并检验可辨识性。"
+      },
+      "upsert": {
+        "sources": [
+          {
+            "url": "https://vib.ai/en/vibai-labs",
+            "label": "VIB.AI官方实验室目录",
+            "claim": "直接读取VIB.AI官方目录，核对其列出的实验室名称及通往各自独立实验室主页的链接；目录中已关闭的招聘公告不作为当前岗位结论。",
+            "kind": "directory",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://goncalveslab.sites.vib.be/en/team",
+            "label": "Pedro Gonçalves — official team page",
+            "claim": "团队页确认Pedro Gonçalves为VIB.AI Group Leader、KU Leuven副教授及VIB-KU Leuven Center for Neuroscience affiliated PI。",
+            "kind": "research_profile",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://goncalveslab.sites.vib.be/en/research",
+            "label": "Gonçalves Lab — research programme",
+            "claim": "研究页明确研究可解释机制模型、神经活动/行为建模、机器学习与实验可检验预测，并列出ICLR 2026多保真模拟基础推断工作。",
+            "kind": "research_evidence",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://goncalveslab.sites.vib.be/en/publications",
+            "label": "Gonçalves Lab — publications and preprints",
+            "claim": "成果页列出ICLR 2026多保真模拟基础推断、2025年离子通道omnimodel和simulation-based inference实践指南等。",
+            "kind": "publication",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://goncalveslab.sites.vib.be/en/code-tools",
+            "label": "Gonçalves Lab — code and tools",
+            "claim": "工具页明确列出sbi模拟基础推断工具包和Jaxley可微分生物物理神经元模拟器，并说明实验室参与开发。",
+            "kind": "research_evidence",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          }
+        ],
+        "assessmentEvidence": [
+          {
+            "dimension": "research",
+            "summary": "实验室以机器学习获得神经科学机制洞见，目标是从单神经元、神经网络和行为层面的数据构建可解释、可扩展的理论模型。",
+            "url": "https://goncalveslab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "methods",
+            "summary": "方法包括simulation-based inference、多保真模拟、神经动力学机制建模和基于JAX的可微分生物物理模型。",
+            "url": "https://goncalveslab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "outputs",
+            "summary": "官方成果页列出ICLR 2026多保真simulation-based inference方法；实验室页面报告在基准与神经科学任务中可减少高保真模拟需求，最多约100倍。",
+            "url": "https://goncalveslab.sites.vib.be/en/publications",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "resources",
+            "summary": "官方工具页列出sbi与Jaxley开源工具及文档入口。",
+            "url": "https://goncalveslab.sites.vib.be/en/code-tools",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "collaboration",
+            "summary": "研究页明确说明与实验合作伙伴协作，设计模型、检验机制假设并产生可实验测试的预测。",
+            "url": "https://goncalveslab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pi-dmitry-kobak-4fa3504b",
+      "changeId": "pi-dmitry-kobak-4fa3504b-research-profile-20261123",
+      "date": "2026-11-23",
+      "reason": "依据VIB.AI官方目录及该PI独立实验室的team/research/publications页面，补充真实任职、研究问题、方法、代表成果与资源；原稳定ID不变。当前机会未核实，仍保持unknown。",
+      "set": {
+        "name": "Dmitry Kobak",
+        "role": "Group Leader, VIB Center for AI & Computational Biology；Professor, Ghent University Department of Mathematics, Computer Science, and Statistics (since April 2026)",
+        "roleStatus": "current",
+        "roleVerifiedAt": "2026-11-23",
+        "profileVerifiedAt": "2026-11-23",
+        "verifiedAt": "2026-11-23",
+        "evidenceLevel": "research_profile",
+        "tier": "D",
+        "candidateStatus": "long_term",
+        "question": "如何开发统计上可靠且可解释的低维表示，使研究者能从高维单细胞、图像和其他生物数据中识别结构，而不把可视化假象误当作真实生物结构？",
+        "directions": [
+          "计算生物学",
+          "AI for Biology"
+        ],
+        "facets": {
+          "domains": [
+            "计算生物学",
+            "AI for Biology"
+          ],
+          "methods": [
+            "降维",
+            "流形学习",
+            "对比学习",
+            "自监督学习",
+            "图表示学习",
+            "多模态嵌入"
+          ],
+          "diseases": [],
+          "modalities": [
+            "单细胞RNA测序",
+            "基因表达",
+            "细胞形态",
+            "神经生理数据",
+            "细胞图像"
+          ],
+          "researchScales": [
+            "细胞",
+            "细胞群体",
+            "高维数据"
+          ],
+          "studyDesigns": [
+            "方法开发",
+            "模型评估",
+            "多模态数据整合"
+          ]
+        },
+        "roleNote": "官方团队页确认Dmitry Kobak自2026年4月起为VIB Group Leader及Ghent University教授；ELLIS为研究网络成员身份，不作为雇主或主聘机构。",
+        "affiliations": [
+          {
+            "institution": "Ghent University",
+            "institutionKey": "Ghent University",
+            "country": "比利时",
+            "city": "Ghent",
+            "status": "current",
+            "role": "Professor, Department of Mathematics, Computer Science, and Statistics (since April 2026)",
+            "url": "https://kobaklab.sites.vib.be/en/team"
+          }
+        ],
+        "city": "Ghent",
+        "profileScope": "直接读取个人/研究组官方team与research页面；仅整理页面明确列出的身份、研究问题和技术路线，不把目录成员身份扩大为独立PI资格。",
+        "evidenceScope": "2026-11-23直接读取VIB.AI官方目录及该实验室team/research页面；并按条目读取其成果或工具页面。已整理研究问题、方法、部分代表成果与资源；未逐篇阅读全文，也未核实当前博士后、访问博士或联合培养名额，因此保留research_profile与D级待评估。",
+        "fieldBasis": "六轴标签仅依据该实验室本人的研究页面与成果页面；不从VIB.AI中心标签或相邻团队推断未出现的疾病、模态或AIVC方向。",
+        "bridge": "宏基因组/多组学与机器学习可衔接单细胞表示学习；需补足scRNA-seq统计模型、流形学习理论、批次效应与嵌入稳定性评估。现实起步项目：在公开PBMC或脑单细胞数据上比较PCA、UMAP、对比学习嵌入的批次鲁棒性与细胞类型保持度。该组当前页面没有直接虚拟细胞或扰动预测项目证据，因此不标AIVC。"
+      },
+      "upsert": {
+        "sources": [
+          {
+            "url": "https://vib.ai/en/vibai-labs",
+            "label": "VIB.AI官方实验室目录",
+            "claim": "直接读取VIB.AI官方目录，核对其列出的实验室名称及通往各自独立实验室主页的链接；目录中已关闭的招聘公告不作为当前岗位结论。",
+            "kind": "directory",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://kobaklab.sites.vib.be/en/team",
+            "label": "Dmitry Kobak — official team page",
+            "claim": "团队页确认Dmitry Kobak为VIB Group Leader及Ghent University教授（2026年4月起）。",
+            "kind": "research_profile",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://kobaklab.sites.vib.be/en/research",
+            "label": "Kobak Lab — research programme",
+            "claim": "研究页明确覆盖低维表示、流形/对比学习、单细胞RNA-seq统计分析、图像数据和多模态细胞状态表示；未将其标为AIVC。",
+            "kind": "research_evidence",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          }
+        ],
+        "assessmentEvidence": [
+          {
+            "dimension": "research",
+            "summary": "研究聚焦低维表示学习与计算生物学，利用可视化/嵌入帮助探索复杂基因组、图像、文本和单细胞数据。",
+            "url": "https://kobaklab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "methods",
+            "summary": "方法包括自监督与对比学习、流形学习、邻域嵌入、单细胞RNA-seq归一化/聚类/可视化，以及多模态细胞数据嵌入。",
+            "url": "https://kobaklab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "outputs",
+            "summary": "研究页列出Kobak & Berens 2019、Böhm等2023、Damrich等2023/2024及González-Márquez等2024代表工作。",
+            "url": "https://kobaklab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pi-joana-pereira-597b972c",
+      "changeId": "pi-joana-pereira-597b972c-research-profile-20261123",
+      "date": "2026-11-23",
+      "reason": "依据VIB.AI官方目录及该PI独立实验室的team/research/publications页面，补充真实任职、研究问题、方法、代表成果与资源；原稳定ID不变。当前机会未核实，仍保持unknown。",
+      "set": {
+        "name": "Joana Pereira",
+        "role": "VIB Group Leader；Assistant Professor, KU Leuven (as of February 2025)",
+        "roleStatus": "current",
+        "roleVerifiedAt": "2026-11-23",
+        "profileVerifiedAt": "2026-11-23",
+        "verifiedAt": "2026-11-23",
+        "evidenceLevel": "research_profile",
+        "tier": "D",
+        "candidateStatus": "long_term",
+        "question": "如何结合蛋白质序列、结构、功能与进化关系，绘制尚未充分注释的蛋白质空间，并识别潜在新蛋白家族、功能和生物系统？",
+        "directions": [
+          "计算生物学",
+          "AI for Biology",
+          "蛋白质与结构生物学",
+          "进化与生态"
+        ],
+        "facets": {
+          "domains": [
+            "计算生物学",
+            "AI for Biology",
+            "蛋白质与结构生物学",
+            "进化与生态"
+          ],
+          "methods": [
+            "结构生物信息学",
+            "图算法",
+            "网络分析",
+            "深度学习",
+            "蛋白质进化分析"
+          ],
+          "diseases": [],
+          "modalities": [
+            "蛋白质序列",
+            "蛋白质结构",
+            "功能注释",
+            "基因组上下文"
+          ],
+          "researchScales": [
+            "蛋白质",
+            "分子",
+            "进化尺度"
+          ],
+          "studyDesigns": [
+            "计算方法开发",
+            "比较进化分析",
+            "大规模数据库分析"
+          ]
+        },
+        "roleNote": "官方团队页确认Joana Pereira为VIB Group Leader及KU Leuven Assistant Professor（页面注明自2025年2月起）；此前Basel与Max Planck经历作为履历历史，不作为当前主聘。",
+        "affiliations": [
+          {
+            "institution": "KU Leuven",
+            "institutionKey": "KU Leuven",
+            "country": "比利时",
+            "city": "Leuven",
+            "status": "current",
+            "role": "Assistant Professor (as of February 2025)",
+            "url": "https://pereiralab.sites.vib.be/en/team"
+          }
+        ],
+        "city": "Leuven",
+        "profileScope": "直接读取个人/研究组官方team与research页面；仅整理页面明确列出的身份、研究问题和技术路线，不把目录成员身份扩大为独立PI资格。",
+        "evidenceScope": "2026-11-23直接读取VIB.AI官方目录及该实验室team/research页面；并按条目读取其成果或工具页面。已整理研究问题、方法、部分代表成果与资源；未逐篇阅读全文，也未核实当前博士后、访问博士或联合培养名额，因此保留research_profile与D级待评估。",
+        "fieldBasis": "六轴标签仅依据该实验室本人的研究页面与成果页面；不从VIB.AI中心标签或相邻团队推断未出现的疾病、模态或AIVC方向。",
+        "bridge": "宏基因组序列处理与机器学习可迁移到微生物蛋白序列/功能空间研究；需补足蛋白质结构生物学、蛋白语言模型、图算法和进化分析。现实起步项目：从公开宏基因组组装中提取未充分注释蛋白，结合序列嵌入、结构预测和蛋白网络建立候选功能优先级。"
+      },
+      "upsert": {
+        "sources": [
+          {
+            "url": "https://vib.ai/en/vibai-labs",
+            "label": "VIB.AI官方实验室目录",
+            "claim": "直接读取VIB.AI官方目录，核对其列出的实验室名称及通往各自独立实验室主页的链接；目录中已关闭的招聘公告不作为当前岗位结论。",
+            "kind": "directory",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://pereiralab.sites.vib.be/en/team",
+            "label": "Joana Pereira — official team page",
+            "claim": "团队页确认VIB Group Leader与KU Leuven Assistant Professor身份，并描述其计算结构生物学和蛋白质进化背景。",
+            "kind": "research_profile",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://pereiralab.sites.vib.be/en/research",
+            "label": "Pereira Lab — research programme",
+            "claim": "研究页明确以机器学习、网络分析和结构生物信息学绘制蛋白质序列/结构/功能空间，并通过Protein Universe Atlas与GCsnap支持大规模蛋白质分析。",
+            "kind": "research_evidence",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          }
+        ],
+        "assessmentEvidence": [
+          {
+            "dimension": "research",
+            "summary": "研究目标是扩大蛋白质序列、结构和功能空间图谱，识别未知蛋白家族、功能及可能影响人类健康或生物技术的生物系统。",
+            "url": "https://pereiralab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "methods",
+            "summary": "方法包括结构生物信息学、机器学习、复杂网络分析和蛋白质进化关系分析。",
+            "url": "https://pereiralab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "outputs",
+            "summary": "官方研究页列出Protein Universe Atlas，并链接Durairaj等Nature 2023成果；同时列出GCsnap工具。",
+            "url": "https://pereiralab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "resources",
+            "summary": "Protein Universe Atlas与GCsnap均由实验室研究页直接链接；前者用于蛋白质空间图谱，后者用于比较保守基因组上下文。",
+            "url": "https://pereiralab.sites.vib.be/en/research",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pi-wouter-saelens-51be9120",
+      "changeId": "pi-wouter-saelens-51be9120-research-profile-20261123",
+      "date": "2026-11-23",
+      "reason": "依据VIB.AI官方目录及该PI独立实验室的team/research/publications页面，补充真实任职、研究问题、方法、代表成果与资源；原稳定ID不变。当前机会未核实，仍保持unknown。",
+      "set": {
+        "name": "Wouter Saelens",
+        "role": "VIB Group Leader (since April 2026)；Professor, Ghent University (January 2026–present)",
+        "roleStatus": "current",
+        "roleVerifiedAt": "2026-11-23",
+        "profileVerifiedAt": "2026-11-23",
+        "verifiedAt": "2026-11-23",
+        "evidenceLevel": "research_profile",
+        "tier": "D",
+        "candidateStatus": "long_term",
+        "question": "如何利用多重扰动组学和概率/因果模型，识别基因扰动如何改变免疫细胞状态，并解释巨噬细胞、炎症和肿瘤中的细胞异质性？",
+        "directions": [
+          "计算生物学",
+          "AI for Biology",
+          "免疫与代谢"
+        ],
+        "facets": {
+          "domains": [
+            "计算生物学",
+            "AI for Biology",
+            "免疫与代谢"
+          ],
+          "methods": [
+            "概率AI模型",
+            "因果学习",
+            "扰动组学推断",
+            "深度学习",
+            "摊销推断",
+            "单细胞数据分析"
+          ],
+          "diseases": [
+            "炎症性疾病",
+            "肿瘤"
+          ],
+          "modalities": [
+            "多重扰动组学",
+            "单细胞组学",
+            "染色质可及性",
+            "基因表达"
+          ],
+          "researchScales": [
+            "基因",
+            "细胞",
+            "组织",
+            "免疫系统"
+          ],
+          "studyDesigns": [
+            "扰动实验",
+            "因果建模",
+            "计算模型验证",
+            "方法开发"
+          ]
+        },
+        "roleNote": "官方team页确认Wouter Saelens于2026年4月成为VIB Group Leader，并自2026年1月起任Ghent University Professor；Guilliams Lab与EPFL为历史postdoc经历，不作为当前主聘。",
+        "affiliations": [
+          {
+            "institution": "Ghent University",
+            "institutionKey": "Ghent University",
+            "country": "比利时",
+            "city": "Ghent",
+            "status": "current",
+            "role": "Professor (January 2026–present)",
+            "url": "https://wsaelenslab.sites.vib.be/en/team"
+          },
+          {
+            "institution": "VIB.AI · Center for AI & Computational Biology",
+            "institutionKey": "VIB.AI",
+            "country": "比利时",
+            "city": "Ghent",
+            "status": "current",
+            "role": "VIB Group Leader (since April 2026)",
+            "url": "https://wsaelenslab.sites.vib.be/en/team"
+          }
+        ],
+        "city": "Ghent",
+        "profileScope": "直接读取个人/研究组官方team与research页面；仅整理页面明确列出的身份、研究问题和技术路线，不把目录成员身份扩大为独立PI资格。",
+        "evidenceScope": "2026-11-23直接读取VIB.AI官方目录及该实验室team/research页面；并按条目读取其成果或工具页面。已整理研究问题、方法、部分代表成果与资源；未逐篇阅读全文，也未核实当前博士后、访问博士或联合培养名额，因此保留research_profile与D级待评估。",
+        "fieldBasis": "六轴标签仅依据该实验室本人的研究页面与成果页面；不从VIB.AI中心标签或相邻团队推断未出现的疾病、模态或AIVC方向。",
+        "bridge": "多组学与机器学习可衔接因果扰动组学和免疫细胞状态建模；需补足概率建模、因果推断、扰动设计、单细胞免疫学和实验验证。现实起步项目：复现公开scTF-seq数据中的转录因子剂量—细胞状态异质性分析，再比较概率模型与常规差异分析。微生物组到免疫组学的连接需有具体数据支持，不能直接推断肠脑轴。"
+      },
+      "upsert": {
+        "sources": [
+          {
+            "url": "https://vib.ai/en/vibai-labs",
+            "label": "VIB.AI官方实验室目录",
+            "claim": "直接读取VIB.AI官方目录，核对其列出的实验室名称及通往各自独立实验室主页的链接；目录中已关闭的招聘公告不作为当前岗位结论。",
+            "kind": "directory",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://wsaelenslab.sites.vib.be/en/team",
+            "label": "Wouter Saelens — official team page",
+            "claim": "团队页确认VIB Group Leader（2026年4月起）与Ghent University Professor（2026年1月至今），并区分此前postdoc经历。",
+            "kind": "research_profile",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://wsaelenslab.sites.vib.be/en",
+            "label": "Wouter Saelens Lab — research programme",
+            "claim": "主页明确研究因果系统免疫学、基因到细胞状态链接、多重扰动组学、概率AI模型、巨噬细胞、免疫稳态、炎症和肿瘤。",
+            "kind": "research_evidence",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI · Center for AI & Computational Biology"
+          },
+          {
+            "url": "https://wsaelenslab.sites.vib.be/en/publications",
+            "label": "Wouter Saelens Lab — selected publications",
+            "claim": "成果页列出Nature Genetics 2025 scTF-seq及Nature Communications 2025 ChromatinHD等成果，分别涉及转录因子剂量/细胞重编程异质性和单细胞染色质—基因表达建模。",
+            "kind": "publication",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "比利时",
+            "institution": "VIB.AI / Ghent University"
+          }
+        ],
+        "assessmentEvidence": [
+          {
+            "dimension": "research",
+            "summary": "研究以概率AI与因果系统免疫学连接基因和细胞状态，重点关注免疫细胞稳态、炎症、肿瘤和巨噬细胞。",
+            "url": "https://wsaelenslab.sites.vib.be/en",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "methods",
+            "summary": "主页明确使用因果学习、多重扰动组学、深度概率模型和摊销推断，并强调模型在实验室中验证。",
+            "url": "https://wsaelenslab.sites.vib.be/en",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "outputs",
+            "summary": "官方成果页列出Nature Genetics 2025 scTF-seq研究，分析转录因子剂量对细胞重编程异质性的影响；另列Nature Communications 2025 ChromatinHD。",
+            "url": "https://wsaelenslab.sites.vib.be/en/publications",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "resources",
+            "summary": "实验室成果页提供代码、数据和工具链接，强调开放共享与可复现研究。",
+            "url": "https://wsaelenslab.sites.vib.be/en/publications",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          },
+          {
+            "dimension": "collaboration",
+            "summary": "主页明确与Center for Inflammation Research协作，并使用VIB Data Core、Single-cell Core和Spatial Catalyst等平台；这是合作/平台使用，不等于共同主聘。",
+            "url": "https://wsaelenslab.sites.vib.be/en",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方研究/成果页面正文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bethge",
+      "changeId": "bethge-2026-neuroai-outputs-and-recruitment-20261123",
+      "date": "2026-11-23",
+      "reason": "直接读取Bethge Lab 2026 publications与Join & contact页面：补充两篇2026成果，核实当前明确博士后招聘及研究访问规则；不将实验室所有岗位都描述为神经科学岗位。",
+      "set": {
+        "role": "Principal Investigator, Bethge Lab, University of Tübingen",
+        "roleStatus": "current",
+        "roleVerifiedAt": "2026-11-23",
+        "profileVerifiedAt": "2026-11-23",
+        "verifiedAt": "2026-11-23",
+        "question": "如何构建可泛化、可解释的AI模型来理解人类视觉/脑表征，并以跨脑区关系和真实行为数据检验模型是否真正捕捉生物计算规律？",
+        "strength": "2026年成果新增跨脑区脑模型对齐评估（ICLR 2026）与自回归视觉注意轨迹建模（DeepGaze3.5-VL）；实验室Join页面当前明确招聘博士后，其中包括neuroscience foundation models方向。",
+        "bridge": "脑影像与脑网络分析可切入公开BOLD Moments视频fMRI数据的跨脑区对齐模式复现：比较常规表征相似性指标与二阶跨区域alignment patterns，并检验跨被试稳定性。进一步可复现DeepGaze scanpath预测，将脑表征与行为序列建模联系起来。技能缺口包括视觉表征学习、跨脑区模型评估、规范化模型边界和大规模训练工程。",
+        "risk": "Join页面为实验室整体招聘，列出的多个方向包括持续学习、agent evaluation、RL和neuroscience foundation models；不能推断所有博士后岗位都属于脑科学。两篇2026成果中，Only Brains Align with Brains列为ICLR 2026论文，DeepGaze3.5-VL为arXiv预印本。",
+        "roleNote": "Bethge Lab官方Join页面列明Matthias Bethge为Principal Investigator，机构为University of Tübingen。",
+        "evidenceScope": "2026-11-23直接读取Bethge Lab publications与Join & contact页面，并读取两篇arXiv论文记录；核验所列作者、题目、摘要、ICLR 2026会议引用及当前招聘/访问规则。未将实验室整体招聘泛化为神经科学专岗。"
+      },
+      "upsert": {
+        "sources": [
+          {
+            "url": "https://bethgelab.org/join/",
+            "label": "Bethge Lab — current recruitment and visit rules",
+            "claim": "官方Join页面当前明确招聘博士后，方向包括neuroscience foundation models等；当前PhD学生可申请research visit，博士招生主要通过IMPRS-IS/ELLIS。",
+            "kind": "official",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "德国",
+            "institution": "University of Tübingen · Bethge Lab"
+          },
+          {
+            "url": "https://bethgelab.org/publications/",
+            "label": "Bethge Lab — 2026 publications",
+            "claim": "直接读取实验室成果目录，核验2026年列出的脑模型对齐与视觉注意轨迹建模成果。",
+            "kind": "official",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "德国",
+            "institution": "University of Tübingen · Bethge Lab"
+          },
+          {
+            "url": "https://arxiv.org/abs/2604.21780",
+            "label": "Only Brains Align with Brains — arXiv/ICLR 2026",
+            "claim": "arXiv记录显示2026-04-23提交、作者包括Matthias Bethge，论文列出ICLR 2026引用；研究使用视频fMRI数据提出跨脑区alignment patterns以检验模型—脑对齐。",
+            "kind": "research_output",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "德国",
+            "institution": "University of Tübingen · Bethge Lab"
+          },
+          {
+            "url": "https://arxiv.org/abs/2607.02083",
+            "label": "DeepGaze3.5-VL — arXiv 2026",
+            "claim": "arXiv记录显示2026-07-02提交、作者包括Matthias Bethge；以自回归序列建模预测视觉scanpaths并报告MIT1003基准结果。",
+            "kind": "research_output",
+            "verifiedAt": "2026-11-23",
+            "access": "已直接读取官方网页正文（web open）；未进行原始HTTP抓取或正文hash计算。",
+            "readMethod": "web_open",
+            "country": "德国",
+            "institution": "University of Tübingen · Bethge Lab"
+          }
+        ],
+        "papers": [
+          {
+            "title": "Only Brains Align with Brains: Cross-Region Alignment Patterns Expose Limits of Normative Models",
+            "venue": "ICLR 2026",
+            "year": 2026,
+            "url": "https://arxiv.org/abs/2604.21780",
+            "why": "利用视频fMRI数据提出跨脑区alignment patterns，指出仅比较单一区域表征相似性可能缺乏区分力，并提出更严格的二阶结构一致性检验。",
+            "kind": "会议论文（arXiv记录）",
+            "review": "arXiv记录列明ICLR 2026引用；未在本次维护中独立复核会议论文集全文。",
+            "verifiedAt": "2026-11-23"
+          },
+          {
+            "title": "DeepGaze3.5-VL: Modeling Scanpaths via Autoregressive Token Prediction",
+            "venue": "arXiv",
+            "year": 2026,
+            "url": "https://arxiv.org/abs/2607.02083",
+            "why": "将视觉注视坐标离散为序列token，使用预训练视觉语言模型进行scanpath预测，并探索受控行为干预模拟。",
+            "kind": "预印本",
+            "review": "arXiv预印本记录；非已确认同行评议论文。",
+            "verifiedAt": "2026-11-23"
+          }
+        ],
+        "assessmentEvidence": [
+          {
+            "dimension": "methods",
+            "summary": "Only Brains Align with Brains使用视频fMRI和跨脑区alignment patterns，检验视觉模型能否复现脑区间关系结构，而不只拟合单脑区响应。",
+            "url": "https://arxiv.org/abs/2604.21780",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取arXiv摘要与会议引用"
+          },
+          {
+            "dimension": "outputs",
+            "summary": "2026年ICLR论文提出alignment pattern analysis，显示常规brain-alignment benchmark可能无法区分模型，跨脑区关系模式提供更严格检验。",
+            "url": "https://arxiv.org/abs/2604.21780",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取arXiv摘要与会议引用"
+          },
+          {
+            "dimension": "outputs",
+            "summary": "DeepGaze3.5-VL将scanpath预测建模为自回归离散序列任务，报告MIT1003上2.18 bits information gain，并展示对注视时长的in-silico干预。",
+            "url": "https://arxiv.org/abs/2607.02083",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取arXiv摘要；该条仍为预印本"
+          },
+          {
+            "dimension": "training",
+            "summary": "官方Join页面说明博士招生主要经IMPRS-IS/ELLIS，当前PhD学生可申请research visit；这不等于已确认正式联合学位或双导师名额。",
+            "url": "https://bethgelab.org/join/",
+            "verifiedAt": "2026-11-23",
+            "basis": "直接读取官方Join & contact页面"
           }
         ]
       }
