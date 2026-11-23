@@ -1,5 +1,5 @@
 /* Original editorial palette: warm paper, graphite, burgundy and restrained gold. */
-.journal-home{--bg:#fcfbf8;--ink:#27313a;--accent:#8b2c40;--line:#dedbd3;--muted:#62686b;--paper:#f3efe6;--gold:#c2a15a;background:var(--bg)}
+.journal-home{--bg:#f8f7f3;--ink:#26342e;--accent:#426957;--line:#e1e5de;--muted:#65736b;--paper:#edf0e9;--gold:#b0bea9;background:var(--bg)}
 .journal-home .masthead{position:relative;border:0;border-top:4px solid var(--gold)}
 .journal-home .masthead::before{content:"";position:absolute;inset:auto 0 0;height:51px;background:var(--paper);border-block:1px solid #e3dccd}
 .journal-home .header-row{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:0;min-height:0}
@@ -158,3 +158,20 @@
  .journal-home .method{background:#fff;color:#111}
  .journal-home .method-grid p,.journal-home .method-note{color:#555}
 }
+
+/* Consistent magazine-like layout without strong burgundy / gold bands. */
+.journal-home{background:#f8f7f3}
+.journal-home .masthead{border-top:0;background:#fffefa}
+.journal-home .masthead::before{background:#edf0e9;border-block:1px solid #e1e5de}
+.journal-home .brand-period{color:#789784}
+.journal-home .brand small{color:#65736b}
+.journal-home nav a{color:#26342e}
+.journal-home nav a:hover,.journal-home nav a:focus-visible{background:#e4eae2;color:#426957;border-bottom-color:#426957}
+.journal-home .journal-issuebar,.journal-home .editorial-section{border-color:#e1e5de}
+.journal-home .section-top>div{border-left:2px solid #b0bea9}
+.journal-home .section-top .eyebrow,.journal-home .research-kicker{color:#426957}
+.journal-home .lead-story{background:#edf0e9;border-top:2px solid #b0bea9;padding:23px 25px}
+.journal-home .lead-story h3,.journal-home .photo-story h3,.journal-home .editorial-side h3{font-family:"Songti SC",Georgia,serif;font-weight:500;letter-spacing:-.015em}
+.journal-home .content-stats strong,.journal-home .journal-report{color:#426957}
+.journal-news{border-top:1px solid #e1e5de}
+@media(max-width:760px){.journal-home .lead-story{padding:21px}}
