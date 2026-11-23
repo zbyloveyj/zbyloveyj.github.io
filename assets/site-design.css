@@ -97,6 +97,14 @@ html[data-lang=zh] .en-only,html[data-lang=en] .zh-only{display:none!important}
 .method-panel dd{font-size:13px;line-height:1.8;margin:0}
 .method-source{font-size:11px;color:var(--accent);display:flex;justify-content:space-between;align-items:center;gap:10px}
 .method-source:hover{text-decoration:underline;text-underline-offset:3px}
+.home-search{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 0 24px}
+.home-search label{font-size:13px;color:var(--muted);line-height:1.65;flex-shrink:0}
+.home-search-controls{display:flex;gap:8px;width:min(100%,540px);min-width:0}
+.home-search input{min-width:0;flex:1;padding:9px 13px;border:1px solid var(--line);border-radius:0;background:var(--surface);color:var(--ink);font-size:14px}
+.home-search input::placeholder{color:var(--muted);opacity:1}
+.home-search button{flex-shrink:0;border:1px solid var(--accent);border-radius:0;background:var(--accent);color:var(--paper);padding:8px 21px;font-size:13px}
+.home-search button:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.home-search button:focus-visible,.home-search input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .home-guide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;padding:23px 0 25px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .home-guide article{min-width:0}.home-guide article+article{border-left:1px solid var(--line);padding-left:28px}
 .home-guide h2{font-size:19px;margin-bottom:8px}.home-guide p{font-size:13px;color:var(--muted);margin-bottom:10px}
@@ -307,6 +315,9 @@ html[data-lang=en] .profile-roman{font:19px var(--sans)}
 html[data-lang=en] .profile-intro h2{font-size:17px}
 html[data-lang=en] .method-panel{min-height:231px}
 @media(max-width:1100px){
+  body.nav-open{overflow:hidden}
+  .nav-actions .menu-toggle,.nav-actions .theme-switch,.nav-directory{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:40px}
+
   :root{--header-height:65px}
   .nav-shell{min-height:62px;gap:18px}.main-nav{display:none}.nav-actions{margin-left:auto}
   .nav-actions .menu-toggle{display:block}
@@ -338,6 +349,11 @@ html[data-lang=en] .method-panel{min-height:231px}
   .site-footer-links{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:700px){
+  .home-search{display:block;padding:0 0 18px}
+  .home-search label{display:block;margin-bottom:9px}
+  .home-search-controls{width:100%}
+  .home-search input{font-size:16px}
+
   :root{--header-height:63px}
   .container{width:calc(100% - 32px)}
   .nav-shell{min-height:60px;gap:10px}.brand{gap:9px}.brand-mark{width:31px;height:31px;line-height:29px;font-size:16px}
@@ -398,6 +414,8 @@ html[data-lang=en] .method-panel{min-height:231px}
   html[data-lang=en] .method-panel{min-height:231px}
 }
 @media(max-width:380px){
+  .nav-actions .menu-toggle,.nav-actions .theme-switch,.nav-directory{min-width:34px;min-height:36px}
+
   .brand-mark{display:none}.method-heading>span{display:none}.method-tabs{gap:17px}
   .profile-roman{font-size:18px}.nav-actions{gap:5px}.nav-directory{padding-inline:0}
   .edition-book{grid-template-columns:85px minmax(0,1fr);gap:17px}.edition-cover{min-height:127px}
