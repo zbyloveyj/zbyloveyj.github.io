@@ -70,6 +70,10 @@ body.inner-page {
   line-height:1.27;
   margin-bottom:21px;
 }
+html[data-lang=en] .inner-page .profile-intro h1 {
+  font:500 clamp(43px,4.2vw,61px)/1.28 var(--display);
+  letter-spacing:-.04em;margin-bottom:21px;
+}
 html[data-lang=zh] .page-home .profile-intro h1 {
   font-family:var(--serif);
   font-size:clamp(43px,3.6vw,53px);
@@ -225,6 +229,11 @@ html[data-lang=zh] .page-home .profile-intro h1 {
 .inner-page :is(.inner-head h2,.directory-section h2,.personal-story-grid h2,.journey-grid h2,.edition-book h3,.case-content h3,.project-copy h3,.pub-title) {
   font-family:var(--serif);font-weight:500;
 }
+.inner-page .case-content > p,.inner-page .project-copy > p,.inner-page .personal-prose {max-width:76ch}
+.inner-page .case-content p,.inner-page .project-copy p {line-height:1.95}
+.inner-page .directory-entry p {max-width:62ch}
+.inner-page .published-figure figcaption {letter-spacing:.01em}
+.inner-page .pub-authors,.inner-page .pub-meta {line-height:1.85}
 .inner-page .figure-zoom:hover {box-shadow:0 5px 25px rgba(42,67,52,.06)}
 .inner-page .footer {
   background-image:
@@ -267,10 +276,12 @@ html[data-lang=zh] .page-home .profile-intro h1 {
 .page-academy .site-footer {background-image:linear-gradient(115deg,rgba(210,220,206,.34),rgba(244,239,228,.22))}
 .page-academy .site-context {font-family:var(--sans)}
 /* Editorial journalism and research reading share the same typography. */
-.journal-home,
-body:has(>.site-context) {
+.journal-home {
+  --sans:"DM Sans","PingFang SC","Microsoft YaHei",sans-serif;
+  --serif:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
   --display:"Newsreader","Noto Serif SC","Songti SC",Georgia,serif;
 }
+body:has(>.site-context) {--display:"Newsreader","Noto Serif SC","Songti SC",Georgia,serif;}
 .journal-home .wordmark {font-family:var(--serif);font-weight:500;letter-spacing:.045em}
 .journal-home .masthead {
   background-image:linear-gradient(110deg,rgba(248,246,239,.75),rgba(237,244,235,.42));
