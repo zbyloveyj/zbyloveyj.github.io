@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "edition": "editorial-2026-11-23-01",
+  "edition": "editorial-2026-11-23-02",
   "verifiedAt": "2026-11-23",
   "purpose": "针对高影响事实变化的可审计编辑叠加层。基础目录与分片保留原稳定ID和不可变版本；本文件只按ID修正状态或补充经过实际阅读的来源/成果。网页HTTP状态或hash变化不会自动产生本层记录。2026-11-23新增VIB.AI五组研究资料及Bethge Lab科研成果/招聘复核。",
   "updates": [
@@ -1083,6 +1083,87 @@
             "basis": "直接读取官方Join & contact页面"
           }
         ]
+      }
+    },
+    {
+      "id": "bethge",
+      "changeId": "bethge-current-opportunity-and-neuroimaging-facets-20261123",
+      "date": "2026-11-23",
+      "reason": "复核Join & contact页面后，补齐原覆盖层遗漏的opportunity字段；同时把2026年跨脑区fMRI成果反映到六轴标签。官网明确招聘博士后，但岗位方向为实验室整体多方向，neuroscience foundation models只是其中之一。",
+      "set": {
+        "opportunity": {
+          "status": "recruiting",
+          "summary": "Bethge Lab官方Join & contact页面当前明确写明正在招聘博士后，方向包括recursive self-improvement、long-horizon post-training/RL environments、data-centric ML、agent evaluation、continual learning及foundation models for neuroscience。官网未给出岗位数量或固定截止日期，申请通过官方表单提交并按月审核；这是实验室整体招聘，不代表每个方向均有独立名额。",
+          "url": "https://bethgelab.org/join/",
+          "deadline": null,
+          "verifiedAt": "2026-11-23",
+          "visit": "官网说明当前PhD学生可申请research visit；博士招生主要通过IMPRS-IS/ELLIS项目。该说明不等于正式联合学位、双导师名额或已获接收；页面另说明目前不提供海外学生internship。"
+        },
+        "directions": [
+          "人工智能与生物医学",
+          "计算神经科学",
+          "神经影像"
+        ],
+        "facets": {
+          "domains": [
+            "人工智能与生物医学",
+            "计算神经科学",
+            "神经影像"
+          ],
+          "methods": [
+            "深度学习",
+            "持续学习",
+            "域泛化",
+            "跨脑区表征对齐",
+            "自回归序列建模",
+            "视觉注意轨迹预测",
+            "模型评估"
+          ],
+          "diseases": [],
+          "modalities": [
+            "神经数据",
+            "fMRI",
+            "眼动/注视轨迹"
+          ],
+          "researchScales": [
+            "脑区",
+            "全脑",
+            "行为",
+            "计算模型"
+          ],
+          "studyDesigns": [
+            "模型评估",
+            "方法开发",
+            "跨数据集基准评估",
+            "行为预测"
+          ]
+        },
+        "fit": "神经影像/脑网络分析与机器学习在跨脑区模型—脑对齐、视觉注意与行为序列建模上有明确方法交集；但当前招聘覆盖多个AI方向，不能据此推断某一神经科学岗位有单独名额。",
+        "gaps": [
+          "PyTorch/JAX工程",
+          "视觉与语言基础模型",
+          "fMRI表征对齐与跨被试评估",
+          "持续学习和长时程模型评价",
+          "系统性消融和可复现实验"
+        ],
+        "platforms": [
+          "BOLD Moments视频fMRI数据集（论文使用）",
+          "MIT1003眼动基准（论文使用）",
+          "开放论文、代码、benchmark与数据（实验室Join页说明）"
+        ],
+        "verifiedAt": "2026-11-23",
+        "profileVerifiedAt": "2026-11-23"
+      }
+    },
+    {
+      "id": "pi-pedro-goncalves-d72b204b",
+      "changeId": "pedro-goncalves-name-diacritic-correction-20261123",
+      "date": "2026-11-23",
+      "reason": "根据VIB/KU Leuven官方team页面保留姓名原文中的变音符号；不改变稳定ID、任职或研究内容。",
+      "set": {
+        "name": "Pedro Gonçalves",
+        "verifiedAt": "2026-11-23",
+        "roleVerifiedAt": "2026-11-23"
       }
     }
   ]
