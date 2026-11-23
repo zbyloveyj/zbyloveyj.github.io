@@ -1,17 +1,17 @@
 /* Shared academy desk: course catalogue, records and tools have distinct homes. */
 :root {
-  --bg: #fff;
-  --paper: #fff;
-  --white: #fff;
-  --ink: #282c2f;
-  --muted: #5f676b;
-  --green: #872d3d;
-  --accent: #872d3d;
-  --blue: #872d3d;
-  --navy: #282c2f;
-  --teal: #872d3d;
-  --light: #f5f4ef;
-  --line: #e0e3e3;
+  --bg: #f8f7f3;
+  --paper: #f8f7f3;
+  --white: #fffefa;
+  --ink: #26342e;
+  --muted: #65736b;
+  --green: #426957;
+  --accent: #426957;
+  --blue: #426957;
+  --navy: #26342e;
+  --teal: #426957;
+  --light: #edf0e9;
+  --line: #e1e5de;
   --shadow: none;
 }
 body { background: var(--paper); font-family: Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -59,7 +59,7 @@ a, button, input, select, textarea { overflow-wrap: anywhere; }
 .filters { padding-block: 15px; border-bottom: 1px solid var(--line); }
 .filters button, .filters input, .button, button { border-radius: 2px !important; }
 .primary { background: var(--accent); border-color: var(--accent); color: var(--white); }
-.primary:hover { background: #6d2230; border-color: #6d2230; color: var(--white); }
+.primary:hover { background: #345443; border-color: #345443; color: var(--white); }
 button:hover, .button:not(.primary):hover { background: var(--light); border-color: var(--accent); }
 .tool-group { margin-top: 30px; padding-top: 25px; border-top: 1px solid var(--line); }
 .tool-group .section-head { align-items: baseline; }
@@ -119,4 +119,44 @@ button:hover, .button:not(.primary):hover { background: var(--light); border-col
 @media print {
   .desk-directory, .record-sources { display: none; }
   .desk-today .generalist-launch, .help-section, .resource-card { background: white; border-color: #ccc; }
+}
+
+/* Quiet editorial academy: gentle hierarchy and natural whitespace. */
+body{background:#f8f7f3;color:#26342e;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.9}
+.masthead{background:#fffefa;border-bottom:1px solid #e1e5de}
+.masthead .bar{padding-block:19px}
+.wrap{max-width:1136px}
+.desk-intro{padding:57px 0 46px;gap:64px}
+.desk-intro h1,.library-top h1,.tools-page>h1{font:500 clamp(32px,3vw,43px)/1.45 "Iowan Old Style","Palatino Linotype","Songti SC",Georgia,serif;letter-spacing:-.025em;color:#26342e}
+.desk-intro .lead{font-size:15px;line-height:2.05}
+.desk-intro aside{border-left:1px solid #e1e5de}
+.desk-intro aside strong{font-weight:500;color:#426957}
+.desk-today{gap:50px;padding-bottom:42px}
+.desk-continue{padding:33px 0}
+.desk-continue h2,.generalist-launch h2{font:500 27px/1.45 "Songti SC",Georgia,serif}
+.desk-today .generalist-launch{padding:26px 30px;background:#edf0e9;border:1px solid #e1e5de;border-radius:3px!important}
+.desk-paths{gap:48px}
+.desk-paths>a,.desk-tools a{border-top:1px solid #e1e5de}
+.desk-paths h3,.desk-tools strong,.project-card h3,.section-head h2{font-family:"Songti SC",Georgia,serif;font-weight:500;letter-spacing:-.015em}
+.desk-paths h3{font-size:24px}
+.project-card{padding:29px 0!important}
+.grid{gap:27px 49px}
+.project-card p,.desk-tools span,.desk-paths p{line-height:2}
+.section{margin-block:42px}
+.filters{padding-block:20px}
+.filters button{background:transparent;border:1px solid #e1e5de;color:#426957}
+.filters button.active,.filters button[aria-pressed=true]{background:#edf0e9;border-color:#426957;color:#426957}
+.primary{background:#426957!important;border-color:#426957!important;color:#fffefa!important}
+.primary:hover{background:#345443!important;border-color:#345443!important}
+.resource-card{background:#fffefa;border-radius:3px}
+.notice{background:#edf0e9}
+.site-footer{padding-top:28px;background:#edf0e9;border-top:1px solid #e1e5de}
+@media(max-width:760px){
+ .desk-intro{padding:36px 0 29px;gap:24px}
+ .desk-intro h1,.library-top h1,.tools-page>h1{font-size:32px}
+ .desk-today{gap:24px}
+ .desk-today .generalist-launch{padding:22px}
+ .desk-paths{gap:17px}
+ .grid{gap:15px 25px}
+ .section{margin-block:30px}
 }
