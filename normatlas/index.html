@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NORMATLAS · 个体菌群网络</title>
+<style>
+:root{font-family:Inter,"Microsoft YaHei",sans-serif;color:#173e38;background:#f5f5ed}*{box-sizing:border-box}body{max-width:960px;margin:auto;padding:26px 5vw 64px}header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #b3c4b1;padding-bottom:16px}header b{letter-spacing:.13em}header a,a{color:#22644c}h1{font-family:Georgia,"Songti SC",serif;font-weight:500;font-size:clamp(32px,6vw,58px);line-height:1.18;margin:42px 0 12px}h2{font-size:22px;margin:0 0 12px}p,li{line-height:1.8}section{margin:32px 0}article{border:1px solid #c1cbbb;border-radius:10px;background:#fff;padding:clamp(16px,3vw,32px)}button,.download{background:#184b3c;color:white;padding:10px 16px;border:0;border-radius:5px;font:inherit;cursor:pointer;text-decoration:none}button:disabled{opacity:.55;cursor:wait}.alt{background:#e8eee5;color:#214c3a}label{display:block;margin:16px 0}input{max-width:100%}.actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}small,#status{color:#456458}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{text-align:left;padding:9px 6px;border-bottom:1px solid #dce3d6}th{font-weight:600}.scroll{overflow:auto}footer{border-top:1px solid #b3c4b1;padding-top:16px}@media(max-width:600px){body{padding:16px}th,td{font-size:14px}header{flex-wrap:wrap;gap:8px}}
+</style>
+<header><b>NORMATLAS</b><a href="#evidence">查看验证结果</a></header>
+<main><h1>个体肠道菌群网络</h1>
+<p>用一份物种丰度谱和独立参考样本，计算每对菌在这份样本中的共同检出与正丰度关系贡献。丰度文件在当前浏览器内计算。</p>
+<article><h2>计算个人网络</h2><p>示例使用 240 份计算机生成的参考丰度谱和 3 份合成待测谱。分析自己的数据时，请在下方选择独立的参考表和待测表。两表只在当前浏览器内读取。</p>
+<div class="actions"><button id="demo">运行合成示例</button><a href="example.csv" download>下载示例待测表</a> <a href="reference.csv" download>下载合成参考表</a></div>
+<label for="ref">参考 CSV，首列为样本编号。之后依次放两个分母菌、一个背景菌及目标菌（最多 200 种）。建议使用研究设计中独立确定的面板和参考供体。</label><input id="ref" type="file" accept=".csv,text/csv"><label for="input">上传 CSV，首列为样本编号，其余列与自己的参考表对应。零表示已测但未检出。</label>
+<div class="actions"><input type="file" id="input" accept=".csv,text/csv"><button id="run" class="alt">计算文件</button></div>
+<p id="status" role="status" aria-live="polite"></p><div id="results" class="scroll"></div><a id="download" class="download" download="NORMATLAS_edges.csv" hidden>下载完整边表</a>
+</article>
+<section><h2>读懂一条边</h2><p>边权是观察值在参考联合分布下与条件独立分布下的对数似然比，单位为 nat。正值表示两端同时出现的这组取值更符合参考关联模型，负值表示独立模型对这组取值的解释更好。零表示参考模型收缩到独立。缺少正丰度观测、分母或足够参考支持时，对应单元格留空。</p>
+<p>正丰度通道根据参考证据决定两个背景层共享多少关联信息。一次采样能给出相对于参考的个人关系贡献，确定直接相互作用或因果方向仍需其他研究设计。此网页输出研究用边权，临床阈值与疾病诊断均超出该输出的验证范围。</p></section>
+<section id="evidence"><h2>独立模拟与真实队列表现</h2>
+<p>在 32 个新模拟人群中比较本人可见边的真值排序相关和带符号边权的平均绝对误差。每个人群有 48 名待测者，参考人数为 150、350、650 或 1,050。四种经典方法使用同一背景信息并在单独的模拟人群学习读出。</p>
+<div class="scroll"><table><thead><tr><th>方法</th><th>本人边排序相关 ↑</th><th>边权 MAE ↓</th></tr></thead><tbody>
+<tr><td>NORMATLAS · 跨背景部分共享</td><td>0.7821</td><td>0.00672</td></tr><tr><td>原 v2 · 各背景分别估计</td><td>0.7790</td><td>0.00719</td></tr><tr><td>SWEET</td><td>0.7053</td><td>0.01352</td></tr><tr><td>BONOBO</td><td>0.6068</td><td>0.01369</td></tr><tr><td>LIONESS</td><td>0.5954</td><td>0.01351</td></tr><tr><td>SSN</td><td>0.5954</td><td>0.01351</td></tr></tbody></table></div>
+<p>把相同的候选边筛选结果交给经典方法，四种方法的排序都约为 0.7825，边权 MAE 为 0.01116–0.01155。相对于原 v2，该改动降低了边权误差，排序差值的区间跨过零。</p>
+<p>以实测粪便脱氧胆酸／胆酸的对数强度比为终点，IBDMDB 的 106 位供体中，丰度对照与加入网络后的预测 MAE 为 1.265 和 1.254。美国 PRISM 训练、荷兰独立样本验证时，这两个数为 1.908 和 2.020（62 人）。当前证据支持模拟边权量值改善，尚未支持该功能终点的跨人群预测增益。</p>
+</section></main><footer><a href="https://www.ibdmdb.org/downloads/html/products_MBX_2017-03-01.html">IBDMDB 实测代谢组</a> · <a href="https://doi.org/10.1038/s41564-018-0306-4">PRISM 与荷兰验证研究</a> · <a href="https://github.com/YDaiLab/MiMeNet/tree/f9064b54d61c40d12207db896bc137341969aef4/data/IBD">配对数据表</a></footer>
+<script src="network.js"></script><script src="fit.js"></script><script src="ui.js"></script></html>
