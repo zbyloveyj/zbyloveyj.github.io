@@ -10,8 +10,10 @@
   --serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong",Georgia,serif;
   --display:"Newsreader","Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
   --clay:#ac816e;
+  --clay-ink:#825c4e;
+  --muted:#5d6c64;
   --sand:#e5d6c4;
-  --fern:#718e76;
+  --fern:#4c7561;
   --paper-glow:#f6f0e7;
   --editorial-shadow:0 18px 42px rgba(40,58,46,.055);
 }
@@ -144,7 +146,7 @@ html[data-lang=zh] .page-home .profile-intro h1 {
 .inner-page .method-tabs button[aria-selected=true] {font-weight:700}
 .inner-page .method-panel h4 {font:500 16px/1.65 var(--serif)}
 .inner-page .method-panel dl>div {border-color:rgba(66,105,87,.14)}
-.inner-page .method-step {font-family:var(--display);font-size:13px;color:var(--clay)}
+.inner-page .method-step {font-family:var(--display);font-size:13px;color:var(--clay-ink)}
 .inner-page .method-source {font-size:11px}
 .inner-page .home-search {
   background:linear-gradient(105deg,rgba(231,236,225,.82),rgba(246,240,230,.45));
@@ -169,7 +171,7 @@ html[data-lang=zh] .page-home .profile-intro h1 {
 .inner-page .section-heading-copy {max-width:730px}
 .inner-page .section-kicker {
   display:block;margin:0 0 10px;
-  color:var(--clay);font:600 10px/1.4 var(--sans);letter-spacing:.17em;
+  color:var(--clay-ink);font:600 10px/1.4 var(--sans);letter-spacing:.17em;
 }
 .inner-page .section-heading h2,
 .inner-page .home-collections h2,
@@ -348,3 +350,7 @@ body:has(>.site-context) {--display:"Newsreader","Noto Serif SC","Songti SC",Geo
   .inner-page .method-decor,.inner-page .home-section::before {display:none!important}
   .inner-page .method-explorer {border:1px solid #ddd;box-shadow:none}
 }
+
+/* Readable muted text and accent labels on both warm-paper and sage surfaces. */
+.journal-home{--muted:#5d6c64}
+:root[data-theme=dark]{--muted:#bac9bb;--fern:#b8cfb9;--clay-ink:#dfb39c;--clay:#c19a86}
