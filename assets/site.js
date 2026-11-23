@@ -139,6 +139,8 @@
     }));
   } else qs('#lang-toggle')?.addEventListener('click', () => applyLang(lang === 'en' ? 'zh' : 'en'));
   qs('#theme-toggle')?.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
+  // Synchronize the browser theme hint with the initial saved preference.
+  updateThemeLabel();
   qsa('[data-filter]').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));
   qs('#pub-search')?.addEventListener('input',e=>{
     publicationQuery=e.target.value.trim().toLocaleLowerCase();
@@ -164,6 +166,11 @@
     menuBtn?.setAttribute('aria-label',lang === 'zh' ? '展开导航' : 'Open navigation');
     if(hadFocus)menuBtn?.focus();
   }
+  // Reset mobile navigation after switching to the full-width layout.
+  const desktopNav = window.matchMedia('(min-width: 1101px)');
+  const onNavBreakpoint = event => { if (event.matches) closeMenu(); };
+  if (desktopNav.addEventListener) desktopNav.addEventListener('change', onNavBreakpoint);
+  else desktopNav.addListener(onNavBreakpoint);
   menuBtn?.addEventListener('click',()=>{
     const open=document.body.classList.toggle('nav-open');
     menuBtn.setAttribute('aria-expanded',String(open));
