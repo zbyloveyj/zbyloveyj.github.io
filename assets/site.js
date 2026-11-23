@@ -47,7 +47,7 @@
     safeSet('academic-site:theme', value);
     updateThemeLabel();
     const meta = qs('meta[name="theme-color"]');
-    if (meta) meta.content = value === 'dark' ? '#191d20' : '#ffffff';
+    if (meta) meta.content = value === 'dark' ? '#1e2723' : '#f8f7f3';
   }
   qsa('#main-nav a').forEach(a => { if(['index.html#beyond','index.html#books'].includes(a.getAttribute('href'))){ a.setAttribute('href','books.html'); a.innerHTML=bi('Books','著作'); } });
   const data = window.ACADEMIC_DATA || {publications: [], repositories: []};
